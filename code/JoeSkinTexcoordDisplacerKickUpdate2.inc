@@ -552,7 +552,7 @@ Coordinate35.SetPoint([Vector3(0,0,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(0,0,
 { .SetCoord }
 IndexedLineSet34.Coord := Coordinate35;
 Color36 := TColorNode.Create;
-Color36.SetColor(([Vector3(1,0,0),Vector3(0,0.6,0),Vector3(0,0,1)]));
+Color36.SetColor([Vector3(1,0,0),Vector3(0,0.6,0),Vector3(0,0,1)]);
 { .SetColor }
 IndexedLineSet34.Color := Color36;
 { .SetGeometry }
@@ -1701,765 +1701,575 @@ Group140.AddChildren([OrientationInterpolator236]);
 Group15.AddChildren([Group140]);
 { TimeSensor to Interpolators }
 X3DRoute237 := TX3DRoute.Create;
-X3DRoute237.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute237.SetDestination('HumanoidRootRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator142.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute238 := TX3DRoute.Create;
-X3DRoute238.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute238.SetDestination('HumanoidRootTransInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, PositionInterpolator143.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute239 := TX3DRoute.Create;
-X3DRoute239.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute239.SetDestination('sacroiliacRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator144.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute240 := TX3DRoute.Create;
-X3DRoute240.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute240.SetDestination('l_hipRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator145.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute241 := TX3DRoute.Create;
-X3DRoute241.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute241.SetDestination('l_kneeRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator146.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute242 := TX3DRoute.Create;
-X3DRoute242.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute242.SetDestination('l_ankleRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator147.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute243 := TX3DRoute.Create;
-X3DRoute243.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute243.SetDestination('l_subtalarRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator148.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute244 := TX3DRoute.Create;
-X3DRoute244.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute244.SetDestination('l_midtarsalRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator149.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute245 := TX3DRoute.Create;
-X3DRoute245.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute245.SetDestination('l_metatarsalRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator150.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute246 := TX3DRoute.Create;
-X3DRoute246.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute246.SetDestination('r_hipRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator151.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute247 := TX3DRoute.Create;
-X3DRoute247.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute247.SetDestination('r_kneeRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator152.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute248 := TX3DRoute.Create;
-X3DRoute248.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute248.SetDestination('r_ankleRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator153.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute249 := TX3DRoute.Create;
-X3DRoute249.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute249.SetDestination('r_subtalarRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator154.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute250 := TX3DRoute.Create;
-X3DRoute250.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute250.SetDestination('r_midtarsalRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator155.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute251 := TX3DRoute.Create;
-X3DRoute251.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute251.SetDestination('r_metatarsalRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator156.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute252 := TX3DRoute.Create;
-X3DRoute252.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute252.SetDestination('vl5RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator157.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute253 := TX3DRoute.Create;
-X3DRoute253.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute253.SetDestination('vl4RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator158.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute254 := TX3DRoute.Create;
-X3DRoute254.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute254.SetDestination('vl3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator159.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute255 := TX3DRoute.Create;
-X3DRoute255.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute255.SetDestination('vl2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator160.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute256 := TX3DRoute.Create;
-X3DRoute256.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute256.SetDestination('vl1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator161.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute257 := TX3DRoute.Create;
-X3DRoute257.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute257.SetDestination('vt12RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator162.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute258 := TX3DRoute.Create;
-X3DRoute258.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute258.SetDestination('vt11RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator163.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute259 := TX3DRoute.Create;
-X3DRoute259.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute259.SetDestination('vt10RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator164.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute260 := TX3DRoute.Create;
-X3DRoute260.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute260.SetDestination('vt9RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator165.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute261 := TX3DRoute.Create;
-X3DRoute261.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute261.SetDestination('vt8RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator166.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute262 := TX3DRoute.Create;
-X3DRoute262.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute262.SetDestination('vt7RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator167.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute263 := TX3DRoute.Create;
-X3DRoute263.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute263.SetDestination('vt6RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator168.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute264 := TX3DRoute.Create;
-X3DRoute264.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute264.SetDestination('vt5RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator169.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute265 := TX3DRoute.Create;
-X3DRoute265.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute265.SetDestination('vt4RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator170.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute266 := TX3DRoute.Create;
-X3DRoute266.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute266.SetDestination('vt3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator171.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute267 := TX3DRoute.Create;
-X3DRoute267.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute267.SetDestination('vt2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator172.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute268 := TX3DRoute.Create;
-X3DRoute268.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute268.SetDestination('vt1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator173.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute269 := TX3DRoute.Create;
-X3DRoute269.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute269.SetDestination('vc7RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator174.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute270 := TX3DRoute.Create;
-X3DRoute270.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute270.SetDestination('vc6RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator175.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute271 := TX3DRoute.Create;
-X3DRoute271.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute271.SetDestination('vc5RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator176.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute272 := TX3DRoute.Create;
-X3DRoute272.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute272.SetDestination('vc4RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator177.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute273 := TX3DRoute.Create;
-X3DRoute273.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute273.SetDestination('vc3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator178.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute274 := TX3DRoute.Create;
-X3DRoute274.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute274.SetDestination('vc2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator179.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute275 := TX3DRoute.Create;
-X3DRoute275.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute275.SetDestination('vc1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator180.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute276 := TX3DRoute.Create;
-X3DRoute276.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute276.SetDestination('skullbaseRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator181.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute277 := TX3DRoute.Create;
-X3DRoute277.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute277.SetDestination('l_eyelid_jointRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator182.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute278 := TX3DRoute.Create;
-X3DRoute278.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute278.SetDestination('l_eyeball_jointRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator183.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute279 := TX3DRoute.Create;
-X3DRoute279.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute279.SetDestination('l_eyebrow_jointRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator184.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute280 := TX3DRoute.Create;
-X3DRoute280.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute280.SetDestination('r_eyelid_jointRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator185.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute281 := TX3DRoute.Create;
-X3DRoute281.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute281.SetDestination('r_eyeball_jointRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator186.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute282 := TX3DRoute.Create;
-X3DRoute282.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute282.SetDestination('r_eyebrow_jointRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator187.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute283 := TX3DRoute.Create;
-X3DRoute283.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute283.SetDestination('temporomandibularRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator188.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute284 := TX3DRoute.Create;
-X3DRoute284.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute284.SetDestination('l_sternoclavicularRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator189.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute285 := TX3DRoute.Create;
-X3DRoute285.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute285.SetDestination('l_acromioclavicularRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator190.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute286 := TX3DRoute.Create;
-X3DRoute286.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute286.SetDestination('l_shoulderRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator191.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute287 := TX3DRoute.Create;
-X3DRoute287.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute287.SetDestination('l_elbowRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator192.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute288 := TX3DRoute.Create;
-X3DRoute288.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute288.SetDestination('l_wristRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator193.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute289 := TX3DRoute.Create;
-X3DRoute289.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute289.SetDestination('l_thumb1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator194.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute290 := TX3DRoute.Create;
-X3DRoute290.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute290.SetDestination('l_thumb2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator195.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute291 := TX3DRoute.Create;
-X3DRoute291.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute291.SetDestination('l_thumb3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator196.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute292 := TX3DRoute.Create;
-X3DRoute292.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute292.SetDestination('l_index0RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator197.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute293 := TX3DRoute.Create;
-X3DRoute293.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute293.SetDestination('l_index1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator198.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute294 := TX3DRoute.Create;
-X3DRoute294.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute294.SetDestination('l_index2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator199.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute295 := TX3DRoute.Create;
-X3DRoute295.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute295.SetDestination('l_index3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator200.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute296 := TX3DRoute.Create;
-X3DRoute296.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute296.SetDestination('l_middle0RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator201.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute297 := TX3DRoute.Create;
-X3DRoute297.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute297.SetDestination('l_middle1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator202.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute298 := TX3DRoute.Create;
-X3DRoute298.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute298.SetDestination('l_middle2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator203.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute299 := TX3DRoute.Create;
-X3DRoute299.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute299.SetDestination('l_middle3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator204.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute300 := TX3DRoute.Create;
-X3DRoute300.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute300.SetDestination('l_ring0RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator205.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute301 := TX3DRoute.Create;
-X3DRoute301.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute301.SetDestination('l_ring1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator206.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute302 := TX3DRoute.Create;
-X3DRoute302.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute302.SetDestination('l_ring2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator207.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute303 := TX3DRoute.Create;
-X3DRoute303.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute303.SetDestination('l_ring3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator208.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute304 := TX3DRoute.Create;
-X3DRoute304.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute304.SetDestination('l_pinky0RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator209.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute305 := TX3DRoute.Create;
-X3DRoute305.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute305.SetDestination('l_pinky1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator210.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute306 := TX3DRoute.Create;
-X3DRoute306.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute306.SetDestination('l_pinky2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator211.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute307 := TX3DRoute.Create;
-X3DRoute307.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute307.SetDestination('l_pinky3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator212.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute308 := TX3DRoute.Create;
-X3DRoute308.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute308.SetDestination('r_sternoclavicularRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator213.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute309 := TX3DRoute.Create;
-X3DRoute309.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute309.SetDestination('r_acromioclavicularRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator214.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute310 := TX3DRoute.Create;
-X3DRoute310.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute310.SetDestination('r_shoulderRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator215.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute311 := TX3DRoute.Create;
-X3DRoute311.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute311.SetDestination('r_elbowRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator216.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute312 := TX3DRoute.Create;
-X3DRoute312.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute312.SetDestination('r_wristRotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator217.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute313 := TX3DRoute.Create;
-X3DRoute313.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute313.SetDestination('r_thumb1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator218.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute314 := TX3DRoute.Create;
-X3DRoute314.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute314.SetDestination('r_thumb2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator219.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute315 := TX3DRoute.Create;
-X3DRoute315.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute315.SetDestination('r_thumb3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator220.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute316 := TX3DRoute.Create;
-X3DRoute316.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute316.SetDestination('r_index0RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator221.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute317 := TX3DRoute.Create;
-X3DRoute317.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute317.SetDestination('r_index1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator222.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute318 := TX3DRoute.Create;
-X3DRoute318.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute318.SetDestination('r_index2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator223.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute319 := TX3DRoute.Create;
-X3DRoute319.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute319.SetDestination('r_index3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator224.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute320 := TX3DRoute.Create;
-X3DRoute320.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute320.SetDestination('r_middle0RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator225.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute321 := TX3DRoute.Create;
-X3DRoute321.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute321.SetDestination('r_middle1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator226.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute322 := TX3DRoute.Create;
-X3DRoute322.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute322.SetDestination('r_middle2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator227.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute323 := TX3DRoute.Create;
-X3DRoute323.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute323.SetDestination('r_middle3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator228.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute324 := TX3DRoute.Create;
-X3DRoute324.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute324.SetDestination('r_ring0RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator229.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute325 := TX3DRoute.Create;
-X3DRoute325.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute325.SetDestination('r_ring1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator230.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute326 := TX3DRoute.Create;
-X3DRoute326.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute326.SetDestination('r_ring2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator231.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute327 := TX3DRoute.Create;
-X3DRoute327.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute327.SetDestination('r_ring3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator232.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute328 := TX3DRoute.Create;
-X3DRoute328.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute328.SetDestination('r_pinky0RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator233.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute329 := TX3DRoute.Create;
-X3DRoute329.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute329.SetDestination('r_pinky1RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator234.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute330 := TX3DRoute.Create;
-X3DRoute330.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute330.SetDestination('r_pinky2RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator235.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute331 := TX3DRoute.Create;
-X3DRoute331.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute331.SetDestination('r_pinky3RotInterp', 'set_fraction', nil);
+Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator236.EventSet_fraction);
 { .AddX3DRoute }
 { Routes from Interpolators to Joe_ model Joints }
 X3DRoute332 := TX3DRoute.Create;
-X3DRoute332.SetSource('HumanoidRootRotInterp', 'value_changed', nil);
-X3DRoute332.SetDestination('Joe_HumanoidRoot', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator142.EventValue_changed, HAnimJoint28.FdRotation);
 { .AddX3DRoute }
 X3DRoute333 := TX3DRoute.Create;
-X3DRoute333.SetSource('HumanoidRootTransInterp', 'value_changed', nil);
-X3DRoute333.SetDestination('Joe_HumanoidRoot', 'set_translation', nil);
+Group15.AddRoute(PositionInterpolator143.EventValue_changed, HAnimJoint28.FdTranslation);
 { .AddX3DRoute }
 X3DRoute334 := TX3DRoute.Create;
-X3DRoute334.SetSource('sacroiliacRotInterp', 'value_changed', nil);
-X3DRoute334.SetDestination('Joe_sacroiliac', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator144.EventValue_changed, HAnimJoint37.FdRotation);
 { .AddX3DRoute }
 X3DRoute335 := TX3DRoute.Create;
-X3DRoute335.SetSource('l_hipRotInterp', 'value_changed', nil);
-X3DRoute335.SetDestination('Joe_l_hip', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator145.EventValue_changed, HAnimJoint38.FdRotation);
 { .AddX3DRoute }
 X3DRoute336 := TX3DRoute.Create;
-X3DRoute336.SetSource('l_kneeRotInterp', 'value_changed', nil);
-X3DRoute336.SetDestination('Joe_l_knee', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator146.EventValue_changed, HAnimJoint39.FdRotation);
 { .AddX3DRoute }
 X3DRoute337 := TX3DRoute.Create;
-X3DRoute337.SetSource('l_ankleRotInterp', 'value_changed', nil);
-X3DRoute337.SetDestination('Joe_l_ankle', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator147.EventValue_changed, HAnimJoint40.FdRotation);
 { .AddX3DRoute }
 X3DRoute338 := TX3DRoute.Create;
-X3DRoute338.SetSource('l_subtalarRotInterp', 'value_changed', nil);
-X3DRoute338.SetDestination('Joe_l_subtalar', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator148.EventValue_changed, HAnimJoint41.FdRotation);
 { .AddX3DRoute }
 X3DRoute339 := TX3DRoute.Create;
-X3DRoute339.SetSource('l_midtarsalRotInterp', 'value_changed', nil);
-X3DRoute339.SetDestination('Joe_l_midtarsal', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator149.EventValue_changed, HAnimJoint42.FdRotation);
 { .AddX3DRoute }
 X3DRoute340 := TX3DRoute.Create;
-X3DRoute340.SetSource('l_metatarsalRotInterp', 'value_changed', nil);
-X3DRoute340.SetDestination('Joe_l_metatarsal', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator150.EventValue_changed, HAnimJoint43.FdRotation);
 { .AddX3DRoute }
 X3DRoute341 := TX3DRoute.Create;
-X3DRoute341.SetSource('r_hipRotInterp', 'value_changed', nil);
-X3DRoute341.SetDestination('Joe_r_hip', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator151.EventValue_changed, HAnimJoint44.FdRotation);
 { .AddX3DRoute }
 X3DRoute342 := TX3DRoute.Create;
-X3DRoute342.SetSource('r_kneeRotInterp', 'value_changed', nil);
-X3DRoute342.SetDestination('Joe_r_knee', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator152.EventValue_changed, HAnimJoint45.FdRotation);
 { .AddX3DRoute }
 X3DRoute343 := TX3DRoute.Create;
-X3DRoute343.SetSource('r_ankleRotInterp', 'value_changed', nil);
-X3DRoute343.SetDestination('Joe_r_ankle', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator153.EventValue_changed, HAnimJoint46.FdRotation);
 { .AddX3DRoute }
 X3DRoute344 := TX3DRoute.Create;
-X3DRoute344.SetSource('r_subtalarRotInterp', 'value_changed', nil);
-X3DRoute344.SetDestination('Joe_r_subtalar', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator154.EventValue_changed, HAnimJoint47.FdRotation);
 { .AddX3DRoute }
 X3DRoute345 := TX3DRoute.Create;
-X3DRoute345.SetSource('r_midtarsalRotInterp', 'value_changed', nil);
-X3DRoute345.SetDestination('Joe_r_midtarsal', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator155.EventValue_changed, HAnimJoint48.FdRotation);
 { .AddX3DRoute }
 X3DRoute346 := TX3DRoute.Create;
-X3DRoute346.SetSource('r_metatarsalRotInterp', 'value_changed', nil);
-X3DRoute346.SetDestination('Joe_r_metatarsal', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator156.EventValue_changed, HAnimJoint49.FdRotation);
 { .AddX3DRoute }
 X3DRoute347 := TX3DRoute.Create;
-X3DRoute347.SetSource('vl5RotInterp', 'value_changed', nil);
-X3DRoute347.SetDestination('Joe_vl5', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator157.EventValue_changed, HAnimJoint50.FdRotation);
 { .AddX3DRoute }
 X3DRoute348 := TX3DRoute.Create;
-X3DRoute348.SetSource('vl4RotInterp', 'value_changed', nil);
-X3DRoute348.SetDestination('Joe_vl4', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator158.EventValue_changed, HAnimJoint51.FdRotation);
 { .AddX3DRoute }
 X3DRoute349 := TX3DRoute.Create;
-X3DRoute349.SetSource('vl3RotInterp', 'value_changed', nil);
-X3DRoute349.SetDestination('Joe_vl3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator159.EventValue_changed, HAnimJoint52.FdRotation);
 { .AddX3DRoute }
 X3DRoute350 := TX3DRoute.Create;
-X3DRoute350.SetSource('vl2RotInterp', 'value_changed', nil);
-X3DRoute350.SetDestination('Joe_vl2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator160.EventValue_changed, HAnimJoint53.FdRotation);
 { .AddX3DRoute }
 X3DRoute351 := TX3DRoute.Create;
-X3DRoute351.SetSource('vl1RotInterp', 'value_changed', nil);
-X3DRoute351.SetDestination('Joe_vl1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator161.EventValue_changed, HAnimJoint54.FdRotation);
 { .AddX3DRoute }
 X3DRoute352 := TX3DRoute.Create;
-X3DRoute352.SetSource('vt12RotInterp', 'value_changed', nil);
-X3DRoute352.SetDestination('Joe_vt12', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator162.EventValue_changed, HAnimJoint55.FdRotation);
 { .AddX3DRoute }
 X3DRoute353 := TX3DRoute.Create;
-X3DRoute353.SetSource('vt11RotInterp', 'value_changed', nil);
-X3DRoute353.SetDestination('Joe_vt11', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator163.EventValue_changed, HAnimJoint56.FdRotation);
 { .AddX3DRoute }
 X3DRoute354 := TX3DRoute.Create;
-X3DRoute354.SetSource('vt10RotInterp', 'value_changed', nil);
-X3DRoute354.SetDestination('Joe_vt10', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator164.EventValue_changed, HAnimJoint57.FdRotation);
 { .AddX3DRoute }
 X3DRoute355 := TX3DRoute.Create;
-X3DRoute355.SetSource('vt9RotInterp', 'value_changed', nil);
-X3DRoute355.SetDestination('Joe_vt9', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator165.EventValue_changed, HAnimJoint58.FdRotation);
 { .AddX3DRoute }
 X3DRoute356 := TX3DRoute.Create;
-X3DRoute356.SetSource('vt8RotInterp', 'value_changed', nil);
-X3DRoute356.SetDestination('Joe_vt8', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator166.EventValue_changed, HAnimJoint59.FdRotation);
 { .AddX3DRoute }
 X3DRoute357 := TX3DRoute.Create;
-X3DRoute357.SetSource('vt7RotInterp', 'value_changed', nil);
-X3DRoute357.SetDestination('Joe_vt7', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator167.EventValue_changed, HAnimJoint60.FdRotation);
 { .AddX3DRoute }
 X3DRoute358 := TX3DRoute.Create;
-X3DRoute358.SetSource('vt6RotInterp', 'value_changed', nil);
-X3DRoute358.SetDestination('Joe_vt6', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator168.EventValue_changed, HAnimJoint61.FdRotation);
 { .AddX3DRoute }
 X3DRoute359 := TX3DRoute.Create;
-X3DRoute359.SetSource('vt5RotInterp', 'value_changed', nil);
-X3DRoute359.SetDestination('Joe_vt5', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator169.EventValue_changed, HAnimJoint62.FdRotation);
 { .AddX3DRoute }
 X3DRoute360 := TX3DRoute.Create;
-X3DRoute360.SetSource('vt4RotInterp', 'value_changed', nil);
-X3DRoute360.SetDestination('Joe_vt4', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator170.EventValue_changed, HAnimJoint63.FdRotation);
 { .AddX3DRoute }
 X3DRoute361 := TX3DRoute.Create;
-X3DRoute361.SetSource('vt3RotInterp', 'value_changed', nil);
-X3DRoute361.SetDestination('Joe_vt3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator171.EventValue_changed, HAnimJoint64.FdRotation);
 { .AddX3DRoute }
 X3DRoute362 := TX3DRoute.Create;
-X3DRoute362.SetSource('vt2RotInterp', 'value_changed', nil);
-X3DRoute362.SetDestination('Joe_vt2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator172.EventValue_changed, HAnimJoint65.FdRotation);
 { .AddX3DRoute }
 X3DRoute363 := TX3DRoute.Create;
-X3DRoute363.SetSource('vt1RotInterp', 'value_changed', nil);
-X3DRoute363.SetDestination('Joe_vt1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator173.EventValue_changed, HAnimJoint66.FdRotation);
 { .AddX3DRoute }
 X3DRoute364 := TX3DRoute.Create;
-X3DRoute364.SetSource('vc7RotInterp', 'value_changed', nil);
-X3DRoute364.SetDestination('Joe_vc7', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator174.EventValue_changed, HAnimJoint67.FdRotation);
 { .AddX3DRoute }
 X3DRoute365 := TX3DRoute.Create;
-X3DRoute365.SetSource('vc6RotInterp', 'value_changed', nil);
-X3DRoute365.SetDestination('Joe_vc6', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator175.EventValue_changed, HAnimJoint68.FdRotation);
 { .AddX3DRoute }
 X3DRoute366 := TX3DRoute.Create;
-X3DRoute366.SetSource('vc5RotInterp', 'value_changed', nil);
-X3DRoute366.SetDestination('Joe_vc5', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator176.EventValue_changed, HAnimJoint69.FdRotation);
 { .AddX3DRoute }
 X3DRoute367 := TX3DRoute.Create;
-X3DRoute367.SetSource('vc4RotInterp', 'value_changed', nil);
-X3DRoute367.SetDestination('Joe_vc4', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator177.EventValue_changed, HAnimJoint70.FdRotation);
 { .AddX3DRoute }
 X3DRoute368 := TX3DRoute.Create;
-X3DRoute368.SetSource('vc3RotInterp', 'value_changed', nil);
-X3DRoute368.SetDestination('Joe_vc3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator178.EventValue_changed, HAnimJoint71.FdRotation);
 { .AddX3DRoute }
 X3DRoute369 := TX3DRoute.Create;
-X3DRoute369.SetSource('vc2RotInterp', 'value_changed', nil);
-X3DRoute369.SetDestination('Joe_vc2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator179.EventValue_changed, HAnimJoint72.FdRotation);
 { .AddX3DRoute }
 X3DRoute370 := TX3DRoute.Create;
-X3DRoute370.SetSource('vc1RotInterp', 'value_changed', nil);
-X3DRoute370.SetDestination('Joe_vc1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator180.EventValue_changed, HAnimJoint73.FdRotation);
 { .AddX3DRoute }
 X3DRoute371 := TX3DRoute.Create;
-X3DRoute371.SetSource('skullbaseRotInterp', 'value_changed', nil);
-X3DRoute371.SetDestination('Joe_skullbase', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator181.EventValue_changed, HAnimJoint74.FdRotation);
 { .AddX3DRoute }
 X3DRoute372 := TX3DRoute.Create;
-X3DRoute372.SetSource('l_eyelid_jointRotInterp', 'value_changed', nil);
-X3DRoute372.SetDestination('Joe_l_eyelid_joint', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator182.EventValue_changed, HAnimJoint76.FdRotation);
 { .AddX3DRoute }
 X3DRoute373 := TX3DRoute.Create;
-X3DRoute373.SetSource('l_eyeball_jointRotInterp', 'value_changed', nil);
-X3DRoute373.SetDestination('Joe_l_eyeball_joint', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator183.EventValue_changed, HAnimJoint77.FdRotation);
 { .AddX3DRoute }
 X3DRoute374 := TX3DRoute.Create;
-X3DRoute374.SetSource('l_eyebrow_jointRotInterp', 'value_changed', nil);
-X3DRoute374.SetDestination('Joe_l_eyebrow_joint', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator184.EventValue_changed, HAnimJoint78.FdRotation);
 { .AddX3DRoute }
 X3DRoute375 := TX3DRoute.Create;
-X3DRoute375.SetSource('r_eyelid_jointRotInterp', 'value_changed', nil);
-X3DRoute375.SetDestination('Joe_r_eyelid_joint', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator185.EventValue_changed, HAnimJoint79.FdRotation);
 { .AddX3DRoute }
 X3DRoute376 := TX3DRoute.Create;
-X3DRoute376.SetSource('r_eyeball_jointRotInterp', 'value_changed', nil);
-X3DRoute376.SetDestination('Joe_r_eyeball_joint', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator186.EventValue_changed, HAnimJoint80.FdRotation);
 { .AddX3DRoute }
 X3DRoute377 := TX3DRoute.Create;
-X3DRoute377.SetSource('r_eyebrow_jointRotInterp', 'value_changed', nil);
-X3DRoute377.SetDestination('Joe_r_eyebrow_joint', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator187.EventValue_changed, HAnimJoint81.FdRotation);
 { .AddX3DRoute }
 X3DRoute378 := TX3DRoute.Create;
-X3DRoute378.SetSource('temporomandibularRotInterp', 'value_changed', nil);
-X3DRoute378.SetDestination('Joe_temporomandibular', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator188.EventValue_changed, HAnimJoint82.FdRotation);
 { .AddX3DRoute }
 X3DRoute379 := TX3DRoute.Create;
-X3DRoute379.SetSource('l_sternoclavicularRotInterp', 'value_changed', nil);
-X3DRoute379.SetDestination('Joe_l_sternoclavicular', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator189.EventValue_changed, HAnimJoint83.FdRotation);
 { .AddX3DRoute }
 X3DRoute380 := TX3DRoute.Create;
-X3DRoute380.SetSource('l_acromioclavicularRotInterp', 'value_changed', nil);
-X3DRoute380.SetDestination('Joe_l_acromioclavicular', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator190.EventValue_changed, HAnimJoint84.FdRotation);
 { .AddX3DRoute }
 X3DRoute381 := TX3DRoute.Create;
-X3DRoute381.SetSource('l_shoulderRotInterp', 'value_changed', nil);
-X3DRoute381.SetDestination('Joe_l_shoulder', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator191.EventValue_changed, HAnimJoint85.FdRotation);
 { .AddX3DRoute }
 X3DRoute382 := TX3DRoute.Create;
-X3DRoute382.SetSource('l_elbowRotInterp', 'value_changed', nil);
-X3DRoute382.SetDestination('Joe_l_elbow', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator192.EventValue_changed, HAnimJoint86.FdRotation);
 { .AddX3DRoute }
 X3DRoute383 := TX3DRoute.Create;
-X3DRoute383.SetSource('l_wristRotInterp', 'value_changed', nil);
-X3DRoute383.SetDestination('Joe_l_wrist', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator193.EventValue_changed, HAnimJoint87.FdRotation);
 { .AddX3DRoute }
 X3DRoute384 := TX3DRoute.Create;
-X3DRoute384.SetSource('l_thumb1RotInterp', 'value_changed', nil);
-X3DRoute384.SetDestination('Joe_l_thumb1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator194.EventValue_changed, HAnimJoint88.FdRotation);
 { .AddX3DRoute }
 X3DRoute385 := TX3DRoute.Create;
-X3DRoute385.SetSource('l_thumb2RotInterp', 'value_changed', nil);
-X3DRoute385.SetDestination('Joe_l_thumb2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator195.EventValue_changed, HAnimJoint89.FdRotation);
 { .AddX3DRoute }
 X3DRoute386 := TX3DRoute.Create;
-X3DRoute386.SetSource('l_thumb3RotInterp', 'value_changed', nil);
-X3DRoute386.SetDestination('Joe_l_thumb3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator196.EventValue_changed, HAnimJoint90.FdRotation);
 { .AddX3DRoute }
 X3DRoute387 := TX3DRoute.Create;
-X3DRoute387.SetSource('l_index0RotInterp', 'value_changed', nil);
-X3DRoute387.SetDestination('Joe_l_index0', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator197.EventValue_changed, HAnimJoint91.FdRotation);
 { .AddX3DRoute }
 X3DRoute388 := TX3DRoute.Create;
-X3DRoute388.SetSource('l_index1RotInterp', 'value_changed', nil);
-X3DRoute388.SetDestination('Joe_l_index1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator198.EventValue_changed, HAnimJoint92.FdRotation);
 { .AddX3DRoute }
 X3DRoute389 := TX3DRoute.Create;
-X3DRoute389.SetSource('l_index2RotInterp', 'value_changed', nil);
-X3DRoute389.SetDestination('Joe_l_index2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator199.EventValue_changed, HAnimJoint93.FdRotation);
 { .AddX3DRoute }
 X3DRoute390 := TX3DRoute.Create;
-X3DRoute390.SetSource('l_index3RotInterp', 'value_changed', nil);
-X3DRoute390.SetDestination('Joe_l_index3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator200.EventValue_changed, HAnimJoint94.FdRotation);
 { .AddX3DRoute }
 X3DRoute391 := TX3DRoute.Create;
-X3DRoute391.SetSource('l_middle0RotInterp', 'value_changed', nil);
-X3DRoute391.SetDestination('Joe_l_middle0', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator201.EventValue_changed, HAnimJoint95.FdRotation);
 { .AddX3DRoute }
 X3DRoute392 := TX3DRoute.Create;
-X3DRoute392.SetSource('l_middle1RotInterp', 'value_changed', nil);
-X3DRoute392.SetDestination('Joe_l_middle1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator202.EventValue_changed, HAnimJoint96.FdRotation);
 { .AddX3DRoute }
 X3DRoute393 := TX3DRoute.Create;
-X3DRoute393.SetSource('l_middle2RotInterp', 'value_changed', nil);
-X3DRoute393.SetDestination('Joe_l_middle2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator203.EventValue_changed, HAnimJoint97.FdRotation);
 { .AddX3DRoute }
 X3DRoute394 := TX3DRoute.Create;
-X3DRoute394.SetSource('l_middle3RotInterp', 'value_changed', nil);
-X3DRoute394.SetDestination('Joe_l_middle3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator204.EventValue_changed, HAnimJoint98.FdRotation);
 { .AddX3DRoute }
 X3DRoute395 := TX3DRoute.Create;
-X3DRoute395.SetSource('l_ring0RotInterp', 'value_changed', nil);
-X3DRoute395.SetDestination('Joe_l_ring0', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator205.EventValue_changed, HAnimJoint99.FdRotation);
 { .AddX3DRoute }
 X3DRoute396 := TX3DRoute.Create;
-X3DRoute396.SetSource('l_ring1RotInterp', 'value_changed', nil);
-X3DRoute396.SetDestination('Joe_l_ring1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator206.EventValue_changed, HAnimJoint100.FdRotation);
 { .AddX3DRoute }
 X3DRoute397 := TX3DRoute.Create;
-X3DRoute397.SetSource('l_ring2RotInterp', 'value_changed', nil);
-X3DRoute397.SetDestination('Joe_l_ring2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator207.EventValue_changed, HAnimJoint101.FdRotation);
 { .AddX3DRoute }
 X3DRoute398 := TX3DRoute.Create;
-X3DRoute398.SetSource('l_ring3RotInterp', 'value_changed', nil);
-X3DRoute398.SetDestination('Joe_l_ring3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator208.EventValue_changed, HAnimJoint102.FdRotation);
 { .AddX3DRoute }
 X3DRoute399 := TX3DRoute.Create;
-X3DRoute399.SetSource('l_pinky0RotInterp', 'value_changed', nil);
-X3DRoute399.SetDestination('Joe_l_pinky0', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator209.EventValue_changed, HAnimJoint103.FdRotation);
 { .AddX3DRoute }
 X3DRoute400 := TX3DRoute.Create;
-X3DRoute400.SetSource('l_pinky1RotInterp', 'value_changed', nil);
-X3DRoute400.SetDestination('Joe_l_pinky1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator210.EventValue_changed, HAnimJoint104.FdRotation);
 { .AddX3DRoute }
 X3DRoute401 := TX3DRoute.Create;
-X3DRoute401.SetSource('l_pinky2RotInterp', 'value_changed', nil);
-X3DRoute401.SetDestination('Joe_l_pinky2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator211.EventValue_changed, HAnimJoint105.FdRotation);
 { .AddX3DRoute }
 X3DRoute402 := TX3DRoute.Create;
-X3DRoute402.SetSource('l_pinky3RotInterp', 'value_changed', nil);
-X3DRoute402.SetDestination('Joe_l_pinky3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator212.EventValue_changed, HAnimJoint106.FdRotation);
 { .AddX3DRoute }
 X3DRoute403 := TX3DRoute.Create;
-X3DRoute403.SetSource('r_sternoclavicularRotInterp', 'value_changed', nil);
-X3DRoute403.SetDestination('Joe_r_sternoclavicular', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator213.EventValue_changed, HAnimJoint107.FdRotation);
 { .AddX3DRoute }
 X3DRoute404 := TX3DRoute.Create;
-X3DRoute404.SetSource('r_acromioclavicularRotInterp', 'value_changed', nil);
-X3DRoute404.SetDestination('Joe_r_acromioclavicular', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator214.EventValue_changed, HAnimJoint108.FdRotation);
 { .AddX3DRoute }
 X3DRoute405 := TX3DRoute.Create;
-X3DRoute405.SetSource('r_shoulderRotInterp', 'value_changed', nil);
-X3DRoute405.SetDestination('Joe_r_shoulder', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator215.EventValue_changed, HAnimJoint109.FdRotation);
 { .AddX3DRoute }
 X3DRoute406 := TX3DRoute.Create;
-X3DRoute406.SetSource('r_elbowRotInterp', 'value_changed', nil);
-X3DRoute406.SetDestination('Joe_r_elbow', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator216.EventValue_changed, HAnimJoint110.FdRotation);
 { .AddX3DRoute }
 X3DRoute407 := TX3DRoute.Create;
-X3DRoute407.SetSource('r_wristRotInterp', 'value_changed', nil);
-X3DRoute407.SetDestination('Joe_r_wrist', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator217.EventValue_changed, HAnimJoint111.FdRotation);
 { .AddX3DRoute }
 X3DRoute408 := TX3DRoute.Create;
-X3DRoute408.SetSource('r_thumb1RotInterp', 'value_changed', nil);
-X3DRoute408.SetDestination('Joe_r_thumb1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator218.EventValue_changed, HAnimJoint112.FdRotation);
 { .AddX3DRoute }
 X3DRoute409 := TX3DRoute.Create;
-X3DRoute409.SetSource('r_thumb2RotInterp', 'value_changed', nil);
-X3DRoute409.SetDestination('Joe_r_thumb2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator219.EventValue_changed, HAnimJoint113.FdRotation);
 { .AddX3DRoute }
 X3DRoute410 := TX3DRoute.Create;
-X3DRoute410.SetSource('r_thumb3RotInterp', 'value_changed', nil);
-X3DRoute410.SetDestination('Joe_r_thumb3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator220.EventValue_changed, HAnimJoint114.FdRotation);
 { .AddX3DRoute }
 X3DRoute411 := TX3DRoute.Create;
-X3DRoute411.SetSource('r_index0RotInterp', 'value_changed', nil);
-X3DRoute411.SetDestination('Joe_r_index0', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator221.EventValue_changed, HAnimJoint115.FdRotation);
 { .AddX3DRoute }
 X3DRoute412 := TX3DRoute.Create;
-X3DRoute412.SetSource('r_index1RotInterp', 'value_changed', nil);
-X3DRoute412.SetDestination('Joe_r_index1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator222.EventValue_changed, HAnimJoint116.FdRotation);
 { .AddX3DRoute }
 X3DRoute413 := TX3DRoute.Create;
-X3DRoute413.SetSource('r_index2RotInterp', 'value_changed', nil);
-X3DRoute413.SetDestination('Joe_r_index2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator223.EventValue_changed, HAnimJoint117.FdRotation);
 { .AddX3DRoute }
 X3DRoute414 := TX3DRoute.Create;
-X3DRoute414.SetSource('r_index3RotInterp', 'value_changed', nil);
-X3DRoute414.SetDestination('Joe_r_index3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator224.EventValue_changed, HAnimJoint118.FdRotation);
 { .AddX3DRoute }
 X3DRoute415 := TX3DRoute.Create;
-X3DRoute415.SetSource('r_middle0RotInterp', 'value_changed', nil);
-X3DRoute415.SetDestination('Joe_r_middle0', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator225.EventValue_changed, HAnimJoint119.FdRotation);
 { .AddX3DRoute }
 X3DRoute416 := TX3DRoute.Create;
-X3DRoute416.SetSource('r_middle1RotInterp', 'value_changed', nil);
-X3DRoute416.SetDestination('Joe_r_middle1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator226.EventValue_changed, HAnimJoint120.FdRotation);
 { .AddX3DRoute }
 X3DRoute417 := TX3DRoute.Create;
-X3DRoute417.SetSource('r_middle2RotInterp', 'value_changed', nil);
-X3DRoute417.SetDestination('Joe_r_middle2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator227.EventValue_changed, HAnimJoint121.FdRotation);
 { .AddX3DRoute }
 X3DRoute418 := TX3DRoute.Create;
-X3DRoute418.SetSource('r_middle3RotInterp', 'value_changed', nil);
-X3DRoute418.SetDestination('Joe_r_middle3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator228.EventValue_changed, HAnimJoint122.FdRotation);
 { .AddX3DRoute }
 X3DRoute419 := TX3DRoute.Create;
-X3DRoute419.SetSource('r_ring0RotInterp', 'value_changed', nil);
-X3DRoute419.SetDestination('Joe_r_ring0', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator229.EventValue_changed, HAnimJoint123.FdRotation);
 { .AddX3DRoute }
 X3DRoute420 := TX3DRoute.Create;
-X3DRoute420.SetSource('r_ring1RotInterp', 'value_changed', nil);
-X3DRoute420.SetDestination('Joe_r_ring1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator230.EventValue_changed, HAnimJoint124.FdRotation);
 { .AddX3DRoute }
 X3DRoute421 := TX3DRoute.Create;
-X3DRoute421.SetSource('r_ring2RotInterp', 'value_changed', nil);
-X3DRoute421.SetDestination('Joe_r_ring2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator231.EventValue_changed, HAnimJoint125.FdRotation);
 { .AddX3DRoute }
 X3DRoute422 := TX3DRoute.Create;
-X3DRoute422.SetSource('r_ring3RotInterp', 'value_changed', nil);
-X3DRoute422.SetDestination('Joe_r_ring3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator232.EventValue_changed, HAnimJoint126.FdRotation);
 { .AddX3DRoute }
 X3DRoute423 := TX3DRoute.Create;
-X3DRoute423.SetSource('r_pinky0RotInterp', 'value_changed', nil);
-X3DRoute423.SetDestination('Joe_r_pinky0', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator233.EventValue_changed, HAnimJoint127.FdRotation);
 { .AddX3DRoute }
 X3DRoute424 := TX3DRoute.Create;
-X3DRoute424.SetSource('r_pinky1RotInterp', 'value_changed', nil);
-X3DRoute424.SetDestination('Joe_r_pinky1', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator234.EventValue_changed, HAnimJoint128.FdRotation);
 { .AddX3DRoute }
 X3DRoute425 := TX3DRoute.Create;
-X3DRoute425.SetSource('r_pinky2RotInterp', 'value_changed', nil);
-X3DRoute425.SetDestination('Joe_r_pinky2', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator235.EventValue_changed, HAnimJoint129.FdRotation);
 { .AddX3DRoute }
 X3DRoute426 := TX3DRoute.Create;
-X3DRoute426.SetSource('r_pinky3RotInterp', 'value_changed', nil);
-X3DRoute426.SetDestination('Joe_r_pinky3', 'set_rotation', nil);
+Group15.AddRoute(OrientationInterpolator236.EventValue_changed, HAnimJoint130.FdRotation);
 { .AddX3DRoute }
 Group427 := TGroupNode.Create;
 { TimeSensor DEF='skull_tipTestTimer' cycleInterval='5.73' loop='true' enabled='true'></TimeSensor }
@@ -2469,12 +2279,10 @@ ScalarInterpolator428.SetKeyValue([0,0,0,0,0.2,0.4,1,0,1,0.4,0]);
 { .AddChildren }
 Group427.AddChildren([ScalarInterpolator428]);
 X3DRoute429 := TX3DRoute.Create;
-X3DRoute429.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute429.SetDestination('skull_tipTest', 'set_fraction', nil);
+Group427.AddRoute(TimeSensor141.EventFraction_changed, ScalarInterpolator428.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute430 := TX3DRoute.Create;
-X3DRoute430.SetSource('skull_tipTest', 'value_changed', nil);
-X3DRoute430.SetDestination('Joe_skull_tipTest', 'weight', nil);
+Group427.AddRoute(ScalarInterpolator428.EventValue_changed, HAnimDisplacer75.FdWeight);
 { .AddX3DRoute }
 { .AddChildren }
 Group15.AddChildren([Group427]);
@@ -2485,12 +2293,10 @@ ScalarInterpolator432.SetKeyValue([0,0,0,0,0,1,2,0]);
 { .AddChildren }
 Group431.AddChildren([ScalarInterpolator432]);
 X3DRoute433 := TX3DRoute.Create;
-X3DRoute433.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute433.SetDestination('skinTexTransTest', 'set_fraction', nil);
+Group431.AddRoute(TimeSensor141.EventFraction_changed, ScalarInterpolator432.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute434 := TX3DRoute.Create;
-X3DRoute434.SetSource('skinTexTransTest', 'value_changed', nil);
-X3DRoute434.SetDestination('kicktextrans', 'rotation', nil);
+Group431.AddRoute(ScalarInterpolator432.EventValue_changed, TextureTransform135.FdRotation);
 { .AddX3DRoute }
 { .AddChildren }
 Group15.AddChildren([Group431]);
@@ -2541,20 +2347,16 @@ OrientationInterpolator445.SetKeyValue([Vector4(1,0,1,0.25),Vector4(-1,0,-1,1.35
 Group435.AddChildren([OrientationInterpolator445]);
 { Ball Animation Routes }
 X3DRoute446 := TX3DRoute.Create;
-X3DRoute446.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute446.SetDestination('ballTransInterp', 'set_fraction', nil);
+Group435.AddRoute(TimeSensor141.EventFraction_changed, PositionInterpolator444.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute447 := TX3DRoute.Create;
-X3DRoute447.SetSource('ballTransInterp', 'value_changed', nil);
-X3DRoute447.SetDestination('SBall', 'set_translation', nil);
+Group435.AddRoute(PositionInterpolator444.EventValue_changed, Transform436.FdTranslation);
 { .AddX3DRoute }
 X3DRoute448 := TX3DRoute.Create;
-X3DRoute448.SetSource('KickTimer', 'fraction_changed', nil);
-X3DRoute448.SetDestination('ballRotInterp', 'set_fraction', nil);
+Group435.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator445.EventSet_fraction);
 { .AddX3DRoute }
 X3DRoute449 := TX3DRoute.Create;
-X3DRoute449.SetSource('ballRotInterp', 'value_changed', nil);
-X3DRoute449.SetDestination('SBall', 'set_rotation', nil);
+Group435.AddRoute(OrientationInterpolator445.EventValue_changed, Transform436.FdRotation);
 { .AddX3DRoute }
 { .AddChildren }
 Group15.AddChildren([Group435]);
