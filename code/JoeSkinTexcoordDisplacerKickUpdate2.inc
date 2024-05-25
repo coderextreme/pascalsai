@@ -223,204 +223,10 @@ OrientationInterpolator233: TOrientationInterpolatorNode;
 OrientationInterpolator234: TOrientationInterpolatorNode;
 OrientationInterpolator235: TOrientationInterpolatorNode;
 OrientationInterpolator236: TOrientationInterpolatorNode;
-X3DRoute237: TX3DRoute;
-X3DRoute238: TX3DRoute;
-X3DRoute239: TX3DRoute;
-X3DRoute240: TX3DRoute;
-X3DRoute241: TX3DRoute;
-X3DRoute242: TX3DRoute;
-X3DRoute243: TX3DRoute;
-X3DRoute244: TX3DRoute;
-X3DRoute245: TX3DRoute;
-X3DRoute246: TX3DRoute;
-X3DRoute247: TX3DRoute;
-X3DRoute248: TX3DRoute;
-X3DRoute249: TX3DRoute;
-X3DRoute250: TX3DRoute;
-X3DRoute251: TX3DRoute;
-X3DRoute252: TX3DRoute;
-X3DRoute253: TX3DRoute;
-X3DRoute254: TX3DRoute;
-X3DRoute255: TX3DRoute;
-X3DRoute256: TX3DRoute;
-X3DRoute257: TX3DRoute;
-X3DRoute258: TX3DRoute;
-X3DRoute259: TX3DRoute;
-X3DRoute260: TX3DRoute;
-X3DRoute261: TX3DRoute;
-X3DRoute262: TX3DRoute;
-X3DRoute263: TX3DRoute;
-X3DRoute264: TX3DRoute;
-X3DRoute265: TX3DRoute;
-X3DRoute266: TX3DRoute;
-X3DRoute267: TX3DRoute;
-X3DRoute268: TX3DRoute;
-X3DRoute269: TX3DRoute;
-X3DRoute270: TX3DRoute;
-X3DRoute271: TX3DRoute;
-X3DRoute272: TX3DRoute;
-X3DRoute273: TX3DRoute;
-X3DRoute274: TX3DRoute;
-X3DRoute275: TX3DRoute;
-X3DRoute276: TX3DRoute;
-X3DRoute277: TX3DRoute;
-X3DRoute278: TX3DRoute;
-X3DRoute279: TX3DRoute;
-X3DRoute280: TX3DRoute;
-X3DRoute281: TX3DRoute;
-X3DRoute282: TX3DRoute;
-X3DRoute283: TX3DRoute;
-X3DRoute284: TX3DRoute;
-X3DRoute285: TX3DRoute;
-X3DRoute286: TX3DRoute;
-X3DRoute287: TX3DRoute;
-X3DRoute288: TX3DRoute;
-X3DRoute289: TX3DRoute;
-X3DRoute290: TX3DRoute;
-X3DRoute291: TX3DRoute;
-X3DRoute292: TX3DRoute;
-X3DRoute293: TX3DRoute;
-X3DRoute294: TX3DRoute;
-X3DRoute295: TX3DRoute;
-X3DRoute296: TX3DRoute;
-X3DRoute297: TX3DRoute;
-X3DRoute298: TX3DRoute;
-X3DRoute299: TX3DRoute;
-X3DRoute300: TX3DRoute;
-X3DRoute301: TX3DRoute;
-X3DRoute302: TX3DRoute;
-X3DRoute303: TX3DRoute;
-X3DRoute304: TX3DRoute;
-X3DRoute305: TX3DRoute;
-X3DRoute306: TX3DRoute;
-X3DRoute307: TX3DRoute;
-X3DRoute308: TX3DRoute;
-X3DRoute309: TX3DRoute;
-X3DRoute310: TX3DRoute;
-X3DRoute311: TX3DRoute;
-X3DRoute312: TX3DRoute;
-X3DRoute313: TX3DRoute;
-X3DRoute314: TX3DRoute;
-X3DRoute315: TX3DRoute;
-X3DRoute316: TX3DRoute;
-X3DRoute317: TX3DRoute;
-X3DRoute318: TX3DRoute;
-X3DRoute319: TX3DRoute;
-X3DRoute320: TX3DRoute;
-X3DRoute321: TX3DRoute;
-X3DRoute322: TX3DRoute;
-X3DRoute323: TX3DRoute;
-X3DRoute324: TX3DRoute;
-X3DRoute325: TX3DRoute;
-X3DRoute326: TX3DRoute;
-X3DRoute327: TX3DRoute;
-X3DRoute328: TX3DRoute;
-X3DRoute329: TX3DRoute;
-X3DRoute330: TX3DRoute;
-X3DRoute331: TX3DRoute;
-X3DRoute332: TX3DRoute;
-X3DRoute333: TX3DRoute;
-X3DRoute334: TX3DRoute;
-X3DRoute335: TX3DRoute;
-X3DRoute336: TX3DRoute;
-X3DRoute337: TX3DRoute;
-X3DRoute338: TX3DRoute;
-X3DRoute339: TX3DRoute;
-X3DRoute340: TX3DRoute;
-X3DRoute341: TX3DRoute;
-X3DRoute342: TX3DRoute;
-X3DRoute343: TX3DRoute;
-X3DRoute344: TX3DRoute;
-X3DRoute345: TX3DRoute;
-X3DRoute346: TX3DRoute;
-X3DRoute347: TX3DRoute;
-X3DRoute348: TX3DRoute;
-X3DRoute349: TX3DRoute;
-X3DRoute350: TX3DRoute;
-X3DRoute351: TX3DRoute;
-X3DRoute352: TX3DRoute;
-X3DRoute353: TX3DRoute;
-X3DRoute354: TX3DRoute;
-X3DRoute355: TX3DRoute;
-X3DRoute356: TX3DRoute;
-X3DRoute357: TX3DRoute;
-X3DRoute358: TX3DRoute;
-X3DRoute359: TX3DRoute;
-X3DRoute360: TX3DRoute;
-X3DRoute361: TX3DRoute;
-X3DRoute362: TX3DRoute;
-X3DRoute363: TX3DRoute;
-X3DRoute364: TX3DRoute;
-X3DRoute365: TX3DRoute;
-X3DRoute366: TX3DRoute;
-X3DRoute367: TX3DRoute;
-X3DRoute368: TX3DRoute;
-X3DRoute369: TX3DRoute;
-X3DRoute370: TX3DRoute;
-X3DRoute371: TX3DRoute;
-X3DRoute372: TX3DRoute;
-X3DRoute373: TX3DRoute;
-X3DRoute374: TX3DRoute;
-X3DRoute375: TX3DRoute;
-X3DRoute376: TX3DRoute;
-X3DRoute377: TX3DRoute;
-X3DRoute378: TX3DRoute;
-X3DRoute379: TX3DRoute;
-X3DRoute380: TX3DRoute;
-X3DRoute381: TX3DRoute;
-X3DRoute382: TX3DRoute;
-X3DRoute383: TX3DRoute;
-X3DRoute384: TX3DRoute;
-X3DRoute385: TX3DRoute;
-X3DRoute386: TX3DRoute;
-X3DRoute387: TX3DRoute;
-X3DRoute388: TX3DRoute;
-X3DRoute389: TX3DRoute;
-X3DRoute390: TX3DRoute;
-X3DRoute391: TX3DRoute;
-X3DRoute392: TX3DRoute;
-X3DRoute393: TX3DRoute;
-X3DRoute394: TX3DRoute;
-X3DRoute395: TX3DRoute;
-X3DRoute396: TX3DRoute;
-X3DRoute397: TX3DRoute;
-X3DRoute398: TX3DRoute;
-X3DRoute399: TX3DRoute;
-X3DRoute400: TX3DRoute;
-X3DRoute401: TX3DRoute;
-X3DRoute402: TX3DRoute;
-X3DRoute403: TX3DRoute;
-X3DRoute404: TX3DRoute;
-X3DRoute405: TX3DRoute;
-X3DRoute406: TX3DRoute;
-X3DRoute407: TX3DRoute;
-X3DRoute408: TX3DRoute;
-X3DRoute409: TX3DRoute;
-X3DRoute410: TX3DRoute;
-X3DRoute411: TX3DRoute;
-X3DRoute412: TX3DRoute;
-X3DRoute413: TX3DRoute;
-X3DRoute414: TX3DRoute;
-X3DRoute415: TX3DRoute;
-X3DRoute416: TX3DRoute;
-X3DRoute417: TX3DRoute;
-X3DRoute418: TX3DRoute;
-X3DRoute419: TX3DRoute;
-X3DRoute420: TX3DRoute;
-X3DRoute421: TX3DRoute;
-X3DRoute422: TX3DRoute;
-X3DRoute423: TX3DRoute;
-X3DRoute424: TX3DRoute;
-X3DRoute425: TX3DRoute;
-X3DRoute426: TX3DRoute;
 Group427: TGroupNode;
 ScalarInterpolator428: TScalarInterpolatorNode;
-X3DRoute429: TX3DRoute;
-X3DRoute430: TX3DRoute;
 Group431: TGroupNode;
 ScalarInterpolator432: TScalarInterpolatorNode;
-X3DRoute433: TX3DRoute;
-X3DRoute434: TX3DRoute;
 Group435: TGroupNode;
 Transform436: TTransformNode;
 Shape437: TShapeNode;
@@ -432,10 +238,6 @@ Coordinate442: TCoordinateNode;
 Viewpoint443: TViewpointNode;
 PositionInterpolator444: TPositionInterpolatorNode;
 OrientationInterpolator445: TOrientationInterpolatorNode;
-X3DRoute446: TX3DRoute;
-X3DRoute447: TX3DRoute;
-X3DRoute448: TX3DRoute;
-X3DRoute449: TX3DRoute;
 Group450: TGroupNode;
 Transform451: TTransformNode;
 Shape452: TShapeNode;
@@ -1700,575 +1502,385 @@ Group140.AddChildren([OrientationInterpolator236]);
 { .AddChildren }
 Group15.AddChildren([Group140]);
 { TimeSensor to Interpolators }
-X3DRoute237 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator142.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute238 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, PositionInterpolator143.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute239 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator144.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute240 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator145.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute241 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator146.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute242 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator147.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute243 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator148.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute244 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator149.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute245 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator150.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute246 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator151.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute247 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator152.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute248 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator153.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute249 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator154.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute250 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator155.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute251 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator156.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute252 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator157.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute253 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator158.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute254 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator159.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute255 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator160.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute256 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator161.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute257 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator162.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute258 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator163.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute259 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator164.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute260 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator165.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute261 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator166.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute262 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator167.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute263 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator168.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute264 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator169.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute265 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator170.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute266 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator171.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute267 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator172.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute268 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator173.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute269 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator174.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute270 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator175.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute271 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator176.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute272 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator177.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute273 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator178.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute274 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator179.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute275 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator180.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute276 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator181.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute277 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator182.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute278 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator183.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute279 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator184.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute280 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator185.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute281 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator186.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute282 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator187.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute283 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator188.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute284 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator189.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute285 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator190.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute286 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator191.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute287 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator192.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute288 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator193.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute289 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator194.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute290 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator195.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute291 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator196.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute292 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator197.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute293 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator198.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute294 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator199.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute295 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator200.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute296 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator201.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute297 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator202.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute298 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator203.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute299 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator204.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute300 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator205.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute301 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator206.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute302 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator207.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute303 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator208.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute304 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator209.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute305 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator210.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute306 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator211.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute307 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator212.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute308 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator213.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute309 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator214.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute310 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator215.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute311 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator216.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute312 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator217.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute313 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator218.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute314 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator219.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute315 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator220.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute316 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator221.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute317 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator222.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute318 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator223.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute319 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator224.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute320 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator225.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute321 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator226.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute322 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator227.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute323 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator228.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute324 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator229.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute325 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator230.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute326 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator231.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute327 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator232.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute328 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator233.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute329 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator234.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute330 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator235.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute331 := TX3DRoute.Create;
 Group15.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator236.EventSet_fraction);
 { .AddX3DRoute }
 { Routes from Interpolators to Joe_ model Joints }
-X3DRoute332 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator142.EventValue_changed, HAnimJoint28.FdRotation);
 { .AddX3DRoute }
-X3DRoute333 := TX3DRoute.Create;
 Group15.AddRoute(PositionInterpolator143.EventValue_changed, HAnimJoint28.FdTranslation);
 { .AddX3DRoute }
-X3DRoute334 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator144.EventValue_changed, HAnimJoint37.FdRotation);
 { .AddX3DRoute }
-X3DRoute335 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator145.EventValue_changed, HAnimJoint38.FdRotation);
 { .AddX3DRoute }
-X3DRoute336 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator146.EventValue_changed, HAnimJoint39.FdRotation);
 { .AddX3DRoute }
-X3DRoute337 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator147.EventValue_changed, HAnimJoint40.FdRotation);
 { .AddX3DRoute }
-X3DRoute338 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator148.EventValue_changed, HAnimJoint41.FdRotation);
 { .AddX3DRoute }
-X3DRoute339 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator149.EventValue_changed, HAnimJoint42.FdRotation);
 { .AddX3DRoute }
-X3DRoute340 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator150.EventValue_changed, HAnimJoint43.FdRotation);
 { .AddX3DRoute }
-X3DRoute341 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator151.EventValue_changed, HAnimJoint44.FdRotation);
 { .AddX3DRoute }
-X3DRoute342 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator152.EventValue_changed, HAnimJoint45.FdRotation);
 { .AddX3DRoute }
-X3DRoute343 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator153.EventValue_changed, HAnimJoint46.FdRotation);
 { .AddX3DRoute }
-X3DRoute344 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator154.EventValue_changed, HAnimJoint47.FdRotation);
 { .AddX3DRoute }
-X3DRoute345 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator155.EventValue_changed, HAnimJoint48.FdRotation);
 { .AddX3DRoute }
-X3DRoute346 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator156.EventValue_changed, HAnimJoint49.FdRotation);
 { .AddX3DRoute }
-X3DRoute347 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator157.EventValue_changed, HAnimJoint50.FdRotation);
 { .AddX3DRoute }
-X3DRoute348 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator158.EventValue_changed, HAnimJoint51.FdRotation);
 { .AddX3DRoute }
-X3DRoute349 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator159.EventValue_changed, HAnimJoint52.FdRotation);
 { .AddX3DRoute }
-X3DRoute350 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator160.EventValue_changed, HAnimJoint53.FdRotation);
 { .AddX3DRoute }
-X3DRoute351 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator161.EventValue_changed, HAnimJoint54.FdRotation);
 { .AddX3DRoute }
-X3DRoute352 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator162.EventValue_changed, HAnimJoint55.FdRotation);
 { .AddX3DRoute }
-X3DRoute353 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator163.EventValue_changed, HAnimJoint56.FdRotation);
 { .AddX3DRoute }
-X3DRoute354 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator164.EventValue_changed, HAnimJoint57.FdRotation);
 { .AddX3DRoute }
-X3DRoute355 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator165.EventValue_changed, HAnimJoint58.FdRotation);
 { .AddX3DRoute }
-X3DRoute356 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator166.EventValue_changed, HAnimJoint59.FdRotation);
 { .AddX3DRoute }
-X3DRoute357 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator167.EventValue_changed, HAnimJoint60.FdRotation);
 { .AddX3DRoute }
-X3DRoute358 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator168.EventValue_changed, HAnimJoint61.FdRotation);
 { .AddX3DRoute }
-X3DRoute359 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator169.EventValue_changed, HAnimJoint62.FdRotation);
 { .AddX3DRoute }
-X3DRoute360 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator170.EventValue_changed, HAnimJoint63.FdRotation);
 { .AddX3DRoute }
-X3DRoute361 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator171.EventValue_changed, HAnimJoint64.FdRotation);
 { .AddX3DRoute }
-X3DRoute362 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator172.EventValue_changed, HAnimJoint65.FdRotation);
 { .AddX3DRoute }
-X3DRoute363 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator173.EventValue_changed, HAnimJoint66.FdRotation);
 { .AddX3DRoute }
-X3DRoute364 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator174.EventValue_changed, HAnimJoint67.FdRotation);
 { .AddX3DRoute }
-X3DRoute365 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator175.EventValue_changed, HAnimJoint68.FdRotation);
 { .AddX3DRoute }
-X3DRoute366 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator176.EventValue_changed, HAnimJoint69.FdRotation);
 { .AddX3DRoute }
-X3DRoute367 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator177.EventValue_changed, HAnimJoint70.FdRotation);
 { .AddX3DRoute }
-X3DRoute368 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator178.EventValue_changed, HAnimJoint71.FdRotation);
 { .AddX3DRoute }
-X3DRoute369 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator179.EventValue_changed, HAnimJoint72.FdRotation);
 { .AddX3DRoute }
-X3DRoute370 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator180.EventValue_changed, HAnimJoint73.FdRotation);
 { .AddX3DRoute }
-X3DRoute371 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator181.EventValue_changed, HAnimJoint74.FdRotation);
 { .AddX3DRoute }
-X3DRoute372 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator182.EventValue_changed, HAnimJoint76.FdRotation);
 { .AddX3DRoute }
-X3DRoute373 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator183.EventValue_changed, HAnimJoint77.FdRotation);
 { .AddX3DRoute }
-X3DRoute374 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator184.EventValue_changed, HAnimJoint78.FdRotation);
 { .AddX3DRoute }
-X3DRoute375 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator185.EventValue_changed, HAnimJoint79.FdRotation);
 { .AddX3DRoute }
-X3DRoute376 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator186.EventValue_changed, HAnimJoint80.FdRotation);
 { .AddX3DRoute }
-X3DRoute377 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator187.EventValue_changed, HAnimJoint81.FdRotation);
 { .AddX3DRoute }
-X3DRoute378 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator188.EventValue_changed, HAnimJoint82.FdRotation);
 { .AddX3DRoute }
-X3DRoute379 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator189.EventValue_changed, HAnimJoint83.FdRotation);
 { .AddX3DRoute }
-X3DRoute380 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator190.EventValue_changed, HAnimJoint84.FdRotation);
 { .AddX3DRoute }
-X3DRoute381 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator191.EventValue_changed, HAnimJoint85.FdRotation);
 { .AddX3DRoute }
-X3DRoute382 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator192.EventValue_changed, HAnimJoint86.FdRotation);
 { .AddX3DRoute }
-X3DRoute383 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator193.EventValue_changed, HAnimJoint87.FdRotation);
 { .AddX3DRoute }
-X3DRoute384 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator194.EventValue_changed, HAnimJoint88.FdRotation);
 { .AddX3DRoute }
-X3DRoute385 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator195.EventValue_changed, HAnimJoint89.FdRotation);
 { .AddX3DRoute }
-X3DRoute386 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator196.EventValue_changed, HAnimJoint90.FdRotation);
 { .AddX3DRoute }
-X3DRoute387 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator197.EventValue_changed, HAnimJoint91.FdRotation);
 { .AddX3DRoute }
-X3DRoute388 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator198.EventValue_changed, HAnimJoint92.FdRotation);
 { .AddX3DRoute }
-X3DRoute389 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator199.EventValue_changed, HAnimJoint93.FdRotation);
 { .AddX3DRoute }
-X3DRoute390 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator200.EventValue_changed, HAnimJoint94.FdRotation);
 { .AddX3DRoute }
-X3DRoute391 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator201.EventValue_changed, HAnimJoint95.FdRotation);
 { .AddX3DRoute }
-X3DRoute392 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator202.EventValue_changed, HAnimJoint96.FdRotation);
 { .AddX3DRoute }
-X3DRoute393 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator203.EventValue_changed, HAnimJoint97.FdRotation);
 { .AddX3DRoute }
-X3DRoute394 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator204.EventValue_changed, HAnimJoint98.FdRotation);
 { .AddX3DRoute }
-X3DRoute395 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator205.EventValue_changed, HAnimJoint99.FdRotation);
 { .AddX3DRoute }
-X3DRoute396 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator206.EventValue_changed, HAnimJoint100.FdRotation);
 { .AddX3DRoute }
-X3DRoute397 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator207.EventValue_changed, HAnimJoint101.FdRotation);
 { .AddX3DRoute }
-X3DRoute398 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator208.EventValue_changed, HAnimJoint102.FdRotation);
 { .AddX3DRoute }
-X3DRoute399 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator209.EventValue_changed, HAnimJoint103.FdRotation);
 { .AddX3DRoute }
-X3DRoute400 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator210.EventValue_changed, HAnimJoint104.FdRotation);
 { .AddX3DRoute }
-X3DRoute401 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator211.EventValue_changed, HAnimJoint105.FdRotation);
 { .AddX3DRoute }
-X3DRoute402 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator212.EventValue_changed, HAnimJoint106.FdRotation);
 { .AddX3DRoute }
-X3DRoute403 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator213.EventValue_changed, HAnimJoint107.FdRotation);
 { .AddX3DRoute }
-X3DRoute404 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator214.EventValue_changed, HAnimJoint108.FdRotation);
 { .AddX3DRoute }
-X3DRoute405 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator215.EventValue_changed, HAnimJoint109.FdRotation);
 { .AddX3DRoute }
-X3DRoute406 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator216.EventValue_changed, HAnimJoint110.FdRotation);
 { .AddX3DRoute }
-X3DRoute407 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator217.EventValue_changed, HAnimJoint111.FdRotation);
 { .AddX3DRoute }
-X3DRoute408 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator218.EventValue_changed, HAnimJoint112.FdRotation);
 { .AddX3DRoute }
-X3DRoute409 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator219.EventValue_changed, HAnimJoint113.FdRotation);
 { .AddX3DRoute }
-X3DRoute410 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator220.EventValue_changed, HAnimJoint114.FdRotation);
 { .AddX3DRoute }
-X3DRoute411 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator221.EventValue_changed, HAnimJoint115.FdRotation);
 { .AddX3DRoute }
-X3DRoute412 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator222.EventValue_changed, HAnimJoint116.FdRotation);
 { .AddX3DRoute }
-X3DRoute413 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator223.EventValue_changed, HAnimJoint117.FdRotation);
 { .AddX3DRoute }
-X3DRoute414 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator224.EventValue_changed, HAnimJoint118.FdRotation);
 { .AddX3DRoute }
-X3DRoute415 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator225.EventValue_changed, HAnimJoint119.FdRotation);
 { .AddX3DRoute }
-X3DRoute416 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator226.EventValue_changed, HAnimJoint120.FdRotation);
 { .AddX3DRoute }
-X3DRoute417 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator227.EventValue_changed, HAnimJoint121.FdRotation);
 { .AddX3DRoute }
-X3DRoute418 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator228.EventValue_changed, HAnimJoint122.FdRotation);
 { .AddX3DRoute }
-X3DRoute419 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator229.EventValue_changed, HAnimJoint123.FdRotation);
 { .AddX3DRoute }
-X3DRoute420 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator230.EventValue_changed, HAnimJoint124.FdRotation);
 { .AddX3DRoute }
-X3DRoute421 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator231.EventValue_changed, HAnimJoint125.FdRotation);
 { .AddX3DRoute }
-X3DRoute422 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator232.EventValue_changed, HAnimJoint126.FdRotation);
 { .AddX3DRoute }
-X3DRoute423 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator233.EventValue_changed, HAnimJoint127.FdRotation);
 { .AddX3DRoute }
-X3DRoute424 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator234.EventValue_changed, HAnimJoint128.FdRotation);
 { .AddX3DRoute }
-X3DRoute425 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator235.EventValue_changed, HAnimJoint129.FdRotation);
 { .AddX3DRoute }
-X3DRoute426 := TX3DRoute.Create;
 Group15.AddRoute(OrientationInterpolator236.EventValue_changed, HAnimJoint130.FdRotation);
 { .AddX3DRoute }
 Group427 := TGroupNode.Create;
@@ -2278,10 +1890,8 @@ ScalarInterpolator428.SetKey([0,0.1,0.2,0.35,0.6,0.7,0.85,0.88,0.94,0.97,1]);
 ScalarInterpolator428.SetKeyValue([0,0,0,0,0.2,0.4,1,0,1,0.4,0]);
 { .AddChildren }
 Group427.AddChildren([ScalarInterpolator428]);
-X3DRoute429 := TX3DRoute.Create;
 Group427.AddRoute(TimeSensor141.EventFraction_changed, ScalarInterpolator428.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute430 := TX3DRoute.Create;
 Group427.AddRoute(ScalarInterpolator428.EventValue_changed, HAnimDisplacer75.FdWeight);
 { .AddX3DRoute }
 { .AddChildren }
@@ -2292,10 +1902,8 @@ ScalarInterpolator432.SetKey([0,0.2,0.4,0.5,0.6,0.7,0.8,1]);
 ScalarInterpolator432.SetKeyValue([0,0,0,0,0,1,2,0]);
 { .AddChildren }
 Group431.AddChildren([ScalarInterpolator432]);
-X3DRoute433 := TX3DRoute.Create;
 Group431.AddRoute(TimeSensor141.EventFraction_changed, ScalarInterpolator432.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute434 := TX3DRoute.Create;
 Group431.AddRoute(ScalarInterpolator432.EventValue_changed, TextureTransform135.FdRotation);
 { .AddX3DRoute }
 { .AddChildren }
@@ -2346,16 +1954,12 @@ OrientationInterpolator445.SetKeyValue([Vector4(1,0,1,0.25),Vector4(-1,0,-1,1.35
 { .AddChildren }
 Group435.AddChildren([OrientationInterpolator445]);
 { Ball Animation Routes }
-X3DRoute446 := TX3DRoute.Create;
 Group435.AddRoute(TimeSensor141.EventFraction_changed, PositionInterpolator444.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute447 := TX3DRoute.Create;
 Group435.AddRoute(PositionInterpolator444.EventValue_changed, Transform436.FdTranslation);
 { .AddX3DRoute }
-X3DRoute448 := TX3DRoute.Create;
 Group435.AddRoute(TimeSensor141.EventFraction_changed, OrientationInterpolator445.EventSet_fraction);
 { .AddX3DRoute }
-X3DRoute449 := TX3DRoute.Create;
 Group435.AddRoute(OrientationInterpolator445.EventValue_changed, Transform436.FdRotation);
 { .AddX3DRoute }
 { .AddChildren }
