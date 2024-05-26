@@ -1,4 +1,4 @@
-procedure JoeSkinTexcoordDisplacerKickUpdate2;
+function JoeSkinTexcoordDisplacerKickUpdate2: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -260,7 +260,21 @@ IndexedLineSet468: TIndexedLineSetNode;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
-X3D0.Version := '3.3';
+X3D0.ForceVersion.Major := 3;
+X3D0.ForceVersion.Minor := 3;
+X3D0.Components['H-Anim'] := 1;
+X3D0.Meta['title'] := 'JoeSkinTexcoordDisplacerKick.x3d';
+X3D0.Meta['info'] := 'Joe No Reservations 20200709 fix hier20161206 20161111 20160720 20121221 20040109 x3d/hanim';
+X3D0.Meta['description'] := 'The Joe model is a Humanoid with textured skin.';
+X3D0.Meta['creator'] := 'Joe Williams';
+X3D0.Meta['created'] := '9 January 2014';
+X3D0.Meta['translated'] := '12 January 2017';
+X3D0.Meta['modified'] := '09 July 2020';
+X3D0.Meta['TODO'] := 'Record information about skin coordinates (found in comment at end of scene) as a structured MetadataSet containing MetadataString nodes';
+X3D0.Meta['translators'] := 'Roy Walmsley and Don Brutzman';
+X3D0.Meta['identifier'] := 'http://www.web3d.org/x3d/content/examples/Basic/HumanoidAnimation/JoeSkinTexcoordDisplacerKick.x3d';
+X3D0.Meta['generator'] := 'X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit';
+X3D0.Meta['license'] := '../license.html';
 { BS studio translation from .x3dv by Joe using BS Contact }
 Group15 := TGroupNode.Create;
 WorldInfo16 := TWorldInfoNode.Create;
@@ -1012,7 +1026,7 @@ HAnimHumanoid27.SetSkin([Shape131]);
 Coordinate139 := TCoordinateNode.Create;
 Coordinate139 := Coordinate137;
 { .SetSkinCoord }
-{ HAnimHumanoid27.SetSkinCoord(Coordinate139); }
+HAnimHumanoid27.SetSkinCoord(Coordinate139);
 { .AddChildren }
 Group26.AddChildren([HAnimHumanoid27]);
 { .AddChildren }
@@ -2039,4 +2053,5 @@ Group450.AddChildren([Transform464]);
 Group15.AddChildren([Group450]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+Result := X3D0;
 end;

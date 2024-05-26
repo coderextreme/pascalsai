@@ -1,4 +1,4 @@
-procedure JinScaledV2L1LOA4Sites10h;
+function JinScaledV2L1LOA4Sites10h: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group22: TGroupNode;
@@ -6167,7 +6167,28 @@ Group10008: TGroupNode;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
-X3D0.Version := '4.0';
+X3D0.ForceVersion.Major := 4;
+X3D0.ForceVersion.Minor := 0;
+X3D0.Components['HAnim'] := 1;
+X3D0.Meta['title'] := 'JinScaledV2L1LOA4Sites10h.x3d';
+X3D0.Meta['creator'] := 'Jin Hoon Lee and Min Joo Lee';
+X3D0.Meta['translator'] := 'Chul Hee Jung and Myeong Won Lee';
+X3D0.Meta['created'] := '31 March 2011';
+X3D0.Meta['translated'] := '1 November 2014';
+X3D0.Meta['modified'] := '27 January 2023';
+X3D0.Meta['modified'] := '25 March 2024';
+X3D0.Meta['modifiers'] := 'John Carlson and Joe Williams';
+X3D0.Meta['description'] := ' Articulated 3D game character designed with a general graphics tool,  then converted into an loa4 X3D HAnim model,  then rescaled 1:1 m to be drawn directly in default HAnim coordinate space, and added v2 Sites';
+X3D0.Meta['reference'] := 'KoreanCharacter00ReadMe.txt';
+X3D0.Meta['reference'] := 'KoreanCharacterHumanMotion_Infotech2014_140706.pdf';
+X3D0.Meta['reference'] := 'KoreanCharactersIllustrated.pdf';
+X3D0.Meta['identifier'] := 'https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/JinLOA4.x3d';
+X3D0.Meta['generator'] := '3DS MAX, http://www.autodesk.com/products/autodesk-3ds-max/overview';
+X3D0.Meta['generator'] := 'Suwon HAnim Converter';
+X3D0.Meta['generator'] := 'johnRescaler+joedwillyNotePad';
+X3D0.Meta['generator'] := 'Gnu Image Manipulation Program, http://www.gimp.org';
+X3D0.Meta['generator'] := 'X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit';
+X3D0.Meta['license'] := '../license.html';
 { Scaled 1:1, Added Animations }
 { Added Sites }
 Group22 := TGroupNode.Create;
@@ -6373,8 +6394,9 @@ Text69 := TTextNode.Create;
 Text69.SetText(['JinLOA4S','Animations']);
 FontStyle70 := TFontStyleNode.Create;
 FontStyle70.Size := 1.25;
-FontStyle70.SetFamily(['SANS']);
-FontStyle70.SetJustify([StringToJustify('MIDDLE', DefaultJustify), StringToJustify('MIDDLE', DefaultJustify)]);
+FontStyle70.Family := ffSans;
+FontStyle70.Justify := fjMiddle;
+FontStyle70.JustifyMinor := fjMiddle;
 { .SetFontStyle }
 Text69.FontStyle := FontStyle70;
 { .SetGeometry }
@@ -6396,7 +6418,7 @@ Shape73.Appearance := Appearance74;
 Text75 := TTextNode.Create;
 Text75.SetText(['Default']);
 FontStyle76 := TFontStyleNode.Create;
-FontStyle76.SetFamily(['SANS']);
+FontStyle76.Family := ffSans;
 { .SetFontStyle }
 Text75.FontStyle := FontStyle76;
 { .SetGeometry }
@@ -40691,4 +40713,5 @@ Group10008.AddRoute(TouchSensor167.EventTouchtime, TimeSensor9566.FdStoptime);
 Group22.AddChildren([Group10008]);
 { .AddGroup }
 X3D0.AddChildren([Group22]);
+Result := X3D0;
 end;
