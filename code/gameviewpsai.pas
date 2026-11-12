@@ -9,8 +9,11 @@ interface
 
 uses Classes, X3DNodes,
   CastleVectors, CastleComponentSerialize,
+  CastleVectorsInternalDouble,
+  CastleVectorsInternalSingle,
   CastleUIControls, CastleControls, CastleKeysMouse,
-
+  CastleInternalNodesUnsupported,
+  CastleImages,
   CastleScene, CastleColors, CastleSceneCore, X3DFields;
 
 type
@@ -33,6 +36,35 @@ var
 implementation
 
 uses SysUtils;
+
+{ This function is from Claude.ai }
+function MakeMatrix4(const V: array of Single): TMatrix4;
+var
+  I: Integer;
+begin
+  for I := 0 to 15 do
+    Result.Data[I div 4, I mod 4] := V[I];
+end;
+
+{ This function is from Claude.ai }
+function MakeRGBAImage(const W, H: Cardinal; const Pixels: array of LongInt): TRGBAlphaImage;
+var
+  I: Integer;
+  P: PByte;
+  V: LongWord;
+begin
+  Result := TRGBAlphaImage.Create(W, H);
+  P := PByte(Result.RawPixels);
+  for I := 0 to High(Pixels) do
+  begin
+    V := LongWord(Pixels[I]);          { X3D packs pixels as 0xRRGGBBAA }
+    P[0] := (V shr 24) and $FF;        { R }
+    P[1] := (V shr 16) and $FF;        { G }
+    P[2] := (V shr 8)  and $FF;        { B }
+    P[3] := V and $FF;                 { A }
+    Inc(P, 4);
+  end;
+end;
 
 { TViewPSAI ----------------------------------------------------------------- }
 
@@ -80,6 +112,53 @@ begin
   }
 end;
 
-{$I JoeSkinTexcoordDisplacerKickUpdate2.inc }
-{$I JinScaledV2L1LOA4Sites10h.inc }
+{$I AllenBox.inc }
+{$I app.inc }
+{$I ArchHalf.inc }
+{$I asphere.inc }
+{$I Bubbles.inc }
+{$I Bushes.inc }
+{$I CameraShape.inc }
+{$I Cane.inc }
+{$I CleatClamp.inc }
+{$I CleatClamp_MeshLab.inc }
+{$I CleatClamp_MeshLabLauncherTidy.inc }
+{$I CoordinateAxes.inc }
+{$I ExtrusionHeart.inc }
+{   flipp.inc }
+{$I gears.inc }
+{$I gridBack.inc }
+{$I GridXZ_20x20Fixed.inc }
+{$I HelloWorldCommented.inc }
+{$I HelloWorld.inc }
+{$I HelloWorldMinimal.inc }
+{$I HelloWorldNoXmlNoDoctype.inc }
+{$I IcosahedronSubdivisionLevel5.inc }
+{$I ifscube.inc }
+{$I ifscubeworks.inc }
+{$I IFS.inc }
+{$I InlineSoundSource.inc }
+{$I JointCoordinateAxes.inc }
+{$I MainStage.inc }
+{$I Marine.inc }
+{$I MaskAndSnorkel.inc }
+{$I MultiTextureDesignPattern.inc }
+{$I OrientationInterpolator.inc }
+{   Pathway.inc }
+{$I personal.inc }
+{$I rgb_alpha.inc }
+{$I RotationTests.inc }
+{$I ScubaTank.inc }
+{   SheenCloth.inc }
+{   Size2tExample_revision2.inc }
+{$I SmokeTestProgramOutput_MeshLabImport.inc }
+{   SpatialAudioCameraAnimation.inc }
+{   SplitChannels.inc }
+{$I SquawLOD023.inc }
+{   StringArrayEncodingExamples.inc }
+{$I Teapot.inc }
+{   TextExamples.inc }
+{$I ThreeInARow.inc }
+{   TransformKids.inc }
+
 end.
