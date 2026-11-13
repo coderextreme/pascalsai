@@ -1,5 +1,4 @@
-{ Game initialization.
-  This unit is cross-platform.
+{ This unit is cross-platform.
   It will be used by the platform-specific program or library file.
 
   Feel free to use this code as a starting point for your own projects.
@@ -12,7 +11,9 @@ interface
 implementation
 
 uses SysUtils,
-  CastleWindow, CastleLog, CastleUIControls
+  CastleWindow, CastleLog, CastleUIControls, CastleScene, CastleViewport,
+  X3DNodes,
+  BoxPrototype
   {$region 'Castle Initialization Uses'}
   // The content here may be automatically updated by CGE editor.
   , GameViewPSAI
@@ -20,12 +21,29 @@ uses SysUtils,
 
 var
   Window: TCastleWindow;
+  Viewport: TCastleViewport;
+  Scene: TCastleScene;
+  Root: TX3DRootNode;
+  BoxProto: TBoxProto;
 
 { One-time initialization of resources. }
 procedure ApplicationInitialize;
 begin
   { Adjust container settings for a scalable UI (adjusts to any window size in a smart way). }
   Window.Container.LoadSettings('castle-data:/CastleSettings.xml');
+
+  { Build the 3D world: Window -> Viewport -> Scene -> prototype nodes. }
+  Viewport := TCastleViewport.Create(Application);
+  Viewport.FullSize := true;
+  Window.Controls.InsertFront(Viewport);
+
+  Root := TX3DRootNode.Create;
+  BoxProto := TBoxProto.Create;
+  BoxProto.BuildPrototype(Root);
+
+  Scene := TCastleScene.Create(Application);
+  Scene.Load(Root, true); // Scene takes ownership of Root
+  Viewport.Items.Add(Scene);
 
   { Create views (see https://castle-engine.io/views ). }
   {$region 'Castle View Creation'}
@@ -44,10 +62,14 @@ initialization
 
     You should not need to do anything more in this initialization section.
     Most of your actual application initialization (in particular, any file reading)
-    should happen inside ApplicationInitialize. }
+    should happen inside ApplicationInitialize.
+
+    Do NOT call Application.Run here: the platform-specific program file
+    (pascalsai_standalone.dpr) does that after this unit is initialized. }
 
   Application.OnInitialize := @ApplicationInitialize;
 
+  { Create the window. Without this, Application.MainWindow is nil. }
   Window := TCastleWindow.Create(Application);
   Application.MainWindow := Window;
 
