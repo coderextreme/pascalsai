@@ -2,7 +2,7 @@ unit HelloWorldMinimal;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateHelloWorldMinimal: TX3DRootNode;
 
@@ -10,13 +10,14 @@ implementation
 
 uses CastleVectors;
 
-function CreateHelloWorldMinimal: TX3DRootNode;
 var
-X3D0: TX3DRootNode;
-Group17: TGroupNode;
-WorldInfo18: TWorldInfoNode;
-Shape19: TShapeNode;
-Text20: TTextNode;
+  X3D0: TX3DRootNode;
+  Group17: TGroupNode;
+  WorldInfo18: TWorldInfoNode;
+  Shape19: TShapeNode;
+  Text20: TTextNode;
+
+procedure InitHelloWorldMinimalPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -42,18 +43,19 @@ X3D0.Meta['license'] := '../license.html';
 Group17 := TGroupNode.Create;
 WorldInfo18 := TWorldInfoNode.Create;
 WorldInfo18.Title := 'HelloWorldMinimal.x3d';
-{ .AddChildren }
-Group17.AddChildren([WorldInfo18]);
+Group17.FdChildren.Add(WorldInfo18);
 Shape19 := TShapeNode.Create;
 Text20 := TTextNode.Create;
 Text20.SetText(['hello, world']);
-{ .SetGeometry }
 Shape19.Geometry := Text20;
-{ .AddChildren }
-Group17.AddChildren([Shape19]);
-{ .AddGroup }
+Group17.FdChildren.Add(Shape19);
 X3D0.AddChildren([Group17]);
-Result := X3D0;
+end;
+
+function CreateHelloWorldMinimal: TX3DRootNode;
+begin
+  InitHelloWorldMinimalPart0;
+  Result := X3D0;
 end;
 
 begin

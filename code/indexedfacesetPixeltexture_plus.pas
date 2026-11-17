@@ -2,7 +2,7 @@ unit indexedfacesetPixeltexture_plus;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateindexedfacesetPixeltexture_plus: TX3DRootNode;
 
@@ -10,26 +10,27 @@ implementation
 
 uses CastleVectors;
 
-function CreateindexedfacesetPixeltexture_plus: TX3DRootNode;
 var
-X3D0: TX3DRootNode;
-Group22: TGroupNode;
-Viewpoint23: TViewpointNode;
-Viewpoint24: TViewpointNode;
-Viewpoint25: TViewpointNode;
-Viewpoint26: TViewpointNode;
-Viewpoint27: TViewpointNode;
-Viewpoint28: TViewpointNode;
-NavigationInfo29: TNavigationInfoNode;
-Shape30: TShapeNode;
-Appearance31: TAppearanceNode;
-Material32: TMaterialNode;
-PixelTexture33: TPixelTextureNode;
-TextureProperties34: TTexturePropertiesNode;
-IndexedFaceSet35: TIndexedFaceSetNode;
-Color36: TColorNode;
-Coordinate37: TCoordinateNode;
-TextureCoordinate38: TTextureCoordinateNode;
+  X3D0: TX3DRootNode;
+  Group22: TGroupNode;
+  Viewpoint23: TViewpointNode;
+  Viewpoint24: TViewpointNode;
+  Viewpoint25: TViewpointNode;
+  Viewpoint26: TViewpointNode;
+  Viewpoint27: TViewpointNode;
+  Viewpoint28: TViewpointNode;
+  NavigationInfo29: TNavigationInfoNode;
+  Shape30: TShapeNode;
+  Appearance31: TAppearanceNode;
+  Material32: TMaterialNode;
+  PixelTexture33: TPixelTextureNode;
+  TextureProperties34: TTexturePropertiesNode;
+  IndexedFaceSet35: TIndexedFaceSetNode;
+  Color36: TColorNode;
+  Coordinate37: TCoordinateNode;
+  TextureCoordinate38: TTextureCoordinateNode;
+
+procedure InitindexedfacesetPixeltexture_plusPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -58,82 +59,80 @@ X3D0.Meta['license'] := '../../license.html';
 Group22 := TGroupNode.Create;
 Viewpoint23 := TViewpointNode.Create;
 Viewpoint23.Description := 'Front View';
-{ .AddChildren }
-Group22.AddChildren([Viewpoint23]);
+Group22.FdChildren.Add(Viewpoint23);
 Viewpoint24 := TViewpointNode.Create;
 Viewpoint24.Description := 'Rear View';
-Viewpoint24.Orientation := Vector4(0,1,0,3.14);
-Viewpoint24.Position := Vector3(0,0,-10);
-{ .AddChildren }
-Group22.AddChildren([Viewpoint24]);
+Viewpoint24.Orientation := Vector4(0, 1, 0, 3.14);
+Viewpoint24.Position := Vector3(0, 0, -10);
+Group22.FdChildren.Add(Viewpoint24);
 Viewpoint25 := TViewpointNode.Create;
 Viewpoint25.Description := 'Top View';
-Viewpoint25.Orientation := Vector4(1,0,0,-1.57);
-Viewpoint25.Position := Vector3(0,10,0);
-{ .AddChildren }
-Group22.AddChildren([Viewpoint25]);
+Viewpoint25.Orientation := Vector4(1, 0, 0, -1.57);
+Viewpoint25.Position := Vector3(0, 10, 0);
+Group22.FdChildren.Add(Viewpoint25);
 Viewpoint26 := TViewpointNode.Create;
 Viewpoint26.Description := 'Bottom View';
-Viewpoint26.Orientation := Vector4(1,0,0,1.57);
-Viewpoint26.Position := Vector3(0,-10,0);
-{ .AddChildren }
-Group22.AddChildren([Viewpoint26]);
+end;
+
+procedure InitindexedfacesetPixeltexture_plusPart1;
+begin
+Viewpoint26.Orientation := Vector4(1, 0, 0, 1.57);
+Viewpoint26.Position := Vector3(0, -10, 0);
+Group22.FdChildren.Add(Viewpoint26);
 Viewpoint27 := TViewpointNode.Create;
 Viewpoint27.Description := 'Right View';
-Viewpoint27.Orientation := Vector4(0,1,0,1.57);
-Viewpoint27.Position := Vector3(10,0,0);
-{ .AddChildren }
-Group22.AddChildren([Viewpoint27]);
+Viewpoint27.Orientation := Vector4(0, 1, 0, 1.57);
+Viewpoint27.Position := Vector3(10, 0, 0);
+Group22.FdChildren.Add(Viewpoint27);
 Viewpoint28 := TViewpointNode.Create;
 Viewpoint28.Description := 'Left View';
-Viewpoint28.Orientation := Vector4(0,1,0,-1.57);
-Viewpoint28.Position := Vector3(-10,0,0);
-{ .AddChildren }
-Group22.AddChildren([Viewpoint28]);
+Viewpoint28.Orientation := Vector4(0, 1, 0, -1.57);
+Viewpoint28.Position := Vector3(-10, 0, 0);
+Group22.FdChildren.Add(Viewpoint28);
 NavigationInfo29 := TNavigationInfoNode.Create;
-NavigationInfo29.SetType(['EXAMINE','WALK','FLY','ANY']);
-{ .AddChildren }
-Group22.AddChildren([NavigationInfo29]);
+NavigationInfo29.SetType(['EXAMINE', 'WALK', 'FLY', 'ANY']);
+Group22.FdChildren.Add(NavigationInfo29);
 { <Environment id="gamma" gammaCorrectionDefault="none"></Environment> }
 Shape30 := TShapeNode.Create;
 Appearance31 := TAppearanceNode.Create;
 Material32 := TMaterialNode.Create;
-{ .SetMaterial }
 Appearance31.Material := Material32;
 PixelTexture33 := TPixelTextureNode.Create;
-PixelTexture33.FdImage.Value := MakeRGBAImage(2,2,[4,-16776961,16711935,-1,-65281]);
+PixelTexture33.FdImage.Value := MakeRGBAImage(2, 2, [4, -16776961, 16711935, -1, -65281]);
 TextureProperties34 := TTexturePropertiesNode.Create;
 TextureProperties34.FdMagnificationFilter.Value := 'NEAREST_PIXEL';
-{ .SetTextureProperties }
 PixelTexture33.TextureProperties := TextureProperties34;
-{ .SetTexture }
 Appearance31.Texture := PixelTexture33;
-{ .SetAppearance }
 Shape30.Appearance := Appearance31;
 IndexedFaceSet35 := TIndexedFaceSetNode.Create;
 IndexedFaceSet35.ColorPerVertex := False;
-IndexedFaceSet35.SetCoordIndex([0,1,3,2,-1,4,5,7,6,-1,6,7,1,0,-1,2,3,5,4,-1,6,0,2,4,-1,1,7,5,3,-1]);
+IndexedFaceSet35.SetCoordIndex([0, 1, 3, 2, -1, 4, 5, 7, 6, -1, 6, 7, 1, 0, -1, 2, 3, 5, 4, -1, 6, 0, 2, 4, -1, 1, 7, 5, 3, -1]);
 IndexedFaceSet35.CreaseAngle := 0.5;
-IndexedFaceSet35.SetTexCoordIndex([0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1,0,1,3,2,-1]);
+IndexedFaceSet35.SetTexCoordIndex([0, 1, 3, 2, -1, 0, 1, 3, 2, -1, 0, 1, 3, 2, -1, 0, 1, 3, 2, -1, 0, 1, 3, 2, -1, 0, 1, 3, 2, -1]);
 Color36 := TColorNode.Create;
-Color36.SetColor([Vector3(0,1,0),Vector3(0,1,0),Vector3(0,1,0),Vector3(0,1,0),Vector3(0,1,0),Vector3(0,1,0)]);
-{ .SetColor }
+Color36.SetColor([Vector3(0, 1, 0), Vector3(0, 1, 0), Vector3(0, 1, 0), Vector3(0, 1, 0), Vector3(0, 1, 0), Vector3(0, 1, 0)]);
 IndexedFaceSet35.Color := Color36;
 Coordinate37 := TCoordinateNode.Create;
-Coordinate37.SetPoint([Vector3(-2,1,1),Vector3(-2,-1,1),Vector3(2,1,1),Vector3(2,-1,1),Vector3(2,1,-1),Vector3(2,-1,-1),Vector3(-2,1,-1),Vector3(-2,-1,-1)]);
-{ .SetCoord }
+Coordinate37.SetPoint([Vector3(-2, 1, 1), Vector3(-2, -1, 1), Vector3(2, 1, 1), Vector3(2, -1, 1), Vector3(2, 1, -1), Vector3(2, -1, -1), Vector3(-2, 1, -1), Vector3(-2, -1, -1)]);
 IndexedFaceSet35.Coord := Coordinate37;
 TextureCoordinate38 := TTextureCoordinateNode.Create;
-TextureCoordinate38.SetPoint([Vector2(-1,2),Vector2(-1,-1),Vector2(2,2),Vector2(2,-1)]);
-{ .SetTexCoord }
+end;
+
+procedure InitindexedfacesetPixeltexture_plusPart2;
+begin
+TextureCoordinate38.SetPoint([Vector2(-1, 2), Vector2(-1, -1), Vector2(2, 2), Vector2(2, -1)]);
 IndexedFaceSet35.TexCoord := TextureCoordinate38;
-{ .SetGeometry }
 Shape30.Geometry := IndexedFaceSet35;
-{ .AddChildren }
-Group22.AddChildren([Shape30]);
-{ .AddGroup }
+Group22.FdChildren.Add(Shape30);
 X3D0.AddChildren([Group22]);
-Result := X3D0;
+end;
+
+function CreateindexedfacesetPixeltexture_plus: TX3DRootNode;
+begin
+  InitindexedfacesetPixeltexture_plusPart0;
+  InitindexedfacesetPixeltexture_plusPart1;
+  InitindexedfacesetPixeltexture_plusPart2;
+  Result := X3D0;
 end;
 
 begin

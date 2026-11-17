@@ -2,7 +2,7 @@ unit HelloWorld;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateHelloWorld: TX3DRootNode;
 
@@ -10,25 +10,25 @@ implementation
 
 uses CastleVectors;
 
-function CreateHelloWorld: TX3DRootNode;
 var
-X3D0: TX3DRootNode;
-Group25: TGroupNode;
-WorldInfo26: TWorldInfoNode;
-Group27: TGroupNode;
-Viewpoint28: TViewpointNode;
-Transform29: TTransformNode;
-Shape30: TShapeNode;
-Sphere31: TSphereNode;
-Appearance32: TAppearanceNode;
-Material33: TMaterialNode;
-ImageTexture34: TImageTextureNode;
-Transform35: TTransformNode;
-Shape36: TShapeNode;
-Text37: TTextNode;
-FontStyle38: TFontStyleNode;
-Appearance39: TAppearanceNode;
-Material40: TMaterialNode;
+  X3D0: TX3DRootNode;
+  Group25: TGroupNode;
+  WorldInfo26: TWorldInfoNode;
+  Group27: TGroupNode;
+  Viewpoint28: TViewpointNode;
+  Transform29: TTransformNode;
+  Shape30: TShapeNode;
+  Sphere31: TSphereNode;
+  Appearance32: TAppearanceNode;
+  Material33: TMaterialNode;
+  ImageTexture34: TImageTextureNode;
+  Transform35: TTransformNode;
+  Shape36: TShapeNode;
+  Text37: TTextNode;
+  FontStyle38: TFontStyleNode;
+  Appearance39: TAppearanceNode;
+
+procedure InitHelloWorldPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -43,7 +43,7 @@ X3D0.Meta['creator'] := 'Don Brutzman';
 X3D0.Meta['Image'] := 'HelloWorld.tall.png';
 X3D0.Meta['reference'] := 'https://en.wikipedia.org/wiki/Hello_world';
 X3D0.Meta['reference'] := 'https://en.wikipedia.org/wiki/Hello#.22Hello.2C_World.22_computer_program';
-X3D0.Meta['reference'] := 'https://en.wikipedia.org/wiki/\"Hello,_World!\"_program';
+X3D0.Meta['reference'] := 'https://en.wikipedia.org/wiki/"Hello,_World!"_program';
 X3D0.Meta['reference'] := 'https://en.wikibooks.org/w/index.php?title=Computer_Programming/Hello_world';
 X3D0.Meta['reference'] := 'https://www.HelloWorldExample.net';
 X3D0.Meta['reference'] := 'https://www.web3d.org';
@@ -63,63 +63,60 @@ Group25 := TGroupNode.Create;
 WorldInfo26 := TWorldInfoNode.Create;
 WorldInfo26.SetInfo(['Example scene to illustrate a simple X3D model']);
 WorldInfo26.Title := 'Hello World!';
-{ .AddChildren }
-Group25.AddChildren([WorldInfo26]);
+Group25.FdChildren.Add(WorldInfo26);
 Group27 := TGroupNode.Create;
 Viewpoint28 := TViewpointNode.Create;
-Viewpoint28.CenterOfRotation := Vector3(0,-1,0);
+Viewpoint28.X3DName := 'ViewUpClose';
+Viewpoint28.CenterOfRotation := Vector3(0, -1, 0);
 Viewpoint28.Description := 'Hello world!';
-Viewpoint28.Position := Vector3(0,-1,7);
-{ .AddChildren }
-Group27.AddChildren([Viewpoint28]);
+Viewpoint28.Position := Vector3(0, -1, 7);
+end;
+
+procedure InitHelloWorldPart1;
+begin
+Group27.FdChildren.Add(Viewpoint28);
 Transform29 := TTransformNode.Create;
-Transform29.Rotation := Vector4(0,1,0,3);
+Transform29.Rotation := Vector4(0, 1, 0, 3);
 Shape30 := TShapeNode.Create;
 Sphere31 := TSphereNode.Create;
-{ .SetGeometry }
 Shape30.Geometry := Sphere31;
 Appearance32 := TAppearanceNode.Create;
 Material33 := TMaterialNode.Create;
-Material33.DiffuseColor := Vector3(0.1,0.5,1);
-{ .SetMaterial }
+Material33.X3DName := 'MaterialLightBlue';
+Material33.DiffuseColor := Vector3(0.1, 0.5, 1);
 Appearance32.Material := Material33;
 ImageTexture34 := TImageTextureNode.Create;
-ImageTexture34.SetUrl(['earth-topo.png','earth-topo.jpg','earth-topo-small.gif','https://www.web3d.org/x3d/content/examples/Basic/earth-topo.png','https://www.web3d.org/x3d/content/examples/Basic/earth-topo.jpg','https://www.web3d.org/x3d/content/examples/Basic/earth-topo-small.gif']);
-{ .SetTexture }
+ImageTexture34.X3DName := 'ImageCloudlessEarth';
+ImageTexture34.SetUrl(['earth-topo.png', 'earth-topo.jpg', 'earth-topo-small.gif', 'https://www.web3d.org/x3d/content/examples/Basic/earth-topo.png', 'https://www.web3d.org/x3d/content/examples/Basic/earth-topo.jpg', 'https://www.web3d.org/x3d/content/examples/Basic/earth-topo-small.gif']);
 Appearance32.Texture := ImageTexture34;
-{ .SetAppearance }
 Shape30.Appearance := Appearance32;
-{ .AddChild }
-Transform29.AddChildren([Shape30]);
-{ .AddChildren }
-Group27.AddChildren([Transform29]);
+Transform29.FdChildren.Add(Shape30);
+Group27.FdChildren.Add(Transform29);
 Transform35 := TTransformNode.Create;
-Transform35.Translation := Vector3(0,-2,0);
+Transform35.Translation := Vector3(0, -2, 0);
 Shape36 := TShapeNode.Create;
 Text37 := TTextNode.Create;
-Text37.SetText(['Hello','world!']);
+Text37.X3DName := 'TextMessage';
+Text37.SetText(['Hello', 'world!']);
 FontStyle38 := TFontStyleNode.Create;
 FontStyle38.Justify := fjMiddle;
 FontStyle38.JustifyMinor := fjMiddle;
-{ .SetFontStyle }
 Text37.FontStyle := FontStyle38;
-{ .SetGeometry }
 Shape36.Geometry := Text37;
 Appearance39 := TAppearanceNode.Create;
-Material40 := Material33;
-{ .SetMaterial }
-Appearance39.Material := Material40;
-{ .SetAppearance }
+Appearance39.Material := Material33;
 Shape36.Appearance := Appearance39;
-{ .AddChild }
-Transform35.AddChildren([Shape36]);
-{ .AddChildren }
-Group27.AddChildren([Transform35]);
-{ .AddChildren }
-Group25.AddChildren([Group27]);
-{ .AddGroup }
+Transform35.FdChildren.Add(Shape36);
+Group27.FdChildren.Add(Transform35);
+Group25.FdChildren.Add(Group27);
 X3D0.AddChildren([Group25]);
-Result := X3D0;
+end;
+
+function CreateHelloWorld: TX3DRootNode;
+begin
+  InitHelloWorldPart0;
+  InitHelloWorldPart1;
+  Result := X3D0;
 end;
 
 begin

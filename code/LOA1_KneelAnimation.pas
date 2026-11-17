@@ -2,103 +2,118 @@ unit LOA1_KneelAnimation;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateLOA1_KneelAnimation: TX3DRootNode;
 
 implementation
 
-uses CastleVectors;
+uses Classes, SysUtils, X3DLoad, CastleVectors;
 
-function CreateLOA1_KneelAnimation: TX3DRootNode;
+function CreateEmptyPrototype(const AName: String): TX3DPrototype;
 var
-X3D0: TX3DRootNode;
-Group17: TGroupNode;
-WorldInfo18: TWorldInfoNode;
-X3DPrototype19: TX3DPrototype;
-X3DInterfaceDeclaration20: TX3DInterfaceDeclaration;
-X3DField21: TX3DField;
-X3DField22: TX3DField;
-X3DField23: TX3DField;
-X3DField24: TX3DField;
-X3DField25: TX3DField;
-X3DField26: TX3DField;
-X3DField27: TX3DField;
-X3DField28: TX3DField;
-X3DField29: TX3DField;
-X3DField30: TX3DField;
-X3DField31: TX3DField;
-X3DField32: TX3DField;
-X3DField33: TX3DField;
-X3DField34: TX3DField;
-X3DField35: TX3DField;
-X3DField36: TX3DField;
-X3DField37: TX3DField;
-X3DField38: TX3DField;
-X3DField39: TX3DField;
-X3DField40: TX3DField;
-X3DField41: TX3DField;
-X3DField42: TX3DField;
-X3DField43: TX3DField;
-X3DField44: TX3DField;
-X3DField45: TX3DField;
-X3DField46: TX3DField;
-X3DPrototype47: TX3DPrototype;
-Group48: TGroupNode;
-TimeSensor49: TTimeSensorNode;
-IS50: TIS;
-connect51: Tconnect;
-connect52: Tconnect;
-connect53: Tconnect;
-connect54: Tconnect;
-connect55: Tconnect;
-connect56: Tconnect;
-connect57: Tconnect;
-PositionInterpolator58: TPositionInterpolatorNode;
-IS59: TIS;
-connect60: Tconnect;
-OrientationInterpolator61: TOrientationInterpolatorNode;
-IS62: TIS;
-connect63: Tconnect;
-OrientationInterpolator64: TOrientationInterpolatorNode;
-IS65: TIS;
-connect66: Tconnect;
-OrientationInterpolator67: TOrientationInterpolatorNode;
-IS68: TIS;
-connect69: Tconnect;
-OrientationInterpolator70: TOrientationInterpolatorNode;
-IS71: TIS;
-connect72: Tconnect;
-OrientationInterpolator73: TOrientationInterpolatorNode;
-IS74: TIS;
-connect75: Tconnect;
-OrientationInterpolator76: TOrientationInterpolatorNode;
-IS77: TIS;
-connect78: Tconnect;
-OrientationInterpolator79: TOrientationInterpolatorNode;
-IS80: TIS;
-connect81: Tconnect;
-OrientationInterpolator82: TOrientationInterpolatorNode;
-IS83: TIS;
-connect84: Tconnect;
-OrientationInterpolator85: TOrientationInterpolatorNode;
-IS86: TIS;
-connect87: Tconnect;
-OrientationInterpolator88: TOrientationInterpolatorNode;
-IS89: TIS;
-connect90: Tconnect;
-OrientationInterpolator91: TOrientationInterpolatorNode;
-IS92: TIS;
-connect93: Tconnect;
-OrientationInterpolator94: TOrientationInterpolatorNode;
-IS95: TIS;
-connect96: Tconnect;
-Anchor110: TAnchorNode;
-Shape111: TShapeNode;
-Text112: TTextNode;
-FontStyle113: TFontStyleNode;
-Appearance114: TAppearanceNode;
-Material115: TMaterialNode;
+  Stream: TStringStream;
+  TempRoot: TX3DRootNode;
+  CopyState: TX3DNodeDeepCopyState;
+begin
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  try
+    TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
+    try
+      CopyState := TX3DNodeDeepCopyState.Create;
+      try
+        Result := TempRoot.Prototypes[0].DeepCopy(CopyState) as TX3DPrototype;
+      finally
+        FreeAndNil(CopyState);
+      end;
+    finally
+      FreeAndNil(TempRoot);
+    end;
+  finally
+    FreeAndNil(Stream);
+  end;
+end;
+
+var
+  X3D0: TX3DRootNode;
+  Group17: TGroupNode;
+  WorldInfo18: TWorldInfoNode;
+  ProtoDeclare19: TX3DPrototype;
+  FieldDecl21: TX3DInterfaceDeclaration;
+  FieldVal21: TSFTime;
+  FieldDecl22: TX3DInterfaceDeclaration;
+  FieldVal22: TSFBool;
+  FieldDecl23: TX3DInterfaceDeclaration;
+  FieldVal23: TSFBool;
+  FieldDecl24: TX3DInterfaceDeclaration;
+  FieldVal24: TSFTime;
+  FieldDecl25: TX3DInterfaceDeclaration;
+  FieldVal25: TSFTime;
+  FieldDecl26: TX3DInterfaceDeclaration;
+  FieldVal26: TX3DEvent;
+  FieldDecl27: TX3DInterfaceDeclaration;
+  FieldVal27: TX3DEvent;
+  FieldDecl28: TX3DInterfaceDeclaration;
+  FieldVal28: TX3DEvent;
+  FieldDecl29: TX3DInterfaceDeclaration;
+  FieldVal29: TX3DEvent;
+  FieldDecl30: TX3DInterfaceDeclaration;
+  FieldVal30: TX3DEvent;
+  FieldDecl31: TX3DInterfaceDeclaration;
+  FieldVal31: TX3DEvent;
+  FieldDecl32: TX3DInterfaceDeclaration;
+  FieldVal32: TX3DEvent;
+  FieldDecl33: TX3DInterfaceDeclaration;
+  FieldVal33: TX3DEvent;
+  FieldDecl34: TX3DInterfaceDeclaration;
+  FieldVal34: TX3DEvent;
+  FieldDecl35: TX3DInterfaceDeclaration;
+  FieldVal35: TX3DEvent;
+  FieldDecl36: TX3DInterfaceDeclaration;
+  FieldVal36: TX3DEvent;
+  FieldDecl37: TX3DInterfaceDeclaration;
+  FieldVal37: TX3DEvent;
+  FieldDecl38: TX3DInterfaceDeclaration;
+  FieldVal38: TX3DEvent;
+  FieldDecl39: TX3DInterfaceDeclaration;
+  FieldVal39: TX3DEvent;
+  FieldDecl40: TX3DInterfaceDeclaration;
+  FieldVal40: TX3DEvent;
+  FieldDecl41: TX3DInterfaceDeclaration;
+  FieldVal41: TX3DEvent;
+  FieldDecl42: TX3DInterfaceDeclaration;
+  FieldVal42: TX3DEvent;
+  FieldDecl43: TX3DInterfaceDeclaration;
+  FieldVal43: TX3DEvent;
+  FieldDecl44: TX3DInterfaceDeclaration;
+  FieldVal44: TX3DEvent;
+  FieldDecl45: TX3DInterfaceDeclaration;
+  FieldVal45: TX3DEvent;
+  FieldDecl46: TX3DInterfaceDeclaration;
+  FieldVal46: TX3DEvent;
+  Group48: TGroupNode;
+  TimeSensor49: TTimeSensorNode;
+  PositionInterpolator50: TPositionInterpolatorNode;
+  OrientationInterpolator51: TOrientationInterpolatorNode;
+  OrientationInterpolator52: TOrientationInterpolatorNode;
+  OrientationInterpolator53: TOrientationInterpolatorNode;
+  OrientationInterpolator54: TOrientationInterpolatorNode;
+  OrientationInterpolator55: TOrientationInterpolatorNode;
+  OrientationInterpolator56: TOrientationInterpolatorNode;
+  OrientationInterpolator57: TOrientationInterpolatorNode;
+  OrientationInterpolator58: TOrientationInterpolatorNode;
+  OrientationInterpolator59: TOrientationInterpolatorNode;
+  OrientationInterpolator60: TOrientationInterpolatorNode;
+  OrientationInterpolator61: TOrientationInterpolatorNode;
+  OrientationInterpolator62: TOrientationInterpolatorNode;
+  Anchor76: TAnchorNode;
+  Shape77: TShapeNode;
+  Text78: TTextNode;
+  FontStyle79: TFontStyleNode;
+  Appearance80: TAppearanceNode;
+  Material81: TMaterialNode;
+
+procedure InitLOA1_KneelAnimationPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -122,453 +137,324 @@ X3D0.Meta['license'] := '../license.html';
 Group17 := TGroupNode.Create;
 WorldInfo18 := TWorldInfoNode.Create;
 WorldInfo18.Title := 'LOA1_KneelAnimation.x3d';
-{ .AddChildren }
-Group17.AddChildren([WorldInfo18]);
-X3DPrototype19 := TX3DPrototype.Create;
-X3DPrototype19.NameField := 'LOA1_KneelAnimation';
-X3DInterfaceDeclaration20 := TX3DInterfaceDeclaration.Create(nil);
-X3DField21 := TX3DField.Create;
-X3DField21.NameField := 'cycleInterval';
-X3DField21.AccessType := 'inputOutput';
-X3DField21.Type := 'SFTime';
-X3DField21.Value := '2';
-{ .SetX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField21;
-X3DField22 := TX3DField.Create;
-X3DField22.NameField := 'enabled';
-X3DField22.AccessType := 'inputOutput';
-X3DField22.Type := 'SFBool';
-X3DField22.Value := 'true';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField22;
-X3DField23 := TX3DField.Create;
-X3DField23.NameField := 'loop';
-X3DField23.AccessType := 'inputOutput';
-X3DField23.Type := 'SFBool';
-X3DField23.Value := 'false';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField23;
-X3DField24 := TX3DField.Create;
-X3DField24.NameField := 'startTime';
-X3DField24.AccessType := 'inputOutput';
-X3DField24.Type := 'SFTime';
-X3DField24.Value := '0';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField24;
-X3DField25 := TX3DField.Create;
-X3DField25.NameField := 'stopTime';
-X3DField25.AccessType := 'inputOutput';
-X3DField25.Type := 'SFTime';
-X3DField25.Value := '-1';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField25;
-X3DField26 := TX3DField.Create;
-X3DField26.NameField := 'fraction_changed';
-X3DField26.AccessType := 'outputOnly';
-X3DField26.Type := 'SFFloat';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField26;
-X3DField27 := TX3DField.Create;
-X3DField27.NameField := 'isActive';
-X3DField27.AccessType := 'outputOnly';
-X3DField27.Type := 'SFBool';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField27;
-X3DField28 := TX3DField.Create;
-X3DField28.NameField := 'HumanoidRoot_translation_changed';
-X3DField28.AccessType := 'outputOnly';
-X3DField28.Type := 'SFVec3f';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField28;
-X3DField29 := TX3DField.Create;
-X3DField29.NameField := 'HumanoidRoot_rotation_changed';
-X3DField29.AccessType := 'outputOnly';
-X3DField29.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField29;
-X3DField30 := TX3DField.Create;
-X3DField30.NameField := 'lower_body_rotation_changed';
-X3DField30.AccessType := 'outputOnly';
-X3DField30.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField30;
-X3DField31 := TX3DField.Create;
-X3DField31.NameField := 'l_hip_rotation_changed';
-X3DField31.AccessType := 'outputOnly';
-X3DField31.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField31;
-X3DField32 := TX3DField.Create;
-X3DField32.NameField := 'l_knee_rotation_changed';
-X3DField32.AccessType := 'outputOnly';
-X3DField32.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField32;
-X3DField33 := TX3DField.Create;
-X3DField33.NameField := 'l_ankle_rotation_changed';
-X3DField33.AccessType := 'outputOnly';
-X3DField33.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField33;
-X3DField34 := TX3DField.Create;
-X3DField34.NameField := 'l_midtarsal_rotation_changed';
-X3DField34.AccessType := 'outputOnly';
-X3DField34.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField34;
-X3DField35 := TX3DField.Create;
-X3DField35.NameField := 'r_hip_rotation_changed';
-X3DField35.AccessType := 'outputOnly';
-X3DField35.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField35;
-X3DField36 := TX3DField.Create;
-X3DField36.NameField := 'r_knee_rotation_changed';
-X3DField36.AccessType := 'outputOnly';
-X3DField36.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField36;
-X3DField37 := TX3DField.Create;
-X3DField37.NameField := 'r_ankle_rotation_changed';
-X3DField37.AccessType := 'outputOnly';
-X3DField37.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField37;
-X3DField38 := TX3DField.Create;
-X3DField38.NameField := 'r_midtarsal_rotation_changed';
-X3DField38.AccessType := 'outputOnly';
-X3DField38.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField38;
-X3DField39 := TX3DField.Create;
-X3DField39.NameField := 'vl5_rotation_changed';
-X3DField39.AccessType := 'outputOnly';
-X3DField39.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField39;
-X3DField40 := TX3DField.Create;
-X3DField40.NameField := 'skullbase_rotation_changed';
-X3DField40.AccessType := 'outputOnly';
-X3DField40.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField40;
-X3DField41 := TX3DField.Create;
-X3DField41.NameField := 'l_shoulder_rotation_changed';
-X3DField41.AccessType := 'outputOnly';
-X3DField41.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField41;
-X3DField42 := TX3DField.Create;
-X3DField42.NameField := 'l_elbow_rotation_changed';
-X3DField42.AccessType := 'outputOnly';
-X3DField42.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField42;
-X3DField43 := TX3DField.Create;
-X3DField43.NameField := 'l_wrist_rotation_changed';
-X3DField43.AccessType := 'outputOnly';
-X3DField43.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField43;
-X3DField44 := TX3DField.Create;
-X3DField44.NameField := 'r_shoulder_rotation_changed';
-X3DField44.AccessType := 'outputOnly';
-X3DField44.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField44;
-X3DField45 := TX3DField.Create;
-X3DField45.NameField := 'r_elbow_rotation_changed';
-X3DField45.AccessType := 'outputOnly';
-X3DField45.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField45;
-X3DField46 := TX3DField.Create;
-X3DField46.NameField := 'r_wrist_rotation_changed';
-X3DField46.AccessType := 'outputOnly';
-X3DField46.Type := 'SFRotation';
-{ .AddX3DField }
-X3DInterfaceDeclaration20.X3DField := X3DField46;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype19.X3DInterfaceDeclaration := X3DInterfaceDeclaration20;
-X3DPrototype47 := TX3DPrototype.Create;
+Group17.FdChildren.Add(WorldInfo18);
+ProtoDeclare19 := CreateEmptyPrototype('LOA1_KneelAnimation');
+ProtoDeclare19.X3DName := 'LOA1_KneelAnimation';
+FieldVal21 := TSFTime.Create(nil, True, 'cycleInterval', 2);
+FieldDecl21 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl21.FieldOrEvent := FieldVal21;
+FieldVal21.ParentInterfaceDeclaration := FieldDecl21;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl21);
+FieldVal22 := TSFBool.Create(nil, True, 'enabled', True);
+FieldDecl22 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl22.FieldOrEvent := FieldVal22;
+FieldVal22.ParentInterfaceDeclaration := FieldDecl22;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl22);
+FieldVal23 := TSFBool.Create(nil, True, 'loop', False);
+FieldDecl23 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl23.FieldOrEvent := FieldVal23;
+FieldVal23.ParentInterfaceDeclaration := FieldDecl23;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl23);
+end;
+
+procedure InitLOA1_KneelAnimationPart1;
+begin
+FieldVal24 := TSFTime.Create(nil, True, 'startTime', 0);
+FieldDecl24 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl24.FieldOrEvent := FieldVal24;
+FieldVal24.ParentInterfaceDeclaration := FieldDecl24;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl24);
+FieldVal25 := TSFTime.Create(nil, True, 'stopTime', -1);
+FieldDecl25 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl25.FieldOrEvent := FieldVal25;
+FieldVal25.ParentInterfaceDeclaration := FieldDecl25;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl25);
+FieldVal26 := TSFFloat.CreateEvent(nil, 'fraction_changed', False);
+FieldDecl26 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl26.FieldOrEvent := FieldVal26;
+FieldVal26.ParentInterfaceDeclaration := FieldDecl26;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl26);
+FieldVal27 := TSFBool.CreateEvent(nil, 'isActive', False);
+FieldDecl27 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl27.FieldOrEvent := FieldVal27;
+FieldVal27.ParentInterfaceDeclaration := FieldDecl27;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl27);
+FieldVal28 := TSFVec3f.CreateEvent(nil, 'HumanoidRoot_translation_changed', False);
+FieldDecl28 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl28.FieldOrEvent := FieldVal28;
+FieldVal28.ParentInterfaceDeclaration := FieldDecl28;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl28);
+FieldVal29 := TSFRotation.CreateEvent(nil, 'HumanoidRoot_rotation_changed', False);
+FieldDecl29 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl29.FieldOrEvent := FieldVal29;
+FieldVal29.ParentInterfaceDeclaration := FieldDecl29;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl29);
+FieldVal30 := TSFRotation.CreateEvent(nil, 'lower_body_rotation_changed', False);
+FieldDecl30 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl30.FieldOrEvent := FieldVal30;
+FieldVal30.ParentInterfaceDeclaration := FieldDecl30;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl30);
+FieldVal31 := TSFRotation.CreateEvent(nil, 'l_hip_rotation_changed', False);
+FieldDecl31 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl31.FieldOrEvent := FieldVal31;
+FieldVal31.ParentInterfaceDeclaration := FieldDecl31;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl31);
+end;
+
+procedure InitLOA1_KneelAnimationPart2;
+begin
+FieldVal32 := TSFRotation.CreateEvent(nil, 'l_knee_rotation_changed', False);
+FieldDecl32 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl32.FieldOrEvent := FieldVal32;
+FieldVal32.ParentInterfaceDeclaration := FieldDecl32;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl32);
+FieldVal33 := TSFRotation.CreateEvent(nil, 'l_ankle_rotation_changed', False);
+FieldDecl33 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl33.FieldOrEvent := FieldVal33;
+FieldVal33.ParentInterfaceDeclaration := FieldDecl33;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl33);
+FieldVal34 := TSFRotation.CreateEvent(nil, 'l_midtarsal_rotation_changed', False);
+FieldDecl34 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl34.FieldOrEvent := FieldVal34;
+FieldVal34.ParentInterfaceDeclaration := FieldDecl34;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl34);
+FieldVal35 := TSFRotation.CreateEvent(nil, 'r_hip_rotation_changed', False);
+FieldDecl35 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl35.FieldOrEvent := FieldVal35;
+FieldVal35.ParentInterfaceDeclaration := FieldDecl35;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl35);
+FieldVal36 := TSFRotation.CreateEvent(nil, 'r_knee_rotation_changed', False);
+FieldDecl36 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl36.FieldOrEvent := FieldVal36;
+FieldVal36.ParentInterfaceDeclaration := FieldDecl36;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl36);
+FieldVal37 := TSFRotation.CreateEvent(nil, 'r_ankle_rotation_changed', False);
+FieldDecl37 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl37.FieldOrEvent := FieldVal37;
+FieldVal37.ParentInterfaceDeclaration := FieldDecl37;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl37);
+FieldVal38 := TSFRotation.CreateEvent(nil, 'r_midtarsal_rotation_changed', False);
+FieldDecl38 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl38.FieldOrEvent := FieldVal38;
+FieldVal38.ParentInterfaceDeclaration := FieldDecl38;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl38);
+FieldVal39 := TSFRotation.CreateEvent(nil, 'vl5_rotation_changed', False);
+FieldDecl39 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl39.FieldOrEvent := FieldVal39;
+FieldVal39.ParentInterfaceDeclaration := FieldDecl39;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl39);
+end;
+
+procedure InitLOA1_KneelAnimationPart3;
+begin
+FieldVal40 := TSFRotation.CreateEvent(nil, 'skullbase_rotation_changed', False);
+FieldDecl40 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl40.FieldOrEvent := FieldVal40;
+FieldVal40.ParentInterfaceDeclaration := FieldDecl40;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl40);
+FieldVal41 := TSFRotation.CreateEvent(nil, 'l_shoulder_rotation_changed', False);
+FieldDecl41 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl41.FieldOrEvent := FieldVal41;
+FieldVal41.ParentInterfaceDeclaration := FieldDecl41;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl41);
+FieldVal42 := TSFRotation.CreateEvent(nil, 'l_elbow_rotation_changed', False);
+FieldDecl42 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl42.FieldOrEvent := FieldVal42;
+FieldVal42.ParentInterfaceDeclaration := FieldDecl42;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl42);
+FieldVal43 := TSFRotation.CreateEvent(nil, 'l_wrist_rotation_changed', False);
+FieldDecl43 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl43.FieldOrEvent := FieldVal43;
+FieldVal43.ParentInterfaceDeclaration := FieldDecl43;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl43);
+FieldVal44 := TSFRotation.CreateEvent(nil, 'r_shoulder_rotation_changed', False);
+FieldDecl44 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl44.FieldOrEvent := FieldVal44;
+FieldVal44.ParentInterfaceDeclaration := FieldDecl44;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl44);
+FieldVal45 := TSFRotation.CreateEvent(nil, 'r_elbow_rotation_changed', False);
+FieldDecl45 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl45.FieldOrEvent := FieldVal45;
+FieldVal45.ParentInterfaceDeclaration := FieldDecl45;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl45);
+FieldVal46 := TSFRotation.CreateEvent(nil, 'r_wrist_rotation_changed', False);
+FieldDecl46 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl46.FieldOrEvent := FieldVal46;
+FieldVal46.ParentInterfaceDeclaration := FieldDecl46;
+ProtoDeclare19.InterfaceDeclarations.Add(FieldDecl46);
 Group48 := TGroupNode.Create;
 TimeSensor49 := TTimeSensorNode.Create;
-IS50 := TIS.Create;
-connect51 := Tconnect.Create;
-connect51.NodeField := 'cycleInterval';
-connect51.ProtoField := 'cycleInterval';
-{ .AddConnect }
-IS50.Connect := connect51;
-connect52 := Tconnect.Create;
-connect52.NodeField := 'enabled';
-connect52.ProtoField := 'enabled';
-{ .AddConnect }
-IS50.Connect := connect52;
-connect53 := Tconnect.Create;
-connect53.NodeField := 'loop';
-connect53.ProtoField := 'loop';
-{ .AddConnect }
-IS50.Connect := connect53;
-connect54 := Tconnect.Create;
-connect54.NodeField := 'startTime';
-connect54.ProtoField := 'startTime';
-{ .AddConnect }
-IS50.Connect := connect54;
-connect55 := Tconnect.Create;
-connect55.NodeField := 'stopTime';
-connect55.ProtoField := 'stopTime';
-{ .AddConnect }
-IS50.Connect := connect55;
-connect56 := Tconnect.Create;
-connect56.NodeField := 'fraction_changed';
-connect56.ProtoField := 'fraction_changed';
-{ .AddConnect }
-IS50.Connect := connect56;
-connect57 := Tconnect.Create;
-connect57.NodeField := 'isActive';
-connect57.ProtoField := 'isActive';
-{ .AddConnect }
-IS50.Connect := connect57;
-{ .SetIS }
-TimeSensor49.IS := IS50;
-{ .AddChildren }
-Group48.AddChildren([TimeSensor49]);
-PositionInterpolator58 := TPositionInterpolatorNode.Create;
-PositionInterpolator58.SetKey([0,0.3125,0.625,1]);
-PositionInterpolator58.SetKeyValue([Vector3(0,0,0),Vector3(0,-0.049999,0),Vector3(0,-0.195,0),Vector3(0,-0.439997,0)]);
-IS59 := TIS.Create;
-connect60 := Tconnect.Create;
-connect60.NodeField := 'value_changed';
-connect60.ProtoField := 'HumanoidRoot_translation_changed';
-{ .AddConnect }
-IS59.Connect := connect60;
-{ .SetIS }
-PositionInterpolator58.IS := IS59;
-{ .AddChildren }
-Group48.AddChildren([PositionInterpolator58]);
-OrientationInterpolator61 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator61.SetKey([0,1]);
-OrientationInterpolator61.SetKeyValue([Vector4(0,1,0,0),Vector4(0,1,0,0)]);
-IS62 := TIS.Create;
-connect63 := Tconnect.Create;
-connect63.NodeField := 'value_changed';
-connect63.ProtoField := 'HumanoidRoot_rotation_changed';
-{ .AddConnect }
-IS62.Connect := connect63;
-{ .SetIS }
-OrientationInterpolator61.IS := IS62;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator61]);
+TimeSensor49.X3DName := 'TIMER';
+TimeSensor49.FieldOrEvent('cycleInterval', True).IsClauseNamesAdd('cycleInterval');
+TimeSensor49.FieldOrEvent('enabled', True).IsClauseNamesAdd('enabled');
+end;
+
+procedure InitLOA1_KneelAnimationPart4;
+begin
+TimeSensor49.FieldOrEvent('loop', True).IsClauseNamesAdd('loop');
+TimeSensor49.FieldOrEvent('startTime', True).IsClauseNamesAdd('startTime');
+TimeSensor49.FieldOrEvent('stopTime', True).IsClauseNamesAdd('stopTime');
+TimeSensor49.FieldOrEvent('fraction_changed', True).IsClauseNamesAdd('fraction_changed');
+TimeSensor49.FieldOrEvent('isActive', True).IsClauseNamesAdd('isActive');
+Group48.FdChildren.Add(TimeSensor49);
+PositionInterpolator50 := TPositionInterpolatorNode.Create;
+PositionInterpolator50.X3DName := 'HUMANOIDROOT_POSITION_ANIMATOR';
+PositionInterpolator50.SetKey([0, 0.3125, 0.625, 1]);
+PositionInterpolator50.SetKeyValue([Vector3(0, 0, 0), Vector3(0, -0.049999, 0), Vector3(0, -0.195, 0), Vector3(0, -0.439997, 0)]);
+PositionInterpolator50.FieldOrEvent('value_changed', True).IsClauseNamesAdd('HumanoidRoot_translation_changed');
+Group48.FdChildren.Add(PositionInterpolator50);
+OrientationInterpolator51 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator51.X3DName := 'HUMANOIDROOT_ANIMATOR';
+OrientationInterpolator51.SetKey([0, 1]);
+OrientationInterpolator51.SetKeyValue([Vector4(0, 1, 0, 0), Vector4(0, 1, 0, 0)]);
+OrientationInterpolator51.FieldOrEvent('value_changed', True).IsClauseNamesAdd('HumanoidRoot_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator51);
 { no SACROILIAC_ANIMATOR }
-OrientationInterpolator64 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator64.SetKey([0,0.3125,0.625,1]);
-OrientationInterpolator64.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.619393),Vector4(-1,0,0,1.069302),Vector4(-1,0,0,1.937315)]);
-IS65 := TIS.Create;
-connect66 := Tconnect.Create;
-connect66.NodeField := 'value_changed';
-connect66.ProtoField := 'l_hip_rotation_changed';
-{ .AddConnect }
-IS65.Connect := connect66;
-{ .SetIS }
-OrientationInterpolator64.IS := IS65;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator64]);
-OrientationInterpolator67 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator67.SetKey([0,0.3125,0.625,1]);
-OrientationInterpolator67.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.615228),Vector4(1,0,0,0.984524),Vector4(1,0,0,2.076941)]);
-IS68 := TIS.Create;
-connect69 := Tconnect.Create;
-connect69.NodeField := 'value_changed';
-connect69.ProtoField := 'l_knee_rotation_changed';
-{ .AddConnect }
-IS68.Connect := connect69;
-{ .SetIS }
-OrientationInterpolator67.IS := IS68;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator67]);
-OrientationInterpolator70 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator70.SetKey([0,0.3125,0.625,1]);
-OrientationInterpolator70.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.017453),Vector4(-1,0,0,0.069812),Vector4(1,0,0,0.261799)]);
-IS71 := TIS.Create;
-connect72 := Tconnect.Create;
-connect72.NodeField := 'value_changed';
-connect72.ProtoField := 'l_ankle_rotation_changed';
-{ .AddConnect }
-IS71.Connect := connect72;
-{ .SetIS }
-OrientationInterpolator70.IS := IS71;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator70]);
+OrientationInterpolator52 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator52.X3DName := 'L_HIP_ANIMATOR';
+OrientationInterpolator52.SetKey([0, 0.3125, 0.625, 1]);
+OrientationInterpolator52.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(-1, 0, 0, 0.619393), Vector4(-1, 0, 0, 1.069302), Vector4(-1, 0, 0, 1.937315)]);
+OrientationInterpolator52.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_hip_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator52);
+OrientationInterpolator53 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator53.X3DName := 'L_KNEE_ANIMATOR';
+OrientationInterpolator53.SetKey([0, 0.3125, 0.625, 1]);
+OrientationInterpolator53.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(1, 0, 0, 0.615228), Vector4(1, 0, 0, 0.984524), Vector4(1, 0, 0, 2.076941)]);
+OrientationInterpolator53.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_knee_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator53);
+OrientationInterpolator54 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator54.X3DName := 'L_ANKLE_ANIMATOR';
+OrientationInterpolator54.SetKey([0, 0.3125, 0.625, 1]);
+OrientationInterpolator54.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(-1, 0, 0, 0.017453), Vector4(-1, 0, 0, 0.069812), Vector4(1, 0, 0, 0.261799)]);
+OrientationInterpolator54.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_ankle_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator54);
 { no L_MIDTARSAL_ANIMATOR }
-OrientationInterpolator73 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator73.SetKey([0,0.3125,1]);
-OrientationInterpolator73.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.523598),Vector4(-1,0,0,0.157079)]);
-IS74 := TIS.Create;
-connect75 := Tconnect.Create;
-connect75.NodeField := 'value_changed';
-connect75.ProtoField := 'r_hip_rotation_changed';
-{ .AddConnect }
-IS74.Connect := connect75;
-{ .SetIS }
-OrientationInterpolator73.IS := IS74;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator73]);
-OrientationInterpolator76 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator76.SetKey([0,0.3125,0.625,1]);
-OrientationInterpolator76.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.349065),Vector4(1,0,0,1.023397),Vector4(0.999934,0.008043,0.008185,1.727938)]);
-IS77 := TIS.Create;
-connect78 := Tconnect.Create;
-connect78.NodeField := 'value_changed';
-connect78.ProtoField := 'r_knee_rotation_changed';
-{ .AddConnect }
-IS77.Connect := connect78;
-{ .SetIS }
-OrientationInterpolator76.IS := IS77;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator76]);
-OrientationInterpolator79 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator79.SetKey([0,0.3125,0.625,1]);
-OrientationInterpolator79.SetKeyValue([Vector4(1,0,0,0),Vector4(-0.991692,-0.072372,0.106338,0.205053),Vector4(-0.981083,-0.103267,0.163741,0.272231),Vector4(-1,0,0,0.349065)]);
-IS80 := TIS.Create;
-connect81 := Tconnect.Create;
-connect81.NodeField := 'value_changed';
-connect81.ProtoField := 'r_ankle_rotation_changed';
-{ .AddConnect }
-IS80.Connect := connect81;
-{ .SetIS }
-OrientationInterpolator79.IS := IS80;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator79]);
+OrientationInterpolator55 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator55.X3DName := 'R_HIP_ANIMATOR';
+end;
+
+procedure InitLOA1_KneelAnimationPart5;
+begin
+OrientationInterpolator55.SetKey([0, 0.3125, 1]);
+OrientationInterpolator55.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(1, 0, 0, 0.523598), Vector4(-1, 0, 0, 0.157079)]);
+OrientationInterpolator55.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_hip_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator55);
+OrientationInterpolator56 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator56.X3DName := 'R_KNEE_ANIMATOR';
+OrientationInterpolator56.SetKey([0, 0.3125, 0.625, 1]);
+OrientationInterpolator56.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(1, 0, 0, 0.349065), Vector4(1, 0, 0, 1.023397), Vector4(0.999934, 0.008043, 0.008185, 1.727938)]);
+OrientationInterpolator56.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_knee_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator56);
+OrientationInterpolator57 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator57.X3DName := 'R_ANKLE_ANIMATOR';
+OrientationInterpolator57.SetKey([0, 0.3125, 0.625, 1]);
+OrientationInterpolator57.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(-0.991692, -0.072372, 0.106338, 0.205053), Vector4(-0.981083, -0.103267, 0.163741, 0.272231), Vector4(-1, 0, 0, 0.349065)]);
+OrientationInterpolator57.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_ankle_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator57);
 { no R_MIDTARSAL_ANIMATOR }
-OrientationInterpolator82 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator82.SetKey([0,1]);
-OrientationInterpolator82.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.174533)]);
-IS83 := TIS.Create;
-connect84 := Tconnect.Create;
-connect84.NodeField := 'value_changed';
-connect84.ProtoField := 'vl5_rotation_changed';
-{ .AddConnect }
-IS83.Connect := connect84;
-{ .SetIS }
-OrientationInterpolator82.IS := IS83;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator82]);
+OrientationInterpolator58 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator58.X3DName := 'VL5_ANIMATOR';
+OrientationInterpolator58.SetKey([0, 1]);
+OrientationInterpolator58.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(1, 0, 0, 0.174533)]);
+OrientationInterpolator58.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vl5_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator58);
 { no SKULLBASE_ANIMATOR }
-OrientationInterpolator85 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator85.SetKey([0,0.3125,0.625,1]);
-OrientationInterpolator85.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.279252),Vector4(-1,0,0,0.506145),Vector4(-1,0,0,0.191986)]);
-IS86 := TIS.Create;
-connect87 := Tconnect.Create;
-connect87.NodeField := 'value_changed';
-connect87.ProtoField := 'l_shoulder_rotation_changed';
-{ .AddConnect }
-IS86.Connect := connect87;
-{ .SetIS }
-OrientationInterpolator85.IS := IS86;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator85]);
-OrientationInterpolator88 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator88.SetKey([0,0.3125,0.625,1]);
-OrientationInterpolator88.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.052359),Vector4(-1,0,0,0.296706),Vector4(-1,0,0,1.431169)]);
-IS89 := TIS.Create;
-connect90 := Tconnect.Create;
-connect90.NodeField := 'value_changed';
-connect90.ProtoField := 'l_elbow_rotation_changed';
-{ .AddConnect }
-IS89.Connect := connect90;
-{ .SetIS }
-OrientationInterpolator88.IS := IS89;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator88]);
+OrientationInterpolator59 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator59.X3DName := 'L_SHOULDER_ANIMATOR';
+OrientationInterpolator59.SetKey([0, 0.3125, 0.625, 1]);
+OrientationInterpolator59.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(-1, 0, 0, 0.279252), Vector4(-1, 0, 0, 0.506145), Vector4(-1, 0, 0, 0.191986)]);
+OrientationInterpolator59.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_shoulder_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator59);
+OrientationInterpolator60 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator60.X3DName := 'L_ELBOW_ANIMATOR';
+OrientationInterpolator60.SetKey([0, 0.3125, 0.625, 1]);
+OrientationInterpolator60.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(-1, 0, 0, 0.052359), Vector4(-1, 0, 0, 0.296706), Vector4(-1, 0, 0, 1.431169)]);
+OrientationInterpolator60.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_elbow_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator60);
 { no L_WRIST_ANIMATOR }
-OrientationInterpolator91 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator91.SetKey([0,0.3125,0.625,1]);
-OrientationInterpolator91.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.104719),Vector4(-1,0,0,0.157079),Vector4(1,0,0,0.314159)]);
-IS92 := TIS.Create;
-connect93 := Tconnect.Create;
-connect93.NodeField := 'value_changed';
-connect93.ProtoField := 'r_shoulder_rotation_changed';
-{ .AddConnect }
-IS92.Connect := connect93;
-{ .SetIS }
-OrientationInterpolator91.IS := IS92;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator91]);
-OrientationInterpolator94 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator94.SetKey([0,0.3125,0.625,1]);
-OrientationInterpolator94.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.837757),Vector4(-1,0,0,1.239183),Vector4(-1,0,0,1.500983)]);
-IS95 := TIS.Create;
-connect96 := Tconnect.Create;
-connect96.NodeField := 'value_changed';
-connect96.ProtoField := 'r_elbow_rotation_changed';
-{ .AddConnect }
-IS95.Connect := connect96;
-{ .SetIS }
-OrientationInterpolator94.IS := IS95;
-{ .AddChildren }
-Group48.AddChildren([OrientationInterpolator94]);
+OrientationInterpolator61 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator61.X3DName := 'R_SHOULDER_ANIMATOR';
+OrientationInterpolator61.SetKey([0, 0.3125, 0.625, 1]);
+end;
+
+procedure InitLOA1_KneelAnimationPart6;
+begin
+OrientationInterpolator61.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(-1, 0, 0, 0.104719), Vector4(-1, 0, 0, 0.157079), Vector4(1, 0, 0, 0.314159)]);
+OrientationInterpolator61.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_shoulder_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator61);
+OrientationInterpolator62 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator62.X3DName := 'R_ELBOW_ANIMATOR';
+OrientationInterpolator62.SetKey([0, 0.3125, 0.625, 1]);
+OrientationInterpolator62.SetKeyValue([Vector4(1, 0, 0, 0), Vector4(-1, 0, 0, 0.837757), Vector4(-1, 0, 0, 1.239183), Vector4(-1, 0, 0, 1.500983)]);
+OrientationInterpolator62.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_elbow_rotation_changed');
+Group48.FdChildren.Add(OrientationInterpolator62);
 { no R_WRIST_ANIMATOR }
-{ .SetGroup }
-X3DPrototype47.Group := Group48;
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, PositionInterpolator58.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator61.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator64.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator67.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator70.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator73.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator76.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator79.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator82.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator85.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator88.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator91.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator94.EventSet_fraction);
-{ .AddX3DRoute }
-{ .AddX3DPrototype }
-X3DPrototype19.X3DPrototype := X3DPrototype47;
-{ .AddX3DPrototype }
-Group17.X3DPrototype := X3DPrototype19;
-Anchor110 := TAnchorNode.Create;
-Anchor110.Description := 'InterchangableActorsViaDynamicRouting';
-Anchor110.SetParameter(['target=_blank']);
-Anchor110.SetUrl(['InterchangableActorsViaDynamicRouting.x3d','https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.x3d','InterchangableActorsViaDynamicRouting.wrl','https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.wrl']);
-Shape111 := TShapeNode.Create;
-Text112 := TTextNode.Create;
-Text112.SetText(['LOA1_KneelAnimation.x3d','defines a prototype','for animating a humanoid.','Click this text to see','InterchangableActorsViaDynamicRouting example.']);
-FontStyle113 := TFontStyleNode.Create;
-FontStyle113.Justify := fjMiddle;
-FontStyle113.JustifyMinor := fjMiddle;
-FontStyle113.Size := 0.8;
-{ .SetFontStyle }
-Text112.FontStyle := FontStyle113;
-{ .SetGeometry }
-Shape111.Geometry := Text112;
-Appearance114 := TAppearanceNode.Create;
-Material115 := TMaterialNode.Create;
-Material115.DiffuseColor := Vector3(1,1,0.2);
-{ .SetMaterial }
-Appearance114.Material := Material115;
-{ .SetAppearance }
-Shape111.Appearance := Appearance114;
-{ .AddChildren }
-Anchor110.AddChildren([Shape111]);
-{ .AddChildren }
-Group17.AddChildren([Anchor110]);
-{ .AddGroup }
+ProtoDeclare19.Node.AddChildren([Group48]);
+{ ROUTE TIMER.fraction_changed TO HUMANOIDROOT_POSITION_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, PositionInterpolator50.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO HUMANOIDROOT_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator51.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO L_HIP_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator52.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO L_KNEE_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator53.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO L_ANKLE_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator54.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO R_HIP_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator55.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO R_KNEE_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator56.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO R_ANKLE_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator57.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO VL5_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator58.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO L_SHOULDER_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator59.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO L_ELBOW_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator60.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO R_SHOULDER_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator61.EventSet_fraction);
+{ ROUTE TIMER.fraction_changed TO R_ELBOW_ANIMATOR.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator62.EventSet_fraction);
+X3D0.AddPrototype(ProtoDeclare19);
+Anchor76 := TAnchorNode.Create;
+Anchor76.Description := 'InterchangableActorsViaDynamicRouting';
+end;
+
+procedure InitLOA1_KneelAnimationPart7;
+begin
+Anchor76.SetParameter(['target=_blank']);
+Anchor76.SetUrl(['InterchangableActorsViaDynamicRouting.x3d', 'https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.x3d', 'InterchangableActorsViaDynamicRouting.wrl', 'https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Prototypes/InterchangableActorsViaDynamicRouting.wrl']);
+Shape77 := TShapeNode.Create;
+Text78 := TTextNode.Create;
+Text78.SetText(['LOA1_KneelAnimation.x3d', 'defines a prototype', 'for animating a humanoid.', 'Click this text to see', 'InterchangableActorsViaDynamicRouting example.']);
+FontStyle79 := TFontStyleNode.Create;
+FontStyle79.Justify := fjMiddle;
+FontStyle79.JustifyMinor := fjMiddle;
+FontStyle79.Size := 0.8;
+Text78.FontStyle := FontStyle79;
+Shape77.Geometry := Text78;
+Appearance80 := TAppearanceNode.Create;
+Material81 := TMaterialNode.Create;
+Material81.DiffuseColor := Vector3(1, 1, 0.2);
+Appearance80.Material := Material81;
+Shape77.Appearance := Appearance80;
+Anchor76.FdChildren.Add(Shape77);
+Group17.FdChildren.Add(Anchor76);
 X3D0.AddChildren([Group17]);
-Result := X3D0;
+end;
+
+function CreateLOA1_KneelAnimation: TX3DRootNode;
+begin
+  InitLOA1_KneelAnimationPart0;
+  InitLOA1_KneelAnimationPart1;
+  InitLOA1_KneelAnimationPart2;
+  InitLOA1_KneelAnimationPart3;
+  InitLOA1_KneelAnimationPart4;
+  InitLOA1_KneelAnimationPart5;
+  InitLOA1_KneelAnimationPart6;
+  InitLOA1_KneelAnimationPart7;
+  Result := X3D0;
 end;
 
 begin

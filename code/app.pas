@@ -2,7 +2,7 @@ unit app;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Createapp: TX3DRootNode;
 
@@ -10,16 +10,17 @@ implementation
 
 uses CastleVectors;
 
-function Createapp: TX3DRootNode;
 var
-X3D0: TX3DRootNode;
-Group6: TGroupNode;
-Group7: TGroupNode;
-Shape8: TShapeNode;
-Appearance9: TAppearanceNode;
-Material10: TMaterialNode;
-Box11: TBoxNode;
-Transform12: TTransformNode;
+  X3D0: TX3DRootNode;
+  Group6: TGroupNode;
+  Group7: TGroupNode;
+  Shape8: TShapeNode;
+  Appearance9: TAppearanceNode;
+  Material10: TMaterialNode;
+  Box11: TBoxNode;
+  Transform12: TTransformNode;
+
+procedure InitappPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -34,27 +35,25 @@ Group7 := TGroupNode.Create;
 Shape8 := TShapeNode.Create;
 Appearance9 := TAppearanceNode.Create;
 Material10 := TMaterialNode.Create;
-Material10.DiffuseColor := Vector3(1,0,0);
-{ .SetMaterial }
+Material10.DiffuseColor := Vector3(1, 0, 0);
 Appearance9.Material := Material10;
-{ .SetAppearance }
 Shape8.Appearance := Appearance9;
 Box11 := TBoxNode.Create;
-{ .SetGeometry }
 Shape8.Geometry := Box11;
-{ .AddChildren }
-Group7.AddChildren([Shape8]);
-{ .AddChildren }
-Group6.AddChildren([Group7]);
+Group7.FdChildren.Add(Shape8);
+Group6.FdChildren.Add(Group7);
 Transform12 := TTransformNode.Create;
-Transform12.Rotation := Vector4(7,8,9,3.14);
-Transform12.Scale := Vector3(4,5,6);
-Transform12.Translation := Vector3(1,2,3);
-{ .AddChildren }
-Group6.AddChildren([Transform12]);
-{ .AddGroup }
+Transform12.Rotation := Vector4(7, 8, 9, 3.14);
+Transform12.Scale := Vector3(4, 5, 6);
+Transform12.Translation := Vector3(1, 2, 3);
+Group6.FdChildren.Add(Transform12);
 X3D0.AddChildren([Group6]);
-Result := X3D0;
+end;
+
+function Createapp: TX3DRootNode;
+begin
+  InitappPart0;
+  Result := X3D0;
 end;
 
 begin

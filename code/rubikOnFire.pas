@@ -2,101 +2,87 @@ unit rubikOnFire;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreaterubikOnFire: TX3DRootNode;
 
 implementation
 
-uses CastleVectors;
+uses Classes, SysUtils, X3DLoad, CastleVectors;
 
-function CreaterubikOnFire: TX3DRootNode;
+function CreateEmptyPrototype(const AName: String): TX3DPrototype;
 var
-X3D0: TX3DRootNode;
-Group7: TGroupNode;
-NavigationInfo8: TNavigationInfoNode;
-Viewpoint9: TViewpointNode;
-X3DPrototype10: TX3DPrototype;
-X3DInterfaceDeclaration11: TX3DInterfaceDeclaration;
-X3DField12: TX3DField;
-X3DField13: TX3DField;
-Sphere14: TSphereNode;
-X3DPrototype15: TX3DPrototype;
-Transform16: TTransformNode;
-IS17: TIS;
-connect18: Tconnect;
-Shape19: TShapeNode;
-IS20: TIS;
-connect21: Tconnect;
-Appearance22: TAppearanceNode;
-Material23: TMaterialNode;
-X3DPrototype24: TX3DPrototype;
-X3DInterfaceDeclaration25: TX3DInterfaceDeclaration;
-X3DField26: TX3DField;
-X3DField27: TX3DField;
-Sphere28: TSphereNode;
-X3DPrototype29: TX3DPrototype;
-Transform30: TTransformNode;
-IS31: TIS;
-connect32: Tconnect;
-X3DPrototype33: TX3DPrototypeNode;
-SFVec3f34: TSFVec3f;
-IS35: TIS;
-connect36: Tconnect;
-X3DPrototype37: TX3DPrototypeNode;
-SFVec3f38: TSFVec3f;
-IS39: TIS;
-connect40: Tconnect;
-X3DPrototype41: TX3DPrototypeNode;
-SFVec3f42: TSFVec3f;
-IS43: TIS;
-connect44: Tconnect;
-X3DPrototype45: TX3DPrototype;
-X3DInterfaceDeclaration46: TX3DInterfaceDeclaration;
-X3DField47: TX3DField;
-X3DField48: TX3DField;
-Sphere49: TSphereNode;
-X3DPrototype50: TX3DPrototype;
-Transform51: TTransformNode;
-IS52: TIS;
-connect53: Tconnect;
-X3DPrototype54: TX3DPrototypeNode;
-SFVec3f55: TSFVec3f;
-IS56: TIS;
-connect57: Tconnect;
-X3DPrototype58: TX3DPrototypeNode;
-SFVec3f59: TSFVec3f;
-IS60: TIS;
-connect61: Tconnect;
-X3DPrototype62: TX3DPrototypeNode;
-SFVec3f63: TSFVec3f;
-IS64: TIS;
-connect65: Tconnect;
-X3DPrototype66: TX3DPrototype;
-X3DInterfaceDeclaration67: TX3DInterfaceDeclaration;
-X3DField68: TX3DField;
-X3DField69: TX3DField;
-Sphere70: TSphereNode;
-X3DPrototype71: TX3DPrototype;
-Transform72: TTransformNode;
-IS73: TIS;
-connect74: Tconnect;
-X3DPrototype75: TX3DPrototypeNode;
-SFVec3f76: TSFVec3f;
-IS77: TIS;
-connect78: Tconnect;
-X3DPrototype79: TX3DPrototypeNode;
-SFVec3f80: TSFVec3f;
-IS81: TIS;
-connect82: Tconnect;
-X3DPrototype83: TX3DPrototypeNode;
-SFVec3f84: TSFVec3f;
-IS85: TIS;
-connect86: Tconnect;
-X3DPrototype87: TX3DPrototypeNode;
-SFVec3f88: TSFVec3f;
-SFNode89: TSFNode;
-Box90: TBoxNode;
+  Stream: TStringStream;
+  TempRoot: TX3DRootNode;
+  CopyState: TX3DNodeDeepCopyState;
+begin
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  try
+    TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
+    try
+      CopyState := TX3DNodeDeepCopyState.Create;
+      try
+        Result := TempRoot.Prototypes[0].DeepCopy(CopyState) as TX3DPrototype;
+      finally
+        FreeAndNil(CopyState);
+      end;
+    finally
+      FreeAndNil(TempRoot);
+    end;
+  finally
+    FreeAndNil(Stream);
+  end;
+end;
+
+var
+  X3D0: TX3DRootNode;
+  Group7: TGroupNode;
+  NavigationInfo8: TNavigationInfoNode;
+  Viewpoint9: TViewpointNode;
+  ProtoDeclare10: TX3DPrototype;
+  FieldDecl12: TX3DInterfaceDeclaration;
+  FieldVal12: TSFVec3f;
+  FieldDecl13: TX3DInterfaceDeclaration;
+  FieldVal13: TSFNode;
+  Sphere14: TSphereNode;
+  Transform16: TTransformNode;
+  Shape17: TShapeNode;
+  Appearance18: TAppearanceNode;
+  Material19: TMaterialNode;
+  ProtoDeclare20: TX3DPrototype;
+  FieldDecl22: TX3DInterfaceDeclaration;
+  FieldVal22: TSFVec3f;
+  FieldDecl23: TX3DInterfaceDeclaration;
+  FieldVal23: TSFNode;
+  Sphere24: TSphereNode;
+  Transform26: TTransformNode;
+  ProtoInstance27: TX3DPrototypeNode;
+  ProtoInstance29: TX3DPrototypeNode;
+  ProtoInstance31: TX3DPrototypeNode;
+  ProtoDeclare33: TX3DPrototype;
+  FieldDecl35: TX3DInterfaceDeclaration;
+  FieldVal35: TSFVec3f;
+  FieldDecl36: TX3DInterfaceDeclaration;
+  FieldVal36: TSFNode;
+  Sphere37: TSphereNode;
+  Transform39: TTransformNode;
+  ProtoInstance40: TX3DPrototypeNode;
+  ProtoInstance42: TX3DPrototypeNode;
+  ProtoInstance44: TX3DPrototypeNode;
+  ProtoDeclare46: TX3DPrototype;
+  FieldDecl48: TX3DInterfaceDeclaration;
+  FieldVal48: TSFVec3f;
+  FieldDecl49: TX3DInterfaceDeclaration;
+  FieldVal49: TSFNode;
+  Sphere50: TSphereNode;
+  Transform52: TTransformNode;
+  ProtoInstance53: TX3DPrototypeNode;
+  ProtoInstance55: TX3DPrototypeNode;
+  ProtoInstance57: TX3DPrototypeNode;
+  ProtoInstance59: TX3DPrototypeNode;
+  Box62: TBoxNode;
+
+procedure InitrubikOnFirePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -109,353 +95,156 @@ X3D0.Meta['identifier'] := 'https://coderextreme.net/X3DJSONLD/src/main/data/rub
 X3D0.Meta['description'] := 'a white rubik cube';
 Group7 := TGroupNode.Create;
 NavigationInfo8 := TNavigationInfoNode.Create;
-NavigationInfo8.SetType(['ANY','EXAMINE','WALK','FLY','LOOKAT']);
-{ .AddChildren }
-Group7.AddChildren([NavigationInfo8]);
+NavigationInfo8.SetType(['ANY', 'EXAMINE', 'WALK', 'FLY', 'LOOKAT']);
+Group7.FdChildren.Add(NavigationInfo8);
 Viewpoint9 := TViewpointNode.Create;
 Viewpoint9.Description := 'Rubiks Cube on Fire';
-Viewpoint9.Position := Vector3(0,0,12);
-{ .AddChildren }
-Group7.AddChildren([Viewpoint9]);
-X3DPrototype10 := TX3DPrototype.Create;
-X3DPrototype10.NameField := 'anyShape';
-X3DInterfaceDeclaration11 := TX3DInterfaceDeclaration.Create(nil);
-X3DField12 := TX3DField.Create;
-X3DField12.NameField := 'xtranslation';
-X3DField12.AccessType := 'inputOutput';
-X3DField12.Type := 'SFVec3f';
-X3DField12.Value := '0 0 0';
-{ .SetX3DField }
-X3DInterfaceDeclaration11.X3DField := X3DField12;
-X3DField13 := TX3DField.Create;
-X3DField13.NameField := 'myShape';
-X3DField13.AccessType := 'inputOutput';
-X3DField13.Type := 'SFNode';
+Viewpoint9.Position := Vector3(0, 0, 12);
+Group7.FdChildren.Add(Viewpoint9);
+ProtoDeclare10 := CreateEmptyPrototype('anyShape');
+ProtoDeclare10.X3DName := 'anyShape';
+FieldVal12 := TSFVec3f.Create(nil, True, 'xtranslation', Vector3(0, 0, 0));
+FieldDecl12 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl12.FieldOrEvent := FieldVal12;
+FieldVal12.ParentInterfaceDeclaration := FieldDecl12;
+ProtoDeclare10.InterfaceDeclarations.Add(FieldDecl12);
+FieldVal13 := TSFNode.CreateUndefined(nil, True, 'myShape');
+FieldDecl13 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl13.FieldOrEvent := FieldVal13;
+FieldVal13.ParentInterfaceDeclaration := FieldDecl13;
+ProtoDeclare10.InterfaceDeclarations.Add(FieldDecl13);
 Sphere14 := TSphereNode.Create;
-{ .SetSphere }
-X3DField13.Sphere := Sphere14;
-{ .AddX3DField }
-X3DInterfaceDeclaration11.X3DField := X3DField13;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype10.X3DInterfaceDeclaration := X3DInterfaceDeclaration11;
-X3DPrototype15 := TX3DPrototype.Create;
+FieldVal13.Value := Sphere14;
 Transform16 := TTransformNode.Create;
-IS17 := TIS.Create;
-connect18 := Tconnect.Create;
-connect18.NodeField := 'translation';
-connect18.ProtoField := 'xtranslation';
-{ .AddConnect }
-IS17.Connect := connect18;
-{ .SetIS }
-Transform16.IS := IS17;
-Shape19 := TShapeNode.Create;
-IS20 := TIS.Create;
-connect21 := Tconnect.Create;
-connect21.NodeField := 'geometry';
-connect21.ProtoField := 'myShape';
-{ .AddConnect }
-IS20.Connect := connect21;
-{ .SetIS }
-Shape19.IS := IS20;
-Appearance22 := TAppearanceNode.Create;
-Material23 := TMaterialNode.Create;
-Material23.DiffuseColor := Vector3(1,1,1);
-{ .SetMaterial }
-Appearance22.Material := Material23;
-{ .SetAppearance }
-Shape19.Appearance := Appearance22;
-{ .AddChild }
-Transform16.AddChildren([Shape19]);
-{ .SetTransform }
-X3DPrototype15.Transform := Transform16;
-{ .AddX3DPrototype }
-X3DPrototype10.X3DPrototype := X3DPrototype15;
-{ .AddX3DPrototype }
-Group7.X3DPrototype := X3DPrototype10;
-X3DPrototype24 := TX3DPrototype.Create;
-X3DPrototype24.NameField := 'three';
-X3DInterfaceDeclaration25 := TX3DInterfaceDeclaration.Create(nil);
-X3DField26 := TX3DField.Create;
-X3DField26.NameField := 'ytranslation';
-X3DField26.AccessType := 'inputOutput';
-X3DField26.Type := 'SFVec3f';
-X3DField26.Value := '0 0 0';
-{ .SetX3DField }
-X3DInterfaceDeclaration25.X3DField := X3DField26;
-X3DField27 := TX3DField.Create;
-X3DField27.NameField := 'myShape';
-X3DField27.AccessType := 'inputOutput';
-X3DField27.Type := 'SFNode';
-Sphere28 := TSphereNode.Create;
-{ .SetSphere }
-X3DField27.Sphere := Sphere28;
-{ .AddX3DField }
-X3DInterfaceDeclaration25.X3DField := X3DField27;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype24.X3DInterfaceDeclaration := X3DInterfaceDeclaration25;
-X3DPrototype29 := TX3DPrototype.Create;
-Transform30 := TTransformNode.Create;
-IS31 := TIS.Create;
-connect32 := Tconnect.Create;
-connect32.NodeField := 'translation';
-connect32.ProtoField := 'ytranslation';
-{ .AddConnect }
-IS31.Connect := connect32;
-{ .SetIS }
-Transform30.IS := IS31;
-X3DPrototype33 := TX3DPrototypeNode.Create;
-X3DPrototype33.NameField := 'anyShape';
-SFVec3f34 := TSFVec3f.Create(anyShape2, false, 'xtranslation', Vector3(0,0,0));
-SFVec3f34.NameField := 'xtranslation';
-SFVec3f34.Value := '0 0 0';
-{ .SetSFVec3f }
-X3DPrototype33.SFVec3f := SFVec3f34;
-IS35 := TIS.Create;
-connect36 := Tconnect.Create;
-connect36.NodeField := 'myShape';
-connect36.ProtoField := 'myShape';
-{ .AddConnect }
-IS35.Connect := connect36;
-{ .SetIS }
-X3DPrototype33.IS := IS35;
-{ .AddX3DPrototype }
-Transform30.X3DPrototype := X3DPrototype33;
-X3DPrototype37 := TX3DPrototypeNode.Create;
-X3DPrototype37.NameField := 'anyShape';
-SFVec3f38 := TSFVec3f.Create(anyShape2, false, 'xtranslation', Vector3(2,0,0));
-SFVec3f38.NameField := 'xtranslation';
-SFVec3f38.Value := '2 0 0';
-{ .SetSFVec3f }
-X3DPrototype37.SFVec3f := SFVec3f38;
-IS39 := TIS.Create;
-connect40 := Tconnect.Create;
-connect40.NodeField := 'myShape';
-connect40.ProtoField := 'myShape';
-{ .AddConnect }
-IS39.Connect := connect40;
-{ .SetIS }
-X3DPrototype37.IS := IS39;
-{ .AddX3DPrototype }
-Transform30.X3DPrototype := X3DPrototype37;
-X3DPrototype41 := TX3DPrototypeNode.Create;
-X3DPrototype41.NameField := 'anyShape';
-SFVec3f42 := TSFVec3f.Create(anyShape2, false, 'xtranslation', Vector3(-2,0,0));
-SFVec3f42.NameField := 'xtranslation';
-SFVec3f42.Value := '-2 0 0';
-{ .SetSFVec3f }
-X3DPrototype41.SFVec3f := SFVec3f42;
-IS43 := TIS.Create;
-connect44 := Tconnect.Create;
-connect44.NodeField := 'myShape';
-connect44.ProtoField := 'myShape';
-{ .AddConnect }
-IS43.Connect := connect44;
-{ .SetIS }
-X3DPrototype41.IS := IS43;
-{ .AddX3DPrototype }
-Transform30.X3DPrototype := X3DPrototype41;
-{ .SetTransform }
-X3DPrototype29.Transform := Transform30;
-{ .AddX3DPrototype }
-X3DPrototype24.X3DPrototype := X3DPrototype29;
-{ .AddX3DPrototype }
-Group7.X3DPrototype := X3DPrototype24;
-X3DPrototype45 := TX3DPrototype.Create;
-X3DPrototype45.NameField := 'nine';
-X3DInterfaceDeclaration46 := TX3DInterfaceDeclaration.Create(nil);
-X3DField47 := TX3DField.Create;
-X3DField47.NameField := 'ztranslation';
-X3DField47.AccessType := 'inputOutput';
-X3DField47.Type := 'SFVec3f';
-X3DField47.Value := '0 0 0';
-{ .SetX3DField }
-X3DInterfaceDeclaration46.X3DField := X3DField47;
-X3DField48 := TX3DField.Create;
-X3DField48.NameField := 'myShape';
-X3DField48.AccessType := 'inputOutput';
-X3DField48.Type := 'SFNode';
-Sphere49 := TSphereNode.Create;
-{ .SetSphere }
-X3DField48.Sphere := Sphere49;
-{ .AddX3DField }
-X3DInterfaceDeclaration46.X3DField := X3DField48;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype45.X3DInterfaceDeclaration := X3DInterfaceDeclaration46;
-X3DPrototype50 := TX3DPrototype.Create;
-Transform51 := TTransformNode.Create;
-IS52 := TIS.Create;
-connect53 := Tconnect.Create;
-connect53.NodeField := 'translation';
-connect53.ProtoField := 'ztranslation';
-{ .AddConnect }
-IS52.Connect := connect53;
-{ .SetIS }
-Transform51.IS := IS52;
-X3DPrototype54 := TX3DPrototypeNode.Create;
-X3DPrototype54.NameField := 'three';
-SFVec3f55 := TSFVec3f.Create(three3, false, 'ytranslation', Vector3(0,0,0));
-SFVec3f55.NameField := 'ytranslation';
-SFVec3f55.Value := '0 0 0';
-{ .SetSFVec3f }
-X3DPrototype54.SFVec3f := SFVec3f55;
-IS56 := TIS.Create;
-connect57 := Tconnect.Create;
-connect57.NodeField := 'myShape';
-connect57.ProtoField := 'myShape';
-{ .AddConnect }
-IS56.Connect := connect57;
-{ .SetIS }
-X3DPrototype54.IS := IS56;
-{ .AddX3DPrototype }
-Transform51.X3DPrototype := X3DPrototype54;
-X3DPrototype58 := TX3DPrototypeNode.Create;
-X3DPrototype58.NameField := 'three';
-SFVec3f59 := TSFVec3f.Create(three3, false, 'ytranslation', Vector3(0,2,0));
-SFVec3f59.NameField := 'ytranslation';
-SFVec3f59.Value := '0 2 0';
-{ .SetSFVec3f }
-X3DPrototype58.SFVec3f := SFVec3f59;
-IS60 := TIS.Create;
-connect61 := Tconnect.Create;
-connect61.NodeField := 'myShape';
-connect61.ProtoField := 'myShape';
-{ .AddConnect }
-IS60.Connect := connect61;
-{ .SetIS }
-X3DPrototype58.IS := IS60;
-{ .AddX3DPrototype }
-Transform51.X3DPrototype := X3DPrototype58;
-X3DPrototype62 := TX3DPrototypeNode.Create;
-X3DPrototype62.NameField := 'three';
-SFVec3f63 := TSFVec3f.Create(three3, false, 'ytranslation', Vector3(0,-2,0));
-SFVec3f63.NameField := 'ytranslation';
-SFVec3f63.Value := '0 -2 0';
-{ .SetSFVec3f }
-X3DPrototype62.SFVec3f := SFVec3f63;
-IS64 := TIS.Create;
-connect65 := Tconnect.Create;
-connect65.NodeField := 'myShape';
-connect65.ProtoField := 'myShape';
-{ .AddConnect }
-IS64.Connect := connect65;
-{ .SetIS }
-X3DPrototype62.IS := IS64;
-{ .AddX3DPrototype }
-Transform51.X3DPrototype := X3DPrototype62;
-{ .SetTransform }
-X3DPrototype50.Transform := Transform51;
-{ .AddX3DPrototype }
-X3DPrototype45.X3DPrototype := X3DPrototype50;
-{ .AddX3DPrototype }
-Group7.X3DPrototype := X3DPrototype45;
-X3DPrototype66 := TX3DPrototype.Create;
-X3DPrototype66.NameField := 'twentyseven';
-X3DInterfaceDeclaration67 := TX3DInterfaceDeclaration.Create(nil);
-X3DField68 := TX3DField.Create;
-X3DField68.NameField := 'ttranslation';
-X3DField68.AccessType := 'inputOutput';
-X3DField68.Type := 'SFVec3f';
-X3DField68.Value := '0 0 0';
-{ .SetX3DField }
-X3DInterfaceDeclaration67.X3DField := X3DField68;
-X3DField69 := TX3DField.Create;
-X3DField69.NameField := 'myShape';
-X3DField69.AccessType := 'inputOutput';
-X3DField69.Type := 'SFNode';
-Sphere70 := TSphereNode.Create;
-{ .SetSphere }
-X3DField69.Sphere := Sphere70;
-{ .AddX3DField }
-X3DInterfaceDeclaration67.X3DField := X3DField69;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype66.X3DInterfaceDeclaration := X3DInterfaceDeclaration67;
-X3DPrototype71 := TX3DPrototype.Create;
-Transform72 := TTransformNode.Create;
-IS73 := TIS.Create;
-connect74 := Tconnect.Create;
-connect74.NodeField := 'translation';
-connect74.ProtoField := 'ttranslation';
-{ .AddConnect }
-IS73.Connect := connect74;
-{ .SetIS }
-Transform72.IS := IS73;
-X3DPrototype75 := TX3DPrototypeNode.Create;
-X3DPrototype75.NameField := 'nine';
-SFVec3f76 := TSFVec3f.Create(nine4, false, 'ztranslation', Vector3(0,0,0));
-SFVec3f76.NameField := 'ztranslation';
-SFVec3f76.Value := '0 0 0';
-{ .SetSFVec3f }
-X3DPrototype75.SFVec3f := SFVec3f76;
-IS77 := TIS.Create;
-connect78 := Tconnect.Create;
-connect78.NodeField := 'myShape';
-connect78.ProtoField := 'myShape';
-{ .AddConnect }
-IS77.Connect := connect78;
-{ .SetIS }
-X3DPrototype75.IS := IS77;
-{ .AddX3DPrototype }
-Transform72.X3DPrototype := X3DPrototype75;
-X3DPrototype79 := TX3DPrototypeNode.Create;
-X3DPrototype79.NameField := 'nine';
-SFVec3f80 := TSFVec3f.Create(nine4, false, 'ztranslation', Vector3(0,0,2));
-SFVec3f80.NameField := 'ztranslation';
-SFVec3f80.Value := '0 0 2';
-{ .SetSFVec3f }
-X3DPrototype79.SFVec3f := SFVec3f80;
-IS81 := TIS.Create;
-connect82 := Tconnect.Create;
-connect82.NodeField := 'myShape';
-connect82.ProtoField := 'myShape';
-{ .AddConnect }
-IS81.Connect := connect82;
-{ .SetIS }
-X3DPrototype79.IS := IS81;
-{ .AddX3DPrototype }
-Transform72.X3DPrototype := X3DPrototype79;
-X3DPrototype83 := TX3DPrototypeNode.Create;
-X3DPrototype83.NameField := 'nine';
-SFVec3f84 := TSFVec3f.Create(nine4, false, 'ztranslation', Vector3(0,0,-2));
-SFVec3f84.NameField := 'ztranslation';
-SFVec3f84.Value := '0 0 -2';
-{ .SetSFVec3f }
-X3DPrototype83.SFVec3f := SFVec3f84;
-IS85 := TIS.Create;
-connect86 := Tconnect.Create;
-connect86.NodeField := 'myShape';
-connect86.ProtoField := 'myShape';
-{ .AddConnect }
-IS85.Connect := connect86;
-{ .SetIS }
-X3DPrototype83.IS := IS85;
-{ .AddX3DPrototype }
-Transform72.X3DPrototype := X3DPrototype83;
-{ .SetTransform }
-X3DPrototype71.Transform := Transform72;
-{ .AddX3DPrototype }
-X3DPrototype66.X3DPrototype := X3DPrototype71;
-{ .AddX3DPrototype }
-Group7.X3DPrototype := X3DPrototype66;
-X3DPrototype87 := TX3DPrototypeNode.Create;
-X3DPrototype87.NameField := 'twentyseven';
-SFVec3f88 := TSFVec3f.Create(twentyseven4, false, 'ttranslation', Vector3(0,0,0));
-SFVec3f88.NameField := 'ttranslation';
-SFVec3f88.Value := '0 0 0';
-{ .SetSFVec3f }
-X3DPrototype87.SFVec3f := SFVec3f88;
-SFNode89 := TSFNode.Create;
-SFNode89.NameField := 'myShape';
-Box90 := TBoxNode.Create;
-Box90.Size := Vector3(1,1,1);
-{ .SetBox }
-SFNode89.Box := Box90;
-{ .AddSFNode }
-X3DPrototype87.SFNode := SFNode89;
-{ .AddX3DPrototype }
-Group7.X3DPrototype := X3DPrototype87;
-{ .AddGroup }
+Transform16.FieldOrEvent('translation', True).IsClauseNamesAdd('xtranslation');
+Shape17 := TShapeNode.Create;
+Shape17.FieldOrEvent('geometry', True).IsClauseNamesAdd('myShape');
+Appearance18 := TAppearanceNode.Create;
+Material19 := TMaterialNode.Create;
+Material19.DiffuseColor := Vector3(1, 1, 1);
+Appearance18.Material := Material19;
+Shape17.Appearance := Appearance18;
+end;
+
+procedure InitrubikOnFirePart1;
+begin
+Transform16.FdChildren.Add(Shape17);
+ProtoDeclare10.Node.AddChildren([Transform16]);
+X3D0.AddPrototype(ProtoDeclare10);
+ProtoDeclare20 := CreateEmptyPrototype('three');
+ProtoDeclare20.X3DName := 'three';
+FieldVal22 := TSFVec3f.Create(nil, True, 'ytranslation', Vector3(0, 0, 0));
+FieldDecl22 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl22.FieldOrEvent := FieldVal22;
+FieldVal22.ParentInterfaceDeclaration := FieldDecl22;
+ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl22);
+FieldVal23 := TSFNode.CreateUndefined(nil, True, 'myShape');
+FieldDecl23 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl23.FieldOrEvent := FieldVal23;
+FieldVal23.ParentInterfaceDeclaration := FieldDecl23;
+ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl23);
+Sphere24 := TSphereNode.Create;
+FieldVal23.Value := Sphere24;
+Transform26 := TTransformNode.Create;
+Transform26.FieldOrEvent('translation', True).IsClauseNamesAdd('ytranslation');
+ProtoInstance27 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare10);
+(ProtoInstance27.Field('xtranslation') as TSFVec3f).Value := Vector3(0, 0, 0);
+ProtoInstance27.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform26.FdChildren.Add(ProtoInstance27.Instantiate);
+ProtoInstance29 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare10);
+(ProtoInstance29.Field('xtranslation') as TSFVec3f).Value := Vector3(2, 0, 0);
+ProtoInstance29.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform26.FdChildren.Add(ProtoInstance29.Instantiate);
+ProtoInstance31 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare10);
+(ProtoInstance31.Field('xtranslation') as TSFVec3f).Value := Vector3(-2, 0, 0);
+ProtoInstance31.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform26.FdChildren.Add(ProtoInstance31.Instantiate);
+ProtoDeclare20.Node.AddChildren([Transform26]);
+X3D0.AddPrototype(ProtoDeclare20);
+ProtoDeclare33 := CreateEmptyPrototype('nine');
+ProtoDeclare33.X3DName := 'nine';
+FieldVal35 := TSFVec3f.Create(nil, True, 'ztranslation', Vector3(0, 0, 0));
+FieldDecl35 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl35.FieldOrEvent := FieldVal35;
+FieldVal35.ParentInterfaceDeclaration := FieldDecl35;
+ProtoDeclare33.InterfaceDeclarations.Add(FieldDecl35);
+end;
+
+procedure InitrubikOnFirePart2;
+begin
+FieldVal36 := TSFNode.CreateUndefined(nil, True, 'myShape');
+FieldDecl36 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl36.FieldOrEvent := FieldVal36;
+FieldVal36.ParentInterfaceDeclaration := FieldDecl36;
+ProtoDeclare33.InterfaceDeclarations.Add(FieldDecl36);
+Sphere37 := TSphereNode.Create;
+FieldVal36.Value := Sphere37;
+Transform39 := TTransformNode.Create;
+Transform39.FieldOrEvent('translation', True).IsClauseNamesAdd('ztranslation');
+ProtoInstance40 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare20);
+(ProtoInstance40.Field('ytranslation') as TSFVec3f).Value := Vector3(0, 0, 0);
+ProtoInstance40.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform39.FdChildren.Add(ProtoInstance40.Instantiate);
+ProtoInstance42 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare20);
+(ProtoInstance42.Field('ytranslation') as TSFVec3f).Value := Vector3(0, 2, 0);
+ProtoInstance42.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform39.FdChildren.Add(ProtoInstance42.Instantiate);
+ProtoInstance44 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare20);
+(ProtoInstance44.Field('ytranslation') as TSFVec3f).Value := Vector3(0, -2, 0);
+ProtoInstance44.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform39.FdChildren.Add(ProtoInstance44.Instantiate);
+ProtoDeclare33.Node.AddChildren([Transform39]);
+X3D0.AddPrototype(ProtoDeclare33);
+ProtoDeclare46 := CreateEmptyPrototype('twentyseven');
+ProtoDeclare46.X3DName := 'twentyseven';
+FieldVal48 := TSFVec3f.Create(nil, True, 'ttranslation', Vector3(0, 0, 0));
+FieldDecl48 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl48.FieldOrEvent := FieldVal48;
+FieldVal48.ParentInterfaceDeclaration := FieldDecl48;
+ProtoDeclare46.InterfaceDeclarations.Add(FieldDecl48);
+FieldVal49 := TSFNode.CreateUndefined(nil, True, 'myShape');
+FieldDecl49 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl49.FieldOrEvent := FieldVal49;
+FieldVal49.ParentInterfaceDeclaration := FieldDecl49;
+ProtoDeclare46.InterfaceDeclarations.Add(FieldDecl49);
+Sphere50 := TSphereNode.Create;
+FieldVal49.Value := Sphere50;
+Transform52 := TTransformNode.Create;
+Transform52.FieldOrEvent('translation', True).IsClauseNamesAdd('ttranslation');
+ProtoInstance53 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare33);
+end;
+
+procedure InitrubikOnFirePart3;
+begin
+(ProtoInstance53.Field('ztranslation') as TSFVec3f).Value := Vector3(0, 0, 0);
+ProtoInstance53.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform52.FdChildren.Add(ProtoInstance53.Instantiate);
+ProtoInstance55 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare33);
+(ProtoInstance55.Field('ztranslation') as TSFVec3f).Value := Vector3(0, 0, 2);
+ProtoInstance55.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform52.FdChildren.Add(ProtoInstance55.Instantiate);
+ProtoInstance57 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare33);
+(ProtoInstance57.Field('ztranslation') as TSFVec3f).Value := Vector3(0, 0, -2);
+ProtoInstance57.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform52.FdChildren.Add(ProtoInstance57.Instantiate);
+ProtoDeclare46.Node.AddChildren([Transform52]);
+X3D0.AddPrototype(ProtoDeclare46);
+ProtoInstance59 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare46);
+(ProtoInstance59.Field('ttranslation') as TSFVec3f).Value := Vector3(0, 0, 0);
+Box62 := TBoxNode.Create;
+Box62.Size := Vector3(1, 1, 1);
+(ProtoInstance59.Field('myShape') as TSFNode).Value := Box62;
+Group7.FdChildren.Add(ProtoInstance59.Instantiate);
 X3D0.AddChildren([Group7]);
-Result := X3D0;
+end;
+
+function CreaterubikOnFire: TX3DRootNode;
+begin
+  InitrubikOnFirePart0;
+  InitrubikOnFirePart1;
+  InitrubikOnFirePart2;
+  InitrubikOnFirePart3;
+  Result := X3D0;
 end;
 
 begin

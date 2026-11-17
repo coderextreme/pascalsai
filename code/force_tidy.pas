@@ -2,77 +2,559 @@ unit force_tidy;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createforce_tidy: TX3DRootNode;
+procedure Registerforce_tidyScripts(const Scene: TCastleSceneCore);
 
 implementation
 
-uses CastleVectors;
+uses Classes, SysUtils, X3DLoad, CastleVectors, Math, X3DTime;
 
-function Createforce_tidy: TX3DRootNode;
+function CreateEmptyPrototype(const AName: String): TX3DPrototype;
 var
-X3D0: TX3DRootNode;
-Group11: TGroupNode;
-X3DPrototype12: TX3DPrototype;
-X3DInterfaceDeclaration13: TX3DInterfaceDeclaration;
-X3DField14: TX3DField;
-X3DPrototype15: TX3DPrototype;
-Group16: TGroupNode;
-Transform17: TTransformNode;
-IS18: TIS;
-connect19: Tconnect;
-Shape20: TShapeNode;
-Sphere21: TSphereNode;
-Appearance22: TAppearanceNode;
-Material23: TMaterialNode;
-Transform24: TTransformNode;
-Shape25: TShapeNode;
-Appearance26: TAppearanceNode;
-Material27: TMaterialNode;
-Text28: TTextNode;
-FontStyle29: TFontStyleNode;
-PositionInterpolator30: TPositionInterpolatorNode;
-Script31: TScriptNode;
-X3DField32: TX3DField;
-X3DField33: TX3DField;
-X3DField34: TX3DField;
-X3DField35: TX3DField;
-TimeSensor36: TTimeSensorNode;
-X3DPrototype41: TX3DPrototype;
-X3DInterfaceDeclaration42: TX3DInterfaceDeclaration;
-X3DField43: TX3DField;
-X3DField44: TX3DField;
-X3DPrototype45: TX3DPrototype;
-Group46: TGroupNode;
-Shape47: TShapeNode;
-Appearance48: TAppearanceNode;
-Material49: TMaterialNode;
-Extrusion50: TExtrusionNode;
-Script51: TScriptNode;
-X3DField52: TX3DField;
-X3DField53: TX3DField;
-X3DField54: TX3DField;
-IS55: TIS;
-connect56: Tconnect;
-connect57: Tconnect;
-Transform59: TTransformNode;
-PlaneSensor60: TPlaneSensorNode;
-X3DPrototype61: TX3DPrototypeNode;
-SFVec3f62: TSFVec3f;
-X3DPrototype63: TX3DPrototypeNode;
-SFVec3f64: TSFVec3f;
-X3DPrototype65: TX3DPrototypeNode;
-SFVec3f66: TSFVec3f;
-X3DPrototype67: TX3DPrototypeNode;
-SFVec3f68: TSFVec3f;
-X3DPrototype69: TX3DPrototypeNode;
-X3DPrototype70: TX3DPrototypeNode;
-X3DPrototype71: TX3DPrototypeNode;
-Script72: TScriptNode;
-X3DField73: TX3DField;
-X3DField74: TX3DField;
-X3DField75: TX3DField;
+  Stream: TStringStream;
+  TempRoot: TX3DRootNode;
+  CopyState: TX3DNodeDeepCopyState;
+begin
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  try
+    TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
+    try
+      CopyState := TX3DNodeDeepCopyState.Create;
+      try
+        Result := TempRoot.Prototypes[0].DeepCopy(CopyState) as TX3DPrototype;
+      finally
+        FreeAndNil(CopyState);
+      end;
+    finally
+      FreeAndNil(TempRoot);
+    end;
+  finally
+    FreeAndNil(Stream);
+  end;
+end;
+
+type
+  TScript29Script = class
+  private
+    FHandlerPrefix: String;
+    FInitialized: Boolean;
+    Ftranslation: TVector3;
+    FField_translation: TSFVec3f;
+    FBack_translation: TSFVec3f;
+    FDirty_translation: Boolean;
+    Fold: TVector3;
+    FField_old: TSFVec3f;
+    FBack_old: TSFVec3f;
+    FDirty_old: Boolean;
+    FkeyValue: array of TVector3;
+    FEvent_keyValue: TX3DEvent;
+    FBack_keyValue: TMFVec3f;
+    FDirty_keyValue: Boolean;
+    procedure FlushOutputs(const Time: TX3DTime);
+  public
+    constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_old: TSFVec3f; const AEvent_keyValue: TX3DEvent);
+    class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript29Script;
+    destructor Destroy; override;
+    procedure RegisterHandlers(const Scene: TCastleSceneCore);
+    property Initialized: Boolean read FInitialized;
+    procedure Set_cycle(Value: TX3DField; const Time: TX3DTime);
+  end;
+
+  TScript49Script = class
+  private
+    FHandlerPrefix: String;
+    FInitialized: Boolean;
+    Fspine: array of TVector3;
+    FField_spine: TMFVec3f;
+    FBack_spine: TMFVec3f;
+    FDirty_spine: Boolean;
+    FendA: TVector3;
+    FField_endA: TSFVec3f;
+    FBack_endA: TSFVec3f;
+    FDirty_endA: Boolean;
+    FendB: TVector3;
+    FField_endB: TSFVec3f;
+    FBack_endB: TSFVec3f;
+    FDirty_endB: Boolean;
+    FLastTime_set_endA: TX3DTime;
+    FLastTime_set_endB: TX3DTime;
+    procedure FlushOutputs(const Time: TX3DTime);
+  public
+    constructor Create(const AHandlerPrefix: String; const AField_spine: TMFVec3f; const AField_endA: TSFVec3f; const AField_endB: TSFVec3f);
+    class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript49Script;
+    destructor Destroy; override;
+    procedure RegisterHandlers(const Scene: TCastleSceneCore);
+    property Initialized: Boolean read FInitialized;
+    procedure Set_endA(Value: TX3DField; const Time: TX3DTime);
+    procedure OnNotif_set_endA(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
+    procedure Set_endB(Value: TX3DField; const Time: TX3DTime);
+    procedure OnNotif_set_endB(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
+  end;
+
+  TScript67Script = class
+  private
+    FHandlerPrefix: String;
+    FInitialized: Boolean;
+    Fcounter: Int32;
+    FField_counter: TSFInt32;
+    FBack_counter: TSFInt32;
+    FDirty_counter: Boolean;
+    Fnode_changed: TX3DNode;
+    FEvent_node_changed: TX3DEvent;
+    FBack_node_changed: TSFNode;
+    FDirty_node_changed: Boolean;
+    procedure FlushOutputs(const Time: TX3DTime);
+  public
+    constructor Create(const AHandlerPrefix: String; const AField_counter: TSFInt32; const AEvent_node_changed: TX3DEvent);
+    class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript67Script;
+    destructor Destroy; override;
+    procedure RegisterHandlers(const Scene: TCastleSceneCore);
+    property Initialized: Boolean read FInitialized;
+    procedure Add_node(Value: TX3DField; const Time: TX3DTime);
+  end;
+
+  Tforce_tidyScriptBinder = class
+  public
+    procedure BindNode(Node: TX3DNode);
+  end;
+
+  Tforce_tidyExtrusionHelper = class
+  public
+    procedure BindNode(Node: TX3DNode);
+    procedure SpineReceive(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
+  end;
+
+var
+  X3D0: TX3DRootNode;
+  Group11: TGroupNode;
+  ProtoDeclare12: TX3DPrototype;
+  FieldDecl14: TX3DInterfaceDeclaration;
+  FieldVal14: TSFVec3f;
+  Group16: TGroupNode;
+  Transform17: TTransformNode;
+  Shape18: TShapeNode;
+  Sphere19: TSphereNode;
+  Appearance20: TAppearanceNode;
+  Material21: TMaterialNode;
+  Transform22: TTransformNode;
+  Shape23: TShapeNode;
+  Appearance24: TAppearanceNode;
+  Material25: TMaterialNode;
+  Text26: TTextNode;
+  FontStyle27: TFontStyleNode;
+  PositionInterpolator28: TPositionInterpolatorNode;
+  Script29: TScriptNode;
+  FieldVal30: TSFVec3f;
+  FieldVal31: TSFVec3f;
+  FieldVal32: TX3DEvent;
+  FieldVal33: TX3DEvent;
+  CompiledScript29List: array of TScript29Script;
+  TimeSensor34: TTimeSensorNode;
+  ProtoDeclare39: TX3DPrototype;
+  FieldDecl41: TX3DInterfaceDeclaration;
+  FieldVal41: TSFVec3f;
+  FieldDecl42: TX3DInterfaceDeclaration;
+  FieldVal42: TSFVec3f;
+  Group44: TGroupNode;
+  Shape45: TShapeNode;
+  Appearance46: TAppearanceNode;
+  Material47: TMaterialNode;
+  Extrusion48: TExtrusionNode;
+  Script49: TScriptNode;
+  FieldVal50: TMFVec3f;
+  FieldVal51: TSFVec3f;
+  FieldVal52: TSFVec3f;
+  CompiledScript49List: array of TScript49Script;
+  Transform54: TTransformNode;
+  PlaneSensor55: TPlaneSensorNode;
+  ProtoInstance56: TX3DPrototypeNode;
+  ProtoInstance58: TX3DPrototypeNode;
+  ProtoInstance60: TX3DPrototypeNode;
+  ProtoInstance62: TX3DPrototypeNode;
+  ProtoInstance64: TX3DPrototypeNode;
+  ProtoInstance65: TX3DPrototypeNode;
+  ProtoInstance66: TX3DPrototypeNode;
+  Script67: TScriptNode;
+  FieldVal68: TSFInt32;
+  FieldVal69: TX3DEvent;
+  FieldVal70: TX3DEvent;
+  CompiledScript67List: array of TScript67Script;
+  Compiledforce_tidyExtrusionHelper: Tforce_tidyExtrusionHelper;
+
+constructor TScript29Script.Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_old: TSFVec3f; const AEvent_keyValue: TX3DEvent);
+begin
+  inherited Create;
+  FHandlerPrefix := AHandlerPrefix;
+  FInitialized := False;
+  Ftranslation := Vector3(0, 0, 0);
+  FField_translation := nil;
+  FBack_translation := TSFVec3f.Create(nil, False, 'translation', Vector3(0, 0, 0));
+  FDirty_translation := False;
+  Fold := Vector3(0, 0, 0);
+  FField_old := nil;
+  FBack_old := TSFVec3f.Create(nil, False, 'old', Vector3(0, 0, 0));
+  FDirty_old := False;
+  FkeyValue := nil;
+  FEvent_keyValue := nil;
+  FBack_keyValue := TMFVec3f.CreateUndefined(nil, False, 'keyValue');
+  FDirty_keyValue := False;
+  FField_translation := AField_translation;
+  if AField_translation <> nil then Ftranslation := AField_translation.Value;
+  FField_old := AField_old;
+  if AField_old <> nil then Fold := AField_old.Value;
+  FEvent_keyValue := AEvent_keyValue;
+end;
+
+class function TScript29Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript29Script;
+begin
+  Result := TScript29Script.Create(AHandlerPrefix, AScriptNode.FieldOrEvent('translation') as TSFVec3f, AScriptNode.FieldOrEvent('old') as TSFVec3f, AScriptNode.AnyEvent('keyValue'));
+end;
+
+destructor TScript29Script.Destroy;
+begin
+  FreeAndNil(FBack_translation);
+  FreeAndNil(FBack_old);
+  FreeAndNil(FBack_keyValue);
+  inherited Destroy;
+end;
+
+procedure TScript29Script.FlushOutputs(const Time: TX3DTime);
+var
+  _i: Integer;
+begin
+  if FDirty_translation then
+  begin
+    FDirty_translation := False;
+    if FField_translation <> nil then
+    begin
+      FField_translation.Value := Ftranslation;
+      FBack_translation.Value := Ftranslation;
+      if (FField_translation.ParentNode is TX3DNode) and (TX3DNode(FField_translation.ParentNode).Scene <> nil) then
+        FField_translation.EventOut.Send(FBack_translation, TX3DNode(FField_translation.ParentNode).Scene.NextEventTime)
+      else
+        FField_translation.EventOut.Send(FBack_translation, Time);
+    end;
+  end;
+  if FDirty_old then
+  begin
+    FDirty_old := False;
+    if FField_old <> nil then
+    begin
+      FField_old.Value := Fold;
+      FBack_old.Value := Fold;
+      if (FField_old.ParentNode is TX3DNode) and (TX3DNode(FField_old.ParentNode).Scene <> nil) then
+        FField_old.EventOut.Send(FBack_old, TX3DNode(FField_old.ParentNode).Scene.NextEventTime)
+      else
+        FField_old.EventOut.Send(FBack_old, Time);
+    end;
+  end;
+  if FDirty_keyValue then
+  begin
+    FDirty_keyValue := False;
+    if FEvent_keyValue <> nil then
+    begin
+      FBack_keyValue.Items.Clear;
+      for _i := 0 to High(FkeyValue) do
+        FBack_keyValue.Items.Add(FkeyValue[_i]);
+      FEvent_keyValue.Send(FBack_keyValue, Time);
+    end;
+  end;
+end;
+
+procedure TScript29Script.RegisterHandlers(const Scene: TCastleSceneCore);
+begin
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_cycle', {$ifdef FPC}@{$endif}Set_cycle);
+end;
+
+procedure TScript29Script.Set_cycle(Value: TX3DField; const Time: TX3DTime);
+begin
+  Fold := Ftranslation;
+  FDirty_old := True;
+  Ftranslation := Vector3(Random * 100 - 50, Random * 100 - 50, Random * 100 - 50);
+  FDirty_translation := True;
+  FkeyValue := [Fold, Ftranslation];
+  FDirty_keyValue := True;
+  FlushOutputs(Time);
+end;
+
+constructor TScript49Script.Create(const AHandlerPrefix: String; const AField_spine: TMFVec3f; const AField_endA: TSFVec3f; const AField_endB: TSFVec3f);
+var
+  _i: Integer;
+begin
+  inherited Create;
+  FHandlerPrefix := AHandlerPrefix;
+  FInitialized := False;
+  Fspine := nil;
+  FField_spine := nil;
+  FBack_spine := TMFVec3f.CreateUndefined(nil, False, 'spine');
+  FDirty_spine := False;
+  FendA := Vector3(0, 0, 0);
+  FField_endA := nil;
+  FBack_endA := TSFVec3f.Create(nil, False, 'endA', Vector3(0, 0, 0));
+  FDirty_endA := False;
+  FendB := Vector3(0, 0, 0);
+  FField_endB := nil;
+  FBack_endB := TSFVec3f.Create(nil, False, 'endB', Vector3(0, 0, 0));
+  FDirty_endB := False;
+  FLastTime_set_endA := TX3DTime.Oldest;
+  FLastTime_set_endB := TX3DTime.Oldest;
+  FField_spine := AField_spine;
+  if AField_spine <> nil then
+  begin
+    SetLength(Fspine, AField_spine.Items.Count);
+    for _i := 0 to AField_spine.Items.Count - 1 do
+      Fspine[_i] := AField_spine.Items[_i];
+  end;
+  FField_endA := AField_endA;
+  if AField_endA <> nil then FendA := AField_endA.Value;
+  FField_endB := AField_endB;
+  if AField_endB <> nil then FendB := AField_endB.Value;
+  if FField_endA <> nil then
+    FField_endA.EventIn.AddNotification({$ifdef FPC}@{$endif}OnNotif_set_endA);
+  if FField_endB <> nil then
+    FField_endB.EventIn.AddNotification({$ifdef FPC}@{$endif}OnNotif_set_endB);
+end;
+
+class function TScript49Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript49Script;
+begin
+  Result := TScript49Script.Create(AHandlerPrefix, AScriptNode.FieldOrEvent('spine') as TMFVec3f, AScriptNode.FieldOrEvent('endA') as TSFVec3f, AScriptNode.FieldOrEvent('endB') as TSFVec3f);
+end;
+
+destructor TScript49Script.Destroy;
+begin
+  if FField_endB <> nil then
+    FField_endB.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_endB);
+  if FField_endA <> nil then
+    FField_endA.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_endA);
+  FreeAndNil(FBack_spine);
+  FreeAndNil(FBack_endA);
+  FreeAndNil(FBack_endB);
+  inherited Destroy;
+end;
+
+procedure TScript49Script.FlushOutputs(const Time: TX3DTime);
+var
+  _i: Integer;
+begin
+  if FDirty_spine then
+  begin
+    FDirty_spine := False;
+    if FField_spine <> nil then
+    begin
+      FField_spine.Items.Clear;
+      FBack_spine.Items.Clear;
+      for _i := 0 to High(Fspine) do
+      begin
+        FField_spine.Items.Add(Fspine[_i]);
+        FBack_spine.Items.Add(Fspine[_i]);
+      end;
+      if (FField_spine.ParentNode is TX3DNode) and (TX3DNode(FField_spine.ParentNode).Scene <> nil) then
+        FField_spine.EventOut.Send(FBack_spine, TX3DNode(FField_spine.ParentNode).Scene.NextEventTime)
+      else
+        FField_spine.EventOut.Send(FBack_spine, Time);
+    end;
+  end;
+  if FDirty_endA then
+  begin
+    FDirty_endA := False;
+    if FField_endA <> nil then
+    begin
+      FField_endA.Value := FendA;
+      FBack_endA.Value := FendA;
+      if (FField_endA.ParentNode is TX3DNode) and (TX3DNode(FField_endA.ParentNode).Scene <> nil) then
+        FField_endA.EventOut.Send(FBack_endA, TX3DNode(FField_endA.ParentNode).Scene.NextEventTime)
+      else
+        FField_endA.EventOut.Send(FBack_endA, Time);
+    end;
+  end;
+  if FDirty_endB then
+  begin
+    FDirty_endB := False;
+    if FField_endB <> nil then
+    begin
+      FField_endB.Value := FendB;
+      FBack_endB.Value := FendB;
+      if (FField_endB.ParentNode is TX3DNode) and (TX3DNode(FField_endB.ParentNode).Scene <> nil) then
+        FField_endB.EventOut.Send(FBack_endB, TX3DNode(FField_endB.ParentNode).Scene.NextEventTime)
+      else
+        FField_endB.EventOut.Send(FBack_endB, Time);
+    end;
+  end;
+end;
+
+procedure TScript49Script.RegisterHandlers(const Scene: TCastleSceneCore);
+begin
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_endA', {$ifdef FPC}@{$endif}Set_endA);
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'endA', {$ifdef FPC}@{$endif}Set_endA);
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_endB', {$ifdef FPC}@{$endif}Set_endB);
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'endB', {$ifdef FPC}@{$endif}Set_endB);
+end;
+
+procedure TScript49Script.OnNotif_set_endA(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
+begin
+  Set_endA(Value, Time);
+end;
+
+procedure TScript49Script.Set_endA(Value: TX3DField; const Time: TX3DTime);
+begin
+  if (Time.Seconds = FLastTime_set_endA.Seconds) and (Time.PlusTicks = FLastTime_set_endA.PlusTicks) then Exit;
+  FLastTime_set_endA := Time;
+  Fspine := [(Value as TSFVec3f).Value, Fspine[1]];
+  FDirty_spine := True;
+  FlushOutputs(Time);
+end;
+
+procedure TScript49Script.OnNotif_set_endB(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
+begin
+  Set_endB(Value, Time);
+end;
+
+procedure TScript49Script.Set_endB(Value: TX3DField; const Time: TX3DTime);
+begin
+  if (Time.Seconds = FLastTime_set_endB.Seconds) and (Time.PlusTicks = FLastTime_set_endB.PlusTicks) then Exit;
+  FLastTime_set_endB := Time;
+  Fspine := [Fspine[0], (Value as TSFVec3f).Value];
+  FDirty_spine := True;
+  FlushOutputs(Time);
+end;
+
+constructor TScript67Script.Create(const AHandlerPrefix: String; const AField_counter: TSFInt32; const AEvent_node_changed: TX3DEvent);
+begin
+  inherited Create;
+  FHandlerPrefix := AHandlerPrefix;
+  FInitialized := False;
+  Fcounter := 0;
+  FField_counter := nil;
+  FBack_counter := TSFInt32.Create(nil, False, 'counter', 0);
+  FDirty_counter := False;
+  Fnode_changed := nil;
+  FEvent_node_changed := nil;
+  FBack_node_changed := TSFNode.CreateUndefined(nil, False, 'node_changed');
+  FDirty_node_changed := False;
+  FField_counter := AField_counter;
+  if AField_counter <> nil then Fcounter := AField_counter.Value;
+  FEvent_node_changed := AEvent_node_changed;
+end;
+
+class function TScript67Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript67Script;
+begin
+  Result := TScript67Script.Create(AHandlerPrefix, AScriptNode.FieldOrEvent('counter') as TSFInt32, AScriptNode.AnyEvent('node_changed'));
+end;
+
+destructor TScript67Script.Destroy;
+begin
+  FreeAndNil(FBack_counter);
+  FreeAndNil(FBack_node_changed);
+  inherited Destroy;
+end;
+
+procedure TScript67Script.FlushOutputs(const Time: TX3DTime);
+begin
+  if FDirty_counter then
+  begin
+    FDirty_counter := False;
+    if FField_counter <> nil then
+    begin
+      FField_counter.Value := Fcounter;
+      FBack_counter.Value := Fcounter;
+      if (FField_counter.ParentNode is TX3DNode) and (TX3DNode(FField_counter.ParentNode).Scene <> nil) then
+        FField_counter.EventOut.Send(FBack_counter, TX3DNode(FField_counter.ParentNode).Scene.NextEventTime)
+      else
+        FField_counter.EventOut.Send(FBack_counter, Time);
+    end;
+  end;
+  if FDirty_node_changed then
+  begin
+    FDirty_node_changed := False;
+    if FEvent_node_changed <> nil then
+    begin
+      FBack_node_changed.Value := Fnode_changed;
+      FEvent_node_changed.Send(FBack_node_changed, Time);
+    end;
+  end;
+end;
+
+procedure TScript67Script.RegisterHandlers(const Scene: TCastleSceneCore);
+begin
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'add_node', {$ifdef FPC}@{$endif}Add_node);
+end;
+
+procedure TScript67Script.Add_node(Value: TX3DField; const Time: TX3DTime);
+begin
+  Fcounter := Fcounter;
+  Fcounter := Fcounter + 1;
+  FDirty_counter := True;
+  FDirty_counter := True;
+  { Skipped unsupported JS Browser/DOM statement }
+  FlushOutputs(Time);
+end;
+
+procedure Tforce_tidyScriptBinder.BindNode(Node: TX3DNode);
+var
+  S: TScriptNode;
+  UrlText, Prefix: String;
+  Idx: Integer;
+begin
+  S := Node as TScriptNode;
+  if S.FdUrl.Items.Count = 0 then Exit;
+  UrlText := S.FdUrl.Items.Text;
+  if Pos('=Script29_', UrlText) > 0 then
+  begin
+    Idx := Length(CompiledScript29List);
+    Prefix := 'Script29_' + IntToStr(Idx) + '_';
+    S.SetUrl(['compiled:' + LineEnding +
+      'set_cycle=' + Prefix + 'set_cycle']);
+    SetLength(CompiledScript29List, Idx + 1);
+    CompiledScript29List[Idx] := TScript29Script.CreateForNode(S, Prefix);
+    Exit;
+  end;
+  if Pos('=Script49_', UrlText) > 0 then
+  begin
+    Idx := Length(CompiledScript49List);
+    Prefix := 'Script49_' + IntToStr(Idx) + '_';
+    S.SetUrl(['compiled:' + LineEnding +
+      'set_endA=' + Prefix + 'set_endA' + LineEnding +
+      'endA=' + Prefix + 'endA' + LineEnding +
+      'set_endB=' + Prefix + 'set_endB' + LineEnding +
+      'endB=' + Prefix + 'endB']);
+    SetLength(CompiledScript49List, Idx + 1);
+    CompiledScript49List[Idx] := TScript49Script.CreateForNode(S, Prefix);
+    Exit;
+  end;
+  if Pos('=Script67_', UrlText) > 0 then
+  begin
+    Idx := Length(CompiledScript67List);
+    Prefix := 'Script67_' + IntToStr(Idx) + '_';
+    S.SetUrl(['compiled:' + LineEnding +
+      'add_node=' + Prefix + 'add_node']);
+    SetLength(CompiledScript67List, Idx + 1);
+    CompiledScript67List[Idx] := TScript67Script.CreateForNode(S, Prefix);
+    Exit;
+  end;
+end;
+
+procedure Tforce_tidyExtrusionHelper.BindNode(Node: TX3DNode);
+begin
+  (Node as TExtrusionNode).EventSet_spine.AddNotification({$ifdef FPC}@{$endif}SpineReceive);
+end;
+
+procedure Tforce_tidyExtrusionHelper.SpineReceive(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
+var
+  Ext: TExtrusionNode;
+  NewSpine: TMFVec3f;
+begin
+  Ext := Event.ParentNode as TExtrusionNode;
+  NewSpine := Value as TMFVec3f;
+  if not Ext.FdSpine.Equals(NewSpine) then
+  begin
+    Ext.FdSpine.AssignValue(NewSpine);
+    Ext.FdSpine.Changed;
+  end;
+end;
+
+procedure Initforce_tidyPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -88,325 +570,268 @@ X3D0.Meta['description'] := 'beginnings of a force directed graph in 3D';
 X3D0.Meta['generator'] := 'Vim, X3D-Edit, https://savage.nps.edu/X3D-Edit';
 X3D0.Meta['generator'] := 'x3d-tidy V1.0.175, https://www.npmjs.com/package/x3d-tidy';
 Group11 := TGroupNode.Create;
-X3DPrototype12 := TX3DPrototype.Create;
-X3DPrototype12.NameField := 'node';
-X3DInterfaceDeclaration13 := TX3DInterfaceDeclaration.Create(nil);
-X3DField14 := TX3DField.Create;
-X3DField14.NameField := 'position';
-X3DField14.AccessType := 'inputOutput';
-X3DField14.Type := 'SFVec3f';
-{ .SetX3DField }
-X3DInterfaceDeclaration13.X3DField := X3DField14;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype12.X3DInterfaceDeclaration := X3DInterfaceDeclaration13;
-X3DPrototype15 := TX3DPrototype.Create;
+ProtoDeclare12 := CreateEmptyPrototype('node');
+ProtoDeclare12.X3DName := 'node';
+FieldVal14 := TSFVec3f.CreateUndefined(nil, True, 'position');
+FieldDecl14 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl14.FieldOrEvent := FieldVal14;
+FieldVal14.ParentInterfaceDeclaration := FieldDecl14;
+ProtoDeclare12.InterfaceDeclarations.Add(FieldDecl14);
 Group16 := TGroupNode.Create;
 Transform17 := TTransformNode.Create;
-IS18 := TIS.Create;
-connect19 := Tconnect.Create;
-connect19.NodeField := 'translation';
-connect19.ProtoField := 'position';
-{ .AddConnect }
-IS18.Connect := connect19;
-{ .SetIS }
-Transform17.IS := IS18;
-Shape20 := TShapeNode.Create;
-Sphere21 := TSphereNode.Create;
-{ .SetGeometry }
-Shape20.Geometry := Sphere21;
-Appearance22 := TAppearanceNode.Create;
-Material23 := TMaterialNode.Create;
-Material23.DiffuseColor := Vector3(1,0,0);
-{ .SetMaterial }
-Appearance22.Material := Material23;
-{ .SetAppearance }
-Shape20.Appearance := Appearance22;
-{ .AddChild }
-Transform17.AddChildren([Shape20]);
-Transform24 := TTransformNode.Create;
-Transform24.Translation := Vector3(1,0,0);
-Shape25 := TShapeNode.Create;
-Appearance26 := TAppearanceNode.Create;
-Material27 := TMaterialNode.Create;
-Material27.DiffuseColor := Vector3(0,0,1);
-{ .SetMaterial }
-Appearance26.Material := Material27;
-{ .SetAppearance }
-Shape25.Appearance := Appearance26;
-Text28 := TTextNode.Create;
-Text28.SetText(['Node']);
-FontStyle29 := TFontStyleNode.Create;
-FontStyle29.Size := 5;
-FontStyle29.Justify := fjMiddle;
-FontStyle29.JustifyMinor := fjMiddle;
-{ .SetFontStyle }
-Text28.FontStyle := FontStyle29;
-{ .SetGeometry }
-Shape25.Geometry := Text28;
-{ .AddChild }
-Transform24.AddChildren([Shape25]);
-{ .AddChildren }
-Transform17.AddChildren([Transform24]);
-{ .AddChildren }
-Group16.AddChildren([Transform17]);
-PositionInterpolator30 := TPositionInterpolatorNode.Create;
-PositionInterpolator30.SetKey([0,1]);
-PositionInterpolator30.SetKeyValue([Vector3(0,0,0),Vector3(0,5,0)]);
-{ .AddChildren }
-Group16.AddChildren([PositionInterpolator30]);
-Script31 := TScriptNode.Create;
-X3DField32 := TX3DField.Create;
-X3DField32.NameField := 'translation';
-X3DField32.AccessType := 'inputOutput';
-X3DField32.Type := 'SFVec3f';
-X3DField32.Value := '50 50 0';
-{ .SetX3DField }
-Script31.X3DField := X3DField32;
-X3DField33 := TX3DField.Create;
-X3DField33.NameField := 'old';
-X3DField33.AccessType := 'inputOutput';
-X3DField33.Type := 'SFVec3f';
-{ .AddX3DField }
-Script31.X3DField := X3DField33;
-X3DField34 := TX3DField.Create;
-X3DField34.NameField := 'set_cycle';
-X3DField34.AccessType := 'inputOnly';
-X3DField34.Type := 'SFTime';
-{ .AddX3DField }
-Script31.X3DField := X3DField34;
-X3DField35 := TX3DField.Create;
-X3DField35.NameField := 'keyValue';
-X3DField35.AccessType := 'outputOnly';
-X3DField35.Type := 'MFVec3f';
-{ .AddX3DField }
-Script31.X3DField := X3DField35;
-
-Script31.SetSourceCode('''ecmascript:\n"+
-"		function set_cycle(value) {\n"+
-"			old = translation;\n"+
-"			translation = new SFVec3f(Math.random()*100-50, Math.random()*100-50, Math.random()*100-50);\n"+
-"			keyValue = new MFVec3f(old, translation);\n"+
-"		}''');
-{ .AddChildren }
-Group16.AddChildren([Script31]);
-TimeSensor36 := TTimeSensorNode.Create;
-TimeSensor36.CycleInterval := 3;
-TimeSensor36.Loop := True;
-{ .AddChildren }
-Group16.AddChildren([TimeSensor36]);
-Group16.AddRoute(TimeSensor36.FdCycletime, Script31.EventSet_cycle);
-{ .AddX3DRoute }
-Group16.AddRoute(TimeSensor36.EventFraction_changed, PositionInterpolator30.EventSet_fraction);
-{ .AddX3DRoute }
-Group16.AddRoute(Script31.FdKeyvalue, PositionInterpolator30.EventSet_keyvalue);
-{ .AddX3DRoute }
-Group16.AddRoute(PositionInterpolator30.EventValue_changed, Transform17.FdTranslation);
-{ .AddX3DRoute }
-{ .SetGroup }
-X3DPrototype15.Group := Group16;
-{ .AddX3DPrototype }
-X3DPrototype12.X3DPrototype := X3DPrototype15;
-{ .SetX3DPrototype }
-Group11.X3DPrototype := X3DPrototype12;
-X3DPrototype41 := TX3DPrototype.Create;
-X3DPrototype41.NameField := 'cyl';
-X3DInterfaceDeclaration42 := TX3DInterfaceDeclaration.Create(nil);
-X3DField43 := TX3DField.Create;
-X3DField43.NameField := 'set_positionA';
-X3DField43.AccessType := 'inputOutput';
-X3DField43.Type := 'SFVec3f';
-{ .SetX3DField }
-X3DInterfaceDeclaration42.X3DField := X3DField43;
-X3DField44 := TX3DField.Create;
-X3DField44.NameField := 'set_positionB';
-X3DField44.AccessType := 'inputOutput';
-X3DField44.Type := 'SFVec3f';
-{ .AddX3DField }
-X3DInterfaceDeclaration42.X3DField := X3DField44;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype41.X3DInterfaceDeclaration := X3DInterfaceDeclaration42;
-X3DPrototype45 := TX3DPrototype.Create;
-Group46 := TGroupNode.Create;
-Shape47 := TShapeNode.Create;
-Appearance48 := TAppearanceNode.Create;
-Material49 := TMaterialNode.Create;
-Material49.DiffuseColor := Vector3(0,1,0);
-{ .SetMaterial }
-Appearance48.Material := Material49;
-{ .SetAppearance }
-Shape47.Appearance := Appearance48;
-Extrusion50 := TExtrusionNode.Create;
-Extrusion50.CreaseAngle := 0.785;
-Extrusion50.SetCrossSection([Vector2(1,0),Vector2(0.92,-0.38),Vector2(0.71,-0.71),Vector2(0.38,-0.92),Vector2(0,-1),Vector2(-0.38,-0.92),Vector2(-0.71,-0.71),Vector2(-0.92,-0.38),Vector2(-1,0),Vector2(-0.92,0.38),Vector2(-0.71,0.71),Vector2(-0.38,0.92),Vector2(0,1),Vector2(0.38,0.92),Vector2(0.71,0.71),Vector2(0.92,0.38),Vector2(1,0)]);
-Extrusion50.SetSpine([Vector3(0,-50,0),Vector3(0,0,0),Vector3(0,50,0)]);
-{ .SetGeometry }
-Shape47.Geometry := Extrusion50;
-{ .AddChildren }
-Group46.AddChildren([Shape47]);
-Script51 := TScriptNode.Create;
-X3DField52 := TX3DField.Create;
-X3DField52.NameField := 'spine';
-X3DField52.AccessType := 'inputOutput';
-X3DField52.Type := 'MFVec3f';
-X3DField52.Value := '0 -50 0 0 0 0 0 50 0';
-{ .SetX3DField }
-Script51.X3DField := X3DField52;
-X3DField53 := TX3DField.Create;
-X3DField53.NameField := 'endA';
-X3DField53.AccessType := 'inputOutput';
-X3DField53.Type := 'SFVec3f';
-{ .AddX3DField }
-Script51.X3DField := X3DField53;
-X3DField54 := TX3DField.Create;
-X3DField54.NameField := 'endB';
-X3DField54.AccessType := 'inputOutput';
-X3DField54.Type := 'SFVec3f';
-{ .AddX3DField }
-Script51.X3DField := X3DField54;
-IS55 := TIS.Create;
-connect56 := Tconnect.Create;
-connect56.NodeField := 'endA';
-connect56.ProtoField := 'set_positionA';
-{ .AddConnect }
-IS55.Connect := connect56;
-connect57 := Tconnect.Create;
-connect57.NodeField := 'endB';
-connect57.ProtoField := 'set_positionB';
-{ .AddConnect }
-IS55.Connect := connect57;
-{ .SetIS }
-Script51.IS := IS55;
-
-Script51.SetSourceCode('''ecmascript:\n"+
-"\n"+
-"                function set_endA(value) {\n"+
-"		    spine = new MFVec3f(value, spine[1]);\n"+
-"                }\n"+
-"\n"+
-"                function set_endB(value) {\n"+
-"		    spine = new MFVec3f(spine[0], value);\n"+
-"                }''');
-{ .AddChildren }
-Group46.AddChildren([Script51]);
-Group46.AddRoute(Script51.EventSpine_changed, Extrusion50.EventSet_spine);
-{ .AddX3DRoute }
-{ .SetGroup }
-X3DPrototype45.Group := Group46;
-{ .AddX3DPrototype }
-X3DPrototype41.X3DPrototype := X3DPrototype45;
-{ .AddX3DPrototype }
-Group11.X3DPrototype := X3DPrototype41;
-Transform59 := TTransformNode.Create;
-Transform59.Scale := Vector3(0.1,0.1,0.1);
-PlaneSensor60 := TPlaneSensorNode.Create;
-PlaneSensor60.Description := 'click on background to add nodes, click on nodes to add links';
-PlaneSensor60.MinPosition := Vector2Single(-50,-50);
-PlaneSensor60.MaxPosition := Vector2Single(50,50);
-{ .AddChildren }
-Transform59.AddChildren([PlaneSensor60]);
-X3DPrototype61 := TX3DPrototypeNode.Create;
-X3DPrototype61.NameField := 'node';
-SFVec3f62 := TSFVec3f.Create(node2, false, 'position', Vector3(0,1.388333,0));
-SFVec3f62.NameField := 'position';
-SFVec3f62.Value := '0 1.388333 0';
-{ .SetSFVec3f }
-X3DPrototype61.SFVec3f := SFVec3f62;
-{ .AddX3DPrototype }
-Transform59.X3DPrototype := X3DPrototype61;
-X3DPrototype63 := TX3DPrototypeNode.Create;
-X3DPrototype63.NameField := 'node';
-SFVec3f64 := TSFVec3f.Create(node2, false, 'position', Vector3(0,1.388333,0));
-SFVec3f64.NameField := 'position';
-SFVec3f64.Value := '0 1.388333 0';
-{ .SetSFVec3f }
-X3DPrototype63.SFVec3f := SFVec3f64;
-{ .AddX3DPrototype }
-Transform59.X3DPrototype := X3DPrototype63;
-X3DPrototype65 := TX3DPrototypeNode.Create;
-X3DPrototype65.NameField := 'node';
-SFVec3f66 := TSFVec3f.Create(node2, false, 'position', Vector3(0,1.388333,0));
-SFVec3f66.NameField := 'position';
-SFVec3f66.Value := '0 1.388333 0';
-{ .SetSFVec3f }
-X3DPrototype65.SFVec3f := SFVec3f66;
-{ .AddX3DPrototype }
-Transform59.X3DPrototype := X3DPrototype65;
-X3DPrototype67 := TX3DPrototypeNode.Create;
-X3DPrototype67.NameField := 'node';
-SFVec3f68 := TSFVec3f.Create(node2, false, 'position', Vector3(0,1.388333,0));
-SFVec3f68.NameField := 'position';
-SFVec3f68.Value := '0 1.388333 0';
-{ .SetSFVec3f }
-X3DPrototype67.SFVec3f := SFVec3f68;
-{ .AddX3DPrototype }
-Transform59.X3DPrototype := X3DPrototype67;
-X3DPrototype69 := TX3DPrototypeNode.Create;
-X3DPrototype69.NameField := 'cyl';
-{ .AddX3DPrototype }
-Transform59.X3DPrototype := X3DPrototype69;
-X3DPrototype70 := TX3DPrototypeNode.Create;
-X3DPrototype70.NameField := 'cyl';
-{ .AddX3DPrototype }
-Transform59.X3DPrototype := X3DPrototype70;
-X3DPrototype71 := TX3DPrototypeNode.Create;
-X3DPrototype71.NameField := 'cyl';
-{ .AddX3DPrototype }
-Transform59.X3DPrototype := X3DPrototype71;
-{ .AddChildren }
-Group11.AddChildren([Transform59]);
-Script72 := TScriptNode.Create;
-X3DField73 := TX3DField.Create;
-X3DField73.NameField := 'counter';
-X3DField73.AccessType := 'inputOutput';
-X3DField73.Type := 'SFInt32';
-{ .SetX3DField }
-Script72.X3DField := X3DField73;
-X3DField74 := TX3DField.Create;
-X3DField74.NameField := 'node_changed';
-X3DField74.AccessType := 'outputOnly';
-X3DField74.Type := 'SFNode';
-{ .AddX3DField }
-Script72.X3DField := X3DField74;
-X3DField75 := TX3DField.Create;
-X3DField75.NameField := 'add_node';
-X3DField75.AccessType := 'inputOnly';
-X3DField75.Type := 'SFBool';
-{ .AddX3DField }
-Script72.X3DField := X3DField75;
-
-Script72.SetSourceCode('''ecmascript:\n"+
-"	function add_node(value) {\n"+
-"                // Browser.print('hey ', counter);\\n                counter = counter++;\\n		Browser.appendTo(Browser.getDocument().querySelector(\"field [name=ModifiableNode]\"),\\n			{ \"ProtoInstance\":\\n				{ \"@name\":\"node\",\\n				  \"@DEF\":\"node'+counter+'\",\n"+
-"				  \"fieldValue\": [\n"+
-"					{\n"+
-"						 \"@name\":\"position\",\n"+
-"						 \"@value\":[0.0,0.0,0.0]\n"+
-"					}\n"+
-"				  ]\n"+
-"				}\n"+
-"			});\n"+
-"\n"+
-"        }''');
-{ .AddChildren }
-Group11.AddChildren([Script72]);
-Group11.AddRoute(PlaneSensor60.FdIsactive, Script72.FdAdd_node);
-{ .AddX3DRoute }
-Group11.AddRoute(X3DPrototype61.EventPosition_changed, X3DPrototype69.EventSet_positiona);
-{ .AddX3DRoute }
-Group11.AddRoute(X3DPrototype63.EventPosition_changed, X3DPrototype69.EventSet_positionb);
-{ .AddX3DRoute }
-Group11.AddRoute(X3DPrototype61.EventPosition_changed, X3DPrototype70.EventSet_positiona);
-{ .AddX3DRoute }
-Group11.AddRoute(X3DPrototype65.EventPosition_changed, X3DPrototype70.EventSet_positionb);
-{ .AddX3DRoute }
-Group11.AddRoute(X3DPrototype61.EventPosition_changed, X3DPrototype71.EventSet_positiona);
-{ .AddX3DRoute }
-Group11.AddRoute(X3DPrototype67.EventPosition_changed, X3DPrototype71.EventSet_positionb);
-{ .AddX3DRoute }
-{ .AddGroup }
-X3D0.AddChildren([Group11]);
-Result := X3D0;
+Transform17.X3DName := 'transform';
+Transform17.FieldOrEvent('translation', True).IsClauseNamesAdd('position');
+Shape18 := TShapeNode.Create;
+Sphere19 := TSphereNode.Create;
+Shape18.Geometry := Sphere19;
+Appearance20 := TAppearanceNode.Create;
+Material21 := TMaterialNode.Create;
+Material21.DiffuseColor := Vector3(1, 0, 0);
+Appearance20.Material := Material21;
+Shape18.Appearance := Appearance20;
+Transform17.FdChildren.Add(Shape18);
+Transform22 := TTransformNode.Create;
+Transform22.Translation := Vector3(1, 0, 0);
+Shape23 := TShapeNode.Create;
+Appearance24 := TAppearanceNode.Create;
+Material25 := TMaterialNode.Create;
+Material25.DiffuseColor := Vector3(0, 0, 1);
 end;
 
+procedure Initforce_tidyPart1;
 begin
+Appearance24.Material := Material25;
+Shape23.Appearance := Appearance24;
+Text26 := TTextNode.Create;
+Text26.SetText(['Node']);
+FontStyle27 := TFontStyleNode.Create;
+FontStyle27.Size := 5;
+FontStyle27.Justify := fjMiddle;
+FontStyle27.JustifyMinor := fjMiddle;
+Text26.FontStyle := FontStyle27;
+Shape23.Geometry := Text26;
+Transform22.FdChildren.Add(Shape23);
+Transform17.FdChildren.Add(Transform22);
+Group16.FdChildren.Add(Transform17);
+PositionInterpolator28 := TPositionInterpolatorNode.Create;
+PositionInterpolator28.X3DName := 'NodePosition';
+PositionInterpolator28.SetKey([0, 1]);
+PositionInterpolator28.SetKeyValue([Vector3(0, 0, 0), Vector3(0, 5, 0)]);
+Group16.FdChildren.Add(PositionInterpolator28);
+Script29 := TScriptNode.Create;
+Script29.X3DName := 'MoveBall';
+FieldVal30 := TSFVec3f.Create(Script29, True, 'translation', Vector3(50, 50, 0));
+Script29.AddCustomFieldOrEvent(FieldVal30);
+FieldVal31 := TSFVec3f.CreateUndefined(Script29, True, 'old');
+Script29.AddCustomFieldOrEvent(FieldVal31);
+FieldVal32 := TSFTime.CreateEvent(Script29, 'set_cycle', True);
+Script29.AddCustomFieldOrEvent(FieldVal32);
+FieldVal33 := TMFVec3f.CreateEvent(Script29, 'keyValue', False);
+Script29.AddCustomFieldOrEvent(FieldVal33);
+Script29.SetUrl(['compiled:' + LineEnding +
+  'set_cycle=Script29_set_cycle']);
+Group16.FdChildren.Add(Script29);
+TimeSensor34 := TTimeSensorNode.Create;
+TimeSensor34.X3DName := 'nodeClock';
+TimeSensor34.CycleInterval := 3;
+TimeSensor34.Loop := True;
+Group16.FdChildren.Add(TimeSensor34);
+{ ROUTE nodeClock.cycleTime TO MoveBall.set_cycle }
+Group16.AddRoute(TimeSensor34.EventCycleTime, FieldVal32);
+{ ROUTE nodeClock.fraction_changed TO NodePosition.set_fraction }
+Group16.AddRoute(TimeSensor34.EventFraction_changed, PositionInterpolator28.EventSet_fraction);
+{ ROUTE MoveBall.keyValue TO NodePosition.set_keyValue }
+end;
+
+procedure Initforce_tidyPart2;
+begin
+Group16.AddRoute(FieldVal33, PositionInterpolator28.FdKeyValue.EventIn);
+{ ROUTE NodePosition.value_changed TO transform.set_translation }
+Group16.AddRoute(PositionInterpolator28.EventValue_changed, Transform17.FdTranslation.EventIn);
+ProtoDeclare12.Node.AddChildren([Group16]);
+X3D0.AddPrototype(ProtoDeclare12);
+ProtoDeclare39 := CreateEmptyPrototype('cyl');
+ProtoDeclare39.X3DName := 'cyl';
+FieldVal41 := TSFVec3f.CreateUndefined(nil, True, 'set_positionA');
+FieldDecl41 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl41.FieldOrEvent := FieldVal41;
+FieldVal41.ParentInterfaceDeclaration := FieldDecl41;
+ProtoDeclare39.InterfaceDeclarations.Add(FieldDecl41);
+FieldVal42 := TSFVec3f.CreateUndefined(nil, True, 'set_positionB');
+FieldDecl42 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl42.FieldOrEvent := FieldVal42;
+FieldVal42.ParentInterfaceDeclaration := FieldDecl42;
+ProtoDeclare39.InterfaceDeclarations.Add(FieldDecl42);
+Group44 := TGroupNode.Create;
+Shape45 := TShapeNode.Create;
+Appearance46 := TAppearanceNode.Create;
+Material47 := TMaterialNode.Create;
+Material47.DiffuseColor := Vector3(0, 1, 0);
+Appearance46.Material := Material47;
+Shape45.Appearance := Appearance46;
+Extrusion48 := TExtrusionNode.Create;
+Extrusion48.X3DName := 'extrusion';
+Extrusion48.CreaseAngle := 0.785;
+Extrusion48.SetCrossSection([Vector2(1, 0), Vector2(0.92, -0.38), Vector2(0.71, -0.71), Vector2(0.38, -0.92), Vector2(0, -1), Vector2(-0.38, -0.92), Vector2(-0.71, -0.71), Vector2(-0.92, -0.38), Vector2(-1, 0), Vector2(-0.92, 0.38), Vector2(-0.71, 0.71), Vector2(-0.38, 0.92), Vector2(0, 1), Vector2(0.38, 0.92), Vector2(0.71, 0.71), Vector2(0.92, 0.38), Vector2(1, 0)]);
+Extrusion48.SetSpine([Vector3(0, -50, 0), Vector3(0, 0, 0), Vector3(0, 50, 0)]);
+Shape45.Geometry := Extrusion48;
+Group44.FdChildren.Add(Shape45);
+Script49 := TScriptNode.Create;
+Script49.X3DName := 'MoveCylinder';
+FieldVal50 := TMFVec3f.Create(Script49, True, 'spine', [Vector3(0, -50, 0), Vector3(0, 0, 0), Vector3(0, 50, 0)]);
+Script49.AddCustomFieldOrEvent(FieldVal50);
+FieldVal51 := TSFVec3f.CreateUndefined(Script49, True, 'endA');
+Script49.AddCustomFieldOrEvent(FieldVal51);
+FieldVal52 := TSFVec3f.CreateUndefined(Script49, True, 'endB');
+Script49.AddCustomFieldOrEvent(FieldVal52);
+Script49.FieldOrEvent('endA', True).IsClauseNamesAdd('set_positionA');
+end;
+
+procedure Initforce_tidyPart3;
+begin
+Script49.FieldOrEvent('endB', True).IsClauseNamesAdd('set_positionB');
+Script49.SetUrl(['compiled:' + LineEnding +
+  'set_endA=Script49_set_endA' + LineEnding +
+  'endA=Script49_endA' + LineEnding +
+  'set_endB=Script49_set_endB' + LineEnding +
+  'endB=Script49_endB']);
+Group44.FdChildren.Add(Script49);
+{ ROUTE MoveCylinder.spine_changed TO extrusion.set_spine }
+Group44.AddRoute(FieldVal50.EventOut, Extrusion48.EventSet_spine);
+ProtoDeclare39.Node.AddChildren([Group44]);
+X3D0.AddPrototype(ProtoDeclare39);
+Transform54 := TTransformNode.Create;
+Transform54.X3DName := 'HoldsContent';
+Transform54.Scale := Vector3(0.1, 0.1, 0.1);
+PlaneSensor55 := TPlaneSensorNode.Create;
+PlaneSensor55.X3DName := 'clickGenerator';
+PlaneSensor55.Description := 'click on background to add nodes, click on nodes to add links';
+PlaneSensor55.MinPosition := Vector2(-50, -50);
+PlaneSensor55.MaxPosition := Vector2(50, 50);
+Transform54.FdChildren.Add(PlaneSensor55);
+ProtoInstance56 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare12);
+ProtoInstance56.X3DName := 'nodeA';
+(ProtoInstance56.Field('position') as TSFVec3f).Value := Vector3(0, 1.388333, 0);
+Transform54.FdChildren.Add(ProtoInstance56.Instantiate);
+ProtoInstance58 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare12);
+ProtoInstance58.X3DName := 'nodeB';
+(ProtoInstance58.Field('position') as TSFVec3f).Value := Vector3(0, 1.388333, 0);
+Transform54.FdChildren.Add(ProtoInstance58.Instantiate);
+ProtoInstance60 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare12);
+ProtoInstance60.X3DName := 'nodeC';
+(ProtoInstance60.Field('position') as TSFVec3f).Value := Vector3(0, 1.388333, 0);
+Transform54.FdChildren.Add(ProtoInstance60.Instantiate);
+ProtoInstance62 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare12);
+ProtoInstance62.X3DName := 'nodeD';
+(ProtoInstance62.Field('position') as TSFVec3f).Value := Vector3(0, 1.388333, 0);
+Transform54.FdChildren.Add(ProtoInstance62.Instantiate);
+ProtoInstance64 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare39);
+ProtoInstance64.X3DName := 'linkA';
+Transform54.FdChildren.Add(ProtoInstance64.Instantiate);
+ProtoInstance65 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare39);
+ProtoInstance65.X3DName := 'linkB';
+Transform54.FdChildren.Add(ProtoInstance65.Instantiate);
+ProtoInstance66 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare39);
+ProtoInstance66.X3DName := 'linkC';
+end;
+
+procedure Initforce_tidyPart4;
+begin
+Transform54.FdChildren.Add(ProtoInstance66.Instantiate);
+Group11.FdChildren.Add(Transform54);
+Script67 := TScriptNode.Create;
+Script67.X3DName := 'clickHandler';
+FieldVal68 := TSFInt32.CreateUndefined(Script67, True, 'counter');
+Script67.AddCustomFieldOrEvent(FieldVal68);
+FieldVal69 := TSFNode.CreateEvent(Script67, 'node_changed', False);
+Script67.AddCustomFieldOrEvent(FieldVal69);
+FieldVal70 := TSFBool.CreateEvent(Script67, 'add_node', True);
+Script67.AddCustomFieldOrEvent(FieldVal70);
+Script67.SetUrl(['compiled:' + LineEnding +
+  'add_node=Script67_add_node']);
+Group11.FdChildren.Add(Script67);
+{ ROUTE clickGenerator.isActive TO clickHandler.add_node }
+Group11.AddRoute(PlaneSensor55.EventIsActive, FieldVal70);
+{ ROUTE nodeA.position_changed TO linkA.set_positionA }
+Group11.AddRoute(ProtoInstance56.FieldOrEvent('position_changed'), ProtoInstance64.FieldOrEvent('set_positionA'));
+{ ROUTE nodeB.position_changed TO linkA.set_positionB }
+Group11.AddRoute(ProtoInstance58.FieldOrEvent('position_changed'), ProtoInstance64.FieldOrEvent('set_positionB'));
+{ ROUTE nodeA.position_changed TO linkB.set_positionA }
+Group11.AddRoute(ProtoInstance56.FieldOrEvent('position_changed'), ProtoInstance65.FieldOrEvent('set_positionA'));
+{ ROUTE nodeC.position_changed TO linkB.set_positionB }
+Group11.AddRoute(ProtoInstance60.FieldOrEvent('position_changed'), ProtoInstance65.FieldOrEvent('set_positionB'));
+{ ROUTE nodeA.position_changed TO linkC.set_positionA }
+Group11.AddRoute(ProtoInstance56.FieldOrEvent('position_changed'), ProtoInstance66.FieldOrEvent('set_positionA'));
+{ ROUTE nodeD.position_changed TO linkC.set_positionB }
+Group11.AddRoute(ProtoInstance62.FieldOrEvent('position_changed'), ProtoInstance66.FieldOrEvent('set_positionB'));
+X3D0.AddChildren([Group11]);
+end;
+
+function Createforce_tidy: TX3DRootNode;
+var
+  Binder: Tforce_tidyScriptBinder;
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript29List) do
+    FreeAndNil(CompiledScript29List[_i]);
+  SetLength(CompiledScript29List, 0);
+  for _i := 0 to High(CompiledScript49List) do
+    FreeAndNil(CompiledScript49List[_i]);
+  SetLength(CompiledScript49List, 0);
+  for _i := 0 to High(CompiledScript67List) do
+    FreeAndNil(CompiledScript67List[_i]);
+  SetLength(CompiledScript67List, 0);
+  Initforce_tidyPart0;
+  Initforce_tidyPart1;
+  Initforce_tidyPart2;
+  Initforce_tidyPart3;
+  Initforce_tidyPart4;
+  Binder := Tforce_tidyScriptBinder.Create;
+  try
+    X3D0.EnumerateNodes(TScriptNode, {$ifdef FPC}@{$endif}Binder.BindNode, False);
+  finally
+    FreeAndNil(Binder);
+  end;
+  FreeAndNil(Compiledforce_tidyExtrusionHelper);
+  Compiledforce_tidyExtrusionHelper := Tforce_tidyExtrusionHelper.Create;
+  X3D0.EnumerateNodes(TExtrusionNode, {$ifdef FPC}@{$endif}Compiledforce_tidyExtrusionHelper.BindNode, False);
+  Result := X3D0;
+end;
+
+procedure Registerforce_tidyScripts(const Scene: TCastleSceneCore);
+var
+  _i: Integer;
+begin
+  Randomize;
+  for _i := 0 to High(CompiledScript29List) do
+  begin
+    CompiledScript29List[_i].RegisterHandlers(Scene);
+  end;
+  for _i := 0 to High(CompiledScript49List) do
+  begin
+    CompiledScript49List[_i].RegisterHandlers(Scene);
+  end;
+  for _i := 0 to High(CompiledScript67List) do
+  begin
+    CompiledScript67List[_i].RegisterHandlers(Scene);
+  end;
+end;
+
+finalization
+  while Length(CompiledScript29List) > 0 do
+  begin
+    FreeAndNil(CompiledScript29List[High(CompiledScript29List)]);
+    SetLength(CompiledScript29List, Length(CompiledScript29List) - 1);
+  end;
+  while Length(CompiledScript49List) > 0 do
+  begin
+    FreeAndNil(CompiledScript49List[High(CompiledScript49List)]);
+    SetLength(CompiledScript49List, Length(CompiledScript49List) - 1);
+  end;
+  while Length(CompiledScript67List) > 0 do
+  begin
+    FreeAndNil(CompiledScript67List[High(CompiledScript67List)]);
+    SetLength(CompiledScript67List, Length(CompiledScript67List) - 1);
+  end;
+  FreeAndNil(Compiledforce_tidyExtrusionHelper);
 end.

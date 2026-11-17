@@ -2,39 +2,58 @@ unit sphereflowers;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Createsphereflowers: TX3DRootNode;
 
 implementation
 
-uses CastleVectors;
+uses Classes, SysUtils, X3DLoad, CastleVectors;
 
-function Createsphereflowers: TX3DRootNode;
+function CreateEmptyPrototype(const AName: String): TX3DPrototype;
 var
-X3D0: TX3DRootNode;
-Group17: TGroupNode;
-NavigationInfo18: TNavigationInfoNode;
-Background19: TBackgroundNode;
-Group20: TGroupNode;
-X3DExternalPrototype21: TX3DExternalPrototype;
-X3DField22: TX3DField;
-X3DField23: TX3DField;
-X3DPrototype24: TX3DPrototype;
-X3DPrototype25: TX3DPrototype;
-Group26: TGroupNode;
-X3DPrototype27: TX3DPrototypeNode;
-MFString28: TMFString;
-MFString29: TMFString;
-X3DPrototype30: TX3DPrototypeNode;
-X3DPrototype31: TX3DPrototypeNode;
-X3DPrototype32: TX3DPrototypeNode;
-X3DPrototype33: TX3DPrototypeNode;
-X3DPrototype34: TX3DPrototypeNode;
-X3DPrototype35: TX3DPrototypeNode;
-TimeSensor36: TTimeSensorNode;
-Sound37: TSoundNode;
-AudioClip38: TAudioClipNode;
+  Stream: TStringStream;
+  TempRoot: TX3DRootNode;
+  CopyState: TX3DNodeDeepCopyState;
+begin
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  try
+    TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
+    try
+      CopyState := TX3DNodeDeepCopyState.Create;
+      try
+        Result := TempRoot.Prototypes[0].DeepCopy(CopyState) as TX3DPrototype;
+      finally
+        FreeAndNil(CopyState);
+      end;
+    finally
+      FreeAndNil(TempRoot);
+    end;
+  finally
+    FreeAndNil(Stream);
+  end;
+end;
+
+var
+  X3D0: TX3DRootNode;
+  Group17: TGroupNode;
+  NavigationInfo18: TNavigationInfoNode;
+  Background19: TBackgroundNode;
+  Group20: TGroupNode;
+  X3DExternalPrototype21: TX3DExternalPrototype;
+  FieldVal22: TMFString;
+  FieldVal23: TMFString;
+  ProtoDeclare24: TX3DPrototype;
+  Group26: TGroupNode;
+  ProtoInstance27: TX3DPrototypeNode;
+  ProtoInstance30: TX3DPrototypeNode;
+  ProtoInstance31: TX3DPrototypeNode;
+  ProtoInstance32: TX3DPrototypeNode;
+  ProtoInstance33: TX3DPrototypeNode;
+  ProtoInstance34: TX3DPrototypeNode;
+  ProtoInstance35: TX3DPrototypeNode;
+
+procedure InitsphereflowersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -57,107 +76,58 @@ X3D0.Meta['generator'] := 'X3D-Edit, https://savage.nps.edu/X3D-Edit';
 X3D0.Meta['identifier'] := 'https://coderextreme.net/X3DJSONLD/src/main/data/sphereflowers.x3d';
 Group17 := TGroupNode.Create;
 NavigationInfo18 := TNavigationInfoNode.Create;
-{ .AddChildren }
-Group17.AddChildren([NavigationInfo18]);
+Group17.FdChildren.Add(NavigationInfo18);
 Background19 := TBackgroundNode.Create;
-Background19.SetBackUrl(['../resources/images/all_probes/stpeters_cross/stpeters_back.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png']);
-Background19.SetBottomUrl(['../resources/images/all_probes/stpeters_cross/stpeters_bottom.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png']);
-Background19.SetFrontUrl(['../resources/images/all_probes/stpeters_cross/stpeters_front.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png']);
-Background19.SetLeftUrl(['../resources/images/all_probes/stpeters_cross/stpeters_left.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png']);
-Background19.SetRightUrl(['../resources/images/all_probes/stpeters_cross/stpeters_right.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png']);
-Background19.SetTopUrl(['../resources/images/all_probes/stpeters_cross/stpeters_top.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png']);
-{ .AddChildren }
-Group17.AddChildren([Background19]);
+Background19.SetBackUrl(['../resources/images/all_probes/stpeters_cross/stpeters_back.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png']);
+Background19.SetBottomUrl(['../resources/images/all_probes/stpeters_cross/stpeters_bottom.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png']);
+Background19.SetFrontUrl(['../resources/images/all_probes/stpeters_cross/stpeters_front.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png']);
+Background19.SetLeftUrl(['../resources/images/all_probes/stpeters_cross/stpeters_left.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png']);
+Background19.SetRightUrl(['../resources/images/all_probes/stpeters_cross/stpeters_right.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png']);
+Background19.SetTopUrl(['../resources/images/all_probes/stpeters_cross/stpeters_top.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png']);
+Group17.FdChildren.Add(Background19);
 Group20 := TGroupNode.Create;
 X3DExternalPrototype21 := TX3DExternalPrototype.Create;
-X3DExternalPrototype21.NameField := 'FlowerProto';
-X3DExternalPrototype21.Url := '\"../data/flowerproto.x3d#FlowerProto\" \"https://coderextreme.net/X3DJSONLD/src/main/data/flowerproto.x3d#FlowerProto\"';
-X3DField22 := TX3DField.Create;
-X3DField22.NameField := 'vertex';
-X3DField22.AccessType := 'inputOutput';
-X3DField22.Type := 'MFString';
-{ .SetX3DField }
-X3DExternalPrototype21.X3DField := X3DField22;
-X3DField23 := TX3DField.Create;
-X3DField23.NameField := 'fragment';
-X3DField23.AccessType := 'inputOutput';
-X3DField23.Type := 'MFString';
-{ .AddX3DField }
-X3DExternalPrototype21.X3DField := X3DField23;
-{ .SetX3DExternalPrototype }
-Group20.X3DExternalPrototype := X3DExternalPrototype21;
-X3DPrototype24 := TX3DPrototype.Create;
-X3DPrototype24.NameField := 'flower';
-X3DPrototype25 := TX3DPrototype.Create;
+X3DExternalPrototype21.X3DName := 'FlowerProto';
+X3DExternalPrototype21.Url := '"../data/flowerproto.x3d#FlowerProto" "https://coderextreme.net/X3DJSONLD/src/main/data/flowerproto.x3d#FlowerProto"';
+FieldVal22 := TMFString.CreateUndefined(X3DExternalPrototype21, True, 'vertex');
+X3DExternalPrototype21.AddCustomFieldOrEvent(FieldVal22);
+FieldVal23 := TMFString.CreateUndefined(X3DExternalPrototype21, True, 'fragment');
+X3DExternalPrototype21.AddCustomFieldOrEvent(FieldVal23);
+Group20.AddX3DExternalPrototype([X3DExternalPrototype21]);
+ProtoDeclare24 := CreateEmptyPrototype('flower');
+end;
+
+procedure InitsphereflowersPart1;
+begin
+ProtoDeclare24.X3DName := 'flower';
 Group26 := TGroupNode.Create;
-X3DPrototype27 := TX3DPrototypeNode.Create;
-X3DPrototype27.NameField := 'FlowerProto';
-MFString28 := TMFString.Create(FlowerProto2, false, 'vertex', (['../shaders/x_ite_flowers_chromatic.vs']));
-MFString28.NameField := 'vertex';
-MFString28.Value := '\"../shaders/x_ite_flowers_chromatic.vs\"';
-{ .SetMFString }
-X3DPrototype27.MFString := MFString28;
-MFString29 := TMFString.Create(FlowerProto2, false, 'fragment', (['../shaders/x_ite.fs']));
-MFString29.NameField := 'fragment';
-MFString29.Value := '\"../shaders/x_ite.fs\"';
-{ .AddMFString }
-X3DPrototype27.MFString := MFString29;
-{ .SetX3DPrototype }
-Group26.X3DPrototype := X3DPrototype27;
-{ .SetGroup }
-X3DPrototype25.Group := Group26;
-{ .SetX3DPrototype }
-X3DPrototype24.X3DPrototype := X3DPrototype25;
-{ .AddX3DPrototype }
-Group20.X3DPrototype := X3DPrototype24;
-X3DPrototype30 := TX3DPrototypeNode.Create;
-X3DPrototype30.NameField := 'flower';
-{ .AddX3DPrototype }
-Group20.X3DPrototype := X3DPrototype30;
-X3DPrototype31 := TX3DPrototypeNode.Create;
-X3DPrototype31.NameField := 'flower';
-{ .AddX3DPrototype }
-Group20.X3DPrototype := X3DPrototype31;
-X3DPrototype32 := TX3DPrototypeNode.Create;
-X3DPrototype32.NameField := 'flower';
-{ .AddX3DPrototype }
-Group20.X3DPrototype := X3DPrototype32;
-X3DPrototype33 := TX3DPrototypeNode.Create;
-X3DPrototype33.NameField := 'flower';
-{ .AddX3DPrototype }
-Group20.X3DPrototype := X3DPrototype33;
-X3DPrototype34 := TX3DPrototypeNode.Create;
-X3DPrototype34.NameField := 'flower';
-{ .AddX3DPrototype }
-Group20.X3DPrototype := X3DPrototype34;
-X3DPrototype35 := TX3DPrototypeNode.Create;
-X3DPrototype35.NameField := 'flower';
-{ .AddX3DPrototype }
-Group20.X3DPrototype := X3DPrototype35;
-TimeSensor36 := TTimeSensorNode.Create;
-TimeSensor36.Loop := True;
-{ .AddChildren }
-Group20.AddChildren([TimeSensor36]);
-Sound37 := TSoundNode.Create;
-Sound37.MaxBack := 100;
-Sound37.MaxFront := 100;
-Sound37.MinBack := 20;
-Sound37.MinFront := 20;
-Sound37.Location := Vector3(0,1,0);
-AudioClip38 := TAudioClipNode.Create;
-AudioClip38.Description := 'Chandubabamusic #1';
-AudioClip38.SetUrl(['../resources/chandubabamusic1.wav','https://coderextreme.net/X3DJSONLD/src/main/resources/chandubabamusic1.wav']);
-{ .SetSource }
-Sound37.Source := AudioClip38;
-{ .AddChildren }
-Group20.AddChildren([Sound37]);
-Group20.AddRoute(TimeSensor36.FdCycletime, AudioClip38.FdStarttime);
-{ .AddX3DRoute }
-{ .AddChildren }
-Group17.AddChildren([Group20]);
-{ .AddGroup }
+ProtoInstance27 := TX3DPrototypeNode.CreatePrototypeNode('', '', X3DExternalPrototype21);
+(ProtoInstance27.Field('vertex') as TMFString).Send(['../shaders/x_ite_flowers_chromatic.vs']);
+(ProtoInstance27.Field('fragment') as TMFString).Send(['../shaders/x_ite.fs']);
+Group26.FdChildren.Add(ProtoInstance27.Instantiate);
+ProtoDeclare24.Node.AddChildren([Group26]);
+X3D0.AddPrototype(ProtoDeclare24);
+ProtoInstance30 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare24);
+Group20.FdChildren.Add(ProtoInstance30.Instantiate);
+ProtoInstance31 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare24);
+Group20.FdChildren.Add(ProtoInstance31.Instantiate);
+ProtoInstance32 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare24);
+Group20.FdChildren.Add(ProtoInstance32.Instantiate);
+ProtoInstance33 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare24);
+Group20.FdChildren.Add(ProtoInstance33.Instantiate);
+ProtoInstance34 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare24);
+Group20.FdChildren.Add(ProtoInstance34.Instantiate);
+ProtoInstance35 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare24);
+Group20.FdChildren.Add(ProtoInstance35.Instantiate);
+Group17.FdChildren.Add(Group20);
 X3D0.AddChildren([Group17]);
-Result := X3D0;
+end;
+
+function Createsphereflowers: TX3DRootNode;
+begin
+  InitsphereflowersPart0;
+  InitsphereflowersPart1;
+  Result := X3D0;
 end;
 
 begin

@@ -2,41 +2,59 @@ unit asmallbox;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Createasmallbox: TX3DRootNode;
 
 implementation
 
-uses CastleVectors;
+uses Classes, SysUtils, X3DLoad, CastleVectors;
 
-function Createasmallbox: TX3DRootNode;
+function CreateEmptyPrototype(const AName: String): TX3DPrototype;
 var
-X3D0: TX3DRootNode;
-Group7: TGroupNode;
-X3DPrototype8: TX3DPrototype;
-X3DInterfaceDeclaration9: TX3DInterfaceDeclaration;
-X3DField10: TX3DField;
-Shape11: TShapeNode;
-Sphere12: TSphereNode;
-X3DPrototype13: TX3DPrototype;
-Transform14: TTransformNode;
-IS15: TIS;
-connect16: Tconnect;
-X3DPrototype17: TX3DPrototype;
-X3DInterfaceDeclaration18: TX3DInterfaceDeclaration;
-X3DField19: TX3DField;
-Shape20: TShapeNode;
-Cylinder21: TCylinderNode;
-X3DPrototype22: TX3DPrototype;
-Transform23: TTransformNode;
-X3DPrototype24: TX3DPrototypeNode;
-IS25: TIS;
-connect26: Tconnect;
-X3DPrototype27: TX3DPrototypeNode;
-MFNode28: TMFNode;
-Shape29: TShapeNode;
-Box30: TBoxNode;
+  Stream: TStringStream;
+  TempRoot: TX3DRootNode;
+  CopyState: TX3DNodeDeepCopyState;
+begin
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  try
+    TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
+    try
+      CopyState := TX3DNodeDeepCopyState.Create;
+      try
+        Result := TempRoot.Prototypes[0].DeepCopy(CopyState) as TX3DPrototype;
+      finally
+        FreeAndNil(CopyState);
+      end;
+    finally
+      FreeAndNil(TempRoot);
+    end;
+  finally
+    FreeAndNil(Stream);
+  end;
+end;
+
+var
+  X3D0: TX3DRootNode;
+  Group7: TGroupNode;
+  ProtoDeclare8: TX3DPrototype;
+  FieldDecl10: TX3DInterfaceDeclaration;
+  FieldVal10: TMFNode;
+  Shape11: TShapeNode;
+  Sphere12: TSphereNode;
+  Transform14: TTransformNode;
+  ProtoDeclare15: TX3DPrototype;
+  FieldDecl17: TX3DInterfaceDeclaration;
+  FieldVal17: TMFNode;
+  Shape18: TShapeNode;
+  Cylinder19: TCylinderNode;
+  Transform21: TTransformNode;
+  ProtoInstance22: TX3DPrototypeNode;
+  ProtoInstance23: TX3DPrototypeNode;
+  Shape25: TShapeNode;
+  Box26: TBoxNode;
+
+procedure InitasmallboxPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -48,93 +66,57 @@ X3D0.Meta['generator'] := 'manual';
 X3D0.Meta['identifier'] := 'https://coderextreme.net/X3DJSONLD/src/main/data/abox.x3d';
 X3D0.Meta['description'] := 'a box';
 Group7 := TGroupNode.Create;
-X3DPrototype8 := TX3DPrototype.Create;
-X3DPrototype8.NameField := 'anyShape';
-X3DInterfaceDeclaration9 := TX3DInterfaceDeclaration.Create(nil);
-X3DField10 := TX3DField.Create;
-X3DField10.NameField := 'myShape';
-X3DField10.AccessType := 'inputOutput';
-X3DField10.Type := 'MFNode';
+ProtoDeclare8 := CreateEmptyPrototype('anyShape');
+ProtoDeclare8.X3DName := 'anyShape';
+FieldVal10 := TMFNode.CreateUndefined(nil, True, 'myShape');
+FieldDecl10 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl10.FieldOrEvent := FieldVal10;
+FieldVal10.ParentInterfaceDeclaration := FieldDecl10;
+ProtoDeclare8.InterfaceDeclarations.Add(FieldDecl10);
 Shape11 := TShapeNode.Create;
 Sphere12 := TSphereNode.Create;
-{ .SetGeometry }
 Shape11.Geometry := Sphere12;
-{ .SetShape }
-X3DField10.Shape := Shape11;
-{ .SetX3DField }
-X3DInterfaceDeclaration9.X3DField := X3DField10;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype8.X3DInterfaceDeclaration := X3DInterfaceDeclaration9;
-X3DPrototype13 := TX3DPrototype.Create;
+FieldVal10.Add(Shape11);
 Transform14 := TTransformNode.Create;
-IS15 := TIS.Create;
-connect16 := Tconnect.Create;
-connect16.NodeField := 'children';
-connect16.ProtoField := 'myShape';
-{ .AddConnect }
-IS15.Connect := connect16;
-{ .SetIS }
-Transform14.IS := IS15;
-{ .SetTransform }
-X3DPrototype13.Transform := Transform14;
-{ .AddX3DPrototype }
-X3DPrototype8.X3DPrototype := X3DPrototype13;
-{ .SetX3DPrototype }
-Group7.X3DPrototype := X3DPrototype8;
-X3DPrototype17 := TX3DPrototype.Create;
-X3DPrototype17.NameField := 'one';
-X3DInterfaceDeclaration18 := TX3DInterfaceDeclaration.Create(nil);
-X3DField19 := TX3DField.Create;
-X3DField19.NameField := 'myShape';
-X3DField19.AccessType := 'inputOutput';
-X3DField19.Type := 'MFNode';
-Shape20 := TShapeNode.Create;
-Cylinder21 := TCylinderNode.Create;
-{ .SetGeometry }
-Shape20.Geometry := Cylinder21;
-{ .SetShape }
-X3DField19.Shape := Shape20;
-{ .SetX3DField }
-X3DInterfaceDeclaration18.X3DField := X3DField19;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype17.X3DInterfaceDeclaration := X3DInterfaceDeclaration18;
-X3DPrototype22 := TX3DPrototype.Create;
-Transform23 := TTransformNode.Create;
-X3DPrototype24 := TX3DPrototypeNode.Create;
-X3DPrototype24.NameField := 'anyShape';
-IS25 := TIS.Create;
-connect26 := Tconnect.Create;
-connect26.NodeField := 'myShape';
-connect26.ProtoField := 'myShape';
-{ .AddConnect }
-IS25.Connect := connect26;
-{ .SetIS }
-X3DPrototype24.IS := IS25;
-{ .SetX3DPrototype }
-Transform23.X3DPrototype := X3DPrototype24;
-{ .SetTransform }
-X3DPrototype22.Transform := Transform23;
-{ .AddX3DPrototype }
-X3DPrototype17.X3DPrototype := X3DPrototype22;
-{ .AddX3DPrototype }
-Group7.X3DPrototype := X3DPrototype17;
-X3DPrototype27 := TX3DPrototypeNode.Create;
-X3DPrototype27.NameField := 'one';
-MFNode28 := TMFNode.Create;
-MFNode28.NameField := 'myShape';
-Shape29 := TShapeNode.Create;
-Box30 := TBoxNode.Create;
-{ .SetGeometry }
-Shape29.Geometry := Box30;
-{ .SetShape }
-MFNode28.Shape := Shape29;
-{ .SetMFNode }
-X3DPrototype27.MFNode := MFNode28;
-{ .AddX3DPrototype }
-Group7.X3DPrototype := X3DPrototype27;
-{ .AddGroup }
+Transform14.FieldOrEvent('children', True).IsClauseNamesAdd('myShape');
+ProtoDeclare8.Node.AddChildren([Transform14]);
+X3D0.AddPrototype(ProtoDeclare8);
+ProtoDeclare15 := CreateEmptyPrototype('one');
+ProtoDeclare15.X3DName := 'one';
+FieldVal17 := TMFNode.CreateUndefined(nil, True, 'myShape');
+FieldDecl17 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl17.FieldOrEvent := FieldVal17;
+FieldVal17.ParentInterfaceDeclaration := FieldDecl17;
+ProtoDeclare15.InterfaceDeclarations.Add(FieldDecl17);
+Shape18 := TShapeNode.Create;
+Cylinder19 := TCylinderNode.Create;
+Shape18.Geometry := Cylinder19;
+FieldVal17.Add(Shape18);
+Transform21 := TTransformNode.Create;
+ProtoInstance22 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare8);
+ProtoInstance22.FieldOrEvent('myShape', True).IsClauseNamesAdd('myShape');
+Transform21.FdChildren.Add(ProtoInstance22.Instantiate);
+end;
+
+procedure InitasmallboxPart1;
+begin
+ProtoDeclare15.Node.AddChildren([Transform21]);
+X3D0.AddPrototype(ProtoDeclare15);
+ProtoInstance23 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare15);
+Shape25 := TShapeNode.Create;
+Box26 := TBoxNode.Create;
+Shape25.Geometry := Box26;
+(ProtoInstance23.Field('myShape') as TMFNode).Clear;
+(ProtoInstance23.Field('myShape') as TMFNode).Add(Shape25);
+Group7.FdChildren.Add(ProtoInstance23.Instantiate);
 X3D0.AddChildren([Group7]);
-Result := X3D0;
+end;
+
+function Createasmallbox: TX3DRootNode;
+begin
+  InitasmallboxPart0;
+  InitasmallboxPart1;
+  Result := X3D0;
 end;
 
 begin

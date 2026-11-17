@@ -2,7 +2,7 @@ unit jumpcut_loadurl;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Createjumpcut_loadurl: TX3DRootNode;
 
@@ -10,25 +10,26 @@ implementation
 
 uses CastleVectors;
 
-function Createjumpcut_loadurl: TX3DRootNode;
 var
-X3D0: TX3DRootNode;
-Group16: TGroupNode;
-WorldInfo17: TWorldInfoNode;
-Background18: TBackgroundNode;
-NavigationInfo19: TNavigationInfoNode;
-Viewpoint20: TViewpointNode;
-Viewpoint21: TViewpointNode;
-TouchSensor22: TTouchSensorNode;
-Transform23: TTransformNode;
-Shape24: TShapeNode;
-Appearance25: TAppearanceNode;
-Material26: TMaterialNode;
-Box27: TBoxNode;
-Script28: TScriptNode;
-X3DField29: TX3DField;
-X3DField30: TX3DField;
-X3DField31: TX3DField;
+  X3D0: TX3DRootNode;
+  Group16: TGroupNode;
+  WorldInfo17: TWorldInfoNode;
+  Background18: TBackgroundNode;
+  NavigationInfo19: TNavigationInfoNode;
+  Viewpoint20: TViewpointNode;
+  Viewpoint21: TViewpointNode;
+  TouchSensor22: TTouchSensorNode;
+  Transform23: TTransformNode;
+  Shape24: TShapeNode;
+  Appearance25: TAppearanceNode;
+  Material26: TMaterialNode;
+  Box27: TBoxNode;
+  Script28: TScriptNode;
+  FieldVal29: TMFString;
+  FieldVal30: TMFString;
+  FieldVal31: TX3DEvent;
+
+procedure Initjumpcut_loadurlPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -43,7 +44,7 @@ X3D0.Meta['info'] := 'Correct definition and compliance of this conformance scen
 X3D0.Meta['translator'] := 'Michael Kass NIST, Don Brutzman NPS';
 X3D0.Meta['translated'] := '21 January 2001';
 X3D0.Meta['modified'] := '20 October 2019';
-X3D0.Meta['description'] := 'Test jumpcut Viewpoint transition using Script loadUrl method. A NavigationInfo type of ANY is NOT included in the NavigationInfo node field in this world. Consequently, a Script node with a call to the \"loadURL\" method, with a url corresponding to the MFString \"Top_View\" (the name of a Viewpoint in this world) should create a \"jump cut\" transition of views when the Box geometry in this world is indicated by the pointing device. As a result, indicating the Box geometry should result in a Viewpoint transition to the top view of the Box geometry.';
+X3D0.Meta['description'] := 'Test jumpcut Viewpoint transition using Script loadUrl method. A NavigationInfo type of ANY is NOT included in the NavigationInfo node field in this world. Consequently, a Script node with a call to the "loadURL" method, with a url corresponding to the MFString "Top_View" (the name of a Viewpoint in this world) should create a "jump cut" transition of views when the Box geometry in this world is indicated by the pointing device. As a result, indicating the Box geometry should result in a Viewpoint transition to the top view of the Box geometry.';
 X3D0.Meta['identifier'] := 'https://www.web3d.org/x3d/content/examples/ConformanceNist/BindableNodes/NavigationInfo/jumpcut_loadurl.x3d';
 X3D0.Meta['generator'] := 'Vrml97ToX3dNist, http://ovrt.nist.gov/v2_x3d.html';
 X3D0.Meta['generator'] := 'X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit';
@@ -51,76 +52,64 @@ X3D0.Meta['license'] := '../../license.html';
 Group16 := TGroupNode.Create;
 WorldInfo17 := TWorldInfoNode.Create;
 WorldInfo17.Title := 'jumpcut_loadurl.x3d';
-{ .AddChildren }
-Group16.AddChildren([WorldInfo17]);
+Group16.FdChildren.Add(WorldInfo17);
 Background18 := TBackgroundNode.Create;
 Background18.SetGroundAngle([1.57]);
-Background18.SetGroundColor([Vector3(0,0.5,0),Vector3(0,0.5,0)]);
-Background18.SetSkyColor([Vector3(0,0,1)]);
-{ .AddChildren }
-Group16.AddChildren([Background18]);
+Background18.SetGroundColor([Vector3(0, 0.5, 0), Vector3(0, 0.5, 0)]);
+Background18.SetSkyColor([Vector3(0, 0, 1)]);
+Group16.FdChildren.Add(Background18);
 NavigationInfo19 := TNavigationInfoNode.Create;
-NavigationInfo19.SetType(['EXAMINE','WALK','FLY','ANY']);
-{ .AddChildren }
-Group16.AddChildren([NavigationInfo19]);
+NavigationInfo19.SetType(['EXAMINE', 'WALK', 'FLY', 'ANY']);
+Group16.FdChildren.Add(NavigationInfo19);
 Viewpoint20 := TViewpointNode.Create;
+Viewpoint20.X3DName := 'Front_View';
 Viewpoint20.Description := 'Front View';
-{ .AddChildren }
-Group16.AddChildren([Viewpoint20]);
+Group16.FdChildren.Add(Viewpoint20);
 Viewpoint21 := TViewpointNode.Create;
+Viewpoint21.X3DName := 'Top_View';
 Viewpoint21.Description := 'Top View';
-Viewpoint21.Orientation := Vector4(1,0,0,-1.57);
-Viewpoint21.Position := Vector3(0,10,0);
-{ .AddChildren }
-Group16.AddChildren([Viewpoint21]);
+Viewpoint21.Orientation := Vector4(1, 0, 0, -1.57);
+Viewpoint21.Position := Vector3(0, 10, 0);
+Group16.FdChildren.Add(Viewpoint21);
+end;
+
+procedure Initjumpcut_loadurlPart1;
+begin
 TouchSensor22 := TTouchSensorNode.Create;
+TouchSensor22.X3DName := 'STARTER';
 TouchSensor22.Description := 'touch to activate';
-{ .AddChildren }
-Group16.AddChildren([TouchSensor22]);
+Group16.FdChildren.Add(TouchSensor22);
 Transform23 := TTransformNode.Create;
+Transform23.X3DName := 'ROOT';
 Shape24 := TShapeNode.Create;
 Appearance25 := TAppearanceNode.Create;
 Material26 := TMaterialNode.Create;
-{ .SetMaterial }
 Appearance25.Material := Material26;
-{ .SetAppearance }
 Shape24.Appearance := Appearance25;
 Box27 := TBoxNode.Create;
-{ .SetGeometry }
 Shape24.Geometry := Box27;
-{ .AddChild }
-Transform23.AddChildren([Shape24]);
-{ .AddChildren }
-Group16.AddChildren([Transform23]);
+Transform23.FdChildren.Add(Shape24);
+Group16.FdChildren.Add(Transform23);
 Script28 := TScriptNode.Create;
-Script28.SetUrl(['jumpcut_loadurl.js','https://www.web3d.org/x3d/content/examples/ConformanceNist/BindableNodes/NavigationInfo/jumpcut_loadurl.js']);
-X3DField29 := TX3DField.Create;
-X3DField29.NameField := 'myParameter';
-X3DField29.AccessType := 'initializeOnly';
-X3DField29.Type := 'MFString';
-X3DField29.Value := '\'Top_View\'';
-{ .SetX3DField }
-Script28.X3DField := X3DField29;
-X3DField30 := TX3DField.Create;
-X3DField30.NameField := 'myUrl';
-X3DField30.AccessType := 'initializeOnly';
-X3DField30.Type := 'MFString';
-X3DField30.Value := '\'jumpcut_loadurl.x3d#Top_View\' \'https://www.web3d.org/x3d/content/examples/ConformanceNist/BindableNodes/NavigationInfo/jumpcut_loadurl.x3d#Top_View\' \'jumpcut_loadurl.wrl#Top_View\' \'https://www.web3d.org/x3d/content/examples/ConformanceNist/BindableNodes/NavigationInfo/jumpcut_loadurl.wrl#Top_View\'';
-{ .AddX3DField }
-Script28.X3DField := X3DField30;
-X3DField31 := TX3DField.Create;
-X3DField31.NameField := 'trigger_event';
-X3DField31.AccessType := 'inputOnly';
-X3DField31.Type := 'SFBool';
-{ .AddX3DField }
-Script28.X3DField := X3DField31;
-{ .AddChildren }
-Group16.AddChildren([Script28]);
-Group16.AddRoute(TouchSensor22.FdIsactive, Script28.FdTrigger_event);
-{ .AddX3DRoute }
-{ .AddGroup }
+Script28.X3DName := 'MYSCRIPT';
+Script28.SetUrl(['jumpcut_loadurl.js', 'https://www.web3d.org/x3d/content/examples/ConformanceNist/BindableNodes/NavigationInfo/jumpcut_loadurl.js']);
+FieldVal29 := TMFString.Create(Script28, False, 'myParameter', ['Top_View']);
+Script28.AddCustomFieldOrEvent(FieldVal29);
+FieldVal30 := TMFString.Create(Script28, False, 'myUrl', ['jumpcut_loadurl.x3d#Top_View', 'https://www.web3d.org/x3d/content/examples/ConformanceNist/BindableNodes/NavigationInfo/jumpcut_loadurl.x3d#Top_View', 'jumpcut_loadurl.wrl#Top_View', 'https://www.web3d.org/x3d/content/examples/ConformanceNist/BindableNodes/NavigationInfo/jumpcut_loadurl.wrl#Top_View']);
+Script28.AddCustomFieldOrEvent(FieldVal30);
+FieldVal31 := TSFBool.CreateEvent(Script28, 'trigger_event', True);
+Script28.AddCustomFieldOrEvent(FieldVal31);
+Group16.FdChildren.Add(Script28);
+{ ROUTE STARTER.isActive TO MYSCRIPT.trigger_event }
+Group16.AddRoute(TouchSensor22.EventIsActive, FieldVal31);
 X3D0.AddChildren([Group16]);
-Result := X3D0;
+end;
+
+function Createjumpcut_loadurl: TX3DRootNode;
+begin
+  Initjumpcut_loadurlPart0;
+  Initjumpcut_loadurlPart1;
+  Result := X3D0;
 end;
 
 begin

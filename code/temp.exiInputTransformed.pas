@@ -1,190 +1,502 @@
-unit temp.exiInputTransformed;
+unit temp;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
-function Createtemp.exiInputTransformed: TX3DRootNode;
+function Createtemp: TX3DRootNode;
+procedure RegistertempScripts(const Scene: TCastleSceneCore);
 
 implementation
 
-uses CastleVectors;
+uses Classes, SysUtils, X3DLoad, CastleVectors, Math, X3DTime, CastleRenderOptions;
 
-function Createtemp.exiInputTransformed: TX3DRootNode;
+function CreateEmptyPrototype(const AName: String): TX3DPrototype;
 var
-X3D0: TX3DRootNode;
-unit9: TunitNode;
-unit10: TunitNode;
-unit11: TunitNode;
-Group32: TGroupNode;
-ViewpointGroup33: TViewpointGroupNode;
-Viewpoint34: TViewpointNode;
-NavigationInfo35: TNavigationInfoNode;
-Viewpoint36: TViewpointNode;
-NavigationInfo37: TNavigationInfoNode;
-WorldInfo38: TWorldInfoNode;
-WorldInfo39: TWorldInfoNode;
-WorldInfo40: TWorldInfoNode;
-MetadataString41: TMetadataStringNode;
-LayerSet42: TLayerSetNode;
-Transform43: TTransformNode;
-Anchor44: TAnchorNode;
-Shape45: TShapeNode;
-Appearance46: TAppearanceNode;
-Material47: TMaterialNode;
-ImageTexture48: TImageTextureNode;
-Box49: TBoxNode;
-Shape50: TShapeNode;
-Appearance51: TAppearanceNode;
-Material52: TMaterialNode;
-IndexedLineSet53: TIndexedLineSetNode;
-Coordinate54: TCoordinateNode;
-PositionInterpolator55: TPositionInterpolatorNode;
-TimeSensor56: TTimeSensorNode;
-Transform59: TTransformNode;
-Shape60: TShapeNode;
-Appearance61: TAppearanceNode;
-Material62: TMaterialNode;
-Text63: TTextNode;
-MetadataSet64: TMetadataSetNode;
-MetadataString65: TMetadataStringNode;
-MetadataString66: TMetadataStringNode;
-FontStyle67: TFontStyleNode;
-Collision68: TCollisionNode;
-Shape69: TShapeNode;
-Text70: TTextNode;
-OrientationInterpolator71: TOrientationInterpolatorNode;
-TimeSensor72: TTimeSensorNode;
-Group75: TGroupNode;
-Background76: TBackgroundNode;
-Script77: TScriptNode;
-X3DField78: TX3DField;
-X3DField79: TX3DField;
-ColorInterpolator80: TColorInterpolatorNode;
-TimeSensor81: TTimeSensorNode;
-X3DPrototype85: TX3DPrototype;
-X3DInterfaceDeclaration86: TX3DInterfaceDeclaration;
-X3DField87: TX3DField;
-X3DField88: TX3DField;
-X3DPrototype89: TX3DPrototype;
-Material90: TMaterialNode;
-TouchSensor91: TTouchSensorNode;
-IS92: TIS;
-connect93: Tconnect;
-connect94: Tconnect;
-X3DExternalPrototype95: TX3DExternalPrototype;
-X3DField96: TX3DField;
-Shape97: TShapeNode;
-Appearance98: TAppearanceNode;
-X3DPrototype99: TX3DPrototypeNode;
-SFString100: TSFString;
-Sphere101: TSphereNode;
-Shape102: TShapeNode;
-Appearance103: TAppearanceNode;
-X3DPrototype104: TX3DPrototypeNode;
-Cone105: TConeNode;
-Shape106: TShapeNode;
-Appearance107: TAppearanceNode;
-X3DPrototype108: TX3DPrototypeNode;
-Cylinder109: TCylinderNode;
-Inline110: TInlineNode;
-IMPORT111: TIMPORTNode;
-EXPORT112: TEXPORTNode;
-X3DPrototype113: TX3DPrototype;
-X3DInterfaceDeclaration114: TX3DInterfaceDeclaration;
-X3DField115: TX3DField;
-X3DField116: TX3DField;
-X3DField117: TX3DField;
-X3DField118: TX3DField;
-X3DField119: TX3DField;
-X3DField120: TX3DField;
-X3DField121: TX3DField;
-X3DPrototype122: TX3DPrototype;
-Material123: TMaterialNode;
-IS124: TIS;
-connect125: Tconnect;
-connect126: Tconnect;
-connect127: Tconnect;
-connect128: Tconnect;
-connect129: Tconnect;
-connect130: Tconnect;
-Script131: TScriptNode;
-X3DField132: TX3DField;
-X3DField133: TX3DField;
-X3DField134: TX3DField;
-X3DField135: TX3DField;
-IS136: TIS;
-connect137: Tconnect;
-connect138: Tconnect;
-Group139: TGroupNode;
-Shape140: TShapeNode;
-MetadataString141: TMetadataStringNode;
-Appearance142: TAppearanceNode;
-X3DPrototype143: TX3DPrototypeNode;
-Cone144: TConeNode;
-Group145: TGroupNode;
-Sound146: TSoundNode;
-AudioClip147: TAudioClipNode;
-Sound148: TSoundNode;
-MovieTexture149: TMovieTextureNode;
-Shape150: TShapeNode;
-Appearance151: TAppearanceNode;
-Material152: TMaterialNode;
-Extrusion153: TExtrusionNode;
-Group154: TGroupNode;
-X3DPrototype155: TX3DPrototype;
-X3DInterfaceDeclaration156: TX3DInterfaceDeclaration;
-X3DField157: TX3DField;
-X3DPrototype158: TX3DPrototype;
-WorldInfo159: TWorldInfoNode;
-X3DPrototype160: TX3DPrototypeNode;
-SFString161: TSFString;
-Group162: TGroupNode;
-X3DPrototype163: TX3DPrototypeNode;
-Transform164: TTransformNode;
-X3DPrototype165: TX3DPrototype;
-X3DPrototype166: TX3DPrototype;
-ProgramShader167: TProgramShaderNode;
-Shape168: TShapeNode;
-Appearance169: TAppearanceNode;
-ProgramShader170: TProgramShaderNode;
-ShaderProgram171: TShaderProgramNode;
-X3DPrototype172: TX3DPrototypeNode;
-ComposedShader173: TComposedShaderNode;
-ShaderPart174: TShaderPartNode;
-Transform175: TTransformNode;
-CADLayer176: TCADLayerNode;
-CADAssembly177: TCADAssemblyNode;
-CADPart178: TCADPartNode;
-CADFace179: TCADFaceNode;
-EspduTransform180: TEspduTransformNode;
-ReceiverPdu181: TReceiverPduNode;
-SignalPdu182: TSignalPduNode;
-TransmitterPdu183: TTransmitterPduNode;
-DISEntityManager184: TDISEntityManagerNode;
-DISEntityTypeMapping185: TDISEntityTypeMappingNode;
-EspduTransform186: TEspduTransformNode;
-WorldInfo187: TWorldInfoNode;
-ReceiverPdu188: TReceiverPduNode;
-SignalPdu189: TSignalPduNode;
-TransmitterPdu190: TTransmitterPduNode;
-DISEntityManager191: TDISEntityManagerNode;
-DISEntityTypeMapping192: TDISEntityTypeMappingNode;
-LoadSensor193: TLoadSensorNode;
-Anchor194: TAnchorNode;
-Inline195: TInlineNode;
-DISEntityTypeMapping196: TDISEntityTypeMappingNode;
-GeoMetadata197: TGeoMetadataNode;
-AudioClip198: TAudioClipNode;
-ImageCubeMapTexture199: TImageCubeMapTextureNode;
-ImageTexture3D200: TImageTexture3DNode;
-ImageTexture201: TImageTextureNode;
-MovieTexture202: TMovieTextureNode;
-Script203: TScriptNode;
-PackagedShader204: TPackagedShaderNode;
-ShaderPart205: TShaderPartNode;
-ShaderProgram206: TShaderProgramNode;
-OrthoViewpoint207: TOrthoViewpointNode;
+  Stream: TStringStream;
+  TempRoot: TX3DRootNode;
+  CopyState: TX3DNodeDeepCopyState;
+begin
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  try
+    TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
+    try
+      CopyState := TX3DNodeDeepCopyState.Create;
+      try
+        Result := TempRoot.Prototypes[0].DeepCopy(CopyState) as TX3DPrototype;
+      finally
+        FreeAndNil(CopyState);
+      end;
+    finally
+      FreeAndNil(TempRoot);
+    end;
+  finally
+    FreeAndNil(Stream);
+  end;
+end;
+
+type
+  TScript77Script = class
+  private
+    FHandlerPrefix: String;
+    FInitialized: Boolean;
+    FcolorsOutput: array of TVector3;
+    FEvent_colorsOutput: TX3DEvent;
+    FBack_colorsOutput: TMFColor;
+    FDirty_colorsOutput: Boolean;
+    procedure FlushOutputs(const Time: TX3DTime);
+  public
+    constructor Create(const AHandlerPrefix: String; const AEvent_colorsOutput: TX3DEvent);
+    class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript77Script;
+    destructor Destroy; override;
+    procedure RegisterHandlers(const Scene: TCastleSceneCore);
+    property Initialized: Boolean read FInitialized;
+    procedure ColorInput(Value: TX3DField; const Time: TX3DTime);
+  end;
+
+  TScript121Script = class
+  private
+    FHandlerPrefix: String;
+    FInitialized: Boolean;
+    Fenabled: Boolean;
+    FField_enabled: TSFBool;
+    FBack_enabled: TSFBool;
+    FDirty_enabled: Boolean;
+    FdiffuseColor: TVector3;
+    FField_diffuseColor: TSFColor;
+    FBack_diffuseColor: TSFColor;
+    FDirty_diffuseColor: Boolean;
+    FnewColor: TVector3;
+    FEvent_newColor: TX3DEvent;
+    FBack_newColor: TSFColor;
+    FDirty_newColor: Boolean;
+    FLastTime_set_enabled: TX3DTime;
+    procedure FlushOutputs(const Time: TX3DTime);
+  public
+    constructor Create(const AHandlerPrefix: String; const AField_enabled: TSFBool; const AField_diffuseColor: TSFColor; const AEvent_newColor: TX3DEvent);
+    class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript121Script;
+    destructor Destroy; override;
+    procedure RegisterHandlers(const Scene: TCastleSceneCore);
+    property Initialized: Boolean read FInitialized;
+    procedure Initialize(Value: TX3DField; const Time: TX3DTime);
+    procedure Set_enabled(Value: TX3DField; const Time: TX3DTime);
+    procedure OnNotif_set_enabled(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
+    procedure ClockTrigger(Value: TX3DField; const Time: TX3DTime);
+  end;
+
+  TScript190Script = class
+  private
+    FHandlerPrefix: String;
+    FInitialized: Boolean;
+    procedure FlushOutputs(const Time: TX3DTime);
+  public
+    constructor Create(const AHandlerPrefix: String);
+    class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript190Script;
+    destructor Destroy; override;
+    procedure RegisterHandlers(const Scene: TCastleSceneCore);
+    property Initialized: Boolean read FInitialized;
+  end;
+
+  TtempScriptBinder = class
+  public
+    procedure BindNode(Node: TX3DNode);
+  end;
+
+var
+  X3D0: TX3DRootNode;
+  Group32: TGroupNode;
+  ViewpointGroup33: TViewpointGroupNode;
+  Viewpoint34: TViewpointNode;
+  NavigationInfo35: TNavigationInfoNode;
+  Viewpoint36: TViewpointNode;
+  NavigationInfo37: TNavigationInfoNode;
+  WorldInfo38: TWorldInfoNode;
+  MetadataString41: TMetadataStringNode;
+  LayerSet42: TLayerSetNode;
+  Transform43: TTransformNode;
+  Anchor44: TAnchorNode;
+  Shape45: TShapeNode;
+  Appearance46: TAppearanceNode;
+  Material47: TMaterialNode;
+  ImageTexture48: TImageTextureNode;
+  Box49: TBoxNode;
+  Shape50: TShapeNode;
+  Appearance51: TAppearanceNode;
+  Material52: TMaterialNode;
+  IndexedLineSet53: TIndexedLineSetNode;
+  Coordinate54: TCoordinateNode;
+  PositionInterpolator55: TPositionInterpolatorNode;
+  TimeSensor56: TTimeSensorNode;
+  Transform59: TTransformNode;
+  Shape60: TShapeNode;
+  Appearance61: TAppearanceNode;
+  Text63: TTextNode;
+  MetadataSet64: TMetadataSetNode;
+  MetadataString65: TMetadataStringNode;
+  MetadataString66: TMetadataStringNode;
+  FontStyle67: TFontStyleNode;
+  Collision68: TCollisionNode;
+  Shape69: TShapeNode;
+  Text70: TTextNode;
+  OrientationInterpolator71: TOrientationInterpolatorNode;
+  TimeSensor72: TTimeSensorNode;
+  Group75: TGroupNode;
+  Background76: TBackgroundNode;
+  Script77: TScriptNode;
+  FieldVal78: TX3DEvent;
+  FieldVal79: TX3DEvent;
+  CompiledScript77List: array of TScript77Script;
+  ColorInterpolator80: TColorInterpolatorNode;
+  TimeSensor81: TTimeSensorNode;
+  ProtoDeclare85: TX3DPrototype;
+  FieldDecl87: TX3DInterfaceDeclaration;
+  FieldVal87: TSFString;
+  FieldDecl88: TX3DInterfaceDeclaration;
+  FieldVal88: TSFBool;
+  Material90: TMaterialNode;
+  TouchSensor91: TTouchSensorNode;
+  X3DExternalPrototype92: TX3DExternalPrototype;
+  FieldVal93: TSFString;
+  Shape94: TShapeNode;
+  Appearance95: TAppearanceNode;
+  ProtoInstance96: TX3DPrototypeNode;
+  Sphere98: TSphereNode;
+  Shape99: TShapeNode;
+  Appearance100: TAppearanceNode;
+  ProtoInstance101: TX3DPrototypeNode;
+  Cone102: TConeNode;
+  Shape103: TShapeNode;
+  Appearance104: TAppearanceNode;
+  Cylinder106: TCylinderNode;
+  Inline107: TInlineNode;
+  Import108: TX3DImport;
+  ProtoDeclare110: TX3DPrototype;
+  FieldDecl112: TX3DInterfaceDeclaration;
+  FieldVal112: TSFBool;
+  FieldDecl113: TX3DInterfaceDeclaration;
+  FieldVal113: TSFColor;
+  FieldDecl114: TX3DInterfaceDeclaration;
+  FieldVal114: TSFColor;
+  FieldDecl115: TX3DInterfaceDeclaration;
+  FieldVal115: TSFColor;
+  FieldDecl116: TX3DInterfaceDeclaration;
+  FieldVal116: TSFFloat;
+  FieldDecl117: TX3DInterfaceDeclaration;
+  FieldVal117: TSFFloat;
+  FieldDecl118: TX3DInterfaceDeclaration;
+  FieldVal118: TSFFloat;
+  Material120: TMaterialNode;
+  Script121: TScriptNode;
+  FieldVal122: TSFBool;
+  FieldVal123: TSFColor;
+  FieldVal124: TX3DEvent;
+  FieldVal125: TX3DEvent;
+  CompiledScript121List: array of TScript121Script;
+  Group126: TGroupNode;
+  Shape127: TShapeNode;
+  MetadataString128: TMetadataStringNode;
+  Appearance129: TAppearanceNode;
+  ProtoInstance130: TX3DPrototypeNode;
+  Cone131: TConeNode;
+  Group132: TGroupNode;
+  Sound133: TSoundNode;
+  AudioClip134: TAudioClipNode;
+  Sound135: TSoundNode;
+  MovieTexture136: TMovieTextureNode;
+  Shape137: TShapeNode;
+  Appearance138: TAppearanceNode;
+  Material139: TMaterialNode;
+  Extrusion140: TExtrusionNode;
+  Group141: TGroupNode;
+  ProtoDeclare142: TX3DPrototype;
+  FieldDecl144: TX3DInterfaceDeclaration;
+  FieldVal144: TSFString;
+  WorldInfo146: TWorldInfoNode;
+  ProtoInstance147: TX3DPrototypeNode;
+  Group149: TGroupNode;
+  ProtoInstance150: TX3DPrototypeNode;
+  Transform151: TTransformNode;
+  ProtoDeclare152: TX3DPrototype;
+  ProgramShader154: TProgramShaderNode;
+  Shape155: TShapeNode;
+  Appearance156: TAppearanceNode;
+  ProgramShader157: TProgramShaderNode;
+  ShaderProgram158: TShaderProgramNode;
+  ProtoInstance159: TX3DPrototypeNode;
+  ComposedShader160: TComposedShaderNode;
+  ShaderPart161: TShaderPartNode;
+  Transform162: TTransformNode;
+  CADLayer163: TCADLayerNode;
+  CADAssembly164: TCADAssemblyNode;
+  CADPart165: TCADPartNode;
+  CADFace166: TCADFaceNode;
+  EspduTransform167: TEspduTransformNode;
+  ReceiverPdu168: TReceiverPduNode;
+  SignalPdu169: TSignalPduNode;
+  TransmitterPdu170: TTransmitterPduNode;
+  DISEntityManager171: TDISEntityManagerNode;
+  DISEntityTypeMapping172: TDISEntityTypeMappingNode;
+  EspduTransform173: TEspduTransformNode;
+  WorldInfo174: TWorldInfoNode;
+  ReceiverPdu175: TReceiverPduNode;
+  SignalPdu176: TSignalPduNode;
+  TransmitterPdu177: TTransmitterPduNode;
+  DISEntityManager178: TDISEntityManagerNode;
+  DISEntityTypeMapping179: TDISEntityTypeMappingNode;
+  LoadSensor180: TLoadSensorNode;
+  DISEntityTypeMapping183: TDISEntityTypeMappingNode;
+  GeoMetadata184: TGeoMetadataNode;
+  AudioClip185: TAudioClipNode;
+  ImageCubeMapTexture186: TImageCubeMapTextureNode;
+  ImageTexture3D187: TImageTexture3DNode;
+  ImageTexture188: TImageTextureNode;
+  MovieTexture189: TMovieTextureNode;
+  Script190: TScriptNode;
+  CompiledScript190List: array of TScript190Script;
+  PackagedShader191: TPackagedShaderNode;
+  ShaderPart192: TShaderPartNode;
+  ShaderProgram193: TShaderProgramNode;
+  OrthoViewpoint194: TOrthoViewpointNode;
+
+constructor TScript77Script.Create(const AHandlerPrefix: String; const AEvent_colorsOutput: TX3DEvent);
+begin
+  inherited Create;
+  FHandlerPrefix := AHandlerPrefix;
+  FInitialized := False;
+  FcolorsOutput := nil;
+  FEvent_colorsOutput := nil;
+  FBack_colorsOutput := TMFColor.CreateUndefined(nil, False, 'colorsOutput');
+  FDirty_colorsOutput := False;
+  FEvent_colorsOutput := AEvent_colorsOutput;
+end;
+
+class function TScript77Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript77Script;
+begin
+  Result := TScript77Script.Create(AHandlerPrefix, AScriptNode.AnyEvent('colorsOutput'));
+end;
+
+destructor TScript77Script.Destroy;
+begin
+  FreeAndNil(FBack_colorsOutput);
+  inherited Destroy;
+end;
+
+procedure TScript77Script.FlushOutputs(const Time: TX3DTime);
+var
+  _i: Integer;
+begin
+  if FDirty_colorsOutput then
+  begin
+    FDirty_colorsOutput := False;
+    if FEvent_colorsOutput <> nil then
+    begin
+      FBack_colorsOutput.Items.Clear;
+      for _i := 0 to High(FcolorsOutput) do
+        FBack_colorsOutput.Items.Add(FcolorsOutput[_i]);
+      FEvent_colorsOutput.Send(FBack_colorsOutput, Time);
+    end;
+  end;
+end;
+
+procedure TScript77Script.RegisterHandlers(const Scene: TCastleSceneCore);
+begin
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'colorInput', {$ifdef FPC}@{$endif}ColorInput);
+end;
+
+procedure TScript77Script.ColorInput(Value: TX3DField; const Time: TX3DTime);
+begin
+  FcolorsOutput := [(Value as TSFColor).Value];
+  FDirty_colorsOutput := True;
+  FlushOutputs(Time);
+end;
+
+constructor TScript121Script.Create(const AHandlerPrefix: String; const AField_enabled: TSFBool; const AField_diffuseColor: TSFColor; const AEvent_newColor: TX3DEvent);
+begin
+  inherited Create;
+  FHandlerPrefix := AHandlerPrefix;
+  FInitialized := False;
+  Fenabled := False;
+  FField_enabled := nil;
+  FBack_enabled := TSFBool.Create(nil, False, 'enabled', False);
+  FDirty_enabled := False;
+  FdiffuseColor := Vector3(0, 0, 0);
+  FField_diffuseColor := nil;
+  FBack_diffuseColor := TSFColor.Create(nil, False, 'diffuseColor', Vector3(0, 0, 0));
+  FDirty_diffuseColor := False;
+  FnewColor := Vector3(0, 0, 0);
+  FEvent_newColor := nil;
+  FBack_newColor := TSFColor.Create(nil, False, 'newColor', Vector3(0, 0, 0));
+  FDirty_newColor := False;
+  FLastTime_set_enabled := TX3DTime.Oldest;
+  FField_enabled := AField_enabled;
+  if AField_enabled <> nil then Fenabled := AField_enabled.Value;
+  FField_diffuseColor := AField_diffuseColor;
+  if AField_diffuseColor <> nil then FdiffuseColor := AField_diffuseColor.Value;
+  FEvent_newColor := AEvent_newColor;
+  if FField_enabled <> nil then
+    FField_enabled.EventIn.AddNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
+end;
+
+class function TScript121Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript121Script;
+begin
+  Result := TScript121Script.Create(AHandlerPrefix, AScriptNode.FieldOrEvent('enabled') as TSFBool, AScriptNode.FieldOrEvent('diffuseColor') as TSFColor, AScriptNode.AnyEvent('newColor'));
+end;
+
+destructor TScript121Script.Destroy;
+begin
+  if FField_enabled <> nil then
+    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
+  FreeAndNil(FBack_enabled);
+  FreeAndNil(FBack_diffuseColor);
+  FreeAndNil(FBack_newColor);
+  inherited Destroy;
+end;
+
+procedure TScript121Script.FlushOutputs(const Time: TX3DTime);
+begin
+  if FDirty_enabled then
+  begin
+    FDirty_enabled := False;
+    if FField_enabled <> nil then
+    begin
+      FField_enabled.Value := Fenabled;
+      FBack_enabled.Value := Fenabled;
+      if (FField_enabled.ParentNode is TX3DNode) and (TX3DNode(FField_enabled.ParentNode).Scene <> nil) then
+        FField_enabled.EventOut.Send(FBack_enabled, TX3DNode(FField_enabled.ParentNode).Scene.NextEventTime)
+      else
+        FField_enabled.EventOut.Send(FBack_enabled, Time);
+    end;
+  end;
+  if FDirty_diffuseColor then
+  begin
+    FDirty_diffuseColor := False;
+    if FField_diffuseColor <> nil then
+    begin
+      FField_diffuseColor.Value := FdiffuseColor;
+      FBack_diffuseColor.Value := FdiffuseColor;
+      if (FField_diffuseColor.ParentNode is TX3DNode) and (TX3DNode(FField_diffuseColor.ParentNode).Scene <> nil) then
+        FField_diffuseColor.EventOut.Send(FBack_diffuseColor, TX3DNode(FField_diffuseColor.ParentNode).Scene.NextEventTime)
+      else
+        FField_diffuseColor.EventOut.Send(FBack_diffuseColor, Time);
+    end;
+  end;
+  if FDirty_newColor then
+  begin
+    FDirty_newColor := False;
+    if FEvent_newColor <> nil then
+    begin
+      FBack_newColor.Value := FnewColor;
+      FEvent_newColor.Send(FBack_newColor, Time);
+    end;
+  end;
+end;
+
+procedure TScript121Script.RegisterHandlers(const Scene: TCastleSceneCore);
+begin
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'clockTrigger', {$ifdef FPC}@{$endif}ClockTrigger);
+end;
+
+procedure TScript121Script.Initialize(Value: TX3DField; const Time: TX3DTime);
+begin
+  FInitialized := True;
+  FnewColor := FdiffuseColor;
+  FDirty_newColor := True;
+  FlushOutputs(Time);
+end;
+
+procedure TScript121Script.OnNotif_set_enabled(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
+begin
+  Set_enabled(Value, Time);
+end;
+
+procedure TScript121Script.Set_enabled(Value: TX3DField; const Time: TX3DTime);
+begin
+  if (Time.Seconds = FLastTime_set_enabled.Seconds) and (Time.PlusTicks = FLastTime_set_enabled.PlusTicks) then Exit;
+  FLastTime_set_enabled := Time;
+  Fenabled := (Value as TSFBool).Value;
+  FDirty_enabled := True;
+  FlushOutputs(Time);
+end;
+
+procedure TScript121Script.ClockTrigger(Value: TX3DField; const Time: TX3DTime);
+begin
+  if not (Fenabled) then
+    Exit;
+  red := FnewColor.X;
+  green := FnewColor.Y;
+  blue := FnewColor.Z;
+  FnewColor := Vector3((red + 0.02) mod 1, (green + 0.03) mod 1, (blue + 0.04) mod 1);
+  FDirty_newColor := True;
+  if Fenabled then
+  begin
+    WriteLn('diffuseColor=(' + FloatToStr(red) + ',' + FloatToStr(green) + ',' + FloatToStr(blue) + ') newColor=' + FloatToStr(FnewColor.toString()) + #10);
+  end;
+  FlushOutputs(Time);
+end;
+
+constructor TScript190Script.Create(const AHandlerPrefix: String);
+begin
+  inherited Create;
+  FHandlerPrefix := AHandlerPrefix;
+  FInitialized := False;
+end;
+
+class function TScript190Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript190Script;
+begin
+  Result := TScript190Script.Create(AHandlerPrefix);
+end;
+
+destructor TScript190Script.Destroy;
+begin
+  inherited Destroy;
+end;
+
+procedure TScript190Script.FlushOutputs(const Time: TX3DTime);
+begin
+end;
+
+procedure TScript190Script.RegisterHandlers(const Scene: TCastleSceneCore);
+begin
+end;
+
+procedure TtempScriptBinder.BindNode(Node: TX3DNode);
+var
+  S: TScriptNode;
+  UrlText, Prefix: String;
+  Idx: Integer;
+begin
+  S := Node as TScriptNode;
+  if S.FdUrl.Items.Count = 0 then Exit;
+  UrlText := S.FdUrl.Items.Text;
+  if Pos('=Script77_', UrlText) > 0 then
+  begin
+    Idx := Length(CompiledScript77List);
+    Prefix := 'Script77_' + IntToStr(Idx) + '_';
+    S.SetUrl(['compiled:' + LineEnding +
+      'colorInput=' + Prefix + 'colorInput']);
+    SetLength(CompiledScript77List, Idx + 1);
+    CompiledScript77List[Idx] := TScript77Script.CreateForNode(S, Prefix);
+    Exit;
+  end;
+  if Pos('=Script121_', UrlText) > 0 then
+  begin
+    Idx := Length(CompiledScript121List);
+    Prefix := 'Script121_' + IntToStr(Idx) + '_';
+    S.SetUrl(['compiled:' + LineEnding +
+      'initialize=' + Prefix + 'initialize' + LineEnding +
+      'set_enabled=' + Prefix + 'set_enabled' + LineEnding +
+      'enabled=' + Prefix + 'enabled' + LineEnding +
+      'clockTrigger=' + Prefix + 'clockTrigger']);
+    SetLength(CompiledScript121List, Idx + 1);
+    CompiledScript121List[Idx] := TScript121Script.CreateForNode(S, Prefix);
+    Exit;
+  end;
+end;
+
+procedure InittempPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.P0:noNamespaceSchemaLocation := 'https://www.web3d.org/specifications/x3d-4.0.xsd';
@@ -198,24 +510,6 @@ X3D0.Components['DIS'] := 2;
 X3D0.Components['HAnim'] := 1;
 X3D0.Components['Grouping'] := 1;
 X3D0.Components['Layering'] := 1;
-unit9 := TunitNode.Create;
-unit9.NameField := 'AngleUnitConversion';
-unit9.Category := 'angle';
-unit9.ConversionFactor := 1;
-{ .AddUnit }
-head1.Unit := unit9;
-unit10 := TunitNode.Create;
-unit10.NameField := 'LengthUnitConversion';
-unit10.Category := 'length';
-unit10.ConversionFactor := 1;
-{ .AddUnit }
-head1.Unit := unit10;
-unit11 := TunitNode.Create;
-unit11.NameField := 'ForceFromPoundsToNewtons';
-unit11.Category := 'force';
-unit11.ConversionFactor := 4.4482;
-{ .AddUnit }
-head1.Unit := unit11;
 X3D0.Meta['title'] := 'SmokeTestProgramOutput.x3d';
 X3D0.Meta['info'] := 'continued development and testing in progress';
 X3D0.Meta['description'] := 'Example SmokeTestProgram creates an X3D model using the X3D Java Scene Access Interface Library (X3DJSAIL)';
@@ -240,905 +534,795 @@ Group32 := TGroupNode.Create;
 ViewpointGroup33 := TViewpointGroupNode.Create;
 ViewpointGroup33.Description := 'Available viewpoints';
 Viewpoint34 := TViewpointNode.Create;
+Viewpoint34.X3DName := 'DefaultView';
 Viewpoint34.Description := 'Hello X3DJSAIL';
 Viewpoint34.FarDistance := -1;
 Viewpoint34.FieldOfView := 0.7854;
+end;
+
+procedure InittempPart1;
+begin
 Viewpoint34.NearDistance := -1;
 NavigationInfo35 := TNavigationInfoNode.Create;
+NavigationInfo35.X3DName := 'ViewpointChildNavigationInfo';
 NavigationInfo35.Speed := 1;
 NavigationInfo35.TransitionTime := 1;
 NavigationInfo35.VisibilityLimit := 0;
-{ .SetNavigationInfo }
 Viewpoint34.NavigationInfo := NavigationInfo35;
-{ .AddChildren }
-ViewpointGroup33.AddChildren([Viewpoint34]);
+ViewpointGroup33.FdChildren.Add(Viewpoint34);
 Viewpoint36 := TViewpointNode.Create;
+Viewpoint36.X3DName := 'TopDownView';
 Viewpoint36.Description := 'top-down view from above';
 Viewpoint36.FarDistance := -1;
 Viewpoint36.FieldOfView := 0.7854;
 Viewpoint36.NearDistance := -1;
-Viewpoint36.Orientation := Vector4(1,0,0,-1.5708);
-Viewpoint36.Position := Vector3(0,100,0);
-{ .AddChildren }
-ViewpointGroup33.AddChildren([Viewpoint36]);
-{ .AddChildren }
-Group32.AddChildren([ViewpointGroup33]);
+Viewpoint36.Orientation := Vector4(1, 0, 0, -1.5708);
+Viewpoint36.Position := Vector3(0, 100, 0);
+ViewpointGroup33.FdChildren.Add(Viewpoint36);
+Group32.FdChildren.Add(ViewpointGroup33);
 NavigationInfo37 := TNavigationInfoNode.Create;
 NavigationInfo37.Speed := 1;
 NavigationInfo37.TransitionTime := 1;
-NavigationInfo37.SetType(['EXAMINE','FLY','ANY']);
+NavigationInfo37.SetType(['EXAMINE', 'FLY', 'ANY']);
 NavigationInfo37.VisibilityLimit := 0;
-{ .AddChildren }
-Group32.AddChildren([NavigationInfo37]);
+Group32.FdChildren.Add(NavigationInfo37);
 WorldInfo38 := TWorldInfoNode.Create;
+WorldInfo38.X3DName := 'WorldInfoDEF';
 WorldInfo38.Title := 'SmokeTestProgram produced by X3D Java SAI Library (X3DJSAIL)';
-{ .AddChildren }
-Group32.AddChildren([WorldInfo38]);
-WorldInfo39 := WorldInfo38;
-{ .AddChildren }
-Group32.AddChildren([WorldInfo39]);
-WorldInfo40 := WorldInfo38;
-{ .AddChildren }
-Group32.AddChildren([WorldInfo40]);
+Group32.FdChildren.Add(WorldInfo38);
+Group32.FdChildren.Add(WorldInfo38);
+Group32.FdChildren.Add(WorldInfo38);
 MetadataString41 := TMetadataStringNode.Create;
-MetadataString41.NameField := 'test';
+MetadataString41.X3DName := 'test';
+MetadataString41.X3DName := 'scene.addChildMetadata';
 MetadataString41.SetValue(['Top-level root Metadata node beneath Scene needs to be one of ''-children'' in JSON encoding']);
-{ .SetMetadata }
 Group32.Metadata := MetadataString41;
 LayerSet42 := TLayerSetNode.Create;
-{ .AddChildren }
-Group32.AddChildren([LayerSet42]);
+LayerSet42.X3DName := 'scene.addChildLayerSetTest';
+Group32.FdChildren.Add(LayerSet42);
 Transform43 := TTransformNode.Create;
-Transform43.Translation := Vector3(0,1.5,0);
+Transform43.X3DName := 'LogoGeometryTransform';
+end;
+
+procedure InittempPart2;
+begin
+Transform43.Translation := Vector3(0, 1.5, 0);
 Anchor44 := TAnchorNode.Create;
+Anchor44.X3DName := 'siteAnchor';
 Anchor44.AutoRefresh := 0;
 Anchor44.AutoRefreshTimeLimit := 3600;
 Anchor44.Description := 'select for X3D Java SAI Library (X3DJSAIL) description';
-Anchor44.SetUrl(['../X3DJSAIL.html','https://www.web3d.org/specifications/java/X3DJSAIL.html']);
+Anchor44.SetUrl(['../X3DJSAIL.html', 'https://www.web3d.org/specifications/java/X3DJSAIL.html']);
 Shape45 := TShapeNode.Create;
+Shape45.X3DName := 'BoxShape';
 Appearance46 := TAppearanceNode.Create;
 Appearance46.AlphaCutoff := 0.5;
 Material47 := TMaterialNode.Create;
+Material47.X3DName := 'GreenMaterial';
 Material47.AmbientIntensity := 0.2;
-Material47.DiffuseColor := Vector3(0,1,1);
-Material47.EmissiveColor := Vector3(0.8,0,0);
+Material47.DiffuseColor := Vector3(0, 1, 1);
+Material47.EmissiveColor := Vector3(0.8, 0, 0);
 Material47.NormalScale := 1;
 Material47.OcclusionStrength := 1;
 Material47.Shininess := 0.2;
 Material47.Transparency := 0.1;
-{ .SetMaterial }
 Appearance46.Material := Material47;
 ImageTexture48 := TImageTextureNode.Create;
 ImageTexture48.AutoRefresh := 0;
 ImageTexture48.AutoRefreshTimeLimit := 3600;
-ImageTexture48.SetUrl(['images/X3dJavaSceneAccessInterfaceSaiLibrary.png','https://www.web3d.org/specifications/java/examples/images/X3dJavaSceneAccessInterfaceSaiLibrary.png']);
-{ .SetTexture }
+ImageTexture48.SetUrl(['images/X3dJavaSceneAccessInterfaceSaiLibrary.png', 'https://www.web3d.org/specifications/java/examples/images/X3dJavaSceneAccessInterfaceSaiLibrary.png']);
 Appearance46.Texture := ImageTexture48;
-{ .SetAppearance }
 Shape45.Appearance := Appearance46;
 Box49 := TBoxNode.Create;
-{ .SetGeometry }
+Box49.X3DName := 'test-NMTOKEN_regex.0123456789';
 Shape45.Geometry := Box49;
-{ .AddChildren }
-Anchor44.AddChildren([Shape45]);
-{ .AddChildren }
-Transform43.AddChildren([Anchor44]);
-{ .AddChildren }
-Group32.AddChildren([Transform43]);
+Anchor44.FdChildren.Add(Shape45);
+Transform43.FdChildren.Add(Anchor44);
+Group32.FdChildren.Add(Transform43);
 Shape50 := TShapeNode.Create;
+Shape50.X3DName := 'LineShape';
 Appearance51 := TAppearanceNode.Create;
 Appearance51.AlphaCutoff := 0.5;
 Material52 := TMaterialNode.Create;
 Material52.AmbientIntensity := 0.2;
-Material52.EmissiveColor := Vector3(0.6,0.1961,0.8);
+Material52.EmissiveColor := Vector3(0.6, 0.1961, 0.8);
+end;
+
+procedure InittempPart3;
+begin
 Material52.NormalScale := 1;
 Material52.OcclusionStrength := 1;
 Material52.Shininess := 0.2;
 Material52.Transparency := 0;
-{ .SetMaterial }
 Appearance51.Material := Material52;
-{ .SetAppearance }
 Shape50.Appearance := Appearance51;
 IndexedLineSet53 := TIndexedLineSetNode.Create;
-IndexedLineSet53.SetCoordIndex([0,1,2,3,4,0]);
+IndexedLineSet53.SetCoordIndex([0, 1, 2, 3, 4, 0]);
 Coordinate54 := TCoordinateNode.Create;
-Coordinate54.SetPoint([Vector3(0,1.5,0),Vector3(2,1.5,0),Vector3(2,1.5,-2),Vector3(-2,1.5,-2),Vector3(-2,1.5,0),Vector3(0,1.5,0)]);
-{ .SetCoord }
+Coordinate54.SetPoint([Vector3(0, 1.5, 0), Vector3(2, 1.5, 0), Vector3(2, 1.5, -2), Vector3(-2, 1.5, -2), Vector3(-2, 1.5, 0), Vector3(0, 1.5, 0)]);
 IndexedLineSet53.Coord := Coordinate54;
-{ .SetGeometry }
 Shape50.Geometry := IndexedLineSet53;
-{ .AddChildren }
-Group32.AddChildren([Shape50]);
+Group32.FdChildren.Add(Shape50);
 PositionInterpolator55 := TPositionInterpolatorNode.Create;
-PositionInterpolator55.SetKey([0,0.125,0.375,0.625,0.875,1]);
-PositionInterpolator55.SetKeyValue([Vector3(0,1.5,0),Vector3(2,1.5,0),Vector3(2,1.5,-2),Vector3(-2,1.5,-2),Vector3(-2,1.5,0),Vector3(0,1.5,0)]);
-{ .AddChildren }
-Group32.AddChildren([PositionInterpolator55]);
+PositionInterpolator55.X3DName := 'BoxPathAnimator';
+PositionInterpolator55.SetKey([0, 0.125, 0.375, 0.625, 0.875, 1]);
+PositionInterpolator55.SetKeyValue([Vector3(0, 1.5, 0), Vector3(2, 1.5, 0), Vector3(2, 1.5, -2), Vector3(-2, 1.5, -2), Vector3(-2, 1.5, 0), Vector3(0, 1.5, 0)]);
+Group32.FdChildren.Add(PositionInterpolator55);
 TimeSensor56 := TTimeSensorNode.Create;
+TimeSensor56.X3DName := 'OrbitClock';
 TimeSensor56.CycleInterval := 8;
 TimeSensor56.Loop := True;
 TimeSensor56.PauseTime := 0;
 TimeSensor56.ResumeTime := 0;
 TimeSensor56.StartTime := 0;
 TimeSensor56.StopTime := 0;
-{ .AddChildren }
-Group32.AddChildren([TimeSensor56]);
+Group32.FdChildren.Add(TimeSensor56);
+{ ROUTE OrbitClock.fraction_changed TO BoxPathAnimator.set_fraction }
 Group32.AddRoute(TimeSensor56.EventFraction_changed, PositionInterpolator55.EventSet_fraction);
-{ .AddX3DRoute }
-Group32.AddRoute(PositionInterpolator55.EventValue_changed, Transform43.FdTranslation);
-{ .AddX3DRoute }
+{ ROUTE BoxPathAnimator.value_changed TO LogoGeometryTransform.set_translation }
+Group32.AddRoute(PositionInterpolator55.EventValue_changed, Transform43.FdTranslation.EventIn);
 Transform59 := TTransformNode.Create;
-Transform59.Translation := Vector3(0,-1.5,0);
+Transform59.X3DName := 'TextTransform';
+Transform59.Translation := Vector3(0, -1.5, 0);
 Shape60 := TShapeNode.Create;
 Appearance61 := TAppearanceNode.Create;
 Appearance61.AlphaCutoff := 0.5;
-Material62 := Material47;
-{ .SetMaterial }
-Appearance61.Material := Material62;
-{ .SetAppearance }
+Appearance61.Material := Material47;
 Shape60.Appearance := Appearance61;
 Text63 := TTextNode.Create;
+end;
+
+procedure InittempPart4;
+begin
 Text63.MaxExtent := 0;
-Text63.SetText(['X3D Java','SAI Library','X3DJSAIL']);
+Text63.SetText(['X3D Java', 'SAI Library', 'X3DJSAIL']);
 MetadataSet64 := TMetadataSetNode.Create;
-MetadataSet64.NameField := 'EscapedQuotationMarksMetadataSet';
+MetadataSet64.X3DName := 'EscapedQuotationMarksMetadataSet';
 MetadataString65 := TMetadataStringNode.Create;
-MetadataString65.NameField := 'quotesTestC';
+MetadataString65.X3DName := 'quotesTestC';
 MetadataString65.SetValue(['MFString example C, backslash-escaped quotes: He said, "Immel did it!"']);
-{ .FdValue.Add }
 MetadataSet64.FdValue.Add(MetadataString65);
 MetadataString66 := TMetadataStringNode.Create;
-MetadataString66.NameField := 'extraChildTest';
+MetadataString66.X3DName := 'extraChildTest';
 MetadataString66.SetValue(['checks MetadataSet addValue() method']);
-{ .FdValue.Add }
 MetadataSet64.FdValue.Add(MetadataString66);
-{ .SetMetadata }
 Text63.Metadata := MetadataSet64;
 FontStyle67 := TFontStyleNode.Create;
 FontStyle67.Justify := fjMiddle;
 FontStyle67.JustifyMinor := fjMiddle;
 FontStyle67.Size := 1;
 FontStyle67.Spacing := 1;
-{ .SetFontStyle }
 Text63.FontStyle := FontStyle67;
-{ .SetGeometry }
 Shape60.Geometry := Text63;
-{ .AddChild }
-Transform59.AddChildren([Shape60]);
+Transform59.FdChildren.Add(Shape60);
 Collision68 := TCollisionNode.Create;
 Shape69 := TShapeNode.Create;
+Shape69.X3DName := 'ProxyShape';
 Text70 := TTextNode.Create;
 Text70.MaxExtent := 0;
-Text70.SetText(['One, Two, Text','He said, "Immel did it!" \"\"']);
-{ .SetGeometry }
+Text70.SetText(['One, Two, Text', 'He said, "Immel did it!" ""']);
 Shape69.Geometry := Text70;
-{ .SetProxy }
 Collision68.Proxy := Shape69;
-{ .AddChildren }
-Transform59.AddChildren([Collision68]);
-{ .AddChildren }
-Group32.AddChildren([Transform59]);
+Transform59.FdChildren.Add(Collision68);
+Group32.FdChildren.Add(Transform59);
 OrientationInterpolator71 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator71.SetKey([0,0.5,1]);
-OrientationInterpolator71.SetKeyValue([Vector4(0,1,0,4.7124),Vector4(0,1,0,0),Vector4(0,1,0,1.5708)]);
-{ .AddChildren }
-Group32.AddChildren([OrientationInterpolator71]);
+OrientationInterpolator71.X3DName := 'SpinInterpolator';
+OrientationInterpolator71.SetKey([0, 0.5, 1]);
+OrientationInterpolator71.SetKeyValue([Vector4(0, 1, 0, 4.7124), Vector4(0, 1, 0, 0), Vector4(0, 1, 0, 1.5708)]);
+Group32.FdChildren.Add(OrientationInterpolator71);
 TimeSensor72 := TTimeSensorNode.Create;
+TimeSensor72.X3DName := 'SpinClock';
 TimeSensor72.CycleInterval := 5;
 TimeSensor72.Loop := True;
+end;
+
+procedure InittempPart5;
+begin
 TimeSensor72.PauseTime := 0;
 TimeSensor72.ResumeTime := 0;
 TimeSensor72.StartTime := 0;
 TimeSensor72.StopTime := 0;
-{ .AddChildren }
-Group32.AddChildren([TimeSensor72]);
+Group32.FdChildren.Add(TimeSensor72);
+{ ROUTE SpinClock.fraction_changed TO SpinInterpolator.set_fraction }
 Group32.AddRoute(TimeSensor72.EventFraction_changed, OrientationInterpolator71.EventSet_fraction);
-{ .AddX3DRoute }
-Group32.AddRoute(OrientationInterpolator71.EventValue_changed, Transform59.FdRotation);
-{ .AddX3DRoute }
+{ ROUTE SpinInterpolator.value_changed TO TextTransform.rotation }
+Group32.AddRoute(OrientationInterpolator71.EventValue_changed, Transform59.FdRotation.EventIn);
 Group75 := TGroupNode.Create;
+Group75.X3DName := 'BackgroundGroup';
 Background76 := TBackgroundNode.Create;
+Background76.X3DName := 'GradualBackground';
 Background76.Transparency := 0;
-{ .AddChildren }
-Group75.AddChildren([Background76]);
+Group75.FdChildren.Add(Background76);
 Script77 := TScriptNode.Create;
+Script77.X3DName := 'colorTypeConversionScript';
 Script77.AutoRefresh := 0;
 Script77.AutoRefreshTimeLimit := 3600;
-X3DField78 := TX3DField.Create;
-X3DField78.NameField := 'colorInput';
-X3DField78.AccessType := 'inputOnly';
-X3DField78.Type := 'SFColor';
-{ .SetX3DField }
-Script77.X3DField := X3DField78;
-X3DField79 := TX3DField.Create;
-X3DField79.NameField := 'colorsOutput';
-X3DField79.AccessType := 'outputOnly';
-X3DField79.Type := 'MFColor';
-{ .AddX3DField }
-Script77.X3DField := X3DField79;
-
-Script77.SetSourceCode('''ecmascript:\n"+
-"\n"+
-"function colorInput (eventValue) // Example source code\n"+
-"{\n"+
-"   colorsOutput = new MFColor(eventValue); // assigning value sends output event\n"+
-"// Browser.print('colorInput=' + eventValue + ',\\n//                colorsOutput=' + colorsOutput + '\\n');\n"+
-"// TODO check line wrapping when exporting/converting\n"+
-"}''');
-{ .AddChildren }
-Group75.AddChildren([Script77]);
+FieldVal78 := TSFColor.CreateEvent(Script77, 'colorInput', True);
+Script77.AddCustomFieldOrEvent(FieldVal78);
+FieldVal79 := TMFColor.CreateEvent(Script77, 'colorsOutput', False);
+Script77.AddCustomFieldOrEvent(FieldVal79);
+Script77.SetUrl(['compiled:' + LineEnding +
+  'colorInput=Script77_colorInput']);
+Group75.FdChildren.Add(Script77);
 ColorInterpolator80 := TColorInterpolatorNode.Create;
-ColorInterpolator80.SetKey([0,0.5,1]);
-ColorInterpolator80.SetKeyValue([Vector3(0.9412,1,1),Vector3(0.2941,0,0.5098),Vector3(0.9412,1,1)]);
-{ .AddChildren }
-Group75.AddChildren([ColorInterpolator80]);
+ColorInterpolator80.X3DName := 'ColorAnimator';
+ColorInterpolator80.SetKey([0, 0.5, 1]);
+ColorInterpolator80.SetKeyValue([Vector3(0.9412, 1, 1), Vector3(0.2941, 0, 0.5098), Vector3(0.9412, 1, 1)]);
+Group75.FdChildren.Add(ColorInterpolator80);
 TimeSensor81 := TTimeSensorNode.Create;
+TimeSensor81.X3DName := 'ColorClock';
 TimeSensor81.CycleInterval := 60;
 TimeSensor81.Loop := True;
 TimeSensor81.PauseTime := 0;
 TimeSensor81.ResumeTime := 0;
 TimeSensor81.StartTime := 0;
 TimeSensor81.StopTime := 0;
-{ .AddChildren }
-Group75.AddChildren([TimeSensor81]);
-Group75.AddRoute(Script77.FdColorsoutput, Background76.FdSkycolor);
-{ .AddX3DRoute }
-Group75.AddRoute(ColorInterpolator80.EventValue_changed, Script77.FdColorinput);
-{ .AddX3DRoute }
+Group75.FdChildren.Add(TimeSensor81);
+{ ROUTE colorTypeConversionScript.colorsOutput TO GradualBackground.skyColor }
+end;
+
+procedure InittempPart6;
+begin
+Group75.AddRoute(FieldVal79, Background76.FdSkyColor.EventIn);
+{ ROUTE ColorAnimator.value_changed TO colorTypeConversionScript.colorInput }
+Group75.AddRoute(ColorInterpolator80.EventValue_changed, FieldVal78);
+{ ROUTE ColorClock.fraction_changed TO ColorAnimator.set_fraction }
 Group75.AddRoute(TimeSensor81.EventFraction_changed, ColorInterpolator80.EventSet_fraction);
-{ .AddX3DRoute }
-{ .AddChildren }
-Group32.AddChildren([Group75]);
-X3DPrototype85 := TX3DPrototype.Create;
-X3DPrototype85.NameField := 'ArtDeco01';
-X3DPrototype85.Appinfo := 'tooltip: ArtDeco01Material prototype is a Material node';
-X3DInterfaceDeclaration86 := TX3DInterfaceDeclaration.Create(nil);
-X3DField87 := TX3DField.Create;
-X3DField87.NameField := 'description';
-X3DField87.AccessType := 'inputOutput';
-X3DField87.Appinfo := 'tooltip for descriptionField';
-X3DField87.Type := 'SFString';
-X3DField87.Value := 'ArtDeco01Material prototype is a Material node';
-{ .SetX3DField }
-X3DInterfaceDeclaration86.X3DField := X3DField87;
-X3DField88 := TX3DField.Create;
-X3DField88.NameField := 'enabled';
-X3DField88.AccessType := 'inputOutput';
-X3DField88.Type := 'SFBool';
-X3DField88.Value := 'true';
-{ .AddX3DField }
-X3DInterfaceDeclaration86.X3DField := X3DField88;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype85.X3DInterfaceDeclaration := X3DInterfaceDeclaration86;
-X3DPrototype89 := TX3DPrototype.Create;
+Group32.FdChildren.Add(Group75);
+ProtoDeclare85 := CreateEmptyPrototype('ArtDeco01');
+ProtoDeclare85.X3DName := 'ArtDeco01';
+ProtoDeclare85.Appinfo := 'tooltip: ArtDeco01Material prototype is a Material node';
+FieldVal87 := TSFString.Create(nil, True, 'description', 'ArtDeco01Material prototype is a Material node');
+FieldDecl87 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl87.FieldOrEvent := FieldVal87;
+FieldVal87.ParentInterfaceDeclaration := FieldDecl87;
+ProtoDeclare85.InterfaceDeclarations.Add(FieldDecl87);
+FieldVal88 := TSFBool.Create(nil, True, 'enabled', True);
+FieldDecl88 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl88.FieldOrEvent := FieldVal88;
+FieldVal88.ParentInterfaceDeclaration := FieldDecl88;
+ProtoDeclare85.InterfaceDeclarations.Add(FieldDecl88);
 Material90 := TMaterialNode.Create;
 Material90.AmbientIntensity := 0.25;
-Material90.DiffuseColor := Vector3(0.2824,0.0852,0.1345);
+Material90.DiffuseColor := Vector3(0.2824, 0.0852, 0.1345);
 Material90.NormalScale := 1;
 Material90.OcclusionStrength := 1;
 Material90.Shininess := 0.1273;
-Material90.SpecularColor := Vector3(0.2763,0.1143,0.1399);
+Material90.SpecularColor := Vector3(0.2763, 0.1143, 0.1399);
 Material90.Transparency := 0;
-{ .SetMaterial }
-X3DPrototype89.Material := Material90;
+ProtoDeclare85.Node.AddChildren([Material90]);
 TouchSensor91 := TTouchSensorNode.Create;
 TouchSensor91.Description := 'within ProtoBody';
-IS92 := TIS.Create;
-connect93 := Tconnect.Create;
-connect93.NodeField := 'description';
-connect93.ProtoField := 'description';
-{ .AddConnect }
-IS92.Connect := connect93;
-connect94 := Tconnect.Create;
-connect94.NodeField := 'enabled';
-connect94.ProtoField := 'enabled';
-{ .AddConnect }
-IS92.Connect := connect94;
-{ .SetIS }
-TouchSensor91.IS := IS92;
-{ .AddTouchSensor }
-X3DPrototype89.TouchSensor := TouchSensor91;
-{ .AddX3DPrototype }
-X3DPrototype85.X3DPrototype := X3DPrototype89;
-{ .AddX3DPrototype }
-Group32.X3DPrototype := X3DPrototype85;
-X3DExternalPrototype95 := TX3DExternalPrototype.Create;
-X3DExternalPrototype95.NameField := 'ArtDeco02';
-X3DExternalPrototype95.Appinfo := 'this is a different Material node';
-X3DExternalPrototype95.Url := '\"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/ArtDecoPrototypesExcerpt.x3d#ArtDeco02\" \"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/ArtDecoPrototypesExcerpt.x3dv#ArtDeco02\"';
-X3DField96 := TX3DField.Create;
-X3DField96.NameField := 'description';
-X3DField96.AccessType := 'inputOutput';
-X3DField96.Appinfo := 'tooltip for descriptionField';
-X3DField96.Type := 'SFString';
-{ .SetX3DField }
-X3DExternalPrototype95.X3DField := X3DField96;
-{ .AddX3DExternalPrototype }
-Group32.X3DExternalPrototype := X3DExternalPrototype95;
-Shape97 := TShapeNode.Create;
-Appearance98 := TAppearanceNode.Create;
-Appearance98.AlphaCutoff := 0.5;
-X3DPrototype99 := TX3DPrototypeNode.Create;
-X3DPrototype99.NameField := 'ArtDeco01';
-SFString100 := TSFString.Create(ArtDeco012, false, 'description', 'ArtDeco01Material can substitute for a Material node');
-SFString100.NameField := 'description';
-SFString100.Value := 'ArtDeco01Material can substitute for a Material node';
-{ .SetSFString }
-X3DPrototype99.SFString := SFString100;
-{ .SetMaterial }
-Appearance98.Material := X3DPrototype99;
-{ .SetAppearance }
-Shape97.Appearance := Appearance98;
-Sphere101 := TSphereNode.Create;
-Sphere101.Radius := 0.001;
-{ .SetGeometry }
-Shape97.Geometry := Sphere101;
-{ .AddChildren }
-Group32.AddChildren([Shape97]);
-Shape102 := TShapeNode.Create;
-Appearance103 := TAppearanceNode.Create;
-Appearance103.AlphaCutoff := 0.5;
-X3DPrototype104 := TX3DPrototypeNode.Create;
-X3DPrototype104.NameField := 'ArtDeco02';
-{ .SetMaterial }
-Appearance103.Material := X3DPrototype104;
-{ .SetAppearance }
-Shape102.Appearance := Appearance103;
-Cone105 := TConeNode.Create;
-Cone105.BottomRadius := 0.001;
-Cone105.Height := 0.001;
-{ .SetGeometry }
-Shape102.Geometry := Cone105;
-{ .AddChildren }
-Group32.AddChildren([Shape102]);
-Shape106 := TShapeNode.Create;
-Appearance107 := TAppearanceNode.Create;
-Appearance107.AlphaCutoff := 0.5;
-X3DPrototype108.NameField := 'ArtDeco02';
-X3DPrototype108 := X3DPrototype104;
-{ .SetMaterial }
-Appearance107.Material := X3DPrototype108;
-{ .SetAppearance }
-Shape106.Appearance := Appearance107;
-Cylinder109 := TCylinderNode.Create;
-Cylinder109.Height := 0.001;
-Cylinder109.Radius := 0.001;
-{ .SetGeometry }
-Shape106.Geometry := Cylinder109;
-{ .AddChildren }
-Group32.AddChildren([Shape106]);
-Inline110 := TInlineNode.Create;
-Inline110.AutoRefresh := 0;
-Inline110.AutoRefreshTimeLimit := 3600;
-Inline110.SetUrl(['newScene.x3d','https://www.web3d.org/specifications/java/examples/newScene.x3d']);
-{ .AddChildren }
-Group32.AddChildren([Inline110]);
-IMPORT111 := TIMPORTNode.Create;
-IMPORT111.AS := 'WorldInfoDEF2';
-IMPORT111.ImportedDEF := 'WorldInfoDEF';
-IMPORT111.InlineDEF := 'inlineScene';
-{ .AddChildren }
-Group32.AddChildren([IMPORT111]);
-EXPORT112 := TEXPORTNode.Create;
-EXPORT112.AS := 'WorldInfoDEF3';
-EXPORT112.LocalDEF := 'WorldInfoDEF';
-{ .AddChildren }
-Group32.AddChildren([EXPORT112]);
-X3DPrototype113 := TX3DPrototype.Create;
-X3DPrototype113.NameField := 'MaterialModulator';
-X3DPrototype113.Appinfo := 'mimic a Material node and modulate fields as an animation effect';
-X3DPrototype113.Documentation := 'https://x3dgraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/MaterialModulatorIndex.html';
-X3DInterfaceDeclaration114 := TX3DInterfaceDeclaration.Create(nil);
-X3DField115 := TX3DField.Create;
-X3DField115.NameField := 'enabled';
-X3DField115.AccessType := 'inputOutput';
-X3DField115.Type := 'SFBool';
-X3DField115.Value := 'true';
-{ .SetX3DField }
-X3DInterfaceDeclaration114.X3DField := X3DField115;
-X3DField116 := TX3DField.Create;
-X3DField116.NameField := 'diffuseColor';
-X3DField116.AccessType := 'inputOutput';
-X3DField116.Type := 'SFColor';
-X3DField116.Value := '0 0 0';
-{ .AddX3DField }
-X3DInterfaceDeclaration114.X3DField := X3DField116;
-X3DField117 := TX3DField.Create;
-X3DField117.NameField := 'emissiveColor';
-X3DField117.AccessType := 'inputOutput';
-X3DField117.Type := 'SFColor';
-X3DField117.Value := '0.05 0.05 0.5';
-{ .AddX3DField }
-X3DInterfaceDeclaration114.X3DField := X3DField117;
-X3DField118 := TX3DField.Create;
-X3DField118.NameField := 'specularColor';
-X3DField118.AccessType := 'inputOutput';
-X3DField118.Type := 'SFColor';
-X3DField118.Value := '0 0 0';
-{ .AddX3DField }
-X3DInterfaceDeclaration114.X3DField := X3DField118;
-X3DField119 := TX3DField.Create;
-X3DField119.NameField := 'transparency';
-X3DField119.AccessType := 'inputOutput';
-X3DField119.Type := 'SFFloat';
-X3DField119.Value := '0';
-{ .AddX3DField }
-X3DInterfaceDeclaration114.X3DField := X3DField119;
-X3DField120 := TX3DField.Create;
-X3DField120.NameField := 'shininess';
-X3DField120.AccessType := 'inputOutput';
-X3DField120.Type := 'SFFloat';
-X3DField120.Value := '0';
-{ .AddX3DField }
-X3DInterfaceDeclaration114.X3DField := X3DField120;
-X3DField121 := TX3DField.Create;
-X3DField121.NameField := 'ambientIntensity';
-X3DField121.AccessType := 'inputOutput';
-X3DField121.Type := 'SFFloat';
-X3DField121.Value := '0';
-{ .AddX3DField }
-X3DInterfaceDeclaration114.X3DField := X3DField121;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype113.X3DInterfaceDeclaration := X3DInterfaceDeclaration114;
-X3DPrototype122 := TX3DPrototype.Create;
-Material123 := TMaterialNode.Create;
-Material123.AmbientIntensity := 0.2;
-Material123.NormalScale := 1;
-Material123.OcclusionStrength := 1;
-Material123.Shininess := 0.2;
-Material123.Transparency := 0;
-IS124 := TIS.Create;
-connect125 := Tconnect.Create;
-connect125.NodeField := 'diffuseColor';
-connect125.ProtoField := 'diffuseColor';
-{ .AddConnect }
-IS124.Connect := connect125;
-connect126 := Tconnect.Create;
-connect126.NodeField := 'emissiveColor';
-connect126.ProtoField := 'emissiveColor';
-{ .AddConnect }
-IS124.Connect := connect126;
-connect127 := Tconnect.Create;
-connect127.NodeField := 'specularColor';
-connect127.ProtoField := 'specularColor';
-{ .AddConnect }
-IS124.Connect := connect127;
-connect128 := Tconnect.Create;
-connect128.NodeField := 'transparency';
-connect128.ProtoField := 'transparency';
-{ .AddConnect }
-IS124.Connect := connect128;
-connect129 := Tconnect.Create;
-connect129.NodeField := 'shininess';
-connect129.ProtoField := 'shininess';
-{ .AddConnect }
-IS124.Connect := connect129;
-connect130 := Tconnect.Create;
-connect130.NodeField := 'ambientIntensity';
-connect130.ProtoField := 'ambientIntensity';
-{ .AddConnect }
-IS124.Connect := connect130;
-{ .SetIS }
-Material123.IS := IS124;
-{ .SetMaterial }
-X3DPrototype122.Material := Material123;
-Script131 := TScriptNode.Create;
-Script131.AutoRefresh := 0;
-Script131.AutoRefreshTimeLimit := 3600;
-X3DField132 := TX3DField.Create;
-X3DField132.NameField := 'enabled';
-X3DField132.AccessType := 'inputOutput';
-X3DField132.Type := 'SFBool';
-{ .SetX3DField }
-Script131.X3DField := X3DField132;
-X3DField133 := TX3DField.Create;
-X3DField133.NameField := 'diffuseColor';
-X3DField133.AccessType := 'inputOutput';
-X3DField133.Type := 'SFColor';
-{ .AddX3DField }
-Script131.X3DField := X3DField133;
-X3DField134 := TX3DField.Create;
-X3DField134.NameField := 'newColor';
-X3DField134.AccessType := 'outputOnly';
-X3DField134.Type := 'SFColor';
-{ .AddX3DField }
-Script131.X3DField := X3DField134;
-X3DField135 := TX3DField.Create;
-X3DField135.NameField := 'clockTrigger';
-X3DField135.AccessType := 'inputOnly';
-X3DField135.Type := 'SFTime';
-{ .AddX3DField }
-Script131.X3DField := X3DField135;
-IS136 := TIS.Create;
-connect137 := Tconnect.Create;
-connect137.NodeField := 'enabled';
-connect137.ProtoField := 'enabled';
-{ .AddConnect }
-IS136.Connect := connect137;
-connect138 := Tconnect.Create;
-connect138.NodeField := 'diffuseColor';
-connect138.ProtoField := 'diffuseColor';
-{ .AddConnect }
-IS136.Connect := connect138;
-{ .SetIS }
-Script131.IS := IS136;
-
-Script131.SetSourceCode('''ecmascript:\n"+
-"function initialize ()\n"+
-"{\n"+
-"    newColor = diffuseColor; // start with correct color\n"+
-"}\n"+
-"function set_enabled (newValue)\n"+
-"{\n"+
-"	enabled = newValue;\n"+
-"}\n"+
-"function clockTrigger (timeValue)\n"+
-"{\n"+
-"    if (!enabled) return;\n"+
-"    red   = newColor.r;\n"+
-"    green = newColor.g;\n"+
-"    blue  = newColor.b;\n"+
-"\n"+
-"    // note different modulation rates for each color component, % is modulus operator\n"+
-"    newColor = new SFColor ((red + 0.02) % 1, (green + 0.03) % 1, (blue + 0.04) % 1);\n"+
-"	if (enabled)\n"+
-"	{\n"+
-"		Browser.print ('diffuseColor=(' + red + ',' + green + ',' + blue + ') newColor=' + newColor.toString() + '\\n');\n"+
-"	}\n"+
-"}''');
-{ .AddScript }
-X3DPrototype122.Script := Script131;
-{ .AddX3DPrototype }
-X3DPrototype113.X3DPrototype := X3DPrototype122;
-{ .AddX3DPrototype }
-Group32.X3DPrototype := X3DPrototype113;
-Group139 := TGroupNode.Create;
-Shape140 := TShapeNode.Create;
-MetadataString141 := TMetadataStringNode.Create;
-MetadataString141.NameField := 'findThisNameValue';
-MetadataString141.SetValue(['test case']);
-{ .SetValue }
-Shape140.Value := MetadataString141;
-Appearance142 := TAppearanceNode.Create;
-Appearance142.AlphaCutoff := 0.5;
-X3DPrototype143 := TX3DPrototypeNode.Create;
-X3DPrototype143.NameField := 'MaterialModulator';
-{ .SetMaterial }
-Appearance142.Material := X3DPrototype143;
-{ .SetAppearance }
-Shape140.Appearance := Appearance142;
-Cone144 := TConeNode.Create;
-Cone144.Bottom := False;
-Cone144.BottomRadius := 0.05;
-Cone144.Height := 0.1;
-{ .SetGeometry }
-Shape140.Geometry := Cone144;
-{ .AddChildren }
-Group139.AddChildren([Shape140]);
-{ .AddChildren }
-Group32.AddChildren([Group139]);
-Group145 := TGroupNode.Create;
-{ .AddChildren }
-Group32.AddChildren([Group145]);
-Sound146 := TSoundNode.Create;
-Sound146.Intensity := 1;
-Sound146.Location := Vector3(0,1.6,0);
-Sound146.MaxBack := 10;
-Sound146.MaxFront := 10;
-Sound146.MinBack := 1;
-Sound146.MinFront := 1;
-Sound146.Priority := 0;
-AudioClip147 := TAudioClipNode.Create;
-AudioClip147.AutoRefresh := 0;
-AudioClip147.AutoRefreshTimeLimit := 3600;
-AudioClip147.Description := 'chimes';
-AudioClip147.Gain := 1;
-AudioClip147.PauseTime := 0;
-AudioClip147.Pitch := 1;
-AudioClip147.ResumeTime := 0;
-AudioClip147.StartTime := 0;
-AudioClip147.StopTime := 0;
-AudioClip147.SetUrl(['chimes.wav','https://www.web3d.org/x3d/content/examples/ConformanceNist/Sounds/AudioClip/chimes.wav']);
-{ .SetSource }
-Sound146.Source := AudioClip147;
-{ .AddChildren }
-Group32.AddChildren([Sound146]);
-Sound148 := TSoundNode.Create;
-Sound148.Intensity := 1;
-Sound148.Location := Vector3(0,1.6,0);
-Sound148.MaxBack := 10;
-Sound148.MaxFront := 10;
-Sound148.MinBack := 1;
-Sound148.MinFront := 1;
-Sound148.Priority := 0;
-MovieTexture149 := TMovieTextureNode.Create;
-MovieTexture149.AutoRefresh := 0;
-MovieTexture149.AutoRefreshTimeLimit := 3600;
-MovieTexture149.Description := 'mpgsys.mpg from ConformanceNist suite';
-MovieTexture149.PauseTime := 0;
-MovieTexture149.Pitch := 1;
-MovieTexture149.ResumeTime := 0;
-MovieTexture149.Speed := 1;
-MovieTexture149.StartTime := 0;
-MovieTexture149.StopTime := 0;
-MovieTexture149.SetUrl(['mpgsys.mpg','https://www.web3d.org/x3d/content/examples/ConformanceNist/Appearance/MovieTexture/mpgsys.mpg']);
-{ .SetSource }
-Sound148.Source := MovieTexture149;
-{ .AddChildren }
-Group32.AddChildren([Sound148]);
-Shape150 := TShapeNode.Create;
-Appearance151 := TAppearanceNode.Create;
-Appearance151.AlphaCutoff := 0.5;
-Material152 := TMaterialNode.Create;
-Material152.AmbientIntensity := 0.2;
-Material152.NormalScale := 1;
-Material152.OcclusionStrength := 1;
-Material152.Shininess := 0.2;
-Material152.Transparency := 1;
-{ .SetMaterial }
-Appearance151.Material := Material152;
-{ .SetAppearance }
-Shape150.Appearance := Appearance151;
-Extrusion153 := TExtrusionNode.Create;
-Extrusion153.CreaseAngle := 0;
-{ .SetGeometry }
-Shape150.Geometry := Extrusion153;
-{ .AddChildren }
-Group32.AddChildren([Shape150]);
-Group154 := TGroupNode.Create;
-X3DPrototype155 := TX3DPrototype.Create;
-X3DPrototype155.NameField := 'NewWorldInfo';
-X3DInterfaceDeclaration156 := TX3DInterfaceDeclaration.Create(nil);
-X3DField157 := TX3DField.Create;
-X3DField157.NameField := 'description';
-X3DField157.AccessType := 'initializeOnly';
-X3DField157.Type := 'SFString';
-{ .SetX3DField }
-X3DInterfaceDeclaration156.X3DField := X3DField157;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype155.X3DInterfaceDeclaration := X3DInterfaceDeclaration156;
-X3DPrototype158 := TX3DPrototype.Create;
-WorldInfo159 := TWorldInfoNode.Create;
-{ .SetWorldInfo }
-X3DPrototype158.WorldInfo := WorldInfo159;
-{ .AddX3DPrototype }
-X3DPrototype155.X3DPrototype := X3DPrototype158;
-{ .SetX3DPrototype }
-Group154.X3DPrototype := X3DPrototype155;
-X3DPrototype160 := TX3DPrototypeNode.Create;
-X3DPrototype160.NameField := 'NewWorldInfo';
-SFString161 := TSFString.Create(NewWorldInfo4, false, 'description', 'testing 1 2 3');
-SFString161.NameField := 'description';
-SFString161.Value := 'testing 1 2 3';
-{ .SetSFString }
-X3DPrototype160.SFString := SFString161;
-{ .AddX3DPrototype }
-Group154.X3DPrototype := X3DPrototype160;
-Group162 := TGroupNode.Create;
-{ .AddChildren }
-Group154.AddChildren([Group162]);
-X3DPrototype163 := TX3DPrototypeNode.Create;
-X3DPrototype163.NameField := 'NewWorldInfo';
-{ .AddX3DPrototype }
-Group154.X3DPrototype := X3DPrototype163;
-Transform164 := TTransformNode.Create;
-{ .AddChildren }
-Group154.AddChildren([Transform164]);
-{ .AddChildren }
-Group32.AddChildren([Group154]);
-X3DPrototype165 := TX3DPrototype.Create;
-X3DPrototype165.NameField := 'ShaderProto';
-X3DPrototype166 := TX3DPrototype.Create;
-ProgramShader167 := TProgramShaderNode.Create;
-{ .SetProgramShader }
-X3DPrototype166.ProgramShader := ProgramShader167;
-{ .SetX3DPrototype }
-X3DPrototype165.X3DPrototype := X3DPrototype166;
-{ .AddX3DPrototype }
-Group32.X3DPrototype := X3DPrototype165;
-Shape168 := TShapeNode.Create;
-Appearance169 := TAppearanceNode.Create;
-Appearance169.AlphaCutoff := 0.5;
-ProgramShader170 := TProgramShaderNode.Create;
-ShaderProgram171 := TShaderProgramNode.Create;
-ShaderProgram171.AutoRefresh := 0;
-ShaderProgram171.AutoRefreshTimeLimit := 3600;
-ShaderProgram171.Type := 'VERTEX';
-{ .AddPrograms }
-ProgramShader170.Programs := ShaderProgram171;
-{ .AddShaders }
-Appearance169.Shaders := ProgramShader170;
-X3DPrototype172 := TX3DPrototypeNode.Create;
-X3DPrototype172.NameField := 'ShaderProto';
-{ .AddX3DPrototype }
-Appearance169.X3DPrototype := X3DPrototype172;
-ComposedShader173 := TComposedShaderNode.Create;
-ShaderPart174 := TShaderPartNode.Create;
-ShaderPart174.AutoRefresh := 0;
-ShaderPart174.AutoRefreshTimeLimit := 3600;
-ShaderPart174.Type := 'VERTEX';
-{ .AddParts }
-ComposedShader173.Parts := ShaderPart174;
-{ .AddShaders }
-Appearance169.Shaders := ComposedShader173;
-{ .SetAppearance }
-Shape168.Appearance := Appearance169;
-{ .AddChildren }
-Group32.AddChildren([Shape168]);
-Transform175 := TTransformNode.Create;
-CADLayer176 := TCADLayerNode.Create;
-CADAssembly177 := TCADAssemblyNode.Create;
-CADPart178 := TCADPartNode.Create;
-CADFace179 := TCADFaceNode.Create;
-{ .AddChildren }
-CADPart178.AddChildren([CADFace179]);
-{ .AddChildren }
-CADAssembly177.AddChildren([CADPart178]);
-{ .AddChildren }
-CADLayer176.AddChildren([CADAssembly177]);
-{ .AddChildren }
-Transform175.AddChildren([CADLayer176]);
-EspduTransform180 := TEspduTransformNode.Create;
-EspduTransform180.FiringRange := 0;
-EspduTransform180.ReadInterval := 0.1;
-EspduTransform180.WriteInterval := 1;
-{ .AddChildren }
-Transform175.AddChildren([EspduTransform180]);
-ReceiverPdu181 := TReceiverPduNode.Create;
-ReceiverPdu181.ReadInterval := 0.1;
-ReceiverPdu181.ReceivedPower := 0;
-ReceiverPdu181.WriteInterval := 1;
-{ .AddChildren }
-Transform175.AddChildren([ReceiverPdu181]);
-SignalPdu182 := TSignalPduNode.Create;
-SignalPdu182.ReadInterval := 0.1;
-SignalPdu182.WriteInterval := 1;
-{ .AddChildren }
-Transform175.AddChildren([SignalPdu182]);
-TransmitterPdu183 := TTransmitterPduNode.Create;
-TransmitterPdu183.Power := 0;
-TransmitterPdu183.ReadInterval := 0.1;
-TransmitterPdu183.TransmitFrequencyBandwidth := 0;
-TransmitterPdu183.WriteInterval := 1;
-{ .AddChildren }
-Transform175.AddChildren([TransmitterPdu183]);
-DISEntityManager184 := TDISEntityManagerNode.Create;
-DISEntityTypeMapping185 := TDISEntityTypeMappingNode.Create;
-DISEntityTypeMapping185.AutoRefresh := 0;
-DISEntityTypeMapping185.AutoRefreshTimeLimit := 3600;
-{ .AddChildren }
-DISEntityManager184.AddChildren([DISEntityTypeMapping185]);
-{ .AddChildren }
-Transform175.AddChildren([DISEntityManager184]);
-{ .AddChildren }
-Group32.AddChildren([Transform175]);
-EspduTransform186 := TEspduTransformNode.Create;
-EspduTransform186.FiringRange := 0;
-EspduTransform186.ReadInterval := 0.1;
-EspduTransform186.WriteInterval := 1;
-WorldInfo187 := TWorldInfoNode.Create;
-{ .AddChildren }
-EspduTransform186.AddChildren([WorldInfo187]);
-{ .AddChildren }
-Group32.AddChildren([EspduTransform186]);
-ReceiverPdu188 := TReceiverPduNode.Create;
-ReceiverPdu188.ReadInterval := 0.1;
-ReceiverPdu188.ReceivedPower := 0;
-ReceiverPdu188.WriteInterval := 1;
-{ .AddChildren }
-Group32.AddChildren([ReceiverPdu188]);
-SignalPdu189 := TSignalPduNode.Create;
-SignalPdu189.ReadInterval := 0.1;
-SignalPdu189.WriteInterval := 1;
-{ .AddChildren }
-Group32.AddChildren([SignalPdu189]);
-TransmitterPdu190 := TTransmitterPduNode.Create;
-TransmitterPdu190.Power := 0;
-TransmitterPdu190.ReadInterval := 0.1;
-TransmitterPdu190.TransmitFrequencyBandwidth := 0;
-TransmitterPdu190.WriteInterval := 1;
-{ .AddChildren }
-Group32.AddChildren([TransmitterPdu190]);
-DISEntityManager191 := TDISEntityManagerNode.Create;
-DISEntityTypeMapping192 := TDISEntityTypeMappingNode.Create;
-DISEntityTypeMapping192.AutoRefresh := 0;
-DISEntityTypeMapping192.AutoRefreshTimeLimit := 3600;
-{ .AddChildren }
-DISEntityManager191.AddChildren([DISEntityTypeMapping192]);
-{ .AddChildren }
-Group32.AddChildren([DISEntityManager191]);
-LoadSensor193 := TLoadSensorNode.Create;
-LoadSensor193.TimeOut := 0;
-Anchor194 := Anchor44;
-{ .AddChildren }
-LoadSensor193.AddChildren([Anchor194]);
-Inline195 := Inline110;
-{ .AddChildren }
-LoadSensor193.AddChildren([Inline195]);
-DISEntityTypeMapping196 := TDISEntityTypeMappingNode.Create;
-DISEntityTypeMapping196.AutoRefresh := 0;
-DISEntityTypeMapping196.AutoRefreshTimeLimit := 3600;
-{ .AddChildren }
-LoadSensor193.AddChildren([DISEntityTypeMapping196]);
-GeoMetadata197 := TGeoMetadataNode.Create;
-GeoMetadata197.AutoRefresh := 0;
-GeoMetadata197.AutoRefreshTimeLimit := 3600;
-{ .AddChildren }
-LoadSensor193.AddChildren([GeoMetadata197]);
-AudioClip198 := TAudioClipNode.Create;
-AudioClip198.AutoRefresh := 0;
-AudioClip198.AutoRefreshTimeLimit := 3600;
-AudioClip198.Gain := 1;
-AudioClip198.PauseTime := 0;
-AudioClip198.Pitch := 1;
-AudioClip198.ResumeTime := 0;
-AudioClip198.StartTime := 0;
-AudioClip198.StopTime := 0;
-{ .AddChildren }
-LoadSensor193.AddChildren([AudioClip198]);
-ImageCubeMapTexture199 := TImageCubeMapTextureNode.Create;
-ImageCubeMapTexture199.AutoRefresh := 0;
-ImageCubeMapTexture199.AutoRefreshTimeLimit := 3600;
-{ .AddChildren }
-LoadSensor193.AddChildren([ImageCubeMapTexture199]);
-ImageTexture3D200 := TImageTexture3DNode.Create;
-ImageTexture3D200.AutoRefresh := 0;
-ImageTexture3D200.AutoRefreshTimeLimit := 3600;
-{ .AddChildren }
-LoadSensor193.AddChildren([ImageTexture3D200]);
-ImageTexture201 := TImageTextureNode.Create;
-ImageTexture201.AutoRefresh := 0;
-ImageTexture201.AutoRefreshTimeLimit := 3600;
-{ .AddChildren }
-LoadSensor193.AddChildren([ImageTexture201]);
-MovieTexture202 := TMovieTextureNode.Create;
-MovieTexture202.AutoRefresh := 0;
-MovieTexture202.AutoRefreshTimeLimit := 3600;
-MovieTexture202.PauseTime := 0;
-MovieTexture202.Pitch := 1;
-MovieTexture202.ResumeTime := 0;
-MovieTexture202.Speed := 1;
-MovieTexture202.StartTime := 0;
-MovieTexture202.StopTime := 0;
-{ .AddChildren }
-LoadSensor193.AddChildren([MovieTexture202]);
-Script203 := TScriptNode.Create;
-Script203.AutoRefresh := 0;
-Script203.AutoRefreshTimeLimit := 3600;
-
-Script203.SetSourceCode('''ecmascript:\n"+
-"/* dummy test source code */''');
-{ .AddChildren }
-LoadSensor193.AddChildren([Script203]);
-PackagedShader204 := TPackagedShaderNode.Create;
-PackagedShader204.AutoRefresh := 0;
-PackagedShader204.AutoRefreshTimeLimit := 3600;
-{ .AddChildren }
-LoadSensor193.AddChildren([PackagedShader204]);
-ShaderPart205 := TShaderPartNode.Create;
-ShaderPart205.AutoRefresh := 0;
-ShaderPart205.AutoRefreshTimeLimit := 3600;
-ShaderPart205.Type := 'VERTEX';
-{ .AddChildren }
-LoadSensor193.AddChildren([ShaderPart205]);
-ShaderProgram206 := TShaderProgramNode.Create;
-ShaderProgram206.AutoRefresh := 0;
-ShaderProgram206.AutoRefreshTimeLimit := 3600;
-ShaderProgram206.Type := 'VERTEX';
-{ .AddChildren }
-LoadSensor193.AddChildren([ShaderProgram206]);
-{ .AddChildren }
-Group32.AddChildren([LoadSensor193]);
-OrthoViewpoint207 := TOrthoViewpointNode.Create;
-OrthoViewpoint207.FarDistance := -1;
-OrthoViewpoint207.SetFieldOfView([1,3,2,4]);
-OrthoViewpoint207.NearDistance := -1;
-{ .AddChildren }
-Group32.AddChildren([OrthoViewpoint207]);
-{ .AddGroup }
-X3D0.AddChildren([Group32]);
-Result := X3D0;
+TouchSensor91.FieldOrEvent('description', True).IsClauseNamesAdd('description');
+TouchSensor91.FieldOrEvent('enabled', True).IsClauseNamesAdd('enabled');
+ProtoDeclare85.Node.AddChildren([TouchSensor91]);
+X3D0.AddPrototype(ProtoDeclare85);
+X3DExternalPrototype92 := TX3DExternalPrototype.Create;
+X3DExternalPrototype92.X3DName := 'ArtDeco02';
+X3DExternalPrototype92.Appinfo := 'this is a different Material node';
+X3DExternalPrototype92.Url := '"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/ArtDecoPrototypesExcerpt.x3d#ArtDeco02" "https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/ArtDecoPrototypesExcerpt.x3dv#ArtDeco02"';
+FieldVal93 := TSFString.CreateUndefined(X3DExternalPrototype92, True, 'description');
+X3DExternalPrototype92.AddCustomFieldOrEvent(FieldVal93);
 end;
 
+procedure InittempPart7;
 begin
+Group32.AddX3DExternalPrototype([X3DExternalPrototype92]);
+Shape94 := TShapeNode.Create;
+Shape94.X3DName := 'TestShape1';
+Appearance95 := TAppearanceNode.Create;
+Appearance95.X3DName := 'TestAppearance1';
+Appearance95.AlphaCutoff := 0.5;
+ProtoInstance96 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare85);
+(ProtoInstance96.Field('description') as TSFString).Value := 'ArtDeco01Material can substitute for a Material node';
+Appearance95.Material := ProtoInstance96.Instantiate;
+Shape94.Appearance := Appearance95;
+Sphere98 := TSphereNode.Create;
+Sphere98.Radius := 0.001;
+Shape94.Geometry := Sphere98;
+Group32.FdChildren.Add(Shape94);
+Shape99 := TShapeNode.Create;
+Shape99.X3DName := 'TestShape2';
+Appearance100 := TAppearanceNode.Create;
+Appearance100.X3DName := 'TestAppearance2';
+Appearance100.AlphaCutoff := 0.5;
+ProtoInstance101 := TX3DPrototypeNode.CreatePrototypeNode('', '', X3DExternalPrototype92);
+ProtoInstance101.X3DName := 'ArtDeco02MaterialDEF';
+Appearance100.Material := ProtoInstance101.Instantiate;
+Shape99.Appearance := Appearance100;
+Cone102 := TConeNode.Create;
+Cone102.BottomRadius := 0.001;
+Cone102.Height := 0.001;
+Shape99.Geometry := Cone102;
+Group32.FdChildren.Add(Shape99);
+Shape103 := TShapeNode.Create;
+Shape103.X3DName := 'TestShape3';
+Appearance104 := TAppearanceNode.Create;
+Appearance104.X3DName := 'TestAppearance3';
+Appearance104.AlphaCutoff := 0.5;
+Appearance104.Material := ProtoInstance101;
+Shape103.Appearance := Appearance104;
+Cylinder106 := TCylinderNode.Create;
+Cylinder106.Height := 0.001;
+Cylinder106.Radius := 0.001;
+Shape103.Geometry := Cylinder106;
+Group32.FdChildren.Add(Shape103);
+end;
+
+procedure InittempPart8;
+begin
+Inline107 := TInlineNode.Create;
+Inline107.X3DName := 'inlineScene';
+Inline107.AutoRefresh := 0;
+Inline107.AutoRefreshTimeLimit := 3600;
+Inline107.SetUrl(['newScene.x3d', 'https://www.web3d.org/specifications/java/examples/newScene.x3d']);
+Group32.FdChildren.Add(Inline107);
+Import108 := TX3DImport.Create;
+Import108.InlineNodeName := 'inlineScene';
+Import108.ImportedNodeName := 'WorldInfoDEF';
+Import108.ImportedNodeAlias := 'WorldInfoDEF2';
+X3D0.AddImport(Import108);
+X3D0.ExportNode(WorldInfo38, 'WorldInfoDEF3');
+ProtoDeclare110 := CreateEmptyPrototype('MaterialModulator');
+ProtoDeclare110.X3DName := 'MaterialModulator';
+ProtoDeclare110.Appinfo := 'mimic a Material node and modulate fields as an animation effect';
+ProtoDeclare110.Documentation := 'https://x3dgraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/MaterialModulatorIndex.html';
+FieldVal112 := TSFBool.Create(nil, True, 'enabled', True);
+FieldDecl112 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl112.FieldOrEvent := FieldVal112;
+FieldVal112.ParentInterfaceDeclaration := FieldDecl112;
+ProtoDeclare110.InterfaceDeclarations.Add(FieldDecl112);
+FieldVal113 := TSFColor.Create(nil, True, 'diffuseColor', Vector3(0, 0, 0));
+FieldDecl113 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl113.FieldOrEvent := FieldVal113;
+FieldVal113.ParentInterfaceDeclaration := FieldDecl113;
+ProtoDeclare110.InterfaceDeclarations.Add(FieldDecl113);
+FieldVal114 := TSFColor.Create(nil, True, 'emissiveColor', Vector3(0.05, 0.05, 0.5));
+FieldDecl114 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl114.FieldOrEvent := FieldVal114;
+FieldVal114.ParentInterfaceDeclaration := FieldDecl114;
+ProtoDeclare110.InterfaceDeclarations.Add(FieldDecl114);
+FieldVal115 := TSFColor.Create(nil, True, 'specularColor', Vector3(0, 0, 0));
+FieldDecl115 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl115.FieldOrEvent := FieldVal115;
+FieldVal115.ParentInterfaceDeclaration := FieldDecl115;
+ProtoDeclare110.InterfaceDeclarations.Add(FieldDecl115);
+FieldVal116 := TSFFloat.Create(nil, True, 'transparency', 0);
+FieldDecl116 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl116.FieldOrEvent := FieldVal116;
+FieldVal116.ParentInterfaceDeclaration := FieldDecl116;
+end;
+
+procedure InittempPart9;
+begin
+ProtoDeclare110.InterfaceDeclarations.Add(FieldDecl116);
+FieldVal117 := TSFFloat.Create(nil, True, 'shininess', 0);
+FieldDecl117 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl117.FieldOrEvent := FieldVal117;
+FieldVal117.ParentInterfaceDeclaration := FieldDecl117;
+ProtoDeclare110.InterfaceDeclarations.Add(FieldDecl117);
+FieldVal118 := TSFFloat.Create(nil, True, 'ambientIntensity', 0);
+FieldDecl118 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl118.FieldOrEvent := FieldVal118;
+FieldVal118.ParentInterfaceDeclaration := FieldDecl118;
+ProtoDeclare110.InterfaceDeclarations.Add(FieldDecl118);
+Material120 := TMaterialNode.Create;
+Material120.X3DName := 'MaterialNode';
+Material120.AmbientIntensity := 0.2;
+Material120.NormalScale := 1;
+Material120.OcclusionStrength := 1;
+Material120.Shininess := 0.2;
+Material120.Transparency := 0;
+Material120.FieldOrEvent('diffuseColor', True).IsClauseNamesAdd('diffuseColor');
+Material120.FieldOrEvent('emissiveColor', True).IsClauseNamesAdd('emissiveColor');
+Material120.FieldOrEvent('specularColor', True).IsClauseNamesAdd('specularColor');
+Material120.FieldOrEvent('transparency', True).IsClauseNamesAdd('transparency');
+Material120.FieldOrEvent('shininess', True).IsClauseNamesAdd('shininess');
+Material120.FieldOrEvent('ambientIntensity', True).IsClauseNamesAdd('ambientIntensity');
+ProtoDeclare110.Node.AddChildren([Material120]);
+Script121 := TScriptNode.Create;
+Script121.X3DName := 'MaterialModulatorScript';
+Script121.AutoRefresh := 0;
+Script121.AutoRefreshTimeLimit := 3600;
+FieldVal122 := TSFBool.CreateUndefined(Script121, True, 'enabled');
+Script121.AddCustomFieldOrEvent(FieldVal122);
+FieldVal123 := TSFColor.CreateUndefined(Script121, True, 'diffuseColor');
+Script121.AddCustomFieldOrEvent(FieldVal123);
+FieldVal124 := TSFColor.CreateEvent(Script121, 'newColor', False);
+Script121.AddCustomFieldOrEvent(FieldVal124);
+FieldVal125 := TSFTime.CreateEvent(Script121, 'clockTrigger', True);
+Script121.AddCustomFieldOrEvent(FieldVal125);
+Script121.FieldOrEvent('enabled', True).IsClauseNamesAdd('enabled');
+Script121.FieldOrEvent('diffuseColor', True).IsClauseNamesAdd('diffuseColor');
+Script121.SetUrl(['compiled:' + LineEnding +
+  'initialize=Script121_initialize' + LineEnding +
+  'set_enabled=Script121_set_enabled' + LineEnding +
+  'enabled=Script121_enabled' + LineEnding +
+  'clockTrigger=Script121_clockTrigger']);
+end;
+
+procedure InittempPart10;
+begin
+ProtoDeclare110.Node.AddChildren([Script121]);
+X3D0.AddPrototype(ProtoDeclare110);
+Group126 := TGroupNode.Create;
+Group126.X3DName := 'DeclarativeGroupExample';
+Shape127 := TShapeNode.Create;
+MetadataString128 := TMetadataStringNode.Create;
+MetadataString128.X3DName := 'findThisNameValue';
+MetadataString128.X3DName := 'FindableMetadataStringTest';
+MetadataString128.SetValue(['test case']);
+Shape127.Value := MetadataString128;
+Appearance129 := TAppearanceNode.Create;
+Appearance129.X3DName := 'DeclarativeAppearanceExample';
+Appearance129.AlphaCutoff := 0.5;
+ProtoInstance130 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare110);
+ProtoInstance130.X3DName := 'MyMaterialModulator';
+Appearance129.Material := ProtoInstance130.Instantiate;
+Shape127.Appearance := Appearance129;
+Cone131 := TConeNode.Create;
+Cone131.Bottom := False;
+Cone131.BottomRadius := 0.05;
+Cone131.Height := 0.1;
+Shape127.Geometry := Cone131;
+Group126.FdChildren.Add(Shape127);
+Group32.FdChildren.Add(Group126);
+Group132 := TGroupNode.Create;
+Group132.X3DName := 'TestFieldObjectsGroup';
+Group32.FdChildren.Add(Group132);
+Sound133 := TSoundNode.Create;
+Sound133.Intensity := 1;
+Sound133.Location := Vector3(0, 1.6, 0);
+Sound133.MaxBack := 10;
+Sound133.MaxFront := 10;
+Sound133.MinBack := 1;
+Sound133.MinFront := 1;
+Sound133.Priority := 0;
+AudioClip134 := TAudioClipNode.Create;
+AudioClip134.AutoRefresh := 0;
+AudioClip134.AutoRefreshTimeLimit := 3600;
+AudioClip134.Description := 'chimes';
+AudioClip134.Gain := 1;
+end;
+
+procedure InittempPart11;
+begin
+AudioClip134.PauseTime := 0;
+AudioClip134.Pitch := 1;
+AudioClip134.ResumeTime := 0;
+AudioClip134.StartTime := 0;
+AudioClip134.StopTime := 0;
+AudioClip134.SetUrl(['chimes.wav', 'https://www.web3d.org/x3d/content/examples/ConformanceNist/Sounds/AudioClip/chimes.wav']);
+Sound133.Source := AudioClip134;
+Group32.FdChildren.Add(Sound133);
+Sound135 := TSoundNode.Create;
+Sound135.Intensity := 1;
+Sound135.Location := Vector3(0, 1.6, 0);
+Sound135.MaxBack := 10;
+Sound135.MaxFront := 10;
+Sound135.MinBack := 1;
+Sound135.MinFront := 1;
+Sound135.Priority := 0;
+MovieTexture136 := TMovieTextureNode.Create;
+MovieTexture136.AutoRefresh := 0;
+MovieTexture136.AutoRefreshTimeLimit := 3600;
+MovieTexture136.Description := 'mpgsys.mpg from ConformanceNist suite';
+MovieTexture136.PauseTime := 0;
+MovieTexture136.Pitch := 1;
+MovieTexture136.ResumeTime := 0;
+MovieTexture136.Speed := 1;
+MovieTexture136.StartTime := 0;
+MovieTexture136.StopTime := 0;
+MovieTexture136.SetUrl(['mpgsys.mpg', 'https://www.web3d.org/x3d/content/examples/ConformanceNist/Appearance/MovieTexture/mpgsys.mpg']);
+Sound135.Source := MovieTexture136;
+Group32.FdChildren.Add(Sound135);
+Shape137 := TShapeNode.Create;
+Shape137.X3DName := 'ExtrusionShape';
+Appearance138 := TAppearanceNode.Create;
+Appearance138.X3DName := 'TransparentAppearance';
+Appearance138.AlphaCutoff := 0.5;
+Material139 := TMaterialNode.Create;
+Material139.AmbientIntensity := 0.2;
+Material139.NormalScale := 1;
+Material139.OcclusionStrength := 1;
+Material139.Shininess := 0.2;
+Material139.Transparency := 1;
+end;
+
+procedure InittempPart12;
+begin
+Appearance138.Material := Material139;
+Shape137.Appearance := Appearance138;
+Extrusion140 := TExtrusionNode.Create;
+Extrusion140.X3DName := 'ExampleExtrusion';
+Extrusion140.CreaseAngle := 0;
+Shape137.Geometry := Extrusion140;
+Group32.FdChildren.Add(Shape137);
+Group141 := TGroupNode.Create;
+ProtoDeclare142 := CreateEmptyPrototype('NewWorldInfo');
+ProtoDeclare142.X3DName := 'NewWorldInfo';
+FieldVal144 := TSFString.CreateUndefined(nil, False, 'description');
+FieldDecl144 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl144.FieldOrEvent := FieldVal144;
+FieldVal144.ParentInterfaceDeclaration := FieldDecl144;
+ProtoDeclare142.InterfaceDeclarations.Add(FieldDecl144);
+WorldInfo146 := TWorldInfoNode.Create;
+ProtoDeclare142.Node.AddChildren([WorldInfo146]);
+X3D0.AddPrototype(ProtoDeclare142);
+ProtoInstance147 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare142);
+ProtoInstance147.X3DName := 'Proto1';
+(ProtoInstance147.Field('description') as TSFString).Value := 'testing 1 2 3';
+Group141.FdChildren.Add(ProtoInstance147.Instantiate);
+Group149 := TGroupNode.Create;
+Group149.X3DName := 'Node2';
+Group141.FdChildren.Add(Group149);
+ProtoInstance150 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare142);
+ProtoInstance150.X3DName := 'Proto3';
+Group141.FdChildren.Add(ProtoInstance150.Instantiate);
+Transform151 := TTransformNode.Create;
+Transform151.X3DName := 'Node4';
+Group141.FdChildren.Add(Transform151);
+Group32.FdChildren.Add(Group141);
+ProtoDeclare152 := CreateEmptyPrototype('ShaderProto');
+ProtoDeclare152.X3DName := 'ShaderProto';
+ProgramShader154 := TProgramShaderNode.Create;
+ProtoDeclare152.Node.AddChildren([ProgramShader154]);
+X3D0.AddPrototype(ProtoDeclare152);
+Shape155 := TShapeNode.Create;
+Appearance156 := TAppearanceNode.Create;
+Appearance156.AlphaCutoff := 0.5;
+end;
+
+procedure InittempPart13;
+begin
+ProgramShader157 := TProgramShaderNode.Create;
+ProgramShader157.X3DName := 'TestShader1';
+ShaderProgram158 := TShaderProgramNode.Create;
+ShaderProgram158.X3DName := 'TestShader2';
+ShaderProgram158.AutoRefresh := 0;
+ShaderProgram158.AutoRefreshTimeLimit := 3600;
+ProgramShader157.Programs := ShaderProgram158;
+Appearance156.FdShaders.Add(ProgramShader157);
+ProtoInstance159 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare152);
+ProtoInstance159.X3DName := 'TestShader3';
+Appearance156.FdShaders.Add(ProtoInstance159.Instantiate);
+ComposedShader160 := TComposedShaderNode.Create;
+ComposedShader160.X3DName := 'TestShader4';
+ShaderPart161 := TShaderPartNode.Create;
+ShaderPart161.X3DName := 'TestShader5';
+ShaderPart161.AutoRefresh := 0;
+ShaderPart161.AutoRefreshTimeLimit := 3600;
+ShaderPart161.ShaderType := stVertex;
+ComposedShader160.FdParts.Add(ShaderPart161);
+Appearance156.FdShaders.Add(ComposedShader160);
+Shape155.Appearance := Appearance156;
+Group32.FdChildren.Add(Shape155);
+Transform162 := TTransformNode.Create;
+Transform162.X3DName := 'SpecialtyNodes';
+CADLayer163 := TCADLayerNode.Create;
+CADAssembly164 := TCADAssemblyNode.Create;
+CADPart165 := TCADPartNode.Create;
+CADFace166 := TCADFaceNode.Create;
+CADPart165.FdChildren.Add(CADFace166);
+CADAssembly164.FdChildren.Add(CADPart165);
+CADLayer163.FdChildren.Add(CADAssembly164);
+Transform162.FdChildren.Add(CADLayer163);
+EspduTransform167 := TEspduTransformNode.Create;
+EspduTransform167.FiringRange := 0;
+EspduTransform167.ReadInterval := 0.1;
+EspduTransform167.WriteInterval := 1;
+Transform162.FdChildren.Add(EspduTransform167);
+ReceiverPdu168 := TReceiverPduNode.Create;
+ReceiverPdu168.ReadInterval := 0.1;
+ReceiverPdu168.ReceivedPower := 0;
+end;
+
+procedure InittempPart14;
+begin
+ReceiverPdu168.WriteInterval := 1;
+Transform162.FdChildren.Add(ReceiverPdu168);
+SignalPdu169 := TSignalPduNode.Create;
+SignalPdu169.ReadInterval := 0.1;
+SignalPdu169.WriteInterval := 1;
+Transform162.FdChildren.Add(SignalPdu169);
+TransmitterPdu170 := TTransmitterPduNode.Create;
+TransmitterPdu170.Power := 0;
+TransmitterPdu170.ReadInterval := 0.1;
+TransmitterPdu170.TransmitFrequencyBandwidth := 0;
+TransmitterPdu170.WriteInterval := 1;
+Transform162.FdChildren.Add(TransmitterPdu170);
+DISEntityManager171 := TDISEntityManagerNode.Create;
+DISEntityTypeMapping172 := TDISEntityTypeMappingNode.Create;
+DISEntityTypeMapping172.AutoRefresh := 0;
+DISEntityTypeMapping172.AutoRefreshTimeLimit := 3600;
+DISEntityManager171.FdChildren.Add(DISEntityTypeMapping172);
+Transform162.FdChildren.Add(DISEntityManager171);
+Group32.FdChildren.Add(Transform162);
+EspduTransform173 := TEspduTransformNode.Create;
+EspduTransform173.FiringRange := 0;
+EspduTransform173.ReadInterval := 0.1;
+EspduTransform173.WriteInterval := 1;
+WorldInfo174 := TWorldInfoNode.Create;
+EspduTransform173.FdChildren.Add(WorldInfo174);
+Group32.FdChildren.Add(EspduTransform173);
+ReceiverPdu175 := TReceiverPduNode.Create;
+ReceiverPdu175.ReadInterval := 0.1;
+ReceiverPdu175.ReceivedPower := 0;
+ReceiverPdu175.WriteInterval := 1;
+Group32.FdChildren.Add(ReceiverPdu175);
+SignalPdu176 := TSignalPduNode.Create;
+SignalPdu176.ReadInterval := 0.1;
+SignalPdu176.WriteInterval := 1;
+Group32.FdChildren.Add(SignalPdu176);
+TransmitterPdu177 := TTransmitterPduNode.Create;
+TransmitterPdu177.Power := 0;
+TransmitterPdu177.ReadInterval := 0.1;
+TransmitterPdu177.TransmitFrequencyBandwidth := 0;
+TransmitterPdu177.WriteInterval := 1;
+end;
+
+procedure InittempPart15;
+begin
+Group32.FdChildren.Add(TransmitterPdu177);
+DISEntityManager178 := TDISEntityManagerNode.Create;
+DISEntityTypeMapping179 := TDISEntityTypeMappingNode.Create;
+DISEntityTypeMapping179.AutoRefresh := 0;
+DISEntityTypeMapping179.AutoRefreshTimeLimit := 3600;
+DISEntityManager178.FdChildren.Add(DISEntityTypeMapping179);
+Group32.FdChildren.Add(DISEntityManager178);
+LoadSensor180 := TLoadSensorNode.Create;
+LoadSensor180.TimeOut := 0;
+LoadSensor180.FdChildren.Add(Anchor44);
+LoadSensor180.FdChildren.Add(Inline107);
+DISEntityTypeMapping183 := TDISEntityTypeMappingNode.Create;
+DISEntityTypeMapping183.AutoRefresh := 0;
+DISEntityTypeMapping183.AutoRefreshTimeLimit := 3600;
+LoadSensor180.FdChildren.Add(DISEntityTypeMapping183);
+GeoMetadata184 := TGeoMetadataNode.Create;
+GeoMetadata184.AutoRefresh := 0;
+GeoMetadata184.AutoRefreshTimeLimit := 3600;
+LoadSensor180.FdChildren.Add(GeoMetadata184);
+AudioClip185 := TAudioClipNode.Create;
+AudioClip185.AutoRefresh := 0;
+AudioClip185.AutoRefreshTimeLimit := 3600;
+AudioClip185.Gain := 1;
+AudioClip185.PauseTime := 0;
+AudioClip185.Pitch := 1;
+AudioClip185.ResumeTime := 0;
+AudioClip185.StartTime := 0;
+AudioClip185.StopTime := 0;
+LoadSensor180.FdChildren.Add(AudioClip185);
+ImageCubeMapTexture186 := TImageCubeMapTextureNode.Create;
+ImageCubeMapTexture186.AutoRefresh := 0;
+ImageCubeMapTexture186.AutoRefreshTimeLimit := 3600;
+LoadSensor180.FdChildren.Add(ImageCubeMapTexture186);
+ImageTexture3D187 := TImageTexture3DNode.Create;
+ImageTexture3D187.AutoRefresh := 0;
+ImageTexture3D187.AutoRefreshTimeLimit := 3600;
+LoadSensor180.FdChildren.Add(ImageTexture3D187);
+ImageTexture188 := TImageTextureNode.Create;
+ImageTexture188.AutoRefresh := 0;
+ImageTexture188.AutoRefreshTimeLimit := 3600;
+end;
+
+procedure InittempPart16;
+begin
+LoadSensor180.FdChildren.Add(ImageTexture188);
+MovieTexture189 := TMovieTextureNode.Create;
+MovieTexture189.AutoRefresh := 0;
+MovieTexture189.AutoRefreshTimeLimit := 3600;
+MovieTexture189.PauseTime := 0;
+MovieTexture189.Pitch := 1;
+MovieTexture189.ResumeTime := 0;
+MovieTexture189.Speed := 1;
+MovieTexture189.StartTime := 0;
+MovieTexture189.StopTime := 0;
+LoadSensor180.FdChildren.Add(MovieTexture189);
+Script190 := TScriptNode.Create;
+Script190.X3DName := 'DummyScript';
+Script190.AutoRefresh := 0;
+Script190.AutoRefreshTimeLimit := 3600;
+Script190.SetUrl(['compiled:' + LineEnding +
+  '']);
+LoadSensor180.FdChildren.Add(Script190);
+PackagedShader191 := TPackagedShaderNode.Create;
+PackagedShader191.AutoRefresh := 0;
+PackagedShader191.AutoRefreshTimeLimit := 3600;
+LoadSensor180.FdChildren.Add(PackagedShader191);
+ShaderPart192 := TShaderPartNode.Create;
+ShaderPart192.AutoRefresh := 0;
+ShaderPart192.AutoRefreshTimeLimit := 3600;
+ShaderPart192.ShaderType := stVertex;
+LoadSensor180.FdChildren.Add(ShaderPart192);
+ShaderProgram193 := TShaderProgramNode.Create;
+ShaderProgram193.AutoRefresh := 0;
+ShaderProgram193.AutoRefreshTimeLimit := 3600;
+LoadSensor180.FdChildren.Add(ShaderProgram193);
+Group32.FdChildren.Add(LoadSensor180);
+OrthoViewpoint194 := TOrthoViewpointNode.Create;
+OrthoViewpoint194.X3DName := 'SpecialTestOrthoViewpoint';
+OrthoViewpoint194.FarDistance := -1;
+OrthoViewpoint194.SetFieldOfView([1, 3, 2, 4]);
+OrthoViewpoint194.NearDistance := -1;
+Group32.FdChildren.Add(OrthoViewpoint194);
+X3D0.AddChildren([Group32]);
+end;
+
+function Createtemp: TX3DRootNode;
+var
+  Binder: TtempScriptBinder;
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript77List) do
+    FreeAndNil(CompiledScript77List[_i]);
+  SetLength(CompiledScript77List, 0);
+  for _i := 0 to High(CompiledScript121List) do
+    FreeAndNil(CompiledScript121List[_i]);
+  SetLength(CompiledScript121List, 0);
+  for _i := 0 to High(CompiledScript190List) do
+    FreeAndNil(CompiledScript190List[_i]);
+  SetLength(CompiledScript190List, 0);
+  InittempPart0;
+  InittempPart1;
+  InittempPart2;
+  InittempPart3;
+  InittempPart4;
+  InittempPart5;
+  InittempPart6;
+  InittempPart7;
+  InittempPart8;
+  InittempPart9;
+  InittempPart10;
+  InittempPart11;
+  InittempPart12;
+  InittempPart13;
+  InittempPart14;
+  InittempPart15;
+  InittempPart16;
+  Binder := TtempScriptBinder.Create;
+  try
+    X3D0.EnumerateNodes(TScriptNode, {$ifdef FPC}@{$endif}Binder.BindNode, False);
+  finally
+    FreeAndNil(Binder);
+  end;
+  Result := X3D0;
+end;
+
+procedure RegistertempScripts(const Scene: TCastleSceneCore);
+var
+  _i: Integer;
+begin
+  Randomize;
+  for _i := 0 to High(CompiledScript77List) do
+  begin
+    CompiledScript77List[_i].RegisterHandlers(Scene);
+  end;
+  for _i := 0 to High(CompiledScript121List) do
+  begin
+    CompiledScript121List[_i].RegisterHandlers(Scene);
+    if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript121List[_i].Initialized) then
+      CompiledScript121List[_i].Initialize(nil, Scene.NextEventTime);
+  end;
+  for _i := 0 to High(CompiledScript190List) do
+  begin
+    CompiledScript190List[_i].RegisterHandlers(Scene);
+  end;
+end;
+
+finalization
+  while Length(CompiledScript77List) > 0 do
+  begin
+    FreeAndNil(CompiledScript77List[High(CompiledScript77List)]);
+    SetLength(CompiledScript77List, Length(CompiledScript77List) - 1);
+  end;
+  while Length(CompiledScript121List) > 0 do
+  begin
+    FreeAndNil(CompiledScript121List[High(CompiledScript121List)]);
+    SetLength(CompiledScript121List, Length(CompiledScript121List) - 1);
+  end;
+  while Length(CompiledScript190List) > 0 do
+  begin
+    FreeAndNil(CompiledScript190List[High(CompiledScript190List)]);
+    SetLength(CompiledScript190List, Length(CompiledScript190List) - 1);
+  end;
 end.

@@ -2,7 +2,7 @@ unit StringArrayEncodingExamples;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateStringArrayEncodingExamples: TX3DRootNode;
 
@@ -10,17 +10,18 @@ implementation
 
 uses CastleVectors;
 
-function CreateStringArrayEncodingExamples: TX3DRootNode;
 var
-X3D0: TX3DRootNode;
-Group17: TGroupNode;
-Viewpoint18: TViewpointNode;
-Background19: TBackgroundNode;
-Shape20: TShapeNode;
-Text21: TTextNode;
-FontStyle22: TFontStyleNode;
-Appearance23: TAppearanceNode;
-Material24: TMaterialNode;
+  X3D0: TX3DRootNode;
+  Group17: TGroupNode;
+  Viewpoint18: TViewpointNode;
+  Background19: TBackgroundNode;
+  Shape20: TShapeNode;
+  Text21: TTextNode;
+  FontStyle22: TFontStyleNode;
+  Appearance23: TAppearanceNode;
+  Material24: TMaterialNode;
+
+procedure InitStringArrayEncodingExamplesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -43,38 +44,41 @@ X3D0.Meta['generator'] := 'X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit';
 X3D0.Meta['license'] := '../license.html';
 Group17 := TGroupNode.Create;
 Viewpoint18 := TViewpointNode.Create;
+Viewpoint18.X3DName := 'EntryView';
 Viewpoint18.Description := 'Hello MFString syntax';
-{ .AddChildren }
-Group17.AddChildren([Viewpoint18]);
+Group17.FdChildren.Add(Viewpoint18);
 Background19 := TBackgroundNode.Create;
-Background19.SetSkyColor([Vector3(0.6,1,0.8)]);
-{ .AddChildren }
-Group17.AddChildren([Background19]);
+Background19.SetSkyColor([Vector3(0.6, 1, 0.8)]);
+Group17.FdChildren.Add(Background19);
 Shape20 := TShapeNode.Create;
 Text21 := TTextNode.Create;
-Text21.SetText(['One, Two, Three','He said, "Immel did it!"']);
+Text21.SetText(['One, Two, Three', 'He said, "Immel did it!"']);
 { alternative XML encoding: Text string='"One, Two, Three" "" "He said, \&quot;Immel did it!\&quot;"' }
 (* alternative Java source: .setString(new String [] {"One, Two, Three", "", "He said, \""Immel did it!\"""}) *)
 FontStyle22 := TFontStyleNode.Create;
 FontStyle22.Justify := fjMiddle;
 FontStyle22.JustifyMinor := fjMiddle;
 FontStyle22.Style := fsBold;
-{ .SetFontStyle }
 Text21.FontStyle := FontStyle22;
-{ .SetGeometry }
 Shape20.Geometry := Text21;
 Appearance23 := TAppearanceNode.Create;
 Material24 := TMaterialNode.Create;
-Material24.DiffuseColor := Vector3(0.6,0.4,0.2);
-{ .SetMaterial }
+end;
+
+procedure InitStringArrayEncodingExamplesPart1;
+begin
+Material24.DiffuseColor := Vector3(0.6, 0.4, 0.2);
 Appearance23.Material := Material24;
-{ .SetAppearance }
 Shape20.Appearance := Appearance23;
-{ .AddChildren }
-Group17.AddChildren([Shape20]);
-{ .AddGroup }
+Group17.FdChildren.Add(Shape20);
 X3D0.AddChildren([Group17]);
-Result := X3D0;
+end;
+
+function CreateStringArrayEncodingExamples: TX3DRootNode;
+begin
+  InitStringArrayEncodingExamplesPart0;
+  InitStringArrayEncodingExamplesPart1;
+  Result := X3D0;
 end;
 
 begin

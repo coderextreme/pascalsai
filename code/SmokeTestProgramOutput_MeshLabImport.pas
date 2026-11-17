@@ -2,7 +2,7 @@ unit SmokeTestProgramOutput_MeshLabImport;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateSmokeTestProgramOutput_MeshLabImport: TX3DRootNode;
 
@@ -10,13 +10,14 @@ implementation
 
 uses CastleVectors;
 
-function CreateSmokeTestProgramOutput_MeshLabImport: TX3DRootNode;
 var
-X3D0: TX3DRootNode;
-Group6: TGroupNode;
-Shape7: TShapeNode;
-IndexedFaceSet8: TIndexedFaceSetNode;
-Coordinate9: TCoordinateNode;
+  X3D0: TX3DRootNode;
+  Group6: TGroupNode;
+  Shape7: TShapeNode;
+  IndexedFaceSet8: TIndexedFaceSetNode;
+  Coordinate9: TCoordinateNode;
+
+procedure InitSmokeTestProgramOutput_MeshLabImportPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -31,15 +32,16 @@ Shape7 := TShapeNode.Create;
 IndexedFaceSet8 := TIndexedFaceSetNode.Create;
 IndexedFaceSet8.Solid := False;
 Coordinate9 := TCoordinateNode.Create;
-{ .SetCoord }
 IndexedFaceSet8.Coord := Coordinate9;
-{ .SetGeometry }
 Shape7.Geometry := IndexedFaceSet8;
-{ .AddChildren }
-Group6.AddChildren([Shape7]);
-{ .AddGroup }
+Group6.FdChildren.Add(Shape7);
 X3D0.AddChildren([Group6]);
-Result := X3D0;
+end;
+
+function CreateSmokeTestProgramOutput_MeshLabImport: TX3DRootNode;
+begin
+  InitSmokeTestProgramOutput_MeshLabImportPart0;
+  Result := X3D0;
 end;
 
 begin

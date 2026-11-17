@@ -2,386 +2,523 @@ unit Menu;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateMenu: TX3DRootNode;
+procedure RegisterMenuScripts(const Scene: TCastleSceneCore);
 
 implementation
 
-uses CastleVectors;
+uses Classes, SysUtils, X3DLoad, CastleVectors, Math, X3DTime;
 
-function CreateMenu: TX3DRootNode;
+function CreateEmptyPrototype(const AName: String): TX3DPrototype;
 var
-X3D0: TX3DRootNode;
-Group4: TGroupNode;
-Viewpoint5: TViewpointNode;
-X3DPrototype6: TX3DPrototype;
-X3DInterfaceDeclaration7: TX3DInterfaceDeclaration;
-X3DField8: TX3DField;
-X3DPrototype9: TX3DPrototype;
-Group10: TGroupNode;
-Transform11: TTransformNode;
-TouchSensor12: TTouchSensorNode;
-Shape13: TShapeNode;
-Appearance14: TAppearanceNode;
-Material15: TMaterialNode;
-Text16: TTextNode;
-IS17: TIS;
-connect18: Tconnect;
-FontStyle19: TFontStyleNode;
-Shape20: TShapeNode;
-Appearance21: TAppearanceNode;
-Material22: TMaterialNode;
-IndexedFaceSet23: TIndexedFaceSetNode;
-Coordinate24: TCoordinateNode;
-Switch25: TSwitchNode;
-Inline26: TInlineNode;
-Inline27: TInlineNode;
-Inline28: TInlineNode;
-Inline29: TInlineNode;
-Inline30: TInlineNode;
-Inline31: TInlineNode;
-Inline32: TInlineNode;
-Inline33: TInlineNode;
-Inline34: TInlineNode;
-Inline35: TInlineNode;
-Inline36: TInlineNode;
-Inline37: TInlineNode;
-Inline38: TInlineNode;
-Inline39: TInlineNode;
-Inline40: TInlineNode;
-Inline41: TInlineNode;
-Inline42: TInlineNode;
-Inline43: TInlineNode;
-Inline44: TInlineNode;
-Inline45: TInlineNode;
-Inline46: TInlineNode;
-Inline47: TInlineNode;
-Inline48: TInlineNode;
-Inline49: TInlineNode;
-Inline50: TInlineNode;
-Inline51: TInlineNode;
-Inline52: TInlineNode;
-Inline53: TInlineNode;
-Inline54: TInlineNode;
-Inline55: TInlineNode;
-Script56: TScriptNode;
-X3DField57: TX3DField;
-X3DField58: TX3DField;
-X3DField59: TX3DField;
-X3DField60: TX3DField;
-X3DField61: TX3DField;
-X3DField62: TX3DField;
-X3DField63: TX3DField;
-IS64: TIS;
-connect65: Tconnect;
-X3DPrototype68: TX3DPrototypeNode;
-MFString69: TMFString;
+  Stream: TStringStream;
+  TempRoot: TX3DRootNode;
+  CopyState: TX3DNodeDeepCopyState;
+begin
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  try
+    TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
+    try
+      CopyState := TX3DNodeDeepCopyState.Create;
+      try
+        Result := TempRoot.Prototypes[0].DeepCopy(CopyState) as TX3DPrototype;
+      finally
+        FreeAndNil(CopyState);
+      end;
+    finally
+      FreeAndNil(TempRoot);
+    end;
+  finally
+    FreeAndNil(Stream);
+  end;
+end;
+
+type
+  TScript55Script = class
+  private
+    FHandlerPrefix: String;
+    FInitialized: Boolean;
+    FmenuItems: array of String;
+    Fselection: Int32;
+    FEvent_selection: TX3DEvent;
+    FBack_selection: TSFInt32;
+    FDirty_selection: Boolean;
+    Fspacing: Single;
+    Fsize: Single;
+    FmenuCenterY: Single;
+    FitemHeight: Single;
+    procedure FlushOutputs(const Time: TX3DTime);
+  public
+    constructor Create(const AHandlerPrefix: String; const AField_menuItems: TMFString; const AEvent_selection: TX3DEvent; const AField_spacing: TSFFloat; const AField_size: TSFFloat; const AField_menuCenterY: TSFFloat; const AField_itemHeight: TSFFloat);
+    class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript55Script;
+    destructor Destroy; override;
+    procedure RegisterHandlers(const Scene: TCastleSceneCore);
+    property Initialized: Boolean read FInitialized;
+    procedure Initialize(Value: TX3DField; const Time: TX3DTime);
+    procedure TouchPoint(Value: TX3DField; const Time: TX3DTime);
+  end;
+
+  TMenuScriptBinder = class
+  public
+    procedure BindNode(Node: TX3DNode);
+  end;
+
+var
+  X3D0: TX3DRootNode;
+  Group5: TGroupNode;
+  Viewpoint6: TViewpointNode;
+  ProtoDeclare7: TX3DPrototype;
+  FieldDecl9: TX3DInterfaceDeclaration;
+  FieldVal9: TMFString;
+  Group11: TGroupNode;
+  Transform12: TTransformNode;
+  TouchSensor13: TTouchSensorNode;
+  Shape14: TShapeNode;
+  Appearance15: TAppearanceNode;
+  Material16: TMaterialNode;
+  Text17: TTextNode;
+  FontStyle18: TFontStyleNode;
+  Shape19: TShapeNode;
+  Appearance20: TAppearanceNode;
+  Material21: TMaterialNode;
+  IndexedFaceSet22: TIndexedFaceSetNode;
+  Coordinate23: TCoordinateNode;
+  Switch24: TSwitchNode;
+  Inline25: TInlineNode;
+  Inline26: TInlineNode;
+  Inline27: TInlineNode;
+  Inline28: TInlineNode;
+  Inline29: TInlineNode;
+  Inline30: TInlineNode;
+  Inline31: TInlineNode;
+  Inline32: TInlineNode;
+  Inline33: TInlineNode;
+  Inline34: TInlineNode;
+  Inline35: TInlineNode;
+  Inline36: TInlineNode;
+  Inline37: TInlineNode;
+  Inline38: TInlineNode;
+  Inline39: TInlineNode;
+  Inline40: TInlineNode;
+  Inline41: TInlineNode;
+  Inline42: TInlineNode;
+  Inline43: TInlineNode;
+  Inline44: TInlineNode;
+  Inline45: TInlineNode;
+  Inline46: TInlineNode;
+  Inline47: TInlineNode;
+  Inline48: TInlineNode;
+  Inline49: TInlineNode;
+  Inline50: TInlineNode;
+  Inline51: TInlineNode;
+  Inline52: TInlineNode;
+  Inline53: TInlineNode;
+  Inline54: TInlineNode;
+  Script55: TScriptNode;
+  FieldVal56: TMFString;
+  FieldVal57: TX3DEvent;
+  FieldVal58: TX3DEvent;
+  FieldVal59: TSFFloat;
+  FieldVal60: TSFFloat;
+  FieldVal61: TSFFloat;
+  FieldVal62: TSFFloat;
+  CompiledScript55List: array of TScript55Script;
+  ProtoInstance65: TX3DPrototypeNode;
+
+constructor TScript55Script.Create(const AHandlerPrefix: String; const AField_menuItems: TMFString; const AEvent_selection: TX3DEvent; const AField_spacing: TSFFloat; const AField_size: TSFFloat; const AField_menuCenterY: TSFFloat; const AField_itemHeight: TSFFloat);
+var
+  _i: Integer;
+begin
+  inherited Create;
+  FHandlerPrefix := AHandlerPrefix;
+  FInitialized := False;
+  FmenuItems := nil;
+  Fselection := 0;
+  FEvent_selection := nil;
+  FBack_selection := TSFInt32.Create(nil, False, 'selection', 0);
+  FDirty_selection := False;
+  Fspacing := 0.0;
+  Fsize := 0.0;
+  FmenuCenterY := 0.0;
+  FitemHeight := 0.0;
+  if AField_menuItems <> nil then
+  begin
+    SetLength(FmenuItems, AField_menuItems.Items.Count);
+    for _i := 0 to AField_menuItems.Items.Count - 1 do
+      FmenuItems[_i] := AField_menuItems.Items[_i];
+  end;
+  FEvent_selection := AEvent_selection;
+  if AField_spacing <> nil then Fspacing := AField_spacing.Value;
+  if AField_size <> nil then Fsize := AField_size.Value;
+  if AField_menuCenterY <> nil then FmenuCenterY := AField_menuCenterY.Value;
+  if AField_itemHeight <> nil then FitemHeight := AField_itemHeight.Value;
+end;
+
+class function TScript55Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript55Script;
+begin
+  Result := TScript55Script.Create(AHandlerPrefix, AScriptNode.FieldOrEvent('menuItems') as TMFString, AScriptNode.AnyEvent('selection'), AScriptNode.FieldOrEvent('spacing') as TSFFloat, AScriptNode.FieldOrEvent('size') as TSFFloat, AScriptNode.FieldOrEvent('menuCenterY') as TSFFloat, AScriptNode.FieldOrEvent('itemHeight') as TSFFloat);
+end;
+
+destructor TScript55Script.Destroy;
+begin
+  FreeAndNil(FBack_selection);
+  inherited Destroy;
+end;
+
+procedure TScript55Script.FlushOutputs(const Time: TX3DTime);
+begin
+  if FDirty_selection then
+  begin
+    FDirty_selection := False;
+    if FEvent_selection <> nil then
+    begin
+      FBack_selection.Value := Fselection;
+      FEvent_selection.Send(FBack_selection, Time);
+    end;
+  end;
+end;
+
+procedure TScript55Script.RegisterHandlers(const Scene: TCastleSceneCore);
+begin
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchPoint', {$ifdef FPC}@{$endif}TouchPoint);
+end;
+
+procedure TScript55Script.Initialize(Value: TX3DField; const Time: TX3DTime);
+var
+  spacingBetweenGlyphs: Single;
+  menuHeight: Single;
+begin
+  FInitialized := True;
+  Fselection := 0;
+  FDirty_selection := True;
+  spacingBetweenGlyphs := Fsize * Fspacing - Fsize;
+  menuHeight := (Fsize + spacingBetweenGlyphs) * Length(FmenuItems);
+  FmenuCenterY := menuHeight / 2;
+  FitemHeight := menuHeight / Length(FmenuItems);
+  FlushOutputs(Time);
+end;
+
+procedure TScript55Script.TouchPoint(Value: TX3DField; const Time: TX3DTime);
+var
+  index: Integer;
+begin
+  WriteLn('Hit ' + (Value as TSFVec3f).Value.ToString + ' ' + IntToStr(Fselection) + #10);
+  index := Floor((FmenuCenterY - (Value as TSFVec3f).Value.Y) / FitemHeight - 0.5);
+  Fselection := index - 2;
+  FDirty_selection := True;
+  if (Fselection >= 0) and (Fselection < Length(FmenuItems)) then
+  begin
+    WriteLn('Selected ' + (Value as TSFVec3f).Value.ToString + ' ' + IntToStr(Fselection) + ' ' + FmenuItems[Fselection] + #10);
+  end;
+  FlushOutputs(Time);
+end;
+
+procedure TMenuScriptBinder.BindNode(Node: TX3DNode);
+var
+  S: TScriptNode;
+  UrlText, Prefix: String;
+  Idx: Integer;
+begin
+  S := Node as TScriptNode;
+  if S.FdUrl.Items.Count = 0 then Exit;
+  UrlText := S.FdUrl.Items.Text;
+  if Pos('=Script55_', UrlText) > 0 then
+  begin
+    Idx := Length(CompiledScript55List);
+    Prefix := 'Script55_' + IntToStr(Idx) + '_';
+    S.SetUrl(['compiled:' + LineEnding +
+      'initialize=' + Prefix + 'initialize' + LineEnding +
+      'touchPoint=' + Prefix + 'touchPoint']);
+    SetLength(CompiledScript55List, Idx + 1);
+    CompiledScript55List[Idx] := TScript55Script.CreateForNode(S, Prefix);
+    Exit;
+  end;
+end;
+
+procedure InitMenuPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
 X3D0.ForceVersion.Major := 4;
 X3D0.ForceVersion.Minor := 0;
 X3D0.Meta['title'] := 'Menu.x3d';
+X3D0.Meta['creator'] := 'John Carlson';
 X3D0.Meta['description'] := 'X3D scene with a Switch of Inlines controlled by a menu';
-Group4 := TGroupNode.Create;
+Group5 := TGroupNode.Create;
 { Viewpoint and any other scene setup }
-Viewpoint5 := TViewpointNode.Create;
-Viewpoint5.Position := Vector3(0,20,110);
-{ .AddChildren }
-Group4.AddChildren([Viewpoint5]);
+Viewpoint6 := TViewpointNode.Create;
+Viewpoint6.Position := Vector3(0, 20, 110);
+Group5.FdChildren.Add(Viewpoint6);
 { Menu prototype declaration }
-X3DPrototype6 := TX3DPrototype.Create;
-X3DPrototype6.NameField := 'Menu';
-X3DInterfaceDeclaration7 := TX3DInterfaceDeclaration.Create(nil);
-X3DField8 := TX3DField.Create;
-X3DField8.NameField := 'menuItems';
-X3DField8.Type := 'MFString';
-X3DField8.AccessType := 'initializeOnly';
-{ .SetX3DField }
-X3DInterfaceDeclaration7.X3DField := X3DField8;
-{ .SetX3DInterfaceDeclaration }
-X3DPrototype6.X3DInterfaceDeclaration := X3DInterfaceDeclaration7;
-X3DPrototype9 := TX3DPrototype.Create;
-Group10 := TGroupNode.Create;
-Transform11 := TTransformNode.Create;
-Transform11.Translation := Vector3(48,27,0);
-TouchSensor12 := TTouchSensorNode.Create;
-{ .AddChildren }
-Transform11.AddChildren([TouchSensor12]);
-Shape13 := TShapeNode.Create;
-Appearance14 := TAppearanceNode.Create;
-Material15 := TMaterialNode.Create;
-Material15.DiffuseColor := Vector3(1,1,1);
-{ .SetMaterial }
-Appearance14.Material := Material15;
-{ .SetAppearance }
-Shape13.Appearance := Appearance14;
-Text16 := TTextNode.Create;
-IS17 := TIS.Create;
-connect18 := Tconnect.Create;
-connect18.NodeField := 'string';
-connect18.ProtoField := 'menuItems';
-{ .AddConnect }
-IS17.Connect := connect18;
-{ .SetIS }
-Text16.IS := IS17;
-FontStyle19 := TFontStyleNode.Create;
-FontStyle19.Size := 2.4;
-FontStyle19.Spacing := 1.2;
-FontStyle19.Justify := fjMiddle;
-FontStyle19.JustifyMinor := fjMiddle;
-{ .SetFontStyle }
-Text16.FontStyle := FontStyle19;
-{ .SetGeometry }
-Shape13.Geometry := Text16;
-{ .AddChild }
-Transform11.AddChildren([Shape13]);
-Shape20 := TShapeNode.Create;
-Appearance21 := TAppearanceNode.Create;
-Material22 := TMaterialNode.Create;
-Material22.DiffuseColor := Vector3(0,0,1);
-{ .SetMaterial }
-Appearance21.Material := Material22;
-{ .SetAppearance }
-Shape20.Appearance := Appearance21;
-IndexedFaceSet23 := TIndexedFaceSetNode.Create;
-IndexedFaceSet23.SetCoordIndex([0,1,2,3,-1]);
-Coordinate24 := TCoordinateNode.Create;
-Coordinate24.SetPoint([Vector3(25,36,-0.01),Vector3(-25,36,-0.01),Vector3(-25,-51,-0.01),Vector3(25,-51,-0.01)]);
-{ .SetCoord }
-IndexedFaceSet23.Coord := Coordinate24;
-{ .SetGeometry }
-Shape20.Geometry := IndexedFaceSet23;
-{ .AddChild }
-Transform11.AddChildren([Shape20]);
-{ .AddChildren }
-Group10.AddChildren([Transform11]);
-Switch25 := TSwitchNode.Create;
-Switch25.WhichChoice := 0;
-Inline26 := TInlineNode.Create;
-Inline26.SetUrl(['../resources/JinInnerBrowRaiser.x3d','JinInnerBrowRaiser.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline26]);
-Inline27 := TInlineNode.Create;
-Inline27.SetUrl(['../resources/JinOuterBrowRaiser.x3d','JinOuterBrowRaiser.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline27]);
-Inline28 := TInlineNode.Create;
-Inline28.SetUrl(['../resources/JinBrowLowerer.x3d','JinBrowLowerer.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline28]);
-Inline29 := TInlineNode.Create;
-Inline29.SetUrl(['../resources/JinUpperLidRaiser.x3d','JinUpperLidRaiser.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline29]);
-Inline30 := TInlineNode.Create;
-Inline30.SetUrl(['../resources/JinCheekRaiser.x3d','JinCheekRaiser.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline30]);
-Inline31 := TInlineNode.Create;
-Inline31.SetUrl(['../resources/JinLidTightener.x3d','JinLidTightener.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline31]);
-Inline32 := TInlineNode.Create;
-Inline32.SetUrl(['../resources/JinNoseWrinkler.x3d','JinNoseWrinkler.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline32]);
-Inline33 := TInlineNode.Create;
-Inline33.SetUrl(['../resources/JinUpperLipRaiser.x3d','JinUpperLipRaiser.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline33]);
-Inline34 := TInlineNode.Create;
-Inline34.SetUrl(['../resources/JinNasolabialDeepener.x3d','JinNasolabialDeepener.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline34]);
-Inline35 := TInlineNode.Create;
-Inline35.SetUrl(['../resources/JinLipCornerPuller.x3d','JinLipCornerPuller.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline35]);
-Inline36 := TInlineNode.Create;
-Inline36.SetUrl(['../resources/JinCheekPuffer.x3d','JinCheekPuffer.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline36]);
-Inline37 := TInlineNode.Create;
-Inline37.SetUrl(['../resources/JinDimpler.x3d','JinDimpler.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline37]);
-Inline38 := TInlineNode.Create;
-Inline38.SetUrl(['../resources/JinLipCornerDepressor.x3d','JinLipCornerDepressor.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline38]);
-Inline39 := TInlineNode.Create;
-Inline39.SetUrl(['../resources/JinLowerLipDepressor.x3d','JinLowerLipDepressor.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline39]);
-Inline40 := TInlineNode.Create;
-Inline40.SetUrl(['../resources/JinChinRaiser.x3d','JinChinRaiser.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline40]);
-Inline41 := TInlineNode.Create;
-Inline41.SetUrl(['../resources/JinLipPuckerer.x3d','JinLipPuckerer.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline41]);
-Inline42 := TInlineNode.Create;
-Inline42.SetUrl(['../resources/JinLipStretcher.x3d','JinLipStretcher.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline42]);
-Inline43 := TInlineNode.Create;
-Inline43.SetUrl(['../resources/JinLipFunneler.x3d','JinLipFunneler.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline43]);
-Inline44 := TInlineNode.Create;
-Inline44.SetUrl(['../resources/JinLipTightener.x3d','JinLipTightener.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline44]);
-Inline45 := TInlineNode.Create;
-Inline45.SetUrl(['../resources/JinLipPressor.x3d','JinLipPressor.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline45]);
-Inline46 := TInlineNode.Create;
-Inline46.SetUrl(['../resources/JinLipsPart.x3d','JinLipsPart.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline46]);
-Inline47 := TInlineNode.Create;
-Inline47.SetUrl(['../resources/JinJawDrop.x3d','JinJawDrop.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline47]);
-Inline48 := TInlineNode.Create;
-Inline48.SetUrl(['../resources/JinMouthStretch.x3d','JinMouthStretch.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline48]);
-Inline49 := TInlineNode.Create;
-Inline49.SetUrl(['../resources/JinLipSuck.x3d','JinLipSuck.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline49]);
-Inline50 := TInlineNode.Create;
-Inline50.SetUrl(['../resources/JinLidDroop.x3d','JinLidDroop.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline50]);
-Inline51 := TInlineNode.Create;
-Inline51.SetUrl(['../resources/JinSlit.x3d','JinSlit.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline51]);
-Inline52 := TInlineNode.Create;
-Inline52.SetUrl(['../resources/JinEyesClosed.x3d','JinEyesClosed.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline52]);
-Inline53 := TInlineNode.Create;
-Inline53.SetUrl(['../resources/JinSquint.x3d','JinSquint.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline53]);
-Inline54 := TInlineNode.Create;
-Inline54.SetUrl(['../resources/JinBlink.x3d','JinBlink.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline54]);
-Inline55 := TInlineNode.Create;
-Inline55.SetUrl(['../resources/JinWink.x3d','JinWink.x3d']);
-{ .AddChildren }
-Switch25.AddChildren([Inline55]);
-{ .AddChildren }
-Group10.AddChildren([Switch25]);
-{ Script to handle selection logic }
-Script56 := TScriptNode.Create;
-X3DField57 := TX3DField.Create;
-X3DField57.NameField := 'menuItems';
-X3DField57.Type := 'MFString';
-X3DField57.AccessType := 'initializeOnly';
-{ .SetX3DField }
-Script56.X3DField := X3DField57;
-X3DField58 := TX3DField.Create;
-X3DField58.NameField := 'selection';
-X3DField58.Type := 'SFInt32';
-X3DField58.AccessType := 'outputOnly';
-{ .AddX3DField }
-Script56.X3DField := X3DField58;
-X3DField59 := TX3DField.Create;
-X3DField59.NameField := 'touchPoint';
-X3DField59.Type := 'SFVec3f';
-X3DField59.AccessType := 'inputOnly';
-{ .AddX3DField }
-Script56.X3DField := X3DField59;
-X3DField60 := TX3DField.Create;
-X3DField60.NameField := 'spacing';
-X3DField60.Type := 'SFFloat';
-X3DField60.AccessType := 'initializeOnly';
-X3DField60.Value := '1.2';
-{ .AddX3DField }
-Script56.X3DField := X3DField60;
-X3DField61 := TX3DField.Create;
-X3DField61.NameField := 'size';
-X3DField61.Type := 'SFFloat';
-X3DField61.AccessType := 'initializeOnly';
-X3DField61.Value := '2.4';
-{ .AddX3DField }
-Script56.X3DField := X3DField61;
-X3DField62 := TX3DField.Create;
-X3DField62.NameField := 'menuCenterY';
-X3DField62.Type := 'SFFloat';
-X3DField62.AccessType := 'initializeOnly';
-{ .AddX3DField }
-Script56.X3DField := X3DField62;
-X3DField63 := TX3DField.Create;
-X3DField63.NameField := 'itemHeight';
-X3DField63.Type := 'SFFloat';
-X3DField63.AccessType := 'initializeOnly';
-{ .AddX3DField }
-Script56.X3DField := X3DField63;
-IS64 := TIS.Create;
-connect65 := Tconnect.Create;
-connect65.NodeField := 'menuItems';
-connect65.ProtoField := 'menuItems';
-{ .AddConnect }
-IS64.Connect := connect65;
-{ .SetIS }
-Script56.IS := IS64;
-
-Script56.SetSourceCode('''ecmascript:\n"+
-"        function initialize() {\n"+
-"          selection = 0;\n"+
-"          var spacingBetweenGlyphs = size * spacing - size; // Spacing calculation\n"+
-"          var menuHeight = (size + spacingBetweenGlyphs) * menuItems.length;\n"+
-"          menuCenterY = menuHeight / 2;\n"+
-"          itemHeight = menuHeight / menuItems.length;\n"+
-"        }\n"+
-"\n"+
-"        function touchPoint(value) {\n"+
-"          Browser.print(\"Hit \"+value+\" \"+selection+\"\n"+
-"\");\n"+
-"          var index = Math.floor((menuCenterY - value.y) / itemHeight - 0.5);\n"+
-"\n"+
-"          selection = index - 2;\n"+
-"          if (selection >= 0 && selection < menuItems.length) {\n"+
-"            Browser.print(\"Selected \"+value+\" \"+selection+\" \"+menuItems[selection]+\"\n"+
-"\");\n"+
-"          }\n"+
-"        }''');
-{ .AddChildren }
-Group10.AddChildren([Script56]);
-{ ROUTEs to connect everything }
-Group10.AddRoute(TouchSensor12.EventHitpoint_changed, Script56.FdTouchpoint);
-{ .AddX3DRoute }
-Group10.AddRoute(Script56.FdSelection, Switch25.FdWhichchoice);
-{ .AddX3DRoute }
-{ .SetGroup }
-X3DPrototype9.Group := Group10;
-{ .AddX3DPrototype }
-X3DPrototype6.X3DPrototype := X3DPrototype9;
-{ .AddX3DPrototype }
-Group4.X3DPrototype := X3DPrototype6;
-X3DPrototype68 := TX3DPrototypeNode.Create;
-X3DPrototype68.NameField := 'Menu';
-MFString69 := TMFString.Create(Menu1, false, 'menuItems', (['JinInnerBrowRaiser.x3d','JinOuterBrowRaiser.x3d','JinBrowLowerer.x3d','JinUpperLidRaiser.x3d','JinCheekRaiser.x3d','JinLidTightener.x3d','JinNoseWrinkler.x3d','JinUpperLipRaiser.x3d','JinNasolabialDeepener.x3d','JinLipCornerPuller.x3d','JinCheekPuffer.x3d','JinDimpler.x3d','JinLipCornerDepressor.x3d','JinLowerLipDepressor.x3d','JinChinRaiser.x3d','JinLipPuckerer.x3d','JinLipStretcher.x3d','JinLipFunneler.x3d','JinLipTightener.x3d','JinLipPressor.x3d','JinLipsPart.x3d','JinJawDrop.x3d','JinMouthStretch.x3d','JinLipSuck.x3d','JinLidDroop.x3d','JinSlit.x3d','JinEyesClosed.x3d','JinSquint.x3d','JinBlink.x3d','JinWink.x3d']));
-MFString69.NameField := 'menuItems';
-MFString69.Value := '\"JinInnerBrowRaiser.x3d\" \"JinOuterBrowRaiser.x3d\" \"JinBrowLowerer.x3d\" \"JinUpperLidRaiser.x3d\" \"JinCheekRaiser.x3d\" \"JinLidTightener.x3d\" \"JinNoseWrinkler.x3d\" \"JinUpperLipRaiser.x3d\" \"JinNasolabialDeepener.x3d\" \"JinLipCornerPuller.x3d\" \"JinCheekPuffer.x3d\" \"JinDimpler.x3d\" \"JinLipCornerDepressor.x3d\" \"JinLowerLipDepressor.x3d\" \"JinChinRaiser.x3d\" \"JinLipPuckerer.x3d\" \"JinLipStretcher.x3d\" \"JinLipFunneler.x3d\" \"JinLipTightener.x3d\" \"JinLipPressor.x3d\" \"JinLipsPart.x3d\" \"JinJawDrop.x3d\" \"JinMouthStretch.x3d\" \"JinLipSuck.x3d\" \"JinLidDroop.x3d\" \"JinSlit.x3d\" \"JinEyesClosed.x3d\" \"JinSquint.x3d\" \"JinBlink.x3d\" \"JinWink.x3d\"';
-{ .SetMFString }
-X3DPrototype68.MFString := MFString69;
-{ .AddX3DPrototype }
-Group4.X3DPrototype := X3DPrototype68;
-{ .AddGroup }
-X3D0.AddChildren([Group4]);
-Result := X3D0;
+ProtoDeclare7 := CreateEmptyPrototype('Menu');
+ProtoDeclare7.X3DName := 'Menu';
+FieldVal9 := TMFString.CreateUndefined(nil, False, 'menuItems');
+FieldDecl9 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl9.FieldOrEvent := FieldVal9;
+FieldVal9.ParentInterfaceDeclaration := FieldDecl9;
+ProtoDeclare7.InterfaceDeclarations.Add(FieldDecl9);
+Group11 := TGroupNode.Create;
+Transform12 := TTransformNode.Create;
+Transform12.X3DName := 'TextMenuTransform';
+Transform12.Translation := Vector3(48, 27, 0);
+TouchSensor13 := TTouchSensorNode.Create;
+TouchSensor13.X3DName := 'MenuTouchSensor';
+Transform12.FdChildren.Add(TouchSensor13);
+Shape14 := TShapeNode.Create;
+Appearance15 := TAppearanceNode.Create;
+Material16 := TMaterialNode.Create;
+Material16.DiffuseColor := Vector3(1, 1, 1);
+Appearance15.Material := Material16;
+Shape14.Appearance := Appearance15;
+Text17 := TTextNode.Create;
+Text17.X3DName := 'MenuText';
+Text17.FieldOrEvent('string', True).IsClauseNamesAdd('menuItems');
+FontStyle18 := TFontStyleNode.Create;
+FontStyle18.Size := 2.4;
+FontStyle18.Spacing := 1.2;
+FontStyle18.Justify := fjMiddle;
 end;
 
+procedure InitMenuPart1;
 begin
+FontStyle18.JustifyMinor := fjMiddle;
+Text17.FontStyle := FontStyle18;
+Shape14.Geometry := Text17;
+Transform12.FdChildren.Add(Shape14);
+Shape19 := TShapeNode.Create;
+Appearance20 := TAppearanceNode.Create;
+Material21 := TMaterialNode.Create;
+Material21.DiffuseColor := Vector3(0, 0, 1);
+Appearance20.Material := Material21;
+Shape19.Appearance := Appearance20;
+IndexedFaceSet22 := TIndexedFaceSetNode.Create;
+IndexedFaceSet22.X3DName := 'Backing';
+IndexedFaceSet22.SetCoordIndex([0, 1, 2, 3, -1]);
+Coordinate23 := TCoordinateNode.Create;
+Coordinate23.SetPoint([Vector3(25, 36, -0.01), Vector3(-25, 36, -0.01), Vector3(-25, -51, -0.01), Vector3(25, -51, -0.01)]);
+IndexedFaceSet22.Coord := Coordinate23;
+Shape19.Geometry := IndexedFaceSet22;
+Transform12.FdChildren.Add(Shape19);
+Group11.FdChildren.Add(Transform12);
+Switch24 := TSwitchNode.Create;
+Switch24.X3DName := 'SceneSwitcher';
+Switch24.WhichChoice := 0;
+Inline25 := TInlineNode.Create;
+Inline25.X3DName := 'OPTION1';
+Inline25.SetUrl(['../resources/JinInnerBrowRaiser.x3d', 'JinInnerBrowRaiser.x3d']);
+Switch24.FdChildren.Add(Inline25);
+Inline26 := TInlineNode.Create;
+Inline26.X3DName := 'OPTION2';
+Inline26.SetUrl(['../resources/JinOuterBrowRaiser.x3d', 'JinOuterBrowRaiser.x3d']);
+Switch24.FdChildren.Add(Inline26);
+Inline27 := TInlineNode.Create;
+Inline27.X3DName := 'OPTION3';
+Inline27.SetUrl(['../resources/JinBrowLowerer.x3d', 'JinBrowLowerer.x3d']);
+Switch24.FdChildren.Add(Inline27);
+Inline28 := TInlineNode.Create;
+Inline28.X3DName := 'OPTION4';
+Inline28.SetUrl(['../resources/JinUpperLidRaiser.x3d', 'JinUpperLidRaiser.x3d']);
+Switch24.FdChildren.Add(Inline28);
+Inline29 := TInlineNode.Create;
+Inline29.X3DName := 'OPTION5';
+end;
+
+procedure InitMenuPart2;
+begin
+Inline29.SetUrl(['../resources/JinCheekRaiser.x3d', 'JinCheekRaiser.x3d']);
+Switch24.FdChildren.Add(Inline29);
+Inline30 := TInlineNode.Create;
+Inline30.X3DName := 'OPTION6';
+Inline30.SetUrl(['../resources/JinLidTightener.x3d', 'JinLidTightener.x3d']);
+Switch24.FdChildren.Add(Inline30);
+Inline31 := TInlineNode.Create;
+Inline31.X3DName := 'OPTION7';
+Inline31.SetUrl(['../resources/JinNoseWrinkler.x3d', 'JinNoseWrinkler.x3d']);
+Switch24.FdChildren.Add(Inline31);
+Inline32 := TInlineNode.Create;
+Inline32.X3DName := 'OPTION8';
+Inline32.SetUrl(['../resources/JinUpperLipRaiser.x3d', 'JinUpperLipRaiser.x3d']);
+Switch24.FdChildren.Add(Inline32);
+Inline33 := TInlineNode.Create;
+Inline33.X3DName := 'OPTION9';
+Inline33.SetUrl(['../resources/JinNasolabialDeepener.x3d', 'JinNasolabialDeepener.x3d']);
+Switch24.FdChildren.Add(Inline33);
+Inline34 := TInlineNode.Create;
+Inline34.X3DName := 'OPTION10';
+Inline34.SetUrl(['../resources/JinLipCornerPuller.x3d', 'JinLipCornerPuller.x3d']);
+Switch24.FdChildren.Add(Inline34);
+Inline35 := TInlineNode.Create;
+Inline35.X3DName := 'OPTION11';
+Inline35.SetUrl(['../resources/JinCheekPuffer.x3d', 'JinCheekPuffer.x3d']);
+Switch24.FdChildren.Add(Inline35);
+Inline36 := TInlineNode.Create;
+Inline36.X3DName := 'OPTION12';
+Inline36.SetUrl(['../resources/JinDimpler.x3d', 'JinDimpler.x3d']);
+Switch24.FdChildren.Add(Inline36);
+Inline37 := TInlineNode.Create;
+Inline37.X3DName := 'OPTION13';
+Inline37.SetUrl(['../resources/JinLipCornerDepressor.x3d', 'JinLipCornerDepressor.x3d']);
+Switch24.FdChildren.Add(Inline37);
+Inline38 := TInlineNode.Create;
+Inline38.X3DName := 'OPTION14';
+Inline38.SetUrl(['../resources/JinLowerLipDepressor.x3d', 'JinLowerLipDepressor.x3d']);
+Switch24.FdChildren.Add(Inline38);
+Inline39 := TInlineNode.Create;
+Inline39.X3DName := 'OPTION15';
+end;
+
+procedure InitMenuPart3;
+begin
+Inline39.SetUrl(['../resources/JinChinRaiser.x3d', 'JinChinRaiser.x3d']);
+Switch24.FdChildren.Add(Inline39);
+Inline40 := TInlineNode.Create;
+Inline40.X3DName := 'OPTION16';
+Inline40.SetUrl(['../resources/JinLipPuckerer.x3d', 'JinLipPuckerer.x3d']);
+Switch24.FdChildren.Add(Inline40);
+Inline41 := TInlineNode.Create;
+Inline41.X3DName := 'OPTION17';
+Inline41.SetUrl(['../resources/JinLipStretcher.x3d', 'JinLipStretcher.x3d']);
+Switch24.FdChildren.Add(Inline41);
+Inline42 := TInlineNode.Create;
+Inline42.X3DName := 'OPTION18';
+Inline42.SetUrl(['../resources/JinLipFunneler.x3d', 'JinLipFunneler.x3d']);
+Switch24.FdChildren.Add(Inline42);
+Inline43 := TInlineNode.Create;
+Inline43.X3DName := 'OPTION19';
+Inline43.SetUrl(['../resources/JinLipTightener.x3d', 'JinLipTightener.x3d']);
+Switch24.FdChildren.Add(Inline43);
+Inline44 := TInlineNode.Create;
+Inline44.X3DName := 'OPTION20';
+Inline44.SetUrl(['../resources/JinLipPressor.x3d', 'JinLipPressor.x3d']);
+Switch24.FdChildren.Add(Inline44);
+Inline45 := TInlineNode.Create;
+Inline45.X3DName := 'OPTION21';
+Inline45.SetUrl(['../resources/JinLipsPart.x3d', 'JinLipsPart.x3d']);
+Switch24.FdChildren.Add(Inline45);
+Inline46 := TInlineNode.Create;
+Inline46.X3DName := 'OPTION22';
+Inline46.SetUrl(['../resources/JinJawDrop.x3d', 'JinJawDrop.x3d']);
+Switch24.FdChildren.Add(Inline46);
+Inline47 := TInlineNode.Create;
+Inline47.X3DName := 'OPTION23';
+Inline47.SetUrl(['../resources/JinMouthStretch.x3d', 'JinMouthStretch.x3d']);
+Switch24.FdChildren.Add(Inline47);
+Inline48 := TInlineNode.Create;
+Inline48.X3DName := 'OPTION24';
+Inline48.SetUrl(['../resources/JinLipSuck.x3d', 'JinLipSuck.x3d']);
+Switch24.FdChildren.Add(Inline48);
+Inline49 := TInlineNode.Create;
+Inline49.X3DName := 'OPTION25';
+end;
+
+procedure InitMenuPart4;
+begin
+Inline49.SetUrl(['../resources/JinLidDroop.x3d', 'JinLidDroop.x3d']);
+Switch24.FdChildren.Add(Inline49);
+Inline50 := TInlineNode.Create;
+Inline50.X3DName := 'OPTION26';
+Inline50.SetUrl(['../resources/JinSlit.x3d', 'JinSlit.x3d']);
+Switch24.FdChildren.Add(Inline50);
+Inline51 := TInlineNode.Create;
+Inline51.X3DName := 'OPTION27';
+Inline51.SetUrl(['../resources/JinEyesClosed.x3d', 'JinEyesClosed.x3d']);
+Switch24.FdChildren.Add(Inline51);
+Inline52 := TInlineNode.Create;
+Inline52.X3DName := 'OPTION28';
+Inline52.SetUrl(['../resources/JinSquint.x3d', 'JinSquint.x3d']);
+Switch24.FdChildren.Add(Inline52);
+Inline53 := TInlineNode.Create;
+Inline53.X3DName := 'OPTION29';
+Inline53.SetUrl(['../resources/JinBlink.x3d', 'JinBlink.x3d']);
+Switch24.FdChildren.Add(Inline53);
+Inline54 := TInlineNode.Create;
+Inline54.X3DName := 'OPTION30';
+Inline54.SetUrl(['../resources/JinWink.x3d', 'JinWink.x3d']);
+Switch24.FdChildren.Add(Inline54);
+Group11.FdChildren.Add(Switch24);
+{ Script to handle selection logic }
+Script55 := TScriptNode.Create;
+Script55.X3DName := 'MenuScript';
+FieldVal56 := TMFString.CreateUndefined(Script55, False, 'menuItems');
+Script55.AddCustomFieldOrEvent(FieldVal56);
+FieldVal57 := TSFInt32.CreateEvent(Script55, 'selection', False);
+Script55.AddCustomFieldOrEvent(FieldVal57);
+FieldVal58 := TSFVec3f.CreateEvent(Script55, 'touchPoint', True);
+Script55.AddCustomFieldOrEvent(FieldVal58);
+FieldVal59 := TSFFloat.Create(Script55, False, 'spacing', 1.2);
+Script55.AddCustomFieldOrEvent(FieldVal59);
+FieldVal60 := TSFFloat.Create(Script55, False, 'size', 2.4);
+Script55.AddCustomFieldOrEvent(FieldVal60);
+FieldVal61 := TSFFloat.CreateUndefined(Script55, False, 'menuCenterY');
+Script55.AddCustomFieldOrEvent(FieldVal61);
+FieldVal62 := TSFFloat.CreateUndefined(Script55, False, 'itemHeight');
+Script55.AddCustomFieldOrEvent(FieldVal62);
+end;
+
+procedure InitMenuPart5;
+begin
+Script55.FieldOrEvent('menuItems', True).IsClauseNamesAdd('menuItems');
+Script55.SetUrl(['compiled:' + LineEnding +
+  'initialize=Script55_initialize' + LineEnding +
+  'touchPoint=Script55_touchPoint']);
+Group11.FdChildren.Add(Script55);
+{ ROUTEs to connect everything }
+{ ROUTE MenuTouchSensor.hitPoint_changed TO MenuScript.touchPoint }
+Group11.AddRoute(TouchSensor13.EventHitPoint_changed, FieldVal58);
+{ ROUTE MenuScript.selection TO SceneSwitcher.whichChoice }
+Group11.AddRoute(FieldVal57, Switch24.FdWhichChoice.EventIn);
+ProtoDeclare7.Node.AddChildren([Group11]);
+X3D0.AddPrototype(ProtoDeclare7);
+ProtoInstance65 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare7);
+ProtoInstance65.X3DName := 'MainMenu';
+(ProtoInstance65.Field('menuItems') as TMFString).Send(['JinInnerBrowRaiser.x3d', 'JinOuterBrowRaiser.x3d', 'JinBrowLowerer.x3d', 'JinUpperLidRaiser.x3d', 'JinCheekRaiser.x3d', 'JinLidTightener.x3d', 'JinNoseWrinkler.x3d', 'JinUpperLipRaiser.x3d', 'JinNasolabialDeepener.x3d', 'JinLipCornerPuller.x3d', 'JinCheekPuffer.x3d', 'JinDimpler.x3d', 'JinLipCornerDepressor.x3d', 'JinLowerLipDepressor.x3d', 'JinChinRaiser.x3d', 'JinLipPuckerer.x3d', 'JinLipStretcher.x3d', 'JinLipFunneler.x3d', 'JinLipTightener.x3d', 'JinLipPressor.x3d', 'JinLipsPart.x3d', 'JinJawDrop.x3d', 'JinMouthStretch.x3d', 'JinLipSuck.x3d', 'JinLidDroop.x3d', 'JinSlit.x3d', 'JinEyesClosed.x3d', 'JinSquint.x3d', 'JinBlink.x3d', 'JinWink.x3d']);
+Group5.FdChildren.Add(ProtoInstance65.Instantiate);
+X3D0.AddChildren([Group5]);
+end;
+
+function CreateMenu: TX3DRootNode;
+var
+  Binder: TMenuScriptBinder;
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript55List) do
+    FreeAndNil(CompiledScript55List[_i]);
+  SetLength(CompiledScript55List, 0);
+  InitMenuPart0;
+  InitMenuPart1;
+  InitMenuPart2;
+  InitMenuPart3;
+  InitMenuPart4;
+  InitMenuPart5;
+  Binder := TMenuScriptBinder.Create;
+  try
+    X3D0.EnumerateNodes(TScriptNode, {$ifdef FPC}@{$endif}Binder.BindNode, False);
+  finally
+    FreeAndNil(Binder);
+  end;
+  Result := X3D0;
+end;
+
+procedure RegisterMenuScripts(const Scene: TCastleSceneCore);
+var
+  _i: Integer;
+begin
+  Randomize;
+  for _i := 0 to High(CompiledScript55List) do
+  begin
+    CompiledScript55List[_i].RegisterHandlers(Scene);
+    if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript55List[_i].Initialized) then
+      CompiledScript55List[_i].Initialize(nil, Scene.NextEventTime);
+  end;
+end;
+
+finalization
+  while Length(CompiledScript55List) > 0 do
+  begin
+    FreeAndNil(CompiledScript55List[High(CompiledScript55List)]);
+    SetLength(CompiledScript55List, Length(CompiledScript55List) - 1);
+  end;
 end.

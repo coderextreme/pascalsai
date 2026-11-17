@@ -2,7 +2,7 @@ unit asphere;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Createasphere: TX3DRootNode;
 
@@ -10,15 +10,16 @@ implementation
 
 uses CastleVectors;
 
-function Createasphere: TX3DRootNode;
 var
-X3D0: TX3DRootNode;
-Group8: TGroupNode;
-Group9: TGroupNode;
-Shape10: TShapeNode;
-Appearance11: TAppearanceNode;
-Material12: TMaterialNode;
-Sphere13: TSphereNode;
+  X3D0: TX3DRootNode;
+  Group8: TGroupNode;
+  Group9: TGroupNode;
+  Shape10: TShapeNode;
+  Appearance11: TAppearanceNode;
+  Material12: TMaterialNode;
+  Sphere13: TSphereNode;
+
+procedure InitaspherePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -35,21 +36,20 @@ Group9 := TGroupNode.Create;
 Shape10 := TShapeNode.Create;
 Appearance11 := TAppearanceNode.Create;
 Material12 := TMaterialNode.Create;
-Material12.DiffuseColor := Vector3(1,1,1);
-{ .SetMaterial }
+Material12.DiffuseColor := Vector3(1, 1, 1);
 Appearance11.Material := Material12;
-{ .SetAppearance }
 Shape10.Appearance := Appearance11;
 Sphere13 := TSphereNode.Create;
-{ .SetGeometry }
 Shape10.Geometry := Sphere13;
-{ .AddChildren }
-Group9.AddChildren([Shape10]);
-{ .AddChildren }
-Group8.AddChildren([Group9]);
-{ .AddGroup }
+Group9.FdChildren.Add(Shape10);
+Group8.FdChildren.Add(Group9);
 X3D0.AddChildren([Group8]);
-Result := X3D0;
+end;
+
+function Createasphere: TX3DRootNode;
+begin
+  InitaspherePart0;
+  Result := X3D0;
 end;
 
 begin

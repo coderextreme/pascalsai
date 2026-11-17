@@ -2,60 +2,241 @@ unit bub;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbub: TX3DRootNode;
+procedure RegisterbubScripts(const Scene: TCastleSceneCore);
 
 implementation
 
-uses CastleVectors;
+uses Classes, SysUtils, X3DLoad, CastleVectors, Math, X3DTime, CastleRenderOptions;
 
-function Createbub: TX3DRootNode;
+function CreateEmptyPrototype(const AName: String): TX3DPrototype;
 var
-X3D0: TX3DRootNode;
-Group15: TGroupNode;
-NavigationInfo16: TNavigationInfoNode;
-Background17: TBackgroundNode;
-Viewpoint18: TViewpointNode;
-X3DPrototype19: TX3DPrototype;
-X3DPrototype20: TX3DPrototype;
-Transform21: TTransformNode;
-Shape22: TShapeNode;
-Appearance23: TAppearanceNode;
-Material24: TMaterialNode;
-ComposedCubeMapTexture25: TComposedCubeMapTextureNode;
-ImageTexture26: TImageTextureNode;
-ImageTexture27: TImageTextureNode;
-ImageTexture28: TImageTextureNode;
-ImageTexture29: TImageTextureNode;
-ImageTexture30: TImageTextureNode;
-ImageTexture31: TImageTextureNode;
-ComposedShader32: TComposedShaderNode;
-X3DField33: TX3DField;
-X3DField34: TX3DField;
-X3DField35: TX3DField;
-X3DField36: TX3DField;
-X3DField37: TX3DField;
-ShaderPart38: TShaderPartNode;
-ShaderPart39: TShaderPartNode;
-ComposedShader40: TComposedShaderNode;
-X3DField41: TX3DField;
-ComposedCubeMapTexture42: TComposedCubeMapTextureNode;
-X3DField43: TX3DField;
-X3DField44: TX3DField;
-X3DField45: TX3DField;
-X3DField46: TX3DField;
-ShaderPart47: TShaderPartNode;
-ShaderPart48: TShaderPartNode;
-Sphere49: TSphereNode;
-Script50: TScriptNode;
-X3DField51: TX3DField;
-X3DField52: TX3DField;
-X3DField53: TX3DField;
-TimeSensor54: TTimeSensorNode;
-X3DPrototype57: TX3DPrototypeNode;
-X3DPrototype58: TX3DPrototypeNode;
-X3DPrototype59: TX3DPrototypeNode;
+  Stream: TStringStream;
+  TempRoot: TX3DRootNode;
+  CopyState: TX3DNodeDeepCopyState;
+begin
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  try
+    TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
+    try
+      CopyState := TX3DNodeDeepCopyState.Create;
+      try
+        Result := TempRoot.Prototypes[0].DeepCopy(CopyState) as TX3DPrototype;
+      finally
+        FreeAndNil(CopyState);
+      end;
+    finally
+      FreeAndNil(TempRoot);
+    end;
+  finally
+    FreeAndNil(Stream);
+  end;
+end;
+
+type
+  TScript50Script = class
+  private
+    FHandlerPrefix: String;
+    FInitialized: Boolean;
+    Ftranslation: TVector3;
+    FField_translation: TSFVec3f;
+    FBack_translation: TSFVec3f;
+    FDirty_translation: Boolean;
+    Fvelocity: TVector3;
+    FField_velocity: TSFVec3f;
+    FBack_velocity: TSFVec3f;
+    FDirty_velocity: Boolean;
+    procedure FlushOutputs(const Time: TX3DTime);
+  public
+    constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f);
+    class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript50Script;
+    destructor Destroy; override;
+    procedure RegisterHandlers(const Scene: TCastleSceneCore);
+    property Initialized: Boolean read FInitialized;
+    procedure Initialize(Value: TX3DField; const Time: TX3DTime);
+    procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
+  end;
+
+  TbubScriptBinder = class
+  public
+    procedure BindNode(Node: TX3DNode);
+  end;
+
+var
+  X3D0: TX3DRootNode;
+  Group15: TGroupNode;
+  NavigationInfo16: TNavigationInfoNode;
+  Background17: TBackgroundNode;
+  Viewpoint18: TViewpointNode;
+  ProtoDeclare19: TX3DPrototype;
+  Transform21: TTransformNode;
+  Shape22: TShapeNode;
+  Appearance23: TAppearanceNode;
+  Material24: TMaterialNode;
+  ComposedCubeMapTexture25: TComposedCubeMapTextureNode;
+  ImageTexture26: TImageTextureNode;
+  ImageTexture27: TImageTextureNode;
+  ImageTexture28: TImageTextureNode;
+  ImageTexture29: TImageTextureNode;
+  ImageTexture30: TImageTextureNode;
+  ImageTexture31: TImageTextureNode;
+  ComposedShader32: TComposedShaderNode;
+  FieldVal33: TSFInt32;
+  FieldVal34: TSFVec3f;
+  FieldVal35: TSFFloat;
+  FieldVal36: TSFFloat;
+  FieldVal37: TSFFloat;
+  ShaderPart38: TShaderPartNode;
+  ShaderPart39: TShaderPartNode;
+  ComposedShader40: TComposedShaderNode;
+  FieldVal41: TSFNode;
+  FieldVal43: TSFVec3f;
+  FieldVal44: TSFFloat;
+  FieldVal45: TSFFloat;
+  FieldVal46: TSFFloat;
+  ShaderPart47: TShaderPartNode;
+  ShaderPart48: TShaderPartNode;
+  Sphere49: TSphereNode;
+  Script50: TScriptNode;
+  FieldVal51: TSFVec3f;
+  FieldVal52: TSFVec3f;
+  FieldVal53: TX3DEvent;
+  CompiledScript50List: array of TScript50Script;
+  TimeSensor54: TTimeSensorNode;
+  ProtoInstance57: TX3DPrototypeNode;
+  ProtoInstance58: TX3DPrototypeNode;
+  ProtoInstance59: TX3DPrototypeNode;
+
+constructor TScript50Script.Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f);
+begin
+  inherited Create;
+  FHandlerPrefix := AHandlerPrefix;
+  FInitialized := False;
+  Ftranslation := Vector3(0, 0, 0);
+  FField_translation := nil;
+  FBack_translation := TSFVec3f.Create(nil, False, 'translation', Vector3(0, 0, 0));
+  FDirty_translation := False;
+  Fvelocity := Vector3(0, 0, 0);
+  FField_velocity := nil;
+  FBack_velocity := TSFVec3f.Create(nil, False, 'velocity', Vector3(0, 0, 0));
+  FDirty_velocity := False;
+  FField_translation := AField_translation;
+  if AField_translation <> nil then Ftranslation := AField_translation.Value;
+  FField_velocity := AField_velocity;
+  if AField_velocity <> nil then Fvelocity := AField_velocity.Value;
+end;
+
+class function TScript50Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript50Script;
+begin
+  Result := TScript50Script.Create(AHandlerPrefix, AScriptNode.FieldOrEvent('translation') as TSFVec3f, AScriptNode.FieldOrEvent('velocity') as TSFVec3f);
+end;
+
+destructor TScript50Script.Destroy;
+begin
+  FreeAndNil(FBack_translation);
+  FreeAndNil(FBack_velocity);
+  inherited Destroy;
+end;
+
+procedure TScript50Script.FlushOutputs(const Time: TX3DTime);
+begin
+  if FDirty_translation then
+  begin
+    FDirty_translation := False;
+    if FField_translation <> nil then
+    begin
+      FField_translation.Value := Ftranslation;
+      FBack_translation.Value := Ftranslation;
+      if (FField_translation.ParentNode is TX3DNode) and (TX3DNode(FField_translation.ParentNode).Scene <> nil) then
+        FField_translation.EventOut.Send(FBack_translation, TX3DNode(FField_translation.ParentNode).Scene.NextEventTime)
+      else
+        FField_translation.EventOut.Send(FBack_translation, Time);
+    end;
+  end;
+  if FDirty_velocity then
+  begin
+    FDirty_velocity := False;
+    if FField_velocity <> nil then
+    begin
+      FField_velocity.Value := Fvelocity;
+      FBack_velocity.Value := Fvelocity;
+      if (FField_velocity.ParentNode is TX3DNode) and (TX3DNode(FField_velocity.ParentNode).Scene <> nil) then
+        FField_velocity.EventOut.Send(FBack_velocity, TX3DNode(FField_velocity.ParentNode).Scene.NextEventTime)
+      else
+        FField_velocity.EventOut.Send(FBack_velocity, Time);
+    end;
+  end;
+end;
+
+procedure TScript50Script.RegisterHandlers(const Scene: TCastleSceneCore);
+begin
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+end;
+
+procedure TScript50Script.Initialize(Value: TX3DField; const Time: TX3DTime);
+begin
+  FInitialized := True;
+  Ftranslation := Vector3(0, 0, 0);
+  FDirty_translation := True;
+  Fvelocity := Vector3(Random - 0.5, Random - 0.5, Random - 0.5);
+  FDirty_velocity := True;
+  FlushOutputs(Time);
+end;
+
+procedure TScript50Script.Set_fraction(Value: TX3DField; const Time: TX3DTime);
+begin
+  Ftranslation := Vector3(Ftranslation.X + Fvelocity.X, Ftranslation.Y + Fvelocity.Y, Ftranslation.Z + Fvelocity.Z);
+  FDirty_translation := True;
+  if Abs(Ftranslation.X) > 10 then
+  begin
+    Initialize(nil, Time);
+  end
+  else if Abs(Ftranslation.Y) > 10 then
+  begin
+    Initialize(nil, Time);
+  end
+  else if Abs(Ftranslation.Z) > 10 then
+  begin
+    Initialize(nil, Time);
+  end
+  else
+  begin
+    Fvelocity.X := Fvelocity.X + (Random * 0.2 - 0.1);
+    FDirty_velocity := True;
+    Fvelocity.Y := Fvelocity.Y + (Random * 0.2 - 0.1);
+    FDirty_velocity := True;
+    Fvelocity.Z := Fvelocity.Z + (Random * 0.2 - 0.1);
+    FDirty_velocity := True;
+  end;
+  FlushOutputs(Time);
+end;
+
+procedure TbubScriptBinder.BindNode(Node: TX3DNode);
+var
+  S: TScriptNode;
+  UrlText, Prefix: String;
+  Idx: Integer;
+begin
+  S := Node as TScriptNode;
+  if S.FdUrl.Items.Count = 0 then Exit;
+  UrlText := S.FdUrl.Items.Text;
+  if Pos('=Script50_', UrlText) > 0 then
+  begin
+    Idx := Length(CompiledScript50List);
+    Prefix := 'Script50_' + IntToStr(Idx) + '_';
+    S.SetUrl(['compiled:' + LineEnding +
+      'initialize=' + Prefix + 'initialize' + LineEnding +
+      'set_fraction=' + Prefix + 'set_fraction']);
+    SetLength(CompiledScript50List, Idx + 1);
+    CompiledScript50List[Idx] := TScript50Script.CreateForNode(S, Prefix);
+    Exit;
+  end;
+end;
+
+procedure InitbubPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -77,59 +258,54 @@ X3D0.Meta['generator'] := 'X3D-Edit, https://savage.nps.edu/X3D-Edit';
 X3D0.Meta['identifier'] := 'https://coderextreme.net/X3DJSONLD/src/main/data/bub.x3d';
 Group15 := TGroupNode.Create;
 NavigationInfo16 := TNavigationInfoNode.Create;
-{ .AddChildren }
-Group15.AddChildren([NavigationInfo16]);
+Group15.FdChildren.Add(NavigationInfo16);
 Background17 := TBackgroundNode.Create;
-Background17.SetBackUrl(['../resources/images/all_probes/stpeters_cross/stpeters_back.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png']);
-Background17.SetBottomUrl(['../resources/images/all_probes/stpeters_cross/stpeters_bottom.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png']);
-Background17.SetFrontUrl(['../resources/images/all_probes/stpeters_cross/stpeters_front.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png']);
-Background17.SetLeftUrl(['../resources/images/all_probes/stpeters_cross/stpeters_left.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png']);
-Background17.SetRightUrl(['../resources/images/all_probes/stpeters_cross/stpeters_right.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png']);
-Background17.SetTopUrl(['../resources/images/all_probes/stpeters_cross/stpeters_top.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png']);
-{ .AddChildren }
-Group15.AddChildren([Background17]);
+Background17.SetBackUrl(['../resources/images/all_probes/stpeters_cross/stpeters_back.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png']);
+Background17.SetBottomUrl(['../resources/images/all_probes/stpeters_cross/stpeters_bottom.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png']);
+Background17.SetFrontUrl(['../resources/images/all_probes/stpeters_cross/stpeters_front.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png']);
+Background17.SetLeftUrl(['../resources/images/all_probes/stpeters_cross/stpeters_left.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png']);
+Background17.SetRightUrl(['../resources/images/all_probes/stpeters_cross/stpeters_right.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png']);
+Background17.SetTopUrl(['../resources/images/all_probes/stpeters_cross/stpeters_top.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png']);
+Group15.FdChildren.Add(Background17);
 Viewpoint18 := TViewpointNode.Create;
-Viewpoint18.Position := Vector3(0,0,20);
+Viewpoint18.Position := Vector3(0, 0, 20);
 Viewpoint18.Description := 'Look at the bubbles flying';
-{ .AddChildren }
-Group15.AddChildren([Viewpoint18]);
-X3DPrototype19 := TX3DPrototype.Create;
-X3DPrototype19.NameField := 'Bubble';
-X3DPrototype20 := TX3DPrototype.Create;
+Group15.FdChildren.Add(Viewpoint18);
+ProtoDeclare19 := CreateEmptyPrototype('Bubble');
+ProtoDeclare19.X3DName := 'Bubble';
 Transform21 := TTransformNode.Create;
+Transform21.X3DName := 'transform';
 Shape22 := TShapeNode.Create;
+Shape22.X3DName := 'myShape';
 Appearance23 := TAppearanceNode.Create;
+end;
+
+procedure InitbubPart1;
+begin
 Material24 := TMaterialNode.Create;
-Material24.DiffuseColor := Vector3(0.7,0.7,0.7);
-Material24.SpecularColor := Vector3(0.5,0.5,0.5);
-{ .SetMaterial }
+Material24.DiffuseColor := Vector3(0.7, 0.7, 0.7);
+Material24.SpecularColor := Vector3(0.5, 0.5, 0.5);
 Appearance23.Material := Material24;
 ComposedCubeMapTexture25 := TComposedCubeMapTextureNode.Create;
+ComposedCubeMapTexture25.X3DName := 'texture';
 ImageTexture26 := TImageTextureNode.Create;
-ImageTexture26.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_back.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png']);
-{ .SetBackTexture }
-ComposedCubeMapTexture25.BackTexture := ImageTexture26;
+ImageTexture26.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_back.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png']);
+ComposedCubeMapTexture25.Back := ImageTexture26;
 ImageTexture27 := TImageTextureNode.Create;
-ImageTexture27.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_bottom.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png']);
-{ .SetBottomTexture }
-ComposedCubeMapTexture25.BottomTexture := ImageTexture27;
+ImageTexture27.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_bottom.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png']);
+ComposedCubeMapTexture25.Bottom := ImageTexture27;
 ImageTexture28 := TImageTextureNode.Create;
-ImageTexture28.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_front.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png']);
-{ .SetFrontTexture }
-ComposedCubeMapTexture25.FrontTexture := ImageTexture28;
+ImageTexture28.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_front.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png']);
+ComposedCubeMapTexture25.Front := ImageTexture28;
 ImageTexture29 := TImageTextureNode.Create;
-ImageTexture29.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_left.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png']);
-{ .SetLeftTexture }
-ComposedCubeMapTexture25.LeftTexture := ImageTexture29;
+ImageTexture29.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_left.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_left.png']);
+ComposedCubeMapTexture25.Left := ImageTexture29;
 ImageTexture30 := TImageTextureNode.Create;
-ImageTexture30.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_right.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png']);
-{ .SetRightTexture }
-ComposedCubeMapTexture25.RightTexture := ImageTexture30;
+ImageTexture30.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_right.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png']);
+ComposedCubeMapTexture25.Right := ImageTexture30;
 ImageTexture31 := TImageTextureNode.Create;
-ImageTexture31.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_top.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png']);
-{ .SetTopTexture }
-ComposedCubeMapTexture25.TopTexture := ImageTexture31;
-{ .SetTexture }
+ImageTexture31.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_top.png', 'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png']);
+ComposedCubeMapTexture25.Top := ImageTexture31;
 Appearance23.Texture := ComposedCubeMapTexture25;
 { <ComposedShader DEF='gl' language="GLSL"> }
 { <field name='cube' type='SFInt32' accessType="inputOutput" value='0'/> }
@@ -146,6 +322,10 @@ Appearance23.Texture := ComposedCubeMapTexture25;
 { <field name='bias' type='SFFloat' accessType="inputOutput" value='0.5'/> }
 { <field name='scale' type='SFFloat' accessType="inputOutput" value='0.5'/> }
 { <field name='power' type='SFFloat' accessType="inputOutput" value='2.0'/> }
+end;
+
+procedure InitbubPart2;
+begin
 { <ShaderPart url='"../shaders/freewrl.vs" "https://coderextreme.net/X3DJSONLD/src/main/shaders/freewrl.vs"'></ShaderPart> }
 { <ShaderPart url='"../shaders/pc_bubbles.fs" "https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs"' type='FRAGMENT'></ShaderPart> }
 { </ComposedShader> }
@@ -159,192 +339,133 @@ Appearance23.Texture := ComposedCubeMapTexture25;
 { <ShaderPart url='"../shaders/pc_bubbles.fs" "https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs"' type='FRAGMENT'></ShaderPart> }
 { </ComposedShader> }
 ComposedShader32 := TComposedShaderNode.Create;
-ComposedShader32.Language := 'GLSL';
-X3DField33 := TX3DField.Create;
-X3DField33.NameField := 'cube';
-X3DField33.Type := 'SFInt32';
-X3DField33.AccessType := 'inputOutput';
-X3DField33.Value := '0';
-{ .SetX3DField }
-ComposedShader32.X3DField := X3DField33;
-X3DField34 := TX3DField.Create;
-X3DField34.NameField := 'chromaticDispertion';
-X3DField34.Type := 'SFVec3f';
-X3DField34.AccessType := 'inputOutput';
-X3DField34.Value := '0.98 1 1.033';
-{ .AddX3DField }
-ComposedShader32.X3DField := X3DField34;
-X3DField35 := TX3DField.Create;
-X3DField35.NameField := 'bias';
-X3DField35.Type := 'SFFloat';
-X3DField35.AccessType := 'inputOutput';
-X3DField35.Value := '0.5';
-{ .AddX3DField }
-ComposedShader32.X3DField := X3DField35;
-X3DField36 := TX3DField.Create;
-X3DField36.NameField := 'scale';
-X3DField36.Type := 'SFFloat';
-X3DField36.AccessType := 'inputOutput';
-X3DField36.Value := '0.5';
-{ .AddX3DField }
-ComposedShader32.X3DField := X3DField36;
-X3DField37 := TX3DField.Create;
-X3DField37.NameField := 'power';
-X3DField37.Type := 'SFFloat';
-X3DField37.AccessType := 'inputOutput';
-X3DField37.Value := '2';
-{ .AddX3DField }
-ComposedShader32.X3DField := X3DField37;
+ComposedShader32.X3DName := 'x3dom';
+ComposedShader32.Language := slGLSL;
+FieldVal33 := TSFInt32.Create(ComposedShader32, True, 'cube', 0);
+ComposedShader32.AddCustomFieldOrEvent(FieldVal33);
+FieldVal34 := TSFVec3f.Create(ComposedShader32, True, 'chromaticDispertion', Vector3(0.98, 1, 1.033));
+ComposedShader32.AddCustomFieldOrEvent(FieldVal34);
+FieldVal35 := TSFFloat.Create(ComposedShader32, True, 'bias', 0.5);
+ComposedShader32.AddCustomFieldOrEvent(FieldVal35);
+FieldVal36 := TSFFloat.Create(ComposedShader32, True, 'scale', 0.5);
+ComposedShader32.AddCustomFieldOrEvent(FieldVal36);
+FieldVal37 := TSFFloat.Create(ComposedShader32, True, 'power', 2);
+ComposedShader32.AddCustomFieldOrEvent(FieldVal37);
 ShaderPart38 := TShaderPartNode.Create;
-ShaderPart38.SetUrl(['../shaders/x3dom.vs','https://coderextreme.net/X3DJSONLD/src/main/shaders/x3dom.vs']);
-ShaderPart38.Type := 'VERTEX';
-{ .AddParts }
-ComposedShader32.Parts := ShaderPart38;
+ShaderPart38.SetUrl(['../shaders/x3dom.vs', 'https://coderextreme.net/X3DJSONLD/src/main/shaders/x3dom.vs']);
+ShaderPart38.ShaderType := stVertex;
+ComposedShader32.FdParts.Add(ShaderPart38);
 ShaderPart39 := TShaderPartNode.Create;
-ShaderPart39.SetUrl(['../shaders/pc_bubbles.fs','https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs']);
-ShaderPart39.Type := 'FRAGMENT';
-{ .AddParts }
-ComposedShader32.Parts := ShaderPart39;
-{ .AddShaders }
-Appearance23.Shaders := ComposedShader32;
+ShaderPart39.SetUrl(['../shaders/pc_bubbles.fs', 'https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_bubbles.fs']);
+ShaderPart39.ShaderType := stFragment;
+ComposedShader32.FdParts.Add(ShaderPart39);
+Appearance23.FdShaders.Add(ComposedShader32);
 ComposedShader40 := TComposedShaderNode.Create;
-ComposedShader40.Language := 'GLSL';
-X3DField41 := TX3DField.Create;
-X3DField41.NameField := 'cube';
-X3DField41.Type := 'SFNode';
-X3DField41.AccessType := 'inputOutput';
-ComposedCubeMapTexture42 := ComposedCubeMapTexture25;
-{ .SetComposedCubeMapTexture }
-X3DField41.ComposedCubeMapTexture := ComposedCubeMapTexture42;
-{ .SetX3DField }
-ComposedShader40.X3DField := X3DField41;
-X3DField43 := TX3DField.Create;
-X3DField43.NameField := 'chromaticDispertion';
-X3DField43.Type := 'SFVec3f';
-X3DField43.AccessType := 'inputOutput';
-X3DField43.Value := '0.98 1 1.033';
-{ .AddX3DField }
-ComposedShader40.X3DField := X3DField43;
-X3DField44 := TX3DField.Create;
-X3DField44.NameField := 'bias';
-X3DField44.Type := 'SFFloat';
-X3DField44.AccessType := 'inputOutput';
-X3DField44.Value := '0.5';
-{ .AddX3DField }
-ComposedShader40.X3DField := X3DField44;
-X3DField45 := TX3DField.Create;
-X3DField45.NameField := 'scale';
-X3DField45.Type := 'SFFloat';
-X3DField45.AccessType := 'inputOutput';
-X3DField45.Value := '0.5';
-{ .AddX3DField }
-ComposedShader40.X3DField := X3DField45;
-X3DField46 := TX3DField.Create;
-X3DField46.NameField := 'power';
-X3DField46.Type := 'SFFloat';
-X3DField46.AccessType := 'inputOutput';
-X3DField46.Value := '2';
-{ .AddX3DField }
-ComposedShader40.X3DField := X3DField46;
-ShaderPart47 := TShaderPartNode.Create;
-ShaderPart47.SetUrl(['../shaders/x_ite.vs','https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs']);
-ShaderPart47.Type := 'VERTEX';
-{ .AddParts }
-ComposedShader40.Parts := ShaderPart47;
-ShaderPart48 := TShaderPartNode.Create;
-ShaderPart48.SetUrl(['../shaders/x_itebubbles.fs','https://coderextreme.net/X3DJSONLD/src/main/shaders/x_itebubbles.fs']);
-ShaderPart48.Type := 'FRAGMENT';
-{ .AddParts }
-ComposedShader40.Parts := ShaderPart48;
-{ .AddShaders }
-Appearance23.Shaders := ComposedShader40;
-{ .SetAppearance }
-Shape22.Appearance := Appearance23;
-Sphere49 := TSphereNode.Create;
-{ .SetGeometry }
-Shape22.Geometry := Sphere49;
-{ .AddChild }
-Transform21.AddChildren([Shape22]);
-{ .SetTransform }
-X3DPrototype20.Transform := Transform21;
-Script50 := TScriptNode.Create;
-X3DField51 := TX3DField.Create;
-X3DField51.NameField := 'translation';
-X3DField51.AccessType := 'inputOutput';
-X3DField51.Type := 'SFVec3f';
-X3DField51.Value := '0 0 0';
-{ .SetX3DField }
-Script50.X3DField := X3DField51;
-X3DField52 := TX3DField.Create;
-X3DField52.NameField := 'velocity';
-X3DField52.AccessType := 'inputOutput';
-X3DField52.Type := 'SFVec3f';
-X3DField52.Value := '0 0 0';
-{ .AddX3DField }
-Script50.X3DField := X3DField52;
-X3DField53 := TX3DField.Create;
-X3DField53.NameField := 'set_fraction';
-X3DField53.AccessType := 'inputOnly';
-X3DField53.Type := 'SFTime';
-{ .AddX3DField }
-Script50.X3DField := X3DField53;
-
-Script50.SetSourceCode('''ecmascript:\n"+
-"			function initialize() {\n"+
-"			    translation = new SFVec3f(0, 0, 0);\n"+
-"			    velocity = new SFVec3f(\n"+
-"			    	Math.random() - 0.5,\n"+
-"				Math.random() - 0.5,\n"+
-"				Math.random() - 0.5);\n"+
-"			}\n"+
-"			function set_fraction() {\n"+
-"			    translation = new SFVec3f(\n"+
-"			    	translation.x + velocity.x,\n"+
-"				translation.y + velocity.y,\n"+
-"				translation.z + velocity.z);\n"+
-"			    if (Math.abs(translation.x) > 10) {\n"+
-"				initialize();\n"+
-"			    } else if (Math.abs(translation.y) > 10) {\n"+
-"				initialize();\n"+
-"			    } else if (Math.abs(translation.z) > 10) {\n"+
-"				initialize();\n"+
-"			    } else {\n"+
-"				velocity.x += Math.random() * 0.2 - 0.1;\n"+
-"				velocity.y += Math.random() * 0.2 - 0.1;\n"+
-"				velocity.z += Math.random() * 0.2 - 0.1;\n"+
-"			    }\n"+
-"			}''');
-{ .AddScript }
-X3DPrototype20.Script := Script50;
-TimeSensor54 := TTimeSensorNode.Create;
-TimeSensor54.CycleInterval := 0.15;
-TimeSensor54.Loop := True;
-{ .AddTimeSensor }
-X3DPrototype20.TimeSensor := TimeSensor54;
-X3DPrototype20.AddRoute(TimeSensor54.FdCycletime, Script50.EventSet_fraction);
-{ .AddX3DRoute }
-X3DPrototype20.AddRoute(Script50.EventTranslation_changed, Transform21.FdTranslation);
-{ .AddX3DRoute }
-{ .SetX3DPrototype }
-X3DPrototype19.X3DPrototype := X3DPrototype20;
-{ .AddX3DPrototype }
-Group15.X3DPrototype := X3DPrototype19;
-X3DPrototype57 := TX3DPrototypeNode.Create;
-X3DPrototype57.NameField := 'Bubble';
-{ .AddX3DPrototype }
-Group15.X3DPrototype := X3DPrototype57;
-X3DPrototype58 := TX3DPrototypeNode.Create;
-X3DPrototype58.NameField := 'Bubble';
-{ .AddX3DPrototype }
-Group15.X3DPrototype := X3DPrototype58;
-X3DPrototype59 := TX3DPrototypeNode.Create;
-X3DPrototype59.NameField := 'Bubble';
-{ .AddX3DPrototype }
-Group15.X3DPrototype := X3DPrototype59;
-{ .AddGroup }
-X3D0.AddChildren([Group15]);
-Result := X3D0;
+ComposedShader40.X3DName := 'x_ite';
+ComposedShader40.Language := slGLSL;
+FieldVal41 := TSFNode.CreateUndefined(ComposedShader40, True, 'cube');
+ComposedShader40.AddCustomFieldOrEvent(FieldVal41);
+FieldVal41.Value := ComposedCubeMapTexture25;
 end;
 
+procedure InitbubPart3;
 begin
+FieldVal43 := TSFVec3f.Create(ComposedShader40, True, 'chromaticDispertion', Vector3(0.98, 1, 1.033));
+ComposedShader40.AddCustomFieldOrEvent(FieldVal43);
+FieldVal44 := TSFFloat.Create(ComposedShader40, True, 'bias', 0.5);
+ComposedShader40.AddCustomFieldOrEvent(FieldVal44);
+FieldVal45 := TSFFloat.Create(ComposedShader40, True, 'scale', 0.5);
+ComposedShader40.AddCustomFieldOrEvent(FieldVal45);
+FieldVal46 := TSFFloat.Create(ComposedShader40, True, 'power', 2);
+ComposedShader40.AddCustomFieldOrEvent(FieldVal46);
+ShaderPart47 := TShaderPartNode.Create;
+ShaderPart47.SetUrl(['../shaders/x_ite.vs', 'https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.vs']);
+ShaderPart47.ShaderType := stVertex;
+ComposedShader40.FdParts.Add(ShaderPart47);
+ShaderPart48 := TShaderPartNode.Create;
+ShaderPart48.SetUrl(['../shaders/x_itebubbles.fs', 'https://coderextreme.net/X3DJSONLD/src/main/shaders/x_itebubbles.fs']);
+ShaderPart48.ShaderType := stFragment;
+ComposedShader40.FdParts.Add(ShaderPart48);
+Appearance23.FdShaders.Add(ComposedShader40);
+Shape22.Appearance := Appearance23;
+Sphere49 := TSphereNode.Create;
+Shape22.Geometry := Sphere49;
+Transform21.FdChildren.Add(Shape22);
+ProtoDeclare19.Node.AddChildren([Transform21]);
+Script50 := TScriptNode.Create;
+Script50.X3DName := 'Bounce';
+FieldVal51 := TSFVec3f.Create(Script50, True, 'translation', Vector3(0, 0, 0));
+Script50.AddCustomFieldOrEvent(FieldVal51);
+FieldVal52 := TSFVec3f.Create(Script50, True, 'velocity', Vector3(0, 0, 0));
+Script50.AddCustomFieldOrEvent(FieldVal52);
+FieldVal53 := TSFTime.CreateEvent(Script50, 'set_fraction', True);
+Script50.AddCustomFieldOrEvent(FieldVal53);
+Script50.SetUrl(['compiled:' + LineEnding +
+  'initialize=Script50_initialize' + LineEnding +
+  'set_fraction=Script50_set_fraction']);
+ProtoDeclare19.Node.AddChildren([Script50]);
+TimeSensor54 := TTimeSensorNode.Create;
+TimeSensor54.X3DName := 'TourTime';
+TimeSensor54.CycleInterval := 0.15;
+TimeSensor54.Loop := True;
+ProtoDeclare19.Node.AddChildren([TimeSensor54]);
+{ ROUTE TourTime.cycleTime TO Bounce.set_fraction }
+ProtoDeclare19.Node.AddRoute(TimeSensor54.EventCycleTime, FieldVal53);
+{ ROUTE Bounce.translation_changed TO transform.set_translation }
+end;
+
+procedure InitbubPart4;
+begin
+ProtoDeclare19.Node.AddRoute(FieldVal51.EventOut, Transform21.FdTranslation.EventIn);
+X3D0.AddPrototype(ProtoDeclare19);
+ProtoInstance57 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare19);
+Group15.FdChildren.Add(ProtoInstance57.Instantiate);
+ProtoInstance58 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare19);
+Group15.FdChildren.Add(ProtoInstance58.Instantiate);
+ProtoInstance59 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare19);
+Group15.FdChildren.Add(ProtoInstance59.Instantiate);
+X3D0.AddChildren([Group15]);
+end;
+
+function Createbub: TX3DRootNode;
+var
+  Binder: TbubScriptBinder;
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript50List) do
+    FreeAndNil(CompiledScript50List[_i]);
+  SetLength(CompiledScript50List, 0);
+  InitbubPart0;
+  InitbubPart1;
+  InitbubPart2;
+  InitbubPart3;
+  InitbubPart4;
+  Binder := TbubScriptBinder.Create;
+  try
+    X3D0.EnumerateNodes(TScriptNode, {$ifdef FPC}@{$endif}Binder.BindNode, False);
+  finally
+    FreeAndNil(Binder);
+  end;
+  Result := X3D0;
+end;
+
+procedure RegisterbubScripts(const Scene: TCastleSceneCore);
+var
+  _i: Integer;
+begin
+  Randomize;
+  for _i := 0 to High(CompiledScript50List) do
+  begin
+    CompiledScript50List[_i].RegisterHandlers(Scene);
+    if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript50List[_i].Initialized) then
+      CompiledScript50List[_i].Initialize(nil, Scene.NextEventTime);
+  end;
+end;
+
+finalization
+  while Length(CompiledScript50List) > 0 do
+  begin
+    FreeAndNil(CompiledScript50List[High(CompiledScript50List)]);
+    SetLength(CompiledScript50List, Length(CompiledScript50List) - 1);
+  end;
 end.
