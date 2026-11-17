@@ -10,13 +10,14 @@ implementation
 
 uses CastleVectors;
 
-function CreateHelloWorldMinimal: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group17: TGroupNode;
 WorldInfo18: TWorldInfoNode;
 Shape19: TShapeNode;
 Text20: TTextNode;
+
+procedure InitHelloWorldMinimalPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -53,6 +54,11 @@ Shape19.Geometry := Text20;
 Group17.AddChildren([Shape19]);
 { .AddGroup }
 X3D0.AddChildren([Group17]);
+end;
+
+function CreateHelloWorldMinimal: TX3DRootNode;
+begin
+InitHelloWorldMinimalPart0;
 Result := X3D0;
 end;
 

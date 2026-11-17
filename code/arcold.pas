@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createarcold: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -106,6 +105,8 @@ SFNode100: TSFNode;
 Transform101: TTransformNode;
 SFNode102: TSFNode;
 Transform103: TTransformNode;
+
+procedure InitarcoldPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -157,6 +158,11 @@ Appearance19.Material := Material20;
 { .SetAppearance }
 Shape18.Appearance := Appearance19;
 Cylinder21 := TCylinderNode.Create;
+end;
+
+procedure InitarcoldPart1;
+begin
+
 Cylinder21.Radius := 0.1;
 { .SetGeometry }
 Shape18.Geometry := Cylinder21;
@@ -211,6 +217,11 @@ Transform32.IS := IS33;
 Shape35 := TShapeNode.Create;
 Sphere36 := TSphereNode.Create;
 Sphere36.Radius := 0.1;
+end;
+
+procedure InitarcoldPart2;
+begin
+
 { .SetGeometry }
 Shape35.Geometry := Sphere36;
 Appearance37 := TAppearanceNode.Create;
@@ -554,6 +565,13 @@ Group7.AddRoute(X3DPrototype76.EventTranslation_changed, X3DPrototype95.EventSet
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createarcold: TX3DRootNode;
+begin
+InitarcoldPart0;
+InitarcoldPart1;
+InitarcoldPart2;
 Result := X3D0;
 end;
 

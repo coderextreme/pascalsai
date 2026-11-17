@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateindexedfacesetPixeltexture_plus: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group22: TGroupNode;
@@ -30,6 +29,8 @@ IndexedFaceSet35: TIndexedFaceSetNode;
 Color36: TColorNode;
 Coordinate37: TCoordinateNode;
 TextureCoordinate38: TTextureCoordinateNode;
+
+procedure InitindexedfacesetPixeltexture_plusPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -74,6 +75,11 @@ Viewpoint25.Position := Vector3(0,10,0);
 Group22.AddChildren([Viewpoint25]);
 Viewpoint26 := TViewpointNode.Create;
 Viewpoint26.Description := 'Bottom View';
+end;
+
+procedure InitindexedfacesetPixeltexture_plusPart1;
+begin
+
 Viewpoint26.Orientation := Vector4(1,0,0,1.57);
 Viewpoint26.Position := Vector3(0,-10,0);
 { .AddChildren }
@@ -125,6 +131,11 @@ Coordinate37.SetPoint([Vector3(-2,1,1),Vector3(-2,-1,1),Vector3(2,1,1),Vector3(2
 IndexedFaceSet35.Coord := Coordinate37;
 TextureCoordinate38 := TTextureCoordinateNode.Create;
 TextureCoordinate38.SetPoint([Vector2(-1,2),Vector2(-1,-1),Vector2(2,2),Vector2(2,-1)]);
+end;
+
+procedure InitindexedfacesetPixeltexture_plusPart2;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet35.TexCoord := TextureCoordinate38;
 { .SetGeometry }
@@ -133,6 +144,13 @@ Shape30.Geometry := IndexedFaceSet35;
 Group22.AddChildren([Shape30]);
 { .AddGroup }
 X3D0.AddChildren([Group22]);
+end;
+
+function CreateindexedfacesetPixeltexture_plus: TX3DRootNode;
+begin
+InitindexedfacesetPixeltexture_plusPart0;
+InitindexedfacesetPixeltexture_plusPart1;
+InitindexedfacesetPixeltexture_plusPart2;
 Result := X3D0;
 end;
 

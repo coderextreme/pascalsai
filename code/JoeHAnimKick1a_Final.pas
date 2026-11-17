@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateJoeHAnimKick1a_Final: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group6: TGroupNode;
@@ -239,6 +238,8 @@ Shape228: TShapeNode;
 Appearance229: TAppearanceNode;
 Material230: TMaterialNode;
 IndexedLineSet231: TIndexedLineSetNode;
+
+procedure InitJoeHAnimKick1a_FinalPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -286,6 +287,11 @@ Viewpoint12.CenterOfRotation := Vector3(0,1.5,0);
 { .AddChildren }
 Group6.AddChildren([Viewpoint12]);
 Viewpoint13 := TViewpointNode.Create;
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart1;
+begin
+
 Viewpoint13.Description := 'Scene_Top View';
 Viewpoint13.Position := Vector3(0,3.5,0);
 Viewpoint13.Orientation := Vector4(1,0,0,-1.5708);
@@ -332,6 +338,11 @@ HAnimJoint23.SetSkinCoordIndex([89,90,94,95,96,97]);
 HAnimJoint23.SetSkinCoordWeight([0.65,1,1,1,1,1]);
 HAnimJoint24 := THAnimJointNode.Create;
 HAnimJoint24.NameField := 'l_knee';
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart2;
+begin
+
 HAnimJoint24.Rotation := Vector4(0.2106,0,0.97757,0.22603);
 HAnimJoint24.Center := Vector3(0.115,0.466,0);
 HAnimJoint24.SetSkinCoordIndex([334,335,336,337,338,339,340,341]);
@@ -378,6 +389,11 @@ HAnimJoint29.SetSkinCoordWeight([0.65,1,0.8,1,1,1,0.4,0.8]);
 HAnimJoint30 := THAnimJointNode.Create;
 HAnimJoint30.NameField := 'r_knee';
 HAnimJoint30.Rotation := Vector4(1,0,0,0.48097);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart3;
+begin
+
 HAnimJoint30.Center := Vector3(-0.05,0.466,0);
 HAnimJoint30.SetSkinCoordIndex([362,363,364,365,366,367,368,369,98]);
 HAnimJoint30.SetSkinCoordWeight([0.6,0.2,1,1,1,1,1,1,0.2]);
@@ -425,6 +441,11 @@ HAnimJoint36 := THAnimJointNode.Create;
 HAnimJoint36.NameField := 'vl4';
 HAnimJoint36.Center := Vector3(0,1.068,-0.085);
 HAnimJoint37 := THAnimJointNode.Create;
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart4;
+begin
+
 HAnimJoint37.NameField := 'vl3';
 HAnimJoint37.Center := Vector3(0,1.092,-0.0725);
 HAnimJoint38 := THAnimJointNode.Create;
@@ -465,6 +486,11 @@ HAnimJoint47.NameField := 'vt5';
 HAnimJoint47.Center := Vector3(0,1.381,-0.1235);
 HAnimJoint48 := THAnimJointNode.Create;
 HAnimJoint48.NameField := 'vt4';
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart5;
+begin
+
 HAnimJoint48.Center := Vector3(0,1.41,-0.1235);
 HAnimJoint48.SetSkinCoordIndex([81]);
 HAnimJoint48.SetSkinCoordWeight([1]);
@@ -505,6 +531,11 @@ HAnimJoint58.NameField := 'vc1';
 HAnimJoint58.Center := Vector3(0,1.61,-0.015);
 HAnimJoint59 := THAnimJointNode.Create;
 HAnimJoint59.NameField := 'skullbase';
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart6;
+begin
+
 HAnimJoint59.Center := Vector3(0,1.63,-0.01);
 HAnimJoint59.SetSkinCoordIndex([0,1,2,3,4,5,6,7,8,9]);
 HAnimJoint59.SetSkinCoordWeight([1,1,1,1,1,1,1,1,1,1]);
@@ -554,6 +585,11 @@ HAnimJoint65.Rotation := Vector4(-1,0,0,1.3339);
 HAnimJoint65.Center := Vector3(0.2,1.1388,-0.04);
 HAnimJoint65.SetSkinCoordIndex([45,46,47,109,110,111,112,113,115,116,117,118]);
 HAnimJoint65.SetSkinCoordWeight([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart7;
+begin
+
 HAnimJoint66 := THAnimJointNode.Create;
 HAnimJoint66.NameField := 'l_radiocarpal';
 HAnimJoint66.Rotation := Vector4(0,1,0,1.2033);
@@ -597,6 +633,11 @@ HAnimJoint72.Center := Vector3(0.2017,0.7363,-0.0248);
 HAnimJoint72.SetSkinCoordIndex([166,167,168,169]);
 HAnimJoint72.SetSkinCoordWeight([1,1,1,1]);
 HAnimJoint73 := THAnimJointNode.Create;
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart8;
+begin
+
 HAnimJoint73.NameField := 'l_carpal_distal_interphalangeal_2';
 HAnimJoint73.Center := Vector3(0.2028,0.7139,-0.0236);
 HAnimJoint73.SetSkinCoordIndex([170,171,172,173,174,175,176,177,178]);
@@ -645,6 +686,11 @@ HAnimJoint78.SetSkinCoordWeight([1,1]);
 HAnimJoint79 := THAnimJointNode.Create;
 HAnimJoint79.NameField := 'l_metacarpophalangeal_4';
 HAnimJoint79.Center := Vector3(0.1956,0.7815,-0.0794);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart9;
+begin
+
 HAnimJoint79.SetSkinCoordIndex([158,159,164,165]);
 HAnimJoint79.SetSkinCoordWeight([1,1,0.5,0.5]);
 HAnimJoint80 := THAnimJointNode.Create;
@@ -693,6 +739,11 @@ HAnimJoint83.AddChildren([HAnimJoint84]);
 HAnimJoint82.AddChildren([HAnimJoint83]);
 { .AddChildren }
 HAnimJoint66.AddChildren([HAnimJoint82]);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart10;
+begin
+
 { .AddChildren }
 HAnimJoint65.AddChildren([HAnimJoint66]);
 { .AddChildren }
@@ -738,6 +789,11 @@ HAnimJoint91.SetSkinCoordIndex([243,244]);
 HAnimJoint91.SetSkinCoordWeight([1,1]);
 HAnimJoint92 := THAnimJointNode.Create;
 HAnimJoint92.NameField := 'r_metacarpophalangeal_1';
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart11;
+begin
+
 HAnimJoint92.Center := Vector3(-0.2,0.82,0.03);
 HAnimJoint92.SetSkinCoordIndex([254,255,256,257,258,259]);
 HAnimJoint92.SetSkinCoordWeight([0.5,0.5,0.5,1,1,1]);
@@ -785,6 +841,11 @@ HAnimJoint98.NameField := 'r_carpometacarpal_3';
 HAnimJoint98.Center := Vector3(-0.2,0.835,-0.04);
 HAnimJoint98.SetSkinCoordIndex([247,248]);
 HAnimJoint98.SetSkinCoordWeight([1,1]);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart12;
+begin
+
 HAnimJoint99 := THAnimJointNode.Create;
 HAnimJoint99.NameField := 'r_metacarpophalangeal_3';
 HAnimJoint99.Center := Vector3(-0.2,0.788,-0.04);
@@ -830,6 +891,11 @@ HAnimJoint105.SetSkinCoordIndex([312,313,314,315,316,317,318,319,320]);
 HAnimJoint105.SetSkinCoordWeight([1,1,1,1,1,1,1,1,1]);
 { .AddChildren }
 HAnimJoint104.AddChildren([HAnimJoint105]);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart13;
+begin
+
 { .AddChildren }
 HAnimJoint103.AddChildren([HAnimJoint104]);
 { .AddChildren }
@@ -890,6 +956,11 @@ HAnimJoint46.AddChildren([HAnimJoint47]);
 HAnimJoint45.AddChildren([HAnimJoint46]);
 { .AddChildren }
 HAnimJoint44.AddChildren([HAnimJoint45]);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart14;
+begin
+
 { .AddChildren }
 HAnimJoint43.AddChildren([HAnimJoint44]);
 { .AddChildren }
@@ -955,6 +1026,11 @@ HAnimJoint123 := HAnimJoint34;
 { .FdJoints.Add }
 HAnimHumanoid15.FdJoints.Add(HAnimJoint123);
 HAnimJoint124 := HAnimJoint35;
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart15;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid15.FdJoints.Add(HAnimJoint124);
 HAnimJoint125 := HAnimJoint36;
@@ -1015,6 +1091,11 @@ HAnimJoint143 := HAnimJoint54;
 { .FdJoints.Add }
 HAnimHumanoid15.FdJoints.Add(HAnimJoint143);
 HAnimJoint144 := HAnimJoint55;
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart16;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid15.FdJoints.Add(HAnimJoint144);
 HAnimJoint145 := HAnimJoint56;
@@ -1075,6 +1156,11 @@ HAnimJoint163 := HAnimJoint74;
 { .FdJoints.Add }
 HAnimHumanoid15.FdJoints.Add(HAnimJoint163);
 HAnimJoint164 := HAnimJoint75;
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart17;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid15.FdJoints.Add(HAnimJoint164);
 HAnimJoint165 := HAnimJoint76;
@@ -1135,6 +1221,11 @@ HAnimJoint183 := HAnimJoint94;
 { .FdJoints.Add }
 HAnimHumanoid15.FdJoints.Add(HAnimJoint183);
 HAnimJoint184 := HAnimJoint95;
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart18;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid15.FdJoints.Add(HAnimJoint184);
 HAnimJoint185 := HAnimJoint96;
@@ -1191,6 +1282,11 @@ Material202.EmissiveColor := Vector3(0.13,0.55,0.13);
 Appearance201.Material := Material202;
 ImageTexture203 := TImageTextureNode.Create;
 ImageTexture203.SetUrl(['bodytexture28.png']);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart19;
+begin
+
 { .SetTexture }
 Appearance201.Texture := ImageTexture203;
 { .SetAppearance }
@@ -1230,6 +1326,11 @@ Appearance208.Texture := ImageTexture210;
 Shape207.Appearance := Appearance208;
 IndexedFaceSet211 := TIndexedFaceSetNode.Create;
 IndexedFaceSet211.SetCoordIndex([0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,5,-1,0,5,6,-1,0,6,7,-1,0,7,8,-1,0,8,9,-1,0,9,10,-1,0,10,11,-1,0,11,12,-1,0,12,1,-1,1,13,14,-1,1,14,2,-1,2,14,15,-1,2,15,3,-1,3,15,16,-1,3,16,4,-1,4,16,17,-1,4,17,5,-1,5,17,18,-1,5,18,6,-1,6,18,19,-1,6,19,7,-1,7,19,20,-1,7,20,8,-1,8,20,21,-1,8,21,9,-1,9,21,22,-1,9,22,10,-1,10,22,23,-1,10,23,11,-1,11,23,24,-1,11,24,12,-1,12,24,13,-1,12,13,1,-1,13,25,26,-1,13,26,14,-1,14,26,27,-1,14,27,15,-1,15,27,28,-1,15,28,16,-1,16,28,29,-1,16,29,17,-1,17,29,30,-1,17,30,18,-1,18,30,31,-1,18,31,19,-1,19,31,32,-1,19,32,20,-1,20,32,33,-1,20,33,21,-1,21,33,34,-1,21,34,22,-1,22,34,35,-1,22,35,23,-1,23,35,36,-1,23,36,24,-1,24,36,25,-1,24,25,13,-1,25,37,38,-1,25,38,26,-1,26,38,39,-1,26,39,27,-1,27,39,40,-1,27,40,28,-1,28,40,41,-1,28,41,29,-1,29,41,42,-1,29,42,30,-1,30,42,43,-1,30,43,31,-1,31,43,44,-1,31,44,32,-1,32,44,45,-1,32,45,33,-1,33,45,46,-1,33,46,34,-1,34,46,47,-1,34,47,35,-1,35,47,48,-1,35,48,36,-1,36,48,37,-1,36,37,25,-1,37,49,50,-1,37,50,38,-1,38,50,51,-1,38,51,39,-1,39,51,52,-1,39,52,40,-1,40,52,53,-1,40,53,41,-1,41,53,54,-1,41,54,42,-1,42,54,55,-1,42,55,43,-1,43,55,56,-1,43,56,44,-1,44,56,57,-1,44,57,45,-1,45,57,58,-1,45,58,46,-1,46,58,59,-1,46,59,47,-1,47,59,60,-1,47,60,48,-1,48,60,49,-1,48,49,37,-1,61,50,49,-1,61,51,50,-1,61,52,51,-1,61,53,52,-1,61,54,53,-1,61,55,54,-1,61,56,55,-1,61,57,56,-1,61,58,57,-1,61,59,58,-1,61,60,59,-1,61,49,60,-1]);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart20;
+begin
+
 Coordinate212 := TCoordinateNode.Create;
 Coordinate212.SetPoint([Vector3(0,0.4675,0),Vector3(0,0.4049,-0.2338),Vector3(-0.1169,0.4049,-0.2024),Vector3(-0.2024,0.4049,-0.1169),Vector3(-0.2338,0.4049,0),Vector3(-0.2024,0.4049,0.1169),Vector3(-0.1169,0.4049,0.2024),Vector3(0,0.4049,0.2338),Vector3(0.1169,0.4049,0.2024),Vector3(0.2024,0.4049,0.1169),Vector3(0.2338,0.4049,0),Vector3(0.2024,0.4049,-0.1169),Vector3(0.1169,0.4049,-0.2024),Vector3(0,0.2338,-0.4049),Vector3(-0.2024,0.2338,-0.3506),Vector3(-0.3506,0.2338,-0.2024),Vector3(-0.4049,0.2338,0),Vector3(-0.3506,0.2338,0.2024),Vector3(-0.2024,0.2338,0.3506),Vector3(0,0.2338,0.4049),Vector3(0.2024,0.2338,0.3506),Vector3(0.3506,0.2338,0.2024),Vector3(0.4049,0.2338,0),Vector3(0.3506,0.2338,-0.2024),Vector3(0.2024,0.2338,-0.3506),Vector3(0,0,-0.4675),Vector3(-0.2338,0,-0.4049),Vector3(-0.4049,0,-0.2338),Vector3(-0.4675,0,0),Vector3(-0.4049,0,0.2338),Vector3(-0.2338,0,0.4049),Vector3(0,0,0.4675),Vector3(0.2338,0,0.4049),Vector3(0.4049,0,0.2338),Vector3(0.4675,0,0),Vector3(0.4049,0,-0.2338),Vector3(0.2338,0,-0.4049),Vector3(0,-0.2338,-0.4049),Vector3(-0.2024,-0.2338,-0.3506),Vector3(-0.3506,-0.2338,-0.2024),Vector3(-0.4049,-0.2338,0),Vector3(-0.3506,-0.2338,0.2024),Vector3(-0.2024,-0.2338,0.3506),Vector3(0,-0.2338,0.4049),Vector3(0.2024,-0.2338,0.3506),Vector3(0.3506,-0.2338,0.2024),Vector3(0.4049,-0.2338,0),Vector3(0.3506,-0.2338,-0.2024),Vector3(0.2024,-0.2338,-0.3506),Vector3(0,-0.4049,-0.2338),Vector3(-0.1169,-0.4049,-0.2024),Vector3(-0.2024,-0.4049,-0.1169),Vector3(-0.2338,-0.4049,0),Vector3(-0.2024,-0.4049,0.1169),Vector3(-0.1169,-0.4049,0.2024),Vector3(0,-0.4049,0.2338),Vector3(0.1169,-0.4049,0.2024),Vector3(0.2024,-0.4049,0.1169),Vector3(0.2338,-0.4049,0),Vector3(0.2024,-0.4049,-0.1169),Vector3(0.1169,-0.4049,-0.2024),Vector3(0,-0.4675,0)]);
 { .SetCoord }
@@ -1283,6 +1384,11 @@ Appearance224 := TAppearanceNode.Create;
 Material225 := TMaterialNode.Create;
 Material225.DiffuseColor := Vector3(0.9,0,0.7);
 Material225.EmissiveColor := Vector3(0.42496,0.48398,1);
+end;
+
+procedure InitJoeHAnimKick1a_FinalPart21;
+begin
+
 { .SetMaterial }
 Appearance224.Material := Material225;
 { .SetAppearance }
@@ -1314,6 +1420,32 @@ Transform227.AddChildren([Shape228]);
 Group6.AddChildren([Transform227]);
 { .AddGroup }
 X3D0.AddChildren([Group6]);
+end;
+
+function CreateJoeHAnimKick1a_Final: TX3DRootNode;
+begin
+InitJoeHAnimKick1a_FinalPart0;
+InitJoeHAnimKick1a_FinalPart1;
+InitJoeHAnimKick1a_FinalPart2;
+InitJoeHAnimKick1a_FinalPart3;
+InitJoeHAnimKick1a_FinalPart4;
+InitJoeHAnimKick1a_FinalPart5;
+InitJoeHAnimKick1a_FinalPart6;
+InitJoeHAnimKick1a_FinalPart7;
+InitJoeHAnimKick1a_FinalPart8;
+InitJoeHAnimKick1a_FinalPart9;
+InitJoeHAnimKick1a_FinalPart10;
+InitJoeHAnimKick1a_FinalPart11;
+InitJoeHAnimKick1a_FinalPart12;
+InitJoeHAnimKick1a_FinalPart13;
+InitJoeHAnimKick1a_FinalPart14;
+InitJoeHAnimKick1a_FinalPart15;
+InitJoeHAnimKick1a_FinalPart16;
+InitJoeHAnimKick1a_FinalPart17;
+InitJoeHAnimKick1a_FinalPart18;
+InitJoeHAnimKick1a_FinalPart19;
+InitJoeHAnimKick1a_FinalPart20;
+InitJoeHAnimKick1a_FinalPart21;
 Result := X3D0;
 end;
 

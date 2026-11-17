@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Creategeo: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -47,6 +46,8 @@ X3DField45: TX3DField;
 X3DField46: TX3DField;
 ShaderPart47: TShaderPartNode;
 ShaderPart48: TShaderPartNode;
+
+procedure InitgeoPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -94,6 +95,11 @@ Appearance22 := TAppearanceNode.Create;
 Material23 := TMaterialNode.Create;
 Material23.DiffuseColor := Vector3(0.7,0.7,0.7);
 Material23.SpecularColor := Vector3(0.5,0.5,0.5);
+end;
+
+procedure InitgeoPart1;
+begin
+
 { .SetMaterial }
 Appearance22.Material := Material23;
 ComposedCubeMapTexture24 := TComposedCubeMapTextureNode.Create;
@@ -145,6 +151,11 @@ X3DField35 := TX3DField.Create;
 X3DField35.NameField := 'bias';
 X3DField35.AccessType := 'inputOutput';
 X3DField35.Type := 'SFFloat';
+end;
+
+procedure InitgeoPart2;
+begin
+
 X3DField35.Value := '0.5';
 { .AddX3DField }
 ComposedShader31.X3DField := X3DField35;
@@ -194,6 +205,11 @@ X3DField42.ComposedCubeMapTexture := ComposedCubeMapTexture43;
 ComposedShader40.X3DField := X3DField42;
 X3DField44 := TX3DField.Create;
 X3DField44.NameField := 'bias';
+end;
+
+procedure InitgeoPart3;
+begin
+
 X3DField44.AccessType := 'initializeOnly';
 X3DField44.Type := 'SFFloat';
 X3DField44.Value := '0.5';
@@ -233,6 +249,14 @@ Transform19.AddChildren([Shape20]);
 Group15.AddChildren([Transform19]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function Creategeo: TX3DRootNode;
+begin
+InitgeoPart0;
+InitgeoPart1;
+InitgeoPart2;
+InitgeoPart3;
 Result := X3D0;
 end;
 

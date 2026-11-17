@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateTransformKids: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group10: TGroupNode;
@@ -26,6 +25,8 @@ Shape19: TShapeNode;
 Appearance20: TAppearanceNode;
 Material21: TMaterialNode;
 Box22: TBoxNode;
+
+procedure InitTransformKidsPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -77,12 +78,23 @@ Shape19.Appearance := Appearance20;
 Box22 := TBoxNode.Create;
 { .SetGeometry }
 Shape19.Geometry := Box22;
+end;
+
+procedure InitTransformKidsPart1;
+begin
+
 { .AddChild }
 Transform18.AddChildren([Shape19]);
 { .AddChildren }
 Group10.AddChildren([Transform18]);
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function CreateTransformKids: TX3DRootNode;
+begin
+InitTransformKidsPart0;
+InitTransformKidsPart1;
 Result := X3D0;
 end;
 

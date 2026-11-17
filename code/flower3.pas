@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createflower3: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -29,6 +28,8 @@ X3DField19: TX3DField;
 X3DField20: TX3DField;
 X3DField21: TX3DField;
 TimeSensor22: TTimeSensorNode;
+
+procedure Initflower3Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -80,6 +81,11 @@ Transform12.AddChildren([Shape13]);
 { .AddChildren }
 Group7.AddChildren([Transform12]);
 Script18 := TScriptNode.Create;
+end;
+
+procedure Initflower3Part1;
+begin
+
 X3DField19 := TX3DField.Create;
 X3DField19.NameField := 'set_fraction';
 X3DField19.AccessType := 'inputOnly';
@@ -197,6 +203,12 @@ Group7.AddRoute(TimeSensor22.EventFraction_changed, Script18.EventSet_fraction);
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createflower3: TX3DRootNode;
+begin
+Initflower3Part0;
+Initflower3Part1;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbobblespheres: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group6: TGroupNode;
@@ -83,6 +82,8 @@ Sphere86: TSphereNode;
 TimeSensor87: TTimeSensorNode;
 PositionInterpolator88: TPositionInterpolatorNode;
 ScalarInterpolator89: TScalarInterpolatorNode;
+
+procedure InitbobblespheresPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -134,6 +135,11 @@ Sphere16.Radius := 1000;
 Shape13.Geometry := Sphere16;
 { .AddChild }
 Transform12.AddChildren([Shape13]);
+end;
+
+procedure InitbobblespheresPart1;
+begin
+
 { .AddChildren }
 Group6.AddChildren([Transform12]);
 Transform17 := TTransformNode.Create;
@@ -187,6 +193,11 @@ PhysicalMaterial30.Roughness := 0.1;
 Appearance29.Material := PhysicalMaterial30;
 { .SetAppearance }
 Shape28.Appearance := Appearance29;
+end;
+
+procedure InitbobblespheresPart2;
+begin
+
 Sphere31 := TSphereNode.Create;
 { .SetGeometry }
 Shape28.Geometry := Sphere31;
@@ -242,6 +253,11 @@ X3DField42.AccessType := 'inputOnly';
 { .SetX3DField }
 Script41.X3DField := X3DField42;
 X3DField43 := TX3DField.Create;
+end;
+
+procedure InitbobblespheresPart3;
+begin
+
 X3DField43.NameField := 'set_roughness';
 X3DField43.Type := 'SFFloat';
 X3DField43.AccessType := 'inputOnly';
@@ -462,6 +478,14 @@ Group6.AddRoute(ScalarInterpolator89.EventValue_changed, IridescenceMaterialExte
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group6]);
+end;
+
+function Createbobblespheres: TX3DRootNode;
+begin
+InitbobblespheresPart0;
+InitbobblespheresPart1;
+InitbobblespheresPart2;
+InitbobblespheresPart3;
 Result := X3D0;
 end;
 

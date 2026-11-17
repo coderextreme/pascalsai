@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createnoweb3d: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -112,6 +111,8 @@ MFString117: TMFString;
 X3DPrototype118: TX3DPrototypeNode;
 MFString119: TMFString;
 MFString120: TMFString;
+
+procedure Initnoweb3dPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -159,6 +160,11 @@ Material23.SpecularColor := Vector3(0.5,0.5,0.5);
 { .SetMaterial }
 Appearance22.Material := Material23;
 ComposedCubeMapTexture24 := TComposedCubeMapTextureNode.Create;
+end;
+
+procedure Initnoweb3dPart1;
+begin
+
 ImageTexture25 := TImageTextureNode.Create;
 ImageTexture25.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_front.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png']);
 { .SetFrontTexture }
@@ -209,6 +215,11 @@ ComposedShader31.X3DField := X3DField34;
 X3DField35 := TX3DField.Create;
 X3DField35.NameField := 'scale';
 X3DField35.AccessType := 'inputOnly';
+end;
+
+procedure Initnoweb3dPart2;
+begin
+
 X3DField35.Type := 'SFFloat';
 { .AddX3DField }
 ComposedShader31.X3DField := X3DField35;
@@ -257,6 +268,11 @@ ComposedShader31.X3DField := X3DField42;
 ShaderPart43 := TShaderPartNode.Create;
 ShaderPart43.Type := 'VERTEX';
 IS44 := TIS.Create;
+end;
+
+procedure Initnoweb3dPart3;
+begin
+
 connect45 := Tconnect.Create;
 connect45.NodeField := 'url';
 connect45.ProtoField := 'vertex';
@@ -310,6 +326,11 @@ Script50.X3DField := X3DField53;
 X3DField54 := TX3DField.Create;
 X3DField54.NameField := 'a';
 X3DField54.AccessType := 'outputOnly';
+end;
+
+procedure Initnoweb3dPart4;
+begin
+
 X3DField54.Type := 'SFFloat';
 { .AddX3DField }
 Script50.X3DField := X3DField54;
@@ -678,6 +699,15 @@ Group111.X3DPrototype := X3DPrototype118;
 Group14.AddChildren([Group111]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function Createnoweb3d: TX3DRootNode;
+begin
+Initnoweb3dPart0;
+Initnoweb3dPart1;
+Initnoweb3dPart2;
+Initnoweb3dPart3;
+Initnoweb3dPart4;
 Result := X3D0;
 end;
 

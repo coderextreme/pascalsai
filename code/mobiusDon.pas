@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreatemobiusDon: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 unit4: TunitNode;
@@ -56,6 +55,8 @@ Coordinate48: TCoordinateNode;
 Appearance49: TAppearanceNode;
 Material50: TMaterialNode;
 LineProperties51: TLinePropertiesNode;
+
+procedure InitmobiusDonPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -103,6 +104,11 @@ NurbsPatchSurface13.ControlPoint := Coordinate16;
 { .SetGeometry }
 Shape12.Geometry := NurbsPatchSurface13;
 Appearance17 := TAppearanceNode.Create;
+end;
+
+procedure InitmobiusDonPart1;
+begin
+
 Material18 := TMaterialNode.Create;
 Material18.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
@@ -148,6 +154,11 @@ NurbsPatchSurface27 := TNurbsPatchSurfaceNode.Create;
 NurbsPatchSurface27.Solid := False;
 NurbsPatchSurface27.UDimension := 91;
 NurbsPatchSurface27.SetUKnot0,0,0,0,0.0333333333333,0.0333333333333,0.0333333333333,0.0666666666667,0.0666666666667,0.0666666666667,0.1,0.1,0.1,0.133333333333,0.133333333333,0.133333333333,0.166666666667,0.166666666667,0.166666666667,0.2,0.2,0.2,0.233333333333,0.233333333333,0.233333333333,0.266666666667,0.266666666667,0.266666666667,0.3,0.3,0.3,0.333333333333,0.333333333333,0.333333333333,0.366666666667,0.366666666667,0.366666666667,0.4,0.4,0.4,0.433333333333,0.433333333333,0.433333333333,0.466666666667,0.466666666667,0.466666666667,0.5,0.5,0.5,0.533333333333,0.533333333333,0.533333333333,0.566666666667,0.566666666667,0.566666666667,0.6,0.6,0.6,0.633333333333,0.633333333333,0.633333333333,0.666666666667,0.666666666667,0.666666666667,0.7,0.7,0.7,0.733333333333,0.733333333333,0.733333333333,0.766666666667,0.766666666667,0.766666666667,0.8,0.8,0.8,0.833333333333,0.833333333333,0.833333333333,0.866666666667,0.866666666667,0.866666666667,0.9,0.9,0.9,0.933333333333,0.933333333333,0.933333333333,0.966666666667,0.966666666667,0.966666666667,1,1,1,1;
+end;
+
+procedure InitmobiusDonPart2;
+begin
+
 NurbsPatchSurface27.UOrder := 4;
 NurbsPatchSurface27.VDimension := 3;
 NurbsPatchSurface27.SetVKnot0,0,0,1,1,1;
@@ -202,6 +213,11 @@ Group33.AddChildren([Shape34]);
 Shape40 := TShapeNode.Create;
 LineSet41 := TLineSetNode.Create;
 LineSet41.SetVertexCount([2]);
+end;
+
+procedure InitmobiusDonPart3;
+begin
+
 Coordinate42 := TCoordinateNode.Create;
 Coordinate42.SetPoint([Vector3(0,0,0),Vector3(0,1,0)]);
 { .SetCoord }
@@ -249,6 +265,14 @@ Group33.AddChildren([Shape46]);
 Group10.AddChildren([Group33]);
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function CreatemobiusDon: TX3DRootNode;
+begin
+InitmobiusDonPart0;
+InitmobiusDonPart1;
+InitmobiusDonPart2;
+InitmobiusDonPart3;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateViewFrustumExample: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group17: TGroupNode;
@@ -42,6 +41,8 @@ SFBool42: TSFBool;
 Inline43: TInlineNode;
 Transform44: TTransformNode;
 Inline45: TInlineNode;
+
+procedure InitViewFrustumExamplePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -88,6 +89,11 @@ Viewpoint22.Orientation := Vector4(0.8005,0.5926,0.0898,-0.3743);
 Viewpoint22.Position := Vector3(-5,5,20);
 { .AddChildren }
 Group17.AddChildren([Viewpoint22]);
+end;
+
+procedure InitViewFrustumExamplePart1;
+begin
+
 NavigationInfo23 := TNavigationInfoNode.Create;
 NavigationInfo23.SetType(['EXAMINE','FLY','ANY']);
 { .AddChildren }
@@ -134,6 +140,11 @@ X3DExternalPrototype24.X3DField := X3DField29;
 X3DField30 := TX3DField.Create;
 X3DField30.NameField := 'transparency';
 X3DField30.AccessType := 'inputOutput';
+end;
+
+procedure InitViewFrustumExamplePart2;
+begin
+
 X3DField30.Appinfo := 'transparency of ViewFrustum hull geometry, default value 0.5';
 X3DField30.Type := 'SFFloat';
 { .AddX3DField }
@@ -186,6 +197,11 @@ SFColor39.Value := '0.9 0.9 0.9';
 X3DPrototype33.SFColor := SFColor39;
 SFColor40 := TSFColor.Create(ViewFrustum1, false, 'frustumColor', Vector3(0.8,0.8,0.8));
 SFColor40.NameField := 'frustumColor';
+end;
+
+procedure InitViewFrustumExamplePart3;
+begin
+
 SFColor40.Value := '0.8 0.8 0.8';
 { .AddSFColor }
 X3DPrototype33.SFColor := SFColor40;
@@ -216,6 +232,14 @@ Transform44.AddChildren([Inline45]);
 Group17.AddChildren([Transform44]);
 { .AddGroup }
 X3D0.AddChildren([Group17]);
+end;
+
+function CreateViewFrustumExample: TX3DRootNode;
+begin
+InitViewFrustumExamplePart0;
+InitViewFrustumExamplePart1;
+InitViewFrustumExamplePart2;
+InitViewFrustumExamplePart3;
 Result := X3D0;
 end;
 

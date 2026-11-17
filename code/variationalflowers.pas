@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createvariationalflowers: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -48,6 +47,8 @@ X3DField45: TX3DField;
 X3DField46: TX3DField;
 X3DField47: TX3DField;
 TimeSensor48: TTimeSensorNode;
+
+procedure InitvariationalflowersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -99,6 +100,11 @@ ParticleSystem20.GeometryType := 'GEOMETRY';
 { <VariationPhysicsModel values="2 2 5 5 0 0" varations="2 1 3 3 0.1 0.1" lastFrame='0' updateRate='0.1'> }
 { </VariationPhysicsModel> }
 ExplosionEmitter21 := TExplosionEmitterNode.Create;
+end;
+
+procedure InitvariationalflowersPart1;
+begin
+
 ExplosionEmitter21.Speed := 1;
 ExplosionEmitter21.Variation := 0.75;
 { .SetEmitter }
@@ -170,6 +176,11 @@ X3DField33.Value := '0.98 1 1.033';
 ComposedShader32.X3DField := X3DField33;
 X3DField34 := TX3DField.Create;
 X3DField34.NameField := 'cube';
+end;
+
+procedure InitvariationalflowersPart2;
+begin
+
 X3DField34.Type := 'SFNode';
 X3DField34.AccessType := 'initializeOnly';
 ComposedCubeMapTexture35 := ComposedCubeMapTexture25;
@@ -221,6 +232,11 @@ Appearance23.Shaders := ComposedShader32;
 ParticleSystem20.Appearance := Appearance23;
 { .AddChildren }
 Transform19.AddChildren([ParticleSystem20]);
+end;
+
+procedure InitvariationalflowersPart3;
+begin
+
 Script42 := TScriptNode.Create;
 X3DField43 := TX3DField.Create;
 X3DField43.NameField := 'set_fraction';
@@ -281,6 +297,14 @@ Transform19.AddRoute(Script42.FdValues, ComposedShader32.FdX3d_particlevalues);
 Group14.AddChildren([Transform19]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function Createvariationalflowers: TX3DRootNode;
+begin
+InitvariationalflowersPart0;
+InitvariationalflowersPart1;
+InitvariationalflowersPart2;
+InitvariationalflowersPart3;
 Result := X3D0;
 end;
 

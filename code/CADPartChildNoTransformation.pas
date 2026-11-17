@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateCADPartChildNoTransformation: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -38,6 +37,8 @@ Shape36: TShapeNode;
 IndexedTriangleSet37: TIndexedTriangleSetNode;
 Coordinate38: TCoordinateNode;
 Appearance39: TAppearanceNode;
+
+procedure InitCADPartChildNoTransformationPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'CADInterchange';
@@ -84,6 +85,11 @@ Cylinder23 := TCylinderNode.Create;
 Cylinder23.Bottom := False;
 Cylinder23.Height := 3;
 Cylinder23.Radius := 2;
+end;
+
+procedure InitCADPartChildNoTransformationPart1;
+begin
+
 Cylinder23.Top := False;
 { .SetGeometry }
 Shape22.Geometry := Cylinder23;
@@ -139,6 +145,11 @@ Shape36 := TShapeNode.Create;
 IndexedTriangleSet37 := TIndexedTriangleSetNode.Create;
 IndexedTriangleSet37.SetIndex([0,1,2,2,1,3,2,3,4,4,3,5,4,5,6,6,5,7,6,7,8,8,7,9,8,9,10,10,9,11,10,11,12,12,11,13,12,13,14,14,13,15,14,15,16,16,15,17,16,17,18,18,17,19,18,19,20,20,19,21,20,21,22,22,21,23,22,23,24,24,23,25,24,25,26,26,25,27,26,27,28,28,27,29,28,29,30,30,29,31,30,31,32,32,31,33,32,33,34,34,33,35,34,35,36,36,35,37,36,37,38,38,37,39,38,39,40,40,39,41,40,41,42,42,41,43,42,43,44,44,43,45,44,45,46,46,45,47,46,47,48,48,47,49,48,49,50,50,49,51,50,51,52,52,51,53,52,53,54,54,53,55,54,55,56,56,55,57,56,57,58,58,57,59,58,59,60,60,59,61,60,61,62,62,61,63,62,63,64,64,63,65]);
 Coordinate38 := TCoordinateNode.Create;
+end;
+
+procedure InitCADPartChildNoTransformationPart2;
+begin
+
 Coordinate38.SetPoint([Vector3(2,-1.5,0),Vector3(1,-1.5,0),Vector3(1.9616,-1.5,-0.3902),Vector3(0.9808,-1.5,-0.1951),Vector3(1.8478,-1.5,-0.7654),Vector3(0.9239,-1.5,-0.3827),Vector3(1.6629,-1.5,-1.1111),Vector3(0.8315,-1.5,-0.5556),Vector3(1.4142,-1.5,-1.4142),Vector3(0.7071,-1.5,-0.7071),Vector3(1.1111,-1.5,-1.6629),Vector3(0.5556,-1.5,-0.8315),Vector3(0.7654,-1.5,-1.8478),Vector3(0.3827,-1.5,-0.9239),Vector3(0.3902,-1.5,-1.9616),Vector3(0.1951,-1.5,-0.9808),Vector3(0,-1.5,-2),Vector3(0,-1.5,-1),Vector3(-0.3902,-1.5,-1.9616),Vector3(-0.1951,-1.5,-0.9808),Vector3(-0.7654,-1.5,-1.8478),Vector3(-0.3827,-1.5,-0.9239),Vector3(-1.1111,-1.5,-1.6629),Vector3(-0.5556,-1.5,-0.8315),Vector3(-1.4142,-1.5,-1.4142),Vector3(-0.7071,-1.5,-0.7071),Vector3(-1.6629,-1.5,-1.1111),Vector3(-0.8315,-1.5,-0.5556),Vector3(-1.8478,-1.5,-0.7654),Vector3(-0.9239,-1.5,-0.3827),Vector3(-1.9616,-1.5,-0.3902),Vector3(-0.9808,-1.5,-0.1951),Vector3(-2,-1.5,0),Vector3(-1,-1.5,0),Vector3(-1.9616,-1.5,0.3902),Vector3(-0.9808,-1.5,0.1951),Vector3(-1.8478,-1.5,0.7654),Vector3(-0.9239,-1.5,0.3827),Vector3(-1.6629,-1.5,1.1111),Vector3(-0.8315,-1.5,0.5556),Vector3(-1.4142,-1.5,1.4142),Vector3(-0.7071,-1.5,0.7071),Vector3(-1.1111,-1.5,1.6629),Vector3(-0.5556,-1.5,0.8315),Vector3(-0.7654,-1.5,1.8478),Vector3(-0.3827,-1.5,0.9239),Vector3(-0.3902,-1.5,1.9616),Vector3(-0.1951,-1.5,0.9808),Vector3(0,-1.5,2),Vector3(0,-1.5,1),Vector3(0.3902,-1.5,1.9616),Vector3(0.1951,-1.5,0.9808),Vector3(0.7654,-1.5,1.8478),Vector3(0.3827,-1.5,0.9239),Vector3(1.1111,-1.5,1.6629),Vector3(0.5556,-1.5,0.8315),Vector3(1.4142,-1.5,1.4142),Vector3(0.7071,-1.5,0.7071),Vector3(1.6629,-1.5,1.1111),Vector3(0.8315,-1.5,0.5556),Vector3(1.8478,-1.5,0.7654),Vector3(0.9239,-1.5,0.3827),Vector3(1.9616,-1.5,0.3902),Vector3(0.9808,-1.5,0.1951),Vector3(2,-1.5,0),Vector3(1,-1.5,0)]);
 { .SetCoord }
 IndexedTriangleSet37.Coord := Coordinate38;
@@ -157,6 +168,13 @@ CADAssembly19.AddChildren([CADPart20]);
 Group15.AddChildren([CADAssembly19]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function CreateCADPartChildNoTransformation: TX3DRootNode;
+begin
+InitCADPartChildNoTransformationPart0;
+InitCADPartChildNoTransformationPart1;
+InitCADPartChildNoTransformationPart2;
 Result := X3D0;
 end;
 

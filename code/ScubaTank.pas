@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateScubaTank: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group10: TGroupNode;
@@ -60,6 +59,8 @@ Appearance53: TAppearanceNode;
 Material54: TMaterialNode;
 Cylinder55: TCylinderNode;
 Background56: TBackgroundNode;
+
+procedure InitScubaTankPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -109,6 +110,11 @@ Material21 := Material16;
 Appearance20.Material := Material21;
 { .SetAppearance }
 Shape19.Appearance := Appearance20;
+end;
+
+procedure InitScubaTankPart1;
+begin
+
 Sphere22 := TSphereNode.Create;
 Sphere22.Radius := 0.098;
 { .SetGeometry }
@@ -162,6 +168,11 @@ Transform30.AddChildren([Shape31]);
 { .AddChildren }
 Transform29.AddChildren([Transform30]);
 Transform35 := TTransformNode.Create;
+end;
+
+procedure InitScubaTankPart2;
+begin
+
 Transform35.Translation := Vector3(0,0.5,0);
 Shape36 := TShapeNode.Create;
 Appearance37 := TAppearanceNode.Create;
@@ -217,6 +228,11 @@ Shape47.Geometry := Cylinder50;
 Transform46.AddChildren([Shape47]);
 { .AddChildren }
 Transform40.AddChildren([Transform46]);
+end;
+
+procedure InitScubaTankPart3;
+begin
+
 { .AddChildren }
 Transform29.AddChildren([Transform40]);
 { .AddChildren }
@@ -249,6 +265,14 @@ Background56.SetSkyColor([Vector3(0.6,0.6,0.6)]);
 Group10.AddChildren([Background56]);
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function CreateScubaTank: TX3DRootNode;
+begin
+InitScubaTankPart0;
+InitScubaTankPart1;
+InitScubaTankPart2;
+InitScubaTankPart3;
 Result := X3D0;
 end;
 

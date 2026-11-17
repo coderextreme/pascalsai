@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createx3dconnector: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -66,6 +65,8 @@ SFNode58: TSFNode;
 Transform59: TTransformNode;
 SFNode60: TSFNode;
 Transform61: TTransformNode;
+
+procedure Initx3dconnectorPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -117,6 +118,11 @@ Material20 := TMaterialNode.Create;
 Material20.DiffuseColor := Vector3(0.2,0.7,0.2);
 { .SetMaterial }
 Appearance19.Material := Material20;
+end;
+
+procedure Initx3dconnectorPart1;
+begin
+
 { .SetAppearance }
 Shape18.Appearance := Appearance19;
 Sphere21 := TSphereNode.Create;
@@ -171,6 +177,11 @@ X3DField33.Type := 'SFNode';
 { .AddX3DField }
 X3DInterfaceDeclaration31.X3DField := X3DField33;
 X3DField34 := TX3DField.Create;
+end;
+
+procedure Initx3dconnectorPart2;
+begin
+
 X3DField34.NameField := 'transnode';
 X3DField34.AccessType := 'initializeOnly';
 X3DField34.Type := 'SFNode';
@@ -219,6 +230,11 @@ Script39.X3DField := X3DField42;
 X3DField43 := TX3DField.Create;
 X3DField43.NameField := 'rotscalenode';
 X3DField43.AccessType := 'initializeOnly';
+end;
+
+procedure Initx3dconnectorPart3;
+begin
+
 X3DField43.Type := 'SFNode';
 { .AddX3DField }
 Script39.X3DField := X3DField43;
@@ -349,6 +365,14 @@ Group7.AddRoute(Transform17.EventTranslation_changed, X3DPrototype53.EventSet_en
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createx3dconnector: TX3DRootNode;
+begin
+Initx3dconnectorPart0;
+Initx3dconnectorPart1;
+Initx3dconnectorPart2;
+Initx3dconnectorPart3;
 Result := X3D0;
 end;
 

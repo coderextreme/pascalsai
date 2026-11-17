@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbumpyfreewrl: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -44,6 +43,8 @@ X3DField42: TX3DField;
 X3DField43: TX3DField;
 ShaderPart44: TShaderPartNode;
 ShaderPart45: TShaderPartNode;
+
+procedure InitbumpyfreewrlPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -92,6 +93,11 @@ Sphere22 := TSphereNode.Create;
 Sphere22.Radius := 5;
 { .SetGeometry }
 Shape21.Geometry := Sphere22;
+end;
+
+procedure InitbumpyfreewrlPart1;
+begin
+
 Appearance23 := TAppearanceNode.Create;
 Material24 := TMaterialNode.Create;
 Material24.DiffuseColor := Vector3(0.7,0.7,0.7);
@@ -142,6 +148,11 @@ X3DField34.Value := '0';
 { .AddX3DField }
 ComposedShader32.X3DField := X3DField34;
 X3DField35 := TX3DField.Create;
+end;
+
+procedure InitbumpyfreewrlPart2;
+begin
+
 X3DField35.NameField := 'bias';
 X3DField35.Type := 'SFFloat';
 X3DField35.AccessType := 'inputOnly';
@@ -188,6 +199,11 @@ X3DField41.NameField := 'd';
 X3DField41.Type := 'SFFloat';
 X3DField41.AccessType := 'inputOutput';
 X3DField41.Value := '5';
+end;
+
+procedure InitbumpyfreewrlPart3;
+begin
+
 { .AddX3DField }
 ComposedShader32.X3DField := X3DField41;
 X3DField42 := TX3DField.Create;
@@ -224,6 +240,14 @@ Transform20.AddChildren([Shape21]);
 Group15.AddChildren([Transform20]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function Createbumpyfreewrl: TX3DRootNode;
+begin
+InitbumpyfreewrlPart0;
+InitbumpyfreewrlPart1;
+InitbumpyfreewrlPart2;
+InitbumpyfreewrlPart3;
 Result := X3D0;
 end;
 

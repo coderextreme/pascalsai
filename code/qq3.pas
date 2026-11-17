@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createqq3: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group10: TGroupNode;
@@ -38,6 +37,8 @@ Transform31: TTransformNode;
 X3DPrototype32: TX3DPrototypeNode;
 Transform33: TTransformNode;
 X3DPrototype34: TX3DPrototypeNode;
+
+procedure Initqq3Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -88,6 +89,11 @@ Material22.DiffuseColor := Vector3(0,0.7,1);
 Appearance21.Material := Material22;
 { .SetAppearance }
 Shape20.Appearance := Appearance21;
+end;
+
+procedure Initqq3Part1;
+begin
+
 Extrusion23 := TExtrusionNode.Create;
 Extrusion23.SetSpine([Vector3(1.5,0,0),Vector3(2,0,0),Vector3(2.5,0,0)]);
 Extrusion23.CreaseAngle := 0.785;
@@ -145,12 +151,24 @@ Transform33 := TTransformNode.Create;
 Transform33.Translation := Vector3(0,2.5,0);
 X3DPrototype34 := TX3DPrototypeNode.Create;
 X3DPrototype34.NameField := 'Process';
+end;
+
+procedure Initqq3Part2;
+begin
+
 { .SetX3DPrototype }
 Transform33.X3DPrototype := X3DPrototype34;
 { .AddChildren }
 Group10.AddChildren([Transform33]);
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function Createqq3: TX3DRootNode;
+begin
+Initqq3Part0;
+Initqq3Part1;
+Initqq3Part2;
 Result := X3D0;
 end;
 

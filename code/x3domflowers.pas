@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createx3domflowers: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -32,6 +31,8 @@ X3DPrototype30: TX3DPrototypeNode;
 X3DPrototype31: TX3DPrototypeNode;
 X3DPrototype32: TX3DPrototypeNode;
 X3DPrototype33: TX3DPrototypeNode;
+
+procedure Initx3domflowersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -77,6 +78,11 @@ X3DExternalPrototype19.X3DField := X3DField20;
 X3DField21 := TX3DField.Create;
 X3DField21.NameField := 'fragment';
 X3DField21.AccessType := 'inputOutput';
+end;
+
+procedure Initx3domflowersPart1;
+begin
+
 X3DField21.Type := 'MFString';
 { .AddX3DField }
 X3DExternalPrototype19.X3DField := X3DField21;
@@ -132,8 +138,20 @@ X3DPrototype33.NameField := 'flower';
 Group18.X3DPrototype := X3DPrototype33;
 { .AddChildren }
 Group15.AddChildren([Group18]);
+end;
+
+procedure Initx3domflowersPart2;
+begin
+
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function Createx3domflowers: TX3DRootNode;
+begin
+Initx3domflowersPart0;
+Initx3domflowersPart1;
+Initx3domflowersPart2;
 Result := X3D0;
 end;
 

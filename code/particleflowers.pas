@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createparticleflowers: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -59,6 +58,8 @@ X3DField57: TX3DField;
 X3DField58: TX3DField;
 X3DField59: TX3DField;
 TimeSensor60: TTimeSensorNode;
+
+procedure InitparticleflowersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -104,6 +105,11 @@ Group20 := TGroupNode.Create;
 ParticleSystem21 := TParticleSystemNode.Create;
 ParticleSystem21.MaxParticles := 20;
 ParticleSystem21.GeometryType := 'GEOMETRY';
+end;
+
+procedure InitparticleflowersPart1;
+begin
+
 BoundedPhysicsModel22 := TBoundedPhysicsModelNode.Create;
 Sphere23 := TSphereNode.Create;
 Sphere23.Radius := 100;
@@ -155,6 +161,11 @@ X3DField35 := TX3DField.Create;
 X3DField35.NameField := 'chromaticDispertion';
 X3DField35.AccessType := 'initializeOnly';
 X3DField35.Type := 'SFVec3f';
+end;
+
+procedure InitparticleflowersPart2;
+begin
+
 X3DField35.Value := '0.98 1 1.033';
 { .SetX3DField }
 ComposedShader34.X3DField := X3DField35;
@@ -203,6 +214,11 @@ X3DField42.Value := '1';
 { .AddX3DField }
 ComposedShader34.X3DField := X3DField42;
 X3DField43 := TX3DField.Create;
+end;
+
+procedure InitparticleflowersPart3;
+begin
+
 X3DField43.NameField := 'c';
 X3DField43.Type := 'SFFloat';
 X3DField43.AccessType := 'inputOutput';
@@ -253,6 +269,11 @@ Script50 := TScriptNode.Create;
 X3DField51 := TX3DField.Create;
 X3DField51.NameField := 'translation';
 X3DField51.AccessType := 'inputOutput';
+end;
+
+procedure InitparticleflowersPart4;
+begin
+
 X3DField51.Type := 'SFVec3f';
 X3DField51.Value := '0 0 0';
 { .SetX3DField }
@@ -300,6 +321,11 @@ X3DField57.Value := '3';
 Script50.X3DField := X3DField57;
 X3DField58 := TX3DField.Create;
 X3DField58.NameField := 'tdelta';
+end;
+
+procedure InitparticleflowersPart5;
+begin
+
 X3DField58.Type := 'SFFloat';
 X3DField58.AccessType := 'inputOutput';
 X3DField58.Value := '0.5';
@@ -405,6 +431,16 @@ Group20.AddRoute(Script50.FdTdelta, ComposedShader34.FdTdelta);
 Group15.AddChildren([Group20]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function Createparticleflowers: TX3DRootNode;
+begin
+InitparticleflowersPart0;
+InitparticleflowersPart1;
+InitparticleflowersPart2;
+InitparticleflowersPart3;
+InitparticleflowersPart4;
+InitparticleflowersPart5;
 Result := X3D0;
 end;
 

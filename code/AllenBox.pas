@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateAllenBox: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group6: TGroupNode;
@@ -21,6 +20,8 @@ Shape10: TShapeNode;
 Box11: TBoxNode;
 Appearance12: TAppearanceNode;
 Material13: TMaterialNode;
+
+procedure InitAllenBoxPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -60,6 +61,11 @@ Transform9.AddChildren([Shape10]);
 Group6.AddChildren([Transform9]);
 { .AddGroup }
 X3D0.AddChildren([Group6]);
+end;
+
+function CreateAllenBox: TX3DRootNode;
+begin
+InitAllenBoxPart0;
 Result := X3D0;
 end;
 

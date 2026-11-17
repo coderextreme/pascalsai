@@ -10,11 +10,12 @@ implementation
 
 uses CastleVectors;
 
-function CreateOrientationInterpolator: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
 WorldInfo8: TWorldInfoNode;
+
+procedure InitOrientationInterpolatorPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interactive';
@@ -33,6 +34,11 @@ Group7.AddChildren([WorldInfo8]);
 { <OrientationInterpolator DEF='Stop_l_midtarsal_RotationInterpolator' key='0 0.5 1' keyValue='0 0 1 0 0 0 1 0 0 0 1 0'/> }
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function CreateOrientationInterpolator: TX3DRootNode;
+begin
+InitOrientationInterpolatorPart0;
 Result := X3D0;
 end;
 

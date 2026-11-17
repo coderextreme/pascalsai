@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateViewFrustumPrototype: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -75,6 +74,8 @@ Appearance79: TAppearanceNode;
 Material80: TMaterialNode;
 Text81: TTextNode;
 FontStyle82: TFontStyleNode;
+
+procedure InitViewFrustumPrototypePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -121,6 +122,11 @@ X3DInterfaceDeclaration18.X3DField := X3DField20;
 X3DField21 := TX3DField.Create;
 X3DField21.NameField := 'visible';
 X3DField21.AccessType := 'inputOutput';
+end;
+
+procedure InitViewFrustumPrototypePart1;
+begin
+
 X3DField21.Appinfo := 'whether or not frustum geometry is rendered';
 X3DField21.Type := 'SFBool';
 X3DField21.Value := 'true';
@@ -168,6 +174,11 @@ X3DField26.Value := 'false';
 X3DInterfaceDeclaration18.X3DField := X3DField26;
 { .SetX3DInterfaceDeclaration }
 X3DPrototype17.X3DInterfaceDeclaration := X3DInterfaceDeclaration18;
+end;
+
+procedure InitViewFrustumPrototypePart2;
+begin
+
 X3DPrototype27 := TX3DPrototype.Create;
 Switch28 := TSwitchNode.Create;
 Switch28.WhichChoice := -1;
@@ -220,6 +231,11 @@ IS42.Connect := connect44;
 Material41.IS := IS42;
 { .SetMaterial }
 Appearance40.Material := Material41;
+end;
+
+procedure InitViewFrustumPrototypePart3;
+begin
+
 { .SetAppearance }
 Shape38.Appearance := Appearance40;
 { .AddChild }
@@ -274,6 +290,11 @@ Script48.X3DField := X3DField52;
 X3DField53 := TX3DField.Create;
 X3DField53.NameField := 'FrustumCoordinate';
 X3DField53.AccessType := 'initializeOnly';
+end;
+
+procedure InitViewFrustumPrototypePart4;
+begin
+
 X3DField53.Type := 'SFNode';
 Coordinate54 := Coordinate33;
 { .SetCoordinate }
@@ -323,6 +344,11 @@ Script48.X3DField := X3DField61;
 X3DField62 := TX3DField.Create;
 X3DField62.NameField := 'scale_changed';
 X3DField62.AccessType := 'outputOnly';
+end;
+
+procedure InitViewFrustumPrototypePart5;
+begin
+
 X3DField62.Type := 'MFVec2f';
 { .AddX3DField }
 Script48.X3DField := X3DField62;
@@ -377,6 +403,11 @@ X3DPrototype27.AddRoute(Script48.EventOrientation_changed, Transform30.FdRotatio
 X3DPrototype27.AddRoute(Script48.EventSpine_changed, Extrusion39.EventSet_spine);
 { .AddX3DRoute }
 X3DPrototype27.AddRoute(Script48.EventScale_changed, Extrusion39.FdScale);
+end;
+
+procedure InitViewFrustumPrototypePart6;
+begin
+
 { .AddX3DRoute }
 X3DPrototype27.AddRoute(Script48.EventPoint_changed, Coordinate33.FdPoint);
 { .AddX3DRoute }
@@ -412,6 +443,17 @@ Anchor77.AddChildren([Shape78]);
 Group15.AddChildren([Anchor77]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function CreateViewFrustumPrototype: TX3DRootNode;
+begin
+InitViewFrustumPrototypePart0;
+InitViewFrustumPrototypePart1;
+InitViewFrustumPrototypePart2;
+InitViewFrustumPrototypePart3;
+InitViewFrustumPrototypePart4;
+InitViewFrustumPrototypePart5;
+InitViewFrustumPrototypePart6;
 Result := X3D0;
 end;
 

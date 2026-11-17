@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateExtrusionHeart: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group10: TGroupNode;
@@ -20,6 +19,8 @@ Shape13: TShapeNode;
 Extrusion14: TExtrusionNode;
 Appearance15: TAppearanceNode;
 Material16: TMaterialNode;
+
+procedure InitExtrusionHeartPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -64,6 +65,11 @@ Transform12.AddChildren([Shape13]);
 Group10.AddChildren([Transform12]);
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function CreateExtrusionHeart: TX3DRootNode;
+begin
+InitExtrusionHeartPart0;
 Result := X3D0;
 end;
 

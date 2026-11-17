@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateConnectors: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group9: TGroupNode;
@@ -191,6 +190,8 @@ X3DPrototype184: TX3DPrototypeNode;
 X3DPrototype185: TX3DPrototypeNode;
 X3DPrototype186: TX3DPrototypeNode;
 X3DPrototype187: TX3DPrototypeNode;
+
+procedure InitConnectorsPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -236,6 +237,11 @@ IS17 := TIS.Create;
 connect18 := Tconnect.Create;
 connect18.NodeField := 'solid';
 connect18.ProtoField := 'solid';
+end;
+
+procedure InitConnectorsPart1;
+begin
+
 { .AddConnect }
 IS17.Connect := connect18;
 { .SetIS }
@@ -288,6 +294,11 @@ connect28.ProtoField := 'size';
 IS26.Connect := connect28;
 { .SetIS }
 Script20.IS := IS26;
+end;
+
+procedure InitConnectorsPart2;
+begin
+
 
 Script20.SetSourceCode('''ecmascript:\n"+
 "\n"+
@@ -1042,6 +1053,13 @@ Transform121.X3DPrototype := X3DPrototype187;
 Group9.AddChildren([Transform121]);
 { .AddGroup }
 X3D0.AddChildren([Group9]);
+end;
+
+function CreateConnectors: TX3DRootNode;
+begin
+InitConnectorsPart0;
+InitConnectorsPart1;
+InitConnectorsPart2;
 Result := X3D0;
 end;
 

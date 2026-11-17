@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createpp3: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group10: TGroupNode;
@@ -80,6 +79,8 @@ Transform82: TTransformNode;
 X3DPrototype83: TX3DPrototypeNode;
 Transform84: TTransformNode;
 X3DPrototype85: TX3DPrototypeNode;
+
+procedure Initpp3Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -129,6 +130,11 @@ Appearance21 := TAppearanceNode.Create;
 Material22 := TMaterialNode.Create;
 Material22.DiffuseColor := Vector3(0,0.7,1);
 Material22.Transparency := 0.5;
+end;
+
+procedure Initpp3Part1;
+begin
+
 { .SetMaterial }
 Appearance21.Material := Material22;
 { .SetAppearance }
@@ -184,6 +190,11 @@ Shape32.Appearance := Appearance33;
 Extrusion35 := TExtrusionNode.Create;
 Extrusion35.CreaseAngle := 0.785;
 Extrusion35.SetCrossSection([Vector2(1,0),Vector2(0.92,-0.38),Vector2(0.71,-0.71),Vector2(0.38,-0.92),Vector2(0,-1),Vector2(-0.38,-0.92),Vector2(-0.71,-0.71),Vector2(-0.92,-0.38),Vector2(-1,0),Vector2(-0.92,0.38),Vector2(-0.71,0.71),Vector2(-0.38,0.92),Vector2(0,1),Vector2(0.38,0.92),Vector2(0.71,0.71),Vector2(0.92,0.38),Vector2(1,0)]);
+end;
+
+procedure Initpp3Part2;
+begin
+
 Extrusion35.SetSpine([Vector3(0,1.5,0),Vector3(0,2,0),Vector3(0,2.5,0)]);
 { .SetGeometry }
 Shape32.Geometry := Extrusion35;
@@ -242,6 +253,11 @@ Group13.AddChildren([Transform43]);
 { center }
 Transform48 := TTransformNode.Create;
 Shape49 := TShapeNode.Create;
+end;
+
+procedure Initpp3Part3;
+begin
+
 Appearance50 := TAppearanceNode.Create;
 Material51 := TMaterialNode.Create;
 Material51.DiffuseColor := Vector3(1,0,0.7);
@@ -414,6 +430,14 @@ Transform84.X3DPrototype := X3DPrototype85;
 Group10.AddChildren([Transform84]);
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function Createpp3: TX3DRootNode;
+begin
+Initpp3Part0;
+Initpp3Part1;
+Initpp3Part2;
+Initpp3Part3;
 Result := X3D0;
 end;
 

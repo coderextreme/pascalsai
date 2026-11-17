@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbubs3: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -65,6 +64,8 @@ X3DField64: TX3DField;
 X3DField65: TX3DField;
 X3DField66: TX3DField;
 TimeSensor67: TTimeSensorNode;
+
+procedure Initbubs3Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -113,6 +114,11 @@ Shape12.Appearance := Appearance14;
 Transform11.AddChildren([Shape12]);
 Script16 := TScriptNode.Create;
 X3DField17 := TX3DField.Create;
+end;
+
+procedure Initbubs3Part1;
+begin
+
 X3DField17.NameField := 'scale';
 X3DField17.AccessType := 'inputOutput';
 X3DField17.Type := 'SFVec3f';
@@ -521,6 +527,12 @@ Transform56.AddRoute(TimeSensor67.EventFraction_changed, Script61.EventSet_fract
 Group7.AddChildren([Transform56]);
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createbubs3: TX3DRootNode;
+begin
+Initbubs3Part0;
+Initbubs3Part1;
 Result := X3D0;
 end;
 

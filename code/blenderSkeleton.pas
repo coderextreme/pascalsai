@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateblenderSkeleton: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group8: TGroupNode;
@@ -1502,6 +1501,8 @@ OrientationInterpolator1494: TOrientationInterpolatorNode;
 OrientationInterpolator1495: TOrientationInterpolatorNode;
 OrientationInterpolator1496: TOrientationInterpolatorNode;
 OrientationInterpolator1497: TOrientationInterpolatorNode;
+
+procedure InitblenderSkeletonPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -1553,6 +1554,11 @@ Material20.Transparency := 0.5;
 Appearance19.Material := Material20;
 { .SetAppearance }
 Shape17.Appearance := Appearance19;
+end;
+
+procedure InitblenderSkeletonPart1;
+begin
+
 { .AddChild }
 Transform16.AddChildren([Shape17]);
 { .AddChildren }
@@ -1604,6 +1610,11 @@ Shape34 := Shape12;
 Transform33.AddChildren([Shape34]);
 { .AddChildren }
 HAnimSite32.AddChildren([Transform33]);
+end;
+
+procedure InitblenderSkeletonPart2;
+begin
+
 { .AddChildren }
 HAnimSegment28.AddChildren([HAnimSite32]);
 { .AddChildren }
@@ -1656,6 +1667,11 @@ HAnimSegment44.AddChildren([Transform46]);
 HAnimSite48 := THAnimSiteNode.Create;
 HAnimSite48.NameField := 'SEGMENT_FOR_pelvis_tip';
 Transform49 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart3;
+begin
+
 Transform49.Translation := Vector3(-0.0002,-0.1178,0.6986);
 Shape50 := Shape12;
 { .AddChild }
@@ -1709,6 +1725,11 @@ Transform62.Translation := Vector3(0.0924,-0.1213,0.4003);
 Shape63 := Shape17;
 { .AddChild }
 Transform62.AddChildren([Shape63]);
+end;
+
+procedure InitblenderSkeletonPart4;
+begin
+
 { .AddChildren }
 HAnimSegment60.AddChildren([Transform62]);
 HAnimSite64 := THAnimSiteNode.Create;
@@ -1762,6 +1783,11 @@ TouchSensor77 := TTouchSensorNode.Create;
 TouchSensor77.Description := 'joint l_navicular segment SEGMENT_FOR_l_navicular';
 { .AddChildren }
 HAnimSegment76.AddChildren([TouchSensor77]);
+end;
+
+procedure InitblenderSkeletonPart5;
+begin
+
 Transform78 := TTransformNode.Create;
 Transform78.Translation := Vector3(0.0781,-0.097,0.0283);
 Shape79 := Shape17;
@@ -1815,6 +1841,11 @@ HAnimJoint91 := THAnimJointNode.Create;
 HAnimJoint91.NameField := 'l_metatarsal_1';
 HAnimJoint91.Center := Vector3(0.0644,-0.0577,0.0147);
 HAnimSegment92 := THAnimSegmentNode.Create;
+end;
+
+procedure InitblenderSkeletonPart6;
+begin
+
 HAnimSegment92.NameField := 'SEGMENT_FOR_l_metatarsal_1';
 TouchSensor93 := TTouchSensorNode.Create;
 TouchSensor93.Description := 'joint l_metatarsal_1 segment SEGMENT_FOR_l_metatarsal_1';
@@ -1869,6 +1900,11 @@ HAnimSite104.AddChildren([Transform105]);
 HAnimSegment100.AddChildren([HAnimSite104]);
 { .AddChildren }
 HAnimJoint99.AddChildren([HAnimSegment100]);
+end;
+
+procedure InitblenderSkeletonPart7;
+begin
+
 HAnimJoint107 := THAnimJointNode.Create;
 HAnimJoint107.NameField := 'l_tarsal_distal_phalanx_1';
 HAnimSegment108 := THAnimSegmentNode.Create;
@@ -1923,6 +1959,11 @@ HAnimSite120 := THAnimSiteNode.Create;
 HAnimSite120.NameField := 'SEGMENT_FOR_l_cuneiform_2_tip';
 Transform121 := TTransformNode.Create;
 Transform121.Translation := Vector3(0.0812,-0.0805,0.025);
+end;
+
+procedure InitblenderSkeletonPart8;
+begin
+
 Shape122 := Shape12;
 { .AddChild }
 Transform121.AddChildren([Shape122]);
@@ -1977,6 +2018,11 @@ Shape135 := Shape17;
 Transform134.AddChildren([Shape135]);
 { .AddChildren }
 HAnimSegment132.AddChildren([Transform134]);
+end;
+
+procedure InitblenderSkeletonPart9;
+begin
+
 HAnimSite136 := THAnimSiteNode.Create;
 HAnimSite136.NameField := 'SEGMENT_FOR_l_tarsal_proximal_phalanx_2_tip';
 Transform137 := TTransformNode.Create;
@@ -2029,6 +2075,11 @@ TouchSensor149.Description := 'joint l_tarsal_distal_phalanx_2 segment SEGMENT_F
 { .AddChildren }
 HAnimSegment148.AddChildren([TouchSensor149]);
 Transform150 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart10;
+begin
+
 Transform150.Translation := Vector3(0.0841,0.0216,0.0013);
 Shape151 := Shape17;
 { .AddChild }
@@ -2087,6 +2138,11 @@ HAnimSite160.AddChildren([Transform161]);
 HAnimSegment156.AddChildren([HAnimSite160]);
 { .AddChildren }
 HAnimJoint155.AddChildren([HAnimSegment156]);
+end;
+
+procedure InitblenderSkeletonPart11;
+begin
+
 HAnimJoint163 := THAnimJointNode.Create;
 HAnimJoint163.NameField := 'l_metatarsal_3';
 HAnimJoint163.Center := Vector3(0.0944,-0.0625,0.0175);
@@ -2137,6 +2193,11 @@ HAnimSite176.NameField := 'SEGMENT_FOR_l_tarsal_proximal_phalanx_3_tip';
 Transform177 := TTransformNode.Create;
 Transform177.Translation := Vector3(0.0963,-0.0065,0.0065);
 Shape178 := Shape12;
+end;
+
+procedure InitblenderSkeletonPart12;
+begin
+
 { .AddChild }
 Transform177.AddChildren([Shape178]);
 { .AddChildren }
@@ -2191,6 +2252,11 @@ Transform190.AddChildren([Shape191]);
 { .AddChildren }
 HAnimSegment188.AddChildren([Transform190]);
 HAnimSite192 := THAnimSiteNode.Create;
+end;
+
+procedure InitblenderSkeletonPart13;
+begin
+
 HAnimSite192.NameField := 'SEGMENT_FOR_l_tarsal_distal_phalanx_3_tip';
 Transform193 := TTransformNode.Create;
 Transform193.Translation := Vector3(0.1002,0.0178,0.0013);
@@ -2248,6 +2314,11 @@ HAnimJoint203 := THAnimJointNode.Create;
 HAnimJoint203.NameField := 'l_cuboid';
 HAnimJoint203.Center := Vector3(0.1105,-0.0998,0.0267);
 HAnimSegment204 := THAnimSegmentNode.Create;
+end;
+
+procedure InitblenderSkeletonPart14;
+begin
+
 HAnimSegment204.NameField := 'SEGMENT_FOR_l_cuboid';
 TouchSensor205 := TTouchSensorNode.Create;
 TouchSensor205.Description := 'joint l_cuboid segment SEGMENT_FOR_l_cuboid';
@@ -2302,6 +2373,11 @@ HAnimSite216.AddChildren([Transform217]);
 HAnimSegment212.AddChildren([HAnimSite216]);
 { .AddChildren }
 HAnimJoint211.AddChildren([HAnimSegment212]);
+end;
+
+procedure InitblenderSkeletonPart15;
+begin
+
 HAnimJoint219 := THAnimJointNode.Create;
 HAnimJoint219.NameField := 'l_tarsal_proximal_phalanx_4';
 HAnimJoint219.Center := Vector3(0.1097,-0.0107,0.0058);
@@ -2352,6 +2428,11 @@ HAnimSite232.NameField := 'SEGMENT_FOR_l_tarsal_middle_phalanx_4_tip';
 Transform233 := TTransformNode.Create;
 Transform233.Translation := Vector3(0.114,0.0044,0.0037);
 Shape234 := Shape12;
+end;
+
+procedure InitblenderSkeletonPart16;
+begin
+
 { .AddChild }
 Transform233.AddChildren([Shape234]);
 { .AddChildren }
@@ -2408,6 +2489,11 @@ TouchSensor245.Description := 'joint l_metatarsal_5 segment SEGMENT_FOR_l_metata
 HAnimSegment244.AddChildren([TouchSensor245]);
 Transform246 := TTransformNode.Create;
 Transform246.Translation := Vector3(0.1206,-0.0671,0.0124);
+end;
+
+procedure InitblenderSkeletonPart17;
+begin
+
 Shape247 := Shape17;
 { .AddChild }
 Transform246.AddChildren([Shape247]);
@@ -2461,6 +2547,11 @@ HAnimJoint259.Center := Vector3(0.1262,-0.0077,0.0023);
 HAnimSegment260 := THAnimSegmentNode.Create;
 HAnimSegment260.NameField := 'SEGMENT_FOR_l_tarsal_middle_phalanx_5';
 TouchSensor261 := TTouchSensorNode.Create;
+end;
+
+procedure InitblenderSkeletonPart18;
+begin
+
 TouchSensor261.Description := 'joint l_tarsal_middle_phalanx_5 segment SEGMENT_FOR_l_tarsal_middle_phalanx_5';
 { .AddChildren }
 HAnimSegment260.AddChildren([TouchSensor261]);
@@ -2517,6 +2608,11 @@ HAnimJoint267.AddChildren([HAnimSegment268]);
 HAnimJoint259.AddChildren([HAnimJoint267]);
 { .AddChildren }
 HAnimJoint251.AddChildren([HAnimJoint259]);
+end;
+
+procedure InitblenderSkeletonPart19;
+begin
+
 { .AddChildren }
 HAnimJoint243.AddChildren([HAnimJoint251]);
 { .AddChildren }
@@ -2572,6 +2668,11 @@ HAnimSegment284.AddChildren([TouchSensor285]);
 Transform286 := TTransformNode.Create;
 Transform286.Translation := Vector3(-0.0928,-0.1213,0.4003);
 Shape287 := Shape17;
+end;
+
+procedure InitblenderSkeletonPart20;
+begin
+
 { .AddChild }
 Transform286.AddChildren([Shape287]);
 { .AddChildren }
@@ -2625,6 +2726,11 @@ HAnimSegment300 := THAnimSegmentNode.Create;
 HAnimSegment300.NameField := 'SEGMENT_FOR_r_navicular';
 TouchSensor301 := TTouchSensorNode.Create;
 TouchSensor301.Description := 'joint r_navicular segment SEGMENT_FOR_r_navicular';
+end;
+
+procedure InitblenderSkeletonPart21;
+begin
+
 { .AddChildren }
 HAnimSegment300.AddChildren([TouchSensor301]);
 Transform302 := TTransformNode.Create;
@@ -2679,6 +2785,11 @@ HAnimJoint307.AddChildren([HAnimSegment308]);
 HAnimJoint315 := THAnimJointNode.Create;
 HAnimJoint315.NameField := 'r_metatarsal_1';
 HAnimJoint315.Center := Vector3(-0.0644,-0.0577,0.0147);
+end;
+
+procedure InitblenderSkeletonPart22;
+begin
+
 HAnimSegment316 := THAnimSegmentNode.Create;
 HAnimSegment316.NameField := 'SEGMENT_FOR_r_metatarsal_1';
 TouchSensor317 := TTouchSensorNode.Create;
@@ -2732,6 +2843,11 @@ Transform329.AddChildren([Shape330]);
 HAnimSite328.AddChildren([Transform329]);
 { .AddChildren }
 HAnimSegment324.AddChildren([HAnimSite328]);
+end;
+
+procedure InitblenderSkeletonPart23;
+begin
+
 { .AddChildren }
 HAnimJoint323.AddChildren([HAnimSegment324]);
 HAnimJoint331 := THAnimJointNode.Create;
@@ -2787,6 +2903,11 @@ HAnimSegment340.AddChildren([Transform342]);
 HAnimSite344 := THAnimSiteNode.Create;
 HAnimSite344.NameField := 'SEGMENT_FOR_r_cuneiform_2_tip';
 Transform345 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart24;
+begin
+
 Transform345.Translation := Vector3(-0.0812,-0.0805,0.025);
 Shape346 := Shape12;
 { .AddChild }
@@ -2840,6 +2961,11 @@ Transform358.Translation := Vector3(-0.0823,-0.004,0.0064);
 Shape359 := Shape17;
 { .AddChild }
 Transform358.AddChildren([Shape359]);
+end;
+
+procedure InitblenderSkeletonPart25;
+begin
+
 { .AddChildren }
 HAnimSegment356.AddChildren([Transform358]);
 HAnimSite360 := THAnimSiteNode.Create;
@@ -2893,6 +3019,11 @@ TouchSensor373 := TTouchSensorNode.Create;
 TouchSensor373.Description := 'joint r_tarsal_distal_phalanx_2 segment SEGMENT_FOR_r_tarsal_distal_phalanx_2';
 { .AddChildren }
 HAnimSegment372.AddChildren([TouchSensor373]);
+end;
+
+procedure InitblenderSkeletonPart26;
+begin
+
 Transform374 := TTransformNode.Create;
 Transform374.Translation := Vector3(-0.0841,0.0216,0.0013);
 Shape375 := Shape17;
@@ -2950,6 +3081,11 @@ Transform385.AddChildren([Shape386]);
 HAnimSite384.AddChildren([Transform385]);
 { .AddChildren }
 HAnimSegment380.AddChildren([HAnimSite384]);
+end;
+
+procedure InitblenderSkeletonPart27;
+begin
+
 { .AddChildren }
 HAnimJoint379.AddChildren([HAnimSegment380]);
 HAnimJoint387 := THAnimJointNode.Create;
@@ -3001,6 +3137,11 @@ HAnimSite400 := THAnimSiteNode.Create;
 HAnimSite400.NameField := 'SEGMENT_FOR_r_tarsal_proximal_phalanx_3_tip';
 Transform401 := TTransformNode.Create;
 Transform401.Translation := Vector3(-0.0963,-0.0065,0.0065);
+end;
+
+procedure InitblenderSkeletonPart28;
+begin
+
 Shape402 := Shape12;
 { .AddChild }
 Transform401.AddChildren([Shape402]);
@@ -3055,6 +3196,11 @@ Shape415 := Shape17;
 Transform414.AddChildren([Shape415]);
 { .AddChildren }
 HAnimSegment412.AddChildren([Transform414]);
+end;
+
+procedure InitblenderSkeletonPart29;
+begin
+
 HAnimSite416 := THAnimSiteNode.Create;
 HAnimSite416.NameField := 'SEGMENT_FOR_r_tarsal_distal_phalanx_3_tip';
 Transform417 := TTransformNode.Create;
@@ -3112,6 +3258,11 @@ HAnimJoint419.AddChildren([HAnimSegment420]);
 HAnimJoint427 := THAnimJointNode.Create;
 HAnimJoint427.NameField := 'r_cuboid';
 HAnimJoint427.Center := Vector3(-0.1105,-0.0998,0.0267);
+end;
+
+procedure InitblenderSkeletonPart30;
+begin
+
 HAnimSegment428 := THAnimSegmentNode.Create;
 HAnimSegment428.NameField := 'SEGMENT_FOR_r_cuboid';
 TouchSensor429 := TTouchSensorNode.Create;
@@ -3165,6 +3316,11 @@ Transform441.AddChildren([Shape442]);
 HAnimSite440.AddChildren([Transform441]);
 { .AddChildren }
 HAnimSegment436.AddChildren([HAnimSite440]);
+end;
+
+procedure InitblenderSkeletonPart31;
+begin
+
 { .AddChildren }
 HAnimJoint435.AddChildren([HAnimSegment436]);
 HAnimJoint443 := THAnimJointNode.Create;
@@ -3216,6 +3372,11 @@ HAnimSite456 := THAnimSiteNode.Create;
 HAnimSite456.NameField := 'SEGMENT_FOR_r_tarsal_middle_phalanx_4_tip';
 Transform457 := TTransformNode.Create;
 Transform457.Translation := Vector3(-0.114,0.0044,0.0037);
+end;
+
+procedure InitblenderSkeletonPart32;
+begin
+
 Shape458 := Shape12;
 { .AddChild }
 Transform457.AddChildren([Shape458]);
@@ -3272,6 +3433,11 @@ TouchSensor469.Description := 'joint r_metatarsal_5 segment SEGMENT_FOR_r_metata
 { .AddChildren }
 HAnimSegment468.AddChildren([TouchSensor469]);
 Transform470 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart33;
+begin
+
 Transform470.Translation := Vector3(-0.1206,-0.0671,0.0124);
 Shape471 := Shape17;
 { .AddChild }
@@ -3325,6 +3491,11 @@ HAnimJoint483.NameField := 'r_tarsal_middle_phalanx_5';
 HAnimJoint483.Center := Vector3(-0.1262,-0.0077,0.0023);
 HAnimSegment484 := THAnimSegmentNode.Create;
 HAnimSegment484.NameField := 'SEGMENT_FOR_r_tarsal_middle_phalanx_5';
+end;
+
+procedure InitblenderSkeletonPart34;
+begin
+
 TouchSensor485 := TTouchSensorNode.Create;
 TouchSensor485.Description := 'joint r_tarsal_middle_phalanx_5 segment SEGMENT_FOR_r_tarsal_middle_phalanx_5';
 { .AddChildren }
@@ -3380,6 +3551,11 @@ HAnimSegment492.AddChildren([HAnimSite496]);
 HAnimJoint491.AddChildren([HAnimSegment492]);
 { .AddChildren }
 HAnimJoint483.AddChildren([HAnimJoint491]);
+end;
+
+procedure InitblenderSkeletonPart35;
+begin
+
 { .AddChildren }
 HAnimJoint475.AddChildren([HAnimJoint483]);
 { .AddChildren }
@@ -3437,6 +3613,11 @@ TouchSensor509.Description := 'joint l4 segment SEGMENT_FOR_l4';
 { .AddChildren }
 HAnimSegment508.AddChildren([TouchSensor509]);
 Transform510 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart36;
+begin
+
 Transform510.Translation := Vector3(-0.0002,-0.1156,0.9412);
 Shape511 := Shape17;
 { .AddChild }
@@ -3490,6 +3671,11 @@ HAnimJoint523.NameField := 'l2';
 HAnimJoint523.Center := Vector3(-0.0002,-0.1156,0.9738);
 HAnimSegment524 := THAnimSegmentNode.Create;
 HAnimSegment524.NameField := 'SEGMENT_FOR_l2';
+end;
+
+procedure InitblenderSkeletonPart37;
+begin
+
 TouchSensor525 := TTouchSensorNode.Create;
 TouchSensor525.Description := 'joint l2 segment SEGMENT_FOR_l2';
 { .AddChildren }
@@ -3544,6 +3730,11 @@ HAnimSegment532.AddChildren([HAnimSite536]);
 { .AddChildren }
 HAnimJoint531.AddChildren([HAnimSegment532]);
 HAnimJoint539 := THAnimJointNode.Create;
+end;
+
+procedure InitblenderSkeletonPart38;
+begin
+
 HAnimJoint539.NameField := 't12';
 HAnimJoint539.Center := Vector3(-0.0002,-0.1156,1.0145);
 HAnimSegment540 := THAnimSegmentNode.Create;
@@ -3595,6 +3786,11 @@ Transform553.Translation := Vector3(-0.0002,-0.1156,1.0381);
 Shape554 := Shape12;
 { .AddChild }
 Transform553.AddChildren([Shape554]);
+end;
+
+procedure InitblenderSkeletonPart39;
+begin
+
 { .AddChildren }
 HAnimSite552.AddChildren([Transform553]);
 { .AddChildren }
@@ -3648,6 +3844,11 @@ Transform566.AddChildren([Shape567]);
 HAnimSegment564.AddChildren([Transform566]);
 HAnimSite568 := THAnimSiteNode.Create;
 HAnimSite568.NameField := 'SEGMENT_FOR_t9_tip';
+end;
+
+procedure InitblenderSkeletonPart40;
+begin
+
 Transform569 := TTransformNode.Create;
 Transform569.Translation := Vector3(-0.0002,-0.1156,1.0699);
 Shape570 := Shape12;
@@ -3700,6 +3901,11 @@ HAnimSegment580.AddChildren([TouchSensor581]);
 Transform582 := TTransformNode.Create;
 Transform582.Translation := Vector3(-0.0002,-0.1156,1.1002);
 Shape583 := Shape17;
+end;
+
+procedure InitblenderSkeletonPart41;
+begin
+
 { .AddChild }
 Transform582.AddChildren([Shape583]);
 { .AddChildren }
@@ -3753,6 +3959,11 @@ HAnimSegment596 := THAnimSegmentNode.Create;
 HAnimSegment596.NameField := 'SEGMENT_FOR_t5';
 TouchSensor597 := TTouchSensorNode.Create;
 TouchSensor597.Description := 'joint t5 segment SEGMENT_FOR_t5';
+end;
+
+procedure InitblenderSkeletonPart42;
+begin
+
 { .AddChildren }
 HAnimSegment596.AddChildren([TouchSensor597]);
 Transform598 := TTransformNode.Create;
@@ -3807,6 +4018,11 @@ HAnimJoint603.AddChildren([HAnimSegment604]);
 HAnimJoint611 := THAnimJointNode.Create;
 HAnimJoint611.NameField := 't3';
 HAnimJoint611.Center := Vector3(-0.0002,-0.1156,1.1623);
+end;
+
+procedure InitblenderSkeletonPart43;
+begin
+
 HAnimSegment612 := THAnimSegmentNode.Create;
 HAnimSegment612.NameField := 'SEGMENT_FOR_t3';
 TouchSensor613 := TTouchSensorNode.Create;
@@ -3860,6 +4076,11 @@ Transform625.AddChildren([Shape626]);
 HAnimSite624.AddChildren([Transform625]);
 { .AddChildren }
 HAnimSegment620.AddChildren([HAnimSite624]);
+end;
+
+procedure InitblenderSkeletonPart44;
+begin
+
 { .AddChildren }
 HAnimJoint619.AddChildren([HAnimSegment620]);
 HAnimJoint627 := THAnimJointNode.Create;
@@ -3911,6 +4132,11 @@ HAnimSite640 := THAnimSiteNode.Create;
 HAnimSite640.NameField := 'SEGMENT_FOR_c7_tip';
 Transform641 := TTransformNode.Create;
 Transform641.Translation := Vector3(-0.0002,-0.1169,1.2368);
+end;
+
+procedure InitblenderSkeletonPart45;
+begin
+
 Shape642 := Shape12;
 { .AddChild }
 Transform641.AddChildren([Shape642]);
@@ -3965,6 +4191,11 @@ Shape655 := Shape17;
 Transform654.AddChildren([Shape655]);
 { .AddChildren }
 HAnimSegment652.AddChildren([Transform654]);
+end;
+
+procedure InitblenderSkeletonPart46;
+begin
+
 HAnimSite656 := THAnimSiteNode.Create;
 HAnimSite656.NameField := 'SEGMENT_FOR_c5_tip';
 Transform657 := TTransformNode.Create;
@@ -4017,6 +4248,11 @@ TouchSensor669.Description := 'joint c3 segment SEGMENT_FOR_c3';
 { .AddChildren }
 HAnimSegment668.AddChildren([TouchSensor669]);
 Transform670 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart47;
+begin
+
 Transform670.Translation := Vector3(-0.0002,-0.1169,1.2865);
 Shape671 := Shape17;
 { .AddChild }
@@ -4070,6 +4306,11 @@ HAnimJoint683.NameField := 'c1';
 HAnimJoint683.Center := Vector3(-0.0002,-0.1169,1.3099);
 HAnimSegment684 := THAnimSegmentNode.Create;
 HAnimSegment684.NameField := 'SEGMENT_FOR_c1';
+end;
+
+procedure InitblenderSkeletonPart48;
+begin
+
 TouchSensor685 := TTouchSensorNode.Create;
 TouchSensor685.Description := 'joint c1 segment SEGMENT_FOR_c1';
 { .AddChildren }
@@ -4124,6 +4365,11 @@ HAnimSegment692.AddChildren([HAnimSite696]);
 { .AddChildren }
 HAnimJoint691.AddChildren([HAnimSegment692]);
 HAnimJoint699 := THAnimJointNode.Create;
+end;
+
+procedure InitblenderSkeletonPart49;
+begin
+
 HAnimJoint699.NameField := 'l_eyelid';
 HAnimJoint699.Center := Vector3(0.0503,-0.0689,1.4157);
 HAnimSegment700 := THAnimSegmentNode.Create;
@@ -4175,6 +4421,11 @@ HAnimSite712.NameField := 'SEGMENT_FOR_r_eyelid_tip';
 Transform713 := TTransformNode.Create;
 Transform713.Translation := Vector3(-0.0507,-0.0689,1.4157);
 Shape714 := Shape12;
+end;
+
+procedure InitblenderSkeletonPart50;
+begin
+
 { .AddChild }
 Transform713.AddChildren([Shape714]);
 { .AddChildren }
@@ -4230,6 +4481,11 @@ Transform726.Translation := Vector3(-0.0483,-0.0188,1.3963);
 Shape727 := Shape17;
 { .AddChild }
 Transform726.AddChildren([Shape727]);
+end;
+
+procedure InitblenderSkeletonPart51;
+begin
+
 { .AddChildren }
 HAnimSegment724.AddChildren([Transform726]);
 HAnimSite728 := THAnimSiteNode.Create;
@@ -4284,6 +4540,11 @@ HAnimJoint739.Center := Vector3(-0.0219,0.0051,1.4053);
 HAnimSegment740 := THAnimSegmentNode.Create;
 HAnimSegment740.NameField := 'SEGMENT_FOR_r_eyebrow';
 TouchSensor741 := TTouchSensorNode.Create;
+end;
+
+procedure InitblenderSkeletonPart52;
+begin
+
 TouchSensor741.Description := 'joint r_eyebrow segment SEGMENT_FOR_r_eyebrow';
 { .AddChildren }
 HAnimSegment740.AddChildren([TouchSensor741]);
@@ -4340,6 +4601,11 @@ HAnimSegment748.AddChildren([HAnimSite752]);
 HAnimJoint747.AddChildren([HAnimSegment748]);
 { .AddChildren }
 HAnimJoint691.AddChildren([HAnimJoint747]);
+end;
+
+procedure InitblenderSkeletonPart53;
+begin
+
 { .AddChildren }
 HAnimJoint683.AddChildren([HAnimJoint691]);
 { .AddChildren }
@@ -4396,6 +4662,11 @@ TouchSensor765.Description := 'joint l_scapula segment SEGMENT_FOR_l_scapula';
 HAnimSegment764.AddChildren([TouchSensor765]);
 Transform766 := TTransformNode.Create;
 Transform766.Translation := Vector3(0.0383,-0.1157,1.2001);
+end;
+
+procedure InitblenderSkeletonPart54;
+begin
+
 Shape767 := Shape17;
 { .AddChild }
 Transform766.AddChildren([Shape767]);
@@ -4449,6 +4720,11 @@ HAnimJoint779.Center := Vector3(0.1819,-0.1075,0.9202);
 HAnimSegment780 := THAnimSegmentNode.Create;
 HAnimSegment780.NameField := 'SEGMENT_FOR_l_forearm';
 TouchSensor781 := TTouchSensorNode.Create;
+end;
+
+procedure InitblenderSkeletonPart55;
+begin
+
 TouchSensor781.Description := 'joint l_forearm segment SEGMENT_FOR_l_forearm';
 { .AddChildren }
 HAnimSegment780.AddChildren([TouchSensor781]);
@@ -4503,6 +4779,11 @@ HAnimSegment788.AddChildren([HAnimSite792]);
 HAnimJoint787.AddChildren([HAnimSegment788]);
 HAnimJoint795 := THAnimJointNode.Create;
 HAnimJoint795.NameField := 'l_trapezium';
+end;
+
+procedure InitblenderSkeletonPart56;
+begin
+
 HAnimJoint795.Center := Vector3(0.1811,-0.0826,0.6975);
 HAnimSegment796 := THAnimSegmentNode.Create;
 HAnimSegment796.NameField := 'SEGMENT_FOR_l_trapezium';
@@ -4555,6 +4836,11 @@ Shape810 := Shape12;
 Transform809.AddChildren([Shape810]);
 { .AddChildren }
 HAnimSite808.AddChildren([Transform809]);
+end;
+
+procedure InitblenderSkeletonPart57;
+begin
+
 { .AddChildren }
 HAnimSegment804.AddChildren([HAnimSite808]);
 { .AddChildren }
@@ -4607,6 +4893,11 @@ HAnimSegment820.AddChildren([Transform822]);
 HAnimSite824 := THAnimSiteNode.Create;
 HAnimSite824.NameField := 'SEGMENT_FOR_l_carpal_distal_phalanx_1_tip';
 Transform825 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart58;
+begin
+
 Transform825.Translation := Vector3(0.1825,-0.0522,0.6455);
 Shape826 := Shape12;
 { .AddChild }
@@ -4663,6 +4954,11 @@ TouchSensor837 := TTouchSensorNode.Create;
 TouchSensor837.Description := 'joint l_metacarpal_2 segment SEGMENT_FOR_l_metacarpal_2';
 { .AddChildren }
 HAnimSegment836.AddChildren([TouchSensor837]);
+end;
+
+procedure InitblenderSkeletonPart59;
+begin
+
 Transform838 := TTransformNode.Create;
 Transform838.Translation := Vector3(0.1811,-0.0922,0.679);
 Shape839 := Shape17;
@@ -4716,6 +5012,11 @@ HAnimJoint851 := THAnimJointNode.Create;
 HAnimJoint851.NameField := 'l_carpal_middle_phalanx_2';
 HAnimJoint851.Center := Vector3(0.1815,-0.0877,0.5983);
 HAnimSegment852 := THAnimSegmentNode.Create;
+end;
+
+procedure InitblenderSkeletonPart60;
+begin
+
 HAnimSegment852.NameField := 'SEGMENT_FOR_l_carpal_middle_phalanx_2';
 TouchSensor853 := TTouchSensorNode.Create;
 TouchSensor853.Description := 'joint l_carpal_middle_phalanx_2 segment SEGMENT_FOR_l_carpal_middle_phalanx_2';
@@ -4770,6 +5071,11 @@ HAnimSite864.AddChildren([Transform865]);
 HAnimSegment860.AddChildren([HAnimSite864]);
 { .AddChildren }
 HAnimJoint859.AddChildren([HAnimSegment860]);
+end;
+
+procedure InitblenderSkeletonPart61;
+begin
+
 { .AddChildren }
 HAnimJoint851.AddChildren([HAnimJoint859]);
 { .AddChildren }
@@ -4825,6 +5131,11 @@ Shape879 := Shape17;
 Transform878.AddChildren([Shape879]);
 { .AddChildren }
 HAnimSegment876.AddChildren([Transform878]);
+end;
+
+procedure InitblenderSkeletonPart62;
+begin
+
 HAnimSite880 := THAnimSiteNode.Create;
 HAnimSite880.NameField := 'SEGMENT_FOR_l_metacarpal_3_tip';
 Transform881 := TTransformNode.Create;
@@ -4877,6 +5188,11 @@ TouchSensor893.Description := 'joint l_carpal_middle_phalanx_3 segment SEGMENT_F
 { .AddChildren }
 HAnimSegment892.AddChildren([TouchSensor893]);
 Transform894 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart63;
+begin
+
 Transform894.Translation := Vector3(0.1815,-0.1054,0.5947);
 Shape895 := Shape17;
 { .AddChild }
@@ -4935,6 +5251,11 @@ HAnimJoint875.AddChildren([HAnimJoint883]);
 HAnimJoint867.AddChildren([HAnimJoint875]);
 { .AddChildren }
 HAnimJoint787.AddChildren([HAnimJoint867]);
+end;
+
+procedure InitblenderSkeletonPart64;
+begin
+
 HAnimJoint907 := THAnimJointNode.Create;
 HAnimJoint907.NameField := 'l_hamate';
 HAnimJoint907.Center := Vector3(0.1809,-0.1276,0.6973);
@@ -4985,6 +5306,11 @@ HAnimSite920.NameField := 'SEGMENT_FOR_l_metacarpal_4_tip';
 Transform921 := TTransformNode.Create;
 Transform921.Translation := Vector3(0.1809,-0.1218,0.6777);
 Shape922 := Shape12;
+end;
+
+procedure InitblenderSkeletonPart65;
+begin
+
 { .AddChild }
 Transform921.AddChildren([Shape922]);
 { .AddChildren }
@@ -5039,6 +5365,11 @@ Transform934.AddChildren([Shape935]);
 { .AddChildren }
 HAnimSegment932.AddChildren([Transform934]);
 HAnimSite936 := THAnimSiteNode.Create;
+end;
+
+procedure InitblenderSkeletonPart66;
+begin
+
 HAnimSite936.NameField := 'SEGMENT_FOR_l_carpal_middle_phalanx_4_tip';
 Transform937 := TTransformNode.Create;
 Transform937.Translation := Vector3(0.1815,-0.1225,0.598);
@@ -5094,6 +5425,11 @@ HAnimJoint947.Center := Vector3(0.1815,-0.1347,0.6797);
 HAnimSegment948 := THAnimSegmentNode.Create;
 HAnimSegment948.NameField := 'SEGMENT_FOR_l_metacarpal_5';
 TouchSensor949 := TTouchSensorNode.Create;
+end;
+
+procedure InitblenderSkeletonPart67;
+begin
+
 TouchSensor949.Description := 'joint l_metacarpal_5 segment SEGMENT_FOR_l_metacarpal_5';
 { .AddChildren }
 HAnimSegment948.AddChildren([TouchSensor949]);
@@ -5148,6 +5484,11 @@ HAnimSegment956.AddChildren([HAnimSite960]);
 HAnimJoint955.AddChildren([HAnimSegment956]);
 HAnimJoint963 := THAnimJointNode.Create;
 HAnimJoint963.NameField := 'l_carpal_middle_phalanx_5';
+end;
+
+procedure InitblenderSkeletonPart68;
+begin
+
 HAnimJoint963.Center := Vector3(0.1815,-0.139,0.6124);
 HAnimSegment964 := THAnimSegmentNode.Create;
 HAnimSegment964.NameField := 'SEGMENT_FOR_l_carpal_middle_phalanx_5';
@@ -5200,6 +5541,11 @@ Shape978 := Shape12;
 Transform977.AddChildren([Shape978]);
 { .AddChildren }
 HAnimSite976.AddChildren([Transform977]);
+end;
+
+procedure InitblenderSkeletonPart69;
+begin
+
 { .AddChildren }
 HAnimSegment972.AddChildren([HAnimSite976]);
 { .AddChildren }
@@ -5259,6 +5605,11 @@ HAnimJoint987.Center := Vector3(-0.0387,-0.1157,1.2001);
 HAnimSegment988 := THAnimSegmentNode.Create;
 HAnimSegment988.NameField := 'SEGMENT_FOR_r_scapula';
 TouchSensor989 := TTouchSensorNode.Create;
+end;
+
+procedure InitblenderSkeletonPart70;
+begin
+
 TouchSensor989.Description := 'joint r_scapula segment SEGMENT_FOR_r_scapula';
 { .AddChildren }
 HAnimSegment988.AddChildren([TouchSensor989]);
@@ -5313,6 +5664,11 @@ HAnimSegment996.AddChildren([HAnimSite1000]);
 HAnimJoint995.AddChildren([HAnimSegment996]);
 HAnimJoint1003 := THAnimJointNode.Create;
 HAnimJoint1003.NameField := 'r_forearm';
+end;
+
+procedure InitblenderSkeletonPart71;
+begin
+
 HAnimJoint1003.Center := Vector3(-0.1819,-0.1075,0.9202);
 HAnimSegment1004 := THAnimSegmentNode.Create;
 HAnimSegment1004.NameField := 'SEGMENT_FOR_r_forearm';
@@ -5365,6 +5721,11 @@ Shape1018 := Shape12;
 Transform1017.AddChildren([Shape1018]);
 { .AddChildren }
 HAnimSite1016.AddChildren([Transform1017]);
+end;
+
+procedure InitblenderSkeletonPart72;
+begin
+
 { .AddChildren }
 HAnimSegment1012.AddChildren([HAnimSite1016]);
 { .AddChildren }
@@ -5417,6 +5778,11 @@ HAnimSegment1028.AddChildren([Transform1030]);
 HAnimSite1032 := THAnimSiteNode.Create;
 HAnimSite1032.NameField := 'SEGMENT_FOR_r_metacarpal_1_tip';
 Transform1033 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart73;
+begin
+
 Transform1033.Translation := Vector3(-0.1803,-0.0759,0.684);
 Shape1034 := Shape12;
 { .AddChild }
@@ -5470,6 +5836,11 @@ Transform1046.Translation := Vector3(-0.1825,-0.0522,0.6455);
 Shape1047 := Shape17;
 { .AddChild }
 Transform1046.AddChildren([Shape1047]);
+end;
+
+procedure InitblenderSkeletonPart74;
+begin
+
 { .AddChildren }
 HAnimSegment1044.AddChildren([Transform1046]);
 HAnimSite1048 := THAnimSiteNode.Create;
@@ -5526,6 +5897,11 @@ HAnimJoint1059 := THAnimJointNode.Create;
 HAnimJoint1059.NameField := 'r_metacarpal_2';
 HAnimJoint1059.Center := Vector3(-0.1811,-0.0922,0.679);
 HAnimSegment1060 := THAnimSegmentNode.Create;
+end;
+
+procedure InitblenderSkeletonPart75;
+begin
+
 HAnimSegment1060.NameField := 'SEGMENT_FOR_r_metacarpal_2';
 TouchSensor1061 := TTouchSensorNode.Create;
 TouchSensor1061.Description := 'joint r_metacarpal_2 segment SEGMENT_FOR_r_metacarpal_2';
@@ -5580,6 +5956,11 @@ HAnimSite1072.AddChildren([Transform1073]);
 HAnimSegment1068.AddChildren([HAnimSite1072]);
 { .AddChildren }
 HAnimJoint1067.AddChildren([HAnimSegment1068]);
+end;
+
+procedure InitblenderSkeletonPart76;
+begin
+
 HAnimJoint1075 := THAnimJointNode.Create;
 HAnimJoint1075.NameField := 'r_carpal_middle_phalanx_2';
 HAnimJoint1075.Center := Vector3(-0.1815,-0.0877,0.5983);
@@ -5630,6 +6011,11 @@ HAnimSite1088.NameField := 'SEGMENT_FOR_r_carpal_distal_phalanx_2_tip';
 Transform1089 := TTransformNode.Create;
 Transform1089.Translation := Vector3(-0.1805,-0.0885,0.5731);
 Shape1090 := Shape12;
+end;
+
+procedure InitblenderSkeletonPart77;
+begin
+
 { .AddChild }
 Transform1089.AddChildren([Shape1090]);
 { .AddChildren }
@@ -5687,6 +6073,11 @@ TouchSensor1101.Description := 'joint r_metacarpal_3 segment SEGMENT_FOR_r_metac
 { .AddChildren }
 HAnimSegment1100.AddChildren([TouchSensor1101]);
 Transform1102 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart78;
+begin
+
 Transform1102.Translation := Vector3(-0.1809,-0.1081,0.6772);
 Shape1103 := Shape17;
 { .AddChild }
@@ -5740,6 +6131,11 @@ HAnimJoint1115.NameField := 'r_carpal_middle_phalanx_3';
 HAnimJoint1115.Center := Vector3(-0.1815,-0.1054,0.5947);
 HAnimSegment1116 := THAnimSegmentNode.Create;
 HAnimSegment1116.NameField := 'SEGMENT_FOR_r_carpal_middle_phalanx_3';
+end;
+
+procedure InitblenderSkeletonPart79;
+begin
+
 TouchSensor1117 := TTouchSensorNode.Create;
 TouchSensor1117.Description := 'joint r_carpal_middle_phalanx_3 segment SEGMENT_FOR_r_carpal_middle_phalanx_3';
 { .AddChildren }
@@ -5795,6 +6191,11 @@ HAnimSegment1124.AddChildren([HAnimSite1128]);
 HAnimJoint1123.AddChildren([HAnimSegment1124]);
 { .AddChildren }
 HAnimJoint1115.AddChildren([HAnimJoint1123]);
+end;
+
+procedure InitblenderSkeletonPart80;
+begin
+
 { .AddChildren }
 HAnimJoint1107.AddChildren([HAnimJoint1115]);
 { .AddChildren }
@@ -5849,6 +6250,11 @@ Transform1142.AddChildren([Shape1143]);
 { .AddChildren }
 HAnimSegment1140.AddChildren([Transform1142]);
 HAnimSite1144 := THAnimSiteNode.Create;
+end;
+
+procedure InitblenderSkeletonPart81;
+begin
+
 HAnimSite1144.NameField := 'SEGMENT_FOR_r_metacarpal_4_tip';
 Transform1145 := TTransformNode.Create;
 Transform1145.Translation := Vector3(-0.1809,-0.1218,0.6777);
@@ -5901,6 +6307,11 @@ TouchSensor1157.Description := 'joint r_carpal_middle_phalanx_4 segment SEGMENT_
 HAnimSegment1156.AddChildren([TouchSensor1157]);
 Transform1158 := TTransformNode.Create;
 Transform1158.Translation := Vector3(-0.1815,-0.1225,0.598);
+end;
+
+procedure InitblenderSkeletonPart82;
+begin
+
 Shape1159 := Shape17;
 { .AddChild }
 Transform1158.AddChildren([Shape1159]);
@@ -5958,6 +6369,11 @@ HAnimJoint1139.AddChildren([HAnimJoint1147]);
 HAnimJoint1131.AddChildren([HAnimJoint1139]);
 HAnimJoint1171 := THAnimJointNode.Create;
 HAnimJoint1171.NameField := 'r_metacarpal_5';
+end;
+
+procedure InitblenderSkeletonPart83;
+begin
+
 HAnimJoint1171.Center := Vector3(-0.1814,-0.1347,0.6797);
 HAnimSegment1172 := THAnimSegmentNode.Create;
 HAnimSegment1172.NameField := 'SEGMENT_FOR_r_metacarpal_5';
@@ -6010,6 +6426,11 @@ Shape1186 := Shape12;
 Transform1185.AddChildren([Shape1186]);
 { .AddChildren }
 HAnimSite1184.AddChildren([Transform1185]);
+end;
+
+procedure InitblenderSkeletonPart84;
+begin
+
 { .AddChildren }
 HAnimSegment1180.AddChildren([HAnimSite1184]);
 { .AddChildren }
@@ -6062,6 +6483,11 @@ HAnimSegment1196.AddChildren([Transform1198]);
 HAnimSite1200 := THAnimSiteNode.Create;
 HAnimSite1200.NameField := 'SEGMENT_FOR_r_carpal_distal_phalanx_5_tip';
 Transform1201 := TTransformNode.Create;
+end;
+
+procedure InitblenderSkeletonPart85;
+begin
+
 Transform1201.Translation := Vector3(-0.1806,-0.1388,0.5938);
 Shape1202 := Shape12;
 { .AddChild }
@@ -6137,6 +6563,11 @@ HAnimJoint1204 := HAnimJoint43;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1204);
 HAnimJoint1205 := HAnimJoint51;
+end;
+
+procedure InitblenderSkeletonPart86;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1205);
 HAnimJoint1206 := HAnimJoint59;
@@ -6197,6 +6628,11 @@ HAnimJoint1224 := HAnimJoint203;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1224);
 HAnimJoint1225 := HAnimJoint211;
+end;
+
+procedure InitblenderSkeletonPart87;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1225);
 HAnimJoint1226 := HAnimJoint219;
@@ -6257,6 +6693,11 @@ HAnimJoint1244 := HAnimJoint363;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1244);
 HAnimJoint1245 := HAnimJoint371;
+end;
+
+procedure InitblenderSkeletonPart88;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1245);
 HAnimJoint1246 := HAnimJoint379;
@@ -6317,6 +6758,11 @@ HAnimJoint1264 := HAnimJoint523;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1264);
 HAnimJoint1265 := HAnimJoint531;
+end;
+
+procedure InitblenderSkeletonPart89;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1265);
 HAnimJoint1266 := HAnimJoint539;
@@ -6377,6 +6823,11 @@ HAnimJoint1284 := HAnimJoint683;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1284);
 HAnimJoint1285 := HAnimJoint691;
+end;
+
+procedure InitblenderSkeletonPart90;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1285);
 HAnimJoint1286 := HAnimJoint699;
@@ -6437,6 +6888,11 @@ HAnimJoint1304 := HAnimJoint843;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1304);
 HAnimJoint1305 := HAnimJoint851;
+end;
+
+procedure InitblenderSkeletonPart91;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1305);
 HAnimJoint1306 := HAnimJoint859;
@@ -6497,6 +6953,11 @@ HAnimJoint1324 := HAnimJoint1003;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1324);
 HAnimJoint1325 := HAnimJoint1011;
+end;
+
+procedure InitblenderSkeletonPart92;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1325);
 HAnimJoint1326 := HAnimJoint1019;
@@ -6557,6 +7018,11 @@ HAnimJoint1344 := HAnimJoint1163;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1344);
 HAnimJoint1345 := HAnimJoint1171;
+end;
+
+procedure InitblenderSkeletonPart93;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint1345);
 HAnimJoint1346 := HAnimJoint1179;
@@ -6611,6 +7077,11 @@ Group8.AddChildren([OrientationInterpolator1356]);
 OrientationInterpolator1357 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1357.SetKey([0,1]);
 OrientationInterpolator1357.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart94;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1357]);
 OrientationInterpolator1358 := TOrientationInterpolatorNode.Create;
@@ -6661,6 +7132,11 @@ Group8.AddChildren([OrientationInterpolator1366]);
 OrientationInterpolator1367 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1367.SetKey([0,1]);
 OrientationInterpolator1367.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart95;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1367]);
 OrientationInterpolator1368 := TOrientationInterpolatorNode.Create;
@@ -6711,6 +7187,11 @@ Group8.AddChildren([OrientationInterpolator1376]);
 OrientationInterpolator1377 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1377.SetKey([0,1]);
 OrientationInterpolator1377.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart96;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1377]);
 OrientationInterpolator1378 := TOrientationInterpolatorNode.Create;
@@ -6761,6 +7242,11 @@ Group8.AddChildren([OrientationInterpolator1386]);
 OrientationInterpolator1387 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1387.SetKey([0,1]);
 OrientationInterpolator1387.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart97;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1387]);
 OrientationInterpolator1388 := TOrientationInterpolatorNode.Create;
@@ -6811,6 +7297,11 @@ Group8.AddChildren([OrientationInterpolator1396]);
 OrientationInterpolator1397 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1397.SetKey([0,1]);
 OrientationInterpolator1397.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart98;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1397]);
 OrientationInterpolator1398 := TOrientationInterpolatorNode.Create;
@@ -6861,6 +7352,11 @@ Group8.AddChildren([OrientationInterpolator1406]);
 OrientationInterpolator1407 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1407.SetKey([0,1]);
 OrientationInterpolator1407.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart99;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1407]);
 OrientationInterpolator1408 := TOrientationInterpolatorNode.Create;
@@ -6911,6 +7407,11 @@ Group8.AddChildren([OrientationInterpolator1416]);
 OrientationInterpolator1417 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1417.SetKey([0,1]);
 OrientationInterpolator1417.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart100;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1417]);
 OrientationInterpolator1418 := TOrientationInterpolatorNode.Create;
@@ -6961,6 +7462,11 @@ Group8.AddChildren([OrientationInterpolator1426]);
 OrientationInterpolator1427 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1427.SetKey([0,1]);
 OrientationInterpolator1427.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart101;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1427]);
 OrientationInterpolator1428 := TOrientationInterpolatorNode.Create;
@@ -7011,6 +7517,11 @@ Group8.AddChildren([OrientationInterpolator1436]);
 OrientationInterpolator1437 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1437.SetKey([0,1]);
 OrientationInterpolator1437.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart102;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1437]);
 OrientationInterpolator1438 := TOrientationInterpolatorNode.Create;
@@ -7061,6 +7572,11 @@ Group8.AddChildren([OrientationInterpolator1446]);
 OrientationInterpolator1447 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1447.SetKey([0,1]);
 OrientationInterpolator1447.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart103;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1447]);
 OrientationInterpolator1448 := TOrientationInterpolatorNode.Create;
@@ -7111,6 +7627,11 @@ Group8.AddChildren([OrientationInterpolator1456]);
 OrientationInterpolator1457 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1457.SetKey([0,1]);
 OrientationInterpolator1457.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart104;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1457]);
 OrientationInterpolator1458 := TOrientationInterpolatorNode.Create;
@@ -7161,6 +7682,11 @@ Group8.AddChildren([OrientationInterpolator1466]);
 OrientationInterpolator1467 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1467.SetKey([0,1]);
 OrientationInterpolator1467.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart105;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1467]);
 OrientationInterpolator1468 := TOrientationInterpolatorNode.Create;
@@ -7211,6 +7737,11 @@ Group8.AddChildren([OrientationInterpolator1476]);
 OrientationInterpolator1477 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1477.SetKey([0,1]);
 OrientationInterpolator1477.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart106;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1477]);
 OrientationInterpolator1478 := TOrientationInterpolatorNode.Create;
@@ -7261,6 +7792,11 @@ Group8.AddChildren([OrientationInterpolator1486]);
 OrientationInterpolator1487 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1487.SetKey([0,1]);
 OrientationInterpolator1487.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart107;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1487]);
 OrientationInterpolator1488 := TOrientationInterpolatorNode.Create;
@@ -7311,6 +7847,11 @@ Group8.AddChildren([OrientationInterpolator1496]);
 OrientationInterpolator1497 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator1497.SetKey([0,1]);
 OrientationInterpolator1497.SetKeyValue([Vector4(0,0,0,0),Vector4(0,0,0,0)]);
+end;
+
+procedure InitblenderSkeletonPart108;
+begin
+
 { .AddChildren }
 Group8.AddChildren([OrientationInterpolator1497]);
 Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator1352.EventSet_fraction);
@@ -7390,6 +7931,11 @@ Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator137
 Group8.AddRoute(OrientationInterpolator1370.EventValue_changed, HAnimJoint179.FdRotation);
 { .AddX3DRoute }
 Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator1371.EventSet_fraction);
+end;
+
+procedure InitblenderSkeletonPart109;
+begin
+
 { .AddX3DRoute }
 Group8.AddRoute(OrientationInterpolator1371.EventValue_changed, HAnimJoint187.FdRotation);
 { .AddX3DRoute }
@@ -7470,6 +8016,11 @@ Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator139
 Group8.AddRoute(OrientationInterpolator1390.EventValue_changed, HAnimJoint339.FdRotation);
 { .AddX3DRoute }
 Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator1391.EventSet_fraction);
+end;
+
+procedure InitblenderSkeletonPart110;
+begin
+
 { .AddX3DRoute }
 Group8.AddRoute(OrientationInterpolator1391.EventValue_changed, HAnimJoint347.FdRotation);
 { .AddX3DRoute }
@@ -7550,6 +8101,11 @@ Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator141
 Group8.AddRoute(OrientationInterpolator1410.EventValue_changed, HAnimJoint499.FdRotation);
 { .AddX3DRoute }
 Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator1411.EventSet_fraction);
+end;
+
+procedure InitblenderSkeletonPart111;
+begin
+
 { .AddX3DRoute }
 Group8.AddRoute(OrientationInterpolator1411.EventValue_changed, HAnimJoint507.FdRotation);
 { .AddX3DRoute }
@@ -7630,6 +8186,11 @@ Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator143
 Group8.AddRoute(OrientationInterpolator1430.EventValue_changed, HAnimJoint659.FdRotation);
 { .AddX3DRoute }
 Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator1431.EventSet_fraction);
+end;
+
+procedure InitblenderSkeletonPart112;
+begin
+
 { .AddX3DRoute }
 Group8.AddRoute(OrientationInterpolator1431.EventValue_changed, HAnimJoint667.FdRotation);
 { .AddX3DRoute }
@@ -7710,6 +8271,11 @@ Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator145
 Group8.AddRoute(OrientationInterpolator1450.EventValue_changed, HAnimJoint819.FdRotation);
 { .AddX3DRoute }
 Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator1451.EventSet_fraction);
+end;
+
+procedure InitblenderSkeletonPart113;
+begin
+
 { .AddX3DRoute }
 Group8.AddRoute(OrientationInterpolator1451.EventValue_changed, HAnimJoint827.FdRotation);
 { .AddX3DRoute }
@@ -7790,6 +8356,11 @@ Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator147
 Group8.AddRoute(OrientationInterpolator1470.EventValue_changed, HAnimJoint979.FdRotation);
 { .AddX3DRoute }
 Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator1471.EventSet_fraction);
+end;
+
+procedure InitblenderSkeletonPart114;
+begin
+
 { .AddX3DRoute }
 Group8.AddRoute(OrientationInterpolator1471.EventValue_changed, HAnimJoint987.FdRotation);
 { .AddX3DRoute }
@@ -7870,6 +8441,11 @@ Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator149
 Group8.AddRoute(OrientationInterpolator1490.EventValue_changed, HAnimJoint1139.FdRotation);
 { .AddX3DRoute }
 Group8.AddRoute(TimeSensor1349.EventFraction_changed, OrientationInterpolator1491.EventSet_fraction);
+end;
+
+procedure InitblenderSkeletonPart115;
+begin
+
 { .AddX3DRoute }
 Group8.AddRoute(OrientationInterpolator1491.EventValue_changed, HAnimJoint1147.FdRotation);
 { .AddX3DRoute }
@@ -7899,6 +8475,126 @@ Group8.AddRoute(OrientationInterpolator1497.EventValue_changed, HAnimJoint1195.F
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group8]);
+end;
+
+function CreateblenderSkeleton: TX3DRootNode;
+begin
+InitblenderSkeletonPart0;
+InitblenderSkeletonPart1;
+InitblenderSkeletonPart2;
+InitblenderSkeletonPart3;
+InitblenderSkeletonPart4;
+InitblenderSkeletonPart5;
+InitblenderSkeletonPart6;
+InitblenderSkeletonPart7;
+InitblenderSkeletonPart8;
+InitblenderSkeletonPart9;
+InitblenderSkeletonPart10;
+InitblenderSkeletonPart11;
+InitblenderSkeletonPart12;
+InitblenderSkeletonPart13;
+InitblenderSkeletonPart14;
+InitblenderSkeletonPart15;
+InitblenderSkeletonPart16;
+InitblenderSkeletonPart17;
+InitblenderSkeletonPart18;
+InitblenderSkeletonPart19;
+InitblenderSkeletonPart20;
+InitblenderSkeletonPart21;
+InitblenderSkeletonPart22;
+InitblenderSkeletonPart23;
+InitblenderSkeletonPart24;
+InitblenderSkeletonPart25;
+InitblenderSkeletonPart26;
+InitblenderSkeletonPart27;
+InitblenderSkeletonPart28;
+InitblenderSkeletonPart29;
+InitblenderSkeletonPart30;
+InitblenderSkeletonPart31;
+InitblenderSkeletonPart32;
+InitblenderSkeletonPart33;
+InitblenderSkeletonPart34;
+InitblenderSkeletonPart35;
+InitblenderSkeletonPart36;
+InitblenderSkeletonPart37;
+InitblenderSkeletonPart38;
+InitblenderSkeletonPart39;
+InitblenderSkeletonPart40;
+InitblenderSkeletonPart41;
+InitblenderSkeletonPart42;
+InitblenderSkeletonPart43;
+InitblenderSkeletonPart44;
+InitblenderSkeletonPart45;
+InitblenderSkeletonPart46;
+InitblenderSkeletonPart47;
+InitblenderSkeletonPart48;
+InitblenderSkeletonPart49;
+InitblenderSkeletonPart50;
+InitblenderSkeletonPart51;
+InitblenderSkeletonPart52;
+InitblenderSkeletonPart53;
+InitblenderSkeletonPart54;
+InitblenderSkeletonPart55;
+InitblenderSkeletonPart56;
+InitblenderSkeletonPart57;
+InitblenderSkeletonPart58;
+InitblenderSkeletonPart59;
+InitblenderSkeletonPart60;
+InitblenderSkeletonPart61;
+InitblenderSkeletonPart62;
+InitblenderSkeletonPart63;
+InitblenderSkeletonPart64;
+InitblenderSkeletonPart65;
+InitblenderSkeletonPart66;
+InitblenderSkeletonPart67;
+InitblenderSkeletonPart68;
+InitblenderSkeletonPart69;
+InitblenderSkeletonPart70;
+InitblenderSkeletonPart71;
+InitblenderSkeletonPart72;
+InitblenderSkeletonPart73;
+InitblenderSkeletonPart74;
+InitblenderSkeletonPart75;
+InitblenderSkeletonPart76;
+InitblenderSkeletonPart77;
+InitblenderSkeletonPart78;
+InitblenderSkeletonPart79;
+InitblenderSkeletonPart80;
+InitblenderSkeletonPart81;
+InitblenderSkeletonPart82;
+InitblenderSkeletonPart83;
+InitblenderSkeletonPart84;
+InitblenderSkeletonPart85;
+InitblenderSkeletonPart86;
+InitblenderSkeletonPart87;
+InitblenderSkeletonPart88;
+InitblenderSkeletonPart89;
+InitblenderSkeletonPart90;
+InitblenderSkeletonPart91;
+InitblenderSkeletonPart92;
+InitblenderSkeletonPart93;
+InitblenderSkeletonPart94;
+InitblenderSkeletonPart95;
+InitblenderSkeletonPart96;
+InitblenderSkeletonPart97;
+InitblenderSkeletonPart98;
+InitblenderSkeletonPart99;
+InitblenderSkeletonPart100;
+InitblenderSkeletonPart101;
+InitblenderSkeletonPart102;
+InitblenderSkeletonPart103;
+InitblenderSkeletonPart104;
+InitblenderSkeletonPart105;
+InitblenderSkeletonPart106;
+InitblenderSkeletonPart107;
+InitblenderSkeletonPart108;
+InitblenderSkeletonPart109;
+InitblenderSkeletonPart110;
+InitblenderSkeletonPart111;
+InitblenderSkeletonPart112;
+InitblenderSkeletonPart113;
+InitblenderSkeletonPart114;
+InitblenderSkeletonPart115;
 Result := X3D0;
 end;
 

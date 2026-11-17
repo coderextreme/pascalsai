@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createflowers: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group16: TGroupNode;
@@ -59,6 +58,8 @@ TimeSensor58: TTimeSensorNode;
 X3DPrototype67: TX3DPrototypeNode;
 X3DPrototype68: TX3DPrototypeNode;
 X3DPrototype69: TX3DPrototypeNode;
+
+procedure InitflowersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -104,6 +105,11 @@ Material24.SpecularColor := Vector3(0.5,0.5,0.5);
 { .SetMaterial }
 Appearance23.Material := Material24;
 ComposedCubeMapTexture25 := TComposedCubeMapTextureNode.Create;
+end;
+
+procedure InitflowersPart1;
+begin
+
 ImageTexture26 := TImageTextureNode.Create;
 ImageTexture26.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_back.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png']);
 { .SetBackTexture }
@@ -173,6 +179,11 @@ X3DField36.AccessType := 'inputOnly';
 X3DField36.Value := '0.5';
 { .AddX3DField }
 ComposedShader32.X3DField := X3DField36;
+end;
+
+procedure InitflowersPart2;
+begin
+
 X3DField37 := TX3DField.Create;
 X3DField37.NameField := 'scale';
 X3DField37.Type := 'SFFloat';
@@ -219,6 +230,11 @@ X3DField43 := TX3DField.Create;
 X3DField43.NameField := 'tdelta';
 X3DField43.Type := 'SFFloat';
 X3DField43.AccessType := 'inputOnly';
+end;
+
+procedure InitflowersPart3;
+begin
+
 X3DField43.Value := '0';
 { .AddX3DField }
 ComposedShader32.X3DField := X3DField43;
@@ -271,6 +287,11 @@ X3DField51.AccessType := 'inputOnly';
 X3DField51.Type := 'SFFloat';
 { .AddX3DField }
 Script48.X3DField := X3DField51;
+end;
+
+procedure InitflowersPart4;
+begin
+
 X3DField52 := TX3DField.Create;
 X3DField52.NameField := 'a';
 X3DField52.Type := 'SFFloat';
@@ -428,6 +449,15 @@ X3DPrototype69.NameField := 'flower';
 Group16.X3DPrototype := X3DPrototype69;
 { .AddGroup }
 X3D0.AddChildren([Group16]);
+end;
+
+function Createflowers: TX3DRootNode;
+begin
+InitflowersPart0;
+InitflowersPart1;
+InitflowersPart2;
+InitflowersPart3;
+InitflowersPart4;
 Result := X3D0;
 end;
 

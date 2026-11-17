@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createarc3: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -58,6 +57,8 @@ X3DField56: TX3DField;
 Transform57: TTransformNode;
 X3DField58: TX3DField;
 X3DField59: TX3DField;
+
+procedure Initarc3Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -107,6 +108,11 @@ X3DField17.Value := '0 0 0';
 { .SetX3DField }
 Script16.X3DField := X3DField17;
 X3DField18 := TX3DField.Create;
+end;
+
+procedure Initarc3Part1;
+begin
+
 X3DField18.NameField := 'old';
 X3DField18.AccessType := 'inputOutput';
 X3DField18.Type := 'SFVec3f';
@@ -338,6 +344,12 @@ Group7.AddRoute(Transform26.FdTranslation, Script49.EventSet_endpoint);
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createarc3: TX3DRootNode;
+begin
+Initarc3Part0;
+Initarc3Part1;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateHelloWorldCommented: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -29,6 +28,8 @@ Text26: TTextNode;
 FontStyle27: TFontStyleNode;
 Appearance28: TAppearanceNode;
 Material29: TMaterialNode;
+
+procedure InitHelloWorldCommentedPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -89,6 +90,11 @@ Appearance21.Texture := ImageTexture23;
 Shape19.Appearance := Appearance21;
 { .AddChild }
 Transform18.AddChildren([Shape19]);
+end;
+
+procedure InitHelloWorldCommentedPart1;
+begin
+
 { Shape complete }
 { .AddChildren }
 Group16.AddChildren([Transform18]);
@@ -130,6 +136,12 @@ Group14.AddChildren([Group16]);
 { Group complete }
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function CreateHelloWorldCommented: TX3DRootNode;
+begin
+InitHelloWorldCommentedPart0;
+InitHelloWorldCommentedPart1;
 Result := X3D0;
 end;
 

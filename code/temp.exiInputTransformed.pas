@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createtemp.exiInputTransformed: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 unit9: TunitNode;
@@ -185,6 +184,8 @@ PackagedShader204: TPackagedShaderNode;
 ShaderPart205: TShaderPartNode;
 ShaderProgram206: TShaderProgramNode;
 OrthoViewpoint207: TOrthoViewpointNode;
+
+procedure Inittemp.exiInputTransformedPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.P0:noNamespaceSchemaLocation := 'https://www.web3d.org/specifications/x3d-4.0.xsd';
@@ -229,6 +230,11 @@ X3D0.Meta['generator'] := 'Netbeans https://www.netbeans.org';
 X3D0.Meta['creator'] := 'Don Brutzman';
 X3D0.Meta['reference'] := 'https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/stylesheets/java/examples/SmokeTestProgramOutput.x3d';
 X3D0.Meta['reference'] := 'Console output, ClassicVRML encoding, VRML97 encoding and pretty-print documentation:';
+end;
+
+procedure Inittemp.exiInputTransformedPart1;
+begin
+
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.txt';
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.x3dv';
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.wrl';
@@ -275,6 +281,11 @@ WorldInfo38.Title := 'SmokeTestProgram produced by X3D Java SAI Library (X3DJSAI
 { .AddChildren }
 Group32.AddChildren([WorldInfo38]);
 WorldInfo39 := WorldInfo38;
+end;
+
+procedure Inittemp.exiInputTransformedPart2;
+begin
+
 { .AddChildren }
 Group32.AddChildren([WorldInfo39]);
 WorldInfo40 := WorldInfo38;
@@ -326,6 +337,11 @@ Transform43.AddChildren([Anchor44]);
 { .AddChildren }
 Group32.AddChildren([Transform43]);
 Shape50 := TShapeNode.Create;
+end;
+
+procedure Inittemp.exiInputTransformedPart3;
+begin
+
 Appearance51 := TAppearanceNode.Create;
 Appearance51.AlphaCutoff := 0.5;
 Material52 := TMaterialNode.Create;
@@ -377,6 +393,11 @@ Material62 := Material47;
 Appearance61.Material := Material62;
 { .SetAppearance }
 Shape60.Appearance := Appearance61;
+end;
+
+procedure Inittemp.exiInputTransformedPart4;
+begin
+
 Text63 := TTextNode.Create;
 Text63.MaxExtent := 0;
 Text63.SetText(['X3D Java','SAI Library','X3DJSAIL']);
@@ -428,6 +449,11 @@ TimeSensor72.CycleInterval := 5;
 TimeSensor72.Loop := True;
 TimeSensor72.PauseTime := 0;
 TimeSensor72.ResumeTime := 0;
+end;
+
+procedure Inittemp.exiInputTransformedPart5;
+begin
+
 TimeSensor72.StartTime := 0;
 TimeSensor72.StopTime := 0;
 { .AddChildren }
@@ -1137,6 +1163,16 @@ OrthoViewpoint207.NearDistance := -1;
 Group32.AddChildren([OrthoViewpoint207]);
 { .AddGroup }
 X3D0.AddChildren([Group32]);
+end;
+
+function Createtemp.exiInputTransformed: TX3DRootNode;
+begin
+Inittemp.exiInputTransformedPart0;
+Inittemp.exiInputTransformedPart1;
+Inittemp.exiInputTransformedPart2;
+Inittemp.exiInputTransformedPart3;
+Inittemp.exiInputTransformedPart4;
+Inittemp.exiInputTransformedPart5;
 Result := X3D0;
 end;
 

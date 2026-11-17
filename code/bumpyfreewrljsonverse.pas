@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbumpyfreewrljsonverse: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group30: TGroupNode;
@@ -204,6 +203,8 @@ SFNode224: TSFNode;
 ComposedShader225: TComposedShaderNode;
 Layout226: TLayoutNode;
 Viewport227: TViewportNode;
+
+procedure InitbumpyfreewrljsonversePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -252,6 +253,11 @@ Group30.AddChildren([NavigationInfo31]);
 DirectionalLight32 := TDirectionalLightNode.Create;
 DirectionalLight32.AmbientIntensity := 0.2;
 DirectionalLight32.Direction := Vector3(0,-1,0);
+end;
+
+procedure InitbumpyfreewrljsonversePart1;
+begin
+
 { .AddChildren }
 Group30.AddChildren([DirectionalLight32]);
 DirectionalLight33 := TDirectionalLightNode.Create;
@@ -306,6 +312,11 @@ Shape44 := TShapeNode.Create;
 Cone45 := TConeNode.Create;
 Cone45.BottomRadius := 0.8;
 Cone45.Height := 3;
+end;
+
+procedure InitbumpyfreewrljsonversePart2;
+begin
+
 { .SetGeometry }
 Shape44.Geometry := Cone45;
 Appearance46 := TAppearanceNode.Create;
@@ -364,6 +375,11 @@ Shape59.Geometry := Cylinder60;
 Appearance61 := TAppearanceNode.Create;
 Material62 := TMaterialNode.Create;
 Material62.DiffuseColor := Vector3(0,0,1);
+end;
+
+procedure InitbumpyfreewrljsonversePart3;
+begin
+
 Material62.EmissiveColor := Vector3(0,0,1);
 { .SetMaterial }
 Appearance61.Material := Material62;
@@ -422,6 +438,11 @@ Material75.SpecularColor := Vector3(0.5,0.5,0.5);
 { .SetMaterial }
 Appearance74.Material := Material75;
 ComposedCubeMapTexture76 := TComposedCubeMapTextureNode.Create;
+end;
+
+procedure InitbumpyfreewrljsonversePart4;
+begin
+
 ImageTexture77 := TImageTextureNode.Create;
 ImageTexture77.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_back.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png']);
 { .SetBackTexture }
@@ -472,6 +493,11 @@ X3DField86.Value := '0.5';
 { .AddX3DField }
 ComposedShader83.X3DField := X3DField86;
 X3DField87 := TX3DField.Create;
+end;
+
+procedure InitbumpyfreewrljsonversePart5;
+begin
+
 X3DField87.NameField := 'scale';
 X3DField87.Type := 'SFFloat';
 X3DField87.AccessType := 'inputOnly';
@@ -518,6 +544,11 @@ X3DField93.NameField := 'tdelta';
 X3DField93.Type := 'SFFloat';
 X3DField93.AccessType := 'inputOutput';
 X3DField93.Value := '0';
+end;
+
+procedure InitbumpyfreewrljsonversePart6;
+begin
+
 { .AddX3DField }
 ComposedShader83.X3DField := X3DField93;
 X3DField94 := TX3DField.Create;
@@ -573,6 +604,11 @@ Script97.X3DField := X3DField100;
 X3DField101 := TX3DField.Create;
 X3DField101.NameField := 'b';
 X3DField101.Type := 'SFFloat';
+end;
+
+procedure InitbumpyfreewrljsonversePart7;
+begin
+
 X3DField101.AccessType := 'inputOutput';
 X3DField101.Value := '10';
 { .AddX3DField }
@@ -1227,6 +1263,18 @@ LayerSet35.Layers := LayoutLayer117;
 Group30.AddChildren([LayerSet35]);
 { .AddGroup }
 X3D0.AddChildren([Group30]);
+end;
+
+function Createbumpyfreewrljsonverse: TX3DRootNode;
+begin
+InitbumpyfreewrljsonversePart0;
+InitbumpyfreewrljsonversePart1;
+InitbumpyfreewrljsonversePart2;
+InitbumpyfreewrljsonversePart3;
+InitbumpyfreewrljsonversePart4;
+InitbumpyfreewrljsonversePart5;
+InitbumpyfreewrljsonversePart6;
+InitbumpyfreewrljsonversePart7;
 Result := X3D0;
 end;
 

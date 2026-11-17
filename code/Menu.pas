@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateMenu: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group5: TGroupNode;
@@ -77,6 +76,8 @@ IS65: TIS;
 connect66: Tconnect;
 X3DPrototype69: TX3DPrototypeNode;
 MFString70: TMFString;
+
+procedure InitMenuPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -128,6 +129,11 @@ IS18.Connect := connect19;
 { .SetIS }
 Text17.IS := IS18;
 FontStyle20 := TFontStyleNode.Create;
+end;
+
+procedure InitMenuPart1;
+begin
+
 FontStyle20.Size := 2.4;
 FontStyle20.Spacing := 1.2;
 FontStyle20.Justify := fjMiddle;
@@ -182,6 +188,11 @@ Inline31.SetUrl(['../resources/JinCheekRaiser.x3d','JinCheekRaiser.x3d']);
 Switch26.AddChildren([Inline31]);
 Inline32 := TInlineNode.Create;
 Inline32.SetUrl(['../resources/JinLidTightener.x3d','JinLidTightener.x3d']);
+end;
+
+procedure InitMenuPart2;
+begin
+
 { .AddChildren }
 Switch26.AddChildren([Inline32]);
 Inline33 := TInlineNode.Create;
@@ -236,6 +247,11 @@ Inline45 := TInlineNode.Create;
 Inline45.SetUrl(['../resources/JinLipTightener.x3d','JinLipTightener.x3d']);
 { .AddChildren }
 Switch26.AddChildren([Inline45]);
+end;
+
+procedure InitMenuPart3;
+begin
+
 Inline46 := TInlineNode.Create;
 Inline46.SetUrl(['../resources/JinLipPressor.x3d','JinLipPressor.x3d']);
 { .AddChildren }
@@ -290,6 +306,11 @@ X3DField58.Type := 'MFString';
 X3DField58.AccessType := 'initializeOnly';
 { .SetX3DField }
 Script57.X3DField := X3DField58;
+end;
+
+procedure InitMenuPart4;
+begin
+
 X3DField59 := TX3DField.Create;
 X3DField59.NameField := 'selection';
 X3DField59.Type := 'SFInt32';
@@ -381,6 +402,15 @@ X3DPrototype69.MFString := MFString70;
 Group5.X3DPrototype := X3DPrototype69;
 { .AddGroup }
 X3D0.AddChildren([Group5]);
+end;
+
+function CreateMenu: TX3DRootNode;
+begin
+InitMenuPart0;
+InitMenuPart1;
+InitMenuPart2;
+InitMenuPart3;
+InitMenuPart4;
 Result := X3D0;
 end;
 

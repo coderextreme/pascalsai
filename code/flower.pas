@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createflower: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -29,6 +28,8 @@ X3DField19: TX3DField;
 X3DField20: TX3DField;
 X3DField21: TX3DField;
 TimeSensor22: TTimeSensorNode;
+
+procedure InitflowerPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -76,6 +77,11 @@ IndexedFaceSet16 := TIndexedFaceSetNode.Create;
 IndexedFaceSet16.Ccw := False;
 IndexedFaceSet16.Convex := False;
 IndexedFaceSet16.SetCoordIndex([0,1,2,-1]);
+end;
+
+procedure InitflowerPart1;
+begin
+
 Coordinate17 := TCoordinateNode.Create;
 Coordinate17.SetPoint([Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0)]);
 { .SetCoord }
@@ -204,6 +210,12 @@ Group7.AddRoute(TimeSensor22.EventFraction_changed, Script18.EventSet_fraction);
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createflower: TX3DRootNode;
+begin
+InitflowerPart0;
+InitflowerPart1;
 Result := X3D0;
 end;
 

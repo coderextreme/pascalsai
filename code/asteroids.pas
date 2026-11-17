@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createasteroids: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -24,6 +23,8 @@ Transform14: TTransformNode;
 IS15: TIS;
 connect16: Tconnect;
 X3DPrototype17: TX3DPrototypeNode;
+
+procedure InitasteroidsPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -74,6 +75,11 @@ X3DPrototype17.NameField := 'anyShape';
 Group7.X3DPrototype := X3DPrototype17;
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createasteroids: TX3DRootNode;
+begin
+InitasteroidsPart0;
 Result := X3D0;
 end;
 

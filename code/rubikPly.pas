@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreaterubikPly: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -113,6 +112,8 @@ Shape103: TShapeNode;
 IndexedLineSet104: TIndexedLineSetNode;
 Coordinate105: TCoordinateNode;
 Color106: TColorNode;
+
+procedure InitrubikPlyPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -162,6 +163,11 @@ Shape14.Appearance := Appearance16;
 X3DField13.Shape := Shape14;
 { .AddX3DField }
 X3DInterfaceDeclaration11.X3DField := X3DField13;
+end;
+
+procedure InitrubikPlyPart1;
+begin
+
 { .SetX3DInterfaceDeclaration }
 X3DPrototype10.X3DInterfaceDeclaration := X3DInterfaceDeclaration11;
 X3DPrototype18 := TX3DPrototype.Create;
@@ -216,6 +222,11 @@ X3DField26.Shape := Shape27;
 X3DInterfaceDeclaration24.X3DField := X3DField26;
 { .SetX3DInterfaceDeclaration }
 X3DPrototype23.X3DInterfaceDeclaration := X3DInterfaceDeclaration24;
+end;
+
+procedure InitrubikPlyPart2;
+begin
+
 X3DPrototype31 := TX3DPrototype.Create;
 Transform32 := TTransformNode.Create;
 IS33 := TIS.Create;
@@ -267,6 +278,11 @@ SFVec3f44.NameField := 'xtranslation';
 SFVec3f44.Value := '-2 0 0';
 { .SetSFVec3f }
 X3DPrototype43.SFVec3f := SFVec3f44;
+end;
+
+procedure InitrubikPlyPart3;
+begin
+
 IS45 := TIS.Create;
 connect46 := Tconnect.Create;
 connect46.NodeField := 'myShape';
@@ -320,6 +336,11 @@ IS57 := TIS.Create;
 connect58 := Tconnect.Create;
 connect58.NodeField := 'translation';
 connect58.ProtoField := 'ztranslation';
+end;
+
+procedure InitrubikPlyPart4;
+begin
+
 { .AddConnect }
 IS57.Connect := connect58;
 { .SetIS }
@@ -373,6 +394,11 @@ connect70.ProtoField := 'myShape';
 IS69.Connect := connect70;
 { .SetIS }
 X3DPrototype67.IS := IS69;
+end;
+
+procedure InitrubikPlyPart5;
+begin
+
 { .AddX3DPrototype }
 Transform56.X3DPrototype := X3DPrototype67;
 { .SetTransform }
@@ -426,6 +452,11 @@ X3DPrototype83 := TX3DPrototypeNode.Create;
 X3DPrototype83.NameField := 'nine';
 SFVec3f84 := TSFVec3f.Create(nine4, false, 'ztranslation', Vector3(0,0,0));
 SFVec3f84.NameField := 'ztranslation';
+end;
+
+procedure InitrubikPlyPart6;
+begin
+
 SFVec3f84.Value := '0 0 0';
 { .SetSFVec3f }
 X3DPrototype83.SFVec3f := SFVec3f84;
@@ -481,6 +512,11 @@ X3DPrototype71.X3DPrototype := X3DPrototype79;
 Group7.X3DPrototype := X3DPrototype71;
 X3DPrototype95 := TX3DPrototypeNode.Create;
 X3DPrototype95.NameField := 'twentyseven';
+end;
+
+procedure InitrubikPlyPart7;
+begin
+
 SFVec3f96 := TSFVec3f.Create(twentyseven4, false, 'ttranslation', Vector3(0,0,0));
 SFVec3f96.NameField := 'ttranslation';
 SFVec3f96.Value := '0 0 0';
@@ -529,6 +565,18 @@ X3DPrototype95.MFNode := MFNode97;
 Group7.X3DPrototype := X3DPrototype95;
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function CreaterubikPly: TX3DRootNode;
+begin
+InitrubikPlyPart0;
+InitrubikPlyPart1;
+InitrubikPlyPart2;
+InitrubikPlyPart3;
+InitrubikPlyPart4;
+InitrubikPlyPart5;
+InitrubikPlyPart6;
+InitrubikPlyPart7;
 Result := X3D0;
 end;
 

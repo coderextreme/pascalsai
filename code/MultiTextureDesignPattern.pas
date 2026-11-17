@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateMultiTextureDesignPattern: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -38,6 +37,8 @@ MultiTextureTransform36: TMultiTextureTransformNode;
 TextureTransform37: TTextureTransformNode;
 TextureTransform38: TTextureTransformNode;
 TextureTransform39: TTextureTransformNode;
+
+procedure InitMultiTextureDesignPatternPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -86,6 +87,11 @@ Material23 := TMaterialNode.Create;
 Material23.DiffuseColor := Vector3(0.2,0.4,0.8);
 { .SetMaterial }
 Appearance22.Material := Material23;
+end;
+
+procedure InitMultiTextureDesignPatternPart1;
+begin
+
 { .SetAppearance }
 Shape19.Appearance := Appearance22;
 { .AddChildren }
@@ -147,12 +153,24 @@ TextureTransform39 := TTextureTransformNode.Create;
 MultiTextureTransform36.FdTextureTransform.Add(TextureTransform39);
 { .SetTextureTransform }
 Appearance30.TextureTransform := MultiTextureTransform36;
+end;
+
+procedure InitMultiTextureDesignPatternPart2;
+begin
+
 { .SetAppearance }
 Shape24.Appearance := Appearance30;
 { .AddChildren }
 Group15.AddChildren([Shape24]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function CreateMultiTextureDesignPattern: TX3DRootNode;
+begin
+InitMultiTextureDesignPatternPart0;
+InitMultiTextureDesignPatternPart1;
+InitMultiTextureDesignPatternPart2;
 Result := X3D0;
 end;
 

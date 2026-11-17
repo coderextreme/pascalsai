@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreatePoseCollection: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group16: TGroupNode;
@@ -26,6 +25,8 @@ HAnimJoint25: THAnimJointNode;
 HAnimJoint26: THAnimJointNode;
 HAnimJoint27: THAnimJointNode;
 HAnimJoint28: THAnimJointNode;
+
+procedure InitPoseCollectionPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -70,6 +71,11 @@ HAnimPose18.AddChildren([HAnimJoint20]);
 HAnimJoint21 := THAnimJointNode.Create;
 HAnimJoint21.NameField := 'r_shoulder';
 HAnimJoint21.Description := 'right shoulder';
+end;
+
+procedure InitPoseCollectionPart1;
+begin
+
 HAnimJoint21.Rotation := Vector4(-0.1,0,-0.02,0.25);
 { .AddChildren }
 HAnimPose18.AddChildren([HAnimJoint21]);
@@ -119,6 +125,12 @@ HAnimPose18.AddChildren([HAnimJoint28]);
 Group16.AddChildren([HAnimPose18]);
 { .AddGroup }
 X3D0.AddChildren([Group16]);
+end;
+
+function CreatePoseCollection: TX3DRootNode;
+begin
+InitPoseCollectionPart0;
+InitPoseCollectionPart1;
 Result := X3D0;
 end;
 

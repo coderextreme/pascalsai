@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateTrebuchet: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group17: TGroupNode;
@@ -354,6 +353,8 @@ OrientationInterpolator354: TOrientationInterpolatorNode;
 PositionInterpolator355: TPositionInterpolatorNode;
 OrientationInterpolator356: TOrientationInterpolatorNode;
 PositionInterpolator357: TPositionInterpolatorNode;
+
+procedure InitTrebuchetPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -397,6 +398,11 @@ Sound20.MaxBack := 1000;
 Sound20.MaxFront := 1000;
 AudioClip21 := TAudioClipNode.Create;
 AudioClip21.Description := 'HolyGrail';
+end;
+
+procedure InitTrebuchetPart1;
+begin
+
 AudioClip21.Loop := True;
 AudioClip21.SetUrl(['holygral.mp3','http://www.nps.navy.mil/code32/vrml/holygral.mp3']);
 { .SetSource }
@@ -449,6 +455,11 @@ Switch33 := TSwitchNode.Create;
 Switch33.WhichChoice := 0;
 Group34 := TGroupNode.Create;
 Shape35 := TShapeNode.Create;
+end;
+
+procedure InitTrebuchetPart2;
+begin
+
 Appearance36 := Appearance28;
 { .SetAppearance }
 Shape35.Appearance := Appearance36;
@@ -507,6 +518,11 @@ TouchSensor50.Description := 'weight selector';
 Transform32.AddChildren([TouchSensor50]);
 Transform51 := TTransformNode.Create;
 Transform51.Translation := Vector3(8,0,0);
+end;
+
+procedure InitTrebuchetPart3;
+begin
+
 Shape52 := TShapeNode.Create;
 Box53 := TBoxNode.Create;
 Box53.Size := Vector3(20,1,1);
@@ -560,6 +576,11 @@ Material68 := TMaterialNode.Create;
 Material68.Transparency := 1;
 { .SetMaterial }
 Appearance67.Material := Material68;
+end;
+
+procedure InitTrebuchetPart4;
+begin
+
 { .SetAppearance }
 Shape65.Appearance := Appearance67;
 { .AddChild }
@@ -614,6 +635,11 @@ Appearance81 := Appearance28;
 Shape80.Appearance := Appearance81;
 Text82 := TTextNode.Create;
 Text82.SetText(['Bowling Ball (10 lbs)']);
+end;
+
+procedure InitTrebuchetPart5;
+begin
+
 FontStyle83 := TFontStyleNode.Create;
 FontStyle83.Size := 0.5;
 { .SetFontStyle }
@@ -668,6 +694,11 @@ Appearance95 := Appearance28;
 { .SetAppearance }
 Shape94.Appearance := Appearance95;
 Text96 := TTextNode.Create;
+end;
+
+procedure InitTrebuchetPart6;
+begin
+
 Text96.SetText(['Chicken (5 lbs)']);
 FontStyle97 := TFontStyleNode.Create;
 FontStyle97.Size := 0.5;
@@ -723,6 +754,11 @@ ImageTexture108 := TImageTextureNode.Create;
 ImageTexture108.SetUrl(['wood.gif','https://www.web3d.org/x3d/content/examples/Basic/StudentProjects/wood.gif']);
 { .SetTexture }
 Appearance107.Texture := ImageTexture108;
+end;
+
+procedure InitTrebuchetPart7;
+begin
+
 { .SetAppearance }
 Shape105.Appearance := Appearance107;
 { .AddChild }
@@ -777,6 +813,11 @@ Transform104.AddChildren([Transform117]);
 Transform120 := TTransformNode.Create;
 Transform120.Translation := Vector3(0,18.2,-0.3);
 Shape121 := TShapeNode.Create;
+end;
+
+procedure InitTrebuchetPart8;
+begin
+
 Box122 := TBoxNode.Create;
 Box122.Size := Vector3(5,5,0.5);
 { .SetGeometry }
@@ -829,6 +870,11 @@ Shape131.Appearance := Appearance133;
 Transform130.AddChildren([Shape131]);
 Transform134 := TTransformNode.Create;
 Transform134.Translation := Vector3(7,0,0);
+end;
+
+procedure InitTrebuchetPart9;
+begin
+
 Shape135 := TShapeNode.Create;
 Box136 := TBoxNode.Create;
 Box136.Size := Vector3(8,2,2);
@@ -884,6 +930,11 @@ Transform143.AddChildren([Shape144]);
 { knott }
 { .AddChildren }
 Transform138.AddChildren([Transform143]);
+end;
+
+procedure InitTrebuchetPart10;
+begin
+
 { .AddChildren }
 Transform129.AddChildren([Transform138]);
 { The Unicorn }
@@ -939,6 +990,11 @@ Appearance162 := Appearance145;
 Shape161.Appearance := Appearance162;
 Extrusion163 := TExtrusionNode.Create;
 Extrusion163.BeginCap := False;
+end;
+
+procedure InitTrebuchetPart11;
+begin
+
 Extrusion163.CreaseAngle := 0.76;
 Extrusion163.SetCrossSection([Vector2(0.1,0),Vector2(0.092,-0.038),Vector2(0.071,-0.071),Vector2(0.038,-0.092),Vector2(0,-0.1),Vector2(-0.038,-0.092),Vector2(-0.071,-0.071),Vector2(-0.092,-0.038),Vector2(-0.1,0),Vector2(-0.092,0.038),Vector2(-0.071,0.071),Vector2(-0.038,0.092),Vector2(0,0.1),Vector2(0.038,0.092),Vector2(0.071,0.071),Vector2(0.092,0.038),Vector2(0.1,0)]);
 Extrusion163.EndCap := False;
@@ -993,6 +1049,11 @@ Shape174.Appearance := Appearance175;
 Extrusion176 := TExtrusionNode.Create;
 Extrusion176.BeginCap := False;
 Extrusion176.CreaseAngle := 0.76;
+end;
+
+procedure InitTrebuchetPart12;
+begin
+
 Extrusion176.SetCrossSection([Vector2(0.1,0),Vector2(0.092,-0.038),Vector2(0.071,-0.071),Vector2(0.038,-0.092),Vector2(0,-0.1),Vector2(-0.038,-0.092),Vector2(-0.071,-0.071),Vector2(-0.092,-0.038),Vector2(-0.1,0),Vector2(-0.092,0.038),Vector2(-0.071,0.071),Vector2(-0.038,0.092),Vector2(0,0.1),Vector2(0.038,0.092),Vector2(0.071,0.071),Vector2(0.092,0.038),Vector2(0.1,0)]);
 Extrusion176.EndCap := False;
 Extrusion176.Solid := False;
@@ -1042,6 +1103,11 @@ Appearance186.Material := Material187;
 Shape185.Appearance := Appearance186;
 Extrusion188 := TExtrusionNode.Create;
 Extrusion188.SetCrossSection([Vector2(0,0),Vector2(0,5),Vector2(0.5,7),Vector2(1,8),Vector2(2,9),Vector2(3,11),Vector2(3.5,11.2),Vector2(4,11),Vector2(5,9),Vector2(6,8),Vector2(6.5,7),Vector2(6.7,5),Vector2(6.7,0),Vector2(0,0)]);
+end;
+
+procedure InitTrebuchetPart13;
+begin
+
 Extrusion188.SetSpine([Vector3(0,0,0),Vector3(0.1,0,0)]);
 { .SetGeometry }
 Shape185.Geometry := Extrusion188;
@@ -1097,6 +1163,11 @@ Shape200.Geometry := Sphere202;
 Transform199.AddChildren([Shape200]);
 { .AddChildren }
 Transform197.AddChildren([Transform199]);
+end;
+
+procedure InitTrebuchetPart14;
+begin
+
 { .AddChildren }
 Transform195.AddChildren([Transform197]);
 { .AddChildren }
@@ -1150,6 +1221,11 @@ Appearance214.Material := Material215;
 Shape212.Appearance := Appearance214;
 { .AddChild }
 Transform211.AddChildren([Shape212]);
+end;
+
+procedure InitTrebuchetPart15;
+begin
+
 { .AddChildren }
 Group210.AddChildren([Transform211]);
 { .AddChildren }
@@ -1208,6 +1284,11 @@ Appearance225.Material := Material226;
 Shape223.Appearance := Appearance225;
 { .AddChild }
 Transform222.AddChildren([Shape223]);
+end;
+
+procedure InitTrebuchetPart16;
+begin
+
 { Top Pivot }
 { .AddChildren }
 Transform104.AddChildren([Transform222]);
@@ -1264,6 +1345,11 @@ Transform227.AddChildren([Transform236]);
 Transform241 := TTransformNode.Create;
 Transform241.Rotation := Vector4(1,0,0,1.57);
 Transform241.Translation := Vector3(4,22,2.5);
+end;
+
+procedure InitTrebuchetPart17;
+begin
+
 Shape242 := TShapeNode.Create;
 Cylinder243 := TCylinderNode.Create;
 Cylinder243.Height := 2.5;
@@ -1317,6 +1403,11 @@ Transform247.AddChildren([Transform249]);
 Transform246.AddChildren([Transform247]);
 Transform254 := TTransformNode.Create;
 Transform254.Translation := Vector3(0,0,7);
+end;
+
+procedure InitTrebuchetPart18;
+begin
+
 Transform255 := Transform247;
 { .AddChildren }
 Transform254.AddChildren([Transform255]);
@@ -1373,6 +1464,11 @@ Transform266.AddChildren([Transform267]);
 { .AddChildren }
 Transform258.AddChildren([Transform266]);
 Transform269 := TTransformNode.Create;
+end;
+
+procedure InitTrebuchetPart19;
+begin
+
 Transform269.Translation := Vector3(0,0,0.6);
 Transform270 := Transform120;
 { .AddChildren }
@@ -1428,6 +1524,11 @@ Appearance285 := Appearance214;
 Shape283.Appearance := Appearance285;
 { .AddChild }
 Transform282.AddChildren([Shape283]);
+end;
+
+procedure InitTrebuchetPart20;
+begin
+
 { .AddChildren }
 Transform275.AddChildren([Transform282]);
 { .AddChildren }
@@ -1484,6 +1585,11 @@ Transform298.AddChildren([Shape299]);
 Shape300 := Shape279;
 { .AddChild }
 Transform298.AddChildren([Shape300]);
+end;
+
+procedure InitTrebuchetPart21;
+begin
+
 Transform301 := TTransformNode.Create;
 Transform301.Translation := Vector3(0,-0.55,0);
 Shape302 := Shape283;
@@ -1538,6 +1644,11 @@ Transform315 := TTransformNode.Create;
 Transform315.Scale := Vector3(0.5,0.5,0.5);
 Transform315.Translation := Vector3(0,-1,0);
 TouchSensor316 := TouchSensor50;
+end;
+
+procedure InitTrebuchetPart22;
+begin
+
 { .AddChildren }
 Transform315.AddChildren([TouchSensor316]);
 Switch317 := Switch33;
@@ -1594,6 +1705,11 @@ Transform328.AddChildren([Viewpoint329]);
 Transform327.AddChildren([Transform328]);
 { .AddChildren }
 Transform291.AddChildren([Transform327]);
+end;
+
+procedure InitTrebuchetPart23;
+begin
+
 Transform330 := TTransformNode.Create;
 Transform330.Translation := Vector3(-8,4,0);
 Transform331 := TTransformNode.Create;
@@ -1857,6 +1973,34 @@ Group17.AddRoute(PositionInterpolator355.EventValue_changed, Transform256.FdTran
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group17]);
+end;
+
+function CreateTrebuchet: TX3DRootNode;
+begin
+InitTrebuchetPart0;
+InitTrebuchetPart1;
+InitTrebuchetPart2;
+InitTrebuchetPart3;
+InitTrebuchetPart4;
+InitTrebuchetPart5;
+InitTrebuchetPart6;
+InitTrebuchetPart7;
+InitTrebuchetPart8;
+InitTrebuchetPart9;
+InitTrebuchetPart10;
+InitTrebuchetPart11;
+InitTrebuchetPart12;
+InitTrebuchetPart13;
+InitTrebuchetPart14;
+InitTrebuchetPart15;
+InitTrebuchetPart16;
+InitTrebuchetPart17;
+InitTrebuchetPart18;
+InitTrebuchetPart19;
+InitTrebuchetPart20;
+InitTrebuchetPart21;
+InitTrebuchetPart22;
+InitTrebuchetPart23;
 Result := X3D0;
 end;
 

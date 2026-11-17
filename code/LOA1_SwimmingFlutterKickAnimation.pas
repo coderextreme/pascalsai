@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateLOA1_SwimmingFlutterKickAnimation: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -109,6 +108,8 @@ Text123: TTextNode;
 FontStyle124: TFontStyleNode;
 Appearance125: TAppearanceNode;
 Material126: TMaterialNode;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -153,6 +154,11 @@ X3DField21 := TX3DField.Create;
 X3DField21.NameField := 'loop';
 X3DField21.AccessType := 'inputOutput';
 X3DField21.Type := 'SFBool';
+end;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart1;
+begin
+
 X3DField21.Value := 'true';
 { .AddX3DField }
 X3DInterfaceDeclaration18.X3DField := X3DField21;
@@ -201,6 +207,11 @@ X3DField28.Type := 'SFRotation';
 { .AddX3DField }
 X3DInterfaceDeclaration18.X3DField := X3DField28;
 X3DField29 := TX3DField.Create;
+end;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart2;
+begin
+
 X3DField29.NameField := 'l_hip_rotation_changed';
 X3DField29.AccessType := 'outputOnly';
 X3DField29.Type := 'SFRotation';
@@ -249,6 +260,11 @@ X3DField36.Type := 'SFRotation';
 { .AddX3DField }
 X3DInterfaceDeclaration18.X3DField := X3DField36;
 X3DField37 := TX3DField.Create;
+end;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart3;
+begin
+
 X3DField37.NameField := 'vl5_rotation_changed';
 X3DField37.AccessType := 'outputOnly';
 X3DField37.Type := 'SFRotation';
@@ -298,6 +314,11 @@ X3DField44.Type := 'SFRotation';
 X3DInterfaceDeclaration18.X3DField := X3DField44;
 { .SetX3DInterfaceDeclaration }
 X3DPrototype17.X3DInterfaceDeclaration := X3DInterfaceDeclaration18;
+end;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart4;
+begin
+
 X3DPrototype45 := TX3DPrototype.Create;
 Group46 := TGroupNode.Create;
 TimeSensor47 := TTimeSensorNode.Create;
@@ -347,6 +368,11 @@ PositionInterpolator56.SetKey([0,0.04167,0.125,0.1667,0.2083,0.25,0.2917,0.375,0
 PositionInterpolator56.SetKeyValue([Vector3(0,-0.00928,0),Vector3(0,-0.003858,0),Vector3(0,-0.008847,0),Vector3(0,-0.01486,0),Vector3(0,-0.02641,0),Vector3(0,-0.03934,0),Vector3(0,-0.0502,0),Vector3(0,-0.07469,0),Vector3(0,-0.02732,0),Vector3(0,-0.01608,0),Vector3(0,-0.01129,0),Vector3(0,-0.005819,0),Vector3(0,-0.002004,0),Vector3(0,-0.002579,0),Vector3(0,-0.0143,0),Vector3(0,-0.03799,0),Vector3(0,-0.05648,0),Vector3(0,-0.045,0),Vector3(0,-0.00928,0)]);
 IS57 := TIS.Create;
 connect58 := Tconnect.Create;
+end;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart5;
+begin
+
 connect58.NodeField := 'value_changed';
 connect58.ProtoField := 'HumanoidRoot_translation_changed';
 { .AddConnect }
@@ -400,6 +426,11 @@ OrientationInterpolator68.SetKey([0,0.125,0.2083,0.375,0.4583,0.5,0.6667,0.75,0.
 OrientationInterpolator68.SetKeyValue([Vector4(1,0,0,0.6001),Vector4(1,0,0,0.6509),Vector4(1,0,0,0.6001),Vector4(1,0,0,0.6001),Vector4(1,0,0,0.6509),Vector4(1,0,0,0.6001),Vector4(1,0,0,0.6001),Vector4(1,0,0,0.6509),Vector4(1,0,0,0.6001),Vector4(1,0,0,0.6509),Vector4(1,0,0,0.6001)]);
 IS69 := TIS.Create;
 connect70 := Tconnect.Create;
+end;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart6;
+begin
+
 connect70.NodeField := 'value_changed';
 connect70.ProtoField := 'l_ankle_rotation_changed';
 { .AddConnect }
@@ -454,6 +485,11 @@ OrientationInterpolator80.SetKey([0,0.2083,0.375,0.75,0.8333,1]);
 OrientationInterpolator80.SetKeyValue([Vector4(0,1,0,0.0826),Vector4(-0.01972,-0.5974,0.8017,0.08231),Vector4(0.009296,-0.9648,0.2627,0.1734),Vector4(-0.01238,0.9549,-0.2968,0.08732),Vector4(-0.008125,0.9691,-0.2463,0.158),Vector4(0,1,0,0.0826)]);
 IS81 := TIS.Create;
 connect82 := Tconnect.Create;
+end;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart7;
+begin
+
 connect82.NodeField := 'value_changed';
 connect82.ProtoField := 'vl5_rotation_changed';
 { .AddConnect }
@@ -506,6 +542,11 @@ OrientationInterpolator92.SetKey([0,0.32,0.64,0.88,1]);
 OrientationInterpolator92.SetKeyValue([Vector4(0,0,1,0),Vector4(0.067,0.98,-0.128,4.15),Vector4(0.067,0.98,-0.128,4.15),Vector4(0.067,0.98,-0.128,4.15),Vector4(0,0,1,0)]);
 IS93 := TIS.Create;
 connect94 := Tconnect.Create;
+end;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart8;
+begin
+
 connect94.NodeField := 'value_changed';
 connect94.ProtoField := 'l_wrist_rotation_changed';
 { .AddConnect }
@@ -562,6 +603,11 @@ X3DPrototype45.AddRoute(TimeSensor47.EventFraction_changed, OrientationInterpola
 X3DPrototype45.AddRoute(TimeSensor47.EventFraction_changed, OrientationInterpolator83.EventSet_fraction);
 { .AddX3DRoute }
 X3DPrototype45.AddRoute(TimeSensor47.EventFraction_changed, OrientationInterpolator80.EventSet_fraction);
+end;
+
+procedure InitLOA1_SwimmingFlutterKickAnimationPart9;
+begin
+
 { .AddX3DRoute }
 X3DPrototype45.AddRoute(TimeSensor47.EventFraction_changed, OrientationInterpolator62.EventSet_fraction);
 { .AddX3DRoute }
@@ -624,6 +670,20 @@ Anchor121.AddChildren([Shape122]);
 Group15.AddChildren([Anchor121]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function CreateLOA1_SwimmingFlutterKickAnimation: TX3DRootNode;
+begin
+InitLOA1_SwimmingFlutterKickAnimationPart0;
+InitLOA1_SwimmingFlutterKickAnimationPart1;
+InitLOA1_SwimmingFlutterKickAnimationPart2;
+InitLOA1_SwimmingFlutterKickAnimationPart3;
+InitLOA1_SwimmingFlutterKickAnimationPart4;
+InitLOA1_SwimmingFlutterKickAnimationPart5;
+InitLOA1_SwimmingFlutterKickAnimationPart6;
+InitLOA1_SwimmingFlutterKickAnimationPart7;
+InitLOA1_SwimmingFlutterKickAnimationPart8;
+InitLOA1_SwimmingFlutterKickAnimationPart9;
 Result := X3D0;
 end;
 

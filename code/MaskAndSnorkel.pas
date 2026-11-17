@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateMaskAndSnorkel: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group10: TGroupNode;
@@ -75,6 +74,8 @@ Appearance68: TAppearanceNode;
 Material69: TMaterialNode;
 IndexedFaceSet70: TIndexedFaceSetNode;
 Coordinate71: TCoordinateNode;
+
+procedure InitMaskAndSnorkelPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -124,6 +125,11 @@ Transform13.AddChildren([Transform14]);
 Transform20 := TTransformNode.Create;
 Transform20.Translation := Vector3(0.075,0.075,-0.02);
 Shape21 := TShapeNode.Create;
+end;
+
+procedure InitMaskAndSnorkelPart1;
+begin
+
 Appearance22 := TAppearanceNode.Create;
 Material23 := Material17;
 { .SetMaterial }
@@ -176,6 +182,11 @@ Material35.Transparency := 0.4;
 Appearance34.Material := Material35;
 { .SetAppearance }
 Shape33.Appearance := Appearance34;
+end;
+
+procedure InitMaskAndSnorkelPart2;
+begin
+
 Extrusion36 := TExtrusionNode.Create;
 Extrusion36.SetCrossSection([Vector2(0,0.013),Vector2(0.00494,0.01196),Vector2(0.00923,0.00923),Vector2(0.01196,0.00494),Vector2(0.013,0),Vector2(0.01196,-0.00494),Vector2(0.00923,-0.00923),Vector2(0.00494,-0.01196),Vector2(0,0.013),Vector2(-0.00494,-0.01196),Vector2(-0.00923,-0.00923),Vector2(-0.01196,-0.00494),Vector2(-0.013,0),Vector2(-0.01196,0.00494),Vector2(-0.00923,0.00923),Vector2(-0.00494,0.01196),Vector2(0,0.013)]);
 Extrusion36.SetSpine([Vector3(-0.01,-0.03,0),Vector3(0,0,0),Vector3(0.02,0.01,0)]);
@@ -231,6 +242,11 @@ IndexedFaceSet46.Coord := Coordinate47;
 Shape43.Geometry := IndexedFaceSet46;
 { .AddChild }
 Transform42.AddChildren([Shape43]);
+end;
+
+procedure InitMaskAndSnorkelPart3;
+begin
+
 { .AddChildren }
 Transform13.AddChildren([Transform42]);
 Transform48 := TTransformNode.Create;
@@ -285,6 +301,11 @@ Appearance62 := TAppearanceNode.Create;
 Material63 := Material57;
 { .SetMaterial }
 Appearance62.Material := Material63;
+end;
+
+procedure InitMaskAndSnorkelPart4;
+begin
+
 { .SetAppearance }
 Shape61.Appearance := Appearance62;
 IndexedFaceSet64 := TIndexedFaceSetNode.Create;
@@ -327,6 +348,15 @@ Transform13.AddChildren([Transform66]);
 Group10.AddChildren([Transform13]);
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function CreateMaskAndSnorkel: TX3DRootNode;
+begin
+InitMaskAndSnorkelPart0;
+InitMaskAndSnorkelPart1;
+InitMaskAndSnorkelPart2;
+InitMaskAndSnorkelPart3;
+InitMaskAndSnorkelPart4;
 Result := X3D0;
 end;
 

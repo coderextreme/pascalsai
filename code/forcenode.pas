@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createforcenode: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group9: TGroupNode;
@@ -73,6 +72,8 @@ Script70: TScriptNode;
 X3DField71: TX3DField;
 X3DField72: TX3DField;
 X3DField73: TX3DField;
+
+procedure InitforcenodePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -122,6 +123,11 @@ Appearance20.Material := Material21;
 Shape18.Appearance := Appearance20;
 { .AddChild }
 Transform15.AddChildren([Shape18]);
+end;
+
+procedure InitforcenodePart1;
+begin
+
 Transform22 := TTransformNode.Create;
 Transform22.Translation := Vector3(1,0,1);
 Shape23 := TShapeNode.Create;
@@ -172,6 +178,11 @@ X3DField32 := TX3DField.Create;
 X3DField32.NameField := 'set_cycle';
 X3DField32.AccessType := 'inputOnly';
 X3DField32.Type := 'SFTime';
+end;
+
+procedure InitforcenodePart2;
+begin
+
 { .AddX3DField }
 Script29.X3DField := X3DField32;
 X3DField33 := TX3DField.Create;
@@ -411,6 +422,13 @@ Group9.AddRoute(X3DPrototype65.FdPosition, X3DPrototype69.EventSet_positionb);
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group9]);
+end;
+
+function Createforcenode: TX3DRootNode;
+begin
+InitforcenodePart0;
+InitforcenodePart1;
+InitforcenodePart2;
 Result := X3D0;
 end;
 

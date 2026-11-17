@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateIFS: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group11: TGroupNode;
@@ -24,6 +23,8 @@ Appearance18: TAppearanceNode;
 Material19: TMaterialNode;
 NavigationInfo20: TNavigationInfoNode;
 Viewpoint21: TViewpointNode;
+
+procedure InitIFSPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -74,6 +75,11 @@ Group12.AddChildren([Transform13]);
 Group11.AddChildren([Group12]);
 NavigationInfo20 := TNavigationInfoNode.Create;
 NavigationInfo20.Speed := 1.5;
+end;
+
+procedure InitIFSPart1;
+begin
+
 { .AddChildren }
 Group11.AddChildren([NavigationInfo20]);
 Viewpoint21 := TViewpointNode.Create;
@@ -82,6 +88,12 @@ Viewpoint21.Description := 'default';
 Group11.AddChildren([Viewpoint21]);
 { .AddGroup }
 X3D0.AddChildren([Group11]);
+end;
+
+function CreateIFS: TX3DRootNode;
+begin
+InitIFSPart0;
+InitIFSPart1;
 Result := X3D0;
 end;
 

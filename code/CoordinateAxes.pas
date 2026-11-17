@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateCoordinateAxes: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -67,6 +66,8 @@ Shape64: TShapeNode;
 Appearance65: TAppearanceNode;
 Text66: TTextNode;
 FontStyle67: TFontStyleNode;
+
+procedure InitCoordinateAxesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -118,6 +119,11 @@ Transform23.Translation := Vector3(0,1,0);
 Shape24 := TShapeNode.Create;
 Cone25 := TConeNode.Create;
 Cone25.BottomRadius := 0.05;
+end;
+
+procedure InitCoordinateAxesPart1;
+begin
+
 Cone25.Height := 0.1;
 { .SetGeometry }
 Shape24.Geometry := Cone25;
@@ -173,6 +179,11 @@ Shape37.Geometry := Cylinder38;
 Appearance39 := TAppearanceNode.Create;
 Material40 := TMaterialNode.Create;
 Material40.DiffuseColor := Vector3(0.7,0.1,0.1);
+end;
+
+procedure InitCoordinateAxesPart2;
+begin
+
 Material40.EmissiveColor := Vector3(0.33,0,0);
 { .SetMaterial }
 Appearance39.Material := Material40;
@@ -232,6 +243,11 @@ Cylinder55 := Cylinder20;
 Shape54.Geometry := Cylinder55;
 Appearance56 := TAppearanceNode.Create;
 Material57 := TMaterialNode.Create;
+end;
+
+procedure InitCoordinateAxesPart3;
+begin
+
 Material57.DiffuseColor := Vector3(0.3,0.3,1);
 Material57.EmissiveColor := Vector3(0.1,0.1,0.33);
 { .SetMaterial }
@@ -285,6 +301,14 @@ Collision16.Proxy := Transform51;
 Group14.AddChildren([Collision16]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function CreateCoordinateAxes: TX3DRootNode;
+begin
+InitCoordinateAxesPart0;
+InitCoordinateAxesPart1;
+InitCoordinateAxesPart2;
+InitCoordinateAxesPart3;
 Result := X3D0;
 end;
 

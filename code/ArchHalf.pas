@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateArchHalf: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group12: TGroupNode;
@@ -20,6 +19,8 @@ IndexedFaceSet15: TIndexedFaceSetNode;
 Coordinate16: TCoordinateNode;
 Appearance17: TAppearanceNode;
 Material18: TMaterialNode;
+
+procedure InitArchHalfPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -63,6 +64,11 @@ Shape14.Appearance := Appearance17;
 Group12.AddChildren([Shape14]);
 { .AddGroup }
 X3D0.AddChildren([Group12]);
+end;
+
+function CreateArchHalf: TX3DRootNode;
+begin
+InitArchHalfPart0;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateLOA1_WalkAnimation: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group17: TGroupNode;
@@ -117,6 +116,8 @@ Text136: TTextNode;
 FontStyle137: TFontStyleNode;
 Appearance138: TAppearanceNode;
 Material139: TMaterialNode;
+
+procedure InitLOA1_WalkAnimationPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -161,6 +162,11 @@ X3DField22.Value := 'true';
 X3DInterfaceDeclaration20.X3DField := X3DField22;
 X3DField23 := TX3DField.Create;
 X3DField23.NameField := 'loop';
+end;
+
+procedure InitLOA1_WalkAnimationPart1;
+begin
+
 X3DField23.AccessType := 'inputOutput';
 X3DField23.Type := 'SFBool';
 X3DField23.Value := 'true';
@@ -208,6 +214,11 @@ X3DField30 := TX3DField.Create;
 X3DField30.NameField := 'lower_body_rotation_changed';
 X3DField30.AccessType := 'outputOnly';
 X3DField30.Type := 'SFRotation';
+end;
+
+procedure InitLOA1_WalkAnimationPart2;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration20.X3DField := X3DField30;
 X3DField31 := TX3DField.Create;
@@ -256,6 +267,11 @@ X3DField38 := TX3DField.Create;
 X3DField38.NameField := 'r_midtarsal_rotation_changed';
 X3DField38.AccessType := 'outputOnly';
 X3DField38.Type := 'SFRotation';
+end;
+
+procedure InitLOA1_WalkAnimationPart3;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration20.X3DField := X3DField38;
 X3DField39 := TX3DField.Create;
@@ -304,6 +320,11 @@ X3DField46 := TX3DField.Create;
 X3DField46.NameField := 'r_wrist_rotation_changed';
 X3DField46.AccessType := 'outputOnly';
 X3DField46.Type := 'SFRotation';
+end;
+
+procedure InitLOA1_WalkAnimationPart4;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration20.X3DField := X3DField46;
 { .SetX3DInterfaceDeclaration }
@@ -355,6 +376,11 @@ PositionInterpolator58 := TPositionInterpolatorNode.Create;
 PositionInterpolator58.SetKey([0,0.04167,0.125,0.1667,0.2083,0.25,0.2917,0.375,0.4583,0.5,0.5417,0.5833,0.625,0.7083,0.75,0.7917,0.875,0.9167,1]);
 PositionInterpolator58.SetKeyValue([Vector3(0,-0.00928,0),Vector3(0,-0.003858,0),Vector3(0,-0.008847,0),Vector3(0,-0.01486,0),Vector3(0,-0.02641,0),Vector3(0,-0.03934,0),Vector3(0,-0.0502,0),Vector3(0,-0.07469,0),Vector3(0,-0.02732,0),Vector3(0,-0.01608,0),Vector3(0,-0.01129,0),Vector3(0,-0.005819,0),Vector3(0,-0.002004,0),Vector3(0,-0.002579,0),Vector3(0,-0.0143,0),Vector3(0,-0.03799,0),Vector3(0,-0.05648,0),Vector3(0,-0.045,0),Vector3(0,-0.00928,0)]);
 IS59 := TIS.Create;
+end;
+
+procedure InitLOA1_WalkAnimationPart5;
+begin
+
 connect60 := Tconnect.Create;
 connect60.NodeField := 'value_changed';
 connect60.ProtoField := 'HumanoidRoot_translation_changed';
@@ -407,6 +433,11 @@ OrientationInterpolator70 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator70.SetKey([0,0.2083,0.375,0.5,0.6667,0.7917,0.9167,1]);
 OrientationInterpolator70.SetKeyValue([Vector4(1,0,0,0.3226),Vector4(1,0,0,0.1556),Vector4(1,0,0,0.08678),Vector4(1,0,0,0.8751),Vector4(1,0,0,1.131),Vector4(1,0,0,0.09961),Vector4(1,0,0,0.3942),Vector4(1,0,0,0.3226)]);
 IS71 := TIS.Create;
+end;
+
+procedure InitLOA1_WalkAnimationPart6;
+begin
+
 connect72 := Tconnect.Create;
 connect72.NodeField := 'value_changed';
 connect72.ProtoField := 'l_knee_rotation_changed';
@@ -459,6 +490,11 @@ OrientationInterpolator82 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator82.SetKey([0,0.125,0.2083,0.2917,0.375,0.5,0.6667,0.7917,0.9167,1]);
 OrientationInterpolator82.SetKeyValue([Vector4(1,0,0,0.8573),Vector4(1,0,0,0.8926),Vector4(1,0,0,0.5351),Vector4(1,0,0,0.1756),Vector4(1,0,0,0.1194),Vector4(1,0,0,0.3153),Vector4(1,-1.176e-8,-4.971e-9,0.09354),Vector4(1,0,0,0.08558),Vector4(1,0,0,0.2475),Vector4(1,0,0,0.8573)]);
 IS83 := TIS.Create;
+end;
+
+procedure InitLOA1_WalkAnimationPart7;
+begin
+
 connect84 := Tconnect.Create;
 connect84.NodeField := 'value_changed';
 connect84.ProtoField := 'r_knee_rotation_changed';
@@ -511,6 +547,11 @@ OrientationInterpolator94 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator94.SetKey([0,0.375,0.4167,0.5,0.5833,0.6667,0.75,0.8333,0.9167,1]);
 OrientationInterpolator94.SetKeyValue([Vector4(0,-1,0,0.08642),Vector4(0,1,0,0.1825),Vector4(0,1,0,0.1505),Vector4(0,1,0,0.1053),Vector4(0,1,0,0.04391),Vector4(0,-1,0,0.03119),Vector4(0,-1,0,0.07936),Vector4(0,-1,0,0.1616),Vector4(0,-1,0,0.155),Vector4(0,-1,0,0.08642)]);
 IS95 := TIS.Create;
+end;
+
+procedure InitLOA1_WalkAnimationPart8;
+begin
+
 connect96 := Tconnect.Create;
 connect96.NodeField := 'value_changed';
 connect96.ProtoField := 'skullbase_rotation_changed';
@@ -563,6 +604,11 @@ OrientationInterpolator106 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator106.SetKey([0,0.375,0.9167,1]);
 OrientationInterpolator106.SetKeyValue([Vector4(-1,-7.689e-7,-1.48e-7,0.09346),Vector4(1,5.004e-8,2.254e-8,0.3197),Vector4(-1,-1.104e-7,5.267e-10,0.1564),Vector4(-1,-7.689e-7,-1.48e-7,0.09346)]);
 IS107 := TIS.Create;
+end;
+
+procedure InitLOA1_WalkAnimationPart9;
+begin
+
 connect108 := Tconnect.Create;
 connect108.NodeField := 'value_changed';
 connect108.ProtoField := 'r_shoulder_rotation_changed';
@@ -625,6 +671,11 @@ X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpola
 X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator91.EventSet_fraction);
 { .AddX3DRoute }
 X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator94.EventSet_fraction);
+end;
+
+procedure InitLOA1_WalkAnimationPart10;
+begin
+
 { .AddX3DRoute }
 X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator97.EventSet_fraction);
 { .AddX3DRoute }
@@ -672,6 +723,21 @@ Anchor134.AddChildren([Shape135]);
 Group17.AddChildren([Anchor134]);
 { .AddGroup }
 X3D0.AddChildren([Group17]);
+end;
+
+function CreateLOA1_WalkAnimation: TX3DRootNode;
+begin
+InitLOA1_WalkAnimationPart0;
+InitLOA1_WalkAnimationPart1;
+InitLOA1_WalkAnimationPart2;
+InitLOA1_WalkAnimationPart3;
+InitLOA1_WalkAnimationPart4;
+InitLOA1_WalkAnimationPart5;
+InitLOA1_WalkAnimationPart6;
+InitLOA1_WalkAnimationPart7;
+InitLOA1_WalkAnimationPart8;
+InitLOA1_WalkAnimationPart9;
+InitLOA1_WalkAnimationPart10;
 Result := X3D0;
 end;
 

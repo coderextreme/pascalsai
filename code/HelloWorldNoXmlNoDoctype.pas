@@ -10,10 +10,11 @@ implementation
 
 uses CastleVectors;
 
-function CreateHelloWorldNoXmlNoDoctype: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group11: TGroupNode;
+
+procedure InitHelloWorldNoXmlNoDoctypePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -32,6 +33,11 @@ Group11 := TGroupNode.Create;
 { Example scene to illustrate X3D nodes and fields (XML elements and attributes) }
 { .AddGroup }
 X3D0.AddChildren([Group11]);
+end;
+
+function CreateHelloWorldNoXmlNoDoctype: TX3DRootNode;
+begin
+InitHelloWorldNoXmlNoDoctypePart0;
 Result := X3D0;
 end;
 

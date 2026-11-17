@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateArchPrototype: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group13: TGroupNode;
@@ -79,6 +78,8 @@ SFFloat78: TSFFloat;
 SFFloat79: TSFFloat;
 SFFloat80: TSFFloat;
 Inline81: TInlineNode;
+
+procedure InitArchPrototypePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -126,6 +127,11 @@ X3DField18.AccessType := 'initializeOnly';
 X3DField18.Appinfo := 'clearSpanWidth: clearSpanWidth must be double of riseHeight to obtain an half circumference';
 X3DField18.Type := 'SFFloat';
 X3DField18.Value := '4';
+end;
+
+procedure InitArchPrototypePart1;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration15.X3DField := X3DField18;
 X3DField19 := TX3DField.Create;
@@ -172,6 +178,11 @@ X3DField24 := TX3DField.Create;
 X3DField24.NameField := 'archHalf';
 X3DField24.AccessType := 'initializeOnly';
 X3DField24.Appinfo := 'archHalf: can modify also clearSpanWidth, riseHeight, depth, pierWidth, pierHeight, topAbutmentHeight, archHalfExtensionWidth at purpose, clearSpanWidth measure refers to a full arc, consider clearSpanWidth/2 for the archHalf width';
+end;
+
+procedure InitArchPrototypePart2;
+begin
+
 X3DField24.Type := 'SFBool';
 X3DField24.Value := 'false';
 { .AddX3DField }
@@ -219,6 +230,11 @@ X3DInterfaceDeclaration15.X3DField := X3DField29;
 { .SetX3DInterfaceDeclaration }
 X3DPrototype14.X3DInterfaceDeclaration := X3DInterfaceDeclaration15;
 X3DPrototype30 := TX3DPrototype.Create;
+end;
+
+procedure InitArchPrototypePart3;
+begin
+
 { First node determines node type of this prototype }
 { IndexedFaceset creates arch }
 Transform31 := TTransformNode.Create;
@@ -279,6 +295,11 @@ X3DField42.Type := 'SFFloat';
 Script40.X3DField := X3DField42;
 X3DField43 := TX3DField.Create;
 X3DField43.NameField := 'depth';
+end;
+
+procedure InitArchPrototypePart4;
+begin
+
 X3DField43.AccessType := 'initializeOnly';
 X3DField43.Appinfo := 'user or default input for depth parameter';
 X3DField43.Type := 'SFFloat';
@@ -326,6 +347,11 @@ X3DField49.Appinfo := 'user or default input for onlyIntrados parameter';
 X3DField49.Type := 'SFBool';
 { .AddX3DField }
 Script40.X3DField := X3DField49;
+end;
+
+procedure InitArchPrototypePart5;
+begin
+
 X3DField50 := TX3DField.Create;
 X3DField50.NameField := 'archFilled';
 X3DField50.AccessType := 'initializeOnly';
@@ -372,6 +398,11 @@ IS56 := TIS.Create;
 connect57 := Tconnect.Create;
 connect57.NodeField := 'clearSpanWidth';
 connect57.ProtoField := 'clearSpanWidth';
+end;
+
+procedure InitArchPrototypePart6;
+begin
+
 { .AddConnect }
 IS56.Connect := connect57;
 connect58 := Tconnect.Create;
@@ -422,6 +453,11 @@ IS56.Connect := connect66;
 connect67 := Tconnect.Create;
 connect67.NodeField := 'archHalfFilled';
 connect67.ProtoField := 'archHalfFilled';
+end;
+
+procedure InitArchPrototypePart7;
+begin
+
 { .AddConnect }
 IS56.Connect := connect67;
 connect68 := Tconnect.Create;
@@ -477,6 +513,11 @@ SFFloat78.Value := '0.6';
 X3DPrototype72.SFFloat := SFFloat78;
 SFFloat79 := TSFFloat.Create(ArchPrototype1, false, 'pierWidth', 1);
 SFFloat79.NameField := 'pierWidth';
+end;
+
+procedure InitArchPrototypePart8;
+begin
+
 SFFloat79.Value := '1';
 { .AddSFFloat }
 X3DPrototype72.SFFloat := SFFloat79;
@@ -494,6 +535,19 @@ Inline81.SetUrl(['../data/CoordinateAxes.x3d']);
 Group13.AddChildren([Inline81]);
 { .AddGroup }
 X3D0.AddChildren([Group13]);
+end;
+
+function CreateArchPrototype: TX3DRootNode;
+begin
+InitArchPrototypePart0;
+InitArchPrototypePart1;
+InitArchPrototypePart2;
+InitArchPrototypePart3;
+InitArchPrototypePart4;
+InitArchPrototypePart5;
+InitArchPrototypePart6;
+InitArchPrototypePart7;
+InitArchPrototypePart8;
 Result := X3D0;
 end;
 

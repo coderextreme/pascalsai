@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createfwparticleflowers: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -59,6 +58,8 @@ X3DField56: TX3DField;
 X3DField57: TX3DField;
 X3DField58: TX3DField;
 TimeSensor59: TTimeSensorNode;
+
+procedure InitfwparticleflowersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -104,6 +105,11 @@ ParticleSystem20 := TParticleSystemNode.Create;
 ParticleSystem20.MaxParticles := 20;
 ParticleSystem20.GeometryType := 'GEOMETRY';
 BoundedPhysicsModel21 := TBoundedPhysicsModelNode.Create;
+end;
+
+procedure InitfwparticleflowersPart1;
+begin
+
 Sphere22 := TSphereNode.Create;
 Sphere22.Radius := 100;
 { .SetGeometry }
@@ -156,6 +162,11 @@ ComposedShader34.Language := 'GLSL';
 X3DField35 := TX3DField.Create;
 X3DField35.NameField := 'chromaticDispertion';
 X3DField35.AccessType := 'inputOutput';
+end;
+
+procedure InitfwparticleflowersPart2;
+begin
+
 X3DField35.Type := 'SFVec3f';
 X3DField35.Value := '0.98 1 1.033';
 { .SetX3DField }
@@ -204,6 +215,11 @@ X3DField42.AccessType := 'inputOutput';
 X3DField42.Value := '1';
 { .AddX3DField }
 ComposedShader34.X3DField := X3DField42;
+end;
+
+procedure InitfwparticleflowersPart3;
+begin
+
 X3DField43 := TX3DField.Create;
 X3DField43.NameField := 'c';
 X3DField43.Type := 'SFFloat';
@@ -253,6 +269,11 @@ X3DField50 := TX3DField.Create;
 X3DField50.NameField := 'translation';
 X3DField50.AccessType := 'inputOutput';
 X3DField50.Type := 'SFVec3f';
+end;
+
+procedure InitfwparticleflowersPart4;
+begin
+
 X3DField50.Value := '0 0 0';
 { .SetX3DField }
 Script49.X3DField := X3DField50;
@@ -300,6 +321,11 @@ Script49.X3DField := X3DField56;
 X3DField57 := TX3DField.Create;
 X3DField57.NameField := 'tdelta';
 X3DField57.Type := 'SFFloat';
+end;
+
+procedure InitfwparticleflowersPart5;
+begin
+
 X3DField57.AccessType := 'inputOutput';
 X3DField57.Value := '0.5';
 { .AddX3DField }
@@ -404,6 +430,16 @@ Transform19.AddRoute(Script49.FdTdelta, ComposedShader34.FdTdelta);
 Group14.AddChildren([Transform19]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function Createfwparticleflowers: TX3DRootNode;
+begin
+InitfwparticleflowersPart0;
+InitfwparticleflowersPart1;
+InitfwparticleflowersPart2;
+InitfwparticleflowersPart3;
+InitfwparticleflowersPart4;
+InitfwparticleflowersPart5;
 Result := X3D0;
 end;
 

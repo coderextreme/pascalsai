@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateMenuJin: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group5: TGroupNode;
@@ -527,6 +526,8 @@ Appearance573: TAppearanceNode;
 Material574: TMaterialNode;
 IndexedFaceSet575: TIndexedFaceSetNode;
 Coordinate576: TCoordinateNode;
+
+procedure InitMenuJinPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -2980,6 +2981,11 @@ Group7.AddRoute(Script155.FdChoice, Switch8.FdWhichchoice);
 Group5.AddChildren([Group7]);
 { .AddGroup }
 X3D0.AddChildren([Group5]);
+end;
+
+function CreateMenuJin: TX3DRootNode;
+begin
+InitMenuJinPart0;
 Result := X3D0;
 end;
 

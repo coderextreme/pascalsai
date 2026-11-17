@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createflowerprotofreewrl: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group16: TGroupNode;
@@ -66,6 +65,8 @@ TimeSensor65: TTimeSensorNode;
 X3DPrototype74: TX3DPrototypeNode;
 MFString75: TMFString;
 MFString76: TMFString;
+
+procedure InitflowerprotofreewrlPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -110,6 +111,11 @@ X3DField22 := TX3DField.Create;
 X3DField22.NameField := 'vertex';
 X3DField22.AccessType := 'inputOnly';
 X3DField22.Type := 'MFString';
+end;
+
+procedure InitflowerprotofreewrlPart1;
+begin
+
 X3DField22.Value := '\'../shaders/freewrl_flowers_chromatic.vs\' \'https://coderextreme.net/X3DJSONLD/src/main/shaders/freewrl_flowers_chromatic.vs\'';
 { .SetX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField22;
@@ -163,6 +169,11 @@ ComposedShader36.Language := 'GLSL';
 X3DField37 := TX3DField.Create;
 X3DField37.NameField := 'fw_textureCoordGenType';
 X3DField37.AccessType := 'inputOutput';
+end;
+
+procedure InitflowerprotofreewrlPart2;
+begin
+
 X3DField37.Type := 'SFInt32';
 X3DField37.Value := '0';
 { .SetX3DField }
@@ -210,6 +221,11 @@ X3DField43.Value := '5';
 { .AddX3DField }
 ComposedShader36.X3DField := X3DField43;
 X3DField44 := TX3DField.Create;
+end;
+
+procedure InitflowerprotofreewrlPart3;
+begin
+
 X3DField44.NameField := 'c';
 X3DField44.Type := 'SFFloat';
 X3DField44.AccessType := 'inputOutput';
@@ -262,6 +278,11 @@ connect53.ProtoField := 'fragment';
 IS52.Connect := connect53;
 { .SetIS }
 ShaderPart51.IS := IS52;
+end;
+
+procedure InitflowerprotofreewrlPart4;
+begin
+
 { .AddParts }
 ComposedShader36.Parts := ShaderPart51;
 { .AddShaders }
@@ -312,6 +333,11 @@ X3DField60.Value := '0.5';
 Script55.X3DField := X3DField60;
 X3DField61 := TX3DField.Create;
 X3DField61.NameField := 'c';
+end;
+
+procedure InitflowerprotofreewrlPart5;
+begin
+
 X3DField61.Type := 'SFFloat';
 X3DField61.AccessType := 'inputOutput';
 X3DField61.Value := '3';
@@ -450,6 +476,16 @@ X3DPrototype74.MFString := MFString76;
 Group16.X3DPrototype := X3DPrototype74;
 { .AddGroup }
 X3D0.AddChildren([Group16]);
+end;
+
+function Createflowerprotofreewrl: TX3DRootNode;
+begin
+InitflowerprotofreewrlPart0;
+InitflowerprotofreewrlPart1;
+InitflowerprotofreewrlPart2;
+InitflowerprotofreewrlPart3;
+InitflowerprotofreewrlPart4;
+InitflowerprotofreewrlPart5;
 Result := X3D0;
 end;
 

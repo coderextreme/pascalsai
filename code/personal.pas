@@ -10,13 +10,14 @@ implementation
 
 uses CastleVectors;
 
-function Createpersonal: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group6: TGroupNode;
 Viewpoint7: TViewpointNode;
 Switch8: TSwitchNode;
 Inline9: TInlineNode;
+
+procedure InitpersonalPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -284,6 +285,11 @@ Group6.AddChildren([Switch8]);
 { <ROUTE fromNode="Choice8" fromField="choice" toNode="SceneSwitcher" toField="whichChoice"/> }
 { .AddGroup }
 X3D0.AddChildren([Group6]);
+end;
+
+function Createpersonal: TX3DRootNode;
+begin
+InitpersonalPart0;
 Result := X3D0;
 end;
 

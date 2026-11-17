@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createcgeflowers: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -114,6 +113,8 @@ MFString119: TMFString;
 X3DPrototype120: TX3DPrototypeNode;
 MFString121: TMFString;
 MFString122: TMFString;
+
+procedure InitcgeflowersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -161,6 +162,11 @@ Material23.SpecularColor := Vector3(0.5,0.5,0.5);
 { .SetMaterial }
 Appearance22.Material := Material23;
 ComposedCubeMapTexture24 := TComposedCubeMapTextureNode.Create;
+end;
+
+procedure InitcgeflowersPart1;
+begin
+
 ImageTexture25 := TImageTextureNode.Create;
 ImageTexture25.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_front.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_front.png']);
 { .SetFrontTexture }
@@ -211,6 +217,11 @@ ComposedShader31.X3DField := X3DField34;
 X3DField35 := TX3DField.Create;
 X3DField35.NameField := 'scale';
 X3DField35.AccessType := 'inputOnly';
+end;
+
+procedure InitcgeflowersPart2;
+begin
+
 X3DField35.Type := 'SFFloat';
 { .AddX3DField }
 ComposedShader31.X3DField := X3DField35;
@@ -259,6 +270,11 @@ ComposedShader31.X3DField := X3DField42;
 ShaderPart43 := TShaderPartNode.Create;
 ShaderPart43.Type := 'VERTEX';
 IS44 := TIS.Create;
+end;
+
+procedure InitcgeflowersPart3;
+begin
+
 connect45 := Tconnect.Create;
 connect45.NodeField := 'url';
 connect45.ProtoField := 'vertex';
@@ -312,6 +328,11 @@ X3DField53.Value := '0';
 { .AddX3DField }
 Script50.X3DField := X3DField53;
 X3DField54 := TX3DField.Create;
+end;
+
+procedure InitcgeflowersPart4;
+begin
+
 X3DField54.NameField := 'velocity';
 X3DField54.AccessType := 'outputOnly';
 X3DField54.Type := 'SFVec3f';
@@ -678,6 +699,15 @@ Group113.X3DPrototype := X3DPrototype120;
 Group14.AddChildren([Group113]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function Createcgeflowers: TX3DRootNode;
+begin
+InitcgeflowersPart0;
+InitcgeflowersPart1;
+InitcgeflowersPart2;
+InitcgeflowersPart3;
+InitcgeflowersPart4;
 Result := X3D0;
 end;
 

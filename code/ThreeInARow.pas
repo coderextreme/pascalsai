@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateThreeInARow: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -25,6 +24,8 @@ Transform15: TTransformNode;
 Shape16: TShapeNode;
 Transform17: TTransformNode;
 Shape18: TShapeNode;
+
+procedure InitThreeInARowPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -77,6 +78,11 @@ Transform17.AddChildren([Shape18]);
 Group7.AddChildren([Transform17]);
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function CreateThreeInARow: TX3DRootNode;
+begin
+InitThreeInARowPart0;
 Result := X3D0;
 end;
 

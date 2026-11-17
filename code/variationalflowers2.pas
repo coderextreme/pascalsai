@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createvariationalflowers2: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -49,6 +48,8 @@ X3DField46: TX3DField;
 X3DField47: TX3DField;
 X3DField48: TX3DField;
 TimeSensor49: TTimeSensorNode;
+
+procedure Initvariationalflowers2Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -96,6 +97,11 @@ ParticleSystem20.GeometryType := 'GEOMETRY';
 { * values - array of MFFloats to pass to ComposedShader }
 { * variations in values - array of MFFloats to pass to ComposedShader that varies values }
 VariationPhysicsModel21 := TVariationPhysicsModelNode.Create;
+end;
+
+procedure Initvariationalflowers2Part1;
+begin
+
 VariationPhysicsModel21.Values := '2 2 5 5 0 0';
 VariationPhysicsModel21.Variations := '0.2 0.1 0.3 0.3 0.01 0.01';
 { .AddVariationPhysicsModel }
@@ -147,6 +153,11 @@ X3DField34 := TX3DField.Create;
 X3DField34.NameField := 'chromaticDispertion';
 X3DField34.AccessType := 'initializeOnly';
 X3DField34.Type := 'SFVec3f';
+end;
+
+procedure Initvariationalflowers2Part2;
+begin
+
 X3DField34.Value := '0.98 1 1.033';
 { .SetX3DField }
 ComposedShader33.X3DField := X3DField34;
@@ -195,6 +206,11 @@ ComposedShader33.Parts := ShaderPart41;
 ShaderPart42 := TShaderPartNode.Create;
 ShaderPart42.SetUrl(['../shaders/commonnew.fs']);
 ShaderPart42.Type := 'FRAGMENT';
+end;
+
+procedure Initvariationalflowers2Part3;
+begin
+
 { .AddParts }
 ComposedShader33.Parts := ShaderPart42;
 { .AddShaders }
@@ -263,6 +279,14 @@ Transform19.AddRoute(Script43.FdValues, ComposedShader33.FdX3d_particlevalues);
 Group14.AddChildren([Transform19]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function Createvariationalflowers2: TX3DRootNode;
+begin
+Initvariationalflowers2Part0;
+Initvariationalflowers2Part1;
+Initvariationalflowers2Part2;
+Initvariationalflowers2Part3;
 Result := X3D0;
 end;
 

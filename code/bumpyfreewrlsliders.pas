@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbumpyfreewrlsliders: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group17: TGroupNode;
@@ -213,6 +212,8 @@ SFNode218: TSFNode;
 ComposedShader219: TComposedShaderNode;
 Layout220: TLayoutNode;
 Viewport221: TViewportNode;
+
+procedure InitbumpyfreewrlslidersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -262,6 +263,11 @@ DirectionalLight22.Direction := Vector3(-1,-0.1,-1);
 Layer19.AddChildren([DirectionalLight22]);
 Viewpoint23 := TViewpointNode.Create;
 Viewpoint23.Description := 'My Overview';
+end;
+
+procedure InitbumpyfreewrlslidersPart1;
+begin
+
 Viewpoint23.FieldOfView := 1.570796;
 Viewpoint23.Position := Vector3(0,1.75,60);
 { .AddChildren }
@@ -317,6 +323,11 @@ Cylinder37 := Cylinder27;
 { .SetGeometry }
 Shape36.Geometry := Cylinder37;
 Appearance38 := TAppearanceNode.Create;
+end;
+
+procedure InitbumpyfreewrlslidersPart2;
+begin
+
 Material39 := TMaterialNode.Create;
 Material39.DiffuseColor := Vector3(0,1,0);
 Material39.EmissiveColor := Vector3(0,1,0);
@@ -373,6 +384,11 @@ Cone52 := Cone32;
 Shape51.Geometry := Cone52;
 Appearance53 := TAppearanceNode.Create;
 Material54 := Material49;
+end;
+
+procedure InitbumpyfreewrlslidersPart3;
+begin
+
 { .SetMaterial }
 Appearance53.Material := Material54;
 { .SetAppearance }
@@ -432,6 +448,11 @@ ImageTexture67 := TImageTextureNode.Create;
 ImageTexture67.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_right.png','https://coderextreme.net/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png']);
 { .SetRightTexture }
 ComposedCubeMapTexture62.RightTexture := ImageTexture67;
+end;
+
+procedure InitbumpyfreewrlslidersPart4;
+begin
+
 ImageTexture68 := TImageTextureNode.Create;
 ImageTexture68.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_top.png','https://coderextreme.net/src/main/resources/images/all_probes/stpeters_cross/stpeters_top.png']);
 { .SetTopTexture }
@@ -479,6 +500,11 @@ X3DField75 := TX3DField.Create;
 X3DField75.NameField := 'a';
 X3DField75.Type := 'SFFloat';
 X3DField75.AccessType := 'inputOutput';
+end;
+
+procedure InitbumpyfreewrlslidersPart5;
+begin
+
 X3DField75.Value := '15';
 { .AddX3DField }
 ComposedShader69.X3DField := X3DField75;
@@ -530,6 +556,11 @@ connect83.ProtoField := 'vertex';
 IS82.Connect := connect83;
 { .SetIS }
 ShaderPart81.IS := IS82;
+end;
+
+procedure InitbumpyfreewrlslidersPart6;
+begin
+
 { .AddParts }
 ComposedShader69.Parts := ShaderPart81;
 ShaderPart84 := TShaderPartNode.Create;
@@ -621,6 +652,11 @@ Collision92 := TCollisionNode.Create;
 Group93 := TGroupNode.Create;
 { .SetProxy }
 Collision92.Proxy := Group93;
+end;
+
+procedure InitbumpyfreewrlslidersPart7;
+begin
+
 { .AddChildren }
 Layer19.AddChildren([Collision92]);
 Layer19.AddRoute(DISEntityManager87.FdAddedentities, Group93.FdAddchildren);
@@ -681,6 +717,11 @@ Transform102.AddChildren([Transform103]);
 { .AddChildren }
 LayoutLayer96.AddChildren([Transform102]);
 X3DPrototype109 := TX3DPrototype.Create;
+end;
+
+procedure InitbumpyfreewrlslidersPart8;
+begin
+
 X3DPrototype109.NameField := 'SliderProto';
 X3DInterfaceDeclaration110 := TX3DInterfaceDeclaration.Create(nil);
 X3DField111 := TX3DField.Create;
@@ -727,6 +768,11 @@ X3DField116.Value := 'a';
 X3DInterfaceDeclaration110.X3DField := X3DField116;
 X3DField117 := TX3DField.Create;
 X3DField117.NameField := 'parameterScale';
+end;
+
+procedure InitbumpyfreewrlslidersPart9;
+begin
+
 X3DField117.AccessType := 'inputOutput';
 X3DField117.Type := 'SFFloat';
 X3DField117.Value := '30';
@@ -777,6 +823,11 @@ Transform130 := TTransformNode.Create;
 Shape131 := TShapeNode.Create;
 Text132 := TTextNode.Create;
 Text132.SetText(['a=']);
+end;
+
+procedure InitbumpyfreewrlslidersPart10;
+begin
+
 IS133 := TIS.Create;
 connect134 := Tconnect.Create;
 connect134.NodeField := 'string';
@@ -835,6 +886,11 @@ Transform124.AddChildren([Transform130]);
 Transform121.AddChildren([Transform124]);
 { .AddChildren }
 Group120.AddChildren([Transform121]);
+end;
+
+procedure InitbumpyfreewrlslidersPart11;
+begin
+
 Script146 := TScriptNode.Create;
 Script146.DirectOutput := True;
 Script146.MustEvaluate := True;
@@ -881,6 +937,11 @@ X3DField152.Value := 'a';
 Script146.X3DField := X3DField152;
 IS153 := TIS.Create;
 connect154 := Tconnect.Create;
+end;
+
+procedure InitbumpyfreewrlslidersPart12;
+begin
+
 connect154.NodeField := 'protoScale';
 connect154.ProtoField := 'parameterScale';
 { .AddConnect }
@@ -1215,6 +1276,23 @@ LayerSet18.Layers := LayoutLayer96;
 Group17.AddChildren([LayerSet18]);
 { .AddGroup }
 X3D0.AddChildren([Group17]);
+end;
+
+function Createbumpyfreewrlsliders: TX3DRootNode;
+begin
+InitbumpyfreewrlslidersPart0;
+InitbumpyfreewrlslidersPart1;
+InitbumpyfreewrlslidersPart2;
+InitbumpyfreewrlslidersPart3;
+InitbumpyfreewrlslidersPart4;
+InitbumpyfreewrlslidersPart5;
+InitbumpyfreewrlslidersPart6;
+InitbumpyfreewrlslidersPart7;
+InitbumpyfreewrlslidersPart8;
+InitbumpyfreewrlslidersPart9;
+InitbumpyfreewrlslidersPart10;
+InitbumpyfreewrlslidersPart11;
+InitbumpyfreewrlslidersPart12;
 Result := X3D0;
 end;
 

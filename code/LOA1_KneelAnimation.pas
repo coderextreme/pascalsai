@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateLOA1_KneelAnimation: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group17: TGroupNode;
@@ -99,6 +98,8 @@ Text112: TTextNode;
 FontStyle113: TFontStyleNode;
 Appearance114: TAppearanceNode;
 Material115: TMaterialNode;
+
+procedure InitLOA1_KneelAnimationPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -143,6 +144,11 @@ X3DField22.Value := 'true';
 X3DInterfaceDeclaration20.X3DField := X3DField22;
 X3DField23 := TX3DField.Create;
 X3DField23.NameField := 'loop';
+end;
+
+procedure InitLOA1_KneelAnimationPart1;
+begin
+
 X3DField23.AccessType := 'inputOutput';
 X3DField23.Type := 'SFBool';
 X3DField23.Value := 'false';
@@ -190,6 +196,11 @@ X3DField30 := TX3DField.Create;
 X3DField30.NameField := 'lower_body_rotation_changed';
 X3DField30.AccessType := 'outputOnly';
 X3DField30.Type := 'SFRotation';
+end;
+
+procedure InitLOA1_KneelAnimationPart2;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration20.X3DField := X3DField30;
 X3DField31 := TX3DField.Create;
@@ -238,6 +249,11 @@ X3DField38 := TX3DField.Create;
 X3DField38.NameField := 'r_midtarsal_rotation_changed';
 X3DField38.AccessType := 'outputOnly';
 X3DField38.Type := 'SFRotation';
+end;
+
+procedure InitLOA1_KneelAnimationPart3;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration20.X3DField := X3DField38;
 X3DField39 := TX3DField.Create;
@@ -286,6 +302,11 @@ X3DField46 := TX3DField.Create;
 X3DField46.NameField := 'r_wrist_rotation_changed';
 X3DField46.AccessType := 'outputOnly';
 X3DField46.Type := 'SFRotation';
+end;
+
+procedure InitLOA1_KneelAnimationPart4;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration20.X3DField := X3DField46;
 { .SetX3DInterfaceDeclaration }
@@ -337,6 +358,11 @@ PositionInterpolator58 := TPositionInterpolatorNode.Create;
 PositionInterpolator58.SetKey([0,0.3125,0.625,1]);
 PositionInterpolator58.SetKeyValue([Vector3(0,0,0),Vector3(0,-0.049999,0),Vector3(0,-0.195,0),Vector3(0,-0.439997,0)]);
 IS59 := TIS.Create;
+end;
+
+procedure InitLOA1_KneelAnimationPart5;
+begin
+
 connect60 := Tconnect.Create;
 connect60.NodeField := 'value_changed';
 connect60.ProtoField := 'HumanoidRoot_translation_changed';
@@ -390,6 +416,11 @@ OrientationInterpolator70 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator70.SetKey([0,0.3125,0.625,1]);
 OrientationInterpolator70.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.017453),Vector4(-1,0,0,0.069812),Vector4(1,0,0,0.261799)]);
 IS71 := TIS.Create;
+end;
+
+procedure InitLOA1_KneelAnimationPart6;
+begin
+
 connect72 := Tconnect.Create;
 connect72.NodeField := 'value_changed';
 connect72.ProtoField := 'l_ankle_rotation_changed';
@@ -444,6 +475,11 @@ OrientationInterpolator82 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator82.SetKey([0,1]);
 OrientationInterpolator82.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.174533)]);
 IS83 := TIS.Create;
+end;
+
+procedure InitLOA1_KneelAnimationPart7;
+begin
+
 connect84 := Tconnect.Create;
 connect84.NodeField := 'value_changed';
 connect84.ProtoField := 'vl5_rotation_changed';
@@ -498,6 +534,11 @@ OrientationInterpolator94 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator94.SetKey([0,0.3125,0.625,1]);
 OrientationInterpolator94.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.837757),Vector4(-1,0,0,1.239183),Vector4(-1,0,0,1.500983)]);
 IS95 := TIS.Create;
+end;
+
+procedure InitLOA1_KneelAnimationPart8;
+begin
+
 connect96 := Tconnect.Create;
 connect96.NodeField := 'value_changed';
 connect96.ProtoField := 'r_elbow_rotation_changed';
@@ -562,12 +603,31 @@ Material115.DiffuseColor := Vector3(1,1,0.2);
 Appearance114.Material := Material115;
 { .SetAppearance }
 Shape111.Appearance := Appearance114;
+end;
+
+procedure InitLOA1_KneelAnimationPart9;
+begin
+
 { .AddChildren }
 Anchor110.AddChildren([Shape111]);
 { .AddChildren }
 Group17.AddChildren([Anchor110]);
 { .AddGroup }
 X3D0.AddChildren([Group17]);
+end;
+
+function CreateLOA1_KneelAnimation: TX3DRootNode;
+begin
+InitLOA1_KneelAnimationPart0;
+InitLOA1_KneelAnimationPart1;
+InitLOA1_KneelAnimationPart2;
+InitLOA1_KneelAnimationPart3;
+InitLOA1_KneelAnimationPart4;
+InitLOA1_KneelAnimationPart5;
+InitLOA1_KneelAnimationPart6;
+InitLOA1_KneelAnimationPart7;
+InitLOA1_KneelAnimationPart8;
+InitLOA1_KneelAnimationPart9;
 Result := X3D0;
 end;
 

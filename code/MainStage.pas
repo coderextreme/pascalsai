@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateMainStage: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group13: TGroupNode;
@@ -55,6 +54,8 @@ Transform51: TTransformNode;
 Shape52: TShapeNode;
 Appearance53: TAppearanceNode;
 IndexedLineSet54: TIndexedLineSetNode;
+
+procedure InitMainStagePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -101,6 +102,11 @@ DirectionalLight18.Intensity := 0.5;
 Group13.AddChildren([DirectionalLight18]);
 Viewpoint19 := TViewpointNode.Create;
 Viewpoint19.Description := 'hanim_Stage Front View';
+end;
+
+procedure InitMainStagePart1;
+begin
+
 Viewpoint19.Orientation := Vector4(1,0,0,-0.449999988);
 Viewpoint19.Position := Vector3(0,4,10);
 { .AddChildren }
@@ -149,6 +155,11 @@ Transform28.Translation := Vector3(0,-0.01,0);
 Shape29 := TShapeNode.Create;
 Appearance30 := TAppearanceNode.Create;
 Material31 := TMaterialNode.Create;
+end;
+
+procedure InitMainStagePart2;
+begin
+
 Material31.Transparency := 0.6;
 { .SetMaterial }
 Appearance30.Material := Material31;
@@ -204,6 +215,11 @@ Shape44 := TShapeNode.Create;
 Appearance45 := Appearance35;
 { .SetAppearance }
 Shape44.Appearance := Appearance45;
+end;
+
+procedure InitMainStagePart3;
+begin
+
 IndexedLineSet46 := IndexedLineSet37;
 { .SetGeometry }
 Shape44.Geometry := IndexedLineSet46;
@@ -243,6 +259,14 @@ Group25.AddChildren([Transform28]);
 Group13.AddChildren([Group25]);
 { .AddGroup }
 X3D0.AddChildren([Group13]);
+end;
+
+function CreateMainStage: TX3DRootNode;
+begin
+InitMainStagePart0;
+InitMainStagePart1;
+InitMainStagePart2;
+InitMainStagePart3;
 Result := X3D0;
 end;
 

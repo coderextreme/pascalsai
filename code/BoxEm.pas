@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateBoxEm: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -62,6 +61,8 @@ Appearance52: TAppearanceNode;
 Material53: TMaterialNode;
 Transform54: TTransformNode;
 Shape55: TShapeNode;
+
+procedure InitBoxEmPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -111,6 +112,11 @@ Shape14.Appearance := Appearance16;
 X3DField13.Shape := Shape14;
 { .AddX3DField }
 X3DInterfaceDeclaration11.X3DField := X3DField13;
+end;
+
+procedure InitBoxEmPart1;
+begin
+
 { .SetX3DInterfaceDeclaration }
 X3DPrototype10.X3DInterfaceDeclaration := X3DInterfaceDeclaration11;
 X3DPrototype18 := TX3DPrototype.Create;
@@ -165,6 +171,11 @@ X3DField26.Shape := Shape27;
 X3DInterfaceDeclaration24.X3DField := X3DField26;
 { .SetX3DInterfaceDeclaration }
 X3DPrototype23.X3DInterfaceDeclaration := X3DInterfaceDeclaration24;
+end;
+
+procedure InitBoxEmPart2;
+begin
+
 X3DPrototype31 := TX3DPrototype.Create;
 Transform32 := TTransformNode.Create;
 IS33 := TIS.Create;
@@ -216,6 +227,11 @@ SFVec3f44.NameField := 'xtranslation';
 SFVec3f44.Value := '-2 0 0';
 { .SetSFVec3f }
 X3DPrototype43.SFVec3f := SFVec3f44;
+end;
+
+procedure InitBoxEmPart3;
+begin
+
 IS45 := TIS.Create;
 connect46 := Tconnect.Create;
 connect46.NodeField := 'myShape';
@@ -268,6 +284,14 @@ Transform54.AddChildren([Shape55]);
 Group7.AddChildren([Transform54]);
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function CreateBoxEm: TX3DRootNode;
+begin
+InitBoxEmPart0;
+InitBoxEmPart1;
+InitBoxEmPart2;
+InitBoxEmPart3;
 Result := X3D0;
 end;
 

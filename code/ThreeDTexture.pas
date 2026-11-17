@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateThreeDTexture: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -68,6 +67,8 @@ X3DPrototype58: TX3DPrototypeNode;
 SFVec3f59: TSFVec3f;
 X3DPrototype60: TX3DPrototypeNode;
 SFVec3f61: TSFVec3f;
+
+procedure InitThreeDTexturePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -116,6 +117,11 @@ Sphere18 := TSphereNode.Create;
 Shape17.Geometry := Sphere18;
 Appearance19 := TAppearanceNode.Create;
 Material20 := TMaterialNode.Create;
+end;
+
+procedure InitThreeDTexturePart1;
+begin
+
 Material20.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
 Appearance19.Material := Material20;
@@ -170,6 +176,11 @@ X3DPrototype30.SFVec3f := SFVec3f31;
 { .AddX3DPrototype }
 Transform25.X3DPrototype := X3DPrototype30;
 X3DPrototype32 := TX3DPrototypeNode.Create;
+end;
+
+procedure InitThreeDTexturePart2;
+begin
+
 X3DPrototype32.NameField := 'sphereproto';
 SFVec3f33 := TSFVec3f.Create(sphereproto2, false, 'xtranslation', Vector3(-2,0,0));
 SFVec3f33.NameField := 'xtranslation';
@@ -222,6 +233,11 @@ SFVec3f44.NameField := 'ytranslation';
 SFVec3f44.Value := '0 2 0';
 { .SetSFVec3f }
 X3DPrototype43.SFVec3f := SFVec3f44;
+end;
+
+procedure InitThreeDTexturePart3;
+begin
+
 { .AddX3DPrototype }
 Transform38.X3DPrototype := X3DPrototype43;
 X3DPrototype45 := TX3DPrototypeNode.Create;
@@ -274,6 +290,11 @@ X3DPrototype56 := TX3DPrototypeNode.Create;
 X3DPrototype56.NameField := 'nine';
 SFVec3f57 := TSFVec3f.Create(nine4, false, 'ztranslation', Vector3(0,0,2));
 SFVec3f57.NameField := 'ztranslation';
+end;
+
+procedure InitThreeDTexturePart4;
+begin
+
 SFVec3f57.Value := '0 0 2';
 { .SetSFVec3f }
 X3DPrototype56.SFVec3f := SFVec3f57;
@@ -305,6 +326,15 @@ X3DPrototype60.SFVec3f := SFVec3f61;
 Group7.X3DPrototype := X3DPrototype60;
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function CreateThreeDTexture: TX3DRootNode;
+begin
+InitThreeDTexturePart0;
+InitThreeDTexturePart1;
+InitThreeDTexturePart2;
+InitThreeDTexturePart3;
+InitThreeDTexturePart4;
 Result := X3D0;
 end;
 

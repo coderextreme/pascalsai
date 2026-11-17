@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreatePathway: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -2225,6 +2224,8 @@ Appearance2223: TAppearanceNode;
 Material2224: TMaterialNode;
 IndexedFaceSet2225: TIndexedFaceSetNode;
 Coordinate2226: TCoordinateNode;
+
+procedure InitPathwayPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -2272,6 +2273,11 @@ Shape17.Geometry := IndexedFaceSet20;
 Group15.AddChildren([Shape17]);
 Shape22 := TShapeNode.Create;
 Appearance23 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart1;
+begin
+
 Material24 := TMaterialNode.Create;
 Material24.AmbientIntensity := 0;
 Material24.DiffuseColor := Vector3(0.784313738,0,0);
@@ -2324,6 +2330,11 @@ Material34.Shininess := 1;
 Appearance33.Material := Material34;
 { .SetAppearance }
 Shape32.Appearance := Appearance33;
+end;
+
+procedure InitPathwayPart2;
+begin
+
 IndexedFaceSet35 := TIndexedFaceSetNode.Create;
 IndexedFaceSet35.SetCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,36,35,37,-1,36,37,38,-1]);
 IndexedFaceSet35.Solid := False;
@@ -2374,6 +2385,11 @@ IndexedFaceSet45.Solid := False;
 IndexedFaceSet45.SetTexCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,18,17,19,-1,18,19,20,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate46 := TCoordinateNode.Create;
 Coordinate46.SetPoint([Vector3(26.262577057,0,27.133768082),Vector3(25.858791351,0,27.216072083),Vector3(25.455007553,0,27.298377991),Vector3(26.262577057,0.075000003,27.133768082),Vector3(25.858791351,0.075000003,27.216072083),Vector3(25.455007553,0.075000003,27.298377991),Vector3(25.656900406,0.075000003,27.257225037),Vector3(25.656900406,0,27.257225037),Vector3(25.858791351,0.037500001,27.216072083),Vector3(25.656900406,0.037500001,27.257225037),Vector3(26.060684204,0.075000003,27.174921036),Vector3(26.060684204,0,27.174921036),Vector3(26.060684204,0.037500001,27.174921036),Vector3(25.455007553,0,27.298377991),Vector3(25.589126587,0,27.956357956),Vector3(25.455007553,0.075000003,27.298377991),Vector3(25.589126587,0.075000003,27.956357956),Vector3(25.589126587,0,27.956357956),Vector3(26.396697998,0,27.79174614),Vector3(25.589126587,0.075000003,27.956357956),Vector3(26.396697998,0.075000003,27.79174614),Vector3(26.396697998,0,27.79174614),Vector3(26.262577057,0,27.133768082),Vector3(26.396697998,0.075000003,27.79174614),Vector3(26.262577057,0.075000003,27.133768082)]);
+end;
+
+procedure InitPathwayPart3;
+begin
+
 { .SetCoord }
 IndexedFaceSet45.Coord := Coordinate46;
 { .SetGeometry }
@@ -2427,6 +2443,11 @@ Group15.AddChildren([Shape52]);
 Shape57 := TShapeNode.Create;
 Appearance58 := TAppearanceNode.Create;
 Material59 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart4;
+begin
+
 Material59.AmbientIntensity := 0;
 Material59.DiffuseColor := Vector3(0.784313738,0,0);
 Material59.Shininess := 1;
@@ -2479,6 +2500,11 @@ Appearance68.Material := Material69;
 { .SetAppearance }
 Shape67.Appearance := Appearance68;
 IndexedFaceSet70 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart5;
+begin
+
 IndexedFaceSet70.SetCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,50,41,39,-1,42,44,50,-1,39,42,50,-1,46,44,42,-1,36,43,46,-1,42,36,46,-1,44,46,48,-1,44,48,45,-1,46,43,47,-1,46,47,48,-1,41,50,51,-1,41,51,49,-1,50,44,45,-1,50,45,51,-1,58,56,54,-1,58,54,57,-1,55,58,57,-1,55,57,52,-1,61,59,53,-1,61,53,60,-1,56,61,60,-1,56,60,54,-1,60,53,36,-1,42,54,60,-1,36,42,60,-1,57,54,42,-1,39,52,57,-1,42,39,57,-1,47,35,48,-1,45,48,35,-1,61,37,59,-1,56,37,61,-1,45,35,38,-1,49,51,38,-1,45,38,51,-1,40,56,58,-1,58,55,40,-1,37,56,40,-1]);
 IndexedFaceSet70.Solid := False;
 IndexedFaceSet70.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,50,41,39,-1,42,44,50,-1,39,42,50,-1,46,44,42,-1,36,43,46,-1,42,36,46,-1,44,46,48,-1,44,48,45,-1,46,43,47,-1,46,47,48,-1,41,50,51,-1,41,51,49,-1,50,44,45,-1,50,45,51,-1,58,56,54,-1,58,54,57,-1,55,58,57,-1,55,57,52,-1,61,59,53,-1,61,53,60,-1,56,61,60,-1,56,60,54,-1,60,53,36,-1,42,54,60,-1,36,42,60,-1,57,54,42,-1,39,52,57,-1,42,39,57,-1,47,35,48,-1,45,48,35,-1,61,37,59,-1,56,37,61,-1,45,35,38,-1,49,51,38,-1,45,38,51,-1,40,56,58,-1,58,55,40,-1,37,56,40,-1]);
@@ -2530,6 +2556,11 @@ Coordinate81 := TCoordinateNode.Create;
 Coordinate81.SetPoint([Vector3(25.295780182,0,22.390731812),Vector3(24.488208771,0,22.555343628),Vector3(25.295780182,0.075000003,22.390731812),Vector3(24.488208771,0.075000003,22.555343628),Vector3(24.488208771,0,22.555343628),Vector3(24.622327805,0,23.213323593),Vector3(24.488208771,0.075000003,22.555343628),Vector3(24.622327805,0.075000003,23.213323593),Vector3(24.622327805,0,23.213323593),Vector3(25.429899216,0,23.048711777),Vector3(24.622327805,0.075000003,23.213323593),Vector3(25.429899216,0.075000003,23.048711777),Vector3(25.429899216,0,23.048711777),Vector3(25.295780182,0,22.390731812),Vector3(25.429899216,0.075000003,23.048711777),Vector3(25.295780182,0.075000003,22.390731812)]);
 { .SetCoord }
 IndexedFaceSet80.Coord := Coordinate81;
+end;
+
+procedure InitPathwayPart6;
+begin
+
 { .SetGeometry }
 Shape77.Geometry := IndexedFaceSet80;
 { .AddChildren }
@@ -2582,6 +2613,11 @@ Shape92 := TShapeNode.Create;
 Appearance93 := TAppearanceNode.Create;
 Material94 := TMaterialNode.Create;
 Material94.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart7;
+begin
+
 Material94.DiffuseColor := Vector3(0.784313738,0,0);
 Material94.Shininess := 1;
 { .SetMaterial }
@@ -2634,6 +2670,11 @@ Appearance103.Material := Material104;
 Shape102.Appearance := Appearance103;
 IndexedFaceSet105 := TIndexedFaceSetNode.Create;
 IndexedFaceSet105.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
+end;
+
+procedure InitPathwayPart8;
+begin
+
 IndexedFaceSet105.Solid := False;
 IndexedFaceSet105.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate106 := TCoordinateNode.Create;
@@ -2686,6 +2727,11 @@ Coordinate116.SetPoint([Vector3(25.02182579,0,27.386676788),Vector3(24.627838135
 IndexedFaceSet115.Coord := Coordinate116;
 { .SetGeometry }
 Shape112.Geometry := IndexedFaceSet115;
+end;
+
+procedure InitPathwayPart9;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape112]);
 Shape117 := TShapeNode.Create;
@@ -2737,6 +2783,11 @@ Appearance128 := TAppearanceNode.Create;
 Material129 := TMaterialNode.Create;
 Material129.AmbientIntensity := 0;
 Material129.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart10;
+begin
+
 Material129.Shininess := 1;
 { .SetMaterial }
 Appearance128.Material := Material129;
@@ -2789,6 +2840,11 @@ Shape137.Appearance := Appearance138;
 IndexedFaceSet140 := TIndexedFaceSetNode.Create;
 IndexedFaceSet140.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 IndexedFaceSet140.Solid := False;
+end;
+
+procedure InitPathwayPart11;
+begin
+
 IndexedFaceSet140.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate141 := TCoordinateNode.Create;
 Coordinate141.SetPoint([Vector3(24.744840622,0,23.914491653),Vector3(23.937269211,0,24.07910347),Vector3(24.744840622,0.075000003,23.914491653),Vector3(23.937269211,0.075000003,24.07910347),Vector3(23.937269211,0,24.07910347),Vector3(24.071388245,0,24.737081528),Vector3(23.937269211,0.075000003,24.07910347),Vector3(24.071388245,0.075000003,24.737081528),Vector3(24.071388245,0,24.737081528),Vector3(24.47517395,0,24.65477562),Vector3(24.878959656,0,24.572469711),Vector3(24.071388245,0.075000003,24.737081528),Vector3(24.47517395,0.075000003,24.65477562),Vector3(24.878959656,0.075000003,24.572469711),Vector3(24.273281097,0.075000003,24.695928574),Vector3(24.47517395,0.037500001,24.65477562),Vector3(24.273281097,0,24.695928574),Vector3(24.273281097,0.037500001,24.695928574),Vector3(24.677066803,0.075000003,24.613622665),Vector3(24.677066803,0,24.613622665),Vector3(24.677066803,0.037500001,24.613622665),Vector3(24.878959656,0,24.572469711),Vector3(24.744840622,0,23.914491653),Vector3(24.878959656,0.075000003,24.572469711),Vector3(24.744840622,0.075000003,23.914491653)]);
@@ -2842,6 +2898,11 @@ IndexedFaceSet150.Coord := Coordinate151;
 Shape147.Geometry := IndexedFaceSet150;
 { .AddChildren }
 Group15.AddChildren([Shape147]);
+end;
+
+procedure InitPathwayPart12;
+begin
+
 Shape152 := TShapeNode.Create;
 Appearance153 := TAppearanceNode.Create;
 Material154 := TMaterialNode.Create;
@@ -2892,6 +2953,11 @@ Material164 := TMaterialNode.Create;
 Material164.AmbientIntensity := 0;
 Material164.DiffuseColor := Vector3(0.784313738,0,0);
 Material164.Shininess := 1;
+end;
+
+procedure InitPathwayPart13;
+begin
+
 { .SetMaterial }
 Appearance163.Material := Material164;
 { .SetAppearance }
@@ -2944,6 +3010,11 @@ IndexedFaceSet175 := TIndexedFaceSetNode.Create;
 IndexedFaceSet175.SetCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,36,35,37,-1,36,37,38,-1]);
 IndexedFaceSet175.Solid := False;
 IndexedFaceSet175.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,36,35,37,-1,36,37,38,-1]);
+end;
+
+procedure InitPathwayPart14;
+begin
+
 Coordinate176 := TCoordinateNode.Create;
 Coordinate176.SetPoint([Vector3(23.364458084,0,19.255758286),Vector3(22.970470428,0,19.3360672),Vector3(23.364458084,0.075000003,19.255758286),Vector3(22.970470428,0.075000003,19.3360672),Vector3(22.970470428,0,19.3360672),Vector3(23.106588364,0,20.003845215),Vector3(23.242704391,0,20.67162323),Vector3(22.970470428,0.075000003,19.3360672),Vector3(23.106588364,0.075000003,20.003845215),Vector3(23.242704391,0.075000003,20.67162323),Vector3(23.038528442,0.075000003,19.669956207),Vector3(23.106588364,0.037500001,20.003845215),Vector3(23.038528442,0,19.669956207),Vector3(23.038528442,0.037500001,19.669956207),Vector3(23.004499435,0.037500001,19.503011703),Vector3(23.038528442,0.018750001,19.669956207),Vector3(23.004499435,0,19.503011703),Vector3(23.004499435,0.018750001,19.503011703),Vector3(23.004499435,0.075000003,19.503011703),Vector3(23.038528442,0.056249999,19.669956207),Vector3(23.004499435,0.056249999,19.503011703),Vector3(23.174646378,0.075000003,20.337734222),Vector3(23.174646378,0,20.337734222),Vector3(23.174646378,0.037500001,20.337734222),Vector3(23.208675385,0.075000003,20.504678726),Vector3(23.208675385,0.037500001,20.504678726),Vector3(23.174646378,0.056249999,20.337734222),Vector3(23.208675385,0.056249999,20.504678726),Vector3(23.208675385,0,20.504678726),Vector3(23.174646378,0.018750001,20.337734222),Vector3(23.208675385,0.018750001,20.504678726),Vector3(23.242704391,0,20.67162323),Vector3(23.636692047,0,20.591314316),Vector3(23.242704391,0.075000003,20.67162323),Vector3(23.636692047,0.075000003,20.591314316),Vector3(23.636692047,0,20.591314316),Vector3(23.364458084,0,19.255758286),Vector3(23.636692047,0.075000003,20.591314316),Vector3(23.364458084,0.075000003,19.255758286)]);
 { .SetCoord }
@@ -2997,6 +3068,11 @@ Shape182.Geometry := IndexedFaceSet185;
 { .AddChildren }
 Group15.AddChildren([Shape182]);
 Shape187 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart15;
+begin
+
 Appearance188 := TAppearanceNode.Create;
 Material189 := TMaterialNode.Create;
 Material189.AmbientIntensity := 0;
@@ -3048,6 +3124,11 @@ Material199.DiffuseColor := Vector3(0.784313738,0,0);
 Material199.Shininess := 1;
 { .SetMaterial }
 Appearance198.Material := Material199;
+end;
+
+procedure InitPathwayPart16;
+begin
+
 { .SetAppearance }
 Shape197.Appearance := Appearance198;
 IndexedFaceSet200 := TIndexedFaceSetNode.Create;
@@ -3099,6 +3180,11 @@ IndexedFaceSet210.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9
 IndexedFaceSet210.Solid := False;
 IndexedFaceSet210.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate211 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart17;
+begin
+
 Coordinate211.SetPoint([Vector3(24.193899155,0,25.438249588),Vector3(23.386329651,0,25.602861404),Vector3(24.193899155,0.075000003,25.438249588),Vector3(23.386329651,0.075000003,25.602861404),Vector3(23.386329651,0,25.602861404),Vector3(23.520448685,0,26.26084137),Vector3(23.386329651,0.075000003,25.602861404),Vector3(23.520448685,0.075000003,26.26084137),Vector3(23.520448685,0,26.26084137),Vector3(24.328020096,0,26.096229553),Vector3(23.520448685,0.075000003,26.26084137),Vector3(24.328020096,0.075000003,26.096229553),Vector3(24.328020096,0,26.096229553),Vector3(24.193899155,0,25.438249588),Vector3(24.328020096,0.075000003,26.096229553),Vector3(24.193899155,0.075000003,25.438249588)]);
 { .SetCoord }
 IndexedFaceSet210.Coord := Coordinate211;
@@ -3152,6 +3238,11 @@ Shape217.Geometry := IndexedFaceSet220;
 Group15.AddChildren([Shape217]);
 Shape222 := TShapeNode.Create;
 Appearance223 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart18;
+begin
+
 Material224 := TMaterialNode.Create;
 Material224.AmbientIntensity := 0;
 Material224.DiffuseColor := Vector3(0.784313738,0,0);
@@ -3204,6 +3295,11 @@ Material234.Shininess := 1;
 Appearance233.Material := Material234;
 { .SetAppearance }
 Shape232.Appearance := Appearance233;
+end;
+
+procedure InitPathwayPart19;
+begin
+
 IndexedFaceSet235 := TIndexedFaceSetNode.Create;
 IndexedFaceSet235.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet235.Solid := False;
@@ -3254,6 +3350,11 @@ IndexedFaceSet245.Solid := False;
 IndexedFaceSet245.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate246 := TCoordinateNode.Create;
 Coordinate246.SetPoint([Vector3(22.813518524,0,20.779518127),Vector3(22.419530869,0,20.859827042),Vector3(22.813518524,0.075000003,20.779518127),Vector3(22.419530869,0.075000003,20.859827042),Vector3(22.419530869,0,20.859827042),Vector3(22.691764832,0,22.195383072),Vector3(22.419530869,0.075000003,20.859827042),Vector3(22.691764832,0.075000003,22.195383072),Vector3(22.691764832,0,22.195383072),Vector3(23.08575058,0,22.115074158),Vector3(22.691764832,0.075000003,22.195383072),Vector3(23.08575058,0.075000003,22.115074158),Vector3(23.08575058,0,22.115074158),Vector3(22.813518524,0,20.779518127),Vector3(23.08575058,0.075000003,22.115074158),Vector3(22.813518524,0.075000003,20.779518127)]);
+end;
+
+procedure InitPathwayPart20;
+begin
+
 { .SetCoord }
 IndexedFaceSet245.Coord := Coordinate246;
 { .SetGeometry }
@@ -3307,6 +3408,11 @@ Group15.AddChildren([Shape252]);
 Shape257 := TShapeNode.Create;
 Appearance258 := TAppearanceNode.Create;
 Material259 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart21;
+begin
+
 Material259.AmbientIntensity := 0;
 Material259.DiffuseColor := Vector3(0.784313738,0,0);
 Material259.Shininess := 1;
@@ -3359,6 +3465,11 @@ Appearance268.Material := Material269;
 { .SetAppearance }
 Shape267.Appearance := Appearance268;
 IndexedFaceSet270 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart22;
+begin
+
 IndexedFaceSet270.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet270.Solid := False;
 IndexedFaceSet270.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
@@ -3410,6 +3521,11 @@ Coordinate281 := TCoordinateNode.Create;
 Coordinate281.SetPoint([Vector3(23.367490768,0,27.723888397),Vector3(22.973503113,0,27.804197311),Vector3(23.367490768,0.075000003,27.723888397),Vector3(22.973503113,0.075000003,27.804197311),Vector3(22.973503113,0,27.804197311),Vector3(23.245737076,0,29.139753342),Vector3(22.973503113,0.075000003,27.804197311),Vector3(23.245737076,0.075000003,29.139753342),Vector3(23.245737076,0,29.139753342),Vector3(23.639722824,0,29.059444427),Vector3(23.245737076,0.075000003,29.139753342),Vector3(23.639722824,0.075000003,29.059444427),Vector3(23.639722824,0,29.059444427),Vector3(23.367490768,0,27.723888397),Vector3(23.639722824,0.075000003,29.059444427),Vector3(23.367490768,0.075000003,27.723888397)]);
 { .SetCoord }
 IndexedFaceSet280.Coord := Coordinate281;
+end;
+
+procedure InitPathwayPart23;
+begin
+
 { .SetGeometry }
 Shape277.Geometry := IndexedFaceSet280;
 { .AddChildren }
@@ -3462,6 +3578,11 @@ Shape292 := TShapeNode.Create;
 Appearance293 := TAppearanceNode.Create;
 Material294 := TMaterialNode.Create;
 Material294.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart24;
+begin
+
 Material294.DiffuseColor := Vector3(0.784313738,0,0);
 Material294.Shininess := 1;
 { .SetMaterial }
@@ -3514,6 +3635,11 @@ Appearance303.Material := Material304;
 Shape302.Appearance := Appearance303;
 IndexedFaceSet305 := TIndexedFaceSetNode.Create;
 IndexedFaceSet305.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
+end;
+
+procedure InitPathwayPart25;
+begin
+
 IndexedFaceSet305.Solid := False;
 IndexedFaceSet305.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate306 := TCoordinateNode.Create;
@@ -3566,6 +3692,11 @@ Coordinate316.SetPoint([Vector3(22.67616272,0,22.21897316),Vector3(22.282175064,
 IndexedFaceSet315.Coord := Coordinate316;
 { .SetGeometry }
 Shape312.Geometry := IndexedFaceSet315;
+end;
+
+procedure InitPathwayPart26;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape312]);
 Shape317 := TShapeNode.Create;
@@ -3617,6 +3748,11 @@ Appearance328 := TAppearanceNode.Create;
 Material329 := TMaterialNode.Create;
 Material329.AmbientIntensity := 0;
 Material329.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart27;
+begin
+
 Material329.Shininess := 1;
 { .SetMaterial }
 Appearance328.Material := Material329;
@@ -3669,6 +3805,11 @@ Shape337.Appearance := Appearance338;
 IndexedFaceSet340 := TIndexedFaceSetNode.Create;
 IndexedFaceSet340.SetCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,36,35,37,-1,36,37,38,-1]);
 IndexedFaceSet340.Solid := False;
+end;
+
+procedure InitPathwayPart28;
+begin
+
 IndexedFaceSet340.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,36,35,37,-1,36,37,38,-1]);
 Coordinate341 := TCoordinateNode.Create;
 Coordinate341.SetPoint([Vector3(21.710123062,0,19.592971802),Vector3(21.316135406,0,19.673278809),Vector3(21.710123062,0.075000003,19.592971802),Vector3(21.316135406,0.075000003,19.673278809),Vector3(21.316135406,0,19.673278809),Vector3(21.452251434,0,20.341056824),Vector3(21.58836937,0,21.008834839),Vector3(21.316135406,0.075000003,19.673278809),Vector3(21.452251434,0.075000003,20.341056824),Vector3(21.58836937,0.075000003,21.008834839),Vector3(21.38419342,0.075000003,20.007167816),Vector3(21.452251434,0.037500001,20.341056824),Vector3(21.38419342,0,20.007167816),Vector3(21.38419342,0.037500001,20.007167816),Vector3(21.350164413,0.037500001,19.840223312),Vector3(21.38419342,0.018750001,20.007167816),Vector3(21.350164413,0,19.840223312),Vector3(21.350164413,0.018750001,19.840223312),Vector3(21.350164413,0.075000003,19.840223312),Vector3(21.38419342,0.056249999,20.007167816),Vector3(21.350164413,0.056249999,19.840223312),Vector3(21.520309448,0.075000003,20.674945831),Vector3(21.520309448,0,20.674945831),Vector3(21.520309448,0.037500001,20.674945831),Vector3(21.554340363,0.075000003,20.841890335),Vector3(21.554340363,0.037500001,20.841890335),Vector3(21.520309448,0.056249999,20.674945831),Vector3(21.554340363,0.056249999,20.841890335),Vector3(21.554340363,0,20.841890335),Vector3(21.520309448,0.018750001,20.674945831),Vector3(21.554340363,0.018750001,20.841890335),Vector3(21.58836937,0,21.008834839),Vector3(21.982355118,0,20.928527832),Vector3(21.58836937,0.075000003,21.008834839),Vector3(21.982355118,0.075000003,20.928527832),Vector3(21.982355118,0,20.928527832),Vector3(21.710123062,0,19.592971802),Vector3(21.982355118,0.075000003,20.928527832),Vector3(21.710123062,0.075000003,19.592971802)]);
@@ -3722,6 +3863,11 @@ IndexedFaceSet350.Coord := Coordinate351;
 Shape347.Geometry := IndexedFaceSet350;
 { .AddChildren }
 Group15.AddChildren([Shape347]);
+end;
+
+procedure InitPathwayPart29;
+begin
+
 Shape352 := TShapeNode.Create;
 Appearance353 := TAppearanceNode.Create;
 Material354 := TMaterialNode.Create;
@@ -3772,6 +3918,11 @@ Material364 := TMaterialNode.Create;
 Material364.AmbientIntensity := 0;
 Material364.DiffuseColor := Vector3(0.784313738,0,0);
 Material364.Shininess := 1;
+end;
+
+procedure InitPathwayPart30;
+begin
+
 { .SetMaterial }
 Appearance363.Material := Material364;
 { .SetAppearance }
@@ -3824,6 +3975,11 @@ IndexedFaceSet375 := TIndexedFaceSetNode.Create;
 IndexedFaceSet375.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 IndexedFaceSet375.Solid := False;
 IndexedFaceSet375.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
+end;
+
+procedure InitPathwayPart31;
+begin
+
 Coordinate376 := TCoordinateNode.Create;
 Coordinate376.SetPoint([Vector3(20.190109253,0,10.022598267),Vector3(19.382539749,0,10.187209129),Vector3(20.190109253,0.075000003,10.022598267),Vector3(19.382539749,0.075000003,10.187209129),Vector3(19.382539749,0,10.187209129),Vector3(19.516658783,0,10.845189095),Vector3(19.382539749,0.075000003,10.187209129),Vector3(19.516658783,0.075000003,10.845189095),Vector3(19.516658783,0,10.845189095),Vector3(19.920444489,0,10.762883186),Vector3(20.324230194,0,10.680577278),Vector3(19.516658783,0.075000003,10.845189095),Vector3(19.920444489,0.075000003,10.762883186),Vector3(20.324230194,0.075000003,10.680577278),Vector3(19.718551636,0.075000003,10.80403614),Vector3(19.920444489,0.037500001,10.762883186),Vector3(19.718551636,0,10.80403614),Vector3(19.718551636,0.037500001,10.80403614),Vector3(20.122337341,0.075000003,10.721730232),Vector3(20.122337341,0,10.721730232),Vector3(20.122337341,0.037500001,10.721730232),Vector3(20.324230194,0,10.680577278),Vector3(20.190109253,0,10.022598267),Vector3(20.324230194,0.075000003,10.680577278),Vector3(20.190109253,0.075000003,10.022598267)]);
 { .SetCoord }
@@ -3877,6 +4033,11 @@ Shape382.Geometry := IndexedFaceSet385;
 { .AddChildren }
 Group15.AddChildren([Shape382]);
 Shape387 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart32;
+begin
+
 Appearance388 := TAppearanceNode.Create;
 Material389 := TMaterialNode.Create;
 Material389.AmbientIntensity := 0;
@@ -3928,6 +4089,11 @@ Material399.DiffuseColor := Vector3(0.784313738,0,0);
 Material399.Shininess := 1;
 { .SetMaterial }
 Appearance398.Material := Material399;
+end;
+
+procedure InitPathwayPart33;
+begin
+
 { .SetAppearance }
 Shape397.Appearance := Appearance398;
 IndexedFaceSet400 := TIndexedFaceSetNode.Create;
@@ -3979,6 +4145,11 @@ IndexedFaceSet410.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1
 IndexedFaceSet410.Solid := False;
 IndexedFaceSet410.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate411 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart34;
+begin
+
 Coordinate411.SetPoint([Vector3(19.223312378,0,5.27956295),Vector3(18.415740967,0,5.444174767),Vector3(19.223312378,0.075000003,5.27956295),Vector3(18.415740967,0.075000003,5.444174767),Vector3(18.415740967,0,5.444174767),Vector3(18.549860001,0,6.102153778),Vector3(18.415740967,0.075000003,5.444174767),Vector3(18.549860001,0.075000003,6.102153778),Vector3(18.549860001,0,6.102153778),Vector3(18.953645706,0,6.019848347),Vector3(19.357431412,0,5.937542439),Vector3(18.549860001,0.075000003,6.102153778),Vector3(18.953645706,0.075000003,6.019848347),Vector3(19.357431412,0.075000003,5.937542439),Vector3(18.751752853,0.075000003,6.061001301),Vector3(18.953645706,0.037500001,6.019848347),Vector3(18.751752853,0,6.061001301),Vector3(18.751752853,0.037500001,6.061001301),Vector3(19.155538559,0.075000003,5.978695393),Vector3(19.155538559,0,5.978695393),Vector3(19.155538559,0.037500001,5.978695393),Vector3(19.357431412,0,5.937542439),Vector3(19.223312378,0,5.27956295),Vector3(19.357431412,0.075000003,5.937542439),Vector3(19.223312378,0.075000003,5.27956295)]);
 { .SetCoord }
 IndexedFaceSet410.Coord := Coordinate411;
@@ -4032,6 +4203,11 @@ Shape417.Geometry := IndexedFaceSet420;
 Group15.AddChildren([Shape417]);
 Shape422 := TShapeNode.Create;
 Appearance423 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart35;
+begin
+
 Material424 := TMaterialNode.Create;
 Material424.AmbientIntensity := 0;
 Material424.DiffuseColor := Vector3(0.784313738,0,0);
@@ -4084,6 +4260,11 @@ Material434.Shininess := 1;
 Appearance433.Material := Material434;
 { .SetAppearance }
 Shape432.Appearance := Appearance433;
+end;
+
+procedure InitPathwayPart36;
+begin
+
 IndexedFaceSet435 := TIndexedFaceSetNode.Create;
 IndexedFaceSet435.SetCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,7,6,8,-1,7,8,9,-1,11,10,12,-1,11,12,13,-1,29,20,18,-1,21,23,29,-1,18,21,29,-1,25,23,21,-1,15,22,25,-1,21,15,25,-1,23,25,27,-1,23,27,24,-1,25,22,26,-1,25,26,27,-1,20,29,30,-1,20,30,28,-1,29,23,24,-1,29,24,30,-1,37,35,33,-1,37,33,36,-1,34,37,36,-1,34,36,31,-1,40,38,32,-1,40,32,39,-1,35,40,39,-1,35,39,33,-1,39,32,15,-1,21,33,39,-1,15,21,39,-1,36,33,21,-1,18,31,36,-1,21,18,36,-1,26,14,27,-1,24,27,14,-1,40,16,38,-1,35,16,40,-1,24,14,17,-1,28,30,17,-1,24,17,30,-1,19,35,37,-1,37,34,19,-1,16,35,19,-1]);
 IndexedFaceSet435.Solid := False;
@@ -4134,6 +4315,11 @@ IndexedFaceSet445.Solid := False;
 IndexedFaceSet445.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate446 := TCoordinateNode.Create;
 Coordinate446.SetPoint([Vector3(22.539564133,0,25.775461197),Vector3(21.731992722,0,25.940073013),Vector3(22.539564133,0.075000003,25.775461197),Vector3(21.731992722,0.075000003,25.940073013),Vector3(21.731992722,0,25.940073013),Vector3(21.866111755,0,26.598052979),Vector3(21.731992722,0.075000003,25.940073013),Vector3(21.866111755,0.075000003,26.598052979),Vector3(21.866111755,0,26.598052979),Vector3(22.269897461,0,26.51574707),Vector3(22.673683167,0,26.433441162),Vector3(21.866111755,0.075000003,26.598052979),Vector3(22.269897461,0.075000003,26.51574707),Vector3(22.673683167,0.075000003,26.433441162),Vector3(22.068004608,0.075000003,26.556900024),Vector3(22.269897461,0.037500001,26.51574707),Vector3(22.068004608,0,26.556900024),Vector3(22.068004608,0.037500001,26.556900024),Vector3(22.471790314,0.075000003,26.474594116),Vector3(22.471790314,0,26.474594116),Vector3(22.471790314,0.037500001,26.474594116),Vector3(22.673683167,0,26.433441162),Vector3(22.539564133,0,25.775461197),Vector3(22.673683167,0.075000003,26.433441162),Vector3(22.539564133,0.075000003,25.775461197)]);
+end;
+
+procedure InitPathwayPart37;
+begin
+
 { .SetCoord }
 IndexedFaceSet445.Coord := Coordinate446;
 { .SetGeometry }
@@ -4187,6 +4373,11 @@ Group15.AddChildren([Shape452]);
 Shape457 := TShapeNode.Create;
 Appearance458 := TAppearanceNode.Create;
 Material459 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart38;
+begin
+
 Material459.AmbientIntensity := 0;
 Material459.DiffuseColor := Vector3(0.784313738,0,0);
 Material459.Shininess := 1;
@@ -4239,6 +4430,11 @@ Appearance468.Material := Material469;
 { .SetAppearance }
 Shape467.Appearance := Appearance468;
 IndexedFaceSet470 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart39;
+begin
+
 IndexedFaceSet470.SetCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,21,24,26,-1,21,26,23,-1,24,18,25,-1,24,25,26,-1,29,28,18,-1,29,18,24,-1,27,29,24,-1,27,24,21,-1,26,25,17,-1,29,19,28,-1,26,17,20,-1,22,29,27,-1,19,29,22,-1,20,23,26,-1,31,30,32,-1,31,32,33,-1]);
 IndexedFaceSet470.Solid := False;
 IndexedFaceSet470.SetTexCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,21,24,26,-1,21,26,23,-1,24,18,25,-1,24,25,26,-1,29,28,18,-1,29,18,24,-1,27,29,24,-1,27,24,21,-1,26,25,17,-1,29,19,28,-1,26,17,20,-1,22,29,27,-1,19,29,22,-1,20,23,26,-1,31,30,32,-1,31,32,33,-1]);
@@ -4290,6 +4486,11 @@ Coordinate481 := TCoordinateNode.Create;
 Coordinate481.SetPoint([Vector3(21.159181595,0,21.116729736),Vector3(20.765195847,0,21.197038651),Vector3(21.159181595,0.075000003,21.116729736),Vector3(20.765195847,0.075000003,21.197038651),Vector3(20.765195847,0,21.197038651),Vector3(21.037427902,0,22.532594681),Vector3(20.765195847,0.075000003,21.197038651),Vector3(21.037427902,0.075000003,22.532594681),Vector3(21.037427902,0,22.532594681),Vector3(21.234422684,0,22.49243927),Vector3(21.431415558,0,22.452285767),Vector3(21.037427902,0.075000003,22.532594681),Vector3(21.234422684,0.075000003,22.49243927),Vector3(21.431415558,0.075000003,22.452285767),Vector3(21.431415558,0,22.452285767),Vector3(21.29529953,0,21.784507751),Vector3(21.159181595,0,21.116729736),Vector3(21.431415558,0.075000003,22.452285767),Vector3(21.29529953,0.075000003,21.784507751),Vector3(21.159181595,0.075000003,21.116729736),Vector3(21.363357544,0.075000003,22.118396759),Vector3(21.29529953,0.037500001,21.784507751),Vector3(21.363357544,0,22.118396759),Vector3(21.363357544,0.037500001,22.118396759),Vector3(21.397386551,0.037500001,22.285341263),Vector3(21.363357544,0.018750001,22.118396759),Vector3(21.397386551,0,22.285341263),Vector3(21.397386551,0.018750001,22.285341263),Vector3(21.397386551,0.075000003,22.285341263),Vector3(21.363357544,0.056249999,22.118396759),Vector3(21.397386551,0.056249999,22.285341263),Vector3(21.227241516,0.075000003,21.450618744),Vector3(21.227241516,0,21.450618744),Vector3(21.227241516,0.037500001,21.450618744),Vector3(21.193210602,0.075000003,21.28367424),Vector3(21.193210602,0.037500001,21.28367424),Vector3(21.227241516,0.056249999,21.450618744),Vector3(21.193210602,0.056249999,21.28367424),Vector3(21.193210602,0,21.28367424),Vector3(21.227241516,0.018750001,21.450618744),Vector3(21.193210602,0.018750001,21.28367424)]);
 { .SetCoord }
 IndexedFaceSet480.Coord := Coordinate481;
+end;
+
+procedure InitPathwayPart40;
+begin
+
 { .SetGeometry }
 Shape477.Geometry := IndexedFaceSet480;
 { .AddChildren }
@@ -4342,6 +4543,11 @@ Shape492 := TShapeNode.Create;
 Appearance493 := TAppearanceNode.Create;
 Material494 := TMaterialNode.Create;
 Material494.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart41;
+begin
+
 Material494.DiffuseColor := Vector3(0.784313738,0,0);
 Material494.Shininess := 1;
 { .SetMaterial }
@@ -4394,6 +4600,11 @@ Appearance503.Material := Material504;
 Shape502.Appearance := Appearance503;
 IndexedFaceSet505 := TIndexedFaceSetNode.Create;
 IndexedFaceSet505.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
+end;
+
+procedure InitPathwayPart42;
+begin
+
 IndexedFaceSet505.Solid := False;
 IndexedFaceSet505.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate506 := TCoordinateNode.Create;
@@ -4446,6 +4657,11 @@ Coordinate516.SetPoint([Vector3(20.467853546,0,15.611815453),Vector3(20.07386779
 IndexedFaceSet515.Coord := Coordinate516;
 { .SetGeometry }
 Shape512.Geometry := IndexedFaceSet515;
+end;
+
+procedure InitPathwayPart43;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape512]);
 Shape517 := TShapeNode.Create;
@@ -4497,6 +4713,11 @@ Appearance528 := TAppearanceNode.Create;
 Material529 := TMaterialNode.Create;
 Material529.AmbientIntensity := 0;
 Material529.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart44;
+begin
+
 Material529.Shininess := 1;
 { .SetMaterial }
 Appearance528.Material := Material529;
@@ -4549,6 +4770,11 @@ Shape537.Appearance := Appearance538;
 IndexedFaceSet540 := TIndexedFaceSetNode.Create;
 IndexedFaceSet540.SetCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,7,6,8,-1,7,8,9,-1,11,10,12,-1,11,12,13,-1,15,14,16,-1,15,16,17,-1]);
 IndexedFaceSet540.Solid := False;
+end;
+
+procedure InitPathwayPart45;
+begin
+
 IndexedFaceSet540.SetTexCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,7,6,8,-1,7,8,9,-1,11,10,12,-1,11,12,13,-1,15,14,16,-1,15,16,17,-1]);
 Coordinate541 := TCoordinateNode.Create;
 Coordinate541.SetPoint([Vector3(19.501813889,0,12.985813141),Vector3(19.304821014,0,13.025966644),Vector3(19.10782814,0,13.066121101),Vector3(19.501813889,0.075000003,12.985813141),Vector3(19.304821014,0.075000003,13.025966644),Vector3(19.10782814,0.075000003,13.066121101),Vector3(19.10782814,0,13.066121101),Vector3(19.380060196,0,14.401677132),Vector3(19.10782814,0.075000003,13.066121101),Vector3(19.380060196,0.075000003,14.401677132),Vector3(19.380060196,0,14.401677132),Vector3(19.774047852,0,14.321368217),Vector3(19.380060196,0.075000003,14.401677132),Vector3(19.774047852,0.075000003,14.321368217),Vector3(19.774047852,0,14.321368217),Vector3(19.501813889,0,12.985813141),Vector3(19.774047852,0.075000003,14.321368217),Vector3(19.501813889,0.075000003,12.985813141)]);
@@ -4602,6 +4828,11 @@ IndexedFaceSet550.Coord := Coordinate551;
 Shape547.Geometry := IndexedFaceSet550;
 { .AddChildren }
 Group15.AddChildren([Shape547]);
+end;
+
+procedure InitPathwayPart46;
+begin
+
 Shape552 := TShapeNode.Create;
 Appearance553 := TAppearanceNode.Create;
 Material554 := TMaterialNode.Create;
@@ -4652,6 +4883,11 @@ Material564 := TMaterialNode.Create;
 Material564.AmbientIntensity := 0;
 Material564.DiffuseColor := Vector3(0.784313738,0,0);
 Material564.Shininess := 1;
+end;
+
+procedure InitPathwayPart47;
+begin
+
 { .SetMaterial }
 Appearance563.Material := Material564;
 { .SetAppearance }
@@ -4704,6 +4940,11 @@ IndexedFaceSet575 := TIndexedFaceSetNode.Create;
 IndexedFaceSet575.SetCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,7,6,8,-1,7,8,9,-1,11,10,12,-1,11,12,13,-1,29,20,18,-1,21,23,29,-1,18,21,29,-1,25,23,21,-1,15,22,25,-1,21,15,25,-1,23,25,27,-1,23,27,24,-1,25,22,26,-1,25,26,27,-1,20,29,30,-1,20,30,28,-1,29,23,24,-1,29,24,30,-1,37,35,33,-1,37,33,36,-1,34,37,36,-1,34,36,31,-1,40,38,32,-1,40,32,39,-1,35,40,39,-1,35,39,33,-1,39,32,15,-1,21,33,39,-1,15,21,39,-1,36,33,21,-1,18,31,36,-1,21,18,36,-1,26,14,27,-1,24,27,14,-1,40,16,38,-1,35,16,40,-1,24,14,17,-1,28,30,17,-1,24,17,30,-1,19,35,37,-1,37,34,19,-1,16,35,19,-1]);
 IndexedFaceSet575.Solid := False;
 IndexedFaceSet575.SetTexCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,7,6,8,-1,7,8,9,-1,11,10,12,-1,11,12,13,-1,29,20,18,-1,21,23,29,-1,18,21,29,-1,25,23,21,-1,15,22,25,-1,21,15,25,-1,23,25,27,-1,23,27,24,-1,25,22,26,-1,25,26,27,-1,20,29,30,-1,20,30,28,-1,29,23,24,-1,29,24,30,-1,37,35,33,-1,37,33,36,-1,34,37,36,-1,34,36,31,-1,40,38,32,-1,40,32,39,-1,35,40,39,-1,35,39,33,-1,39,32,15,-1,21,33,39,-1,15,21,39,-1,36,33,21,-1,18,31,36,-1,21,18,36,-1,26,14,27,-1,24,27,14,-1,40,16,38,-1,35,16,40,-1,24,14,17,-1,28,30,17,-1,24,17,30,-1,19,35,37,-1,37,34,19,-1,16,35,19,-1]);
+end;
+
+procedure InitPathwayPart48;
+begin
+
 Coordinate576 := TCoordinateNode.Create;
 Coordinate576.SetPoint([Vector3(18.81048584,0,7.48089838),Vector3(18.613492966,0,7.521052837),Vector3(18.416500092,0,7.561206818),Vector3(18.81048584,0.075000003,7.48089838),Vector3(18.613492966,0.075000003,7.521052837),Vector3(18.416500092,0.075000003,7.561206818),Vector3(18.416500092,0,7.561206818),Vector3(18.688732147,0,8.896762848),Vector3(18.416500092,0.075000003,7.561206818),Vector3(18.688732147,0.075000003,8.896762848),Vector3(18.688732147,0,8.896762848),Vector3(19.082719803,0,8.816453934),Vector3(18.688732147,0.075000003,8.896762848),Vector3(19.082719803,0.075000003,8.816453934),Vector3(19.082719803,0,8.816453934),Vector3(18.946603775,0,8.148675919),Vector3(18.81048584,0,7.48089838),Vector3(19.082719803,0.075000003,8.816453934),Vector3(18.946603775,0.075000003,8.148675919),Vector3(18.81048584,0.075000003,7.48089838),Vector3(19.014661789,0.075000003,8.482564926),Vector3(18.946603775,0.037500001,8.148675919),Vector3(19.014661789,0,8.482564926),Vector3(19.014661789,0.037500001,8.482564926),Vector3(19.048690796,0.037500001,8.64950943),Vector3(19.014661789,0.018750001,8.482564926),Vector3(19.048690796,0,8.64950943),Vector3(19.048690796,0.018750001,8.64950943),Vector3(19.048690796,0.075000003,8.64950943),Vector3(19.014661789,0.056249999,8.482564926),Vector3(19.048690796,0.056249999,8.64950943),Vector3(18.878543854,0.075000003,7.814787388),Vector3(18.878543854,0,7.814787388),Vector3(18.878543854,0.037500001,7.814787388),Vector3(18.844514847,0.075000003,7.647842884),Vector3(18.844514847,0.037500001,7.647842884),Vector3(18.878543854,0.056249999,7.814787388),Vector3(18.844514847,0.056249999,7.647842884),Vector3(18.844514847,0,7.647842884),Vector3(18.878543854,0.018750001,7.814787388),Vector3(18.844514847,0.018750001,7.647842884)]);
 { .SetCoord }
@@ -4757,6 +4998,11 @@ Shape582.Geometry := IndexedFaceSet585;
 { .AddChildren }
 Group15.AddChildren([Shape582]);
 Shape587 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart49;
+begin
+
 Appearance588 := TAppearanceNode.Create;
 Material589 := TMaterialNode.Create;
 Material589.AmbientIntensity := 0;
@@ -4808,6 +5054,11 @@ Material599.DiffuseColor := Vector3(0.784313738,0,0);
 Material599.Shininess := 1;
 { .SetMaterial }
 Appearance598.Material := Material599;
+end;
+
+procedure InitPathwayPart50;
+begin
+
 { .SetAppearance }
 Shape597.Appearance := Appearance598;
 IndexedFaceSet600 := TIndexedFaceSetNode.Create;
@@ -4859,6 +5110,11 @@ IndexedFaceSet610.SetCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1
 IndexedFaceSet610.Solid := False;
 IndexedFaceSet610.SetTexCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,21,24,26,-1,21,26,23,-1,24,18,25,-1,24,25,26,-1,29,28,18,-1,29,18,24,-1,27,29,24,-1,27,24,21,-1,26,25,17,-1,29,19,28,-1,26,17,20,-1,22,29,27,-1,19,29,22,-1,20,23,26,-1,31,30,32,-1,31,32,33,-1]);
 Coordinate611 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart51;
+begin
+
 Coordinate611.SetPoint([Vector3(17.981801987,0,3.415439844),Vector3(17.578016281,0,3.497745514),Vector3(17.174230576,0,3.580051184),Vector3(17.981801987,0.075000003,3.415439844),Vector3(17.578016281,0.075000003,3.497745514),Vector3(17.174230576,0.075000003,3.580051184),Vector3(17.376123428,0.075000003,3.538898468),Vector3(17.376123428,0,3.538898468),Vector3(17.578016281,0.037500001,3.497745514),Vector3(17.376123428,0.037500001,3.538898468),Vector3(17.779909134,0.075000003,3.45659256),Vector3(17.779909134,0,3.45659256),Vector3(17.779909134,0.037500001,3.45659256),Vector3(17.174230576,0,3.580051184),Vector3(17.308351517,0,4.238030434),Vector3(17.174230576,0.075000003,3.580051184),Vector3(17.308351517,0.075000003,4.238030434),Vector3(17.308351517,0,4.238030434),Vector3(17.712137222,0,4.155725002),Vector3(18.115921021,0,4.073419094),Vector3(17.308351517,0.075000003,4.238030434),Vector3(17.712137222,0.075000003,4.155725002),Vector3(18.115921021,0.075000003,4.073419094),Vector3(17.51024437,0.075000003,4.196877956),Vector3(17.712137222,0.037500001,4.155725002),Vector3(17.51024437,0,4.196877956),Vector3(17.51024437,0.037500001,4.196877956),Vector3(17.914028168,0.075000003,4.114572048),Vector3(17.914028168,0,4.114572048),Vector3(17.914028168,0.037500001,4.114572048),Vector3(18.115921021,0,4.073419094),Vector3(17.981801987,0,3.415439844),Vector3(18.115921021,0.075000003,4.073419094),Vector3(17.981801987,0.075000003,3.415439844)]);
 { .SetCoord }
 IndexedFaceSet610.Coord := Coordinate611;
@@ -4912,6 +5168,11 @@ Shape617.Geometry := IndexedFaceSet620;
 Group15.AddChildren([Shape617]);
 Shape622 := TShapeNode.Create;
 Appearance623 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart52;
+begin
+
 Material624 := TMaterialNode.Create;
 Material624.AmbientIntensity := 0;
 Material624.DiffuseColor := Vector3(0.784313738,0,0);
@@ -4964,6 +5225,11 @@ Material634.Shininess := 1;
 Appearance633.Material := Material634;
 { .SetAppearance }
 Shape632.Appearance := Appearance633;
+end;
+
+procedure InitPathwayPart53;
+begin
+
 IndexedFaceSet635 := TIndexedFaceSetNode.Create;
 IndexedFaceSet635.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet635.Solid := False;
@@ -5014,6 +5280,11 @@ IndexedFaceSet645.Solid := False;
 IndexedFaceSet645.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,27,18,16,-1,19,21,27,-1,16,19,27,-1,23,21,19,-1,13,20,23,-1,19,13,23,-1,21,23,25,-1,21,25,22,-1,23,20,24,-1,23,24,25,-1,18,27,28,-1,18,28,26,-1,27,21,22,-1,27,22,28,-1,35,33,31,-1,35,31,34,-1,32,35,34,-1,32,34,29,-1,38,36,30,-1,38,30,37,-1,33,38,37,-1,33,37,31,-1,37,30,13,-1,19,31,37,-1,13,19,37,-1,34,31,19,-1,16,29,34,-1,19,16,34,-1,24,12,25,-1,22,25,12,-1,38,14,36,-1,33,14,38,-1,22,12,15,-1,26,28,15,-1,22,15,28,-1,17,33,35,-1,35,32,17,-1,14,33,17,-1]);
 Coordinate646 := TCoordinateNode.Create;
 Coordinate646.SetPoint([Vector3(21.160697937,0,25.350793839),Vector3(20.766712189,0,25.431102753),Vector3(21.160697937,0.075000003,25.350793839),Vector3(20.766712189,0.075000003,25.431102753),Vector3(20.766712189,0,25.431102753),Vector3(21.038944244,0,26.766658783),Vector3(20.766712189,0.075000003,25.431102753),Vector3(21.038944244,0.075000003,26.766658783),Vector3(21.038944244,0,26.766658783),Vector3(21.4329319,0,26.686349869),Vector3(21.038944244,0.075000003,26.766658783),Vector3(21.4329319,0.075000003,26.686349869),Vector3(21.4329319,0,26.686349869),Vector3(21.296815872,0,26.018571854),Vector3(21.160697937,0,25.350793839),Vector3(21.4329319,0.075000003,26.686349869),Vector3(21.296815872,0.075000003,26.018571854),Vector3(21.160697937,0.075000003,25.350793839),Vector3(21.364873886,0.075000003,26.352460861),Vector3(21.296815872,0.037500001,26.018571854),Vector3(21.364873886,0,26.352460861),Vector3(21.364873886,0.037500001,26.352460861),Vector3(21.398902893,0.037500001,26.519405365),Vector3(21.364873886,0.018750001,26.352460861),Vector3(21.398902893,0,26.519405365),Vector3(21.398902893,0.018750001,26.519405365),Vector3(21.398902893,0.075000003,26.519405365),Vector3(21.364873886,0.056249999,26.352460861),Vector3(21.398902893,0.056249999,26.519405365),Vector3(21.228755951,0.075000003,25.684682846),Vector3(21.228755951,0,25.684682846),Vector3(21.228755951,0.037500001,25.684682846),Vector3(21.194726944,0.075000003,25.517738342),Vector3(21.194726944,0.037500001,25.517738342),Vector3(21.228755951,0.056249999,25.684682846),Vector3(21.194726944,0.056249999,25.517738342),Vector3(21.194726944,0,25.517738342),Vector3(21.228755951,0.018750001,25.684682846),Vector3(21.194726944,0.018750001,25.517738342)]);
+end;
+
+procedure InitPathwayPart54;
+begin
+
 { .SetCoord }
 IndexedFaceSet645.Coord := Coordinate646;
 { .SetGeometry }
@@ -5067,6 +5338,11 @@ Group15.AddChildren([Shape652]);
 Shape657 := TShapeNode.Create;
 Appearance658 := TAppearanceNode.Create;
 Material659 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart55;
+begin
+
 Material659.AmbientIntensity := 0;
 Material659.DiffuseColor := Vector3(0.784313738,0,0);
 Material659.Shininess := 1;
@@ -5119,6 +5395,11 @@ Appearance668.Material := Material669;
 { .SetAppearance }
 Shape667.Appearance := Appearance668;
 IndexedFaceSet670 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart56;
+begin
+
 IndexedFaceSet670.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet670.Solid := False;
 IndexedFaceSet670.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
@@ -5170,6 +5451,11 @@ Coordinate681 := TCoordinateNode.Create;
 Coordinate681.SetPoint([Vector3(20.469369888,0,19.845880508),Vector3(20.07538414,0,19.926189423),Vector3(20.469369888,0.075000003,19.845880508),Vector3(20.07538414,0.075000003,19.926189423),Vector3(20.07538414,0,19.926189423),Vector3(20.211500168,0,20.593967438),Vector3(20.347616196,0,21.261743546),Vector3(20.07538414,0.075000003,19.926189423),Vector3(20.211500168,0.075000003,20.593967438),Vector3(20.347616196,0.075000003,21.261743546),Vector3(20.143442154,0.075000003,20.26007843),Vector3(20.211500168,0.037500001,20.593967438),Vector3(20.143442154,0,20.26007843),Vector3(20.143442154,0.037500001,20.26007843),Vector3(20.109413147,0.037500001,20.093133926),Vector3(20.143442154,0.018750001,20.26007843),Vector3(20.109413147,0,20.093133926),Vector3(20.109413147,0.018750001,20.093133926),Vector3(20.109413147,0.075000003,20.093133926),Vector3(20.143442154,0.056249999,20.26007843),Vector3(20.109413147,0.056249999,20.093133926),Vector3(20.279558182,0.075000003,20.927854538),Vector3(20.279558182,0,20.927854538),Vector3(20.279558182,0.037500001,20.927854538),Vector3(20.313587189,0.075000003,21.094799042),Vector3(20.313587189,0.037500001,21.094799042),Vector3(20.279558182,0.056249999,20.927854538),Vector3(20.313587189,0.056249999,21.094799042),Vector3(20.313587189,0,21.094799042),Vector3(20.279558182,0.018750001,20.927854538),Vector3(20.313587189,0.018750001,21.094799042),Vector3(20.347616196,0,21.261743546),Vector3(20.741603851,0,21.181436539),Vector3(20.347616196,0.075000003,21.261743546),Vector3(20.741603851,0.075000003,21.181436539),Vector3(20.741603851,0,21.181436539),Vector3(20.605487823,0,20.513658524),Vector3(20.469369888,0,19.845880508),Vector3(20.741603851,0.075000003,21.181436539),Vector3(20.605487823,0.075000003,20.513658524),Vector3(20.469369888,0.075000003,19.845880508),Vector3(20.673545837,0.075000003,20.847547531),Vector3(20.605487823,0.037500001,20.513658524),Vector3(20.673545837,0,20.847547531),Vector3(20.673545837,0.037500001,20.847547531),Vector3(20.707574844,0.037500001,21.014492035),Vector3(20.673545837,0.018750001,20.847547531),Vector3(20.707574844,0,21.014492035),Vector3(20.707574844,0.018750001,21.014492035),Vector3(20.707574844,0.075000003,21.014492035),Vector3(20.673545837,0.056249999,20.847547531),Vector3(20.707574844,0.056249999,21.014492035),Vector3(20.537427902,0.075000003,20.179769516),Vector3(20.537427902,0,20.179769516),Vector3(20.537427902,0.037500001,20.179769516),Vector3(20.503398895,0.075000003,20.012825012),Vector3(20.503398895,0.037500001,20.012825012),Vector3(20.537427902,0.056249999,20.179769516),Vector3(20.503398895,0.056249999,20.012825012),Vector3(20.503398895,0,20.012825012),Vector3(20.537427902,0.018750001,20.179769516),Vector3(20.503398895,0.018750001,20.012825012)]);
 { .SetCoord }
 IndexedFaceSet680.Coord := Coordinate681;
+end;
+
+procedure InitPathwayPart57;
+begin
+
 { .SetGeometry }
 Shape677.Geometry := IndexedFaceSet680;
 { .AddChildren }
@@ -5222,6 +5508,11 @@ Shape692 := TShapeNode.Create;
 Appearance693 := TAppearanceNode.Create;
 Material694 := TMaterialNode.Create;
 Material694.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart58;
+begin
+
 Material694.DiffuseColor := Vector3(0.784313738,0,0);
 Material694.Shininess := 1;
 { .SetMaterial }
@@ -5274,6 +5565,11 @@ Appearance703.Material := Material704;
 Shape702.Appearance := Appearance703;
 IndexedFaceSet705 := TIndexedFaceSetNode.Create;
 IndexedFaceSet705.SetCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,36,35,37,-1,36,37,38,-1]);
+end;
+
+procedure InitPathwayPart59;
+begin
+
 IndexedFaceSet705.Solid := False;
 IndexedFaceSet705.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,36,35,37,-1,36,37,38,-1]);
 Coordinate706 := TCoordinateNode.Create;
@@ -5326,6 +5622,11 @@ Coordinate716.SetPoint([Vector3(19.640686035,0,15.780421257),Vector3(19.23690033
 IndexedFaceSet715.Coord := Coordinate716;
 { .SetGeometry }
 Shape712.Geometry := IndexedFaceSet715;
+end;
+
+procedure InitPathwayPart60;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape712]);
 Shape717 := TShapeNode.Create;
@@ -5377,6 +5678,11 @@ Appearance728 := TAppearanceNode.Create;
 Material729 := TMaterialNode.Create;
 Material729.AmbientIntensity := 0;
 Material729.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart61;
+begin
+
 Material729.Shininess := 1;
 { .SetMaterial }
 Appearance728.Material := Material729;
@@ -5429,6 +5735,11 @@ Shape737.Appearance := Appearance738;
 IndexedFaceSet740 := TIndexedFaceSetNode.Create;
 IndexedFaceSet740.SetCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,7,6,8,-1,7,8,9,-1,11,10,13,-1,11,13,14,-1,12,11,14,-1,12,14,15,-1,31,22,20,-1,23,25,31,-1,20,23,31,-1,27,25,23,-1,17,24,27,-1,23,17,27,-1,25,27,29,-1,25,29,26,-1,27,24,28,-1,27,28,29,-1,22,31,32,-1,22,32,30,-1,31,25,26,-1,31,26,32,-1,39,37,35,-1,39,35,38,-1,36,39,38,-1,36,38,33,-1,42,40,34,-1,42,34,41,-1,37,42,41,-1,37,41,35,-1,41,34,17,-1,23,35,41,-1,17,23,41,-1,38,35,23,-1,20,33,38,-1,23,20,38,-1,28,16,29,-1,26,29,16,-1,42,18,40,-1,37,18,42,-1,26,16,19,-1,30,32,19,-1,26,19,32,-1,21,37,39,-1,39,36,21,-1,18,37,21,-1]);
 IndexedFaceSet740.Solid := False;
+end;
+
+procedure InitPathwayPart62;
+begin
+
 IndexedFaceSet740.SetTexCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,7,6,8,-1,7,8,9,-1,11,10,13,-1,11,13,14,-1,12,11,14,-1,12,14,15,-1,31,22,20,-1,23,25,31,-1,20,23,31,-1,27,25,23,-1,17,24,27,-1,23,17,27,-1,25,27,29,-1,25,29,26,-1,27,24,28,-1,27,28,29,-1,22,31,32,-1,22,32,30,-1,31,25,26,-1,31,26,32,-1,39,37,35,-1,39,35,38,-1,36,39,38,-1,36,38,33,-1,42,40,34,-1,42,34,41,-1,37,42,41,-1,37,41,35,-1,41,34,17,-1,23,35,41,-1,17,23,41,-1,38,35,23,-1,20,33,38,-1,23,20,38,-1,28,16,29,-1,26,29,16,-1,42,18,40,-1,37,18,42,-1,26,16,19,-1,30,32,19,-1,26,19,32,-1,21,37,39,-1,39,36,21,-1,18,37,21,-1]);
 Coordinate741 := TCoordinateNode.Create;
 Coordinate741.SetPoint([Vector3(18.812002182,0,11.714962959),Vector3(18.615009308,0,11.755117416),Vector3(18.418014526,0,11.795271873),Vector3(18.812002182,0.075000003,11.714962959),Vector3(18.615009308,0.075000003,11.755117416),Vector3(18.418014526,0.075000003,11.795271873),Vector3(18.418014526,0,11.795271873),Vector3(18.690248489,0,13.13082695),Vector3(18.418014526,0.075000003,11.795271873),Vector3(18.690248489,0.075000003,13.13082695),Vector3(18.690248489,0,13.13082695),Vector3(18.887243271,0,13.090673447),Vector3(19.084236145,0,13.05051899),Vector3(18.690248489,0.075000003,13.13082695),Vector3(18.887243271,0.075000003,13.090673447),Vector3(19.084236145,0.075000003,13.05051899),Vector3(19.084236145,0,13.05051899),Vector3(18.94811821,0,12.382740974),Vector3(18.812002182,0,11.714962959),Vector3(19.084236145,0.075000003,13.05051899),Vector3(18.94811821,0.075000003,12.382740974),Vector3(18.812002182,0.075000003,11.714962959),Vector3(19.016178131,0.075000003,12.716629982),Vector3(18.94811821,0.037500001,12.382740974),Vector3(19.016178131,0,12.716629982),Vector3(19.016178131,0.037500001,12.716629982),Vector3(19.050207138,0.037500001,12.883574486),Vector3(19.016178131,0.018750001,12.716629982),Vector3(19.050207138,0,12.883574486),Vector3(19.050207138,0.018750001,12.883574486),Vector3(19.050207138,0.075000003,12.883574486),Vector3(19.016178131,0.056249999,12.716629982),Vector3(19.050207138,0.056249999,12.883574486),Vector3(18.880060196,0.075000003,12.048851967),Vector3(18.880060196,0,12.048851967),Vector3(18.880060196,0.037500001,12.048851967),Vector3(18.846031189,0.075000003,11.881907463),Vector3(18.846031189,0.037500001,11.881907463),Vector3(18.880060196,0.056249999,12.048851967),Vector3(18.846031189,0.056249999,11.881907463),Vector3(18.846031189,0,11.881907463),Vector3(18.880060196,0.018750001,12.048851967),Vector3(18.846031189,0.018750001,11.881907463)]);
@@ -5482,6 +5793,11 @@ IndexedFaceSet750.Coord := Coordinate751;
 Shape747.Geometry := IndexedFaceSet750;
 { .AddChildren }
 Group15.AddChildren([Shape747]);
+end;
+
+procedure InitPathwayPart63;
+begin
+
 Shape752 := TShapeNode.Create;
 Appearance753 := TAppearanceNode.Create;
 Material754 := TMaterialNode.Create;
@@ -5532,6 +5848,11 @@ Material764 := TMaterialNode.Create;
 Material764.AmbientIntensity := 0;
 Material764.DiffuseColor := Vector3(0.784313738,0,0);
 Material764.Shininess := 1;
+end;
+
+procedure InitPathwayPart64;
+begin
+
 { .SetMaterial }
 Appearance763.Material := Material764;
 { .SetAppearance }
@@ -5584,6 +5905,11 @@ IndexedFaceSet775 := TIndexedFaceSetNode.Create;
 IndexedFaceSet775.SetCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,18,17,19,-1,18,19,20,-1,22,21,23,-1,22,23,24,-1]);
 IndexedFaceSet775.Solid := False;
 IndexedFaceSet775.SetTexCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,18,17,19,-1,18,19,20,-1,22,21,23,-1,22,23,24,-1]);
+end;
+
+procedure InitPathwayPart65;
+begin
+
 Coordinate776 := TCoordinateNode.Create;
 Coordinate776.SetPoint([Vector3(17.983318329,0,7.649504185),Vector3(17.579532623,0,7.731810093),Vector3(17.175746918,0,7.814116001),Vector3(17.983318329,0.075000003,7.649504185),Vector3(17.579532623,0.075000003,7.731810093),Vector3(17.175746918,0.075000003,7.814116001),Vector3(17.377639771,0.075000003,7.772963047),Vector3(17.377639771,0,7.772963047),Vector3(17.579532623,0.037500001,7.731810093),Vector3(17.377639771,0.037500001,7.772963047),Vector3(17.781425476,0.075000003,7.690657139),Vector3(17.781425476,0,7.690657139),Vector3(17.781425476,0.037500001,7.690657139),Vector3(17.175746918,0,7.814116001),Vector3(17.309867859,0,8.47209549),Vector3(17.175746918,0.075000003,7.814116001),Vector3(17.309867859,0.075000003,8.47209549),Vector3(17.309867859,0,8.47209549),Vector3(18.117437363,0,8.307483673),Vector3(17.309867859,0.075000003,8.47209549),Vector3(18.117437363,0.075000003,8.307483673),Vector3(18.117437363,0,8.307483673),Vector3(17.983318329,0,7.649504185),Vector3(18.117437363,0.075000003,8.307483673),Vector3(17.983318329,0.075000003,7.649504185)]);
 { .SetCoord }
@@ -5637,6 +5963,11 @@ Shape782.Geometry := IndexedFaceSet785;
 { .AddChildren }
 Group15.AddChildren([Shape782]);
 Shape787 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart66;
+begin
+
 Appearance788 := TAppearanceNode.Create;
 Material789 := TMaterialNode.Create;
 Material789.AmbientIntensity := 0;
@@ -5688,6 +6019,11 @@ Material799.DiffuseColor := Vector3(0.784313738,0,0);
 Material799.Shininess := 1;
 { .SetMaterial }
 Appearance798.Material := Material799;
+end;
+
+procedure InitPathwayPart67;
+begin
+
 { .SetAppearance }
 Shape797.Appearance := Appearance798;
 IndexedFaceSet800 := TIndexedFaceSetNode.Create;
@@ -5739,6 +6075,11 @@ IndexedFaceSet810.SetCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1
 IndexedFaceSet810.Solid := False;
 IndexedFaceSet810.SetTexCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,21,24,26,-1,21,26,23,-1,24,18,25,-1,24,25,26,-1,29,28,18,-1,29,18,24,-1,27,29,24,-1,27,24,21,-1,26,25,17,-1,29,19,28,-1,26,17,20,-1,22,29,27,-1,19,29,22,-1,20,23,26,-1,31,30,32,-1,31,32,33,-1]);
 Coordinate811 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart68;
+begin
+
 Coordinate811.SetPoint([Vector3(17.016519547,0,2.906469345),Vector3(16.612735748,0,2.988775015),Vector3(16.208950043,0,3.071080923),Vector3(17.016519547,0.075000003,2.906469345),Vector3(16.612735748,0.075000003,2.988775015),Vector3(16.208950043,0.075000003,3.071080923),Vector3(16.410842896,0.075000003,3.029927969),Vector3(16.410842896,0,3.029927969),Vector3(16.612735748,0.037500001,2.988775015),Vector3(16.410842896,0.037500001,3.029927969),Vector3(16.814628601,0.075000003,2.947622299),Vector3(16.814628601,0,2.947622299),Vector3(16.814628601,0.037500001,2.947622299),Vector3(16.208950043,0,3.071080923),Vector3(16.343069077,0,3.729060173),Vector3(16.208950043,0.075000003,3.071080923),Vector3(16.343069077,0.075000003,3.729060173),Vector3(16.343069077,0,3.729060173),Vector3(16.746854782,0,3.646754503),Vector3(17.150640488,0,3.564448833),Vector3(16.343069077,0.075000003,3.729060173),Vector3(16.746854782,0.075000003,3.646754503),Vector3(17.150640488,0.075000003,3.564448833),Vector3(16.544961929,0.075000003,3.687907457),Vector3(16.746854782,0.037500001,3.646754503),Vector3(16.544961929,0,3.687907457),Vector3(16.544961929,0.037500001,3.687907457),Vector3(16.948747635,0.075000003,3.605601549),Vector3(16.948747635,0,3.605601549),Vector3(16.948747635,0.037500001,3.605601549),Vector3(17.150640488,0,3.564448833),Vector3(17.016519547,0,2.906469345),Vector3(17.150640488,0.075000003,3.564448833),Vector3(17.016519547,0.075000003,2.906469345)]);
 { .SetCoord }
 IndexedFaceSet810.Coord := Coordinate811;
@@ -5792,6 +6133,11 @@ Shape817.Geometry := IndexedFaceSet820;
 Group15.AddChildren([Shape817]);
 Shape822 := TShapeNode.Create;
 Appearance823 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart69;
+begin
+
 Material824 := TMaterialNode.Create;
 Material824.AmbientIntensity := 0;
 Material824.DiffuseColor := Vector3(0.784313738,0,0);
@@ -5844,6 +6190,11 @@ Material834.Shininess := 1;
 Appearance833.Material := Material834;
 { .SetAppearance }
 Shape832.Appearance := Appearance833;
+end;
+
+procedure InitPathwayPart70;
+begin
+
 IndexedFaceSet835 := TIndexedFaceSetNode.Create;
 IndexedFaceSet835.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet835.Solid := False;
@@ -5894,6 +6245,11 @@ IndexedFaceSet845.Solid := False;
 IndexedFaceSet845.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,50,41,39,-1,42,44,50,-1,39,42,50,-1,46,44,42,-1,36,43,46,-1,42,36,46,-1,44,46,48,-1,44,48,45,-1,46,43,47,-1,46,47,48,-1,41,50,51,-1,41,51,49,-1,50,44,45,-1,50,45,51,-1,58,56,54,-1,58,54,57,-1,55,58,57,-1,55,57,52,-1,61,59,53,-1,61,53,60,-1,56,61,60,-1,56,60,54,-1,60,53,36,-1,42,54,60,-1,36,42,60,-1,57,54,42,-1,39,52,57,-1,42,39,57,-1,47,35,48,-1,45,48,35,-1,61,37,59,-1,56,37,61,-1,45,35,38,-1,49,51,38,-1,45,38,51,-1,40,56,58,-1,58,55,40,-1,37,56,40,-1]);
 Coordinate846 := TCoordinateNode.Create;
 Coordinate846.SetPoint([Vector3(20.47088623,0,24.079944611),Vector3(20.076898575,0,24.160253525),Vector3(20.47088623,0.075000003,24.079944611),Vector3(20.076898575,0.075000003,24.160253525),Vector3(20.076898575,0,24.160253525),Vector3(20.21301651,0,24.82803154),Vector3(20.349132538,0,25.495809555),Vector3(20.076898575,0.075000003,24.160253525),Vector3(20.21301651,0.075000003,24.82803154),Vector3(20.349132538,0.075000003,25.495809555),Vector3(20.144958496,0.075000003,24.494142532),Vector3(20.21301651,0.037500001,24.82803154),Vector3(20.144958496,0,24.494142532),Vector3(20.144958496,0.037500001,24.494142532),Vector3(20.110929489,0.037500001,24.327198029),Vector3(20.144958496,0.018750001,24.494142532),Vector3(20.110929489,0,24.327198029),Vector3(20.110929489,0.018750001,24.327198029),Vector3(20.110929489,0.075000003,24.327198029),Vector3(20.144958496,0.056249999,24.494142532),Vector3(20.110929489,0.056249999,24.327198029),Vector3(20.281074524,0.075000003,25.161920547),Vector3(20.281074524,0,25.161920547),Vector3(20.281074524,0.037500001,25.161920547),Vector3(20.315103531,0.075000003,25.328865051),Vector3(20.315103531,0.037500001,25.328865051),Vector3(20.281074524,0.056249999,25.161920547),Vector3(20.315103531,0.056249999,25.328865051),Vector3(20.315103531,0,25.328865051),Vector3(20.281074524,0.018750001,25.161920547),Vector3(20.315103531,0.018750001,25.328865051),Vector3(20.349132538,0,25.495809555),Vector3(20.743120193,0,25.415500641),Vector3(20.349132538,0.075000003,25.495809555),Vector3(20.743120193,0.075000003,25.415500641),Vector3(20.743120193,0,25.415500641),Vector3(20.607002258,0,24.747722626),Vector3(20.47088623,0,24.079944611),Vector3(20.743120193,0.075000003,25.415500641),Vector3(20.607002258,0.075000003,24.747722626),Vector3(20.47088623,0.075000003,24.079944611),Vector3(20.67506218,0.075000003,25.081611633),Vector3(20.607002258,0.037500001,24.747722626),Vector3(20.67506218,0,25.081611633),Vector3(20.67506218,0.037500001,25.081611633),Vector3(20.709091187,0.037500001,25.248556137),Vector3(20.67506218,0.018750001,25.081611633),Vector3(20.709091187,0,25.248556137),Vector3(20.709091187,0.018750001,25.248556137),Vector3(20.709091187,0.075000003,25.248556137),Vector3(20.67506218,0.056249999,25.081611633),Vector3(20.709091187,0.056249999,25.248556137),Vector3(20.538944244,0.075000003,24.413833618),Vector3(20.538944244,0,24.413833618),Vector3(20.538944244,0.037500001,24.413833618),Vector3(20.504915237,0.075000003,24.246889114),Vector3(20.504915237,0.037500001,24.246889114),Vector3(20.538944244,0.056249999,24.413833618),Vector3(20.504915237,0.056249999,24.246889114),Vector3(20.504915237,0,24.246889114),Vector3(20.538944244,0.018750001,24.413833618),Vector3(20.504915237,0.018750001,24.246889114)]);
+end;
+
+procedure InitPathwayPart71;
+begin
+
 { .SetCoord }
 IndexedFaceSet845.Coord := Coordinate846;
 { .SetGeometry }
@@ -5947,6 +6303,11 @@ Group15.AddChildren([Shape852]);
 Shape857 := TShapeNode.Create;
 Appearance858 := TAppearanceNode.Create;
 Material859 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart72;
+begin
+
 Material859.AmbientIntensity := 0;
 Material859.DiffuseColor := Vector3(0.784313738,0,0);
 Material859.Shininess := 1;
@@ -5999,6 +6360,11 @@ Appearance868.Material := Material869;
 { .SetAppearance }
 Shape867.Appearance := Appearance868;
 IndexedFaceSet870 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart73;
+begin
+
 IndexedFaceSet870.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet870.Solid := False;
 IndexedFaceSet870.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
@@ -6050,6 +6416,11 @@ Coordinate881 := TCoordinateNode.Create;
 Coordinate881.SetPoint([Vector3(19.642202377,0,20.014486313),Vector3(18.834630966,0,20.179098129),Vector3(19.642202377,0.075000003,20.014486313),Vector3(18.834630966,0.075000003,20.179098129),Vector3(18.834630966,0,20.179098129),Vector3(18.968751907,0,20.837076187),Vector3(18.834630966,0.075000003,20.179098129),Vector3(18.968751907,0.075000003,20.837076187),Vector3(18.968751907,0,20.837076187),Vector3(19.776321411,0,20.672466278),Vector3(18.968751907,0.075000003,20.837076187),Vector3(19.776321411,0.075000003,20.672466278),Vector3(19.776321411,0,20.672466278),Vector3(19.642202377,0,20.014486313),Vector3(19.776321411,0.075000003,20.672466278),Vector3(19.642202377,0.075000003,20.014486313)]);
 { .SetCoord }
 IndexedFaceSet880.Coord := Coordinate881;
+end;
+
+procedure InitPathwayPart74;
+begin
+
 { .SetGeometry }
 Shape877.Geometry := IndexedFaceSet880;
 { .AddChildren }
@@ -6102,6 +6473,11 @@ Shape892 := TShapeNode.Create;
 Appearance893 := TAppearanceNode.Create;
 Material894 := TMaterialNode.Create;
 Material894.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart75;
+begin
+
 Material894.DiffuseColor := Vector3(0.784313738,0,0);
 Material894.Shininess := 1;
 { .SetMaterial }
@@ -6154,6 +6530,11 @@ Appearance903.Material := Material904;
 Shape902.Appearance := Appearance903;
 IndexedFaceSet905 := TIndexedFaceSetNode.Create;
 IndexedFaceSet905.SetCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,21,12,10,-1,13,15,21,-1,10,13,21,-1,17,15,13,-1,7,14,17,-1,13,7,17,-1,15,17,19,-1,15,19,16,-1,17,14,18,-1,17,18,19,-1,12,21,22,-1,12,22,20,-1,21,15,16,-1,21,16,22,-1,29,27,25,-1,29,25,28,-1,26,29,28,-1,26,28,23,-1,32,30,24,-1,32,24,31,-1,27,32,31,-1,27,31,25,-1,31,24,7,-1,13,25,31,-1,7,13,31,-1,28,25,13,-1,10,23,28,-1,13,10,28,-1,18,6,19,-1,16,19,6,-1,32,8,30,-1,27,8,32,-1,16,6,9,-1,20,22,9,-1,16,9,22,-1,11,27,29,-1,29,26,11,-1,8,27,11,-1,34,33,35,-1,34,35,36,-1,38,37,39,-1,38,39,40,-1]);
+end;
+
+procedure InitPathwayPart76;
+begin
+
 IndexedFaceSet905.Solid := False;
 IndexedFaceSet905.SetTexCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,21,12,10,-1,13,15,21,-1,10,13,21,-1,17,15,13,-1,7,14,17,-1,13,7,17,-1,15,17,19,-1,15,19,16,-1,17,14,18,-1,17,18,19,-1,12,21,22,-1,12,22,20,-1,21,15,16,-1,21,16,22,-1,29,27,25,-1,29,25,28,-1,26,29,28,-1,26,28,23,-1,32,30,24,-1,32,24,31,-1,27,32,31,-1,27,31,25,-1,31,24,7,-1,13,25,31,-1,7,13,31,-1,28,25,13,-1,10,23,28,-1,13,10,28,-1,18,6,19,-1,16,19,6,-1,32,8,30,-1,27,8,32,-1,16,6,9,-1,20,22,9,-1,16,9,22,-1,11,27,29,-1,29,26,11,-1,8,27,11,-1,34,33,35,-1,34,35,36,-1,38,37,39,-1,38,39,40,-1]);
 Coordinate906 := TCoordinateNode.Create;
@@ -6206,6 +6587,11 @@ Coordinate916.SetPoint([Vector3(18.675403595,0,15.271450996),Vector3(17.86783409
 IndexedFaceSet915.Coord := Coordinate916;
 { .SetGeometry }
 Shape912.Geometry := IndexedFaceSet915;
+end;
+
+procedure InitPathwayPart77;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape912]);
 Shape917 := TShapeNode.Create;
@@ -6257,6 +6643,11 @@ Appearance928 := TAppearanceNode.Create;
 Material929 := TMaterialNode.Create;
 Material929.AmbientIntensity := 0;
 Material929.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart78;
+begin
+
 Material929.Shininess := 1;
 { .SetMaterial }
 Appearance928.Material := Material929;
@@ -6309,6 +6700,11 @@ Shape937.Appearance := Appearance938;
 IndexedFaceSet940 := TIndexedFaceSetNode.Create;
 IndexedFaceSet940.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet940.Solid := False;
+end;
+
+procedure InitPathwayPart79;
+begin
+
 IndexedFaceSet940.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate941 := TCoordinateNode.Create;
 Coordinate941.SetPoint([Vector3(17.984834671,0,11.883568764),Vector3(17.17726326,0,12.04818058),Vector3(17.984834671,0.075000003,11.883568764),Vector3(17.17726326,0.075000003,12.04818058),Vector3(17.17726326,0,12.04818058),Vector3(17.311382294,0,12.706159592),Vector3(17.17726326,0.075000003,12.04818058),Vector3(17.311382294,0.075000003,12.706159592),Vector3(17.311382294,0,12.706159592),Vector3(18.118953705,0,12.541548729),Vector3(17.311382294,0.075000003,12.706159592),Vector3(18.118953705,0.075000003,12.541548729),Vector3(18.118953705,0,12.541548729),Vector3(17.984834671,0,11.883568764),Vector3(18.118953705,0.075000003,12.541548729),Vector3(17.984834671,0.075000003,11.883568764)]);
@@ -6362,6 +6758,11 @@ IndexedFaceSet950.Coord := Coordinate951;
 Shape947.Geometry := IndexedFaceSet950;
 { .AddChildren }
 Group15.AddChildren([Shape947]);
+end;
+
+procedure InitPathwayPart80;
+begin
+
 Shape952 := TShapeNode.Create;
 Appearance953 := TAppearanceNode.Create;
 Material954 := TMaterialNode.Create;
@@ -6412,6 +6813,11 @@ Material964 := TMaterialNode.Create;
 Material964.AmbientIntensity := 0;
 Material964.DiffuseColor := Vector3(0.784313738,0,0);
 Material964.Shininess := 1;
+end;
+
+procedure InitPathwayPart81;
+begin
+
 { .SetMaterial }
 Appearance963.Material := Material964;
 { .SetAppearance }
@@ -6464,6 +6870,11 @@ IndexedFaceSet975 := TIndexedFaceSetNode.Create;
 IndexedFaceSet975.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 IndexedFaceSet975.Solid := False;
 IndexedFaceSet975.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
+end;
+
+procedure InitPathwayPart82;
+begin
+
 Coordinate976 := TCoordinateNode.Create;
 Coordinate976.SetPoint([Vector3(17.018035889,0,7.140533924),Vector3(16.210466385,0,7.305145264),Vector3(17.018035889,0.075000003,7.140533924),Vector3(16.210466385,0.075000003,7.305145264),Vector3(16.210466385,0,7.305145264),Vector3(16.344585419,0,7.963124752),Vector3(16.210466385,0.075000003,7.305145264),Vector3(16.344585419,0.075000003,7.963124752),Vector3(16.344585419,0,7.963124752),Vector3(16.748371124,0,7.880819321),Vector3(17.15215683,0,7.798513412),Vector3(16.344585419,0.075000003,7.963124752),Vector3(16.748371124,0.075000003,7.880819321),Vector3(17.15215683,0.075000003,7.798513412),Vector3(16.546478271,0.075000003,7.921971798),Vector3(16.748371124,0.037500001,7.880819321),Vector3(16.546478271,0,7.921971798),Vector3(16.546478271,0.037500001,7.921971798),Vector3(16.950263977,0.075000003,7.839666367),Vector3(16.950263977,0,7.839666367),Vector3(16.950263977,0.037500001,7.839666367),Vector3(17.15215683,0,7.798513412),Vector3(17.018035889,0,7.140533924),Vector3(17.15215683,0.075000003,7.798513412),Vector3(17.018035889,0.075000003,7.140533924)]);
 { .SetCoord }
@@ -6517,6 +6928,11 @@ Shape982.Geometry := IndexedFaceSet985;
 { .AddChildren }
 Group15.AddChildren([Shape982]);
 Shape987 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart83;
+begin
+
 Appearance988 := TAppearanceNode.Create;
 Material989 := TMaterialNode.Create;
 Material989.AmbientIntensity := 0;
@@ -6568,6 +6984,11 @@ Material999.DiffuseColor := Vector3(0.784313738,0,0);
 Material999.Shininess := 1;
 { .SetMaterial }
 Appearance998.Material := Material999;
+end;
+
+procedure InitPathwayPart84;
+begin
+
 { .SetAppearance }
 Shape997.Appearance := Appearance998;
 IndexedFaceSet1000 := TIndexedFaceSetNode.Create;
@@ -6619,6 +7040,11 @@ IndexedFaceSet1010.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,
 IndexedFaceSet1010.Solid := False;
 IndexedFaceSet1010.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1011 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart85;
+begin
+
 Coordinate1011.SetPoint([Vector3(15.637654305,0,2.481801987),Vector3(15.243667603,0,2.562110424),Vector3(15.637654305,0.075000003,2.481801987),Vector3(15.243667603,0.075000003,2.562110424),Vector3(15.243667603,0,2.562110424),Vector3(15.515901566,0,3.897666216),Vector3(15.243667603,0.075000003,2.562110424),Vector3(15.515901566,0.075000003,3.897666216),Vector3(15.515901566,0,3.897666216),Vector3(15.909888268,0,3.817357779),Vector3(15.515901566,0.075000003,3.897666216),Vector3(15.909888268,0.075000003,3.817357779),Vector3(15.909888268,0,3.817357779),Vector3(15.637654305,0,2.481801987),Vector3(15.909888268,0.075000003,3.817357779),Vector3(15.637654305,0.075000003,2.481801987)]);
 { .SetCoord }
 IndexedFaceSet1010.Coord := Coordinate1011;
@@ -6672,6 +7098,11 @@ Shape1017.Geometry := IndexedFaceSet1020;
 Group15.AddChildren([Shape1017]);
 Shape1022 := TShapeNode.Create;
 Appearance1023 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart86;
+begin
+
 Material1024 := TMaterialNode.Create;
 Material1024.AmbientIntensity := 0;
 Material1024.DiffuseColor := Vector3(0.784313738,0,0);
@@ -6724,6 +7155,11 @@ Material1034.Shininess := 1;
 Appearance1033.Material := Material1034;
 { .SetAppearance }
 Shape1032.Appearance := Appearance1033;
+end;
+
+procedure InitPathwayPart87;
+begin
+
 IndexedFaceSet1035 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1035.SetCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,36,35,37,-1,36,37,38,-1]);
 IndexedFaceSet1035.Solid := False;
@@ -6774,6 +7210,11 @@ IndexedFaceSet1045.Solid := False;
 IndexedFaceSet1045.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1046 := TCoordinateNode.Create;
 Coordinate1046.SetPoint([Vector3(19.229375839,0,22.21582222),Vector3(18.421806335,0,22.380432129),Vector3(19.229375839,0.075000003,22.21582222),Vector3(18.421806335,0.075000003,22.380432129),Vector3(18.421806335,0,22.380432129),Vector3(18.555925369,0,23.038412094),Vector3(18.421806335,0.075000003,22.380432129),Vector3(18.555925369,0.075000003,23.038412094),Vector3(18.555925369,0,23.038412094),Vector3(19.36349678,0,22.873800278),Vector3(18.555925369,0.075000003,23.038412094),Vector3(19.36349678,0.075000003,22.873800278),Vector3(19.36349678,0,22.873800278),Vector3(19.229375839,0,22.21582222),Vector3(19.36349678,0.075000003,22.873800278),Vector3(19.229375839,0.075000003,22.21582222)]);
+end;
+
+procedure InitPathwayPart88;
+begin
+
 { .SetCoord }
 IndexedFaceSet1045.Coord := Coordinate1046;
 { .SetGeometry }
@@ -6827,6 +7268,11 @@ Group15.AddChildren([Shape1052]);
 Shape1057 := TShapeNode.Create;
 Appearance1058 := TAppearanceNode.Create;
 Material1059 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart89;
+begin
+
 Material1059.AmbientIntensity := 0;
 Material1059.DiffuseColor := Vector3(0.784313738,0,0);
 Material1059.Shininess := 1;
@@ -6879,6 +7325,11 @@ Appearance1068.Material := Material1069;
 { .SetAppearance }
 Shape1067.Appearance := Appearance1068;
 IndexedFaceSet1070 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart90;
+begin
+
 IndexedFaceSet1070.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1070.Solid := False;
 IndexedFaceSet1070.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
@@ -6930,6 +7381,11 @@ Coordinate1081 := TCoordinateNode.Create;
 Coordinate1081.SetPoint([Vector3(17.848995209,0,17.557088852),Vector3(17.455007553,0,17.637397766),Vector3(17.848995209,0.075000003,17.557088852),Vector3(17.455007553,0.075000003,17.637397766),Vector3(17.455007553,0,17.637397766),Vector3(17.727241516,0,18.972953796),Vector3(17.455007553,0.075000003,17.637397766),Vector3(17.727241516,0.075000003,18.972953796),Vector3(17.727241516,0,18.972953796),Vector3(18.121227264,0,18.892644882),Vector3(17.727241516,0.075000003,18.972953796),Vector3(18.121227264,0.075000003,18.892644882),Vector3(18.121227264,0,18.892644882),Vector3(17.848995209,0,17.557088852),Vector3(18.121227264,0.075000003,18.892644882),Vector3(17.848995209,0.075000003,17.557088852)]);
 { .SetCoord }
 IndexedFaceSet1080.Coord := Coordinate1081;
+end;
+
+procedure InitPathwayPart91;
+begin
+
 { .SetGeometry }
 Shape1077.Geometry := IndexedFaceSet1080;
 { .AddChildren }
@@ -6982,6 +7438,11 @@ Shape1092 := TShapeNode.Create;
 Appearance1093 := TAppearanceNode.Create;
 Material1094 := TMaterialNode.Create;
 Material1094.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart92;
+begin
+
 Material1094.DiffuseColor := Vector3(0.784313738,0,0);
 Material1094.Shininess := 1;
 { .SetMaterial }
@@ -7034,6 +7495,11 @@ Appearance1103.Material := Material1104;
 Shape1102.Appearance := Appearance1103;
 IndexedFaceSet1105 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1105.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
+end;
+
+procedure InitPathwayPart93;
+begin
+
 IndexedFaceSet1105.Solid := False;
 IndexedFaceSet1105.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate1106 := TCoordinateNode.Create;
@@ -7086,6 +7552,11 @@ Coordinate1116.SetPoint([Vector3(17.15766716,0,12.052174568),Vector3(16.96067237
 IndexedFaceSet1115.Coord := Coordinate1116;
 { .SetGeometry }
 Shape1112.Geometry := IndexedFaceSet1115;
+end;
+
+procedure InitPathwayPart94;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape1112]);
 Shape1117 := TShapeNode.Create;
@@ -7137,6 +7608,11 @@ Appearance1128 := TAppearanceNode.Create;
 Material1129 := TMaterialNode.Create;
 Material1129.AmbientIntensity := 0;
 Material1129.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart95;
+begin
+
 Material1129.Shininess := 1;
 { .SetMaterial }
 Appearance1128.Material := Material1129;
@@ -7189,6 +7665,11 @@ Shape1137.Appearance := Appearance1138;
 IndexedFaceSet1140 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1140.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1140.Solid := False;
+end;
+
+procedure InitPathwayPart96;
+begin
+
 IndexedFaceSet1140.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1141 := TCoordinateNode.Create;
 Coordinate1141.SetPoint([Vector3(16.191627502,0,9.426172256),Vector3(15.797639847,0,9.506481171),Vector3(16.191627502,0.075000003,9.426172256),Vector3(15.797639847,0.075000003,9.506481171),Vector3(15.797639847,0,9.506481171),Vector3(16.06987381,0,10.842036247),Vector3(15.797639847,0.075000003,9.506481171),Vector3(16.06987381,0.075000003,10.842036247),Vector3(16.06987381,0,10.842036247),Vector3(16.463859558,0,10.761728287),Vector3(16.06987381,0.075000003,10.842036247),Vector3(16.463859558,0.075000003,10.761728287),Vector3(16.463859558,0,10.761728287),Vector3(16.191627502,0,9.426172256),Vector3(16.463859558,0.075000003,10.761728287),Vector3(16.191627502,0.075000003,9.426172256)]);
@@ -7242,6 +7723,11 @@ IndexedFaceSet1150.Coord := Coordinate1151;
 Shape1147.Geometry := IndexedFaceSet1150;
 { .AddChildren }
 Group15.AddChildren([Shape1147]);
+end;
+
+procedure InitPathwayPart97;
+begin
+
 Shape1152 := TShapeNode.Create;
 Appearance1153 := TAppearanceNode.Create;
 Material1154 := TMaterialNode.Create;
@@ -7292,6 +7778,11 @@ Material1164 := TMaterialNode.Create;
 Material1164.AmbientIntensity := 0;
 Material1164.DiffuseColor := Vector3(0.784313738,0,0);
 Material1164.Shininess := 1;
+end;
+
+procedure InitPathwayPart98;
+begin
+
 { .SetMaterial }
 Appearance1163.Material := Material1164;
 { .SetAppearance }
@@ -7344,6 +7835,11 @@ IndexedFaceSet1175 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1175.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,27,18,16,-1,19,21,27,-1,16,19,27,-1,23,21,19,-1,13,20,23,-1,19,13,23,-1,21,23,25,-1,21,25,22,-1,23,20,24,-1,23,24,25,-1,18,27,28,-1,18,28,26,-1,27,21,22,-1,27,22,28,-1,35,33,31,-1,35,31,34,-1,32,35,34,-1,32,34,29,-1,38,36,30,-1,38,30,37,-1,33,38,37,-1,33,37,31,-1,37,30,13,-1,19,31,37,-1,13,19,37,-1,34,31,19,-1,16,29,34,-1,19,16,34,-1,24,12,25,-1,22,25,12,-1,38,14,36,-1,33,14,38,-1,22,12,15,-1,26,28,15,-1,22,15,28,-1,17,33,35,-1,35,32,17,-1,14,33,17,-1]);
 IndexedFaceSet1175.Solid := False;
 IndexedFaceSet1175.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,27,18,16,-1,19,21,27,-1,16,19,27,-1,23,21,19,-1,13,20,23,-1,19,13,23,-1,21,23,25,-1,21,25,22,-1,23,20,24,-1,23,24,25,-1,18,27,28,-1,18,28,26,-1,27,21,22,-1,27,22,28,-1,35,33,31,-1,35,31,34,-1,32,35,34,-1,32,34,29,-1,38,36,30,-1,38,30,37,-1,33,38,37,-1,33,37,31,-1,37,30,13,-1,19,31,37,-1,13,19,37,-1,34,31,19,-1,16,29,34,-1,19,16,34,-1,24,12,25,-1,22,25,12,-1,38,14,36,-1,33,14,38,-1,22,12,15,-1,26,28,15,-1,22,15,28,-1,17,33,35,-1,35,32,17,-1,14,33,17,-1]);
+end;
+
+procedure InitPathwayPart99;
+begin
+
 Coordinate1176 := TCoordinateNode.Create;
 Coordinate1176.SetPoint([Vector3(15.5002985,0,3.921257734),Vector3(15.106311798,0,4.00156641),Vector3(15.5002985,0.075000003,3.921257734),Vector3(15.106311798,0.075000003,4.00156641),Vector3(15.106311798,0,4.00156641),Vector3(15.378544807,0,5.337121964),Vector3(15.106311798,0.075000003,4.00156641),Vector3(15.378544807,0.075000003,5.337121964),Vector3(15.378544807,0,5.337121964),Vector3(15.772532463,0,5.256813526),Vector3(15.378544807,0.075000003,5.337121964),Vector3(15.772532463,0.075000003,5.256813526),Vector3(15.772532463,0,5.256813526),Vector3(15.636415482,0,4.589035988),Vector3(15.5002985,0,3.921257734),Vector3(15.772532463,0.075000003,5.256813526),Vector3(15.636415482,0.075000003,4.589035988),Vector3(15.5002985,0.075000003,3.921257734),Vector3(15.704473495,0.075000003,4.922924519),Vector3(15.636415482,0.037500001,4.589035988),Vector3(15.704473495,0,4.922924519),Vector3(15.704473495,0.037500001,4.922924519),Vector3(15.738502502,0.037500001,5.089869022),Vector3(15.704473495,0.018750001,4.922924519),Vector3(15.738502502,0,5.089869022),Vector3(15.738502502,0.018750001,5.089869022),Vector3(15.738502502,0.075000003,5.089869022),Vector3(15.704473495,0.056249999,4.922924519),Vector3(15.738502502,0.056249999,5.089869022),Vector3(15.568356514,0.075000003,4.25514698),Vector3(15.568356514,0,4.25514698),Vector3(15.568356514,0.037500001,4.25514698),Vector3(15.534327507,0.075000003,4.088202477),Vector3(15.534327507,0.037500001,4.088202477),Vector3(15.568356514,0.056249999,4.25514698),Vector3(15.534327507,0.056249999,4.088202477),Vector3(15.534327507,0,4.088202477),Vector3(15.568356514,0.018750001,4.25514698),Vector3(15.534327507,0.018750001,4.088202477)]);
 { .SetCoord }
@@ -7397,6 +7893,11 @@ Shape1182.Geometry := IndexedFaceSet1185;
 { .AddChildren }
 Group15.AddChildren([Shape1182]);
 Shape1187 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart100;
+begin
+
 Appearance1188 := TAppearanceNode.Create;
 Material1189 := TMaterialNode.Create;
 Material1189.AmbientIntensity := 0;
@@ -7448,6 +7949,11 @@ Material1199.DiffuseColor := Vector3(0.784313738,0,0);
 Material1199.Shininess := 1;
 { .SetMaterial }
 Appearance1198.Material := Material1199;
+end;
+
+procedure InitPathwayPart101;
+begin
+
 { .SetAppearance }
 Shape1197.Appearance := Appearance1198;
 IndexedFaceSet1200 := TIndexedFaceSetNode.Create;
@@ -7499,6 +8005,11 @@ IndexedFaceSet1210.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-
 IndexedFaceSet1210.Solid := False;
 IndexedFaceSet1210.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate1211 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart102;
+begin
+
 Coordinate1211.SetPoint([Vector3(18.125980377,0,21.029273987),Vector3(17.318408966,0,21.193885803),Vector3(18.125980377,0.075000003,21.029273987),Vector3(17.318408966,0.075000003,21.193885803),Vector3(17.318408966,0,21.193885803),Vector3(17.452529907,0,21.851865768),Vector3(17.318408966,0.075000003,21.193885803),Vector3(17.452529907,0.075000003,21.851865768),Vector3(17.452529907,0,21.851865768),Vector3(17.856313705,0,21.76955986),Vector3(18.260099411,0,21.687253952),Vector3(17.452529907,0.075000003,21.851865768),Vector3(17.856313705,0.075000003,21.76955986),Vector3(18.260099411,0.075000003,21.687253952),Vector3(17.65442276,0.075000003,21.810712814),Vector3(17.856313705,0.037500001,21.76955986),Vector3(17.65442276,0,21.810712814),Vector3(17.65442276,0.037500001,21.810712814),Vector3(18.058206558,0.075000003,21.728406906),Vector3(18.058206558,0,21.728406906),Vector3(18.058206558,0.037500001,21.728406906),Vector3(18.260099411,0,21.687253952),Vector3(18.125980377,0,21.029273987),Vector3(18.260099411,0.075000003,21.687253952),Vector3(18.125980377,0.075000003,21.029273987)]);
 { .SetCoord }
 IndexedFaceSet1210.Coord := Coordinate1211;
@@ -7552,6 +8063,11 @@ Shape1217.Geometry := IndexedFaceSet1220;
 Group15.AddChildren([Shape1217]);
 Shape1222 := TShapeNode.Create;
 Appearance1223 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart103;
+begin
+
 Material1224 := TMaterialNode.Create;
 Material1224.AmbientIntensity := 0;
 Material1224.DiffuseColor := Vector3(0.784313738,0,0);
@@ -7604,6 +8120,11 @@ Material1234.Shininess := 1;
 Appearance1233.Material := Material1234;
 { .SetAppearance }
 Shape1232.Appearance := Appearance1233;
+end;
+
+procedure InitPathwayPart104;
+begin
+
 IndexedFaceSet1235 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1235.SetCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,21,24,26,-1,21,26,23,-1,24,18,25,-1,24,25,26,-1,29,28,18,-1,29,18,24,-1,27,29,24,-1,27,24,21,-1,26,25,17,-1,29,19,28,-1,26,17,20,-1,22,29,27,-1,19,29,22,-1,20,23,26,-1,31,30,32,-1,31,32,33,-1]);
 IndexedFaceSet1235.Solid := False;
@@ -7654,6 +8175,11 @@ IndexedFaceSet1245.Solid := False;
 IndexedFaceSet1245.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,50,41,39,-1,42,44,50,-1,39,42,50,-1,46,44,42,-1,36,43,46,-1,42,36,46,-1,44,46,48,-1,44,48,45,-1,46,43,47,-1,46,47,48,-1,41,50,51,-1,41,51,49,-1,50,44,45,-1,50,45,51,-1,58,56,54,-1,58,54,57,-1,55,58,57,-1,55,57,52,-1,61,59,53,-1,61,53,60,-1,56,61,60,-1,56,60,54,-1,60,53,36,-1,42,54,60,-1,36,42,60,-1,57,54,42,-1,39,52,57,-1,42,39,57,-1,47,35,48,-1,45,48,35,-1,61,37,59,-1,56,37,61,-1,45,35,38,-1,49,51,38,-1,45,38,51,-1,40,56,58,-1,58,55,40,-1,37,56,40,-1]);
 Coordinate1246 := TCoordinateNode.Create;
 Coordinate1246.SetPoint([Vector3(16.745597839,0,16.370542526),Vector3(16.351612091,0,16.45085144),Vector3(16.745597839,0.075000003,16.370542526),Vector3(16.351612091,0.075000003,16.45085144),Vector3(16.351612091,0,16.45085144),Vector3(16.487728119,0,17.118629456),Vector3(16.623846054,0,17.786407471),Vector3(16.351612091,0.075000003,16.45085144),Vector3(16.487728119,0.075000003,17.118629456),Vector3(16.623846054,0.075000003,17.786407471),Vector3(16.419670105,0.075000003,16.784740448),Vector3(16.487728119,0.037500001,17.118629456),Vector3(16.419670105,0,16.784740448),Vector3(16.419670105,0.037500001,16.784740448),Vector3(16.385641098,0.037500001,16.617795944),Vector3(16.419670105,0.018750001,16.784740448),Vector3(16.385641098,0,16.617795944),Vector3(16.385641098,0.018750001,16.617795944),Vector3(16.385641098,0.075000003,16.617795944),Vector3(16.419670105,0.056249999,16.784740448),Vector3(16.385641098,0.056249999,16.617795944),Vector3(16.555786133,0.075000003,17.452518463),Vector3(16.555786133,0,17.452518463),Vector3(16.555786133,0.037500001,17.452518463),Vector3(16.58981514,0.075000003,17.619462967),Vector3(16.58981514,0.037500001,17.619462967),Vector3(16.555786133,0.056249999,17.452518463),Vector3(16.58981514,0.056249999,17.619462967),Vector3(16.58981514,0,17.619462967),Vector3(16.555786133,0.018750001,17.452518463),Vector3(16.58981514,0.018750001,17.619462967),Vector3(16.623846054,0,17.786407471),Vector3(17.017831802,0,17.706098557),Vector3(16.623846054,0.075000003,17.786407471),Vector3(17.017831802,0.075000003,17.706098557),Vector3(17.017831802,0,17.706098557),Vector3(16.881715775,0,17.038320541),Vector3(16.745597839,0,16.370542526),Vector3(17.017831802,0.075000003,17.706098557),Vector3(16.881715775,0.075000003,17.038320541),Vector3(16.745597839,0.075000003,16.370542526),Vector3(16.949773788,0.075000003,17.372209549),Vector3(16.881715775,0.037500001,17.038320541),Vector3(16.949773788,0,17.372209549),Vector3(16.949773788,0.037500001,17.372209549),Vector3(16.983802795,0.037500001,17.539154053),Vector3(16.949773788,0.018750001,17.372209549),Vector3(16.983802795,0,17.539154053),Vector3(16.983802795,0.018750001,17.539154053),Vector3(16.983802795,0.075000003,17.539154053),Vector3(16.949773788,0.056249999,17.372209549),Vector3(16.983802795,0.056249999,17.539154053),Vector3(16.813657761,0.075000003,16.704431534),Vector3(16.813657761,0,16.704431534),Vector3(16.813657761,0.037500001,16.704431534),Vector3(16.779628754,0.075000003,16.53748703),Vector3(16.779628754,0.037500001,16.53748703),Vector3(16.813657761,0.056249999,16.704431534),Vector3(16.779628754,0.056249999,16.53748703),Vector3(16.779628754,0,16.53748703),Vector3(16.813657761,0.018750001,16.704431534),Vector3(16.779628754,0.018750001,16.53748703)]);
+end;
+
+procedure InitPathwayPart105;
+begin
+
 { .SetCoord }
 IndexedFaceSet1245.Coord := Coordinate1246;
 { .SetGeometry }
@@ -7707,6 +8233,11 @@ Group15.AddChildren([Shape1252]);
 Shape1257 := TShapeNode.Create;
 Appearance1258 := TAppearanceNode.Create;
 Material1259 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart106;
+begin
+
 Material1259.AmbientIntensity := 0;
 Material1259.DiffuseColor := Vector3(0.784313738,0,0);
 Material1259.Shininess := 1;
@@ -7759,6 +8290,11 @@ Appearance1268.Material := Material1269;
 { .SetAppearance }
 Shape1267.Appearance := Appearance1268;
 IndexedFaceSet1270 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart107;
+begin
+
 IndexedFaceSet1270.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1270.Solid := False;
 IndexedFaceSet1270.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
@@ -7810,6 +8346,11 @@ Coordinate1281 := TCoordinateNode.Create;
 Coordinate1281.SetPoint([Vector3(16.054269791,0,10.865628242),Vector3(15.857276917,0,10.9057827),Vector3(15.660284042,0,10.945936203),Vector3(16.054269791,0.075000003,10.865628242),Vector3(15.857276917,0.075000003,10.9057827),Vector3(15.660284042,0.075000003,10.945936203),Vector3(15.660284042,0,10.945936203),Vector3(15.932517052,0,12.281492233),Vector3(15.660284042,0.075000003,10.945936203),Vector3(15.932517052,0.075000003,12.281492233),Vector3(15.932517052,0,12.281492233),Vector3(16.326503754,0,12.201184273),Vector3(15.932517052,0.075000003,12.281492233),Vector3(16.326503754,0.075000003,12.201184273),Vector3(16.326503754,0,12.201184273),Vector3(16.054269791,0,10.865628242),Vector3(16.326503754,0.075000003,12.201184273),Vector3(16.054269791,0.075000003,10.865628242)]);
 { .SetCoord }
 IndexedFaceSet1280.Coord := Coordinate1281;
+end;
+
+procedure InitPathwayPart108;
+begin
+
 { .SetGeometry }
 Shape1277.Geometry := IndexedFaceSet1280;
 { .AddChildren }
@@ -7862,6 +8403,11 @@ Shape1292 := TShapeNode.Create;
 Appearance1293 := TAppearanceNode.Create;
 Material1294 := TMaterialNode.Create;
 Material1294.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart109;
+begin
+
 Material1294.DiffuseColor := Vector3(0.784313738,0,0);
 Material1294.Shininess := 1;
 { .SetMaterial }
@@ -7914,6 +8460,11 @@ Appearance1303.Material := Material1304;
 Shape1302.Appearance := Appearance1303;
 IndexedFaceSet1305 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1305.SetCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,21,12,10,-1,13,15,21,-1,10,13,21,-1,17,15,13,-1,7,14,17,-1,13,7,17,-1,15,17,19,-1,15,19,16,-1,17,14,18,-1,17,18,19,-1,12,21,22,-1,12,22,20,-1,21,15,16,-1,21,16,22,-1,29,27,25,-1,29,25,28,-1,26,29,28,-1,26,28,23,-1,32,30,24,-1,32,24,31,-1,27,32,31,-1,27,31,25,-1,31,24,7,-1,13,25,31,-1,7,13,31,-1,28,25,13,-1,10,23,28,-1,13,10,28,-1,18,6,19,-1,16,19,6,-1,32,8,30,-1,27,8,32,-1,16,6,9,-1,20,22,9,-1,16,9,22,-1,11,27,29,-1,29,26,11,-1,8,27,11,-1,34,33,35,-1,34,35,36,-1,52,43,41,-1,44,46,52,-1,41,44,52,-1,48,46,44,-1,38,45,48,-1,44,38,48,-1,46,48,50,-1,46,50,47,-1,48,45,49,-1,48,49,50,-1,43,52,53,-1,43,53,51,-1,52,46,47,-1,52,47,53,-1,60,58,56,-1,60,56,59,-1,57,60,59,-1,57,59,54,-1,63,61,55,-1,63,55,62,-1,58,63,62,-1,58,62,56,-1,62,55,38,-1,44,56,62,-1,38,44,62,-1,59,56,44,-1,41,54,59,-1,44,41,59,-1,49,37,50,-1,47,50,37,-1,63,39,61,-1,58,39,63,-1,47,37,40,-1,51,53,40,-1,47,40,53,-1,42,58,60,-1,60,57,42,-1,39,58,42,-1]);
+end;
+
+procedure InitPathwayPart110;
+begin
+
 IndexedFaceSet1305.Solid := False;
 IndexedFaceSet1305.SetTexCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,21,12,10,-1,13,15,21,-1,10,13,21,-1,17,15,13,-1,7,14,17,-1,13,7,17,-1,15,17,19,-1,15,19,16,-1,17,14,18,-1,17,18,19,-1,12,21,22,-1,12,22,20,-1,21,15,16,-1,21,16,22,-1,29,27,25,-1,29,25,28,-1,26,29,28,-1,26,28,23,-1,32,30,24,-1,32,24,31,-1,27,32,31,-1,27,31,25,-1,31,24,7,-1,13,25,31,-1,7,13,31,-1,28,25,13,-1,10,23,28,-1,13,10,28,-1,18,6,19,-1,16,19,6,-1,32,8,30,-1,27,8,32,-1,16,6,9,-1,20,22,9,-1,16,9,22,-1,11,27,29,-1,29,26,11,-1,8,27,11,-1,34,33,35,-1,34,35,36,-1,52,43,41,-1,44,46,52,-1,41,44,52,-1,48,46,44,-1,38,45,48,-1,44,38,48,-1,46,48,50,-1,46,50,47,-1,48,45,49,-1,48,49,50,-1,43,52,53,-1,43,53,51,-1,52,46,47,-1,52,47,53,-1,60,58,56,-1,60,56,59,-1,57,60,59,-1,57,59,54,-1,63,61,55,-1,63,55,62,-1,58,63,62,-1,58,62,56,-1,62,55,38,-1,44,56,62,-1,38,44,62,-1,59,56,44,-1,41,54,59,-1,44,41,59,-1,49,37,50,-1,47,50,37,-1,63,39,61,-1,58,39,63,-1,47,37,40,-1,51,53,40,-1,47,40,53,-1,42,58,60,-1,60,57,42,-1,39,58,42,-1]);
 Coordinate1306 := TCoordinateNode.Create;
@@ -7966,6 +8517,11 @@ Coordinate1316.SetPoint([Vector3(15.225586891,0,6.800169468),Vector3(14.41801548
 IndexedFaceSet1315.Coord := Coordinate1316;
 { .SetGeometry }
 Shape1312.Geometry := IndexedFaceSet1315;
+end;
+
+procedure InitPathwayPart111;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape1312]);
 Shape1317 := TShapeNode.Create;
@@ -8017,6 +8573,11 @@ Appearance1328 := TAppearanceNode.Create;
 Material1329 := TMaterialNode.Create;
 Material1329.AmbientIntensity := 0;
 Material1329.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart112;
+begin
+
 Material1329.Shininess := 1;
 { .SetMaterial }
 Appearance1328.Material := Material1329;
@@ -8069,6 +8630,11 @@ Shape1337.Appearance := Appearance1338;
 IndexedFaceSet1340 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1340.SetCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,34,-1,32,34,35,-1,33,32,35,-1,33,35,36,-1,38,37,39,-1,38,39,40,-1]);
 IndexedFaceSet1340.Solid := False;
+end;
+
+procedure InitPathwayPart113;
+begin
+
 IndexedFaceSet1340.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,34,-1,32,34,35,-1,33,32,35,-1,33,35,36,-1,38,37,39,-1,38,39,40,-1]);
 Coordinate1341 := TCoordinateNode.Create;
 Coordinate1341.SetPoint([Vector3(14.396903038,0,2.734710932),Vector3(14.002915382,0,2.815019369),Vector3(14.396903038,0.075000003,2.734710932),Vector3(14.002915382,0.075000003,2.815019369),Vector3(14.002915382,0,2.815019369),Vector3(14.139032364,0,3.482797384),Vector3(14.275149345,0,4.150575161),Vector3(14.002915382,0.075000003,2.815019369),Vector3(14.139032364,0.075000003,3.482797384),Vector3(14.275149345,0.075000003,4.150575161),Vector3(14.07097435,0.075000003,3.148908377),Vector3(14.139032364,0.037500001,3.482797384),Vector3(14.07097435,0,3.148908377),Vector3(14.07097435,0.037500001,3.148908377),Vector3(14.036945343,0.037500001,2.981963873),Vector3(14.07097435,0.018750001,3.148908377),Vector3(14.036945343,0,2.981963873),Vector3(14.036945343,0.018750001,2.981963873),Vector3(14.036945343,0.075000003,2.981963873),Vector3(14.07097435,0.056249999,3.148908377),Vector3(14.036945343,0.056249999,2.981963873),Vector3(14.207091331,0.075000003,3.816686392),Vector3(14.207091331,0,3.816686392),Vector3(14.207091331,0.037500001,3.816686392),Vector3(14.241120338,0.075000003,3.983630896),Vector3(14.241120338,0.037500001,3.983630896),Vector3(14.207091331,0.056249999,3.816686392),Vector3(14.241120338,0.056249999,3.983630896),Vector3(14.241120338,0,3.983630896),Vector3(14.207091331,0.018750001,3.816686392),Vector3(14.241120338,0.018750001,3.983630896),Vector3(14.275149345,0,4.150575161),Vector3(14.472143173,0,4.110421181),Vector3(14.669136047,0,4.070266724),Vector3(14.275149345,0.075000003,4.150575161),Vector3(14.472143173,0.075000003,4.110421181),Vector3(14.669136047,0.075000003,4.070266724),Vector3(14.669136047,0,4.070266724),Vector3(14.396903038,0,2.734710932),Vector3(14.669136047,0.075000003,4.070266724),Vector3(14.396903038,0.075000003,2.734710932)]);
@@ -8122,6 +8688,11 @@ IndexedFaceSet1350.Coord := Coordinate1351;
 Shape1347.Geometry := IndexedFaceSet1350;
 { .AddChildren }
 Group15.AddChildren([Shape1347]);
+end;
+
+procedure InitPathwayPart114;
+begin
+
 Shape1352 := TShapeNode.Create;
 Appearance1353 := TAppearanceNode.Create;
 Material1354 := TMaterialNode.Create;
@@ -8172,6 +8743,11 @@ Material1364 := TMaterialNode.Create;
 Material1364.AmbientIntensity := 0;
 Material1364.DiffuseColor := Vector3(0.784313738,0,0);
 Material1364.Shininess := 1;
+end;
+
+procedure InitPathwayPart115;
+begin
+
 { .SetMaterial }
 Appearance1363.Material := Material1364;
 { .SetAppearance }
@@ -8224,6 +8800,11 @@ IndexedFaceSet1375 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1375.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1375.Solid := False;
 IndexedFaceSet1375.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
+end;
+
+procedure InitPathwayPart116;
+begin
+
 Coordinate1376 := TCoordinateNode.Create;
 Coordinate1376.SetPoint([Vector3(16.884469986,0,19.165151596),Vector3(16.076900482,0,19.329763412),Vector3(16.884469986,0.075000003,19.165151596),Vector3(16.076900482,0.075000003,19.329763412),Vector3(16.076900482,0,19.329763412),Vector3(16.211019516,0,19.98774147),Vector3(16.076900482,0.075000003,19.329763412),Vector3(16.211019516,0.075000003,19.98774147),Vector3(16.211019516,0,19.98774147),Vector3(17.018590927,0,19.823131561),Vector3(16.211019516,0.075000003,19.98774147),Vector3(17.018590927,0.075000003,19.823131561),Vector3(17.018590927,0,19.823131561),Vector3(16.884469986,0,19.165151596),Vector3(17.018590927,0.075000003,19.823131561),Vector3(16.884469986,0.075000003,19.165151596)]);
 { .SetCoord }
@@ -8277,6 +8858,11 @@ Shape1382.Geometry := IndexedFaceSet1385;
 { .AddChildren }
 Group15.AddChildren([Shape1382]);
 Shape1387 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart117;
+begin
+
 Appearance1388 := TAppearanceNode.Create;
 Material1389 := TMaterialNode.Create;
 Material1389.AmbientIntensity := 0;
@@ -8328,6 +8914,11 @@ Material1399.DiffuseColor := Vector3(0.784313738,0,0);
 Material1399.Shininess := 1;
 { .SetMaterial }
 Appearance1398.Material := Material1399;
+end;
+
+procedure InitPathwayPart118;
+begin
+
 { .SetAppearance }
 Shape1397.Appearance := Appearance1398;
 IndexedFaceSet1400 := TIndexedFaceSetNode.Create;
@@ -8379,6 +8970,11 @@ IndexedFaceSet1410.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,
 IndexedFaceSet1410.Solid := False;
 IndexedFaceSet1410.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1411 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart119;
+begin
+
 Coordinate1411.SetPoint([Vector3(15.917673111,0,14.42211628),Vector3(15.1101017,0,14.586728096),Vector3(15.917673111,0.075000003,14.42211628),Vector3(15.1101017,0.075000003,14.586728096),Vector3(15.1101017,0,14.586728096),Vector3(15.244221687,0,15.244707108),Vector3(15.1101017,0.075000003,14.586728096),Vector3(15.244221687,0.075000003,15.244707108),Vector3(15.244221687,0,15.244707108),Vector3(16.051792145,0,15.080095291),Vector3(15.244221687,0.075000003,15.244707108),Vector3(16.051792145,0.075000003,15.080095291),Vector3(16.051792145,0,15.080095291),Vector3(15.917673111,0,14.42211628),Vector3(16.051792145,0.075000003,15.080095291),Vector3(15.917673111,0.075000003,14.42211628)]);
 { .SetCoord }
 IndexedFaceSet1410.Coord := Coordinate1411;
@@ -8432,6 +9028,11 @@ Shape1417.Geometry := IndexedFaceSet1420;
 Group15.AddChildren([Shape1417]);
 Shape1422 := TShapeNode.Create;
 Appearance1423 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart120;
+begin
+
 Material1424 := TMaterialNode.Create;
 Material1424.AmbientIntensity := 0;
 Material1424.DiffuseColor := Vector3(0.784313738,0,0);
@@ -8484,6 +9085,11 @@ Material1434.Shininess := 1;
 Appearance1433.Material := Material1434;
 { .SetAppearance }
 Shape1432.Appearance := Appearance1433;
+end;
+
+procedure InitPathwayPart121;
+begin
+
 IndexedFaceSet1435 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1435.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1435.Solid := False;
@@ -8534,6 +9140,11 @@ IndexedFaceSet1445.Solid := False;
 IndexedFaceSet1445.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1446 := TCoordinateNode.Create;
 Coordinate1446.SetPoint([Vector3(14.537290573,0,9.763383865),Vector3(14.143303871,0,9.84369278),Vector3(14.537290573,0.075000003,9.763383865),Vector3(14.143303871,0.075000003,9.84369278),Vector3(14.143303871,0,9.84369278),Vector3(14.415537834,0,11.17924881),Vector3(14.143303871,0.075000003,9.84369278),Vector3(14.415537834,0.075000003,11.17924881),Vector3(14.415537834,0,11.17924881),Vector3(14.809524536,0,11.098939896),Vector3(14.415537834,0.075000003,11.17924881),Vector3(14.809524536,0.075000003,11.098939896),Vector3(14.809524536,0,11.098939896),Vector3(14.537290573,0,9.763383865),Vector3(14.809524536,0.075000003,11.098939896),Vector3(14.537290573,0.075000003,9.763383865)]);
+end;
+
+procedure InitPathwayPart122;
+begin
+
 { .SetCoord }
 IndexedFaceSet1445.Coord := Coordinate1446;
 { .SetGeometry }
@@ -8587,6 +9198,11 @@ Group15.AddChildren([Shape1452]);
 Shape1457 := TShapeNode.Create;
 Appearance1458 := TAppearanceNode.Create;
 Material1459 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart123;
+begin
+
 Material1459.AmbientIntensity := 0;
 Material1459.DiffuseColor := Vector3(0.784313738,0,0);
 Material1459.Shininess := 1;
@@ -8639,6 +9255,11 @@ Appearance1468.Material := Material1469;
 { .SetAppearance }
 Shape1467.Appearance := Appearance1468;
 IndexedFaceSet1470 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart124;
+begin
+
 IndexedFaceSet1470.SetCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,18,17,19,-1,18,19,20,-1,22,21,23,-1,22,23,24,-1]);
 IndexedFaceSet1470.Solid := False;
 IndexedFaceSet1470.SetTexCoordIndex([4,8,12,-1,4,12,10,-1,8,1,11,-1,8,11,12,-1,9,7,1,-1,9,1,8,-1,6,9,8,-1,6,8,4,-1,12,11,0,-1,9,2,7,-1,12,0,3,-1,5,9,6,-1,2,9,5,-1,3,10,12,-1,14,13,15,-1,14,15,16,-1,18,17,19,-1,18,19,20,-1,22,21,23,-1,22,23,24,-1]);
@@ -8690,6 +9311,11 @@ Coordinate1481 := TCoordinateNode.Create;
 Coordinate1481.SetPoint([Vector3(13.845962524,0,4.258470058),Vector3(13.451975822,0,4.338778496),Vector3(13.845962524,0.075000003,4.258470058),Vector3(13.451975822,0.075000003,4.338778496),Vector3(13.451975822,0,4.338778496),Vector3(13.724209785,0,5.674334049),Vector3(13.451975822,0.075000003,4.338778496),Vector3(13.724209785,0.075000003,5.674334049),Vector3(13.724209785,0,5.674334049),Vector3(14.118196487,0,5.594025612),Vector3(13.724209785,0.075000003,5.674334049),Vector3(14.118196487,0.075000003,5.594025612),Vector3(14.118196487,0,5.594025612),Vector3(13.982079506,0,4.926247597),Vector3(13.845962524,0,4.258470058),Vector3(14.118196487,0.075000003,5.594025612),Vector3(13.982079506,0.075000003,4.926247597),Vector3(13.845962524,0.075000003,4.258470058),Vector3(14.05013752,0.075000003,5.260136604),Vector3(13.982079506,0.037500001,4.926247597),Vector3(14.05013752,0,5.260136604),Vector3(14.05013752,0.037500001,5.260136604),Vector3(14.08416748,0.037500001,5.427081108),Vector3(14.05013752,0.018750001,5.260136604),Vector3(14.08416748,0,5.427081108),Vector3(14.08416748,0.018750001,5.427081108),Vector3(14.08416748,0.075000003,5.427081108),Vector3(14.05013752,0.056249999,5.260136604),Vector3(14.08416748,0.056249999,5.427081108),Vector3(13.914021492,0.075000003,4.592359066),Vector3(13.914021492,0,4.592359066),Vector3(13.914021492,0.037500001,4.592359066),Vector3(13.879992485,0.075000003,4.425414562),Vector3(13.879992485,0.037500001,4.425414562),Vector3(13.914021492,0.056249999,4.592359066),Vector3(13.879992485,0.056249999,4.425414562),Vector3(13.879992485,0,4.425414562),Vector3(13.914021492,0.018750001,4.592359066),Vector3(13.879992485,0.018750001,4.425414562)]);
 { .SetCoord }
 IndexedFaceSet1480.Coord := Coordinate1481;
+end;
+
+procedure InitPathwayPart125;
+begin
+
 { .SetGeometry }
 Shape1477.Geometry := IndexedFaceSet1480;
 { .AddChildren }
@@ -8742,6 +9368,11 @@ Shape1492 := TShapeNode.Create;
 Appearance1493 := TAppearanceNode.Create;
 Material1494 := TMaterialNode.Create;
 Material1494.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart126;
+begin
+
 Material1494.DiffuseColor := Vector3(0.784313738,0,0);
 Material1494.Shininess := 1;
 { .SetMaterial }
@@ -8794,6 +9425,11 @@ Appearance1503.Material := Material1504;
 Shape1502.Appearance := Appearance1503;
 IndexedFaceSet1505 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1505.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
+end;
+
+procedure InitPathwayPart127;
+begin
+
 IndexedFaceSet1505.Solid := False;
 IndexedFaceSet1505.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1506 := TCoordinateNode.Create;
@@ -8846,6 +9482,11 @@ Coordinate1516.SetPoint([Vector3(15.643718719,0,19.418060303),Vector3(15.2497320
 IndexedFaceSet1515.Coord := Coordinate1516;
 { .SetGeometry }
 Shape1512.Geometry := IndexedFaceSet1515;
+end;
+
+procedure InitPathwayPart128;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape1512]);
 Shape1517 := TShapeNode.Create;
@@ -8897,6 +9538,11 @@ Appearance1528 := TAppearanceNode.Create;
 Material1529 := TMaterialNode.Create;
 Material1529.AmbientIntensity := 0;
 Material1529.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart129;
+begin
+
 Material1529.Shininess := 1;
 { .SetMaterial }
 Appearance1528.Material := Material1529;
@@ -8949,6 +9595,11 @@ Shape1537.Appearance := Appearance1538;
 IndexedFaceSet1540 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1540.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1540.Solid := False;
+end;
+
+procedure InitPathwayPart130;
+begin
+
 IndexedFaceSet1540.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1541 := TCoordinateNode.Create;
 Coordinate1541.SetPoint([Vector3(15.366732597,0,15.945875168),Vector3(14.55916214,0,16.110486984),Vector3(15.366732597,0.075000003,15.945875168),Vector3(14.55916214,0.075000003,16.110486984),Vector3(14.55916214,0,16.110486984),Vector3(14.693281174,0,16.768466949),Vector3(14.55916214,0.075000003,16.110486984),Vector3(14.693281174,0.075000003,16.768466949),Vector3(14.693281174,0,16.768466949),Vector3(15.500852585,0,16.603855133),Vector3(14.693281174,0.075000003,16.768466949),Vector3(15.500852585,0.075000003,16.603855133),Vector3(15.500852585,0,16.603855133),Vector3(15.366732597,0,15.945875168),Vector3(15.500852585,0.075000003,16.603855133),Vector3(15.366732597,0.075000003,15.945875168)]);
@@ -9002,6 +9653,11 @@ IndexedFaceSet1550.Coord := Coordinate1551;
 Shape1547.Geometry := IndexedFaceSet1550;
 { .AddChildren }
 Group15.AddChildren([Shape1547]);
+end;
+
+procedure InitPathwayPart131;
+begin
+
 Shape1552 := TShapeNode.Create;
 Appearance1553 := TAppearanceNode.Create;
 Material1554 := TMaterialNode.Create;
@@ -9052,6 +9708,11 @@ Material1564 := TMaterialNode.Create;
 Material1564.AmbientIntensity := 0;
 Material1564.DiffuseColor := Vector3(0.784313738,0,0);
 Material1564.Shininess := 1;
+end;
+
+procedure InitPathwayPart132;
+begin
+
 { .SetMaterial }
 Appearance1563.Material := Material1564;
 { .SetAppearance }
@@ -9104,6 +9765,11 @@ IndexedFaceSet1575 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1575.SetCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,7,6,8,-1,7,8,9,-1,11,10,13,-1,11,13,14,-1,12,11,14,-1,12,14,15,-1,17,16,18,-1,17,18,19,-1]);
 IndexedFaceSet1575.Solid := False;
 IndexedFaceSet1575.SetTexCoordIndex([1,0,3,-1,1,3,4,-1,2,1,4,-1,2,4,5,-1,7,6,8,-1,7,8,9,-1,11,10,13,-1,11,13,14,-1,12,11,14,-1,12,14,15,-1,17,16,18,-1,17,18,19,-1]);
+end;
+
+procedure InitPathwayPart133;
+begin
+
 Coordinate1576 := TCoordinateNode.Create;
 Coordinate1576.SetPoint([Vector3(13.986351013,0,11.287142754),Vector3(13.789357185,0,11.327297211),Vector3(13.592364311,0,11.367451668),Vector3(13.986351013,0.075000003,11.287142754),Vector3(13.789357185,0.075000003,11.327297211),Vector3(13.592364311,0.075000003,11.367451668),Vector3(13.592364311,0,11.367451668),Vector3(13.864597321,0,12.703007698),Vector3(13.592364311,0.075000003,11.367451668),Vector3(13.864597321,0.075000003,12.703007698),Vector3(13.864597321,0,12.703007698),Vector3(14.061591148,0,12.662853241),Vector3(14.258584023,0,12.622698784),Vector3(13.864597321,0.075000003,12.703007698),Vector3(14.061591148,0.075000003,12.662853241),Vector3(14.258584023,0.075000003,12.622698784),Vector3(14.258584023,0,12.622698784),Vector3(13.986351013,0,11.287142754),Vector3(14.258584023,0.075000003,12.622698784),Vector3(13.986351013,0.075000003,11.287142754)]);
 { .SetCoord }
@@ -9157,6 +9823,11 @@ Shape1582.Geometry := IndexedFaceSet1585;
 { .AddChildren }
 Group15.AddChildren([Shape1582]);
 Shape1587 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart134;
+begin
+
 Appearance1588 := TAppearanceNode.Create;
 Material1589 := TMaterialNode.Create;
 Material1589.AmbientIntensity := 0;
@@ -9208,6 +9879,11 @@ Material1599.DiffuseColor := Vector3(0.784313738,0,0);
 Material1599.Shininess := 1;
 { .SetMaterial }
 Appearance1598.Material := Material1599;
+end;
+
+procedure InitPathwayPart135;
+begin
+
 { .SetAppearance }
 Shape1597.Appearance := Appearance1598;
 IndexedFaceSet1600 := TIndexedFaceSetNode.Create;
@@ -9259,6 +9935,11 @@ IndexedFaceSet1610.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,
 IndexedFaceSet1610.Solid := False;
 IndexedFaceSet1610.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1611 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart136;
+begin
+
 Coordinate1611.SetPoint([Vector3(13.295022964,0,5.782228947),Vector3(12.901036263,0,5.862537384),Vector3(13.295022964,0.075000003,5.782228947),Vector3(12.901036263,0.075000003,5.862537384),Vector3(12.901036263,0,5.862537384),Vector3(13.173269272,0,7.198092937),Vector3(12.901036263,0.075000003,5.862537384),Vector3(13.173269272,0.075000003,7.198092937),Vector3(13.173269272,0,7.198092937),Vector3(13.567255974,0,7.1177845),Vector3(13.173269272,0.075000003,7.198092937),Vector3(13.567255974,0.075000003,7.1177845),Vector3(13.567255974,0,7.1177845),Vector3(13.295022964,0,5.782228947),Vector3(13.567255974,0.075000003,7.1177845),Vector3(13.295022964,0.075000003,5.782228947)]);
 { .SetCoord }
 IndexedFaceSet1610.Coord := Coordinate1611;
@@ -9312,6 +9993,11 @@ Shape1617.Geometry := IndexedFaceSet1620;
 Group15.AddChildren([Shape1617]);
 Shape1622 := TShapeNode.Create;
 Appearance1623 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart137;
+begin
+
 Material1624 := TMaterialNode.Create;
 Material1624.AmbientIntensity := 0;
 Material1624.DiffuseColor := Vector3(0.784313738,0,0);
@@ -9364,6 +10050,11 @@ Material1634.Shininess := 1;
 Appearance1633.Material := Material1634;
 { .SetAppearance }
 Shape1632.Appearance := Appearance1633;
+end;
+
+procedure InitPathwayPart138;
+begin
+
 IndexedFaceSet1635 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1635.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1635.Solid := False;
@@ -9414,6 +10105,11 @@ IndexedFaceSet1645.Solid := False;
 IndexedFaceSet1645.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,16,19,21,-1,16,21,18,-1,19,13,20,-1,19,20,21,-1,24,23,13,-1,24,13,19,-1,22,24,19,-1,22,19,16,-1,21,20,12,-1,24,14,23,-1,21,12,15,-1,17,24,22,-1,14,24,17,-1,15,18,21,-1]);
 Coordinate1646 := TCoordinateNode.Create;
 Coordinate1646.SetPoint([Vector3(15.36824894,0,20.17993927),Vector3(14.560678482,0,20.344551086),Vector3(15.36824894,0.075000003,20.17993927),Vector3(14.560678482,0.075000003,20.344551086),Vector3(14.560678482,0,20.344551086),Vector3(14.694797516,0,21.002531052),Vector3(14.560678482,0.075000003,20.344551086),Vector3(14.694797516,0.075000003,21.002531052),Vector3(14.694797516,0,21.002531052),Vector3(15.502367973,0,20.837919235),Vector3(14.694797516,0.075000003,21.002531052),Vector3(15.502367973,0.075000003,20.837919235),Vector3(15.502367973,0,20.837919235),Vector3(15.435308456,0,20.508930206),Vector3(15.36824894,0,20.17993927),Vector3(15.502367973,0.075000003,20.837919235),Vector3(15.435308456,0.075000003,20.508930206),Vector3(15.36824894,0.075000003,20.17993927),Vector3(15.468838692,0.075000003,20.673423767),Vector3(15.435308456,0.037500001,20.508930206),Vector3(15.468838692,0,20.673423767),Vector3(15.468838692,0.037500001,20.673423767),Vector3(15.401779175,0.075000003,20.344434738),Vector3(15.401779175,0,20.344434738),Vector3(15.401779175,0.037500001,20.344434738)]);
+end;
+
+procedure InitPathwayPart139;
+begin
+
 { .SetCoord }
 IndexedFaceSet1645.Coord := Coordinate1646;
 { .SetGeometry }
@@ -9467,6 +10163,11 @@ Group15.AddChildren([Shape1652]);
 Shape1657 := TShapeNode.Create;
 Appearance1658 := TAppearanceNode.Create;
 Material1659 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart140;
+begin
+
 Material1659.AmbientIntensity := 0;
 Material1659.DiffuseColor := Vector3(0.784313738,0,0);
 Material1659.Shininess := 1;
@@ -9519,6 +10220,11 @@ Appearance1668.Material := Material1669;
 { .SetAppearance }
 Shape1667.Appearance := Appearance1668;
 IndexedFaceSet1670 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart141;
+begin
+
 IndexedFaceSet1670.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1670.Solid := False;
 IndexedFaceSet1670.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
@@ -9570,6 +10276,11 @@ Coordinate1681 := TCoordinateNode.Create;
 Coordinate1681.SetPoint([Vector3(13.987867355,0,15.521207809),Vector3(13.5938797,0,15.601516724),Vector3(13.987867355,0.075000003,15.521207809),Vector3(13.5938797,0.075000003,15.601516724),Vector3(13.5938797,0,15.601516724),Vector3(13.866113663,0,16.937072754),Vector3(13.5938797,0.075000003,15.601516724),Vector3(13.866113663,0.075000003,16.937072754),Vector3(13.866113663,0,16.937072754),Vector3(14.260100365,0,16.85676384),Vector3(13.866113663,0.075000003,16.937072754),Vector3(14.260100365,0.075000003,16.85676384),Vector3(14.260100365,0,16.85676384),Vector3(14.123983383,0,16.188985825),Vector3(13.987867355,0,15.521207809),Vector3(14.260100365,0.075000003,16.85676384),Vector3(14.123983383,0.075000003,16.188985825),Vector3(13.987867355,0.075000003,15.521207809),Vector3(14.192042351,0.075000003,16.522874832),Vector3(14.123983383,0.037500001,16.188985825),Vector3(14.192042351,0,16.522874832),Vector3(14.192042351,0.037500001,16.522874832),Vector3(14.226071358,0.037500001,16.689819336),Vector3(14.192042351,0.018750001,16.522874832),Vector3(14.226071358,0,16.689819336),Vector3(14.226071358,0.018750001,16.689819336),Vector3(14.226071358,0.075000003,16.689819336),Vector3(14.192042351,0.056249999,16.522874832),Vector3(14.226071358,0.056249999,16.689819336),Vector3(14.055925369,0.075000003,15.855096817),Vector3(14.055925369,0,15.855096817),Vector3(14.055925369,0.037500001,15.855096817),Vector3(14.021896362,0.075000003,15.688152313),Vector3(14.021896362,0.037500001,15.688152313),Vector3(14.055925369,0.056249999,15.855096817),Vector3(14.021896362,0.056249999,15.688152313),Vector3(14.021896362,0,15.688152313),Vector3(14.055925369,0.018750001,15.855096817),Vector3(14.021896362,0.018750001,15.688152313)]);
 { .SetCoord }
 IndexedFaceSet1680.Coord := Coordinate1681;
+end;
+
+procedure InitPathwayPart142;
+begin
+
 { .SetGeometry }
 Shape1677.Geometry := IndexedFaceSet1680;
 { .AddChildren }
@@ -9622,6 +10333,11 @@ Shape1692 := TShapeNode.Create;
 Appearance1693 := TAppearanceNode.Create;
 Material1694 := TMaterialNode.Create;
 Material1694.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart143;
+begin
+
 Material1694.DiffuseColor := Vector3(0.784313738,0,0);
 Material1694.Shininess := 1;
 { .SetMaterial }
@@ -9674,6 +10390,11 @@ Appearance1703.Material := Material1704;
 Shape1702.Appearance := Appearance1703;
 IndexedFaceSet1705 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1705.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
+end;
+
+procedure InitPathwayPart144;
+begin
+
 IndexedFaceSet1705.Solid := False;
 IndexedFaceSet1705.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,12,15,17,-1,12,17,14,-1,15,9,16,-1,15,16,17,-1,20,19,9,-1,20,9,15,-1,18,20,15,-1,18,15,12,-1,17,16,8,-1,20,10,19,-1,17,8,11,-1,13,20,18,-1,10,20,13,-1,11,14,17,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate1706 := TCoordinateNode.Create;
@@ -9726,6 +10447,11 @@ Coordinate1716.SetPoint([Vector3(11.778042793,0,4.679985046),Vector3(11.38405609
 IndexedFaceSet1715.Coord := Coordinate1716;
 { .SetGeometry }
 Shape1712.Geometry := IndexedFaceSet1715;
+end;
+
+procedure InitPathwayPart145;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape1712]);
 Shape1717 := TShapeNode.Create;
@@ -9777,6 +10503,11 @@ Appearance1728 := TAppearanceNode.Create;
 Material1729 := TMaterialNode.Create;
 Material1729.AmbientIntensity := 0;
 Material1729.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart146;
+begin
+
 Material1729.Shininess := 1;
 { .SetMaterial }
 Appearance1728.Material := Material1729;
@@ -9829,6 +10560,11 @@ Shape1737.Appearance := Appearance1738;
 IndexedFaceSet1740 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1740.SetCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,50,41,39,-1,42,44,50,-1,39,42,50,-1,46,44,42,-1,36,43,46,-1,42,36,46,-1,44,46,48,-1,44,48,45,-1,46,43,47,-1,46,47,48,-1,41,50,51,-1,41,51,49,-1,50,44,45,-1,50,45,51,-1,58,56,54,-1,58,54,57,-1,55,58,57,-1,55,57,52,-1,61,59,53,-1,61,53,60,-1,56,61,60,-1,56,60,54,-1,60,53,36,-1,42,54,60,-1,36,42,60,-1,57,54,42,-1,39,52,57,-1,42,39,57,-1,47,35,48,-1,45,48,35,-1,61,37,59,-1,56,37,61,-1,45,35,38,-1,49,51,38,-1,45,38,51,-1,40,56,58,-1,58,55,40,-1,37,56,40,-1]);
 IndexedFaceSet1740.Solid := False;
+end;
+
+procedure InitPathwayPart147;
+begin
+
 IndexedFaceSet1740.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,33,-1,32,33,34,-1,50,41,39,-1,42,44,50,-1,39,42,50,-1,46,44,42,-1,36,43,46,-1,42,36,46,-1,44,46,48,-1,44,48,45,-1,46,43,47,-1,46,47,48,-1,41,50,51,-1,41,51,49,-1,50,44,45,-1,50,45,51,-1,58,56,54,-1,58,54,57,-1,55,58,57,-1,55,57,52,-1,61,59,53,-1,61,53,60,-1,56,61,60,-1,56,60,54,-1,60,53,36,-1,42,54,60,-1,36,42,60,-1,57,54,42,-1,39,52,57,-1,42,39,57,-1,47,35,48,-1,45,48,35,-1,61,37,59,-1,56,37,61,-1,45,35,38,-1,49,51,38,-1,45,38,51,-1,40,56,58,-1,58,55,40,-1,37,56,40,-1]);
 Coordinate1741 := TCoordinateNode.Create;
 Coordinate1741.SetPoint([Vector3(13.850511551,0,16.960662842),Vector3(13.456523895,0,17.040971756),Vector3(13.850511551,0.075000003,16.960662842),Vector3(13.456523895,0.075000003,17.040971756),Vector3(13.456523895,0,17.040971756),Vector3(13.592640877,0,17.708749771),Vector3(13.728757858,0,18.376527786),Vector3(13.456523895,0.075000003,17.040971756),Vector3(13.592640877,0.075000003,17.708749771),Vector3(13.728757858,0.075000003,18.376527786),Vector3(13.524582863,0.075000003,17.374860764),Vector3(13.592640877,0.037500001,17.708749771),Vector3(13.524582863,0,17.374860764),Vector3(13.524582863,0.037500001,17.374860764),Vector3(13.490552902,0.037500001,17.20791626),Vector3(13.524582863,0.018750001,17.374860764),Vector3(13.490552902,0,17.20791626),Vector3(13.490552902,0.018750001,17.20791626),Vector3(13.490552902,0.075000003,17.20791626),Vector3(13.524582863,0.056249999,17.374860764),Vector3(13.490552902,0.056249999,17.20791626),Vector3(13.660698891,0.075000003,18.042638779),Vector3(13.660698891,0,18.042638779),Vector3(13.660698891,0.037500001,18.042638779),Vector3(13.694728851,0.075000003,18.209583282),Vector3(13.694728851,0.037500001,18.209583282),Vector3(13.660698891,0.056249999,18.042638779),Vector3(13.694728851,0.056249999,18.209583282),Vector3(13.694728851,0,18.209583282),Vector3(13.660698891,0.018750001,18.042638779),Vector3(13.694728851,0.018750001,18.209583282),Vector3(13.728757858,0,18.376527786),Vector3(14.12274456,0,18.296218872),Vector3(13.728757858,0.075000003,18.376527786),Vector3(14.12274456,0.075000003,18.296218872),Vector3(14.12274456,0,18.296218872),Vector3(13.986627579,0,17.628440857),Vector3(13.850511551,0,16.960662842),Vector3(14.12274456,0.075000003,18.296218872),Vector3(13.986627579,0.075000003,17.628440857),Vector3(13.850511551,0.075000003,16.960662842),Vector3(14.054686546,0.075000003,17.962329865),Vector3(13.986627579,0.037500001,17.628440857),Vector3(14.054686546,0,17.962329865),Vector3(14.054686546,0.037500001,17.962329865),Vector3(14.088715553,0.037500001,18.129274368),Vector3(14.054686546,0.018750001,17.962329865),Vector3(14.088715553,0,18.129274368),Vector3(14.088715553,0.018750001,18.129274368),Vector3(14.088715553,0.075000003,18.129274368),Vector3(14.054686546,0.056249999,17.962329865),Vector3(14.088715553,0.056249999,18.129274368),Vector3(13.918569565,0.075000003,17.294551849),Vector3(13.918569565,0,17.294551849),Vector3(13.918569565,0.037500001,17.294551849),Vector3(13.884540558,0.075000003,17.127607346),Vector3(13.884540558,0.037500001,17.127607346),Vector3(13.918569565,0.056249999,17.294551849),Vector3(13.884540558,0.056249999,17.127607346),Vector3(13.884540558,0,17.127607346),Vector3(13.918569565,0.018750001,17.294551849),Vector3(13.884540558,0.018750001,17.127607346)]);
@@ -9882,6 +10618,11 @@ IndexedFaceSet1750.Coord := Coordinate1751;
 Shape1747.Geometry := IndexedFaceSet1750;
 { .AddChildren }
 Group15.AddChildren([Shape1747]);
+end;
+
+procedure InitPathwayPart148;
+begin
+
 Shape1752 := TShapeNode.Create;
 Appearance1753 := TAppearanceNode.Create;
 Material1754 := TMaterialNode.Create;
@@ -9932,6 +10673,11 @@ Material1764 := TMaterialNode.Create;
 Material1764.AmbientIntensity := 0;
 Material1764.DiffuseColor := Vector3(0.784313738,0,0);
 Material1764.Shininess := 1;
+end;
+
+procedure InitPathwayPart149;
+begin
+
 { .SetMaterial }
 Appearance1763.Material := Material1764;
 { .SetAppearance }
@@ -9984,6 +10730,11 @@ IndexedFaceSet1775 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1775.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1775.Solid := False;
 IndexedFaceSet1775.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
+end;
+
+procedure InitPathwayPart150;
+begin
+
 Coordinate1776 := TCoordinateNode.Create;
 Coordinate1776.SetPoint([Vector3(10.950117111,0,2.731558561),Vector3(10.142546654,0,2.896170139),Vector3(10.950117111,0.075000003,2.731558561),Vector3(10.142546654,0.075000003,2.896170139),Vector3(10.142546654,0,2.896170139),Vector3(10.276665688,0,3.554149389),Vector3(10.142546654,0.075000003,2.896170139),Vector3(10.276665688,0.075000003,3.554149389),Vector3(10.276665688,0,3.554149389),Vector3(11.084236145,0,3.38953805),Vector3(10.276665688,0.075000003,3.554149389),Vector3(11.084236145,0.075000003,3.38953805),Vector3(11.084236145,0,3.38953805),Vector3(10.950117111,0,2.731558561),Vector3(11.084236145,0.075000003,3.38953805),Vector3(10.950117111,0.075000003,2.731558561)]);
 { .SetCoord }
@@ -10037,6 +10788,11 @@ Shape1782.Geometry := IndexedFaceSet1785;
 { .AddChildren }
 Group15.AddChildren([Shape1782]);
 Shape1787 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart151;
+begin
+
 Appearance1788 := TAppearanceNode.Create;
 Material1789 := TMaterialNode.Create;
 Material1789.AmbientIntensity := 0;
@@ -10088,6 +10844,11 @@ Material1799.DiffuseColor := Vector3(0.784313738,0,0);
 Material1799.Shininess := 1;
 { .SetMaterial }
 Appearance1798.Material := Material1799;
+end;
+
+procedure InitPathwayPart152;
+begin
+
 { .SetAppearance }
 Shape1797.Appearance := Appearance1798;
 IndexedFaceSet1800 := TIndexedFaceSetNode.Create;
@@ -10139,6 +10900,11 @@ IndexedFaceSet1810.SetCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,
 IndexedFaceSet1810.Solid := False;
 IndexedFaceSet1810.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,19,10,8,-1,11,13,19,-1,8,11,19,-1,15,13,11,-1,5,12,15,-1,11,5,15,-1,13,15,17,-1,13,17,14,-1,15,12,16,-1,15,16,17,-1,10,19,20,-1,10,20,18,-1,19,13,14,-1,19,14,20,-1,27,25,23,-1,27,23,26,-1,24,27,26,-1,24,26,21,-1,30,28,22,-1,30,22,29,-1,25,30,29,-1,25,29,23,-1,29,22,5,-1,11,23,29,-1,5,11,29,-1,26,23,11,-1,8,21,26,-1,11,8,26,-1,16,4,17,-1,14,17,4,-1,30,6,28,-1,25,6,30,-1,14,4,7,-1,18,20,7,-1,14,7,20,-1,9,25,27,-1,27,24,9,-1,6,25,9,-1,32,31,34,-1,32,34,35,-1,33,32,35,-1,33,35,36,-1,38,37,39,-1,38,39,40,-1]);
 Coordinate1811 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart153;
+begin
+
 Coordinate1811.SetPoint([Vector3(9.984835625,0,2.222588301),Vector3(9.590847969,0,2.302896738),Vector3(9.984835625,0.075000003,2.222588301),Vector3(9.590847969,0.075000003,2.302896738),Vector3(9.590847969,0,2.302896738),Vector3(9.726964951,0,2.970674515),Vector3(9.863081932,0,3.63845253),Vector3(9.590847969,0.075000003,2.302896738),Vector3(9.726964951,0.075000003,2.970674515),Vector3(9.863081932,0.075000003,3.63845253),Vector3(9.658906937,0.075000003,2.636785507),Vector3(9.726964951,0.037500001,2.970674515),Vector3(9.658906937,0,2.636785507),Vector3(9.658906937,0.037500001,2.636785507),Vector3(9.62487793,0.037500001,2.469841242),Vector3(9.658906937,0.018750001,2.636785507),Vector3(9.62487793,0,2.469841242),Vector3(9.62487793,0.018750001,2.469841242),Vector3(9.62487793,0.075000003,2.469841242),Vector3(9.658906937,0.056249999,2.636785507),Vector3(9.62487793,0.056249999,2.469841242),Vector3(9.795023918,0.075000003,3.304563522),Vector3(9.795023918,0,3.304563522),Vector3(9.795023918,0.037500001,3.304563522),Vector3(9.829052925,0.075000003,3.471508026),Vector3(9.829052925,0.037500001,3.471508026),Vector3(9.795023918,0.056249999,3.304563522),Vector3(9.829052925,0.056249999,3.471508026),Vector3(9.829052925,0,3.471508026),Vector3(9.795023918,0.018750001,3.304563522),Vector3(9.829052925,0.018750001,3.471508026),Vector3(9.863081932,0,3.63845253),Vector3(10.060074806,0,3.598298311),Vector3(10.257068634,0,3.558144093),Vector3(9.863081932,0.075000003,3.63845253),Vector3(10.060074806,0.075000003,3.598298311),Vector3(10.257068634,0.075000003,3.558144093),Vector3(10.257068634,0,3.558144093),Vector3(9.984835625,0,2.222588301),Vector3(10.257068634,0.075000003,3.558144093),Vector3(9.984835625,0.075000003,2.222588301)]);
 { .SetCoord }
 IndexedFaceSet1810.Coord := Coordinate1811;
@@ -10192,6 +10958,11 @@ Shape1817.Geometry := IndexedFaceSet1820;
 Group15.AddChildren([Shape1817]);
 Shape1822 := TShapeNode.Create;
 Appearance1823 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart154;
+begin
+
 Material1824 := TMaterialNode.Create;
 Material1824.AmbientIntensity := 0;
 Material1824.DiffuseColor := Vector3(0.784313738,0,0);
@@ -10244,6 +11015,11 @@ Material1834.Shininess := 1;
 Appearance1833.Material := Material1834;
 { .SetAppearance }
 Shape1832.Appearance := Appearance1833;
+end;
+
+procedure InitPathwayPart155;
+begin
+
 IndexedFaceSet1835 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1835.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,11,-1,9,11,12,-1,10,9,12,-1,10,12,13,-1,15,14,16,-1,15,16,17,-1]);
 IndexedFaceSet1835.Solid := False;
@@ -10294,6 +11070,11 @@ IndexedFaceSet1845.Solid := False;
 IndexedFaceSet1845.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1846 := TCoordinateNode.Create;
 Coordinate1846.SetPoint([Vector3(9.295781136,0,3.068770647),Vector3(8.488210678,0,3.233382225),Vector3(9.295781136,0.075000003,3.068770647),Vector3(8.488210678,0.075000003,3.233382225),Vector3(8.488210678,0,3.233382225),Vector3(8.622329712,0,3.891361475),Vector3(8.488210678,0.075000003,3.233382225),Vector3(8.622329712,0.075000003,3.891361475),Vector3(8.622329712,0,3.891361475),Vector3(9.429901123,0,3.726750135),Vector3(8.622329712,0.075000003,3.891361475),Vector3(9.429901123,0.075000003,3.726750135),Vector3(9.429901123,0,3.726750135),Vector3(9.295781136,0,3.068770647),Vector3(9.429901123,0.075000003,3.726750135),Vector3(9.295781136,0.075000003,3.068770647)]);
+end;
+
+procedure InitPathwayPart156;
+begin
+
 { .SetCoord }
 IndexedFaceSet1845.Coord := Coordinate1846;
 { .SetGeometry }
@@ -10347,6 +11128,11 @@ Group15.AddChildren([Shape1852]);
 Shape1857 := TShapeNode.Create;
 Appearance1858 := TAppearanceNode.Create;
 Material1859 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart157;
+begin
+
 Material1859.AmbientIntensity := 0;
 Material1859.DiffuseColor := Vector3(0.784313738,0,0);
 Material1859.Shininess := 1;
@@ -10399,6 +11185,11 @@ Appearance1868.Material := Material1869;
 { .SetAppearance }
 Shape1867.Appearance := Appearance1868;
 IndexedFaceSet1870 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart158;
+begin
+
 IndexedFaceSet1870.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1870.Solid := False;
 IndexedFaceSet1870.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
@@ -10450,6 +11241,11 @@ Coordinate1881 := TCoordinateNode.Create;
 Coordinate1881.SetPoint([Vector3(8.744841576,0,4.592529774),Vector3(7.937270641,0,4.757141113),Vector3(8.744841576,0.075000003,4.592529774),Vector3(7.937270641,0.075000003,4.757141113),Vector3(7.937270641,0,4.757141113),Vector3(8.071390152,0,5.415120602),Vector3(7.937270641,0.075000003,4.757141113),Vector3(8.071390152,0.075000003,5.415120602),Vector3(8.071390152,0,5.415120602),Vector3(8.878960609,0,5.250508785),Vector3(8.071390152,0.075000003,5.415120602),Vector3(8.878960609,0.075000003,5.250508785),Vector3(8.878960609,0,5.250508785),Vector3(8.744841576,0,4.592529774),Vector3(8.878960609,0.075000003,5.250508785),Vector3(8.744841576,0.075000003,4.592529774)]);
 { .SetCoord }
 IndexedFaceSet1880.Coord := Coordinate1881;
+end;
+
+procedure InitPathwayPart159;
+begin
+
 { .SetGeometry }
 Shape1877.Geometry := IndexedFaceSet1880;
 { .AddChildren }
@@ -10502,6 +11298,11 @@ Shape1892 := TShapeNode.Create;
 Appearance1893 := TAppearanceNode.Create;
 Material1894 := TMaterialNode.Create;
 Material1894.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart160;
+begin
+
 Material1894.DiffuseColor := Vector3(0.784313738,0,0);
 Material1894.Shininess := 1;
 { .SetMaterial }
@@ -10554,6 +11355,11 @@ Appearance1903.Material := Material1904;
 Shape1902.Appearance := Appearance1903;
 IndexedFaceSet1905 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1905.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
+end;
+
+procedure InitPathwayPart161;
+begin
+
 IndexedFaceSet1905.Solid := False;
 IndexedFaceSet1905.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1906 := TCoordinateNode.Create;
@@ -10606,6 +11412,11 @@ Coordinate1916.SetPoint([Vector3(7.364459515,0,-0.066202469),Vector3(6.970472813
 IndexedFaceSet1915.Coord := Coordinate1916;
 { .SetGeometry }
 Shape1912.Geometry := IndexedFaceSet1915;
+end;
+
+procedure InitPathwayPart162;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape1912]);
 Shape1917 := TShapeNode.Create;
@@ -10657,6 +11468,11 @@ Appearance1928 := TAppearanceNode.Create;
 Material1929 := TMaterialNode.Create;
 Material1929.AmbientIntensity := 0;
 Material1929.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart163;
+begin
+
 Material1929.Shininess := 1;
 { .SetMaterial }
 Appearance1928.Material := Material1929;
@@ -10709,6 +11525,11 @@ Shape1937.Appearance := Appearance1938;
 IndexedFaceSet1940 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1940.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1940.Solid := False;
+end;
+
+procedure InitPathwayPart164;
+begin
+
 IndexedFaceSet1940.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate1941 := TCoordinateNode.Create;
 Coordinate1941.SetPoint([Vector3(7.503331661,0,2.728406191),Vector3(6.695760727,0,2.893017769),Vector3(7.503331661,0.075000003,2.728406191),Vector3(6.695760727,0.075000003,2.893017769),Vector3(6.695760727,0,2.893017769),Vector3(6.829880238,0,3.550997019),Vector3(6.695760727,0.075000003,2.893017769),Vector3(6.829880238,0.075000003,3.550997019),Vector3(6.829880238,0,3.550997019),Vector3(7.637451172,0,3.386385679),Vector3(6.829880238,0.075000003,3.550997019),Vector3(7.637451172,0.075000003,3.386385679),Vector3(7.637451172,0,3.386385679),Vector3(7.503331661,0,2.728406191),Vector3(7.637451172,0.075000003,3.386385679),Vector3(7.503331661,0.075000003,2.728406191)]);
@@ -10762,6 +11583,11 @@ IndexedFaceSet1950.Coord := Coordinate1951;
 Shape1947.Geometry := IndexedFaceSet1950;
 { .AddChildren }
 Group15.AddChildren([Shape1947]);
+end;
+
+procedure InitPathwayPart165;
+begin
+
 Shape1952 := TShapeNode.Create;
 Appearance1953 := TAppearanceNode.Create;
 Material1954 := TMaterialNode.Create;
@@ -10812,6 +11638,11 @@ Material1964 := TMaterialNode.Create;
 Material1964.AmbientIntensity := 0;
 Material1964.DiffuseColor := Vector3(0.784313738,0,0);
 Material1964.Shininess := 1;
+end;
+
+procedure InitPathwayPart166;
+begin
+
 { .SetMaterial }
 Appearance1963.Material := Material1964;
 { .SetAppearance }
@@ -10864,6 +11695,11 @@ IndexedFaceSet1975 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1975.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet1975.Solid := False;
 IndexedFaceSet1975.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
+end;
+
+procedure InitPathwayPart167;
+begin
+
 Coordinate1976 := TCoordinateNode.Create;
 Coordinate1976.SetPoint([Vector3(6.676163673,0,2.897012234),Vector3(6.282176971,0,2.977320671),Vector3(6.676163673,0.075000003,2.897012234),Vector3(6.282176971,0.075000003,2.977320671),Vector3(6.282176971,0,2.977320671),Vector3(6.554410458,0,4.312876701),Vector3(6.282176971,0.075000003,2.977320671),Vector3(6.554410458,0.075000003,4.312876701),Vector3(6.554410458,0,4.312876701),Vector3(6.94839716,0,4.232568264),Vector3(6.554410458,0.075000003,4.312876701),Vector3(6.94839716,0.075000003,4.232568264),Vector3(6.94839716,0,4.232568264),Vector3(6.676163673,0,2.897012234),Vector3(6.94839716,0.075000003,4.232568264),Vector3(6.676163673,0.075000003,2.897012234)]);
 { .SetCoord }
@@ -10917,6 +11753,11 @@ Shape1982.Geometry := IndexedFaceSet1985;
 { .AddChildren }
 Group15.AddChildren([Shape1982]);
 Shape1987 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart168;
+begin
+
 Appearance1988 := TAppearanceNode.Create;
 Material1989 := TMaterialNode.Create;
 Material1989.AmbientIntensity := 0;
@@ -10968,6 +11809,11 @@ Material1999.DiffuseColor := Vector3(0.784313738,0,0);
 Material1999.Shininess := 1;
 { .SetMaterial }
 Appearance1998.Material := Material1999;
+end;
+
+procedure InitPathwayPart169;
+begin
+
 { .SetAppearance }
 Shape1997.Appearance := Appearance1998;
 IndexedFaceSet2000 := TIndexedFaceSetNode.Create;
@@ -11019,6 +11865,11 @@ IndexedFaceSet2010.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,
 IndexedFaceSet2010.Solid := False;
 IndexedFaceSet2010.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate2011 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart170;
+begin
+
 Coordinate2011.SetPoint([Vector3(5.711639881,0,4.505074024),Vector3(5.317653179,0,4.585382462),Vector3(5.711639881,0.075000003,4.505074024),Vector3(5.317653179,0.075000003,4.585382462),Vector3(5.317653179,0,4.585382462),Vector3(5.589886189,0,5.920938492),Vector3(5.317653179,0.075000003,4.585382462),Vector3(5.589886189,0.075000003,5.920938492),Vector3(5.589886189,0,5.920938492),Vector3(5.983873367,0,5.840630054),Vector3(5.589886189,0.075000003,5.920938492),Vector3(5.983873367,0.075000003,5.840630054),Vector3(5.983873367,0,5.840630054),Vector3(5.711639881,0,4.505074024),Vector3(5.983873367,0.075000003,5.840630054),Vector3(5.711639881,0.075000003,4.505074024)]);
 { .SetCoord }
 IndexedFaceSet2010.Coord := Coordinate2011;
@@ -11072,6 +11923,11 @@ Shape2017.Geometry := IndexedFaceSet2020;
 Group15.AddChildren([Shape2017]);
 Shape2022 := TShapeNode.Create;
 Appearance2023 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart171;
+begin
+
 Material2024 := TMaterialNode.Create;
 Material2024.AmbientIntensity := 0;
 Material2024.DiffuseColor := Vector3(0.784313738,0,0);
@@ -11124,6 +11980,11 @@ Material2034.Shininess := 1;
 Appearance2033.Material := Material2034;
 { .SetAppearance }
 Shape2032.Appearance := Appearance2033;
+end;
+
+procedure InitPathwayPart172;
+begin
+
 IndexedFaceSet2035 := TIndexedFaceSetNode.Create;
 IndexedFaceSet2035.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet2035.Solid := False;
@@ -11174,6 +12035,11 @@ IndexedFaceSet2045.Solid := False;
 IndexedFaceSet2045.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate2046 := TCoordinateNode.Create;
 Coordinate2046.SetPoint([Vector3(5.436170101,0,5.266953468),Vector3(4.628599167,0,5.431565285),Vector3(5.436170101,0.075000003,5.266953468),Vector3(4.628599167,0.075000003,5.431565285),Vector3(4.628599167,0,5.431565285),Vector3(4.762718678,0,6.089544296),Vector3(4.628599167,0.075000003,5.431565285),Vector3(4.762718678,0.075000003,6.089544296),Vector3(4.762718678,0,6.089544296),Vector3(5.570289135,0,5.924932957),Vector3(4.762718678,0.075000003,6.089544296),Vector3(5.570289135,0.075000003,5.924932957),Vector3(5.570289135,0,5.924932957),Vector3(5.436170101,0,5.266953468),Vector3(5.570289135,0.075000003,5.924932957),Vector3(5.436170101,0.075000003,5.266953468)]);
+end;
+
+procedure InitPathwayPart173;
+begin
+
 { .SetCoord }
 IndexedFaceSet2045.Coord := Coordinate2046;
 { .SetGeometry }
@@ -11227,6 +12093,11 @@ Group15.AddChildren([Shape2052]);
 Shape2057 := TShapeNode.Create;
 Appearance2058 := TAppearanceNode.Create;
 Material2059 := TMaterialNode.Create;
+end;
+
+procedure InitPathwayPart174;
+begin
+
 Material2059.AmbientIntensity := 0;
 Material2059.DiffuseColor := Vector3(0.784313738,0,0);
 Material2059.Shininess := 1;
@@ -11279,6 +12150,11 @@ Appearance2068.Material := Material2069;
 { .SetAppearance }
 Shape2067.Appearance := Appearance2068;
 IndexedFaceSet2070 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitPathwayPart175;
+begin
+
 IndexedFaceSet2070.SetCoordIndex([1,0,2,-1,1,2,3,-1,8,11,13,-1,8,13,10,-1,11,5,12,-1,11,12,13,-1,16,15,5,-1,16,5,11,-1,14,16,11,-1,14,11,8,-1,13,12,4,-1,16,6,15,-1,13,4,7,-1,9,16,14,-1,6,16,9,-1,7,10,13,-1,18,17,19,-1,18,19,20,-1,22,21,23,-1,22,23,24,-1]);
 IndexedFaceSet2070.Solid := False;
 IndexedFaceSet2070.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,8,11,13,-1,8,13,10,-1,11,5,12,-1,11,12,13,-1,16,15,5,-1,16,5,11,-1,14,16,11,-1,14,11,8,-1,13,12,4,-1,16,6,15,-1,13,4,7,-1,9,16,14,-1,6,16,9,-1,7,10,13,-1,18,17,19,-1,18,19,20,-1,22,21,23,-1,22,23,24,-1]);
@@ -11330,6 +12206,11 @@ Coordinate2081 := TCoordinateNode.Create;
 Coordinate2081.SetPoint([Vector3(4.05578804,0,0.608221591),Vector3(3.858794451,0,0.648375809),Vector3(3.6618011,0,0.688530028),Vector3(4.05578804,0.075000003,0.608221591),Vector3(3.858794451,0.075000003,0.648375809),Vector3(3.6618011,0.075000003,0.688530028),Vector3(3.6618011,0,0.688530028),Vector3(3.934034586,0,2.02408576),Vector3(3.6618011,0.075000003,0.688530028),Vector3(3.934034586,0.075000003,2.02408576),Vector3(3.934034586,0,2.02408576),Vector3(4.328021526,0,1.943777442),Vector3(3.934034586,0.075000003,2.02408576),Vector3(4.328021526,0.075000003,1.943777442),Vector3(4.328021526,0,1.943777442),Vector3(4.05578804,0,0.608221591),Vector3(4.328021526,0.075000003,1.943777442),Vector3(4.05578804,0.075000003,0.608221591)]);
 { .SetCoord }
 IndexedFaceSet2080.Coord := Coordinate2081;
+end;
+
+procedure InitPathwayPart176;
+begin
+
 { .SetGeometry }
 Shape2077.Geometry := IndexedFaceSet2080;
 { .AddChildren }
@@ -11382,6 +12263,11 @@ Shape2092 := TShapeNode.Create;
 Appearance2093 := TAppearanceNode.Create;
 Material2094 := TMaterialNode.Create;
 Material2094.AmbientIntensity := 0;
+end;
+
+procedure InitPathwayPart177;
+begin
+
 Material2094.DiffuseColor := Vector3(0.784313738,0,0);
 Material2094.Shininess := 1;
 { .SetMaterial }
@@ -11434,6 +12320,11 @@ Appearance2103.Material := Material2104;
 Shape2102.Appearance := Appearance2103;
 IndexedFaceSet2105 := TIndexedFaceSetNode.Create;
 IndexedFaceSet2105.SetCoordIndex([1,0,2,-1,1,2,3,-1,8,11,13,-1,8,13,10,-1,11,5,12,-1,11,12,13,-1,16,15,5,-1,16,5,11,-1,14,16,11,-1,14,11,8,-1,13,12,4,-1,16,6,15,-1,13,4,7,-1,9,16,14,-1,6,16,9,-1,7,10,13,-1,18,17,19,-1,18,19,20,-1,22,21,23,-1,22,23,24,-1]);
+end;
+
+procedure InitPathwayPart178;
+begin
+
 IndexedFaceSet2105.Solid := False;
 IndexedFaceSet2105.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,8,11,13,-1,8,13,10,-1,11,5,12,-1,11,12,13,-1,16,15,5,-1,16,5,11,-1,14,16,11,-1,14,11,8,-1,13,12,4,-1,16,6,15,-1,13,4,7,-1,9,16,14,-1,6,16,9,-1,7,10,13,-1,18,17,19,-1,18,19,20,-1,22,21,23,-1,22,23,24,-1]);
 Coordinate2106 := TCoordinateNode.Create;
@@ -11486,6 +12377,11 @@ Coordinate2116.SetPoint([Vector3(3.504848003,0,2.131980419),Vector3(3.110861301,
 IndexedFaceSet2115.Coord := Coordinate2116;
 { .SetGeometry }
 Shape2112.Geometry := IndexedFaceSet2115;
+end;
+
+procedure InitPathwayPart179;
+begin
+
 { .AddChildren }
 Group15.AddChildren([Shape2112]);
 Shape2117 := TShapeNode.Create;
@@ -11537,6 +12433,11 @@ Appearance2128 := TAppearanceNode.Create;
 Material2129 := TMaterialNode.Create;
 Material2129.AmbientIntensity := 0;
 Material2129.DiffuseColor := Vector3(0.784313738,0,0);
+end;
+
+procedure InitPathwayPart180;
+begin
+
 Material2129.Shininess := 1;
 { .SetMaterial }
 Appearance2128.Material := Material2129;
@@ -11589,6 +12490,11 @@ Shape2137.Appearance := Appearance2138;
 IndexedFaceSet2140 := TIndexedFaceSetNode.Create;
 IndexedFaceSet2140.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 IndexedFaceSet2140.Solid := False;
+end;
+
+procedure InitPathwayPart181;
+begin
+
 IndexedFaceSet2140.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate2141 := TCoordinateNode.Create;
 Coordinate2141.SetPoint([Vector3(3.64372015,0,4.926589012),Vector3(2.836149216,0,5.091200829),Vector3(3.64372015,0.075000003,4.926589012),Vector3(2.836149216,0.075000003,5.091200829),Vector3(2.836149216,0,5.091200829),Vector3(2.970268726,0,5.74917984),Vector3(2.836149216,0.075000003,5.091200829),Vector3(2.970268726,0.075000003,5.74917984),Vector3(2.970268726,0,5.74917984),Vector3(3.777839661,0,5.584568501),Vector3(2.970268726,0.075000003,5.74917984),Vector3(3.777839661,0.075000003,5.584568501),Vector3(3.777839661,0,5.584568501),Vector3(3.64372015,0,4.926589012),Vector3(3.777839661,0.075000003,5.584568501),Vector3(3.64372015,0.075000003,4.926589012)]);
@@ -11642,6 +12548,11 @@ IndexedFaceSet2150.Coord := Coordinate2151;
 Shape2147.Geometry := IndexedFaceSet2150;
 { .AddChildren }
 Group15.AddChildren([Shape2147]);
+end;
+
+procedure InitPathwayPart182;
+begin
+
 Shape2152 := TShapeNode.Create;
 Appearance2153 := TAppearanceNode.Create;
 Material2154 := TMaterialNode.Create;
@@ -11692,6 +12603,11 @@ Material2164 := TMaterialNode.Create;
 Material2164.AmbientIntensity := 0;
 Material2164.DiffuseColor := Vector3(0.784313738,0,0);
 Material2164.Shininess := 1;
+end;
+
+procedure InitPathwayPart183;
+begin
+
 { .SetMaterial }
 Appearance2163.Material := Material2164;
 { .SetAppearance }
@@ -11744,6 +12660,11 @@ IndexedFaceSet2175 := TIndexedFaceSetNode.Create;
 IndexedFaceSet2175.SetCoordIndex([1,0,2,-1,1,2,3,-1,8,11,13,-1,8,13,10,-1,11,5,12,-1,11,12,13,-1,16,15,5,-1,16,5,11,-1,14,16,11,-1,14,11,8,-1,13,12,4,-1,16,6,15,-1,13,4,7,-1,9,16,14,-1,6,16,9,-1,7,10,13,-1,18,17,19,-1,18,19,20,-1,25,28,30,-1,25,30,27,-1,28,22,29,-1,28,29,30,-1,33,32,22,-1,33,22,28,-1,31,33,28,-1,31,28,25,-1,30,29,21,-1,33,23,32,-1,30,21,24,-1,26,33,31,-1,23,33,26,-1,24,27,30,-1]);
 IndexedFaceSet2175.Solid := False;
 IndexedFaceSet2175.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,8,11,13,-1,8,13,10,-1,11,5,12,-1,11,12,13,-1,16,15,5,-1,16,5,11,-1,14,16,11,-1,14,11,8,-1,13,12,4,-1,16,6,15,-1,13,4,7,-1,9,16,14,-1,6,16,9,-1,7,10,13,-1,18,17,19,-1,18,19,20,-1,25,28,30,-1,25,30,27,-1,28,22,29,-1,28,29,30,-1,33,32,22,-1,33,22,28,-1,31,33,28,-1,31,28,25,-1,30,29,21,-1,33,23,32,-1,30,21,24,-1,26,33,31,-1,23,33,26,-1,24,27,30,-1]);
+end;
+
+procedure InitPathwayPart184;
+begin
+
 Coordinate2176 := TCoordinateNode.Create;
 Coordinate2176.SetPoint([Vector3(2.676922083,0,0.183554187),Vector3(1.869351268,0,0.348165631),Vector3(2.676922083,0.075000003,0.183554187),Vector3(1.869351268,0.075000003,0.348165631),Vector3(1.869351268,0,0.348165631),Vector3(1.936411023,0,0.677155316),Vector3(2.003470659,0,1.006145),Vector3(1.869351268,0.075000003,0.348165631),Vector3(1.936411023,0.075000003,0.677155316),Vector3(2.003470659,0.075000003,1.006145),Vector3(1.902881145,0.075000003,0.512660503),Vector3(1.936411023,0.037500001,0.677155316),Vector3(1.902881145,0,0.512660503),Vector3(1.902881145,0.037500001,0.512660503),Vector3(1.969940901,0.075000003,0.841650188),Vector3(1.969940901,0,0.841650188),Vector3(1.969940901,0.037500001,0.841650188),Vector3(2.003470659,0,1.006145),Vector3(2.811041594,0,0.841533601),Vector3(2.003470659,0.075000003,1.006145),Vector3(2.811041594,0.075000003,0.841533601),Vector3(2.811041594,0,0.841533601),Vector3(2.743981838,0,0.512543857),Vector3(2.676922083,0,0.183554187),Vector3(2.811041594,0.075000003,0.841533601),Vector3(2.743981838,0.075000003,0.512543857),Vector3(2.676922083,0.075000003,0.183554187),Vector3(2.777511835,0.075000003,0.677038729),Vector3(2.743981838,0.037500001,0.512543857),Vector3(2.777511835,0,0.677038729),Vector3(2.777511835,0.037500001,0.677038729),Vector3(2.71045208,0.075000003,0.348049045),Vector3(2.71045208,0,0.348049045),Vector3(2.71045208,0.037500001,0.348049045)]);
 { .SetCoord }
@@ -11797,6 +12718,11 @@ Shape2182.Geometry := IndexedFaceSet2185;
 { .AddChildren }
 Group15.AddChildren([Shape2182]);
 Shape2187 := TShapeNode.Create;
+end;
+
+procedure InitPathwayPart185;
+begin
+
 Appearance2188 := TAppearanceNode.Create;
 Material2189 := TMaterialNode.Create;
 Material2189.AmbientIntensity := 0;
@@ -11848,6 +12774,11 @@ Material2199.DiffuseColor := Vector3(0.784313738,0,0);
 Material2199.Shininess := 1;
 { .SetMaterial }
 Appearance2198.Material := Material2199;
+end;
+
+procedure InitPathwayPart186;
+begin
+
 { .SetAppearance }
 Shape2197.Appearance := Appearance2198;
 IndexedFaceSet2200 := TIndexedFaceSetNode.Create;
@@ -11899,6 +12830,11 @@ IndexedFaceSet2210.SetCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,
 IndexedFaceSet2210.Solid := False;
 IndexedFaceSet2210.SetTexCoordIndex([1,0,2,-1,1,2,3,-1,5,4,6,-1,5,6,7,-1,9,8,10,-1,9,10,11,-1,13,12,14,-1,13,14,15,-1]);
 Coordinate2211 := TCoordinateNode.Create;
+end;
+
+procedure InitPathwayPart187;
+begin
+
 Coordinate2211.SetPoint([Vector3(1.298056364,0,-0.241113231),Vector3(0.904069424,0,-0.160804778),Vector3(1.298056364,0.075000003,-0.241113231),Vector3(0.904069424,0.075000003,-0.160804778),Vector3(0.904069424,0,-0.160804778),Vector3(1.17630291,0,1.174751043),Vector3(0.904069424,0.075000003,-0.160804778),Vector3(1.17630291,0.075000003,1.174751043),Vector3(1.17630291,0,1.174751043),Vector3(1.570289731,0,1.094442606),Vector3(1.17630291,0.075000003,1.174751043),Vector3(1.570289731,0.075000003,1.094442606),Vector3(1.570289731,0,1.094442606),Vector3(1.298056364,0,-0.241113231),Vector3(1.570289731,0.075000003,1.094442606),Vector3(1.298056364,0.075000003,-0.241113231)]);
 { .SetCoord }
 IndexedFaceSet2210.Coord := Coordinate2211;
@@ -11952,6 +12888,11 @@ Shape2217.Geometry := IndexedFaceSet2220;
 Group15.AddChildren([Shape2217]);
 Shape2222 := TShapeNode.Create;
 Appearance2223 := TAppearanceNode.Create;
+end;
+
+procedure InitPathwayPart188;
+begin
+
 Material2224 := TMaterialNode.Create;
 Material2224.AmbientIntensity := 0;
 Material2224.DiffuseColor := Vector3(0.784313738,0,0);
@@ -11974,6 +12915,199 @@ Shape2222.Geometry := IndexedFaceSet2225;
 Group15.AddChildren([Shape2222]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function CreatePathway: TX3DRootNode;
+begin
+InitPathwayPart0;
+InitPathwayPart1;
+InitPathwayPart2;
+InitPathwayPart3;
+InitPathwayPart4;
+InitPathwayPart5;
+InitPathwayPart6;
+InitPathwayPart7;
+InitPathwayPart8;
+InitPathwayPart9;
+InitPathwayPart10;
+InitPathwayPart11;
+InitPathwayPart12;
+InitPathwayPart13;
+InitPathwayPart14;
+InitPathwayPart15;
+InitPathwayPart16;
+InitPathwayPart17;
+InitPathwayPart18;
+InitPathwayPart19;
+InitPathwayPart20;
+InitPathwayPart21;
+InitPathwayPart22;
+InitPathwayPart23;
+InitPathwayPart24;
+InitPathwayPart25;
+InitPathwayPart26;
+InitPathwayPart27;
+InitPathwayPart28;
+InitPathwayPart29;
+InitPathwayPart30;
+InitPathwayPart31;
+InitPathwayPart32;
+InitPathwayPart33;
+InitPathwayPart34;
+InitPathwayPart35;
+InitPathwayPart36;
+InitPathwayPart37;
+InitPathwayPart38;
+InitPathwayPart39;
+InitPathwayPart40;
+InitPathwayPart41;
+InitPathwayPart42;
+InitPathwayPart43;
+InitPathwayPart44;
+InitPathwayPart45;
+InitPathwayPart46;
+InitPathwayPart47;
+InitPathwayPart48;
+InitPathwayPart49;
+InitPathwayPart50;
+InitPathwayPart51;
+InitPathwayPart52;
+InitPathwayPart53;
+InitPathwayPart54;
+InitPathwayPart55;
+InitPathwayPart56;
+InitPathwayPart57;
+InitPathwayPart58;
+InitPathwayPart59;
+InitPathwayPart60;
+InitPathwayPart61;
+InitPathwayPart62;
+InitPathwayPart63;
+InitPathwayPart64;
+InitPathwayPart65;
+InitPathwayPart66;
+InitPathwayPart67;
+InitPathwayPart68;
+InitPathwayPart69;
+InitPathwayPart70;
+InitPathwayPart71;
+InitPathwayPart72;
+InitPathwayPart73;
+InitPathwayPart74;
+InitPathwayPart75;
+InitPathwayPart76;
+InitPathwayPart77;
+InitPathwayPart78;
+InitPathwayPart79;
+InitPathwayPart80;
+InitPathwayPart81;
+InitPathwayPart82;
+InitPathwayPart83;
+InitPathwayPart84;
+InitPathwayPart85;
+InitPathwayPart86;
+InitPathwayPart87;
+InitPathwayPart88;
+InitPathwayPart89;
+InitPathwayPart90;
+InitPathwayPart91;
+InitPathwayPart92;
+InitPathwayPart93;
+InitPathwayPart94;
+InitPathwayPart95;
+InitPathwayPart96;
+InitPathwayPart97;
+InitPathwayPart98;
+InitPathwayPart99;
+InitPathwayPart100;
+InitPathwayPart101;
+InitPathwayPart102;
+InitPathwayPart103;
+InitPathwayPart104;
+InitPathwayPart105;
+InitPathwayPart106;
+InitPathwayPart107;
+InitPathwayPart108;
+InitPathwayPart109;
+InitPathwayPart110;
+InitPathwayPart111;
+InitPathwayPart112;
+InitPathwayPart113;
+InitPathwayPart114;
+InitPathwayPart115;
+InitPathwayPart116;
+InitPathwayPart117;
+InitPathwayPart118;
+InitPathwayPart119;
+InitPathwayPart120;
+InitPathwayPart121;
+InitPathwayPart122;
+InitPathwayPart123;
+InitPathwayPart124;
+InitPathwayPart125;
+InitPathwayPart126;
+InitPathwayPart127;
+InitPathwayPart128;
+InitPathwayPart129;
+InitPathwayPart130;
+InitPathwayPart131;
+InitPathwayPart132;
+InitPathwayPart133;
+InitPathwayPart134;
+InitPathwayPart135;
+InitPathwayPart136;
+InitPathwayPart137;
+InitPathwayPart138;
+InitPathwayPart139;
+InitPathwayPart140;
+InitPathwayPart141;
+InitPathwayPart142;
+InitPathwayPart143;
+InitPathwayPart144;
+InitPathwayPart145;
+InitPathwayPart146;
+InitPathwayPart147;
+InitPathwayPart148;
+InitPathwayPart149;
+InitPathwayPart150;
+InitPathwayPart151;
+InitPathwayPart152;
+InitPathwayPart153;
+InitPathwayPart154;
+InitPathwayPart155;
+InitPathwayPart156;
+InitPathwayPart157;
+InitPathwayPart158;
+InitPathwayPart159;
+InitPathwayPart160;
+InitPathwayPart161;
+InitPathwayPart162;
+InitPathwayPart163;
+InitPathwayPart164;
+InitPathwayPart165;
+InitPathwayPart166;
+InitPathwayPart167;
+InitPathwayPart168;
+InitPathwayPart169;
+InitPathwayPart170;
+InitPathwayPart171;
+InitPathwayPart172;
+InitPathwayPart173;
+InitPathwayPart174;
+InitPathwayPart175;
+InitPathwayPart176;
+InitPathwayPart177;
+InitPathwayPart178;
+InitPathwayPart179;
+InitPathwayPart180;
+InitPathwayPart181;
+InitPathwayPart182;
+InitPathwayPart183;
+InitPathwayPart184;
+InitPathwayPart185;
+InitPathwayPart186;
+InitPathwayPart187;
+InitPathwayPart188;
 Result := X3D0;
 end;
 

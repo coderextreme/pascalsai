@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateHAnimBehaviorPrototypes: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group18: TGroupNode;
@@ -1624,6 +1623,8 @@ SFInt321814: TSFInt32;
 MFNode1815: TMFNode;
 X3DPrototype1816: TX3DPrototypeNode;
 MFBool1817: TMFBool;
+
+procedure InitHAnimBehaviorPrototypesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -1673,6 +1674,11 @@ X3DField23 := TX3DField.Create;
 X3DField23.NameField := 'enabled';
 X3DField23.AccessType := 'inputOutput';
 X3DField23.Appinfo := 'is this behavior enabled?';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart1;
+begin
+
 X3DField23.Type := 'SFBool';
 X3DField23.Value := 'true';
 { .AddX3DField }
@@ -1719,6 +1725,11 @@ X3DField28.Value := '0';
 X3DInterfaceDeclaration21.X3DField := X3DField28;
 X3DField29 := TX3DField.Create;
 X3DField29.NameField := 'resumeTime';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart2;
+begin
+
 X3DField29.AccessType := 'inputOutput';
 X3DField29.Appinfo := 'when resumeTime becomes <= time now isPaused becomes false and TimeSensor becomes inactive';
 X3DField29.Type := 'SFTime';
@@ -1765,6 +1776,11 @@ X3DField35.NameField := 'fraction_changed';
 X3DField35.AccessType := 'outputOnly';
 X3DField35.Appinfo := 'fraction_changed continuously sends value in range [0 1] showing time progress in the current cycle.';
 X3DField35.Type := 'SFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart3;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField35;
 X3DField36 := TX3DField.Create;
@@ -1818,6 +1834,11 @@ X3DField43 := TX3DField.Create;
 X3DField43.NameField := 'c1_keyValue';
 X3DField43.AccessType := 'inputOutput';
 X3DField43.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart4;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField43;
@@ -1871,6 +1892,11 @@ X3DField51 := TX3DField.Create;
 X3DField51.NameField := 'c4_key';
 X3DField51.AccessType := 'inputOutput';
 X3DField51.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart5;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField51;
@@ -1925,6 +1951,11 @@ X3DField59 := TX3DField.Create;
 X3DField59.NameField := 'c6_changed';
 X3DField59.AccessType := 'outputOnly';
 X3DField59.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart6;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField59;
 X3DField60 := TX3DField.Create;
@@ -1978,6 +2009,11 @@ X3DField67 := TX3DField.Create;
 X3DField67.NameField := 'l1_keyValue';
 X3DField67.AccessType := 'inputOutput';
 X3DField67.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart7;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField67;
@@ -2031,6 +2067,11 @@ X3DField75 := TX3DField.Create;
 X3DField75.NameField := 'l4_key';
 X3DField75.AccessType := 'inputOutput';
 X3DField75.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart8;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField75;
@@ -2085,6 +2126,11 @@ X3DField83 := TX3DField.Create;
 X3DField83.NameField := 'l_acromioclavicular_changed';
 X3DField83.AccessType := 'outputOnly';
 X3DField83.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart9;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField83;
 X3DField84 := TX3DField.Create;
@@ -2138,6 +2184,11 @@ X3DField91 := TX3DField.Create;
 X3DField91.NameField := 'l_clavicle_keyValue';
 X3DField91.AccessType := 'inputOutput';
 X3DField91.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart10;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField91;
@@ -2191,6 +2242,11 @@ X3DField99 := TX3DField.Create;
 X3DField99.NameField := 'l_eyeball_joint_key';
 X3DField99.AccessType := 'inputOutput';
 X3DField99.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart11;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField99;
@@ -2245,6 +2301,11 @@ X3DField107 := TX3DField.Create;
 X3DField107.NameField := 'l_eyebrow_joint_changed';
 X3DField107.AccessType := 'outputOnly';
 X3DField107.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart12;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField107;
 X3DField108 := TX3DField.Create;
@@ -2298,6 +2359,11 @@ X3DField115 := TX3DField.Create;
 X3DField115.NameField := 'l_forearm_keyValue';
 X3DField115.AccessType := 'inputOutput';
 X3DField115.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart13;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField115;
@@ -2351,6 +2417,11 @@ X3DField123 := TX3DField.Create;
 X3DField123.NameField := 'l_hindfoot_key';
 X3DField123.AccessType := 'inputOutput';
 X3DField123.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart14;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField123;
@@ -2405,6 +2476,11 @@ X3DField131 := TX3DField.Create;
 X3DField131.NameField := 'l_index0_changed';
 X3DField131.AccessType := 'outputOnly';
 X3DField131.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart15;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField131;
 X3DField132 := TX3DField.Create;
@@ -2458,6 +2534,11 @@ X3DField139 := TX3DField.Create;
 X3DField139.NameField := 'l_index3_keyValue';
 X3DField139.AccessType := 'inputOutput';
 X3DField139.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart16;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField139;
@@ -2511,6 +2592,11 @@ X3DField147 := TX3DField.Create;
 X3DField147.NameField := 'l_index_middle_key';
 X3DField147.AccessType := 'inputOutput';
 X3DField147.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart17;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField147;
@@ -2565,6 +2651,11 @@ X3DField155 := TX3DField.Create;
 X3DField155.NameField := 'l_knee_changed';
 X3DField155.AccessType := 'outputOnly';
 X3DField155.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart18;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField155;
 X3DField156 := TX3DField.Create;
@@ -2618,6 +2709,11 @@ X3DField163 := TX3DField.Create;
 X3DField163.NameField := 'l_middle0_keyValue';
 X3DField163.AccessType := 'inputOutput';
 X3DField163.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart19;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField163;
@@ -2671,6 +2767,11 @@ X3DField171 := TX3DField.Create;
 X3DField171.NameField := 'l_middle3_key';
 X3DField171.AccessType := 'inputOutput';
 X3DField171.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart20;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField171;
@@ -2725,6 +2826,11 @@ X3DField179 := TX3DField.Create;
 X3DField179.NameField := 'l_middle_metacarpal_changed';
 X3DField179.AccessType := 'outputOnly';
 X3DField179.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart21;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField179;
 X3DField180 := TX3DField.Create;
@@ -2778,6 +2884,11 @@ X3DField187 := TX3DField.Create;
 X3DField187.NameField := 'l_midproximal_keyValue';
 X3DField187.AccessType := 'inputOutput';
 X3DField187.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart22;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField187;
@@ -2831,6 +2942,11 @@ X3DField195 := TX3DField.Create;
 X3DField195.NameField := 'l_pinky1_key';
 X3DField195.AccessType := 'inputOutput';
 X3DField195.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart23;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField195;
@@ -2885,6 +3001,11 @@ X3DField203 := TX3DField.Create;
 X3DField203.NameField := 'l_pinky3_changed';
 X3DField203.AccessType := 'outputOnly';
 X3DField203.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart24;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField203;
 X3DField204 := TX3DField.Create;
@@ -2938,6 +3059,11 @@ X3DField211 := TX3DField.Create;
 X3DField211.NameField := 'l_pinky_middle_keyValue';
 X3DField211.AccessType := 'inputOutput';
 X3DField211.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart25;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField211;
@@ -2991,6 +3117,11 @@ X3DField219 := TX3DField.Create;
 X3DField219.NameField := 'l_ring1_key';
 X3DField219.AccessType := 'inputOutput';
 X3DField219.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart26;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField219;
@@ -3045,6 +3176,11 @@ X3DField227 := TX3DField.Create;
 X3DField227.NameField := 'l_ring3_changed';
 X3DField227.AccessType := 'outputOnly';
 X3DField227.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart27;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField227;
 X3DField228 := TX3DField.Create;
@@ -3098,6 +3234,11 @@ X3DField235 := TX3DField.Create;
 X3DField235.NameField := 'l_ring_middle_keyValue';
 X3DField235.AccessType := 'inputOutput';
 X3DField235.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart28;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField235;
@@ -3151,6 +3292,11 @@ X3DField243 := TX3DField.Create;
 X3DField243.NameField := 'l_shoulder_key';
 X3DField243.AccessType := 'inputOutput';
 X3DField243.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart29;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField243;
@@ -3205,6 +3351,11 @@ X3DField251 := TX3DField.Create;
 X3DField251.NameField := 'l_subtalar_changed';
 X3DField251.AccessType := 'outputOnly';
 X3DField251.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart30;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField251;
 X3DField252 := TX3DField.Create;
@@ -3258,6 +3409,11 @@ X3DField259 := TX3DField.Create;
 X3DField259.NameField := 'l_thumb2_keyValue';
 X3DField259.AccessType := 'inputOutput';
 X3DField259.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart31;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField259;
@@ -3311,6 +3467,11 @@ X3DField267 := TX3DField.Create;
 X3DField267.NameField := 'l_thumb_metacarpal_key';
 X3DField267.AccessType := 'inputOutput';
 X3DField267.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart32;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField267;
@@ -3365,6 +3526,11 @@ X3DField275 := TX3DField.Create;
 X3DField275.NameField := 'l_upperarm_changed';
 X3DField275.AccessType := 'outputOnly';
 X3DField275.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart33;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField275;
 X3DField276 := TX3DField.Create;
@@ -3418,6 +3584,11 @@ X3DField283 := TX3DField.Create;
 X3DField283.NameField := 'r_acromioclavicular_keyValue';
 X3DField283.AccessType := 'inputOutput';
 X3DField283.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart34;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField283;
@@ -3471,6 +3642,11 @@ X3DField291 := TX3DField.Create;
 X3DField291.NameField := 'r_clavicle_key';
 X3DField291.AccessType := 'inputOutput';
 X3DField291.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart35;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField291;
@@ -3525,6 +3701,11 @@ X3DField299 := TX3DField.Create;
 X3DField299.NameField := 'r_eyeball_changed';
 X3DField299.AccessType := 'outputOnly';
 X3DField299.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart36;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField299;
 X3DField300 := TX3DField.Create;
@@ -3578,6 +3759,11 @@ X3DField307 := TX3DField.Create;
 X3DField307.NameField := 'r_eyebrow_joint_keyValue';
 X3DField307.AccessType := 'inputOutput';
 X3DField307.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart37;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField307;
@@ -3631,6 +3817,11 @@ X3DField315 := TX3DField.Create;
 X3DField315.NameField := 'r_forearm_key';
 X3DField315.AccessType := 'inputOutput';
 X3DField315.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart38;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField315;
@@ -3685,6 +3876,11 @@ X3DField323 := TX3DField.Create;
 X3DField323.NameField := 'r_hand_changed';
 X3DField323.AccessType := 'outputOnly';
 X3DField323.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart39;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField323;
 X3DField324 := TX3DField.Create;
@@ -3738,6 +3934,11 @@ X3DField331 := TX3DField.Create;
 X3DField331.NameField := 'r_index0_keyValue';
 X3DField331.AccessType := 'inputOutput';
 X3DField331.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart40;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField331;
@@ -3791,6 +3992,11 @@ X3DField339 := TX3DField.Create;
 X3DField339.NameField := 'r_index3_key';
 X3DField339.AccessType := 'inputOutput';
 X3DField339.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart41;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField339;
@@ -3845,6 +4051,11 @@ X3DField347 := TX3DField.Create;
 X3DField347.NameField := 'r_index_metacarpal_changed';
 X3DField347.AccessType := 'outputOnly';
 X3DField347.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart42;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField347;
 X3DField348 := TX3DField.Create;
@@ -3898,6 +4109,11 @@ X3DField355 := TX3DField.Create;
 X3DField355.NameField := 'r_knee_keyValue';
 X3DField355.AccessType := 'inputOutput';
 X3DField355.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart43;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField355;
@@ -3951,6 +4167,11 @@ X3DField363 := TX3DField.Create;
 X3DField363.NameField := 'r_middle0_key';
 X3DField363.AccessType := 'inputOutput';
 X3DField363.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart44;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField363;
@@ -4005,6 +4226,11 @@ X3DField371 := TX3DField.Create;
 X3DField371.NameField := 'r_middle2_changed';
 X3DField371.AccessType := 'outputOnly';
 X3DField371.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart45;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField371;
 X3DField372 := TX3DField.Create;
@@ -4058,6 +4284,11 @@ X3DField379 := TX3DField.Create;
 X3DField379.NameField := 'r_middle_metacarpal_keyValue';
 X3DField379.AccessType := 'inputOutput';
 X3DField379.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart46;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField379;
@@ -4111,6 +4342,11 @@ X3DField387 := TX3DField.Create;
 X3DField387.NameField := 'r_midproximal_key';
 X3DField387.AccessType := 'inputOutput';
 X3DField387.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart47;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField387;
@@ -4165,6 +4401,11 @@ X3DField395 := TX3DField.Create;
 X3DField395.NameField := 'r_pinky0_changed';
 X3DField395.AccessType := 'outputOnly';
 X3DField395.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart48;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField395;
 X3DField396 := TX3DField.Create;
@@ -4218,6 +4459,11 @@ X3DField403 := TX3DField.Create;
 X3DField403.NameField := 'r_pinky3_keyValue';
 X3DField403.AccessType := 'inputOutput';
 X3DField403.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart49;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField403;
@@ -4271,6 +4517,11 @@ X3DField411 := TX3DField.Create;
 X3DField411.NameField := 'r_pinky_middle_key';
 X3DField411.AccessType := 'inputOutput';
 X3DField411.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart50;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField411;
@@ -4325,6 +4576,11 @@ X3DField419 := TX3DField.Create;
 X3DField419.NameField := 'r_ring0_changed';
 X3DField419.AccessType := 'outputOnly';
 X3DField419.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart51;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField419;
 X3DField420 := TX3DField.Create;
@@ -4378,6 +4634,11 @@ X3DField427 := TX3DField.Create;
 X3DField427.NameField := 'r_ring3_keyValue';
 X3DField427.AccessType := 'inputOutput';
 X3DField427.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart52;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField427;
@@ -4431,6 +4692,11 @@ X3DField435 := TX3DField.Create;
 X3DField435.NameField := 'r_ring_middle_key';
 X3DField435.AccessType := 'inputOutput';
 X3DField435.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart53;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField435;
@@ -4485,6 +4751,11 @@ X3DField443 := TX3DField.Create;
 X3DField443.NameField := 'r_scapula_changed';
 X3DField443.AccessType := 'outputOnly';
 X3DField443.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart54;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField443;
 X3DField444 := TX3DField.Create;
@@ -4538,6 +4809,11 @@ X3DField451 := TX3DField.Create;
 X3DField451.NameField := 'r_subtalar_keyValue';
 X3DField451.AccessType := 'inputOutput';
 X3DField451.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart55;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField451;
@@ -4591,6 +4867,11 @@ X3DField459 := TX3DField.Create;
 X3DField459.NameField := 'r_thumb2_key';
 X3DField459.AccessType := 'inputOutput';
 X3DField459.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart56;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField459;
@@ -4645,6 +4926,11 @@ X3DField467 := TX3DField.Create;
 X3DField467.NameField := 'r_thumb_distal_changed';
 X3DField467.AccessType := 'outputOnly';
 X3DField467.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart57;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField467;
 X3DField468 := TX3DField.Create;
@@ -4698,6 +4984,11 @@ X3DField475 := TX3DField.Create;
 X3DField475.NameField := 'r_upperarm_keyValue';
 X3DField475.AccessType := 'inputOutput';
 X3DField475.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart58;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField475;
@@ -4751,6 +5042,11 @@ X3DField483 := TX3DField.Create;
 X3DField483.NameField := 'sacrum_key';
 X3DField483.AccessType := 'inputOutput';
 X3DField483.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart59;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField483;
@@ -4805,6 +5101,11 @@ X3DField491 := TX3DField.Create;
 X3DField491.NameField := 'skullbase_changed';
 X3DField491.AccessType := 'outputOnly';
 X3DField491.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart60;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField491;
 X3DField492 := TX3DField.Create;
@@ -4858,6 +5159,11 @@ X3DField499 := TX3DField.Create;
 X3DField499.NameField := 't12_keyValue';
 X3DField499.AccessType := 'inputOutput';
 X3DField499.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart61;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField499;
@@ -4911,6 +5217,11 @@ X3DField507 := TX3DField.Create;
 X3DField507.NameField := 't3_key';
 X3DField507.AccessType := 'inputOutput';
 X3DField507.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart62;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField507;
@@ -4965,6 +5276,11 @@ X3DField515 := TX3DField.Create;
 X3DField515.NameField := 't5_changed';
 X3DField515.AccessType := 'outputOnly';
 X3DField515.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart63;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField515;
 X3DField516 := TX3DField.Create;
@@ -5018,6 +5334,11 @@ X3DField523 := TX3DField.Create;
 X3DField523.NameField := 't8_keyValue';
 X3DField523.AccessType := 'inputOutput';
 X3DField523.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart64;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField523;
@@ -5071,6 +5392,11 @@ X3DField531 := TX3DField.Create;
 X3DField531.NameField := 'vc1_key';
 X3DField531.AccessType := 'inputOutput';
 X3DField531.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart65;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField531;
@@ -5125,6 +5451,11 @@ X3DField539 := TX3DField.Create;
 X3DField539.NameField := 'vc3_changed';
 X3DField539.AccessType := 'outputOnly';
 X3DField539.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart66;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField539;
 X3DField540 := TX3DField.Create;
@@ -5178,6 +5509,11 @@ X3DField547 := TX3DField.Create;
 X3DField547.NameField := 'vc6_keyValue';
 X3DField547.AccessType := 'inputOutput';
 X3DField547.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart67;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField547;
@@ -5231,6 +5567,11 @@ X3DField555 := TX3DField.Create;
 X3DField555.NameField := 'vl2_key';
 X3DField555.AccessType := 'inputOutput';
 X3DField555.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart68;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField555;
@@ -5285,6 +5626,11 @@ X3DField563 := TX3DField.Create;
 X3DField563.NameField := 'vl4_changed';
 X3DField563.AccessType := 'outputOnly';
 X3DField563.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart69;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField563;
 X3DField564 := TX3DField.Create;
@@ -5338,6 +5684,11 @@ X3DField571 := TX3DField.Create;
 X3DField571.NameField := 'vt11_keyValue';
 X3DField571.AccessType := 'inputOutput';
 X3DField571.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart70;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField571;
@@ -5391,6 +5742,11 @@ X3DField579 := TX3DField.Create;
 X3DField579.NameField := 'vt2_key';
 X3DField579.AccessType := 'inputOutput';
 X3DField579.Type := 'MFFloat';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart71;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField579;
@@ -5445,6 +5801,11 @@ X3DField587 := TX3DField.Create;
 X3DField587.NameField := 'vt4_changed';
 X3DField587.AccessType := 'outputOnly';
 X3DField587.Type := 'SFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart72;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField587;
 X3DField588 := TX3DField.Create;
@@ -5498,6 +5859,11 @@ X3DField595 := TX3DField.Create;
 X3DField595.NameField := 'vt7_keyValue';
 X3DField595.AccessType := 'inputOutput';
 X3DField595.Type := 'MFRotation';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart73;
+begin
+
 { no default value }
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField595;
@@ -5553,6 +5919,11 @@ X3DPrototype603 := TX3DPrototype.Create;
 { design alternative: move TimeSensor out of the prototype, instead expose set_fraction globally to all interpolators }
 TimeSensor604 := TTimeSensorNode.Create;
 IS605 := TIS.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart74;
+begin
+
 connect606 := Tconnect.Create;
 connect606.NodeField := 'enabled';
 connect606.ProtoField := 'enabled';
@@ -5603,6 +5974,11 @@ connect615.NodeField := 'isPaused';
 connect615.ProtoField := 'isPaused';
 { .AddConnect }
 IS605.Connect := connect615;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart75;
+begin
+
 connect616 := Tconnect.Create;
 connect616.NodeField := 'elapsedTime';
 connect616.ProtoField := 'elapsedTime';
@@ -5657,6 +6033,11 @@ PositionInterpolator622.IS := IS623;
 { .AddPositionInterpolator }
 X3DPrototype603.PositionInterpolator := PositionInterpolator622;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, PositionInterpolator622.EventSet_fraction);
+end;
+
+procedure InitHAnimBehaviorPrototypesPart76;
+begin
+
 { .AddX3DRoute }
 OrientationInterpolator628 := TOrientationInterpolatorNode.Create;
 IS629 := TIS.Create;
@@ -5711,6 +6092,11 @@ connect642.NodeField := 'key';
 connect642.ProtoField := 'c2_key';
 { .AddConnect }
 IS641.Connect := connect642;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart77;
+begin
+
 connect643 := Tconnect.Create;
 connect643.NodeField := 'keyValue';
 connect643.ProtoField := 'c2_keyValue';
@@ -5764,6 +6150,11 @@ connect655.ProtoField := 'c4_keyValue';
 IS653.Connect := connect655;
 connect656 := Tconnect.Create;
 connect656.NodeField := 'value_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart78;
+begin
+
 connect656.ProtoField := 'c4_changed';
 { .AddConnect }
 IS653.Connect := connect656;
@@ -5820,6 +6211,11 @@ X3DPrototype603.OrientationInterpolator := OrientationInterpolator664;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator664.EventSet_fraction);
 { .AddX3DRoute }
 OrientationInterpolator670 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart79;
+begin
+
 IS671 := TIS.Create;
 connect672 := Tconnect.Create;
 connect672.NodeField := 'key';
@@ -5873,6 +6269,11 @@ connect684.ProtoField := 'l1_key';
 { .AddConnect }
 IS683.Connect := connect684;
 connect685 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart80;
+begin
+
 connect685.NodeField := 'keyValue';
 connect685.ProtoField := 'l1_keyValue';
 { .AddConnect }
@@ -5926,6 +6327,11 @@ IS695.Connect := connect697;
 connect698 := Tconnect.Create;
 connect698.NodeField := 'value_changed';
 connect698.ProtoField := 'l3_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart81;
+begin
+
 { .AddConnect }
 IS695.Connect := connect698;
 { .SetIS }
@@ -5982,6 +6388,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 { .AddX3DRoute }
 OrientationInterpolator712 := TOrientationInterpolatorNode.Create;
 IS713 := TIS.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart82;
+begin
+
 connect714 := Tconnect.Create;
 connect714.NodeField := 'key';
 connect714.ProtoField := 'l_acromioclavicular_key';
@@ -6035,6 +6446,11 @@ connect726.ProtoField := 'l_calf_key';
 IS725.Connect := connect726;
 connect727 := Tconnect.Create;
 connect727.NodeField := 'keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart83;
+begin
+
 connect727.ProtoField := 'l_calf_keyValue';
 { .AddConnect }
 IS725.Connect := connect727;
@@ -6089,6 +6505,11 @@ connect740.NodeField := 'value_changed';
 connect740.ProtoField := 'l_elbow_changed';
 { .AddConnect }
 IS737.Connect := connect740;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart84;
+begin
+
 { .SetIS }
 OrientationInterpolator736.IS := IS737;
 { .AddOrientationInterpolator }
@@ -6144,6 +6565,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 OrientationInterpolator754 := TOrientationInterpolatorNode.Create;
 IS755 := TIS.Create;
 connect756 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart85;
+begin
+
 connect756.NodeField := 'key';
 connect756.ProtoField := 'l_eyebrow_key';
 { .AddConnect }
@@ -6197,6 +6623,11 @@ IS767.Connect := connect768;
 connect769 := Tconnect.Create;
 connect769.NodeField := 'keyValue';
 connect769.ProtoField := 'l_eyelid_keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart86;
+begin
+
 { .AddConnect }
 IS767.Connect := connect769;
 connect770 := Tconnect.Create;
@@ -6252,6 +6683,11 @@ connect782.ProtoField := 'l_forearm_changed';
 IS779.Connect := connect782;
 { .SetIS }
 OrientationInterpolator778.IS := IS779;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart87;
+begin
+
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator778;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator778.EventSet_fraction);
@@ -6306,6 +6742,11 @@ OrientationInterpolator796 := TOrientationInterpolatorNode.Create;
 IS797 := TIS.Create;
 connect798 := Tconnect.Create;
 connect798.NodeField := 'key';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart88;
+begin
+
 connect798.ProtoField := 'l_hindfoot_key';
 { .AddConnect }
 IS797.Connect := connect798;
@@ -6360,6 +6801,11 @@ connect811.NodeField := 'keyValue';
 connect811.ProtoField := 'l_index0_keyValue';
 { .AddConnect }
 IS809.Connect := connect811;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart89;
+begin
+
 connect812 := Tconnect.Create;
 connect812.NodeField := 'value_changed';
 connect812.ProtoField := 'l_index0_changed';
@@ -6415,6 +6861,11 @@ IS821.Connect := connect824;
 OrientationInterpolator820.IS := IS821;
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator820;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart90;
+begin
+
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator820.EventSet_fraction);
 { .AddX3DRoute }
 OrientationInterpolator826 := TOrientationInterpolatorNode.Create;
@@ -6468,6 +6919,11 @@ IS839 := TIS.Create;
 connect840 := Tconnect.Create;
 connect840.NodeField := 'key';
 connect840.ProtoField := 'l_index_metacarpal_key';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart91;
+begin
+
 { .AddConnect }
 IS839.Connect := connect840;
 connect841 := Tconnect.Create;
@@ -6522,6 +6978,11 @@ connect853.ProtoField := 'l_index_proximal_keyValue';
 { .AddConnect }
 IS851.Connect := connect853;
 connect854 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart92;
+begin
+
 connect854.NodeField := 'value_changed';
 connect854.ProtoField := 'l_index_proximal_changed';
 { .AddConnect }
@@ -6577,6 +7038,11 @@ OrientationInterpolator862.IS := IS863;
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator862;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator862.EventSet_fraction);
+end;
+
+procedure InitHAnimBehaviorPrototypesPart93;
+begin
+
 { .AddX3DRoute }
 OrientationInterpolator868 := TOrientationInterpolatorNode.Create;
 IS869 := TIS.Create;
@@ -6631,6 +7097,11 @@ connect882.NodeField := 'key';
 connect882.ProtoField := 'l_middle1_key';
 { .AddConnect }
 IS881.Connect := connect882;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart94;
+begin
+
 connect883 := Tconnect.Create;
 connect883.NodeField := 'keyValue';
 connect883.ProtoField := 'l_middle1_keyValue';
@@ -6684,6 +7155,11 @@ connect895.ProtoField := 'l_middle3_keyValue';
 IS893.Connect := connect895;
 connect896 := Tconnect.Create;
 connect896.NodeField := 'value_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart95;
+begin
+
 connect896.ProtoField := 'l_middle3_changed';
 { .AddConnect }
 IS893.Connect := connect896;
@@ -6740,6 +7216,11 @@ X3DPrototype603.OrientationInterpolator := OrientationInterpolator904;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator904.EventSet_fraction);
 { .AddX3DRoute }
 OrientationInterpolator910 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart96;
+begin
+
 IS911 := TIS.Create;
 connect912 := Tconnect.Create;
 connect912.NodeField := 'key';
@@ -6793,6 +7274,11 @@ connect924.ProtoField := 'l_midproximal_key';
 { .AddConnect }
 IS923.Connect := connect924;
 connect925 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart97;
+begin
+
 connect925.NodeField := 'keyValue';
 connect925.ProtoField := 'l_midproximal_keyValue';
 { .AddConnect }
@@ -6846,6 +7332,11 @@ IS935.Connect := connect937;
 connect938 := Tconnect.Create;
 connect938.NodeField := 'value_changed';
 connect938.ProtoField := 'l_pinky0_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart98;
+begin
+
 { .AddConnect }
 IS935.Connect := connect938;
 { .SetIS }
@@ -6902,6 +7393,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 { .AddX3DRoute }
 OrientationInterpolator952 := TOrientationInterpolatorNode.Create;
 IS953 := TIS.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart99;
+begin
+
 connect954 := Tconnect.Create;
 connect954.NodeField := 'key';
 connect954.ProtoField := 'l_pinky3_key';
@@ -6955,6 +7451,11 @@ connect966.ProtoField := 'l_pinky_metacarpal_key';
 IS965.Connect := connect966;
 connect967 := Tconnect.Create;
 connect967.NodeField := 'keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart100;
+begin
+
 connect967.ProtoField := 'l_pinky_metacarpal_keyValue';
 { .AddConnect }
 IS965.Connect := connect967;
@@ -7009,6 +7510,11 @@ connect980.NodeField := 'value_changed';
 connect980.ProtoField := 'l_pinky_proximal_changed';
 { .AddConnect }
 IS977.Connect := connect980;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart101;
+begin
+
 { .SetIS }
 OrientationInterpolator976.IS := IS977;
 { .AddOrientationInterpolator }
@@ -7064,6 +7570,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 OrientationInterpolator994 := TOrientationInterpolatorNode.Create;
 IS995 := TIS.Create;
 connect996 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart102;
+begin
+
 connect996.NodeField := 'key';
 connect996.ProtoField := 'l_ring2_key';
 { .AddConnect }
@@ -7117,6 +7628,11 @@ IS1007.Connect := connect1008;
 connect1009 := Tconnect.Create;
 connect1009.NodeField := 'keyValue';
 connect1009.ProtoField := 'l_ring_distal_keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart103;
+begin
+
 { .AddConnect }
 IS1007.Connect := connect1009;
 connect1010 := Tconnect.Create;
@@ -7172,6 +7688,11 @@ connect1022.ProtoField := 'l_ring_middle_changed';
 IS1019.Connect := connect1022;
 { .SetIS }
 OrientationInterpolator1018.IS := IS1019;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart104;
+begin
+
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1018;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1018.EventSet_fraction);
@@ -7226,6 +7747,11 @@ OrientationInterpolator1036 := TOrientationInterpolatorNode.Create;
 IS1037 := TIS.Create;
 connect1038 := Tconnect.Create;
 connect1038.NodeField := 'key';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart105;
+begin
+
 connect1038.ProtoField := 'l_shoulder_key';
 { .AddConnect }
 IS1037.Connect := connect1038;
@@ -7280,6 +7806,11 @@ connect1051.NodeField := 'keyValue';
 connect1051.ProtoField := 'l_subtalar_keyValue';
 { .AddConnect }
 IS1049.Connect := connect1051;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart106;
+begin
+
 connect1052 := Tconnect.Create;
 connect1052.NodeField := 'value_changed';
 connect1052.ProtoField := 'l_subtalar_changed';
@@ -7335,6 +7866,11 @@ IS1061.Connect := connect1064;
 OrientationInterpolator1060.IS := IS1061;
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1060;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart107;
+begin
+
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1060.EventSet_fraction);
 { .AddX3DRoute }
 OrientationInterpolator1066 := TOrientationInterpolatorNode.Create;
@@ -7388,6 +7924,11 @@ IS1079 := TIS.Create;
 connect1080 := Tconnect.Create;
 connect1080.NodeField := 'key';
 connect1080.ProtoField := 'l_thumb_distal_key';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart108;
+begin
+
 { .AddConnect }
 IS1079.Connect := connect1080;
 connect1081 := Tconnect.Create;
@@ -7442,6 +7983,11 @@ connect1093.ProtoField := 'l_thumb_proximal_keyValue';
 { .AddConnect }
 IS1091.Connect := connect1093;
 connect1094 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart109;
+begin
+
 connect1094.NodeField := 'value_changed';
 connect1094.ProtoField := 'l_thumb_proximal_changed';
 { .AddConnect }
@@ -7497,6 +8043,11 @@ OrientationInterpolator1102.IS := IS1103;
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1102;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1102.EventSet_fraction);
+end;
+
+procedure InitHAnimBehaviorPrototypesPart110;
+begin
+
 { .AddX3DRoute }
 OrientationInterpolator1108 := TOrientationInterpolatorNode.Create;
 IS1109 := TIS.Create;
@@ -7551,6 +8102,11 @@ connect1122.NodeField := 'key';
 connect1122.ProtoField := 'r_ankle_key';
 { .AddConnect }
 IS1121.Connect := connect1122;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart111;
+begin
+
 connect1123 := Tconnect.Create;
 connect1123.NodeField := 'keyValue';
 connect1123.ProtoField := 'r_ankle_keyValue';
@@ -7604,6 +8160,11 @@ connect1135.ProtoField := 'r_clavicle_keyValue';
 IS1133.Connect := connect1135;
 connect1136 := Tconnect.Create;
 connect1136.NodeField := 'value_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart112;
+begin
+
 connect1136.ProtoField := 'r_clavicle_changed';
 { .AddConnect }
 IS1133.Connect := connect1136;
@@ -7660,6 +8221,11 @@ X3DPrototype603.OrientationInterpolator := OrientationInterpolator1144;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1144.EventSet_fraction);
 { .AddX3DRoute }
 OrientationInterpolator1150 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart113;
+begin
+
 IS1151 := TIS.Create;
 connect1152 := Tconnect.Create;
 connect1152.NodeField := 'key';
@@ -7713,6 +8279,11 @@ connect1164.ProtoField := 'r_eyebrow_joint_key';
 { .AddConnect }
 IS1163.Connect := connect1164;
 connect1165 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart114;
+begin
+
 connect1165.NodeField := 'keyValue';
 connect1165.ProtoField := 'r_eyebrow_joint_keyValue';
 { .AddConnect }
@@ -7766,6 +8337,11 @@ IS1175.Connect := connect1177;
 connect1178 := Tconnect.Create;
 connect1178.NodeField := 'value_changed';
 connect1178.ProtoField := 'r_eyelid_joint_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart115;
+begin
+
 { .AddConnect }
 IS1175.Connect := connect1178;
 { .SetIS }
@@ -7822,6 +8398,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 { .AddX3DRoute }
 OrientationInterpolator1192 := TOrientationInterpolatorNode.Create;
 IS1193 := TIS.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart116;
+begin
+
 connect1194 := Tconnect.Create;
 connect1194.NodeField := 'key';
 connect1194.ProtoField := 'r_hand_key';
@@ -7875,6 +8456,11 @@ connect1206.ProtoField := 'r_hip_key';
 IS1205.Connect := connect1206;
 connect1207 := Tconnect.Create;
 connect1207.NodeField := 'keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart117;
+begin
+
 connect1207.ProtoField := 'r_hip_keyValue';
 { .AddConnect }
 IS1205.Connect := connect1207;
@@ -7929,6 +8515,11 @@ connect1220.NodeField := 'value_changed';
 connect1220.ProtoField := 'r_index1_changed';
 { .AddConnect }
 IS1217.Connect := connect1220;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart118;
+begin
+
 { .SetIS }
 OrientationInterpolator1216.IS := IS1217;
 { .AddOrientationInterpolator }
@@ -7984,6 +8575,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 OrientationInterpolator1234 := TOrientationInterpolatorNode.Create;
 IS1235 := TIS.Create;
 connect1236 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart119;
+begin
+
 connect1236.NodeField := 'key';
 connect1236.ProtoField := 'r_index_distal_key';
 { .AddConnect }
@@ -8037,6 +8633,11 @@ IS1247.Connect := connect1248;
 connect1249 := Tconnect.Create;
 connect1249.NodeField := 'keyValue';
 connect1249.ProtoField := 'r_index_middle_keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart120;
+begin
+
 { .AddConnect }
 IS1247.Connect := connect1249;
 connect1250 := Tconnect.Create;
@@ -8092,6 +8693,11 @@ connect1262.ProtoField := 'r_knee_changed';
 IS1259.Connect := connect1262;
 { .SetIS }
 OrientationInterpolator1258.IS := IS1259;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart121;
+begin
+
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1258;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1258.EventSet_fraction);
@@ -8146,6 +8752,11 @@ OrientationInterpolator1276 := TOrientationInterpolatorNode.Create;
 IS1277 := TIS.Create;
 connect1278 := Tconnect.Create;
 connect1278.NodeField := 'key';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart122;
+begin
+
 connect1278.ProtoField := 'r_middle0_key';
 { .AddConnect }
 IS1277.Connect := connect1278;
@@ -8200,6 +8811,11 @@ connect1291.NodeField := 'keyValue';
 connect1291.ProtoField := 'r_middle2_keyValue';
 { .AddConnect }
 IS1289.Connect := connect1291;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart123;
+begin
+
 connect1292 := Tconnect.Create;
 connect1292.NodeField := 'value_changed';
 connect1292.ProtoField := 'r_middle2_changed';
@@ -8255,6 +8871,11 @@ IS1301.Connect := connect1304;
 OrientationInterpolator1300.IS := IS1301;
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1300;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart124;
+begin
+
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1300.EventSet_fraction);
 { .AddX3DRoute }
 OrientationInterpolator1306 := TOrientationInterpolatorNode.Create;
@@ -8308,6 +8929,11 @@ IS1319 := TIS.Create;
 connect1320 := Tconnect.Create;
 connect1320.NodeField := 'key';
 connect1320.ProtoField := 'r_middle_proximal_key';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart125;
+begin
+
 { .AddConnect }
 IS1319.Connect := connect1320;
 connect1321 := Tconnect.Create;
@@ -8362,6 +8988,11 @@ connect1333.ProtoField := 'r_midtarsal_keyValue';
 { .AddConnect }
 IS1331.Connect := connect1333;
 connect1334 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart126;
+begin
+
 connect1334.NodeField := 'value_changed';
 connect1334.ProtoField := 'r_midtarsal_changed';
 { .AddConnect }
@@ -8417,6 +9048,11 @@ OrientationInterpolator1342.IS := IS1343;
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1342;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1342.EventSet_fraction);
+end;
+
+procedure InitHAnimBehaviorPrototypesPart127;
+begin
+
 { .AddX3DRoute }
 OrientationInterpolator1348 := TOrientationInterpolatorNode.Create;
 IS1349 := TIS.Create;
@@ -8471,6 +9107,11 @@ connect1362.NodeField := 'key';
 connect1362.ProtoField := 'r_pinky_distal_key';
 { .AddConnect }
 IS1361.Connect := connect1362;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart128;
+begin
+
 connect1363 := Tconnect.Create;
 connect1363.NodeField := 'keyValue';
 connect1363.ProtoField := 'r_pinky_distal_keyValue';
@@ -8524,6 +9165,11 @@ connect1375.ProtoField := 'r_pinky_middle_keyValue';
 IS1373.Connect := connect1375;
 connect1376 := Tconnect.Create;
 connect1376.NodeField := 'value_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart129;
+begin
+
 connect1376.ProtoField := 'r_pinky_middle_changed';
 { .AddConnect }
 IS1373.Connect := connect1376;
@@ -8580,6 +9226,11 @@ X3DPrototype603.OrientationInterpolator := OrientationInterpolator1384;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1384.EventSet_fraction);
 { .AddX3DRoute }
 OrientationInterpolator1390 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart130;
+begin
+
 IS1391 := TIS.Create;
 connect1392 := Tconnect.Create;
 connect1392.NodeField := 'key';
@@ -8633,6 +9284,11 @@ connect1404.ProtoField := 'r_ring3_key';
 { .AddConnect }
 IS1403.Connect := connect1404;
 connect1405 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart131;
+begin
+
 connect1405.NodeField := 'keyValue';
 connect1405.ProtoField := 'r_ring3_keyValue';
 { .AddConnect }
@@ -8686,6 +9342,11 @@ IS1415.Connect := connect1417;
 connect1418 := Tconnect.Create;
 connect1418.NodeField := 'value_changed';
 connect1418.ProtoField := 'r_ring_metacarpal_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart132;
+begin
+
 { .AddConnect }
 IS1415.Connect := connect1418;
 { .SetIS }
@@ -8742,6 +9403,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 { .AddX3DRoute }
 OrientationInterpolator1432 := TOrientationInterpolatorNode.Create;
 IS1433 := TIS.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart133;
+begin
+
 connect1434 := Tconnect.Create;
 connect1434.NodeField := 'key';
 connect1434.ProtoField := 'r_scapula_key';
@@ -8795,6 +9461,11 @@ connect1446.ProtoField := 'r_sternoclavicular_key';
 IS1445.Connect := connect1446;
 connect1447 := Tconnect.Create;
 connect1447.NodeField := 'keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart134;
+begin
+
 connect1447.ProtoField := 'r_sternoclavicular_keyValue';
 { .AddConnect }
 IS1445.Connect := connect1447;
@@ -8849,6 +9520,11 @@ connect1460.NodeField := 'value_changed';
 connect1460.ProtoField := 'r_thigh_changed';
 { .AddConnect }
 IS1457.Connect := connect1460;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart135;
+begin
+
 { .SetIS }
 OrientationInterpolator1456.IS := IS1457;
 { .AddOrientationInterpolator }
@@ -8904,6 +9580,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 OrientationInterpolator1474 := TOrientationInterpolatorNode.Create;
 IS1475 := TIS.Create;
 connect1476 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart136;
+begin
+
 connect1476.NodeField := 'key';
 connect1476.ProtoField := 'r_thumb3_key';
 { .AddConnect }
@@ -8957,6 +9638,11 @@ IS1487.Connect := connect1488;
 connect1489 := Tconnect.Create;
 connect1489.NodeField := 'keyValue';
 connect1489.ProtoField := 'r_thumb_metacarpal_keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart137;
+begin
+
 { .AddConnect }
 IS1487.Connect := connect1489;
 connect1490 := Tconnect.Create;
@@ -9012,6 +9698,11 @@ connect1502.ProtoField := 'r_upperarm_changed';
 IS1499.Connect := connect1502;
 { .SetIS }
 OrientationInterpolator1498.IS := IS1499;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart138;
+begin
+
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1498;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1498.EventSet_fraction);
@@ -9066,6 +9757,11 @@ OrientationInterpolator1516 := TOrientationInterpolatorNode.Create;
 IS1517 := TIS.Create;
 connect1518 := Tconnect.Create;
 connect1518.NodeField := 'key';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart139;
+begin
+
 connect1518.ProtoField := 'sacrum_key';
 { .AddConnect }
 IS1517.Connect := connect1518;
@@ -9120,6 +9816,11 @@ connect1531.NodeField := 'keyValue';
 connect1531.ProtoField := 'skullbase_keyValue';
 { .AddConnect }
 IS1529.Connect := connect1531;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart140;
+begin
+
 connect1532 := Tconnect.Create;
 connect1532.NodeField := 'value_changed';
 connect1532.ProtoField := 'skullbase_changed';
@@ -9175,6 +9876,11 @@ IS1541.Connect := connect1544;
 OrientationInterpolator1540.IS := IS1541;
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1540;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart141;
+begin
+
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1540.EventSet_fraction);
 { .AddX3DRoute }
 OrientationInterpolator1546 := TOrientationInterpolatorNode.Create;
@@ -9228,6 +9934,11 @@ IS1559 := TIS.Create;
 connect1560 := Tconnect.Create;
 connect1560.NodeField := 'key';
 connect1560.ProtoField := 't5_key';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart142;
+begin
+
 { .AddConnect }
 IS1559.Connect := connect1560;
 connect1561 := Tconnect.Create;
@@ -9282,6 +9993,11 @@ connect1573.ProtoField := 't7_keyValue';
 { .AddConnect }
 IS1571.Connect := connect1573;
 connect1574 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart143;
+begin
+
 connect1574.NodeField := 'value_changed';
 connect1574.ProtoField := 't7_changed';
 { .AddConnect }
@@ -9337,6 +10053,11 @@ OrientationInterpolator1582.IS := IS1583;
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1582;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1582.EventSet_fraction);
+end;
+
+procedure InitHAnimBehaviorPrototypesPart144;
+begin
+
 { .AddX3DRoute }
 OrientationInterpolator1588 := TOrientationInterpolatorNode.Create;
 IS1589 := TIS.Create;
@@ -9391,6 +10112,11 @@ connect1602.NodeField := 'key';
 connect1602.ProtoField := 't12_key';
 { .AddConnect }
 IS1601.Connect := connect1602;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart145;
+begin
+
 connect1603 := Tconnect.Create;
 connect1603.NodeField := 'keyValue';
 connect1603.ProtoField := 't12_keyValue';
@@ -9444,6 +10170,11 @@ connect1615.ProtoField := 'vc1_keyValue';
 IS1613.Connect := connect1615;
 connect1616 := Tconnect.Create;
 connect1616.NodeField := 'value_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart146;
+begin
+
 connect1616.ProtoField := 'vc1_changed';
 { .AddConnect }
 IS1613.Connect := connect1616;
@@ -9500,6 +10231,11 @@ X3DPrototype603.OrientationInterpolator := OrientationInterpolator1624;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1624.EventSet_fraction);
 { .AddX3DRoute }
 OrientationInterpolator1630 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart147;
+begin
+
 IS1631 := TIS.Create;
 connect1632 := Tconnect.Create;
 connect1632.NodeField := 'key';
@@ -9553,6 +10289,11 @@ connect1644.ProtoField := 'vc6_key';
 { .AddConnect }
 IS1643.Connect := connect1644;
 connect1645 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart148;
+begin
+
 connect1645.NodeField := 'keyValue';
 connect1645.ProtoField := 'vc6_keyValue';
 { .AddConnect }
@@ -9606,6 +10347,11 @@ IS1655.Connect := connect1657;
 connect1658 := Tconnect.Create;
 connect1658.NodeField := 'value_changed';
 connect1658.ProtoField := 'vl1_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart149;
+begin
+
 { .AddConnect }
 IS1655.Connect := connect1658;
 { .SetIS }
@@ -9662,6 +10408,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 { .AddX3DRoute }
 OrientationInterpolator1672 := TOrientationInterpolatorNode.Create;
 IS1673 := TIS.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart150;
+begin
+
 connect1674 := Tconnect.Create;
 connect1674.NodeField := 'key';
 connect1674.ProtoField := 'vl4_key';
@@ -9715,6 +10466,11 @@ connect1686.ProtoField := 'vt1_key';
 IS1685.Connect := connect1686;
 connect1687 := Tconnect.Create;
 connect1687.NodeField := 'keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart151;
+begin
+
 connect1687.ProtoField := 'vt1_keyValue';
 { .AddConnect }
 IS1685.Connect := connect1687;
@@ -9769,6 +10525,11 @@ connect1700.NodeField := 'value_changed';
 connect1700.ProtoField := 'vt3_changed';
 { .AddConnect }
 IS1697.Connect := connect1700;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart152;
+begin
+
 { .SetIS }
 OrientationInterpolator1696.IS := IS1697;
 { .AddOrientationInterpolator }
@@ -9824,6 +10585,11 @@ X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpo
 OrientationInterpolator1714 := TOrientationInterpolatorNode.Create;
 IS1715 := TIS.Create;
 connect1716 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart153;
+begin
+
 connect1716.NodeField := 'key';
 connect1716.ProtoField := 'vt6_key';
 { .AddConnect }
@@ -9877,6 +10643,11 @@ IS1727.Connect := connect1728;
 connect1729 := Tconnect.Create;
 connect1729.NodeField := 'keyValue';
 connect1729.ProtoField := 'vt8_keyValue';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart154;
+begin
+
 { .AddConnect }
 IS1727.Connect := connect1729;
 connect1730 := Tconnect.Create;
@@ -9932,6 +10703,11 @@ connect1742.ProtoField := 'vt10_changed';
 IS1739.Connect := connect1742;
 { .SetIS }
 OrientationInterpolator1738.IS := IS1739;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart155;
+begin
+
 { .AddOrientationInterpolator }
 X3DPrototype603.OrientationInterpolator := OrientationInterpolator1738;
 X3DPrototype603.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator1738.EventSet_fraction);
@@ -9988,6 +10764,11 @@ X3DPrototype20.X3DPrototype := X3DPrototype603;
 Group18.X3DPrototype := X3DPrototype20;
 X3DPrototype1756 := TX3DPrototype.Create;
 X3DPrototype1756.NameField := 'HAnimBodyBehaviorChooser';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart156;
+begin
+
 X3DPrototype1756.Appinfo := 'The HAnimBodyBehaviorChooser node allows an author to select one of several HAnimHumanoid bodies and simultaneously apply multiple HAnimBehavior animations to the active body. Individual behaviors may be enabled or disabled at any time.';
 X3DInterfaceDeclaration1757 := TX3DInterfaceDeclaration.Create(nil);
 { TODO: supported Level of Articulation (LOA) might be adapted to more efficiently setup/teardown pertinent ROUTEs }
@@ -10042,6 +10823,11 @@ X3DField1763.Type := 'MFNode';
 { default NULL }
 { .AddX3DField }
 X3DInterfaceDeclaration1757.X3DField := X3DField1763;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart157;
+begin
+
 X3DField1764 := TX3DField.Create;
 X3DField1764.NameField := 'enabledBehaviorsArray';
 X3DField1764.AccessType := 'initializeOnly';
@@ -10090,6 +10876,11 @@ connect1772.ProtoField := 'whichBody';
 { .AddConnect }
 IS1771.Connect := connect1772;
 connect1773 := Tconnect.Create;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart158;
+begin
+
 connect1773.NodeField := 'children';
 connect1773.ProtoField := 'HumanoidArray';
 { .AddConnect }
@@ -10144,6 +10935,11 @@ Script1784.SetUrl(['HAnimBehaviorPrototypesScript.js','https://www.web3d.org/x3d
 X3DField1785 := TX3DField.Create;
 X3DField1785.NameField := 'HumanoidArray';
 X3DField1785.AccessType := 'initializeOnly';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart159;
+begin
+
 X3DField1785.Appinfo := '[HAnimHumanoid] nodes only';
 X3DField1785.Type := 'MFNode';
 { .SetX3DField }
@@ -10192,6 +10988,11 @@ X3DField1791.Type := 'SFInt32';
 Script1784.X3DField := X3DField1791;
 X3DField1792 := TX3DField.Create;
 X3DField1792.NameField := 'disableBehavior';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart160;
+begin
+
 X3DField1792.AccessType := 'inputOnly';
 X3DField1792.Appinfo := 'enable corresponding behavior';
 X3DField1792.Type := 'SFInt32';
@@ -10240,6 +11041,11 @@ IS1797.Connect := connect1800;
 connect1801 := Tconnect.Create;
 connect1801.NodeField := 'whichBody_changed';
 connect1801.ProtoField := 'whichBody_changed';
+end;
+
+procedure InitHAnimBehaviorPrototypesPart161;
+begin
+
 { .AddConnect }
 IS1797.Connect := connect1801;
 connect1802 := Tconnect.Create;
@@ -10297,6 +11103,11 @@ MFRotation1810.Value := '0 1 0 0 0 1 0 0.2 0 1 0 0.4';
 X3DPrototype1806.MFRotation := MFRotation1810;
 { .AddX3DPrototype }
 Group18.X3DPrototype := X3DPrototype1806;
+end;
+
+procedure InitHAnimBehaviorPrototypesPart162;
+begin
+
 X3DPrototype1811 := TX3DPrototypeNode.Create;
 X3DPrototype1811.NameField := 'HAnimBodyBehaviorChooser';
 MFNode1812 := TMFNode.Create;
@@ -10330,6 +11141,173 @@ X3DPrototype1811.MFBool := MFBool1817;
 Group18.X3DPrototype := X3DPrototype1811;
 { .AddGroup }
 X3D0.AddChildren([Group18]);
+end;
+
+function CreateHAnimBehaviorPrototypes: TX3DRootNode;
+begin
+InitHAnimBehaviorPrototypesPart0;
+InitHAnimBehaviorPrototypesPart1;
+InitHAnimBehaviorPrototypesPart2;
+InitHAnimBehaviorPrototypesPart3;
+InitHAnimBehaviorPrototypesPart4;
+InitHAnimBehaviorPrototypesPart5;
+InitHAnimBehaviorPrototypesPart6;
+InitHAnimBehaviorPrototypesPart7;
+InitHAnimBehaviorPrototypesPart8;
+InitHAnimBehaviorPrototypesPart9;
+InitHAnimBehaviorPrototypesPart10;
+InitHAnimBehaviorPrototypesPart11;
+InitHAnimBehaviorPrototypesPart12;
+InitHAnimBehaviorPrototypesPart13;
+InitHAnimBehaviorPrototypesPart14;
+InitHAnimBehaviorPrototypesPart15;
+InitHAnimBehaviorPrototypesPart16;
+InitHAnimBehaviorPrototypesPart17;
+InitHAnimBehaviorPrototypesPart18;
+InitHAnimBehaviorPrototypesPart19;
+InitHAnimBehaviorPrototypesPart20;
+InitHAnimBehaviorPrototypesPart21;
+InitHAnimBehaviorPrototypesPart22;
+InitHAnimBehaviorPrototypesPart23;
+InitHAnimBehaviorPrototypesPart24;
+InitHAnimBehaviorPrototypesPart25;
+InitHAnimBehaviorPrototypesPart26;
+InitHAnimBehaviorPrototypesPart27;
+InitHAnimBehaviorPrototypesPart28;
+InitHAnimBehaviorPrototypesPart29;
+InitHAnimBehaviorPrototypesPart30;
+InitHAnimBehaviorPrototypesPart31;
+InitHAnimBehaviorPrototypesPart32;
+InitHAnimBehaviorPrototypesPart33;
+InitHAnimBehaviorPrototypesPart34;
+InitHAnimBehaviorPrototypesPart35;
+InitHAnimBehaviorPrototypesPart36;
+InitHAnimBehaviorPrototypesPart37;
+InitHAnimBehaviorPrototypesPart38;
+InitHAnimBehaviorPrototypesPart39;
+InitHAnimBehaviorPrototypesPart40;
+InitHAnimBehaviorPrototypesPart41;
+InitHAnimBehaviorPrototypesPart42;
+InitHAnimBehaviorPrototypesPart43;
+InitHAnimBehaviorPrototypesPart44;
+InitHAnimBehaviorPrototypesPart45;
+InitHAnimBehaviorPrototypesPart46;
+InitHAnimBehaviorPrototypesPart47;
+InitHAnimBehaviorPrototypesPart48;
+InitHAnimBehaviorPrototypesPart49;
+InitHAnimBehaviorPrototypesPart50;
+InitHAnimBehaviorPrototypesPart51;
+InitHAnimBehaviorPrototypesPart52;
+InitHAnimBehaviorPrototypesPart53;
+InitHAnimBehaviorPrototypesPart54;
+InitHAnimBehaviorPrototypesPart55;
+InitHAnimBehaviorPrototypesPart56;
+InitHAnimBehaviorPrototypesPart57;
+InitHAnimBehaviorPrototypesPart58;
+InitHAnimBehaviorPrototypesPart59;
+InitHAnimBehaviorPrototypesPart60;
+InitHAnimBehaviorPrototypesPart61;
+InitHAnimBehaviorPrototypesPart62;
+InitHAnimBehaviorPrototypesPart63;
+InitHAnimBehaviorPrototypesPart64;
+InitHAnimBehaviorPrototypesPart65;
+InitHAnimBehaviorPrototypesPart66;
+InitHAnimBehaviorPrototypesPart67;
+InitHAnimBehaviorPrototypesPart68;
+InitHAnimBehaviorPrototypesPart69;
+InitHAnimBehaviorPrototypesPart70;
+InitHAnimBehaviorPrototypesPart71;
+InitHAnimBehaviorPrototypesPart72;
+InitHAnimBehaviorPrototypesPart73;
+InitHAnimBehaviorPrototypesPart74;
+InitHAnimBehaviorPrototypesPart75;
+InitHAnimBehaviorPrototypesPart76;
+InitHAnimBehaviorPrototypesPart77;
+InitHAnimBehaviorPrototypesPart78;
+InitHAnimBehaviorPrototypesPart79;
+InitHAnimBehaviorPrototypesPart80;
+InitHAnimBehaviorPrototypesPart81;
+InitHAnimBehaviorPrototypesPart82;
+InitHAnimBehaviorPrototypesPart83;
+InitHAnimBehaviorPrototypesPart84;
+InitHAnimBehaviorPrototypesPart85;
+InitHAnimBehaviorPrototypesPart86;
+InitHAnimBehaviorPrototypesPart87;
+InitHAnimBehaviorPrototypesPart88;
+InitHAnimBehaviorPrototypesPart89;
+InitHAnimBehaviorPrototypesPart90;
+InitHAnimBehaviorPrototypesPart91;
+InitHAnimBehaviorPrototypesPart92;
+InitHAnimBehaviorPrototypesPart93;
+InitHAnimBehaviorPrototypesPart94;
+InitHAnimBehaviorPrototypesPart95;
+InitHAnimBehaviorPrototypesPart96;
+InitHAnimBehaviorPrototypesPart97;
+InitHAnimBehaviorPrototypesPart98;
+InitHAnimBehaviorPrototypesPart99;
+InitHAnimBehaviorPrototypesPart100;
+InitHAnimBehaviorPrototypesPart101;
+InitHAnimBehaviorPrototypesPart102;
+InitHAnimBehaviorPrototypesPart103;
+InitHAnimBehaviorPrototypesPart104;
+InitHAnimBehaviorPrototypesPart105;
+InitHAnimBehaviorPrototypesPart106;
+InitHAnimBehaviorPrototypesPart107;
+InitHAnimBehaviorPrototypesPart108;
+InitHAnimBehaviorPrototypesPart109;
+InitHAnimBehaviorPrototypesPart110;
+InitHAnimBehaviorPrototypesPart111;
+InitHAnimBehaviorPrototypesPart112;
+InitHAnimBehaviorPrototypesPart113;
+InitHAnimBehaviorPrototypesPart114;
+InitHAnimBehaviorPrototypesPart115;
+InitHAnimBehaviorPrototypesPart116;
+InitHAnimBehaviorPrototypesPart117;
+InitHAnimBehaviorPrototypesPart118;
+InitHAnimBehaviorPrototypesPart119;
+InitHAnimBehaviorPrototypesPart120;
+InitHAnimBehaviorPrototypesPart121;
+InitHAnimBehaviorPrototypesPart122;
+InitHAnimBehaviorPrototypesPart123;
+InitHAnimBehaviorPrototypesPart124;
+InitHAnimBehaviorPrototypesPart125;
+InitHAnimBehaviorPrototypesPart126;
+InitHAnimBehaviorPrototypesPart127;
+InitHAnimBehaviorPrototypesPart128;
+InitHAnimBehaviorPrototypesPart129;
+InitHAnimBehaviorPrototypesPart130;
+InitHAnimBehaviorPrototypesPart131;
+InitHAnimBehaviorPrototypesPart132;
+InitHAnimBehaviorPrototypesPart133;
+InitHAnimBehaviorPrototypesPart134;
+InitHAnimBehaviorPrototypesPart135;
+InitHAnimBehaviorPrototypesPart136;
+InitHAnimBehaviorPrototypesPart137;
+InitHAnimBehaviorPrototypesPart138;
+InitHAnimBehaviorPrototypesPart139;
+InitHAnimBehaviorPrototypesPart140;
+InitHAnimBehaviorPrototypesPart141;
+InitHAnimBehaviorPrototypesPart142;
+InitHAnimBehaviorPrototypesPart143;
+InitHAnimBehaviorPrototypesPart144;
+InitHAnimBehaviorPrototypesPart145;
+InitHAnimBehaviorPrototypesPart146;
+InitHAnimBehaviorPrototypesPart147;
+InitHAnimBehaviorPrototypesPart148;
+InitHAnimBehaviorPrototypesPart149;
+InitHAnimBehaviorPrototypesPart150;
+InitHAnimBehaviorPrototypesPart151;
+InitHAnimBehaviorPrototypesPart152;
+InitHAnimBehaviorPrototypesPart153;
+InitHAnimBehaviorPrototypesPart154;
+InitHAnimBehaviorPrototypesPart155;
+InitHAnimBehaviorPrototypesPart156;
+InitHAnimBehaviorPrototypesPart157;
+InitHAnimBehaviorPrototypesPart158;
+InitHAnimBehaviorPrototypesPart159;
+InitHAnimBehaviorPrototypesPart160;
+InitHAnimBehaviorPrototypesPart161;
+InitHAnimBehaviorPrototypesPart162;
 Result := X3D0;
 end;
 

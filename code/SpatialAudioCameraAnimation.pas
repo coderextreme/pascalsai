@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateSpatialAudioCameraAnimation: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -58,6 +57,8 @@ AudioClip59: TAudioClipNode;
 SpatialSound60: TSpatialSoundNode;
 Gain61: TGainNode;
 AudioClip62: TAudioClipNode;
+
+procedure InitSpatialAudioCameraAnimationPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -104,6 +105,11 @@ TimeSensor19.Loop := True;
 { .AddChildren }
 Group14.AddChildren([TimeSensor19]);
 PositionInterpolator20 := TPositionInterpolatorNode.Create;
+end;
+
+procedure InitSpatialAudioCameraAnimationPart1;
+begin
+
 PositionInterpolator20.SetKey([0,0.25,0.5,0.75,1]);
 PositionInterpolator20.SetKeyValue([Vector3(0,2000,3500),Vector3(0,2000,0),Vector3(0,2000,-3500),Vector3(0,2000,0),Vector3(0,2000,3500)]);
 { .AddChildren }
@@ -159,6 +165,11 @@ Billboard36 := TBillboardNode.Create;
 Transform37 := TTransformNode.Create;
 Transform37.Rotation := Vector4(1,0,0,-0.5);
 Transform37.Scale := Vector3(100,100,100);
+end;
+
+procedure InitSpatialAudioCameraAnimationPart2;
+begin
+
 Transform37.Translation := Vector3(0,100,0);
 Shape38 := TShapeNode.Create;
 Appearance39 := TAppearanceNode.Create;
@@ -211,6 +222,11 @@ Transform49.Translation := Vector3(0,100,0);
 Shape50 := TShapeNode.Create;
 Appearance51 := TAppearanceNode.Create;
 Material52 := TMaterialNode.Create;
+end;
+
+procedure InitSpatialAudioCameraAnimationPart3;
+begin
+
 Material52.AmbientIntensity := 0.0933;
 Material52.DiffuseColor := Vector3(1,1,1);
 Material52.Shininess := 0.51;
@@ -267,6 +283,14 @@ StreamAudioDestination56.AddChildren([SpatialSound60]);
 Group14.AddChildren([StreamAudioDestination56]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function CreateSpatialAudioCameraAnimation: TX3DRootNode;
+begin
+InitSpatialAudioCameraAnimationPart0;
+InitSpatialAudioCameraAnimationPart1;
+InitSpatialAudioCameraAnimationPart2;
+InitSpatialAudioCameraAnimationPart3;
 Result := X3D0;
 end;
 

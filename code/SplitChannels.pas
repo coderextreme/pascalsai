@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateSplitChannels: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -75,6 +74,8 @@ Appearance72: TAppearanceNode;
 Material73: TMaterialNode;
 ImageTexture74: TImageTextureNode;
 Box75: TBoxNode;
+
+procedure InitSplitChannelsPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -120,6 +121,11 @@ Shape21 := TShapeNode.Create;
 Appearance22 := TAppearanceNode.Create;
 Material23 := TMaterialNode.Create;
 Material23.DiffuseColor := Vector3(0,1,0);
+end;
+
+procedure InitSplitChannelsPart1;
+begin
+
 Material23.EmissiveColor := Vector3(0.8,0.8,0.8);
 Material23.SpecularColor := Vector3(0.01,0.01,0.01);
 { .SetMaterial }
@@ -172,6 +178,11 @@ Material34.Shininess := 0.51;
 Material34.SpecularColor := Vector3(0.46,0.46,0.46);
 { .SetMaterial }
 Appearance33.Material := Material34;
+end;
+
+procedure InitSplitChannelsPart2;
+begin
+
 { .SetAppearance }
 Shape32.Appearance := Appearance33;
 Text35 := TTextNode.Create;
@@ -224,6 +235,11 @@ Material46.SpecularColor := Vector3(0.01,0.01,0.01);
 Appearance45.Material := Material46;
 ImageTexture47 := TImageTextureNode.Create;
 ImageTexture47.SetUrl(['images/line.png','https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/line.png']);
+end;
+
+procedure InitSplitChannelsPart3;
+begin
+
 { .SetTexture }
 Appearance45.Texture := ImageTexture47;
 { .SetAppearance }
@@ -279,6 +295,11 @@ Box59 := TBoxNode.Create;
 Box59.Size := Vector3(1500,10,500);
 { .SetGeometry }
 Shape56.Geometry := Box59;
+end;
+
+procedure InitSplitChannelsPart4;
+begin
+
 { .AddChild }
 Transform55.AddChildren([Shape56]);
 { .AddChildren }
@@ -333,6 +354,11 @@ ImageTexture74 := TImageTextureNode.Create;
 ImageTexture74.SetUrl(['images/loudspeaker.png','https://www.web3d.org/x3d/content/examples/X3dForAdvancedModeling/AudioSpatialSound/images/loudspeaker.png']);
 { .SetTexture }
 Appearance72.Texture := ImageTexture74;
+end;
+
+procedure InitSplitChannelsPart5;
+begin
+
 { .SetAppearance }
 Shape71.Appearance := Appearance72;
 Box75 := TBoxNode.Create;
@@ -345,6 +371,16 @@ Transform70.AddChildren([Shape71]);
 Group14.AddChildren([Transform70]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function CreateSplitChannels: TX3DRootNode;
+begin
+InitSplitChannelsPart0;
+InitSplitChannelsPart1;
+InitSplitChannelsPart2;
+InitSplitChannelsPart3;
+InitSplitChannelsPart4;
+InitSplitChannelsPart5;
 Result := X3D0;
 end;
 

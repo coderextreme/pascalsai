@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateLOA1_JumpAnimation: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group17: TGroupNode;
@@ -117,6 +116,8 @@ Text136: TTextNode;
 FontStyle137: TFontStyleNode;
 Appearance138: TAppearanceNode;
 Material139: TMaterialNode;
+
+procedure InitLOA1_JumpAnimationPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -161,6 +162,11 @@ X3DField22.Value := 'true';
 X3DInterfaceDeclaration20.X3DField := X3DField22;
 X3DField23 := TX3DField.Create;
 X3DField23.NameField := 'loop';
+end;
+
+procedure InitLOA1_JumpAnimationPart1;
+begin
+
 X3DField23.AccessType := 'inputOutput';
 X3DField23.Type := 'SFBool';
 X3DField23.Value := 'true';
@@ -208,6 +214,11 @@ X3DField30 := TX3DField.Create;
 X3DField30.NameField := 'lower_body_rotation_changed';
 X3DField30.AccessType := 'outputOnly';
 X3DField30.Type := 'SFRotation';
+end;
+
+procedure InitLOA1_JumpAnimationPart2;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration20.X3DField := X3DField30;
 X3DField31 := TX3DField.Create;
@@ -256,6 +267,11 @@ X3DField38 := TX3DField.Create;
 X3DField38.NameField := 'r_midtarsal_rotation_changed';
 X3DField38.AccessType := 'outputOnly';
 X3DField38.Type := 'SFRotation';
+end;
+
+procedure InitLOA1_JumpAnimationPart3;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration20.X3DField := X3DField38;
 X3DField39 := TX3DField.Create;
@@ -304,6 +320,11 @@ X3DField46 := TX3DField.Create;
 X3DField46.NameField := 'r_wrist_rotation_changed';
 X3DField46.AccessType := 'outputOnly';
 X3DField46.Type := 'SFRotation';
+end;
+
+procedure InitLOA1_JumpAnimationPart4;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration20.X3DField := X3DField46;
 { .SetX3DInterfaceDeclaration }
@@ -355,6 +376,11 @@ Group48.AddChildren([TimeSensor49]);
 PositionInterpolator58 := TPositionInterpolatorNode.Create;
 PositionInterpolator58.SetKey([0,0.04,0.08,0.12,0.16,0.2,0.24,0.28,0.32,0.36,0.4,0.44,0.48,0.64,0.76,0.8,0.84,0.88,0.92,0.96,1]);
 PositionInterpolator58.SetKeyValue([Vector3(0,0,0),Vector3(0,-0.01264,-0.01289),Vector3(0,-0.04712,-0.03738),Vector3(-0.0003345,-0.1049,-0.05353),Vector3(-0.0005712,-0.1892,-0.06561),Vector3(-0.0008233,-0.286,-0.06276),Vector3(-0.0009591,-0.3795,-0.05148),Vector3(-0.00106,-0.4484,-0.03656),Vector3(-0.00106,-0.4484,-0.03656),Vector3(-0.001122,-0.3269,-0.1499),Vector3(-0.0008616,-0.13,-0.06358),Vector3(-0.0005128,-0.03123,-0.05488),Vector3(0.0004779,0.053,0.02732),Vector3(0.0001728,0.4148,0.006873),Vector3(0,0.03045,0.02148),Vector3(0,-0.01299,-0.01057),Vector3(0,-0.06932,-0.01064),Vector3(0.0001365,-0.1037,-0.005059),Vector3(0.0001279,-0.07198,-0.007596),Vector3(0.000141,-0.01626,-0.004935),Vector3(0,0,0)]);
+end;
+
+procedure InitLOA1_JumpAnimationPart5;
+begin
+
 IS59 := TIS.Create;
 connect60 := Tconnect.Create;
 connect60.NodeField := 'value_changed';
@@ -407,6 +433,11 @@ Group48.AddChildren([OrientationInterpolator67]);
 OrientationInterpolator70 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator70.SetKey([0,0.28,0.32,0.48,0.64,0.76,0.88,1]);
 OrientationInterpolator70.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,2.047),Vector4(1,0,0,2.047),Vector4(0,0,1,0),Vector4(1,0,0,1.566),Vector4(1,0,0,0.5913),Vector4(1,0,0,0.9235),Vector4(0,0,1,0)]);
+end;
+
+procedure InitLOA1_JumpAnimationPart6;
+begin
+
 IS71 := TIS.Create;
 connect72 := Tconnect.Create;
 connect72.NodeField := 'value_changed';
@@ -459,6 +490,11 @@ Group48.AddChildren([OrientationInterpolator79]);
 OrientationInterpolator82 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator82.SetKey([0,0.28,0.32,0.48,0.64,0.76,0.88,1]);
 OrientationInterpolator82.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,2.005),Vector4(1,0,0,2.005),Vector4(0,0,1,0),Vector4(1,0,0,0.9507),Vector4(1,0,0,0.5845),Vector4(1,0,0,0.9054),Vector4(0,0,1,0)]);
+end;
+
+procedure InitLOA1_JumpAnimationPart7;
+begin
+
 IS83 := TIS.Create;
 connect84 := Tconnect.Create;
 connect84.NodeField := 'value_changed';
@@ -511,6 +547,11 @@ Group48.AddChildren([OrientationInterpolator91]);
 OrientationInterpolator94 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator94.SetKey([0,0.28,0.32,0.48,0.76,1]);
 OrientationInterpolator94.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.5989),Vector4(-1,0,0,0.5989),Vector4(-1,0,0,0.3216),Vector4(1,0,0,0.06503),Vector4(0,0,1,0)]);
+end;
+
+procedure InitLOA1_JumpAnimationPart8;
+begin
+
 IS95 := TIS.Create;
 connect96 := Tconnect.Create;
 connect96.NodeField := 'value_changed';
@@ -563,6 +604,11 @@ Group48.AddChildren([OrientationInterpolator103]);
 OrientationInterpolator106 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator106.SetKey([0,0.28,0.32,0.64,0.76,0.88,1]);
 OrientationInterpolator106.SetKeyValue([Vector4(0,0,1,0),Vector4(0.9992,0.02042,0.03558,4.688),Vector4(0.9992,0.02042,0.03558,4.688),Vector4(0.9989,-0.04623,0.005159,4.079),Vector4(-0.8687,-0.2525,-0.4261,1.501),Vector4(-0.941,-0.2893,-0.1754,0.4788),Vector4(0,0,1,0)]);
+end;
+
+procedure InitLOA1_JumpAnimationPart9;
+begin
+
 IS107 := TIS.Create;
 connect108 := Tconnect.Create;
 connect108.NodeField := 'value_changed';
@@ -624,6 +670,11 @@ X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpola
 X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator88.EventSet_fraction);
 { .AddX3DRoute }
 X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator91.EventSet_fraction);
+end;
+
+procedure InitLOA1_JumpAnimationPart10;
+begin
+
 { .AddX3DRoute }
 X3DPrototype47.AddRoute(TimeSensor49.EventFraction_changed, OrientationInterpolator94.EventSet_fraction);
 { .AddX3DRoute }
@@ -671,6 +722,21 @@ Anchor134.AddChildren([Shape135]);
 Group17.AddChildren([Anchor134]);
 { .AddGroup }
 X3D0.AddChildren([Group17]);
+end;
+
+function CreateLOA1_JumpAnimation: TX3DRootNode;
+begin
+InitLOA1_JumpAnimationPart0;
+InitLOA1_JumpAnimationPart1;
+InitLOA1_JumpAnimationPart2;
+InitLOA1_JumpAnimationPart3;
+InitLOA1_JumpAnimationPart4;
+InitLOA1_JumpAnimationPart5;
+InitLOA1_JumpAnimationPart6;
+InitLOA1_JumpAnimationPart7;
+InitLOA1_JumpAnimationPart8;
+InitLOA1_JumpAnimationPart9;
+InitLOA1_JumpAnimationPart10;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateStringArrayEncodingExamples: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group17: TGroupNode;
@@ -21,6 +20,8 @@ Text21: TTextNode;
 FontStyle22: TFontStyleNode;
 Appearance23: TAppearanceNode;
 Material24: TMaterialNode;
+
+procedure InitStringArrayEncodingExamplesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -70,10 +71,21 @@ Material24.DiffuseColor := Vector3(0.6,0.4,0.2);
 Appearance23.Material := Material24;
 { .SetAppearance }
 Shape20.Appearance := Appearance23;
+end;
+
+procedure InitStringArrayEncodingExamplesPart1;
+begin
+
 { .AddChildren }
 Group17.AddChildren([Shape20]);
 { .AddGroup }
 X3D0.AddChildren([Group17]);
+end;
+
+function CreateStringArrayEncodingExamples: TX3DRootNode;
+begin
+InitStringArrayEncodingExamplesPart0;
+InitStringArrayEncodingExamplesPart1;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createflowers4: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group16: TGroupNode;
@@ -46,6 +45,8 @@ X3DField45: TX3DField;
 X3DField46: TX3DField;
 X3DField47: TX3DField;
 TimeSensor48: TTimeSensorNode;
+
+procedure Initflowers4Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -91,6 +92,11 @@ ImageTexture24 := TImageTextureNode.Create;
 ImageTexture24.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_back.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_back.png']);
 { .SetBackTexture }
 ComposedCubeMapTexture23.BackTexture := ImageTexture24;
+end;
+
+procedure Initflowers4Part1;
+begin
+
 ImageTexture25 := TImageTextureNode.Create;
 ImageTexture25.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_bottom.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_bottom.png']);
 { .SetBottomTexture }
@@ -140,6 +146,11 @@ X3DField34 := TX3DField.Create;
 X3DField34.NameField := 'scale';
 X3DField34.Type := 'SFFloat';
 X3DField34.AccessType := 'inputOutput';
+end;
+
+procedure Initflowers4Part2;
+begin
+
 X3DField34.Value := '0.5';
 { .AddX3DField }
 ComposedShader30.X3DField := X3DField34;
@@ -193,6 +204,11 @@ X3DField43 := TX3DField.Create;
 X3DField43.NameField := 'coordIndexes';
 X3DField43.AccessType := 'outputOnly';
 X3DField43.Type := 'MFInt32';
+end;
+
+procedure Initflowers4Part3;
+begin
+
 { .AddX3DField }
 Script40.X3DField := X3DField43;
 X3DField44 := TX3DField.Create;
@@ -309,6 +325,14 @@ Group16.AddRoute(TimeSensor48.EventFraction_changed, Script40.EventSet_fraction)
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group16]);
+end;
+
+function Createflowers4: TX3DRootNode;
+begin
+Initflowers4Part0;
+Initflowers4Part1;
+Initflowers4Part2;
+Initflowers4Part3;
 Result := X3D0;
 end;
 

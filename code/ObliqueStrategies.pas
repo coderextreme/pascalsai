@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateObliqueStrategies: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group33: TGroupNode;
@@ -84,6 +83,8 @@ FontStyle107: TFontStyleNode;
 Appearance108: TAppearanceNode;
 Transform109: TTransformNode;
 Shape110: TShapeNode;
+
+procedure InitObliqueStrategiesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -126,6 +127,11 @@ WorldInfo34.Title := 'ObliqueStrategies.x3d';
 { .AddChildren }
 Group33.AddChildren([WorldInfo34]);
 NavigationInfo35 := TNavigationInfoNode.Create;
+end;
+
+procedure InitObliqueStrategiesPart1;
+begin
+
 NavigationInfo35.SetType(['NONE']);
 { .AddChildren }
 Group33.AddChildren([NavigationInfo35]);
@@ -176,6 +182,11 @@ Shape45.Geometry := IndexedFaceSet46;
 Appearance48 := TAppearanceNode.Create;
 Material49 := TMaterialNode.Create;
 Material49.AmbientIntensity := 0.245763;
+end;
+
+procedure InitObliqueStrategiesPart2;
+begin
+
 Material49.DiffuseColor := Vector3(0.34773,0.090909,0.005289);
 Material49.Shininess := 0.07;
 Material49.SpecularColor := Vector3(0.336735,0.051091,0.051091);
@@ -227,6 +238,11 @@ X3DField55 := TX3DField.Create;
 X3DField55.NameField := 'selectPreviousCard';
 X3DField55.AccessType := 'inputOnly';
 X3DField55.Type := 'SFBool';
+end;
+
+procedure InitObliqueStrategiesPart3;
+begin
+
 { .AddX3DField }
 Script50.X3DField := X3DField55;
 X3DField56 := TX3DField.Create;
@@ -278,6 +294,11 @@ Transform59.AddRoute(Script50.EventString_changed, Text61.FdString);
 { .AddX3DRoute }
 Sound66 := TSoundNode.Create;
 Sound66.MaxBack := 100;
+end;
+
+procedure InitObliqueStrategiesPart4;
+begin
+
 Sound66.MaxFront := 100;
 Sound66.MinBack := 20;
 Sound66.MinFront := 20;
@@ -337,6 +358,11 @@ Coordinate81.SetPoint([Vector3(1,1,0),Vector3(1,-1,0),Vector3(-1,-1,0),Vector3(-
 IndexedFaceSet80.Coord := Coordinate81;
 { .SetGeometry }
 Shape79.Geometry := IndexedFaceSet80;
+end;
+
+procedure InitObliqueStrategiesPart5;
+begin
+
 Appearance82 := TAppearanceNode.Create;
 Material83 := TMaterialNode.Create;
 Material83.Transparency := 1;
@@ -393,6 +419,11 @@ Shape96 := TShapeNode.Create;
 Text97 := TTextNode.Create;
 Text97.SetText(['random']);
 FontStyle98 := FontStyle41;
+end;
+
+procedure InitObliqueStrategiesPart6;
+begin
+
 { .SetFontStyle }
 Text97.FontStyle := FontStyle98;
 { .SetGeometry }
@@ -446,6 +477,17 @@ Transform102.AddChildren([Anchor103]);
 Group33.AddChildren([Transform102]);
 { .AddGroup }
 X3D0.AddChildren([Group33]);
+end;
+
+function CreateObliqueStrategies: TX3DRootNode;
+begin
+InitObliqueStrategiesPart0;
+InitObliqueStrategiesPart1;
+InitObliqueStrategiesPart2;
+InitObliqueStrategiesPart3;
+InitObliqueStrategiesPart4;
+InitObliqueStrategiesPart5;
+InitObliqueStrategiesPart6;
 Result := X3D0;
 end;
 

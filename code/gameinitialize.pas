@@ -68,7 +68,7 @@ begin
   AddScene(Application,Viewport,BoxProto.CreateBoxes(Root));
   AddScene(Application,Viewport,CreateIfscubeworks);
   { AddScene(Application,Viewport,CreateAsphere); }
-  AddScene(Application,Viewport,JinScaledV2L1LOA4OnlyMarkers11g);
+  AddScene(Application,Viewport,CreateJinScaledV2L1LOA4OnlyMarkers11g);
   { AddScene(Application,Viewport,CreateStandardHumanoid); }
 
   { Frame the camera on the cubes (done before adding the large ground, so the

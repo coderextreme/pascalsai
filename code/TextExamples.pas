@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateTextExamples: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group12: TGroupNode;
@@ -30,6 +29,8 @@ Shape25: TShapeNode;
 Text26: TTextNode;
 FontStyle27: TFontStyleNode;
 Appearance28: TAppearanceNode;
+
+procedure InitTextExamplesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -78,6 +79,11 @@ Text21.SetText(['I don''t think so','he said "Hi"']);
 FontStyle22 := FontStyle16;
 { .SetFontStyle }
 Text21.FontStyle := FontStyle22;
+end;
+
+procedure InitTextExamplesPart1;
+begin
+
 { .SetGeometry }
 Shape20.Geometry := Text21;
 Appearance23 := Appearance17;
@@ -106,6 +112,12 @@ Transform24.AddChildren([Shape25]);
 Group12.AddChildren([Transform24]);
 { .AddGroup }
 X3D0.AddChildren([Group12]);
+end;
+
+function CreateTextExamples: TX3DRootNode;
+begin
+InitTextExamplesPart0;
+InitTextExamplesPart1;
 Result := X3D0;
 end;
 

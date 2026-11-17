@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createx3dconnectorProto: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group10: TGroupNode;
@@ -109,6 +108,8 @@ SFNode106: TSFNode;
 Transform107: TTransformNode;
 SFNode108: TSFNode;
 Transform109: TTransformNode;
+
+procedure Initx3dconnectorProtoPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -160,6 +161,11 @@ Transform14.AddRoute(PlaneSensor19.EventTranslation_changed, Transform14.FdTrans
 { .AddChildren }
 Group10.AddChildren([Transform14]);
 Transform21 := TTransformNode.Create;
+end;
+
+procedure Initx3dconnectorProtoPart1;
+begin
+
 Transform21.Translation := Vector3(1,-1,0.01);
 Shape22 := TShapeNode.Create;
 Appearance23 := TAppearanceNode.Create;
@@ -214,6 +220,11 @@ Transform35.Translation := Vector3(-1,1,0.01);
 Shape36 := TShapeNode.Create;
 Appearance37 := TAppearanceNode.Create;
 Material38 := TMaterialNode.Create;
+end;
+
+procedure Initx3dconnectorProtoPart2;
+begin
+
 Material38.DiffuseColor := Vector3(0.2,0.7,0.2);
 { .SetMaterial }
 Appearance37.Material := Material38;
@@ -270,6 +281,11 @@ Cylinder53 := TCylinderNode.Create;
 Cylinder53.Radius := 0.05;
 { .SetGeometry }
 Shape50.Geometry := Cylinder53;
+end;
+
+procedure Initx3dconnectorProtoPart3;
+begin
+
 { .AddChild }
 Transform49.AddChildren([Shape50]);
 { .AddChildren }
@@ -322,6 +338,11 @@ X3DField65 := TX3DField.Create;
 X3DField65.NameField := 'rotscalenode';
 X3DField65.AccessType := 'initializeOnly';
 X3DField65.Type := 'SFNode';
+end;
+
+procedure Initx3dconnectorProtoPart4;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration61.X3DField := X3DField65;
 X3DField66 := TX3DField.Create;
@@ -371,6 +392,11 @@ X3DField74.AccessType := 'inputOnly';
 X3DField74.Type := 'SFVec3f';
 { .AddX3DField }
 Script69.X3DField := X3DField74;
+end;
+
+procedure Initx3dconnectorProtoPart5;
+begin
+
 X3DField75 := TX3DField.Create;
 X3DField75.NameField := 'set_endpoint';
 X3DField75.AccessType := 'inputOnly';
@@ -560,6 +586,16 @@ Group10.AddRoute(Transform35.EventTranslation_changed, X3DPrototype101.EventSet_
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function Createx3dconnectorProto: TX3DRootNode;
+begin
+Initx3dconnectorProtoPart0;
+Initx3dconnectorProtoPart1;
+Initx3dconnectorProtoPart2;
+Initx3dconnectorProtoPart3;
+Initx3dconnectorProtoPart4;
+Initx3dconnectorProtoPart5;
 Result := X3D0;
 end;
 

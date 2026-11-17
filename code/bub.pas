@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbub: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -56,6 +55,8 @@ TimeSensor54: TTimeSensorNode;
 X3DPrototype57: TX3DPrototypeNode;
 X3DPrototype58: TX3DPrototypeNode;
 X3DPrototype59: TX3DPrototypeNode;
+
+procedure InitbubPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -101,6 +102,11 @@ Shape22 := TShapeNode.Create;
 Appearance23 := TAppearanceNode.Create;
 Material24 := TMaterialNode.Create;
 Material24.DiffuseColor := Vector3(0.7,0.7,0.7);
+end;
+
+procedure InitbubPart1;
+begin
+
 Material24.SpecularColor := Vector3(0.5,0.5,0.5);
 { .SetMaterial }
 Appearance23.Material := Material24;
@@ -178,6 +184,11 @@ X3DField35 := TX3DField.Create;
 X3DField35.NameField := 'bias';
 X3DField35.Type := 'SFFloat';
 X3DField35.AccessType := 'inputOutput';
+end;
+
+procedure InitbubPart2;
+begin
+
 X3DField35.Value := '0.5';
 { .AddX3DField }
 ComposedShader32.X3DField := X3DField35;
@@ -227,6 +238,11 @@ X3DField43.Value := '0.98 1 1.033';
 ComposedShader40.X3DField := X3DField43;
 X3DField44 := TX3DField.Create;
 X3DField44.NameField := 'bias';
+end;
+
+procedure InitbubPart3;
+begin
+
 X3DField44.Type := 'SFFloat';
 X3DField44.AccessType := 'inputOutput';
 X3DField44.Value := '0.5';
@@ -278,6 +294,11 @@ Script50.X3DField := X3DField51;
 X3DField52 := TX3DField.Create;
 X3DField52.NameField := 'velocity';
 X3DField52.AccessType := 'inputOutput';
+end;
+
+procedure InitbubPart4;
+begin
+
 X3DField52.Type := 'SFVec3f';
 X3DField52.Value := '0 0 0';
 { .AddX3DField }
@@ -343,6 +364,15 @@ X3DPrototype59.NameField := 'Bubble';
 Group15.X3DPrototype := X3DPrototype59;
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function Createbub: TX3DRootNode;
+begin
+InitbubPart0;
+InitbubPart1;
+InitbubPart2;
+InitbubPart3;
+InitbubPart4;
 Result := X3D0;
 end;
 

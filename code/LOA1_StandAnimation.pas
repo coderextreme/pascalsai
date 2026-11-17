@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateLOA1_StandAnimation: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group18: TGroupNode;
@@ -117,6 +116,8 @@ Text137: TTextNode;
 FontStyle138: TFontStyleNode;
 Appearance139: TAppearanceNode;
 Material140: TMaterialNode;
+
+procedure InitLOA1_StandAnimationPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -161,6 +162,11 @@ X3DField23.Value := 'true';
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField23;
 X3DField24 := TX3DField.Create;
+end;
+
+procedure InitLOA1_StandAnimationPart1;
+begin
+
 X3DField24.NameField := 'loop';
 X3DField24.AccessType := 'inputOutput';
 X3DField24.Type := 'SFBool';
@@ -208,6 +214,11 @@ X3DInterfaceDeclaration21.X3DField := X3DField30;
 X3DField31 := TX3DField.Create;
 X3DField31.NameField := 'lower_body_rotation_changed';
 X3DField31.AccessType := 'outputOnly';
+end;
+
+procedure InitLOA1_StandAnimationPart2;
+begin
+
 X3DField31.Type := 'SFRotation';
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField31;
@@ -256,6 +267,11 @@ X3DInterfaceDeclaration21.X3DField := X3DField38;
 X3DField39 := TX3DField.Create;
 X3DField39.NameField := 'r_midtarsal_rotation_changed';
 X3DField39.AccessType := 'outputOnly';
+end;
+
+procedure InitLOA1_StandAnimationPart3;
+begin
+
 X3DField39.Type := 'SFRotation';
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField39;
@@ -304,6 +320,11 @@ X3DInterfaceDeclaration21.X3DField := X3DField46;
 X3DField47 := TX3DField.Create;
 X3DField47.NameField := 'r_wrist_rotation_changed';
 X3DField47.AccessType := 'outputOnly';
+end;
+
+procedure InitLOA1_StandAnimationPart4;
+begin
+
 X3DField47.Type := 'SFRotation';
 { .AddX3DField }
 X3DInterfaceDeclaration21.X3DField := X3DField47;
@@ -355,6 +376,11 @@ Group49.AddChildren([TimeSensor50]);
 PositionInterpolator59 := TPositionInterpolatorNode.Create;
 PositionInterpolator59.SetKey([0,1]);
 PositionInterpolator59.SetKeyValue([Vector3(0,0,0),Vector3(0,0,0)]);
+end;
+
+procedure InitLOA1_StandAnimationPart5;
+begin
+
 IS60 := TIS.Create;
 connect61 := Tconnect.Create;
 connect61.NodeField := 'value_changed';
@@ -407,6 +433,11 @@ Group49.AddChildren([OrientationInterpolator68]);
 OrientationInterpolator71 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator71.SetKey([0,1]);
 OrientationInterpolator71.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0)]);
+end;
+
+procedure InitLOA1_StandAnimationPart6;
+begin
+
 IS72 := TIS.Create;
 connect73 := Tconnect.Create;
 connect73.NodeField := 'value_changed';
@@ -459,6 +490,11 @@ Group49.AddChildren([OrientationInterpolator80]);
 OrientationInterpolator83 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator83.SetKey([0,1]);
 OrientationInterpolator83.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0)]);
+end;
+
+procedure InitLOA1_StandAnimationPart7;
+begin
+
 IS84 := TIS.Create;
 connect85 := Tconnect.Create;
 connect85.NodeField := 'value_changed';
@@ -511,6 +547,11 @@ Group49.AddChildren([OrientationInterpolator92]);
 OrientationInterpolator95 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator95.SetKey([0,0.5,1]);
 OrientationInterpolator95.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.5),Vector4(0,0,1,0)]);
+end;
+
+procedure InitLOA1_StandAnimationPart8;
+begin
+
 IS96 := TIS.Create;
 connect97 := Tconnect.Create;
 connect97.NodeField := 'value_changed';
@@ -563,6 +604,11 @@ Group49.AddChildren([OrientationInterpolator104]);
 OrientationInterpolator107 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator107.SetKey([0,1]);
 OrientationInterpolator107.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0)]);
+end;
+
+procedure InitLOA1_StandAnimationPart9;
+begin
+
 IS108 := TIS.Create;
 connect109 := Tconnect.Create;
 connect109.NodeField := 'value_changed';
@@ -624,6 +670,11 @@ X3DPrototype48.AddRoute(TimeSensor50.EventFraction_changed, OrientationInterpola
 X3DPrototype48.AddRoute(TimeSensor50.EventFraction_changed, OrientationInterpolator89.EventSet_fraction);
 { .AddX3DRoute }
 X3DPrototype48.AddRoute(TimeSensor50.EventFraction_changed, OrientationInterpolator92.EventSet_fraction);
+end;
+
+procedure InitLOA1_StandAnimationPart10;
+begin
+
 { .AddX3DRoute }
 X3DPrototype48.AddRoute(TimeSensor50.EventFraction_changed, OrientationInterpolator95.EventSet_fraction);
 { .AddX3DRoute }
@@ -673,6 +724,21 @@ Anchor135.AddChildren([Shape136]);
 Group18.AddChildren([Anchor135]);
 { .AddGroup }
 X3D0.AddChildren([Group18]);
+end;
+
+function CreateLOA1_StandAnimation: TX3DRootNode;
+begin
+InitLOA1_StandAnimationPart0;
+InitLOA1_StandAnimationPart1;
+InitLOA1_StandAnimationPart2;
+InitLOA1_StandAnimationPart3;
+InitLOA1_StandAnimationPart4;
+InitLOA1_StandAnimationPart5;
+InitLOA1_StandAnimationPart6;
+InitLOA1_StandAnimationPart7;
+InitLOA1_StandAnimationPart8;
+InitLOA1_StandAnimationPart9;
+InitLOA1_StandAnimationPart10;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbubble: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -31,6 +30,8 @@ X3DField21: TX3DField;
 X3DField22: TX3DField;
 TimeSensor23: TTimeSensorNode;
 X3DPrototype27: TX3DPrototypeNode;
+
+procedure InitbubblePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -79,6 +80,11 @@ X3DField18.Type := 'SFVec3f';
 X3DField18.Value := '1 1 1';
 { .SetX3DField }
 Script17.X3DField := X3DField18;
+end;
+
+procedure InitbubblePart1;
+begin
+
 X3DField19 := TX3DField.Create;
 X3DField19.NameField := 'translation';
 X3DField19.AccessType := 'inputOutput';
@@ -177,6 +183,12 @@ X3DPrototype27.NameField := 'Bubble';
 Group7.X3DPrototype := X3DPrototype27;
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createbubble: TX3DRootNode;
+begin
+InitbubblePart0;
+InitbubblePart1;
 Result := X3D0;
 end;
 

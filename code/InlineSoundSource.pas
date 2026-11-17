@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateInlineSoundSource: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -27,6 +26,8 @@ Coordinate24: TCoordinateNode;
 Normal25: TNormalNode;
 Transform26: TTransformNode;
 Inline27: TInlineNode;
+
+procedure InitInlineSoundSourcePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -72,6 +73,11 @@ Group14.AddChildren([Viewpoint18]);
 Transform19 := TTransformNode.Create;
 Transform19.Translation := Vector3(1.241,0,0.358);
 Shape20 := TShapeNode.Create;
+end;
+
+procedure InitInlineSoundSourcePart1;
+begin
+
 Appearance21 := TAppearanceNode.Create;
 Material22 := TMaterialNode.Create;
 Material22.DiffuseColor := Vector3(0.122,0.114,0.125);
@@ -105,6 +111,12 @@ Transform26.AddChildren([Inline27]);
 Group14.AddChildren([Transform26]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function CreateInlineSoundSource: TX3DRootNode;
+begin
+InitInlineSoundSourcePart0;
+InitInlineSoundSourcePart1;
 Result := X3D0;
 end;
 

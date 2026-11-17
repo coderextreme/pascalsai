@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createfreewrlflowers: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -33,6 +32,8 @@ X3DPrototype23: TX3DPrototypeNode;
 X3DPrototype24: TX3DPrototypeNode;
 X3DPrototype25: TX3DPrototypeNode;
 X3DPrototype26: TX3DPrototypeNode;
+
+procedure InitfreewrlflowersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -80,6 +81,11 @@ X3DExternalPrototype12.X3DField := X3DField14;
 { .SetX3DExternalPrototype }
 Group11.X3DExternalPrototype := X3DExternalPrototype12;
 X3DPrototype15 := TX3DPrototype.Create;
+end;
+
+procedure InitfreewrlflowersPart1;
+begin
+
 X3DPrototype15.NameField := 'flower';
 X3DPrototype16 := TX3DPrototype.Create;
 Group17 := TGroupNode.Create;
@@ -131,6 +137,12 @@ Group11.X3DPrototype := X3DPrototype26;
 Group7.AddChildren([Group11]);
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createfreewrlflowers: TX3DRootNode;
+begin
+InitfreewrlflowersPart0;
+InitfreewrlflowersPart1;
 Result := X3D0;
 end;
 

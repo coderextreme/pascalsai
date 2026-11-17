@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateFilters: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -63,6 +62,8 @@ Gain60: TGainNode;
 Analyser61: TAnalyserNode;
 BiquadFilter62: TBiquadFilterNode;
 AudioClip63: TAudioClipNode;
+
+procedure InitFiltersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -109,6 +110,11 @@ Material22.EmissiveColor := Vector3(0.8,0.8,0.8);
 Material22.SpecularColor := Vector3(0.01,0.01,0.01);
 { .SetMaterial }
 Appearance21.Material := Material22;
+end;
+
+procedure InitFiltersPart1;
+begin
+
 { .SetAppearance }
 Shape20.Appearance := Appearance21;
 Sphere23 := TSphereNode.Create;
@@ -164,6 +170,11 @@ Transform34.Translation := Vector3(0,50,0);
 { .AddChildren }
 Group14.AddChildren([Transform34]);
 Transform35 := TTransformNode.Create;
+end;
+
+procedure InitFiltersPart2;
+begin
+
 Transform35.Translation := Vector3(0,100,0);
 { .AddChildren }
 Group14.AddChildren([Transform35]);
@@ -215,6 +226,11 @@ Analyser51 := TAnalyserNode.Create;
 BiquadFilter52 := TBiquadFilterNode.Create;
 BiquadFilter52.Detune := 50;
 BiquadFilter52.Frequency := 600;
+end;
+
+procedure InitFiltersPart3;
+begin
+
 BiquadFilter52.QualityFactor := 30;
 BiquadFilter52.Type := 'ALLPASS';
 AudioClip53 := TAudioClipNode.Create;
@@ -266,6 +282,11 @@ AudioClip63.Loop := True;
 AudioClip63.SetUrl(['sound/wobble_loop.mp3','https://x3dgraphics.com/examples/X3dForAdvancedModeling/AudioSpatialSound/sound/wobble_loop.mp3']);
 { .AddChildren }
 BiquadFilter62.AddChildren([AudioClip63]);
+end;
+
+procedure InitFiltersPart4;
+begin
+
 { .AddChildren }
 Analyser61.AddChildren([BiquadFilter62]);
 { .AddChildren }
@@ -282,6 +303,15 @@ StreamAudioDestination46.AddChildren([DynamicsCompressor47]);
 Group14.AddChildren([StreamAudioDestination46]);
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function CreateFilters: TX3DRootNode;
+begin
+InitFiltersPart0;
+InitFiltersPart1;
+InitFiltersPart2;
+InitFiltersPart3;
+InitFiltersPart4;
 Result := X3D0;
 end;
 

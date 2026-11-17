@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateSmokeTestProgramOutput: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 unit9: TunitNode;
@@ -185,6 +184,8 @@ PackagedShader204: TPackagedShaderNode;
 ShaderPart205: TShaderPartNode;
 ShaderProgram206: TShaderProgramNode;
 OrthoViewpoint207: TOrthoViewpointNode;
+
+procedure InitSmokeTestProgramOutputPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -234,6 +235,11 @@ X3D0.Meta['creator'] := 'Don Brutzman';
 X3D0.Meta['reference'] := 'https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/stylesheets/java/examples/SmokeTestProgramOutput.x3d';
 X3D0.Meta['reference'] := 'Console output, ClassicVRML encoding, VRML97 encoding and pretty-print documentation:';
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.txt';
+end;
+
+procedure InitSmokeTestProgramOutputPart1;
+begin
+
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.x3dv';
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.wrl';
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.html';
@@ -284,6 +290,11 @@ Transform43 := TTransformNode.Create;
 Transform43.Translation := Vector3(0,1.5,0);
 Anchor44 := TAnchorNode.Create;
 Anchor44.Description := 'select for X3D Java SAI Library (X3DJSAIL) description';
+end;
+
+procedure InitSmokeTestProgramOutputPart2;
+begin
+
 Anchor44.SetUrl(['../X3DJSAIL.html','https://www.web3d.org/specifications/java/X3DJSAIL.html']);
 Shape45 := TShapeNode.Create;
 Appearance46 := TAppearanceNode.Create;
@@ -340,6 +351,11 @@ Group32.AddChildren([TimeSensor56]);
 Group32.AddRoute(TimeSensor56.EventFraction_changed, PositionInterpolator55.EventSet_fraction);
 { .AddX3DRoute }
 Group32.AddRoute(PositionInterpolator55.EventValue_changed, Transform43.FdTranslation);
+end;
+
+procedure InitSmokeTestProgramOutputPart3;
+begin
+
 { .AddX3DRoute }
 Transform59 := TTransformNode.Create;
 Transform59.Translation := Vector3(0,-1.5,0);
@@ -405,6 +421,11 @@ OrientationInterpolator71.SetKeyValue([Vector4(0,1,0,4.7124),Vector4(0,1,0,0),Ve
 Group32.AddChildren([OrientationInterpolator71]);
 TimeSensor72 := TTimeSensorNode.Create;
 TimeSensor72.CycleInterval := 5;
+end;
+
+procedure InitSmokeTestProgramOutputPart4;
+begin
+
 TimeSensor72.Loop := True;
 { .AddChildren }
 Group32.AddChildren([TimeSensor72]);
@@ -1036,6 +1057,15 @@ OrthoViewpoint207.SetFieldOfView([1,3,2,4]);
 Group32.AddChildren([OrthoViewpoint207]);
 { .AddGroup }
 X3D0.AddChildren([Group32]);
+end;
+
+function CreateSmokeTestProgramOutput: TX3DRootNode;
+begin
+InitSmokeTestProgramOutputPart0;
+InitSmokeTestProgramOutputPart1;
+InitSmokeTestProgramOutputPart2;
+InitSmokeTestProgramOutputPart3;
+InitSmokeTestProgramOutputPart4;
 Result := X3D0;
 end;
 

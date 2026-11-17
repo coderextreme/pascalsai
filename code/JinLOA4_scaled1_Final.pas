@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateJinLOA4_scaled1_Final: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group19: TGroupNode;
@@ -1494,6 +1493,8 @@ Group1496: TGroupNode;
 Group1497: TGroupNode;
 Group1498: TGroupNode;
 Group1499: TGroupNode;
+
+procedure InitJinLOA4_scaled1_FinalPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -1538,6 +1539,11 @@ HAnimHumanoid23.Version := '2.0';
 MetadataSet24 := TMetadataSetNode.Create;
 MetadataSet24.NameField := 'HAnimHumanoid.info';
 MetadataSet24.Reference := 'https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid';
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart1;
+begin
+
 MetadataString25 := TMetadataStringNode.Create;
 MetadataString25.NameField := 'authorName';
 MetadataString25.SetValue(['Jin Hoon Lee and Min Joo Lee, Chul Hee Jung and Myeong Won Lee']);
@@ -1588,6 +1594,11 @@ Appearance34.Texture := ImageTexture36;
 { .SetAppearance }
 Shape33.Appearance := Appearance34;
 IndexedFaceSet37 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart2;
+begin
+
 IndexedFaceSet37.SetCoordIndex([0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,5,-1,0,5,6,-1,0,6,7,-1,0,7,8,-1,0,8,9,-1,0,9,10,-1,0,10,11,-1,0,11,12,-1,0,12,1,-1,14,2,1,-1,1,13,14,-1,15,3,2,-1,2,14,15,-1,16,4,3,-1,3,15,16,-1,17,5,4,-1,4,16,17,-1,18,6,5,-1,5,17,18,-1,19,7,6,-1,6,18,19,-1,20,8,7,-1,7,19,20,-1,21,9,8,-1,8,20,21,-1,22,10,9,-1,9,21,22,-1,23,11,10,-1,10,22,23,-1,24,12,11,-1,11,23,24,-1,13,1,12,-1,12,24,13,-1,26,14,13,-1,13,25,26,-1,27,15,14,-1,14,26,27,-1,28,16,15,-1,15,27,28,-1,29,17,16,-1,16,28,29,-1,30,18,17,-1,17,29,30,-1,31,19,18,-1,18,30,31,-1,32,20,19,-1,19,31,32,-1,33,21,20,-1,20,32,33,-1,34,22,21,-1,21,33,34,-1,35,23,22,-1,22,34,35,-1,36,24,23,-1,23,35,36,-1,25,13,24,-1,24,36,25,-1,38,26,25,-1,25,37,38,-1,39,27,26,-1,26,38,39,-1,40,28,27,-1,27,39,40,-1,41,29,28,-1,28,40,41,-1,42,30,29,-1,29,41,42,-1,43,31,30,-1,30,42,43,-1,44,32,31,-1,31,43,44,-1,45,33,32,-1,32,44,45,-1,46,34,33,-1,33,45,46,-1,47,35,34,-1,34,46,47,-1,48,36,35,-1,35,47,48,-1,37,25,36,-1,36,48,37,-1,50,38,37,-1,37,49,50,-1,51,39,38,-1,38,50,51,-1,52,40,39,-1,39,51,52,-1,53,41,40,-1,40,52,53,-1,54,42,41,-1,41,53,54,-1,55,43,42,-1,42,54,55,-1,56,44,43,-1,43,55,56,-1,57,45,44,-1,44,56,57,-1,58,46,45,-1,45,57,58,-1,59,47,46,-1,46,58,59,-1,60,48,47,-1,47,59,60,-1,49,37,48,-1,48,60,49,-1,61,50,49,-1,61,51,50,-1,61,52,51,-1,61,53,52,-1,61,54,53,-1,61,55,54,-1,61,56,55,-1,61,57,56,-1,61,58,57,-1,61,59,58,-1,61,60,59,-1,61,49,60,-1]);
 IndexedFaceSet37.CreaseAngle := 3.14159;
 IndexedFaceSet37.SetTexCoordIndex([0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,5,-1,0,5,6,-1,0,6,7,-1,0,7,8,-1,0,8,9,-1,0,9,10,-1,0,10,11,-1,0,11,12,-1,0,12,1,-1,14,2,1,-1,1,13,14,-1,15,3,2,-1,2,14,15,-1,16,4,3,-1,3,15,16,-1,17,5,4,-1,4,16,17,-1,18,6,5,-1,5,17,18,-1,19,7,6,-1,6,18,19,-1,20,8,7,-1,7,19,20,-1,21,9,8,-1,8,20,21,-1,22,10,9,-1,9,21,22,-1,23,11,10,-1,10,22,23,-1,24,12,11,-1,11,23,24,-1,13,1,12,-1,12,24,13,-1,26,14,13,-1,13,25,26,-1,27,15,14,-1,14,26,27,-1,28,16,15,-1,15,27,28,-1,29,17,16,-1,16,28,29,-1,30,18,17,-1,17,29,30,-1,31,19,18,-1,18,30,31,-1,32,20,19,-1,19,31,32,-1,33,21,20,-1,20,32,33,-1,34,22,21,-1,21,33,34,-1,35,23,22,-1,22,34,35,-1,36,24,23,-1,23,35,36,-1,25,13,24,-1,24,36,25,-1,38,26,25,-1,25,37,38,-1,39,27,26,-1,26,38,39,-1,40,28,27,-1,27,39,40,-1,41,29,28,-1,28,40,41,-1,42,30,29,-1,29,41,42,-1,43,31,30,-1,30,42,43,-1,44,32,31,-1,31,43,44,-1,45,33,32,-1,32,44,45,-1,46,34,33,-1,33,45,46,-1,47,35,34,-1,34,46,47,-1,48,36,35,-1,35,47,48,-1,37,25,36,-1,36,48,37,-1,50,38,37,-1,37,49,50,-1,51,39,38,-1,38,50,51,-1,52,40,39,-1,39,51,52,-1,53,41,40,-1,40,52,53,-1,54,42,41,-1,41,53,54,-1,55,43,42,-1,42,54,55,-1,56,44,43,-1,43,55,56,-1,57,45,44,-1,44,56,57,-1,58,46,45,-1,45,57,58,-1,59,47,46,-1,46,58,59,-1,60,48,47,-1,47,59,60,-1,49,37,48,-1,48,60,49,-1,61,50,49,-1,61,51,50,-1,61,52,51,-1,61,53,52,-1,61,54,53,-1,61,55,54,-1,61,56,55,-1,61,57,56,-1,61,58,57,-1,61,59,58,-1,61,60,59,-1,61,49,60,-1]);
@@ -1627,6 +1638,11 @@ IndexedFaceSet46.CreaseAngle := 3.14159;
 IndexedFaceSet46.SetTexCoordIndex([0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,5,-1,0,5,6,-1,0,6,7,-1,0,7,8,-1,0,8,9,-1,0,9,10,-1,0,10,11,-1,0,11,12,-1,0,12,1,-1,14,2,1,-1,1,13,14,-1,15,3,2,-1,2,14,15,-1,16,4,3,-1,3,15,16,-1,17,5,4,-1,4,16,17,-1,18,6,5,-1,5,17,18,-1,19,7,6,-1,6,18,19,-1,20,8,7,-1,7,19,20,-1,21,9,8,-1,8,20,21,-1,22,10,9,-1,9,21,22,-1,23,11,10,-1,10,22,23,-1,24,12,11,-1,11,23,24,-1,13,1,12,-1,12,24,13,-1,26,14,13,-1,13,25,26,-1,27,15,14,-1,14,26,27,-1,28,16,15,-1,15,27,28,-1,29,17,16,-1,16,28,29,-1,30,18,17,-1,17,29,30,-1,31,19,18,-1,18,30,31,-1,32,20,19,-1,19,31,32,-1,33,21,20,-1,20,32,33,-1,34,22,21,-1,21,33,34,-1,35,23,22,-1,22,34,35,-1,36,24,23,-1,23,35,36,-1,25,13,24,-1,24,36,25,-1,38,26,25,-1,25,37,38,-1,39,27,26,-1,26,38,39,-1,40,28,27,-1,27,39,40,-1,41,29,28,-1,28,40,41,-1,42,30,29,-1,29,41,42,-1,43,31,30,-1,30,42,43,-1,44,32,31,-1,31,43,44,-1,45,33,32,-1,32,44,45,-1,46,34,33,-1,33,45,46,-1,47,35,34,-1,34,46,47,-1,48,36,35,-1,35,47,48,-1,37,25,36,-1,36,48,37,-1,50,38,37,-1,37,49,50,-1,51,39,38,-1,38,50,51,-1,52,40,39,-1,39,51,52,-1,53,41,40,-1,40,52,53,-1,54,42,41,-1,41,53,54,-1,55,43,42,-1,42,54,55,-1,56,44,43,-1,43,55,56,-1,57,45,44,-1,44,56,57,-1,58,46,45,-1,45,57,58,-1,59,47,46,-1,46,58,59,-1,60,48,47,-1,47,59,60,-1,49,37,48,-1,48,60,49,-1,61,50,49,-1,61,51,50,-1,61,52,51,-1,61,53,52,-1,61,54,53,-1,61,55,54,-1,61,56,55,-1,61,57,56,-1,61,58,57,-1,61,59,58,-1,61,60,59,-1,61,49,60,-1]);
 Coordinate47 := TCoordinateNode.Create;
 Coordinate47.SetPoint([Vector3(0,0.94995004,-0.012717),Vector3(0,0.933525,-0.0794835),Vector3(-0.051367503,0.933525,-0.070551),Vector3(-0.088965006,0.933525,-0.059751),Vector3(-0.102735005,0.933525,-0.012717),Vector3(-0.088965006,0.933525,0.0343215),Vector3(-0.051367503,0.933525,0.045098998),Vector3(0,0.933525,0.054054),Vector3(0.051367503,0.933525,0.045098998),Vector3(0.088965006,0.933525,0.0343215),Vector3(0.102735005,0.933525,-0.012717),Vector3(0.088965006,0.933525,-0.059751),Vector3(0.051367503,0.933525,-0.070551),Vector3(0,0.8881875,-0.119736),Vector3(-0.066442505,0.8881875,-0.105403505),Vector3(-0.115065,0.8881875,-0.066231005),Vector3(-0.13286251,0.8881875,-0.012717),Vector3(-0.115065,0.8881875,0.0408015),Vector3(-0.066442505,0.8881875,0.0660915),Vector3(0,0.8881875,0.080424),Vector3(0.066442505,0.8881875,0.0660915),Vector3(0.115065,0.8881875,0.0408015),Vector3(0.13286251,0.8881875,-0.012717),Vector3(0.115065,0.8881875,-0.066231005),Vector3(0.066442505,0.8881875,-0.105403505),Vector3(0,0.82635754,-0.128826),Vector3(-0.0767025,0.82635754,-0.112266004),Vector3(-0.13286251,0.82635754,-0.067041),Vector3(-0.1534275,0.82635754,-0.012717),Vector3(-0.13286251,0.82635754,0.0490815),Vector3(-0.0767025,0.82635754,0.080424),Vector3(0,0.82635754,0.09698401),Vector3(0.0767025,0.82635754,0.080424),Vector3(0.13286251,0.82635754,0.0490815),Vector3(0.1534275,0.82635754,-0.012717),Vector3(0.13286251,0.82635754,-0.067041),Vector3(0.0767025,0.82635754,-0.112266004),Vector3(0,0.764505,-0.112266004),Vector3(-0.066442505,0.764505,-0.0979335),Vector3(-0.115065,0.764505,-0.058761004),Vector3(-0.13286251,0.764505,-0.012717),Vector3(-0.115065,0.764505,0.0408015),Vector3(-0.066442505,0.764505,0.0660915),Vector3(0,0.764505,0.080424),Vector3(0.066442505,0.764505,0.0660915),Vector3(0.115065,0.764505,0.0408015),Vector3(0.13286251,0.764505,-0.012717),Vector3(0.115065,0.764505,-0.058761004),Vector3(0.066442505,0.764505,-0.0979335),Vector3(0,0.71923953,-0.067041),Vector3(-0.038362503,0.71923953,-0.058761004),Vector3(-0.066442505,0.71923953,-0.0436185),Vector3(-0.0767025,0.71923953,-0.012717),Vector3(-0.066442505,0.71923953,0.018189002),Vector3(-0.038362503,0.71923953,0.0408015),Vector3(0,0.71923953,0.0490815),Vector3(0.038362503,0.71923953,0.0408015),Vector3(0.066442505,0.71923953,0.018189002),Vector3(0.0767025,0.71923953,-0.012717),Vector3(0.066442505,0.71923953,-0.0436185),Vector3(0.038362503,0.71923953,-0.058761004),Vector3(0,0.7026683,-0.012717)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart3;
+begin
+
 { .SetCoord }
 IndexedFaceSet46.Coord := Coordinate47;
 TextureCoordinate48 := TTextureCoordinateNode.Create;
@@ -1680,6 +1696,11 @@ HAnimSegment59 := THAnimSegmentNode.Create;
 HAnimSegment59.NameField := 'l_calf';
 Shape60 := TShapeNode.Create;
 Appearance61 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart4;
+begin
+
 Material62 := TMaterialNode.Create;
 Material62.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -1732,6 +1753,11 @@ Coordinate74.SetPoint([Vector3(0.06994575,0.09505351,-0.03718125),Vector3(0.0630
 { .SetCoord }
 IndexedFaceSet73.Coord := Coordinate74;
 TextureCoordinate75 := TTextureCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart5;
+begin
+
 TextureCoordinate75.SetPoint([Vector2(0.227,0.1089),Vector2(0.2217,0.1285),Vector2(0.2533,0.0835),Vector2(0.273,0.1232),Vector2(0.2824,0.0941),Vector2(0.2433,0.1632),Vector2(0.2685,0.0797),Vector2(0.2165,0.148),Vector2(0.2759,0.0832),Vector2(0.2428,0.156),Vector2(0.2563,0.142),Vector2(0.2584,0.1419),Vector2(0.2431,0.1588),Vector2(0.2715,0.1062),Vector2(0.2761,0.1011),Vector2(0.2698,0.09),Vector2(0.2775,0.078),Vector2(0.2629,0.0863),Vector2(0.248,0.0935),Vector2(0.2498,0.0895),Vector2(0.2702,0.0748),Vector2(0.2296,0.1148),Vector2(0.2397,0.101),Vector2(0.2249,0.1266),Vector2(0.2295,0.1126),Vector2(0.2207,0.1406),Vector2(0.2252,0.1591),Vector2(0.2245,0.1634),Vector2(0.2202,0.1406),Vector2(0.2407,0.0951),Vector2(0.2662,0.1249),Vector2(0.2599,0.1313),Vector2(0.2623,0.1418),Vector2(0.2691,0.1232),Vector2(0.2231,0.166),Vector2(0.2217,0.1285),Vector2(0.227,0.1089),Vector2(0.2407,0.0951),Vector2(0.2533,0.0835),Vector2(0.2685,0.0797),Vector2(0.2759,0.0832),Vector2(0.2824,0.0941),Vector2(0.273,0.1232),Vector2(0.2623,0.1418),Vector2(0.2433,0.1632),Vector2(0.2231,0.166),Vector2(0.2165,0.148)]);
 { .SetTexCoord }
 IndexedFaceSet73.TexCoord := TextureCoordinate75;
@@ -1784,6 +1810,11 @@ Shape87 := TShapeNode.Create;
 Appearance88 := TAppearanceNode.Create;
 Material89 := TMaterialNode.Create;
 Material89.DiffuseColor := Vector3(0.588,0.588,0.588);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart6;
+begin
+
 { .SetMaterial }
 Appearance88.Material := Material89;
 ImageTexture90 := ImageTexture36;
@@ -1837,6 +1868,11 @@ TextureCoordinate102 := TTextureCoordinateNode.Create;
 TextureCoordinate102.SetPoint([Vector2(0.177,0.1457),Vector2(0.1567,0.1378),Vector2(0.1506,0.1431),Vector2(0.1539,0.1386),Vector2(0.1751,0.1447),Vector2(0.1523,0.1336),Vector2(0.1493,0.1348),Vector2(0.1463,0.1377),Vector2(0.1689,0.1382),Vector2(0.1638,0.1444),Vector2(0.1645,0.1416),Vector2(0.1607,0.138),Vector2(0.1731,0.1071),Vector2(0.1859,0.1202),Vector2(0.175,0.1048),Vector2(0.1985,0.1126),Vector2(0.1682,0.1025),Vector2(0.1699,0.1017),Vector2(0.1795,0.1136),Vector2(0.1825,0.1473),Vector2(0.1858,0.1369),Vector2(0.1864,0.1452),Vector2(0.1953,0.1244),Vector2(0.2059,0.1148),Vector2(0.1795,0.1136),Vector2(0.1859,0.1202),Vector2(0.1953,0.1244),Vector2(0.2059,0.1148),Vector2(0.1985,0.1126),Vector2(0.175,0.1048),Vector2(0.1699,0.1017),Vector2(0.1682,0.1025),Vector2(0.1731,0.1071),Vector2(0.1523,0.1336),Vector2(0.1463,0.1377),Vector2(0.1493,0.1348),Vector2(0.1682,0.1025),Vector2(0.1682,0.1025),Vector2(0.1699,0.1017),Vector2(0.1699,0.1017),Vector2(0.1864,0.1452),Vector2(0.1858,0.1369),Vector2(0.2059,0.1148),Vector2(0.2059,0.1148),Vector2(0.1953,0.1244),Vector2(0.1953,0.1244),Vector2(0.1825,0.1473)]);
 { .SetTexCoord }
 IndexedFaceSet100.TexCoord := TextureCoordinate102;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart7;
+begin
+
 { .SetGeometry }
 Shape96.Geometry := IndexedFaceSet100;
 { .AddChildren }
@@ -1889,6 +1925,11 @@ Material116.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance115.Material := Material116;
 ImageTexture117 := ImageTexture36;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart8;
+begin
+
 { .SetTexture }
 Appearance115.Texture := ImageTexture117;
 { .SetAppearance }
@@ -1944,6 +1985,11 @@ Coordinate128.SetPoint([Vector3(0.086868,0.0038924997,0.028325252),Vector3(0.087
 { .SetCoord }
 IndexedFaceSet127.Coord := Coordinate128;
 TextureCoordinate129 := TTextureCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart9;
+begin
+
 TextureCoordinate129.SetPoint([Vector2(0.2179,0.1044),Vector2(0.2186,0.1086),Vector2(0.2128,0.1035),Vector2(0.2098,0.0996),Vector2(0.2047,0.1286),Vector2(0.2132,0.1171),Vector2(0.1953,0.1244),Vector2(0.2059,0.1148),Vector2(0.2224,0.1067),Vector2(0.2132,0.1285),Vector2(0.2197,0.1123),Vector2(0.2163,0.1174),Vector2(0.2132,0.1285),Vector2(0.2047,0.1286),Vector2(0.1953,0.1244),Vector2(0.1953,0.1244),Vector2(0.2132,0.1171),Vector2(0.2163,0.1174),Vector2(0.2098,0.0996),Vector2(0.2179,0.1044),Vector2(0.2224,0.1067),Vector2(0.2224,0.1067),Vector2(0.2186,0.1086),Vector2(0.2128,0.1035),Vector2(0.1953,0.1244),Vector2(0.2098,0.0996),Vector2(0.2098,0.0996),Vector2(0.2128,0.1035),Vector2(0.2098,0.0996),Vector2(0.1953,0.1244),Vector2(0.1953,0.1244),Vector2(0.1953,0.1244),Vector2(0.2224,0.1067),Vector2(0.2132,0.1285),Vector2(0.2132,0.1285),Vector2(0.2163,0.1174),Vector2(0.2132,0.1285),Vector2(0.2224,0.1067),Vector2(0.2224,0.1067),Vector2(0.2224,0.1067)]);
 { .SetTexCoord }
 IndexedFaceSet127.TexCoord := TextureCoordinate129;
@@ -1996,6 +2042,11 @@ Shape141 := TShapeNode.Create;
 Appearance142 := TAppearanceNode.Create;
 Material143 := TMaterialNode.Create;
 Material143.DiffuseColor := Vector3(0.588,0.588,0.588);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart10;
+begin
+
 { .SetMaterial }
 Appearance142.Material := Material143;
 ImageTexture144 := ImageTexture36;
@@ -2049,6 +2100,11 @@ TextureCoordinate156 := TTextureCoordinateNode.Create;
 TextureCoordinate156.SetPoint([Vector2(0.1653,0.0654),Vector2(0.1636,0.063),Vector2(0.1795,0.0453),Vector2(0.1792,0.0409),Vector2(0.1786,0.0451),Vector2(0.1293,0.0261),Vector2(0.0949,0.0775),Vector2(0.1651,0.0639),Vector2(0.1709,0.0678),Vector2(0.1706,0.0686),Vector2(0.1824,0.0523),Vector2(0.183,0.0511),Vector2(0.1291,0.0918),Vector2(0.1834,0.0508),Vector2(0.1554,0.0532),Vector2(0.1716,0.0676),Vector2(0.1709,0.0678),Vector2(0.1706,0.0686),Vector2(0.1824,0.0523),Vector2(0.183,0.0511),Vector2(0.1834,0.0508),Vector2(0.1554,0.0532),Vector2(0.1653,0.0654),Vector2(0.1636,0.063),Vector2(0.1651,0.0639),Vector2(0.0949,0.0775),Vector2(0.1792,0.0409),Vector2(0.1795,0.0453)]);
 { .SetTexCoord }
 IndexedFaceSet154.TexCoord := TextureCoordinate156;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart11;
+begin
+
 { .SetGeometry }
 Shape150.Geometry := IndexedFaceSet154;
 { .AddChildren }
@@ -2105,6 +2161,11 @@ HAnimJoint166.Center := Vector3(0.092970006,0.03339,0.019818);
 HAnimSegment167 := THAnimSegmentNode.Create;
 HAnimSegment167.NameField := 'l_cuneiform_3';
 Shape168 := TShapeNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart12;
+begin
+
 Appearance169 := TAppearanceNode.Create;
 Material170 := TMaterialNode.Create;
 Material170.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -2157,6 +2218,11 @@ Coordinate182 := TCoordinateNode.Create;
 Coordinate182.SetPoint([Vector3(0.102496505,0.026298,0.08865),Vector3(0.08885025,0.0037259988,0.09108),Vector3(0.088902004,0.0272745,0.09189),Vector3(0.08795025,0.037667252,0.066262506),Vector3(0.08680725,0.003555,0.038695503),Vector3(0.087912,0.05031,0.039012752),Vector3(0.09990001,0.0018899998,0.075330004),Vector3(0.101304,0.0309285,0.077332504),Vector3(0.0994995,0.0028800005,0.049655255),Vector3(0.087597005,0.0018899998,0.077265),Vector3(0.0886455,0.03174975,0.079515),Vector3(0.098388,0.0032399986,0.039480753),Vector3(0.10036575,0.0418545,0.051192004),Vector3(0.10058401,0.0363915,0.064260006),Vector3(0.10258876,0.003710249,0.08770501),Vector3(0.08773875,0.043557752,0.053210255),Vector3(0.100037254,0.04718925,0.039654),Vector3(0.08665425,0.0033300002,0.051590253),Vector3(0.08434125,0.0057734996,0.0890775),Vector3(0.08322075,0.0042164996,0.07731),Vector3(0.08229826,0.0056294994,0.051801752),Vector3(0.0824355,0.0058207493,0.041051254),Vector3(0.083396256,0.046926,0.04133025),Vector3(0.0832635,0.04165875,0.052413754),Vector3(0.0834525,0.035757,0.0654975),Vector3(0.0841455,0.02980575,0.07884),Vector3(0.0843255,0.025848,0.0897525),Vector3(0.10509975,0.033651,0.061398003),Vector3(0.104859,0.0391365,0.048278254),Vector3(0.104733005,0.0426375,0.040691253),Vector3(0.103293,0.005867999,0.04055175),Vector3(0.10420425,0.005602499,0.047979),Vector3(0.10455076,0.004623749,0.07339501),Vector3(0.10679626,0.0060659996,0.0832275),Vector3(0.10660725,0.02430225,0.0839925),Vector3(0.1057545,0.028183501,0.074497506),Vector3(0.10368001,0.00646425,0.091755),Vector3(0.090733506,0.0064754994,0.0950175),Vector3(0.08822025,0.0073845,0.09504001),Vector3(0.08820675,0.02356875,0.095580004),Vector3(0.09055351,0.024048,0.095602505),Vector3(0.10347301,0.02314575,0.09254251),Vector3(0.1061775,0.0220815,0.0915525),Vector3(0.10633051,0.0077129994,0.090945005),Vector3(0.098741256,0.045121502,0.034092),Vector3(0.088076256,0.04786875,0.033252753),Vector3(0.085257,0.045699753,0.03487725),Vector3(0.08435925,0.0073215,0.0346185),Vector3(0.087133504,0.0058792494,0.033122253),Vector3(0.097704,0.0056002503,0.033999752),Vector3(0.100928254,0.0073259994,0.034701753),Vector3(0.102276005,0.041706,0.034830004)]);
 { .SetCoord }
 IndexedFaceSet181.Coord := Coordinate182;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart13;
+begin
+
 TextureCoordinate183 := TTextureCoordinateNode.Create;
 TextureCoordinate183.SetPoint([Vector2(0.195,0.0629),Vector2(0.1801,0.0847),Vector2(0.1811,0.0824),Vector2(0.1937,0.091),Vector2(0.2128,0.1035),Vector2(0.2098,0.0996),Vector2(0.2197,0.0903),Vector2(0.2138,0.0778),Vector2(0.1989,0.0701),Vector2(0.1984,0.068),Vector2(0.2129,0.0844),Vector2(0.1833,0.0898),Vector2(0.1856,0.0872),Vector2(0.1937,0.091),Vector2(0.2068,0.0986),Vector2(0.2138,0.0778),Vector2(0.2061,0.0729),Vector2(0.2061,0.0729),Vector2(0.1989,0.0701),Vector2(0.1984,0.068),Vector2(0.1952,0.0651),Vector2(0.2129,0.0844),Vector2(0.1833,0.0898),Vector2(0.1856,0.0872),Vector2(0.2017,0.0948),Vector2(0.2017,0.0948),Vector2(0.2226,0.0828),Vector2(0.2138,0.0778),Vector2(0.1937,0.091),Vector2(0.1811,0.0824),Vector2(0.1856,0.0872),Vector2(0.1856,0.0872),Vector2(0.1937,0.091),Vector2(0.2017,0.0948),Vector2(0.2098,0.0996),Vector2(0.2098,0.0996),Vector2(0.2017,0.0948),Vector2(0.2017,0.0948),Vector2(0.1937,0.091),Vector2(0.1937,0.091),Vector2(0.1856,0.0872),Vector2(0.1856,0.0872),Vector2(0.1811,0.0824),Vector2(0.2061,0.0729),Vector2(0.2061,0.0729),Vector2(0.2138,0.0778),Vector2(0.2138,0.0778),Vector2(0.2226,0.0828),Vector2(0.2226,0.0828),Vector2(0.2138,0.0778),Vector2(0.2138,0.0778),Vector2(0.1984,0.068),Vector2(0.1984,0.068),Vector2(0.195,0.0629),Vector2(0.195,0.0629),Vector2(0.1984,0.068),Vector2(0.1984,0.068),Vector2(0.195,0.0629),Vector2(0.1811,0.0824),Vector2(0.1801,0.0847),Vector2(0.1811,0.0824),Vector2(0.1811,0.0824),Vector2(0.1811,0.0824),Vector2(0.195,0.0629),Vector2(0.195,0.0629),Vector2(0.195,0.0629),Vector2(0.2226,0.0828),Vector2(0.2098,0.0996),Vector2(0.2098,0.0996),Vector2(0.2098,0.0996),Vector2(0.2098,0.0996),Vector2(0.2226,0.0828),Vector2(0.2197,0.0903),Vector2(0.2226,0.0828),Vector2(0.2226,0.0828)]);
 { .SetTexCoord }
@@ -2209,6 +2275,11 @@ HAnimSegment194.NameField := 'l_tarsal_middle_phalanx_3';
 Shape195 := TShapeNode.Create;
 Appearance196 := TAppearanceNode.Create;
 Material197 := TMaterialNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart14;
+begin
+
 Material197.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance196.Material := Material197;
@@ -2261,6 +2332,11 @@ Coordinate209.SetPoint([Vector3(0.0969255,0.00919575,0.1282905),Vector3(0.096682
 IndexedFaceSet208.Coord := Coordinate209;
 TextureCoordinate210 := TTextureCoordinateNode.Create;
 TextureCoordinate210.SetPoint([Vector2(0.1643,0.0579),Vector2(0.1747,0.0423),Vector2(0.174,0.0396),Vector2(0.1638,0.0538),Vector2(0.1756,0.0403),Vector2(0.1632,0.0573),Vector2(0.0915,0.0082),Vector2(0.066,0.0493),Vector2(0.1636,0.063),Vector2(0.1653,0.0654),Vector2(0.1795,0.0453),Vector2(0.1792,0.0409),Vector2(0.1786,0.0451),Vector2(0.0949,0.0775),Vector2(0.1293,0.0261),Vector2(0.1651,0.0639),Vector2(0.1636,0.063),Vector2(0.1653,0.0654),Vector2(0.1795,0.0453),Vector2(0.1792,0.0409),Vector2(0.1786,0.0451),Vector2(0.1293,0.0261)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart15;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet208.TexCoord := TextureCoordinate210;
 { .SetGeometry }
@@ -2319,6 +2395,11 @@ HAnimJoint220 := THAnimJointNode.Create;
 HAnimJoint220.NameField := 'l_transversetarsal';
 HAnimJoint220.Center := Vector3(0.1106325,0.03528,0.002089125);
 HAnimSegment221 := THAnimSegmentNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart16;
+begin
+
 HAnimSegment221.NameField := 'l_cuboid';
 Shape222 := TShapeNode.Create;
 Appearance223 := TAppearanceNode.Create;
@@ -2370,6 +2451,11 @@ IndexedFaceSet235.SetCoordIndex([11,16,17,-1,17,13,11,-1,10,14,16,-1,16,11,10,-1
 IndexedFaceSet235.CreaseAngle := 3.14159;
 IndexedFaceSet235.SetTexCoordIndex([5,16,17,-1,17,13,5,-1,2,7,16,-1,16,5,2,-1,9,12,6,-1,6,1,9,-1,0,8,11,-1,11,4,0,-1,7,2,3,-1,3,10,7,-1,12,8,0,-1,0,6,12,-1,14,15,9,-1,9,1,14,-1,42,39,38,-1,38,43,42,-1,50,47,46,-1,46,51,50,-1,29,18,30,-1,30,33,32,-1,32,31,30,-1,36,35,34,-1,34,37,36,-1,37,34,33,-1,33,29,37,-1,20,19,21,-1,28,27,26,-1,26,20,28,-1,22,25,24,-1,24,23,22,-1,21,26,25,-1,25,22,21,-1,9,20,21,-1,21,12,9,-1,12,21,22,-1,22,8,12,-1,8,22,23,-1,23,11,8,-1,42,41,40,-1,40,39,42,-1,10,24,25,-1,25,7,10,-1,7,25,26,-1,26,16,7,-1,16,26,27,-1,27,17,16,-1,46,53,52,-1,52,51,46,-1,15,28,20,-1,20,9,15,-1,6,29,30,-1,30,1,6,-1,1,30,31,-1,31,14,1,-1,50,49,48,-1,48,47,50,-1,13,32,33,-1,33,5,13,-1,5,33,34,-1,34,2,5,-1,2,34,35,-1,35,3,2,-1,38,45,44,-1,44,43,38,-1,4,36,37,-1,37,0,4,-1,0,37,29,-1,29,6,0,-1,3,38,39,-1,39,10,3,-1,10,39,40,-1,40,24,10,-1,24,40,41,-1,41,23,24,-1,23,41,42,-1,42,11,23,-1,11,42,43,-1,43,4,11,-1,4,43,44,-1,44,36,4,-1,36,44,45,-1,45,35,36,-1,35,45,38,-1,38,3,35,-1,17,46,47,-1,47,13,17,-1,13,47,48,-1,48,32,13,-1,32,48,49,-1,49,31,32,-1,31,49,50,-1,50,14,31,-1,14,50,51,-1,51,15,14,-1,15,51,52,-1,52,28,15,-1,28,52,53,-1,53,27,28,-1,27,53,46,-1,46,17,27,-1]);
 Coordinate236 := TCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart17;
+begin
+
 Coordinate236.SetPoint([Vector3(0.1161675,0.0291195,0.07461),Vector3(0.11416725,0.03528225,0.04788675),Vector3(0.11574,0.02486025,0.0852075),Vector3(0.11554425,0.03212325,0.061290003),Vector3(0.10130625,0.030933,0.077332504),Vector3(0.10036575,0.04186125,0.05118975),Vector3(0.10249875,0.0263025,0.08865),Vector3(0.10058625,0.03639825,0.06426),Vector3(0.112554,0.03998475,0.03656475),Vector3(0.10003725,0.047205,0.0396495),Vector3(0.1140705,0.0018899998,0.070155),Vector3(0.1131795,0.0023984998,0.046269),Vector3(0.11646675,0.0046372497,0.084240004),Vector3(0.11182275,0.0029137495,0.03620925),Vector3(0.09990225,0.0018899998,0.075330004),Vector3(0.102591,0.0037169987,0.087705),Vector3(0.0994995,0.0028912497,0.04965075),Vector3(0.098388,0.0032512492,0.0394785),Vector3(0.0947385,0.03834225,0.0499905),Vector3(0.09498825,0.03285,0.063135006),Vector3(0.09561375,0.027378,0.07623),Vector3(0.09632925,0.0238095,0.085005),Vector3(0.0965565,0.007373249,0.084285006),Vector3(0.0944955,0.006086249,0.07551),Vector3(0.0941715,0.0070605,0.0502065),Vector3(0.0933435,0.00728775,0.04391775),Vector3(0.09469575,0.041085,0.04404375),Vector3(0.12055725,0.02797425,0.05809725),Vector3(0.119178,0.030912751,0.04482),Vector3(0.1180485,0.033849,0.0373095),Vector3(0.117468,0.0062099993,0.03702375),Vector3(0.118489504,0.00586575,0.044163),Vector3(0.119349,0.0054179993,0.067095004),Vector3(0.12147525,0.007483499,0.0784125),Vector3(0.12065175,0.02213775,0.079155),Vector3(0.121180505,0.02526975,0.0708525),Vector3(0.116694,0.0076972493,0.0885375),Vector3(0.103896,0.00685125,0.0921375),Vector3(0.09998325,0.0090247495,0.091845006),Vector3(0.0998055,0.02135925,0.092385),Vector3(0.10356525,0.02268225,0.092745006),Vector3(0.11586825,0.0213795,0.089347504),Vector3(0.118899,0.01984725,0.086467505),Vector3(0.11950875,0.009229499,0.0859275),Vector3(0.097341746,0.0066307494,0.0314145),Vector3(0.10946475,0.0063269986,0.0284535),Vector3(0.11268225,0.00835425,0.02848725),Vector3(0.1131885,0.032472,0.028737),Vector3(0.10901925,0.03727575,0.02882925),Vector3(0.0982575,0.043454252,0.031311),Vector3(0.0953145,0.0396945,0.03438675),Vector3(0.09409275,0.009229499,0.03426975)]);
 { .SetCoord }
 IndexedFaceSet235.Coord := Coordinate236;
@@ -2423,6 +2509,11 @@ HAnimJoint247.Center := Vector3(0.114165,0.0122445,0.1063125);
 HAnimSegment248 := THAnimSegmentNode.Create;
 HAnimSegment248.NameField := 'l_tarsal_middle_phalanx_4';
 Shape249 := TShapeNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart18;
+begin
+
 Appearance250 := TAppearanceNode.Create;
 Material251 := TMaterialNode.Create;
 Material251.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -2475,6 +2566,11 @@ Coordinate263 := TCoordinateNode.Create;
 Coordinate263.SetPoint([Vector3(0.112239,0.0039284998,0.11950425),Vector3(0.119268,0.0039284998,0.117828004),Vector3(0.119979,0.009729,0.1197315),Vector3(0.11186775,0.009729,0.12130425),Vector3(0.11929725,0.0136395,0.11825775),Vector3(0.11241675,0.013979251,0.119880006),Vector3(0.10915875,0.002007,0.11502676),Vector3(0.1080675,0.01045125,0.1155555),Vector3(0.12055725,0.002007,0.112495504),Vector3(0.1217745,0.01045125,0.1125945),Vector3(0.12093525,0.0161415,0.11211976),Vector3(0.1090935,0.016731,0.115150504),Vector3(0.1096335,0.0103815,0.11088675),Vector3(0.11036925,0.0045045,0.11042325),Vector3(0.11747925,0.0045045,0.1088595),Vector3(0.1183635,0.01044,0.10905075),Vector3(0.11782575,0.01369575,0.108524255),Vector3(0.11022525,0.01407375,0.11059875)]);
 { .SetCoord }
 IndexedFaceSet262.Coord := Coordinate263;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart19;
+begin
+
 TextureCoordinate264 := TTextureCoordinateNode.Create;
 TextureCoordinate264.SetPoint([Vector2(0.1831,0.0355),Vector2(0.1904,0.0263),Vector2(0.1901,0.0243),Vector2(0.1819,0.0351),Vector2(0.1913,0.0249),Vector2(0.182,0.0368),Vector2(0.088,0.0133),Vector2(0.0677,0.0461),Vector2(0.1822,0.0458),Vector2(0.1809,0.0434),Vector2(0.1953,0.0282),Vector2(0.1948,0.024),Vector2(0.1933,0.0293),Vector2(0.0943,0.0785),Vector2(0.1287,0.0243),Vector2(0.1816,0.0411),Vector2(0.1809,0.0434),Vector2(0.1822,0.0458),Vector2(0.1953,0.0282),Vector2(0.1948,0.024),Vector2(0.1933,0.0293),Vector2(0.1287,0.0243)]);
 { .SetTexCoord }
@@ -2531,6 +2627,11 @@ HAnimJoint274 := THAnimJointNode.Create;
 HAnimJoint274.NameField := 'l_metatarsophalangeal_5';
 HAnimJoint274.Center := Vector3(0.124065004,0.013671,0.0865575);
 HAnimSegment275 := THAnimSegmentNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart20;
+begin
+
 HAnimSegment275.NameField := 'l_tarsal_proximal_phalanx_5';
 Shape276 := TShapeNode.Create;
 Appearance277 := TAppearanceNode.Create;
@@ -2582,6 +2683,11 @@ IndexedFaceSet289.SetCoordIndex([6,7,1,-1,1,0,6,-1,7,8,2,-1,2,1,7,-1,8,9,3,-1,3,
 IndexedFaceSet289.CreaseAngle := 3.14159;
 IndexedFaceSet289.SetTexCoordIndex([6,7,0,-1,0,1,6,-1,7,8,2,-1,2,0,7,-1,8,9,3,-1,3,2,8,-1,3,9,10,-1,10,4,3,-1,4,10,11,-1,11,5,4,-1,5,11,6,-1,6,1,5,-1,18,23,22,-1,22,21,20,-1,18,22,20,-1,19,18,20,-1,12,17,16,-1,16,15,14,-1,12,16,14,-1,13,12,14,-1,6,12,13,-1,13,7,6,-1,7,13,14,-1,14,8,7,-1,8,14,15,-1,15,9,8,-1,9,15,16,-1,16,10,9,-1,10,16,17,-1,17,11,10,-1,11,17,12,-1,12,6,11,-1,0,18,19,-1,19,1,0,-1,1,19,20,-1,20,5,1,-1,5,20,21,-1,21,4,5,-1,4,21,22,-1,22,3,4,-1,3,22,23,-1,23,2,3,-1,2,23,18,-1,18,0,2,-1]);
 Coordinate290 := TCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart21;
+begin
+
 Coordinate290.SetPoint([Vector3(0.1318005,0.001701,0.10044675),Vector3(0.13336651,0.007893,0.1001745),Vector3(0.13247551,0.014760001,0.10041075),Vector3(0.121169254,0.015426001,0.10263825),Vector3(0.12035476,0.0078097503,0.103133254),Vector3(0.122118756,0.0018089998,0.10235926),Vector3(0.12981376,0.0024795,0.09323326),Vector3(0.13167901,0.01068975,0.093408756),Vector3(0.13050675,0.01865025,0.09320851),Vector3(0.12017701,0.0200115,0.09551475),Vector3(0.11953126,0.0114187505,0.096588),Vector3(0.120744005,0.0042232494,0.09544501),Vector3(0.12726901,0.0051682503,0.090396),Vector3(0.12858976,0.0107797505,0.090704255),Vector3(0.12770551,0.01658025,0.09043425),Vector3(0.12136501,0.01741275,0.0917505),Vector3(0.120991506,0.011531251,0.09275851),Vector3(0.121837504,0.0062100003,0.0917055),Vector3(0.13072501,0.00807525,0.104184),Vector3(0.12996225,0.0050759995,0.104303256),Vector3(0.12525076,0.00513,0.105151504),Vector3(0.12441151,0.00811125,0.10570726),Vector3(0.124773756,0.0118642505,0.10528875),Vector3(0.13027501,0.01154025,0.104305506)]);
 { .SetCoord }
 IndexedFaceSet289.Coord := Coordinate290;
@@ -2641,6 +2747,11 @@ HAnimJoint220.AddChildren([HAnimJoint265]);
 HAnimJoint211.AddChildren([HAnimJoint220]);
 { .AddChildren }
 HAnimJoint67.AddChildren([HAnimJoint211]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart22;
+begin
+
 { .AddChildren }
 HAnimJoint58.AddChildren([HAnimJoint67]);
 { .AddChildren }
@@ -2693,6 +2804,11 @@ Material314.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance313.Material := Material314;
 ImageTexture315 := ImageTexture36;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart23;
+begin
+
 { .SetTexture }
 Appearance313.Texture := ImageTexture315;
 { .SetAppearance }
@@ -2747,6 +2863,11 @@ IndexedFaceSet325.TexCoord := TextureCoordinate327;
 Shape321.Geometry := IndexedFaceSet325;
 { .AddChildren }
 HAnimSegment320.AddChildren([Shape321]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart24;
+begin
+
 { .AddChildren }
 HAnimJoint319.AddChildren([HAnimSegment320]);
 HAnimJoint328 := THAnimJointNode.Create;
@@ -2799,6 +2920,11 @@ ImageTexture342 := ImageTexture36;
 Appearance340.Texture := ImageTexture342;
 { .SetAppearance }
 Shape339.Appearance := Appearance340;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart25;
+begin
+
 IndexedFaceSet343 := TIndexedFaceSetNode.Create;
 IndexedFaceSet343.SetCoordIndex([0,4,12,-1,1,7,6,-1,6,0,1,-1,10,1,0,-1,0,12,10,-1,1,10,11,-1,11,2,1,-1,8,5,2,-1,2,3,8,-1,11,13,2,-1,12,4,15,-1,9,4,0,-1,0,6,9,-1,1,2,5,-1,5,7,1,-1,3,2,13,-1,13,14,3,-1,22,23,24,-1,22,24,25,-1,28,22,25,-1,13,11,10,-1,10,12,15,-1,13,10,15,-1,14,13,15,-1,16,17,18,-1,18,19,16,-1,21,16,19,-1,19,20,21,-1,3,14,17,-1,17,16,3,-1,14,15,18,-1,18,17,14,-1,15,4,19,-1,19,18,15,-1,4,9,20,-1,20,19,4,-1,28,25,26,-1,26,27,28,-1,8,3,16,-1,16,21,8,-1,6,7,23,-1,23,22,6,-1,7,5,24,-1,24,23,7,-1,5,8,25,-1,25,24,5,-1,8,21,26,-1,26,25,8,-1,21,20,27,-1,27,26,21,-1,20,9,28,-1,28,27,20,-1,9,6,22,-1,22,28,9,-1]);
 IndexedFaceSet343.CreaseAngle := 3.14159;
@@ -2852,6 +2978,11 @@ HAnimSegment347.AddChildren([Shape348]);
 { .AddChildren }
 HAnimJoint346.AddChildren([HAnimSegment347]);
 HAnimJoint355 := THAnimJointNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart26;
+begin
+
 HAnimJoint355.NameField := 'r_metatarsophalangeal_1';
 HAnimJoint355.Center := Vector3(-0.0617625,0.014424751,0.0936225);
 HAnimSegment356 := THAnimSegmentNode.Create;
@@ -2903,6 +3034,11 @@ Appearance367.Texture := ImageTexture369;
 Shape366.Appearance := Appearance367;
 IndexedFaceSet370 := TIndexedFaceSetNode.Create;
 IndexedFaceSet370.SetCoordIndex([3,2,5,-1,5,4,3,-1,1,0,5,-1,5,2,1,-1,1,7,6,-1,6,0,1,-1,8,7,1,-1,1,2,8,-1,3,9,8,-1,8,2,3,-1,10,9,3,-1,3,4,10,-1,11,10,4,-1,4,5,11,-1,0,6,11,-1,11,5,0,-1,7,13,12,-1,12,6,7,-1,14,13,7,-1,7,8,14,-1,9,15,14,-1,14,8,9,-1,16,15,9,-1,9,10,16,-1,17,16,10,-1,10,11,17,-1,6,12,17,-1,17,11,6,-1,20,21,22,-1,22,23,18,-1,20,22,18,-1,19,20,18,-1,12,13,19,-1,19,18,12,-1,13,14,20,-1,20,19,13,-1,14,15,21,-1,21,20,14,-1,15,16,22,-1,22,21,15,-1,16,17,23,-1,23,22,16,-1,17,12,18,-1,18,23,17,-1]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart27;
+begin
+
 IndexedFaceSet370.CreaseAngle := 3.14159;
 IndexedFaceSet370.SetTexCoordIndex([0,3,2,-1,2,1,0,-1,5,4,2,-1,2,3,5,-1,13,12,15,-1,15,14,13,-1,8,6,5,-1,5,3,8,-1,0,9,8,-1,8,3,0,-1,10,9,0,-1,0,1,10,-1,11,10,1,-1,1,2,11,-1,4,7,11,-1,11,2,4,-1,12,18,16,-1,16,15,12,-1,20,19,6,-1,6,8,20,-1,9,21,20,-1,20,8,9,-1,22,21,9,-1,9,10,22,-1,23,22,10,-1,10,11,23,-1,7,17,23,-1,23,11,7,-1,26,27,28,-1,28,29,24,-1,26,28,24,-1,25,26,24,-1,16,18,25,-1,25,24,16,-1,19,20,26,-1,26,25,19,-1,20,21,27,-1,27,26,20,-1,21,22,28,-1,28,27,21,-1,22,23,29,-1,29,28,22,-1,23,17,24,-1,24,29,23,-1]);
 Coordinate371 := TCoordinateNode.Create;
@@ -2959,6 +3095,11 @@ IndexedFaceSet379.TexCoord := TextureCoordinate381;
 Shape375.Geometry := IndexedFaceSet379;
 { .AddChildren }
 HAnimSegment374.AddChildren([Shape375]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart28;
+begin
+
 { .AddChildren }
 HAnimJoint373.AddChildren([HAnimSegment374]);
 HAnimJoint382 := THAnimJointNode.Create;
@@ -3011,6 +3152,11 @@ ImageTexture396 := ImageTexture36;
 Appearance394.Texture := ImageTexture396;
 { .SetAppearance }
 Shape393.Appearance := Appearance394;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart29;
+begin
+
 IndexedFaceSet397 := TIndexedFaceSetNode.Create;
 IndexedFaceSet397.SetCoordIndex([8,18,20,-1,20,6,8,-1,14,21,19,-1,19,11,14,-1,6,20,1,-1,19,15,11,-1,0,14,3,-1,3,2,0,-1,12,17,16,-1,16,8,12,-1,15,17,12,-1,12,11,15,-1,6,1,2,-1,2,3,6,-1,0,21,14,-1,16,18,8,-1,3,4,5,-1,5,6,3,-1,6,5,7,-1,7,8,6,-1,10,11,12,-1,12,9,10,-1,14,11,10,-1,10,13,14,-1,13,4,3,-1,3,14,13,-1,8,7,9,-1,9,12,8,-1,19,21,24,-1,24,23,19,-1,22,25,20,-1,20,18,22,-1,36,30,31,-1,35,36,31,-1,34,35,31,-1,13,10,9,-1,9,7,5,-1,13,9,5,-1,4,13,5,-1,29,26,27,-1,27,28,29,-1,37,41,42,-1,42,43,37,-1,31,32,33,-1,33,34,31,-1,39,40,41,-1,38,39,41,-1,37,38,41,-1,25,22,27,-1,27,26,25,-1,22,23,28,-1,28,27,22,-1,23,24,29,-1,29,28,23,-1,24,25,26,-1,26,29,24,-1,15,19,31,-1,31,30,15,-1,19,23,32,-1,32,31,19,-1,23,22,33,-1,33,32,23,-1,22,18,34,-1,34,33,22,-1,18,16,35,-1,35,34,18,-1,16,17,36,-1,36,35,16,-1,17,15,30,-1,30,36,17,-1,21,0,38,-1,38,37,21,-1,0,2,39,-1,39,38,0,-1,2,1,40,-1,40,39,2,-1,1,20,41,-1,41,40,1,-1,20,25,42,-1,42,41,20,-1,25,24,43,-1,43,42,25,-1,24,21,37,-1,37,43,24,-1]);
 IndexedFaceSet397.CreaseAngle := 3.14159;
@@ -3064,6 +3210,11 @@ HAnimSegment401.AddChildren([Shape402]);
 { .AddChildren }
 HAnimJoint400.AddChildren([HAnimSegment401]);
 HAnimJoint409 := THAnimJointNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart30;
+begin
+
 HAnimJoint409.NameField := 'r_tarsal_distal_interphalangeal_2';
 HAnimJoint409.Center := Vector3(-0.083925,0.00982575,0.123435006);
 HAnimSegment410 := THAnimSegmentNode.Create;
@@ -3118,6 +3269,11 @@ Material422 := TMaterialNode.Create;
 Material422.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance421.Material := Material422;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart31;
+begin
+
 ImageTexture423 := ImageTexture36;
 { .SetTexture }
 Appearance421.Texture := ImageTexture423;
@@ -3171,6 +3327,11 @@ TextureCoordinate435.SetPoint([Vector2(0.195,0.0629),Vector2(0.1801,0.0847),Vect
 IndexedFaceSet433.TexCoord := TextureCoordinate435;
 { .SetGeometry }
 Shape429.Geometry := IndexedFaceSet433;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart32;
+begin
+
 { .AddChildren }
 HAnimSegment428.AddChildren([Shape429]);
 { .AddChildren }
@@ -3223,6 +3384,11 @@ Appearance448.Material := Material449;
 ImageTexture450 := ImageTexture36;
 { .SetTexture }
 Appearance448.Texture := ImageTexture450;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart33;
+begin
+
 { .SetAppearance }
 Shape447.Appearance := Appearance448;
 IndexedFaceSet451 := TIndexedFaceSetNode.Create;
@@ -3277,6 +3443,11 @@ Shape456.Geometry := IndexedFaceSet460;
 HAnimSegment455.AddChildren([Shape456]);
 { .AddChildren }
 HAnimJoint454.AddChildren([HAnimSegment455]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart34;
+begin
+
 { .AddChildren }
 HAnimJoint445.AddChildren([HAnimJoint454]);
 { .AddChildren }
@@ -3331,6 +3502,11 @@ HAnimSegment473.NameField := 'r_cuboid';
 Shape474 := TShapeNode.Create;
 Appearance475 := TAppearanceNode.Create;
 Material476 := TMaterialNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart35;
+begin
+
 Material476.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance475.Material := Material476;
@@ -3383,6 +3559,11 @@ Coordinate488.SetPoint([Vector3(-0.1158075,0.0291195,0.07461),Vector3(-0.1138072
 IndexedFaceSet487.Coord := Coordinate488;
 TextureCoordinate489 := TTextureCoordinateNode.Create;
 TextureCoordinate489.SetPoint([Vector2(0.2117,0.0481),Vector2(0.2254,0.0615),Vector2(0.2142,0.0508),Vector2(0.2102,0.0461),Vector2(0.2083,0.0443),Vector2(0.2202,0.0585),Vector2(0.2186,0.0548),Vector2(0.1989,0.0701),Vector2(0.1984,0.068),Vector2(0.2138,0.0778),Vector2(0.1952,0.0651),Vector2(0.195,0.0629),Vector2(0.2061,0.0729),Vector2(0.2292,0.0691),Vector2(0.2342,0.0682),Vector2(0.2226,0.0828),Vector2(0.2129,0.0844),Vector2(0.2197,0.0903),Vector2(0.2254,0.0615),Vector2(0.2061,0.0729),Vector2(0.2138,0.0778),Vector2(0.2061,0.0729),Vector2(0.1984,0.068),Vector2(0.195,0.0629),Vector2(0.195,0.0629),Vector2(0.1984,0.068),Vector2(0.2061,0.0729),Vector2(0.2226,0.0828),Vector2(0.2226,0.0828),Vector2(0.2186,0.0548),Vector2(0.2254,0.0615),Vector2(0.2342,0.0682),Vector2(0.2342,0.0682),Vector2(0.2254,0.0615),Vector2(0.2117,0.0481),Vector2(0.2083,0.0443),Vector2(0.2083,0.0443),Vector2(0.2117,0.0481),Vector2(0.2083,0.0443),Vector2(0.195,0.0629),Vector2(0.195,0.0629),Vector2(0.195,0.0629),Vector2(0.195,0.0629),Vector2(0.2083,0.0443),Vector2(0.2083,0.0443),Vector2(0.2083,0.0443),Vector2(0.2226,0.0828),Vector2(0.2342,0.0682),Vector2(0.2342,0.0682),Vector2(0.2342,0.0682),Vector2(0.2342,0.0682),Vector2(0.2226,0.0828),Vector2(0.2226,0.0828),Vector2(0.2226,0.0828)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart36;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet487.TexCoord := TextureCoordinate489;
 { .SetGeometry }
@@ -3436,6 +3617,11 @@ Material503 := TMaterialNode.Create;
 Material503.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance502.Material := Material503;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart37;
+begin
+
 ImageTexture504 := ImageTexture36;
 { .SetTexture }
 Appearance502.Texture := ImageTexture504;
@@ -3489,6 +3675,11 @@ TextureCoordinate516.SetPoint([Vector2(0.1831,0.0355),Vector2(0.1904,0.0263),Vec
 IndexedFaceSet514.TexCoord := TextureCoordinate516;
 { .SetGeometry }
 Shape510.Geometry := IndexedFaceSet514;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart38;
+begin
+
 { .AddChildren }
 HAnimSegment509.AddChildren([Shape510]);
 { .AddChildren }
@@ -3543,6 +3734,11 @@ HAnimSegment527.NameField := 'r_tarsal_proximal_phalanx_5';
 Shape528 := TShapeNode.Create;
 Appearance529 := TAppearanceNode.Create;
 Material530 := TMaterialNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart39;
+begin
+
 Material530.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance529.Material := Material530;
@@ -3595,6 +3791,11 @@ Coordinate542.SetPoint([Vector3(-0.131418,0.001701,0.10044675),Vector3(-0.132984
 IndexedFaceSet541.Coord := Coordinate542;
 TextureCoordinate543 := TTextureCoordinateNode.Create;
 TextureCoordinate543.SetPoint([Vector2(0.2109,0.0133),Vector2(0.2102,0.0181),Vector2(0.2093,0.0169),Vector2(0.1959,0.0354),Vector2(0.1986,0.0324),Vector2(0.1989,0.0342),Vector2(0.2114,0.0219),Vector2(0.2132,0.0168),Vector2(0.2123,0.0196),Vector2(0.1999,0.0356),Vector2(0.201,0.0349),Vector2(0.2011,0.0354),Vector2(0.2114,0.0219),Vector2(0.2132,0.0168),Vector2(0.2123,0.0196),Vector2(0.1999,0.0356),Vector2(0.201,0.0349),Vector2(0.2011,0.0354),Vector2(0.2109,0.0133),Vector2(0.2102,0.0181),Vector2(0.1989,0.0342),Vector2(0.1986,0.0324),Vector2(0.1959,0.0354),Vector2(0.2093,0.0169)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart40;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet541.TexCoord := TextureCoordinate543;
 { .SetGeometry }
@@ -3656,6 +3857,11 @@ HAnimJoint301.AddChildren([HAnimJoint310]);
 { .AddChildren }
 HAnimJoint40.AddChildren([HAnimJoint301]);
 HAnimJoint553 := THAnimJointNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart41;
+begin
+
 HAnimJoint553.NameField := 'vl5';
 HAnimJoint553.Center := Vector3(0,0.92542505,-0.013763251);
 HAnimSegment554 := THAnimSegmentNode.Create;
@@ -3707,6 +3913,11 @@ Appearance565.Texture := ImageTexture567;
 Shape564.Appearance := Appearance565;
 IndexedFaceSet568 := TIndexedFaceSetNode.Create;
 IndexedFaceSet568.SetCoordIndex([11,6,0,-1,0,3,11,-1,7,1,0,-1,0,6,7,-1,9,8,2,-1,2,4,9,-1,10,9,4,-1,4,5,10,-1,10,5,1,-1,1,7,10,-1,25,11,3,-1,3,26,25,-1,2,8,12,-1,12,27,2,-1,13,16,15,-1,15,14,13,-1,17,14,15,-1,15,18,17,-1,19,22,21,-1,21,20,19,-1,23,24,22,-1,22,19,23,-1,23,17,18,-1,18,24,23,-1,25,26,16,-1,16,13,25,-1,21,27,12,-1,12,20,21,-1,29,30,31,-1,31,32,33,-1,29,31,33,-1,34,35,36,-1,33,34,36,-1,36,37,38,-1,38,39,40,-1,36,38,40,-1,33,36,40,-1,29,33,40,-1,29,40,41,-1,29,41,28,-1,44,45,46,-1,46,47,48,-1,44,46,48,-1,48,49,50,-1,48,50,51,-1,51,52,53,-1,53,54,55,-1,51,53,55,-1,48,51,55,-1,44,48,55,-1,43,44,55,-1,43,55,42,-1,3,0,29,-1,29,28,3,-1,0,1,30,-1,30,29,0,-1,1,5,31,-1,31,30,1,-1,5,4,32,-1,32,31,5,-1,4,2,33,-1,33,32,4,-1,2,27,34,-1,34,33,2,-1,27,21,35,-1,35,34,27,-1,21,22,36,-1,36,35,21,-1,22,24,37,-1,37,36,22,-1,24,18,38,-1,38,37,24,-1,18,15,39,-1,39,38,18,-1,15,16,40,-1,40,39,15,-1,16,26,41,-1,41,40,16,-1,26,3,28,-1,28,41,26,-1,6,11,43,-1,43,42,6,-1,11,25,44,-1,44,43,11,-1,25,13,45,-1,45,44,25,-1,13,14,46,-1,46,45,13,-1,14,17,47,-1,47,46,14,-1,17,23,48,-1,48,47,17,-1,23,19,49,-1,49,48,23,-1,19,20,50,-1,50,49,19,-1,20,12,51,-1,51,50,20,-1,12,8,52,-1,52,51,12,-1,8,9,53,-1,53,52,8,-1,9,10,54,-1,54,53,9,-1,10,7,55,-1,55,54,10,-1,7,6,42,-1,42,55,7,-1]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart42;
+begin
+
 IndexedFaceSet568.CreaseAngle := 3.14159;
 IndexedFaceSet568.SetTexCoordIndex([15,9,0,-1,0,4,15,-1,10,1,0,-1,0,9,10,-1,13,12,2,-1,2,5,13,-1,14,13,5,-1,5,6,14,-1,14,6,1,-1,1,10,14,-1,17,15,4,-1,4,7,17,-1,3,11,16,-1,16,8,3,-1,18,21,20,-1,20,19,18,-1,22,19,20,-1,20,23,22,-1,24,27,26,-1,26,25,24,-1,28,29,27,-1,27,24,28,-1,28,22,23,-1,23,29,28,-1,30,31,21,-1,21,18,30,-1,32,35,34,-1,34,33,32,-1,37,38,39,-1,39,40,41,-1,37,39,41,-1,42,43,44,-1,41,42,44,-1,44,45,46,-1,46,47,48,-1,44,46,48,-1,41,44,48,-1,37,41,48,-1,37,48,49,-1,37,49,36,-1,52,53,54,-1,54,55,56,-1,52,54,56,-1,56,57,58,-1,56,58,59,-1,59,60,61,-1,61,62,63,-1,59,61,63,-1,56,59,63,-1,52,56,63,-1,51,52,63,-1,51,63,50,-1,4,0,37,-1,37,36,4,-1,0,1,38,-1,38,37,0,-1,1,6,39,-1,39,38,1,-1,6,5,40,-1,40,39,6,-1,5,2,41,-1,41,40,5,-1,3,8,42,-1,42,41,3,-1,35,32,43,-1,43,42,35,-1,26,27,44,-1,44,43,26,-1,27,29,45,-1,45,44,27,-1,29,23,46,-1,46,45,29,-1,23,20,47,-1,47,46,23,-1,20,21,48,-1,48,47,20,-1,21,31,49,-1,49,48,21,-1,7,4,36,-1,36,49,7,-1,9,15,51,-1,51,50,9,-1,15,17,52,-1,52,51,15,-1,30,18,53,-1,53,52,30,-1,18,19,54,-1,54,53,18,-1,19,22,55,-1,55,54,19,-1,22,28,56,-1,56,55,22,-1,28,24,57,-1,57,56,28,-1,24,25,58,-1,58,57,24,-1,33,34,59,-1,59,58,33,-1,16,11,60,-1,60,59,16,-1,12,13,61,-1,61,60,12,-1,13,14,62,-1,62,61,13,-1,14,10,63,-1,63,62,14,-1,10,9,50,-1,50,63,10,-1]);
 Coordinate569 := TCoordinateNode.Create;
@@ -3749,6 +3960,11 @@ Coordinate578.SetPoint([Vector3(0.087165006,0.98242205,0.05418675),Vector3(0.030
 IndexedFaceSet577.Coord := Coordinate578;
 TextureCoordinate579 := TTextureCoordinateNode.Create;
 TextureCoordinate579.SetPoint([Vector2(0.1041,0.2822),Vector2(0.0168,0.2798),Vector2(0.1518,0.2789),Vector2(0.3444,0.2746),Vector2(0.3604,0.2737),Vector2(0.221,0.2742),Vector2(0.1842,0.2768),Vector2(0.3527,0.263),Vector2(0.0181,0.2816),Vector2(0.1026,0.2616),Vector2(0.1481,0.2604),Vector2(0.3578,0.2568),Vector2(0.3503,0.2575),Vector2(0.0179,0.2574),Vector2(0.2289,0.2559),Vector2(0.1884,0.2584),Vector2(0.0186,0.2582),Vector2(0.3542,0.2515),Vector2(0.3604,0.2737),Vector2(0.3578,0.2568),Vector2(0.3542,0.2515),Vector2(0.3527,0.263),Vector2(0.1026,0.2616),Vector2(0.1041,0.2822),Vector2(0.0168,0.2798),Vector2(0.0179,0.2574),Vector2(0.1481,0.2604),Vector2(0.1518,0.2789),Vector2(0.3503,0.2575),Vector2(0.3444,0.2746),Vector2(0.221,0.2742),Vector2(0.2289,0.2559),Vector2(0.1842,0.2768),Vector2(0.1884,0.2584),Vector2(0.0181,0.2816),Vector2(0.0186,0.2582),Vector2(0.0168,0.2798),Vector2(0.1041,0.2822),Vector2(0.1518,0.2789),Vector2(0.1842,0.2768),Vector2(0.221,0.2742),Vector2(0.3444,0.2746),Vector2(0.3527,0.263),Vector2(0.3604,0.2737),Vector2(0.221,0.2742),Vector2(0.1842,0.2768),Vector2(0.1518,0.2789),Vector2(0.1041,0.2822),Vector2(0.0168,0.2798),Vector2(0.0181,0.2816),Vector2(0.1026,0.2616),Vector2(0.0179,0.2574),Vector2(0.0186,0.2582),Vector2(0.0179,0.2574),Vector2(0.1026,0.2616),Vector2(0.1481,0.2604),Vector2(0.1884,0.2584),Vector2(0.2289,0.2559),Vector2(0.3503,0.2575),Vector2(0.3542,0.2515),Vector2(0.3578,0.2568),Vector2(0.2289,0.2559),Vector2(0.1884,0.2584),Vector2(0.1481,0.2604)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart43;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet577.TexCoord := TextureCoordinate579;
 { .SetGeometry }
@@ -3802,6 +4018,11 @@ Material593 := TMaterialNode.Create;
 Material593.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance592.Material := Material593;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart44;
+begin
+
 ImageTexture594 := ImageTexture36;
 { .SetTexture }
 Appearance592.Texture := ImageTexture594;
@@ -3847,6 +4068,11 @@ IndexedFaceSet604.CreaseAngle := 3.14159;
 IndexedFaceSet604.SetTexCoordIndex([5,6,15,-1,15,14,5,-1,7,4,12,-1,12,16,7,-1,9,0,2,-1,2,10,9,-1,11,1,0,-1,0,9,11,-1,3,5,14,-1,14,13,3,-1,6,1,11,-1,11,15,6,-1,2,8,17,-1,17,10,2,-1,18,21,20,-1,20,19,18,-1,22,25,24,-1,24,23,22,-1,26,29,28,-1,28,27,26,-1,30,26,27,-1,27,31,30,-1,33,32,21,-1,21,18,33,-1,19,20,30,-1,30,31,19,-1,28,29,35,-1,35,34,28,-1,37,38,39,-1,39,40,41,-1,41,42,43,-1,39,41,43,-1,43,44,45,-1,45,46,47,-1,43,45,47,-1,39,43,47,-1,47,48,49,-1,39,47,49,-1,37,39,49,-1,37,49,36,-1,52,53,54,-1,51,52,54,-1,54,55,56,-1,56,57,58,-1,54,56,58,-1,58,59,60,-1,60,61,62,-1,58,60,62,-1,54,58,62,-1,51,54,62,-1,51,62,63,-1,51,63,50,-1,2,0,37,-1,37,36,2,-1,0,1,38,-1,38,37,0,-1,1,6,39,-1,39,38,1,-1,6,5,40,-1,40,39,6,-1,5,3,41,-1,41,40,5,-1,4,7,42,-1,42,41,4,-1,22,23,43,-1,43,42,22,-1,33,18,44,-1,44,43,33,-1,18,19,45,-1,45,44,18,-1,19,31,46,-1,46,45,19,-1,31,27,47,-1,47,46,31,-1,27,28,48,-1,48,47,27,-1,28,34,49,-1,49,48,28,-1,8,2,36,-1,36,49,8,-1,9,10,51,-1,51,50,9,-1,10,17,52,-1,52,51,10,-1,35,29,53,-1,53,52,35,-1,29,26,54,-1,54,53,29,-1,26,30,55,-1,55,54,26,-1,30,20,56,-1,56,55,30,-1,20,21,57,-1,57,56,20,-1,21,32,58,-1,58,57,21,-1,24,25,59,-1,59,58,24,-1,16,12,60,-1,60,59,16,-1,13,14,61,-1,61,60,13,-1,14,15,62,-1,62,61,14,-1,15,11,63,-1,63,62,15,-1,11,9,50,-1,50,63,11,-1]);
 Coordinate605 := TCoordinateNode.Create;
 Coordinate605.SetPoint([Vector3(0.083137505,1.0467901,0.043139253),Vector3(0.1143225,1.0467901,0.014721751),Vector3(0.029070003,1.0467901,0.05346675),Vector3(0.032265,1.0467901,-0.06918076),Vector3(0.08064,1.0467901,-0.051495753),Vector3(0.10784251,1.0467901,-0.0247815),Vector3(0.083295,1.0233091,0.044466753),Vector3(0.028935002,1.0233091,0.05463675),Vector3(0.11484001,1.0233091,0.015351751),Vector3(0.030667502,1.0233091,-0.070665754),Vector3(0.080730006,1.0233091,-0.051698253),Vector3(0.1081125,1.0233091,-0.025589252),Vector3(0,1.0233091,0.05463675),Vector3(-0.08064,1.0467901,-0.051495753),Vector3(-0.10784251,1.0467901,-0.0247815),Vector3(-0.1081125,1.0233091,-0.025589252),Vector3(-0.080730006,1.0233091,-0.051698253),Vector3(0,1.0467901,-0.06920325),Vector3(-0.032265,1.0467901,-0.06918076),Vector3(-0.030667502,1.0233091,-0.070665754),Vector3(0,1.0233091,-0.070665754),Vector3(-0.083295,1.0233091,0.044466753),Vector3(-0.083137505,1.0467901,0.043139253),Vector3(-0.029070003,1.0467901,0.05346675),Vector3(-0.028935002,1.0233091,0.05463675),Vector3(-0.11484001,1.0233091,0.015351751),Vector3(-0.1143225,1.0467901,0.014721751),Vector3(0,1.0467901,0.05346675),Vector3(0.028710002,1.0557451,0.04975425),Vector3(0.08140501,1.0557451,0.039674252),Vector3(0.11034,1.0557451,0.01332675),Vector3(0.1043775,1.0557451,-0.02297925),Vector3(0.078615,1.0557451,-0.048278254),Vector3(0.0316125,1.0557451,-0.06546825),Vector3(0,1.0557451,-0.06546825),Vector3(-0.0316125,1.0557451,-0.06546825),Vector3(-0.078615,1.0557451,-0.048278254),Vector3(-0.1043775,1.0557451,-0.02297925),Vector3(-0.11034,1.0557451,0.01332675),Vector3(-0.08140501,1.0557451,0.039674252),Vector3(-0.028710002,1.0557451,0.04975425),Vector3(0,1.0557451,0.04975425),Vector3(0.081562504,1.0125315,0.04102425),Vector3(0.028597502,1.0125315,0.050924253),Vector3(0,1.0125315,0.050924253),Vector3(-0.028597502,1.0125315,0.050924253),Vector3(-0.081562504,1.0125315,0.04102425),Vector3(-0.11085751,1.0125315,0.0139792515),Vector3(-0.1046475,1.0125315,-0.023757752),Vector3(-0.078727506,1.0125315,-0.048503254),Vector3(-0.0299925,1.0125315,-0.06695326),Vector3(0,1.0125315,-0.06695326),Vector3(0.0299925,1.0125315,-0.06695326),Vector3(0.078727506,1.0125315,-0.048503254),Vector3(0.1046475,1.0125315,-0.023757752),Vector3(0.11085751,1.0125315,0.0139792515)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart45;
+begin
+
 { .SetCoord }
 IndexedFaceSet604.Coord := Coordinate605;
 TextureCoordinate606 := TTextureCoordinateNode.Create;
@@ -3900,6 +4126,11 @@ HAnimSegment617 := THAnimSegmentNode.Create;
 HAnimSegment617.NameField := 't10';
 Shape618 := TShapeNode.Create;
 Appearance619 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart46;
+begin
+
 Material620 := TMaterialNode.Create;
 Material620.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -3949,6 +4180,11 @@ IndexedFaceSet631.CreaseAngle := 3.14159;
 IndexedFaceSet631.SetTexCoordIndex([9,0,4,-1,4,12,9,-1,7,3,17,-1,17,15,7,-1,4,5,13,-1,13,12,4,-1,14,10,1,-1,1,6,14,-1,10,11,2,-1,2,1,10,-1,11,13,5,-1,5,2,11,-1,0,9,16,-1,16,8,0,-1,18,21,20,-1,20,19,18,-1,23,22,25,-1,25,24,23,-1,20,21,27,-1,27,26,20,-1,29,28,31,-1,31,30,29,-1,30,31,33,-1,33,32,30,-1,32,33,26,-1,26,27,32,-1,19,35,34,-1,34,18,19,-1,38,39,40,-1,40,41,42,-1,42,43,44,-1,40,42,44,-1,44,45,46,-1,46,47,48,-1,44,46,48,-1,48,49,36,-1,44,48,36,-1,40,44,36,-1,38,40,36,-1,37,38,36,-1,51,52,53,-1,53,54,55,-1,51,53,55,-1,55,56,57,-1,55,57,58,-1,58,59,60,-1,60,61,62,-1,58,60,62,-1,55,58,62,-1,51,55,62,-1,51,62,63,-1,51,63,50,-1,4,0,37,-1,37,36,4,-1,0,8,38,-1,38,37,0,-1,35,19,39,-1,39,38,35,-1,19,20,40,-1,40,39,19,-1,20,26,41,-1,41,40,20,-1,26,33,42,-1,42,41,26,-1,33,31,43,-1,43,42,33,-1,31,28,44,-1,44,43,31,-1,23,24,45,-1,45,44,23,-1,3,7,46,-1,46,45,3,-1,6,1,47,-1,47,46,6,-1,1,2,48,-1,48,47,1,-1,2,5,49,-1,49,48,2,-1,5,4,36,-1,36,49,5,-1,10,14,51,-1,51,50,10,-1,15,17,52,-1,52,51,15,-1,25,22,53,-1,53,52,25,-1,29,30,54,-1,54,53,29,-1,30,32,55,-1,55,54,30,-1,32,27,56,-1,56,55,32,-1,27,21,57,-1,57,56,27,-1,21,18,58,-1,58,57,21,-1,18,34,59,-1,59,58,18,-1,16,9,60,-1,60,59,16,-1,9,12,61,-1,61,60,9,-1,12,13,62,-1,62,61,12,-1,13,11,63,-1,63,62,13,-1,11,10,50,-1,50,63,11,-1]);
 Coordinate632 := TCoordinateNode.Create;
 Coordinate632.SetPoint([Vector3(0.031905,1.0785578,0.06188175),Vector3(0.087570004,1.0785578,-0.055613253),Vector3(0.1152225,1.0785578,-0.02949525),Vector3(0.0897075,1.0785578,0.059564255),Vector3(0.1260225,1.0785578,0.01514925),Vector3(0.0386325,1.0785578,-0.07064325),Vector3(0,1.0785578,0.06190425),Vector3(0.033210002,1.093104,0.06572925),Vector3(0.090742506,1.093104,-0.057480752),Vector3(0.1185975,1.093104,-0.031644),Vector3(0.0925875,1.093104,0.06683175),Vector3(0.1314,1.093104,0.01537425),Vector3(0.0415125,1.093104,-0.071318254),Vector3(0,1.093104,0.06572925),Vector3(-0.033210002,1.093104,0.06572925),Vector3(-0.031905,1.0785578,0.06188175),Vector3(-0.0897075,1.0785578,0.059564255),Vector3(-0.0925875,1.093104,0.06683175),Vector3(-0.0415125,1.093104,-0.071318254),Vector3(-0.0386325,1.0785578,-0.07064325),Vector3(0,1.0785578,-0.07098075),Vector3(0,1.093104,-0.07181325),Vector3(-0.1260225,1.0785578,0.01514925),Vector3(-0.1314,1.093104,0.01537425),Vector3(-0.090742506,1.093104,-0.057480752),Vector3(-0.087570004,1.0785578,-0.055613253),Vector3(-0.1185975,1.093104,-0.031644),Vector3(-0.1152225,1.0785578,-0.02949525),Vector3(0.08763751,1.0720396,0.05540175),Vector3(0.0318375,1.0720396,0.057629254),Vector3(0,1.0720396,0.057629254),Vector3(-0.0318375,1.0720396,0.057629254),Vector3(-0.08763751,1.0720396,0.05540175),Vector3(-0.121387504,1.0720396,0.0141142495),Vector3(-0.111375,1.0720396,-0.02726775),Vector3(-0.085365005,1.0720396,-0.051833253),Vector3(-0.03798,1.0720396,-0.06639075),Vector3(0,1.0720396,-0.06672826),Vector3(0.03798,1.0720396,-0.06639075),Vector3(0.085365005,1.0720396,-0.051833253),Vector3(0.111375,1.0720396,-0.02726775),Vector3(0.121387504,1.0720396,0.0141142495),Vector3(0.0885825,1.1003491,-0.05367825),Vector3(0.040905003,1.1003491,-0.06706575),Vector3(0,1.1003491,-0.067560755),Vector3(-0.040905003,1.1003491,-0.06706575),Vector3(-0.0885825,1.1003491,-0.05367825),Vector3(-0.11481751,1.1003491,-0.029351251),Vector3(-0.1267425,1.1003491,0.01447425),Vector3(-0.090495,1.1003491,0.06253425),Vector3(-0.033255003,1.1003491,0.061476756),Vector3(0,1.1003491,0.061476756),Vector3(0.033255003,1.1003491,0.061476756),Vector3(0.090495,1.1003491,0.06253425),Vector3(0.1267425,1.1003491,0.01447425),Vector3(0.11481751,1.1003491,-0.029351251)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart47;
+begin
+
 { .SetCoord }
 IndexedFaceSet631.Coord := Coordinate632;
 TextureCoordinate633 := TTextureCoordinateNode.Create;
@@ -4002,6 +4238,11 @@ HAnimSegment644 := THAnimSegmentNode.Create;
 HAnimSegment644.NameField := 't7';
 Shape645 := TShapeNode.Create;
 Appearance646 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart48;
+begin
+
 Material647 := TMaterialNode.Create;
 Material647.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -4051,6 +4292,11 @@ IndexedFaceSet658.CreaseAngle := 3.14159;
 IndexedFaceSet658.SetTexCoordIndex([17,13,8,-1,8,4,17,-1,3,2,9,-1,9,16,3,-1,1,10,14,-1,14,5,1,-1,6,12,17,-1,17,4,6,-1,13,9,2,-1,2,8,13,-1,16,15,7,-1,7,3,16,-1,7,15,11,-1,11,0,7,-1,18,21,20,-1,20,19,18,-1,23,22,25,-1,25,24,23,-1,26,29,28,-1,28,27,26,-1,30,21,18,-1,18,31,30,-1,19,20,24,-1,24,25,19,-1,22,23,33,-1,33,32,22,-1,33,35,34,-1,34,32,33,-1,38,39,40,-1,40,41,42,-1,42,43,44,-1,40,42,44,-1,44,45,46,-1,46,47,48,-1,44,46,48,-1,48,49,36,-1,44,48,36,-1,40,44,36,-1,38,40,36,-1,37,38,36,-1,52,53,54,-1,54,55,56,-1,56,57,58,-1,54,56,58,-1,58,59,60,-1,60,61,62,-1,58,60,62,-1,62,63,50,-1,58,62,50,-1,54,58,50,-1,52,54,50,-1,51,52,50,-1,4,8,37,-1,37,36,4,-1,8,2,38,-1,38,37,8,-1,2,3,39,-1,39,38,2,-1,3,7,40,-1,40,39,3,-1,7,0,41,-1,41,40,7,-1,1,5,42,-1,42,41,1,-1,29,26,43,-1,43,42,29,-1,35,33,44,-1,44,43,35,-1,33,23,45,-1,45,44,33,-1,23,24,46,-1,46,45,23,-1,24,20,47,-1,47,46,24,-1,20,21,48,-1,48,47,20,-1,21,30,49,-1,49,48,21,-1,6,4,36,-1,36,49,6,-1,14,10,51,-1,51,50,14,-1,11,15,52,-1,52,51,11,-1,15,16,53,-1,53,52,15,-1,16,9,54,-1,54,53,16,-1,9,13,55,-1,55,54,9,-1,13,17,56,-1,56,55,13,-1,17,12,57,-1,57,56,17,-1,31,18,58,-1,58,57,31,-1,18,19,59,-1,59,58,18,-1,19,25,60,-1,60,59,19,-1,25,22,61,-1,61,60,25,-1,22,32,62,-1,62,61,22,-1,32,34,63,-1,63,62,32,-1,27,28,50,-1,50,63,27,-1]);
 Coordinate659 := TCoordinateNode.Create;
 Coordinate659.SetPoint([Vector3(0.043582503,1.137141,-0.07325325),Vector3(0.13932,1.1371433,0.017151749),Vector3(0.129105,1.1371433,-0.03089475),Vector3(0.036337502,1.1371433,0.07013925),Vector3(0.0961425,1.1371433,-0.06256575),Vector3(0.0887625,1.1371433,0.06566175),Vector3(0.1414125,1.1217172,0.01591425),Vector3(0.046395004,1.1217172,-0.072668254),Vector3(0,1.1217172,0.07232175),Vector3(0.0922725,1.1217172,0.07013925),Vector3(0.096525006,1.1217172,-0.06112575),Vector3(0.12537001,1.1217172,-0.03517425),Vector3(0.035662502,1.1217172,0.072231755),Vector3(-0.035662502,1.1217172,0.072231755),Vector3(-0.0922725,1.1217172,0.07013925),Vector3(-0.0887625,1.1371433,0.06566175),Vector3(-0.036337502,1.1371433,0.07013925),Vector3(-0.12537001,1.1217172,-0.03517425),Vector3(-0.129105,1.1371433,-0.03089475),Vector3(-0.13932,1.1371433,0.017151749),Vector3(-0.1414125,1.1217172,0.01591425),Vector3(-0.043582503,1.137141,-0.07325325),Vector3(-0.046395004,1.1217172,-0.072668254),Vector3(0,1.1217172,-0.07372575),Vector3(0,1.137141,-0.07530075),Vector3(0,1.1371433,0.07074676),Vector3(-0.096525006,1.1217172,-0.06112575),Vector3(-0.0961425,1.1371433,-0.06256575),Vector3(0.0360675,1.1448675,0.06473926),Vector3(0.0864,1.1448675,0.060441755),Vector3(0.1334025,1.1448675,0.01532925),Vector3(0.12415501,1.1448675,-0.0281475),Vector3(0.0935325,1.1448675,-0.05757075),Vector3(0.0429075,1.1448675,-0.06787575),Vector3(0,1.1448675,-0.06987825),Vector3(-0.0429075,1.1448675,-0.06787575),Vector3(-0.0935325,1.1448675,-0.05757075),Vector3(-0.12415501,1.1448675,-0.0281475),Vector3(-0.1334025,1.1448675,0.01532925),Vector3(-0.0864,1.1448675,0.060441755),Vector3(-0.0360675,1.1448675,0.06473926),Vector3(0,1.1448675,0.065346755),Vector3(0,1.1164207,-0.06832575),Vector3(0.045720004,1.1164207,-0.06726825),Vector3(0.09396001,1.1164207,-0.056175753),Vector3(0.120645,1.1164207,-0.03214125),Vector3(0.1353375,1.1164207,0.01458675),Vector3(0.089797504,1.1164207,0.06480675),Vector3(0.0355725,1.1164207,0.06680925),Vector3(0,1.1164207,0.06692175),Vector3(-0.0355725,1.1164207,0.06680925),Vector3(-0.089797504,1.1164207,0.06480675),Vector3(-0.1353375,1.1164207,0.01458675),Vector3(-0.120645,1.1164207,-0.03214125),Vector3(-0.09396001,1.1164207,-0.056175753),Vector3(-0.045720004,1.1164207,-0.06726825)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart49;
+begin
+
 { .SetCoord }
 IndexedFaceSet658.Coord := Coordinate659;
 TextureCoordinate660 := TTextureCoordinateNode.Create;
@@ -4104,6 +4350,11 @@ HAnimSegment671 := THAnimSegmentNode.Create;
 HAnimSegment671.NameField := 't4';
 Shape672 := TShapeNode.Create;
 Appearance673 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart50;
+begin
+
 Material674 := TMaterialNode.Create;
 Material674.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -4153,6 +4404,11 @@ IndexedFaceSet685.CreaseAngle := 3.14159;
 IndexedFaceSet685.SetTexCoordIndex([2,12,1,-1,1,0,2,-1,1,12,13,-1,4,8,16,-1,16,15,4,-1,11,10,17,-1,17,19,11,-1,21,20,5,-1,5,6,21,-1,14,21,6,-1,6,7,14,-1,16,8,1,-1,1,13,16,-1,20,18,9,-1,9,5,20,-1,3,2,0,-1,0,1,8,-1,4,15,14,-1,14,7,4,-1,6,5,23,-1,23,22,6,-1,5,9,24,-1,24,23,5,-1,10,11,25,-1,25,24,10,-1,0,8,27,-1,27,26,0,-1,8,4,28,-1,28,27,8,-1,4,7,29,-1,29,28,4,-1,7,6,22,-1,22,29,7,-1,15,16,31,-1,31,30,15,-1,16,13,32,-1,32,31,16,-1,13,12,33,-1,33,32,13,-1,19,17,35,-1,35,34,19,-1,18,20,36,-1,36,35,18,-1,20,21,37,-1,37,36,20,-1,21,14,38,-1,38,37,21,-1,14,15,30,-1,30,38,14,-1,42,41,40,-1,40,39,42,-1,40,43,39,-1,45,44,47,-1,47,46,45,-1,49,48,51,-1,51,50,49,-1,53,52,55,-1,55,54,53,-1,57,56,52,-1,52,53,57,-1,47,43,40,-1,40,46,47,-1,54,55,59,-1,59,58,54,-1,60,41,42,-1,41,46,40,-1,45,56,57,-1,57,44,45,-1,52,62,61,-1,61,55,52,-1,55,61,63,-1,63,59,55,-1,50,63,64,-1,64,49,50,-1,41,66,65,-1,65,46,41,-1,46,65,67,-1,67,45,46,-1,45,67,68,-1,68,56,45,-1,56,68,62,-1,62,52,56,-1,44,70,69,-1,69,47,44,-1,47,69,71,-1,71,43,47,-1,43,71,72,-1,72,39,43,-1,48,74,73,-1,73,51,48,-1,58,73,75,-1,75,54,58,-1,54,75,76,-1,76,53,54,-1,53,76,77,-1,77,57,53,-1,57,77,70,-1,70,44,57,-1,31,32,33,-1,33,71,69,-1,69,70,77,-1,33,69,77,-1,77,76,75,-1,75,73,74,-1,77,75,74,-1,74,35,36,-1,36,37,38,-1,74,36,38,-1,77,74,38,-1,33,77,38,-1,31,33,38,-1,31,38,30,-1]);
 Coordinate686 := TCoordinateNode.Create;
 Coordinate686.SetPoint([Vector3(0.0385425,1.1876289,0.06336675),Vector3(0.121005,1.198845,0.023856752),Vector3(0.09729,1.198845,-0.05712075),Vector3(0.1156725,1.198845,-0.055140752),Vector3(0.12575251,1.198845,-0.04497075),Vector3(0.0747,1.198845,0.047796752),Vector3(0.0407475,1.198845,-0.06474825),Vector3(0.035842504,1.1948401,0.078441754),Vector3(0.0378225,1.170945,0.06561676),Vector3(0.12993751,1.1715525,-0.034110002),Vector3(0.13106251,1.1702116,0.020459251),Vector3(0.080662504,1.1727495,0.055379253),Vector3(0.0407475,1.1715525,-0.07012576),Vector3(0.09639,1.1715525,-0.061193254),Vector3(0.10388251,1.1715525,-0.060383253),Vector3(0,1.170945,0.06759675),Vector3(0,1.1796166,0.07895925),Vector3(0,1.1715525,-0.07314075),Vector3(0,1.198845,-0.067763254),Vector3(0.11290501,1.20843,-0.04938075),Vector3(0.09657,1.20843,-0.051135752),Vector3(0.040117502,1.20843,-0.05876325),Vector3(0.034222502,1.20843,0.07205175),Vector3(0.0714375,1.20843,0.04271175),Vector3(0.1152225,1.20843,0.02007675),Vector3(0.11956501,1.20843,-0.042675752),Vector3(0.12755251,1.161,0.01791675),Vector3(0.0797625,1.161,0.051014252),Vector3(0.03771,1.161,0.061071754),Vector3(0,1.161,0.06302925),Vector3(0.0408825,1.161,-0.06526575),Vector3(0.0975375,1.161,-0.056153253),Vector3(0.103185005,1.161,-0.05554575),Vector3(0.1265175,1.161,-0.032019753),Vector3(-0.0385425,1.1876289,0.06336675),Vector3(-0.035842504,1.1948401,0.078441754),Vector3(-0.0378225,1.170945,0.06561676),Vector3(-0.13106251,1.1702116,0.020459251),Vector3(-0.121005,1.198845,0.023856752),Vector3(-0.0747,1.198845,0.047796752),Vector3(-0.080662504,1.1727495,0.055379253),Vector3(-0.0407475,1.198845,-0.06474825),Vector3(-0.0407475,1.1715525,-0.07012576),Vector3(-0.1156725,1.198845,-0.055140752),Vector3(-0.10388251,1.1715525,-0.060383253),Vector3(-0.09639,1.1715525,-0.061193254),Vector3(-0.09729,1.198845,-0.05712075),Vector3(-0.12575251,1.198845,-0.04497075),Vector3(-0.12993751,1.1715525,-0.034110002),Vector3(0,1.1967751,0.07218675),Vector3(-0.09657,1.20843,-0.051135752),Vector3(-0.11290501,1.20843,-0.04938075),Vector3(-0.040117502,1.20843,-0.05876325),Vector3(0,1.20843,-0.061733253),Vector3(-0.0714375,1.20843,0.04271175),Vector3(-0.034222502,1.20843,0.07205175),Vector3(-0.1152225,1.20843,0.02007675),Vector3(-0.11956501,1.20843,-0.042675752),Vector3(-0.0797625,1.161,0.051014252),Vector3(-0.12755251,1.161,0.01791675),Vector3(-0.03771,1.161,0.061071754),Vector3(-0.0408825,1.161,-0.06526575),Vector3(0,1.161,-0.06828076),Vector3(-0.0975375,1.161,-0.056153253),Vector3(-0.103185005,1.161,-0.05554575),Vector3(-0.1265175,1.161,-0.032019753)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart51;
+begin
+
 { .SetCoord }
 IndexedFaceSet685.Coord := Coordinate686;
 TextureCoordinate687 := TTextureCoordinateNode.Create;
@@ -4206,6 +4462,11 @@ HAnimSegment698 := THAnimSegmentNode.Create;
 HAnimSegment698.NameField := 't1';
 Shape699 := TShapeNode.Create;
 Appearance700 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart52;
+begin
+
 Material701 := TMaterialNode.Create;
 Material701.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -4225,6 +4486,11 @@ Coordinate704.SetPoint([Vector3(0.033075,1.2579751,-0.03963825),Vector3(0.045360
 IndexedFaceSet703.Coord := Coordinate704;
 TextureCoordinate705 := TTextureCoordinateNode.Create;
 TextureCoordinate705.SetPoint([Vector2(0.4416,0.6747),Vector2(0.4535,0.6485),Vector2(0.4483,0.6438),Vector2(0.4499,0.6371),Vector2(0.4594,0.6763),Vector2(0.4399,0.6472),Vector2(0.4645,0.6783),Vector2(0.4385,0.6236),Vector2(0.4279,0.6258),Vector2(0.1412,0.5207),Vector2(0.1108,0.5655),Vector2(0.1073,0.5839),Vector2(0.1708,0.4854),Vector2(0.4376,0.6345),Vector2(0.4528,0.6648),Vector2(0.4548,0.6714),Vector2(0.4459,0.6652),Vector2(0.4669,0.6678),Vector2(0.0786,0.5849),Vector2(0.4476,0.6884),Vector2(0.1474,0.4856),Vector2(0.0865,0.5614),Vector2(0.1963,0.4863),Vector2(0.1227,0.5144),Vector2(0.4539,0.6879),Vector2(0.4621,0.6889),Vector2(0.2661,0.5914),Vector2(0.3505,0.5919),Vector2(0.241,0.592),Vector2(0.1724,0.5255),Vector2(0.2089,0.5196),Vector2(0.2133,0.556),Vector2(0.1645,0.5709),Vector2(0.2067,0.5908),Vector2(0.2708,0.4736),Vector2(0.347,0.4317),Vector2(0.3616,0.5328),Vector2(0.2733,0.5359),Vector2(0.238,0.493),Vector2(0.249,0.5451),Vector2(0.3477,0.431),Vector2(0.3623,0.5333),Vector2(0.3623,0.5333),Vector2(0.3505,0.5919),Vector2(0.3477,0.431),Vector2(0.3511,0.5932),Vector2(0.3206,0.4193),Vector2(0.2505,0.5754),Vector2(0.3554,0.5911),Vector2(0.2112,0.5805),Vector2(0.1632,0.5887),Vector2(0.1073,0.5839),Vector2(0.1474,0.4856),Vector2(0.1108,0.5655),Vector2(0.1412,0.5207),Vector2(0.1708,0.4854),Vector2(0.1963,0.4863),Vector2(0.3223,0.4192),Vector2(0.2638,0.4568),Vector2(0.3206,0.4193),Vector2(0.1963,0.4863),Vector2(0.1963,0.4863),Vector2(0.1963,0.4863),Vector2(0.2252,0.4828),Vector2(0.2252,0.4828),Vector2(0.2252,0.4828),Vector2(0.4337,0.6239),Vector2(0.4689,0.6806),Vector2(0.4689,0.6702),Vector2(0.4627,0.667),Vector2(0.4583,0.6722),Vector2(0.4578,0.6906),Vector2(0.1073,0.5839),Vector2(0.0786,0.5849),Vector2(0.0865,0.5614),Vector2(0.1108,0.5655),Vector2(0.4514,0.6379),Vector2(0.4463,0.6454),Vector2(0.4498,0.6514),Vector2(0.4521,0.6748),Vector2(0.4466,0.6744),Vector2(0.4444,0.685),Vector2(0.4523,0.6875),Vector2(0.4395,0.6457),Vector2(0.4393,0.633),Vector2(0.4295,0.6275),Vector2(0.4284,0.6322),Vector2(0.4488,0.6639),Vector2(0.1708,0.4854),Vector2(0.1412,0.5207),Vector2(0.1227,0.5144),Vector2(0.1963,0.4863),Vector2(0.2661,0.5914),Vector2(0.3505,0.5919),Vector2(0.3554,0.5911),Vector2(0.2505,0.5754),Vector2(0.241,0.592),Vector2(0.2112,0.5805),Vector2(0.1724,0.5255),Vector2(0.2089,0.5196),Vector2(0.2133,0.556),Vector2(0.1645,0.5709),Vector2(0.1412,0.5207),Vector2(0.1108,0.5655),Vector2(0.2067,0.5908),Vector2(0.1632,0.5887),Vector2(0.1073,0.5839),Vector2(0.1708,0.4854),Vector2(0.1963,0.4863),Vector2(0.1474,0.4856),Vector2(0.3477,0.431),Vector2(0.347,0.4317),Vector2(0.3616,0.5328),Vector2(0.3623,0.5333),Vector2(0.238,0.493),Vector2(0.2708,0.4736),Vector2(0.2733,0.5359),Vector2(0.249,0.5451),Vector2(0.3505,0.5919),Vector2(0.3511,0.5932),Vector2(0.3623,0.5333),Vector2(0.3223,0.4192),Vector2(0.3206,0.4193),Vector2(0.3477,0.431),Vector2(0.2252,0.4828),Vector2(0.2638,0.4568),Vector2(0.1963,0.4863),Vector2(0.1963,0.4863),Vector2(0.2252,0.4828),Vector2(0.2252,0.4828),Vector2(0.1963,0.4863),Vector2(0.3206,0.4193),Vector2(0.1474,0.4856),Vector2(0.4323,0.622),Vector2(0.0865,0.5614),Vector2(0.0786,0.5849),Vector2(0.4539,0.6879),Vector2(0.4621,0.6889),Vector2(0.4523,0.6875),Vector2(0.4578,0.6906),Vector2(0.0865,0.5614),Vector2(0.1227,0.5144),Vector2(0.1474,0.4856),Vector2(0.1474,0.4856),Vector2(0.1227,0.5144),Vector2(0.1963,0.4863),Vector2(0.1963,0.4863),Vector2(0.1963,0.4863),Vector2(0.1963,0.4863),Vector2(0.1999,0.4849),Vector2(0.1421,0.507),Vector2(0.1227,0.5144)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart53;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet703.TexCoord := TextureCoordinate705;
 { .SetGeometry }
@@ -4278,6 +4544,11 @@ Material719 := TMaterialNode.Create;
 Material719.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance718.Material := Material719;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart54;
+begin
+
 ImageTexture720 := ImageTexture36;
 { .SetTexture }
 Appearance718.Texture := ImageTexture720;
@@ -4327,6 +4598,11 @@ Coordinate731.SetPoint([Vector3(0.01208025,1.282176,-0.04035375),Vector3(0.02562
 IndexedFaceSet730.Coord := Coordinate731;
 TextureCoordinate732 := TTextureCoordinateNode.Create;
 TextureCoordinate732.SetPoint([Vector2(0.3995,0.6596),Vector2(0.4094,0.6606),Vector2(0.4164,0.6605),Vector2(0.4107,0.6591),Vector2(0.3906,0.6538),Vector2(0.3807,0.6592),Vector2(0.3719,0.6606),Vector2(0.3649,0.6605),Vector2(0.3906,0.6599),Vector2(0.4006,0.6592),Vector2(0.3818,0.6596),Vector2(0.3706,0.6591),Vector2(0.3995,0.6565),Vector2(0.4094,0.6578),Vector2(0.4164,0.6576),Vector2(0.4107,0.6559),Vector2(0.3906,0.6507),Vector2(0.3807,0.6555),Vector2(0.3719,0.6578),Vector2(0.3649,0.6576),Vector2(0.3906,0.6568),Vector2(0.4006,0.6555),Vector2(0.3818,0.6565),Vector2(0.3706,0.6559),Vector2(0.3995,0.6596),Vector2(0.3906,0.6599),Vector2(0.3818,0.6596),Vector2(0.3719,0.6606),Vector2(0.3649,0.6605),Vector2(0.3706,0.6591),Vector2(0.3807,0.6592),Vector2(0.3906,0.6538),Vector2(0.4006,0.6592),Vector2(0.4107,0.6591),Vector2(0.4164,0.6605),Vector2(0.4094,0.6606),Vector2(0.3906,0.6568),Vector2(0.3995,0.6565),Vector2(0.4094,0.6578),Vector2(0.4164,0.6576),Vector2(0.4107,0.6559),Vector2(0.4006,0.6555),Vector2(0.3906,0.6507),Vector2(0.3807,0.6555),Vector2(0.3706,0.6559),Vector2(0.3649,0.6576),Vector2(0.3719,0.6578),Vector2(0.3818,0.6565)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart55;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet730.TexCoord := TextureCoordinate732;
 { .SetGeometry }
@@ -4380,6 +4656,11 @@ Material746 := TMaterialNode.Create;
 Material746.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance745.Material := Material746;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart56;
+begin
+
 ImageTexture747 := ImageTexture36;
 { .SetTexture }
 Appearance745.Texture := ImageTexture747;
@@ -4429,6 +4710,11 @@ Coordinate758.SetPoint([Vector3(0.01208025,1.318536,-0.04035375),Vector3(0,1.318
 IndexedFaceSet757.Coord := Coordinate758;
 TextureCoordinate759 := TTextureCoordinateNode.Create;
 TextureCoordinate759.SetPoint([Vector2(0.3995,0.6721),Vector2(0.3906,0.6721),Vector2(0.4094,0.6721),Vector2(0.4164,0.6721),Vector2(0.4107,0.6721),Vector2(0.4006,0.6738),Vector2(0.3906,0.6664),Vector2(0.3818,0.6721),Vector2(0.3719,0.6721),Vector2(0.3649,0.6721),Vector2(0.3706,0.6721),Vector2(0.3807,0.6738),Vector2(0.3995,0.6721),Vector2(0.3906,0.6721),Vector2(0.3818,0.6721),Vector2(0.3719,0.6721),Vector2(0.3649,0.6721),Vector2(0.3706,0.6721),Vector2(0.3807,0.6738),Vector2(0.3906,0.6664),Vector2(0.4006,0.6738),Vector2(0.4107,0.6721),Vector2(0.4164,0.6721),Vector2(0.4094,0.6721),Vector2(0.3995,0.669),Vector2(0.4094,0.6692),Vector2(0.4164,0.6692),Vector2(0.4107,0.6689),Vector2(0.3906,0.6632),Vector2(0.3807,0.6702),Vector2(0.3719,0.6692),Vector2(0.3649,0.6692),Vector2(0.3906,0.669),Vector2(0.4006,0.6702),Vector2(0.3818,0.669),Vector2(0.3706,0.6689),Vector2(0.3906,0.669),Vector2(0.3995,0.669),Vector2(0.4094,0.6692),Vector2(0.4164,0.6692),Vector2(0.4107,0.6689),Vector2(0.4006,0.6702),Vector2(0.3906,0.6632),Vector2(0.3807,0.6702),Vector2(0.3706,0.6689),Vector2(0.3649,0.6692),Vector2(0.3719,0.6692),Vector2(0.3818,0.669)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart57;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet757.TexCoord := TextureCoordinate759;
 { .SetGeometry }
@@ -4482,6 +4768,11 @@ Material773 := TMaterialNode.Create;
 Material773.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance772.Material := Material773;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart58;
+begin
+
 ImageTexture774 := ImageTexture36;
 { .SetTexture }
 Appearance772.Texture := ImageTexture774;
@@ -4491,8 +4782,18 @@ IndexedFaceSet775 := TIndexedFaceSetNode.Create;
 IndexedFaceSet775.SetCoordIndex([51,38,41,-1,41,43,51,-1,43,52,171,-1,171,151,43,-1,49,42,41,-1,41,38,49,-1,44,186,171,-1,171,52,44,-1,78,76,51,-1,51,43,78,-1,189,78,43,-1,43,151,189,-1,9,172,13,-1,13,10,9,-1,73,193,9,-1,9,10,73,-1,11,50,27,-1,16,13,172,-1,13,67,14,-1,68,15,14,-1,7,6,67,-1,13,16,67,-1,7,67,16,-1,16,172,173,-1,7,16,136,-1,7,136,130,-1,131,132,173,-1,68,19,18,-1,18,15,68,-1,20,32,18,-1,17,8,32,-1,15,66,13,-1,13,14,15,-1,32,23,24,-1,24,17,32,-1,21,24,23,-1,21,22,24,-1,24,22,17,-1,27,25,11,-1,25,31,11,-1,22,28,17,-1,27,30,29,-1,12,26,29,-1,26,27,29,-1,27,28,30,-1,30,28,22,-1,6,14,67,-1,1,34,31,-1,34,36,35,-1,34,35,31,-1,34,1,36,-1,49,37,1,-1,1,40,49,-1,39,37,49,-1,49,38,39,-1,37,39,1,-1,42,49,40,-1,40,0,42,-1,44,52,0,-1,186,44,0,-1,0,149,186,-1,51,76,45,-1,45,76,77,-1,53,45,77,-1,1,39,45,-1,45,53,1,-1,45,39,38,-1,38,51,45,-1,53,77,46,-1,77,74,33,-1,33,46,77,-1,1,53,46,-1,46,36,1,-1,46,33,35,-1,35,36,46,-1,74,50,33,-1,8,17,47,-1,11,31,50,-1,35,33,50,-1,31,35,50,-1,50,74,75,-1,47,75,8,-1,27,50,28,-1,28,50,47,-1,28,47,17,-1,75,73,48,-1,48,73,10,-1,66,48,10,-1,10,13,66,-1,75,66,8,-1,66,75,48,-1,8,66,18,-1,18,32,8,-1,15,18,66,-1,47,50,75,-1,41,52,43,-1,42,0,41,-1,0,52,41,-1,0,54,149,-1,244,245,54,-1,0,56,54,-1,0,40,55,-1,55,57,0,-1,3,57,55,-1,0,57,56,-1,3,62,5,-1,5,62,58,-1,3,64,62,-1,2,61,62,-1,62,64,2,-1,3,60,64,-1,55,40,59,-1,64,60,59,-1,64,59,135,-1,149,54,245,-1,5,57,3,-1,54,5,244,-1,152,63,61,-1,153,63,152,-1,63,5,58,-1,153,244,63,-1,244,5,63,-1,58,61,63,-1,58,62,61,-1,56,5,54,-1,56,57,5,-1,60,3,55,-1,60,55,59,-1,1,133,135,-1,59,40,1,-1,59,1,135,-1,65,135,133,-1,2,65,133,-1,2,64,65,-1,64,135,65,-1,73,75,69,-1,263,193,73,-1,73,69,263,-1,69,75,74,-1,74,71,69,-1,71,74,77,-1,77,72,71,-1,69,71,266,-1,266,263,69,-1,72,70,266,-1,266,71,72,-1,78,72,77,-1,77,76,78,-1,189,70,72,-1,72,78,189,-1,138,123,113,-1,79,122,123,-1,122,79,80,-1,137,124,81,-1,137,81,82,-1,137,82,83,-1,83,79,137,-1,79,83,80,-1,84,116,122,-1,124,84,122,-1,84,119,116,-1,123,122,113,-1,113,122,109,-1,115,138,113,-1,113,114,115,-1,117,286,158,-1,158,112,117,-1,122,116,109,-1,79,123,133,-1,133,123,138,-1,133,137,79,-1,129,138,115,-1,110,117,112,-1,111,117,110,-1,2,133,138,-1,109,85,113,-1,86,113,85,-1,107,294,160,-1,160,126,107,-1,107,126,125,-1,125,108,107,-1,125,127,87,-1,87,108,125,-1,108,87,103,-1,103,104,108,-1,114,301,154,-1,154,115,114,-1,302,114,86,-1,86,159,302,-1,114,113,86,-1,116,105,109,-1,109,105,87,-1,85,88,86,-1,109,87,85,-1,104,174,305,-1,305,108,104,-1,305,175,108,-1,105,103,87,-1,307,91,170,-1,170,150,307,-1,174,104,95,-1,95,162,174,-1,311,150,170,-1,170,177,311,-1,116,90,105,-1,89,90,116,-1,94,168,167,-1,167,93,94,-1,105,90,96,-1,97,95,104,-1,104,103,97,-1,120,121,95,-1,95,97,120,-1,105,96,97,-1,97,103,105,-1,120,97,96,-1,96,98,120,-1,121,100,95,-1,163,91,162,-1,93,170,99,-1,98,96,90,-1,90,101,98,-1,99,163,100,-1,110,112,92,-1,101,90,89,-1,89,106,101,-1,92,112,165,-1,165,177,170,-1,175,294,107,-1,107,108,175,-1,119,89,116,-1,118,111,119,-1,118,117,111,-1,152,138,129,-1,2,138,61,-1,61,138,152,-1,87,127,88,-1,88,85,87,-1,124,119,84,-1,119,111,164,-1,111,166,164,-1,111,110,166,-1,92,166,110,-1,133,4,137,-1,133,134,4,-1,160,176,128,-1,128,126,160,-1,126,128,127,-1,127,125,126,-1,80,81,124,-1,124,122,80,-1,82,81,80,-1,80,83,82,-1,129,115,154,-1,154,152,129,-1,94,140,139,-1,139,102,94,-1,93,141,140,-1,140,94,93,-1,99,142,141,-1,141,93,99,-1,100,143,142,-1,142,99,100,-1,121,144,143,-1,143,100,121,-1,120,145,144,-1,144,121,120,-1,98,146,145,-1,145,120,98,-1,101,147,146,-1,146,98,101,-1,106,148,147,-1,147,101,106,-1,106,102,139,-1,139,148,106,-1,114,302,301,-1,88,127,155,-1,155,157,88,-1,127,161,156,-1,156,155,127,-1,352,353,156,-1,156,161,352,-1,156,353,354,-1,155,156,354,-1,155,354,157,-1,127,128,161,-1,161,128,176,-1,176,352,161,-1,168,94,102,-1,102,169,168,-1,170,93,167,-1,169,102,106,-1,106,164,169,-1,170,91,99,-1,99,91,163,-1,100,163,162,-1,162,95,100,-1,91,307,174,-1,174,162,91,-1,164,106,89,-1,164,89,119,-1,165,170,167,-1,92,165,167,-1,167,168,92,-1,166,92,168,-1,168,169,166,-1,164,166,169,-1,165,112,177,-1,177,112,158,-1,158,311,177,-1,180,179,178,-1,178,181,180,-1,179,151,171,-1,171,182,179,-1,183,181,178,-1,178,184,183,-1,185,182,171,-1,171,186,185,-1,187,179,180,-1,180,188,187,-1,189,151,179,-1,179,187,189,-1,9,191,190,-1,190,172,9,-1,192,191,9,-1,9,193,192,-1,194,196,195,-1,197,172,190,-1,190,199,198,-1,200,199,201,-1,202,198,203,-1,190,198,197,-1,202,197,198,-1,197,173,172,-1,202,204,197,-1,202,205,204,-1,206,173,207,-1,200,201,208,-1,208,209,200,-1,210,208,211,-1,212,211,213,-1,201,199,190,-1,190,214,201,-1,211,212,215,-1,215,216,211,-1,217,216,215,-1,217,215,218,-1,215,212,218,-1,196,194,219,-1,219,194,220,-1,218,212,221,-1,196,223,222,-1,224,223,225,-1,225,223,196,-1,196,222,221,-1,222,218,221,-1,203,198,199,-1,226,220,227,-1,227,229,228,-1,227,220,229,-1,227,228,226,-1,183,230,226,-1,226,231,183,-1,232,181,183,-1,183,231,232,-1,231,226,232,-1,184,233,230,-1,230,183,184,-1,185,233,182,-1,186,149,233,-1,233,185,186,-1,180,234,188,-1,234,235,188,-1,236,235,234,-1,226,236,234,-1,234,232,226,-1,234,180,181,-1,181,232,234,-1,236,237,235,-1,235,237,238,-1,238,239,235,-1,226,228,237,-1,237,236,226,-1,237,228,229,-1,229,238,237,-1,239,238,195,-1,213,240,212,-1,194,195,220,-1,229,195,238,-1,220,195,229,-1,195,241,239,-1,240,213,241,-1,196,221,195,-1,221,240,195,-1,221,212,240,-1,241,242,192,-1,242,191,192,-1,214,190,191,-1,191,242,214,-1,241,213,214,-1,214,242,241,-1,213,211,208,-1,208,214,213,-1,201,214,208,-1,240,241,195,-1,178,179,182,-1,184,178,233,-1,233,178,182,-1,233,149,243,-1,244,243,245,-1,233,243,246,-1,233,248,247,-1,247,230,233,-1,249,247,248,-1,233,246,248,-1,249,251,250,-1,251,252,250,-1,249,250,253,-1,254,253,250,-1,250,255,254,-1,249,253,256,-1,247,257,230,-1,253,257,256,-1,253,258,257,-1,149,245,243,-1,251,249,248,-1,243,244,251,-1,152,255,259,-1,153,152,259,-1,259,252,251,-1,153,259,244,-1,244,259,251,-1,252,259,255,-1,252,255,250,-1,246,243,251,-1,246,251,248,-1,256,247,249,-1,256,257,247,-1,226,258,260,-1,257,226,230,-1,257,258,226,-1,261,260,258,-1,254,260,261,-1,254,261,253,-1,253,261,258,-1,192,262,241,-1,263,262,192,-1,192,193,263,-1,262,264,239,-1,239,241,262,-1,264,265,235,-1,235,239,264,-1,262,263,266,-1,266,264,262,-1,265,264,266,-1,266,70,265,-1,187,188,235,-1,235,265,187,-1,189,187,265,-1,265,70,189,-1,267,269,268,-1,270,268,271,-1,271,272,270,-1,273,275,274,-1,273,276,275,-1,273,270,277,-1,277,276,273,-1,270,272,277,-1,278,271,279,-1,274,271,278,-1,278,279,280,-1,268,269,271,-1,269,281,271,-1,283,282,269,-1,269,267,283,-1,285,284,158,-1,158,286,285,-1,271,281,279,-1,270,260,268,-1,260,267,268,-1,260,270,273,-1,287,283,267,-1,288,284,285,-1,289,288,285,-1,254,267,260,-1,281,269,290,-1,291,290,269,-1,293,292,160,-1,160,294,293,-1,293,296,295,-1,295,292,293,-1,295,296,297,-1,297,298,295,-1,296,300,299,-1,299,297,296,-1,282,283,154,-1,154,301,282,-1,302,159,291,-1,291,282,302,-1,282,291,269,-1,279,281,303,-1,281,297,303,-1,290,291,304,-1,281,290,297,-1,300,296,305,-1,305,174,300,-1,305,296,175,-1,303,297,299,-1,307,150,306,-1,306,308,307,-1,174,310,309,-1,309,300,174,-1,311,312,306,-1,306,150,311,-1,279,303,313,-1,314,279,313,-1,315,318,317,-1,317,316,315,-1,303,319,313,-1,320,299,300,-1,300,309,320,-1,321,320,309,-1,309,322,321,-1,303,299,320,-1,320,319,303,-1,321,323,319,-1,319,320,321,-1,322,309,324,-1,325,310,308,-1,318,326,306,-1,323,327,313,-1,313,319,323,-1,326,324,325,-1,288,328,284,-1,327,329,314,-1,314,313,327,-1,328,330,284,-1,330,306,312,-1,175,293,294,-1,293,175,296,-1,280,279,314,-1,331,280,289,-1,331,289,285,-1,152,287,267,-1,254,255,267,-1,255,152,267,-1,297,290,304,-1,304,298,297,-1,274,278,280,-1,280,332,289,-1,289,332,333,-1,289,333,288,-1,328,288,333,-1,260,273,334,-1,260,334,335,-1,160,292,336,-1,336,176,160,-1,292,295,298,-1,298,336,292,-1,272,271,274,-1,274,275,272,-1,276,277,272,-1,272,275,276,-1,287,152,154,-1,154,283,287,-1,315,337,339,-1,339,338,315,-1,318,315,338,-1,338,340,318,-1,326,318,340,-1,340,341,326,-1,324,326,341,-1,341,342,324,-1,322,324,342,-1,342,343,322,-1,321,322,343,-1,343,344,321,-1,323,321,344,-1,344,345,323,-1,327,323,345,-1,345,346,327,-1,329,327,346,-1,346,347,329,-1,329,347,339,-1,339,337,329,-1,282,301,302,-1,304,349,348,-1,348,298,304,-1,298,348,351,-1,351,350,298,-1,352,350,351,-1,351,353,352,-1,348,349,354,-1,354,353,351,-1,348,354,351,-1,298,350,336,-1,350,352,176,-1,176,336,350,-1,316,355,337,-1,337,315,316,-1,306,317,318,-1,355,332,329,-1,329,337,355,-1,306,326,308,-1,326,325,308,-1,324,309,310,-1,310,325,324,-1,308,310,174,-1,174,307,308,-1,332,314,329,-1,332,280,314,-1,330,317,306,-1,328,316,317,-1,317,330,328,-1,333,355,316,-1,316,328,333,-1,332,355,333,-1,330,312,284,-1,312,311,158,-1,158,284,312,-1]);
 IndexedFaceSet775.CreaseAngle := 3.14159;
 IndexedFaceSet775.SetTexCoordIndex([0,3,2,-1,2,1,0,-1,1,6,5,-1,5,4,1,-1,7,8,2,-1,2,3,7,-1,9,10,5,-1,5,6,9,-1,11,12,0,-1,0,1,11,-1,13,11,1,-1,1,4,13,-1,14,17,16,-1,16,15,14,-1,18,19,14,-1,14,15,18,-1,22,21,20,-1,23,16,17,-1,16,25,24,-1,27,26,24,-1,29,28,25,-1,16,23,25,-1,29,25,23,-1,31,17,30,-1,29,23,32,-1,33,32,31,-1,33,31,30,-1,27,35,34,-1,34,26,27,-1,37,36,34,-1,39,38,36,-1,26,40,16,-1,16,24,26,-1,36,42,41,-1,41,39,36,-1,43,41,42,-1,43,44,41,-1,41,44,39,-1,20,45,22,-1,45,46,22,-1,44,47,39,-1,20,49,50,-1,48,51,50,-1,51,20,50,-1,20,47,49,-1,49,47,44,-1,28,24,25,-1,53,52,46,-1,52,55,54,-1,52,54,46,-1,52,53,55,-1,7,57,53,-1,53,56,7,-1,58,57,7,-1,7,59,58,-1,57,58,53,-1,8,7,56,-1,56,60,8,-1,9,6,60,-1,10,9,60,-1,60,61,10,-1,0,12,62,-1,62,12,63,-1,64,62,63,-1,53,58,62,-1,62,64,53,-1,62,58,59,-1,59,0,62,-1,64,63,65,-1,63,67,66,-1,66,65,63,-1,53,64,65,-1,65,55,53,-1,65,66,54,-1,54,55,65,-1,67,21,66,-1,38,39,68,-1,22,46,21,-1,54,66,21,-1,46,54,21,-1,21,67,69,-1,68,69,38,-1,20,21,47,-1,47,21,68,-1,47,68,39,-1,69,18,70,-1,70,18,15,-1,40,70,15,-1,15,16,40,-1,69,71,38,-1,71,69,70,-1,38,71,34,-1,34,36,38,-1,26,34,71,-1,68,21,69,-1,2,6,1,-1,8,60,2,-1,60,6,2,-1,74,73,72,-1,77,76,75,-1,74,78,73,-1,74,81,80,-1,80,79,74,-1,82,79,80,-1,74,79,78,-1,82,84,83,-1,83,84,85,-1,82,86,84,-1,87,90,89,-1,89,88,87,-1,92,91,88,-1,80,81,93,-1,88,91,94,-1,86,93,95,-1,72,73,96,-1,83,79,82,-1,73,83,97,-1,100,99,98,-1,103,102,101,-1,99,83,85,-1,104,97,99,-1,97,83,99,-1,105,90,102,-1,105,89,90,-1,107,106,75,-1,107,108,106,-1,109,82,80,-1,109,80,93,-1,112,111,110,-1,93,81,113,-1,93,113,95,-1,114,110,111,-1,115,114,111,-1,87,86,116,-1,86,95,116,-1,18,69,117,-1,118,19,18,-1,18,117,118,-1,117,69,67,-1,67,119,117,-1,119,67,63,-1,63,120,119,-1,117,119,121,-1,121,118,117,-1,120,122,121,-1,121,119,120,-1,11,120,63,-1,63,12,11,-1,13,122,120,-1,120,11,13,-1,125,124,123,-1,127,126,124,-1,126,127,128,-1,131,130,129,-1,131,129,132,-1,131,132,133,-1,133,127,131,-1,127,133,128,-1,135,134,126,-1,130,135,126,-1,135,136,134,-1,124,126,123,-1,123,126,137,-1,138,125,123,-1,123,139,138,-1,140,143,142,-1,142,141,140,-1,126,134,137,-1,127,124,144,-1,144,124,125,-1,144,131,127,-1,145,125,138,-1,146,140,141,-1,147,140,146,-1,148,144,125,-1,137,149,123,-1,150,123,149,-1,153,156,155,-1,155,154,153,-1,153,154,158,-1,158,157,153,-1,158,160,159,-1,159,157,158,-1,157,159,162,-1,162,161,157,-1,139,215,164,-1,164,138,139,-1,163,139,150,-1,150,165,163,-1,139,123,150,-1,168,167,166,-1,166,167,159,-1,169,151,152,-1,166,159,169,-1,161,172,170,-1,170,157,161,-1,170,171,157,-1,167,162,159,-1,173,176,236,-1,236,174,173,-1,172,161,177,-1,177,233,172,-1,241,174,236,-1,236,240,241,-1,168,180,167,-1,181,180,168,-1,183,238,237,-1,237,231,183,-1,167,180,186,-1,187,177,161,-1,161,162,187,-1,188,189,177,-1,177,187,188,-1,167,186,187,-1,187,162,167,-1,188,187,186,-1,186,190,188,-1,189,192,177,-1,234,176,233,-1,231,175,191,-1,190,186,180,-1,180,193,190,-1,191,234,192,-1,146,141,195,-1,193,180,181,-1,181,194,193,-1,195,141,196,-1,196,240,236,-1,171,156,153,-1,153,157,171,-1,197,181,168,-1,198,147,242,-1,198,140,147,-1,199,125,145,-1,148,125,200,-1,200,125,199,-1,159,160,151,-1,151,169,159,-1,130,136,135,-1,242,147,184,-1,147,201,184,-1,147,146,201,-1,195,201,146,-1,144,202,131,-1,144,148,202,-1,155,204,203,-1,203,154,155,-1,154,203,160,-1,160,158,154,-1,205,208,207,-1,207,206,205,-1,209,208,205,-1,205,210,209,-1,213,214,211,-1,211,212,213,-1,191,191,192,-1,192,192,191,-1,191,191,191,-1,191,191,191,-1,191,191,191,-1,191,191,191,-1,192,192,191,-1,191,191,192,-1,189,189,192,-1,192,192,189,-1,188,188,189,-1,189,189,188,-1,190,190,188,-1,188,188,190,-1,193,193,190,-1,190,190,193,-1,194,194,193,-1,193,193,194,-1,194,232,232,-1,232,194,194,-1,139,163,215,-1,222,223,217,-1,217,216,222,-1,223,229,218,-1,218,217,223,-1,228,219,218,-1,218,229,228,-1,218,219,221,-1,217,218,221,-1,217,221,220,-1,224,225,226,-1,226,225,227,-1,227,230,226,-1,238,183,232,-1,232,239,238,-1,175,231,237,-1,239,232,194,-1,194,178,239,-1,175,176,191,-1,191,176,234,-1,192,234,233,-1,233,177,192,-1,176,173,172,-1,172,233,176,-1,178,194,181,-1,184,235,242,-1,196,236,179,-1,195,196,179,-1,179,182,195,-1,201,195,182,-1,182,185,201,-1,184,201,185,-1,196,141,240,-1,240,141,142,-1,142,241,240,-1,245,244,243,-1,243,246,245,-1,244,248,247,-1,247,249,244,-1,250,246,243,-1,243,251,250,-1,252,249,247,-1,247,253,252,-1,254,244,245,-1,245,255,254,-1,256,248,244,-1,244,254,256,-1,259,258,257,-1,257,260,259,-1,261,258,259,-1,259,262,261,-1,263,265,264,-1,266,260,257,-1,257,268,267,-1,269,268,270,-1,271,267,272,-1,257,267,266,-1,271,266,267,-1,273,274,260,-1,271,275,266,-1,276,273,275,-1,276,274,273,-1,269,270,277,-1,277,278,269,-1,279,277,280,-1,281,280,282,-1,270,268,257,-1,257,283,270,-1,280,281,284,-1,284,285,280,-1,286,285,284,-1,286,284,287,-1,284,281,287,-1,265,263,288,-1,288,263,289,-1,287,281,290,-1,265,292,291,-1,293,292,294,-1,294,292,265,-1,265,291,290,-1,291,287,290,-1,272,267,268,-1,295,289,296,-1,296,298,297,-1,296,289,298,-1,296,297,295,-1,250,299,295,-1,295,300,250,-1,302,301,250,-1,250,300,302,-1,300,295,302,-1,251,303,299,-1,299,250,251,-1,252,303,249,-1,253,304,303,-1,303,252,253,-1,245,305,255,-1,305,306,255,-1,307,306,305,-1,295,307,305,-1,305,302,295,-1,305,245,301,-1,301,302,305,-1,307,308,306,-1,306,308,309,-1,309,310,306,-1,295,297,308,-1,308,307,295,-1,308,297,298,-1,298,309,308,-1,310,309,264,-1,282,311,281,-1,263,264,289,-1,298,264,309,-1,289,264,298,-1,264,312,310,-1,311,282,312,-1,265,290,264,-1,290,311,264,-1,290,281,311,-1,312,313,261,-1,313,258,261,-1,283,257,258,-1,258,313,283,-1,312,282,314,-1,314,313,312,-1,282,280,277,-1,277,314,282,-1,270,314,277,-1,311,312,264,-1,243,244,249,-1,251,243,303,-1,303,243,249,-1,315,317,316,-1,318,320,319,-1,315,316,321,-1,315,323,322,-1,322,324,315,-1,325,322,323,-1,315,321,323,-1,325,327,326,-1,327,328,326,-1,325,326,329,-1,332,331,330,-1,330,333,332,-1,334,331,335,-1,322,336,324,-1,331,337,335,-1,329,338,336,-1,317,339,316,-1,327,325,323,-1,316,340,327,-1,341,343,342,-1,344,346,345,-1,342,328,327,-1,347,342,340,-1,340,342,327,-1,348,345,333,-1,348,333,330,-1,349,320,350,-1,349,350,351,-1,352,322,325,-1,352,336,322,-1,353,355,354,-1,336,356,324,-1,336,338,356,-1,357,354,355,-1,358,354,357,-1,332,359,329,-1,329,359,338,-1,261,360,312,-1,361,360,261,-1,261,262,361,-1,360,362,310,-1,310,312,360,-1,362,363,306,-1,306,310,362,-1,360,361,364,-1,364,362,360,-1,363,362,364,-1,364,365,363,-1,254,255,306,-1,306,363,254,-1,256,254,363,-1,363,365,256,-1,366,368,367,-1,369,367,370,-1,370,371,369,-1,372,374,373,-1,372,375,374,-1,372,369,376,-1,376,375,372,-1,369,371,376,-1,377,370,378,-1,373,370,377,-1,377,378,379,-1,367,368,370,-1,368,380,370,-1,382,381,368,-1,368,366,382,-1,385,384,383,-1,383,386,385,-1,370,380,378,-1,369,387,367,-1,387,366,367,-1,387,369,372,-1,388,382,366,-1,389,384,385,-1,390,389,385,-1,391,366,387,-1,380,368,392,-1,393,392,368,-1,396,395,394,-1,394,397,396,-1,396,399,398,-1,398,395,396,-1,398,399,400,-1,400,401,398,-1,399,403,402,-1,402,400,399,-1,381,382,405,-1,405,404,381,-1,406,407,393,-1,393,381,406,-1,381,393,368,-1,408,410,409,-1,410,400,409,-1,411,413,412,-1,410,411,400,-1,403,399,414,-1,414,415,403,-1,414,399,416,-1,409,400,402,-1,419,418,417,-1,417,420,419,-1,415,422,421,-1,421,403,415,-1,423,424,417,-1,417,418,423,-1,408,409,425,-1,426,408,425,-1,427,430,429,-1,429,428,427,-1,409,431,425,-1,432,402,403,-1,403,421,432,-1,433,432,421,-1,421,434,433,-1,409,402,432,-1,432,431,409,-1,433,435,431,-1,431,432,433,-1,434,421,436,-1,437,422,420,-1,430,439,438,-1,435,440,425,-1,425,431,435,-1,439,436,437,-1,389,441,384,-1,440,442,426,-1,426,425,440,-1,441,443,384,-1,443,417,424,-1,416,396,397,-1,396,416,399,-1,444,408,426,-1,445,446,390,-1,445,390,385,-1,447,388,366,-1,391,448,366,-1,448,447,366,-1,400,411,412,-1,412,401,400,-1,373,377,379,-1,446,449,390,-1,390,449,450,-1,390,450,389,-1,441,389,450,-1,387,372,451,-1,387,451,391,-1,394,395,452,-1,452,453,394,-1,395,398,401,-1,401,452,395,-1,456,455,454,-1,454,457,456,-1,459,458,456,-1,456,457,459,-1,462,461,460,-1,460,463,462,-1,439,436,436,-1,436,439,439,-1,439,439,439,-1,439,439,439,-1,439,439,439,-1,439,439,439,-1,436,439,439,-1,439,436,436,-1,434,436,436,-1,436,434,434,-1,433,434,434,-1,434,433,433,-1,435,433,433,-1,433,435,435,-1,440,435,435,-1,435,440,440,-1,442,440,440,-1,440,442,442,-1,442,442,464,-1,464,464,442,-1,381,404,406,-1,465,468,467,-1,467,466,465,-1,466,467,470,-1,470,469,466,-1,471,469,470,-1,470,472,471,-1,467,474,473,-1,473,472,470,-1,467,473,470,-1,475,477,476,-1,477,479,478,-1,478,476,477,-1,428,480,464,-1,464,427,428,-1,438,429,430,-1,480,481,442,-1,442,464,480,-1,438,439,420,-1,439,437,420,-1,436,421,422,-1,422,437,436,-1,420,422,415,-1,415,419,420,-1,481,426,442,-1,449,446,482,-1,443,483,417,-1,441,484,483,-1,483,443,441,-1,450,485,484,-1,484,441,450,-1,449,485,450,-1,443,424,384,-1,424,423,383,-1,383,384,424,-1]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart59;
+begin
+
 Coordinate776 := TCoordinateNode.Create;
 Coordinate776.SetPoint([Vector3(0.05841,1.3813876,-0.17548425),Vector3(0.13095,1.4007375,-0.065819256),Vector3(0.08352,1.3402126,-0.06696675),Vector3(0.0733725,1.3453425,-0.11111175),Vector3(0.127305,1.3711276,-0.060059253),Vector3(0.040950004,1.3416525,-0.13163176),Vector3(0.0538875,1.424025,0.12734327),Vector3(0.01746225,1.4231701,0.13942575),Vector3(0.099180005,1.5197176,0.06720076),Vector3(0,1.565775,0.11168326),Vector3(0.0500625,1.5576751,0.10389825),Vector3(0.134145,1.411965,0.01077075),Vector3(0.090922505,1.3315119,0.06382576),Vector3(0.044370003,1.5286726,0.12759075),Vector3(0.0570825,1.4701725,0.12770325),Vector3(0.083115004,1.4622526,0.10351576),Vector3(0.01006875,1.4778225,0.15020326),Vector3(0.108967505,1.4518801,0.061755754),Vector3(0.087435,1.4609926,0.09595576),Vector3(0.0828225,1.429515,0.09708075),Vector3(0.086085,1.4251726,0.08949825),Vector3(0.07389,1.36827,0.08558325),Vector3(0.10221751,1.4054401,0.06328575),Vector3(0.0868275,1.3995225,0.08274825),Vector3(0.1029375,1.3979701,0.074693255),Vector3(0.11396251,1.3392676,0.012615751),Vector3(0.109417506,1.351575,0.03788325),Vector3(0.11826,1.3732876,0.03009825),Vector3(0.1248525,1.4371201,0.04562325),Vector3(0.1161225,1.3584375,0.04580325),Vector3(0.122445,1.3999051,0.049515754),Vector3(0.1374975,1.4114026,-0.00951525),Vector3(0.091395,1.4446801,0.07953076),Vector3(0.13515751,1.48941,-0.028125001),Vector3(0.1579725,1.3500226,-0.036045),Vector3(0.14778,1.4218875,-0.03188475),Vector3(0.14233501,1.4181975,-0.05031675),Vector3(0.140175,1.3313318,-0.09286425),Vector3(0.11198251,1.4333401,-0.14308426),Vector3(0.14233501,1.41741,-0.081816755),Vector3(0.09486,1.3897575,-0.13088925),Vector3(0.07924501,1.4435551,-0.17667675),Vector3(0.07704,1.3545,-0.17919676),Vector3(0.055777505,1.4909626,-0.16747425),Vector3(0.043357503,1.3572226,-0.21546677),Vector3(0.12564,1.4856975,-0.077991754),Vector3(0.13169251,1.4855176,-0.05531175),Vector3(0.11657251,1.50336,0.031898253),Vector3(0.068355,1.555425,0.08454825),Vector3(0.11526751,1.3808701,-0.13478175),Vector3(0.12744,1.4940226,0.004254751),Vector3(0.10622251,1.4909626,-0.13374676),Vector3(0.055777505,1.4436,-0.18380925),Vector3(0.1258875,1.484325,-0.06361425),Vector3(0.0263925,1.35387,-0.15300675),Vector3(0.089505,1.36494,-0.119841754),Vector3(0.06563251,1.2917588,-0.17991675),Vector3(0.0747675,1.3594501,-0.13628925),Vector3(0.044280004,1.2775276,-0.12823425),Vector3(0.1060425,1.36764,-0.09367425),Vector3(0.09945001,1.306071,-0.11617426),Vector3(0.0317475,1.3251173,-0.093831755),Vector3(0.051187504,1.3324658,-0.10010926),Vector3(0.02116575,1.3286318,-0.11752426),Vector3(0.08590501,1.3515526,-0.08606925),Vector3(0.104940005,1.354635,-0.04775175),Vector3(0.082282506,1.5193801,0.09615826),Vector3(0.0350775,1.476135,0.14223826),Vector3(0.0627975,1.4260726,0.11994076),Vector3(0.055777505,1.59615,0.03385575),Vector3(0,1.5999751,-0.08458425),Vector3(0.055777505,1.605375,-0.028728),Vector3(0.055777505,1.5932251,-0.08458425),Vector3(0.055777505,1.57815,0.06702075),Vector3(0.106605,1.5630751,-0.028728),Vector3(0.1030725,1.550925,0.027150752),Vector3(0.10746001,1.522845,-0.11115676),Vector3(0.1046475,1.5588001,-0.07610176),Vector3(0.055777505,1.5507001,-0.14758426),Vector3(0.113355,1.3596076,-0.00951525),Vector3(0.1203975,1.3637025,-0.00966375),Vector3(0.1254375,1.4249926,-0.0044685),Vector3(0.1295775,1.4096925,-0.030492),Vector3(0.12762,1.3828275,-0.03093075),Vector3(0.10388251,1.4008275,0.029130751),Vector3(0.0564075,1.3174245,0.06256575),Vector3(0.02817,1.2968168,0.06900075),Vector3(0.0490725,1.341675,0.09037576),Vector3(0.0243675,1.3080038,0.086505756),Vector3(0.09013501,1.4077351,0.062183253),Vector3(0.086467505,1.391085,0.06272325),Vector3(0.00588375,1.4015026,0.11557575),Vector3(0.0459675,1.427265,0.11512575),Vector3(0.0359775,1.4077126,0.106710754),Vector3(0.0489375,1.412145,0.10362825),Vector3(0.0238725,1.3765726,0.102458246),Vector3(0.0752625,1.3757851,0.074265756),Vector3(0.059557505,1.3745251,0.085380755),Vector3(0.069345005,1.3932226,0.07919325),Vector3(0.023490002,1.4000626,0.10727326),Vector3(0.03051,1.394595,0.10248076),Vector3(0.0726075,1.3960576,0.07705575),Vector3(0.06813001,1.4154075,0.08992576),Vector3(0.05562,1.3581675,0.09080326),Vector3(0.0206865,1.365615,0.105653256),Vector3(0.0790875,1.3621275,0.066255756),Vector3(0.082912505,1.4077126,0.07210575),Vector3(0.0032805,1.3383225,0.11881576),Vector3(0.010332,1.345095,0.10941075),Vector3(0.0774675,1.3401,0.056580752),Vector3(0.044370003,1.463085,0.11436076),Vector3(0.07989751,1.4581801,0.08940825),Vector3(0.025312502,1.4620726,0.12459826),Vector3(0.0629775,1.3193123,0.029130751),Vector3(0.032355,1.2951024,0.050258253),Vector3(0.047205005,1.3112506,-0.0066802497),Vector3(0.097695,1.380015,0.040448252),Vector3(0.044370003,1.5417001,0.10376325),Vector3(0.0861525,1.4944726,0.07631326),Vector3(0.106965005,1.4368275,0.051383253),Vector3(0.062887505,1.39293,0.08574076),Vector3(0.041287504,1.3933575,0.09730576),Vector3(0.091665,1.3534425,0.018060751),Vector3(0.0916425,1.3472326,-0.02108925),Vector3(0.107955,1.411965,0.01077075),Vector3(0.009177751,1.3299998,0.11355075),Vector3(0.005049,1.3306253,0.11602575),Vector3(0.026640002,1.3239248,0.094695754),Vector3(0.005049,1.3259408,0.10932076),Vector3(0.047047503,1.3105283,-0.05209425),Vector3(0.01006875,1.4778225,0.15020326),Vector3(0.01746225,1.4231701,0.13942575),Vector3(0.01006875,1.4778225,0.15020326),Vector3(0.106515005,1.3642876,-0.02619675),Vector3(0.08352,1.3402126,-0.06696675),Vector3(0.127305,1.3711276,-0.060059253),Vector3(0.011542501,1.4633551,0.14473575),Vector3(0.113715,1.4114026,-0.00951525),Vector3(0.08012251,1.3369726,-0.05040675),Vector3(0.047025,1.4123701,0.06778575),Vector3(0.036472503,1.41066,0.077325754),Vector3(0.029970001,1.4071951,0.07944075),Vector3(0.024075001,1.401075,0.080048256),Vector3(0.028215,1.3967326,0.07746076),Vector3(0.034065004,1.3956751,0.07428825),Vector3(0.045787502,1.394955,0.06686325),Vector3(0.049545,1.3947076,0.06229575),Vector3(0.05121,1.3967326,0.060563255),Vector3(0.056227505,1.405305,0.056130752),Vector3(0,1.3742551,-0.18533926),Vector3(0,1.40697,0.123158254),Vector3(0,1.4909626,-0.18074925),Vector3(0,1.3157438,-0.096261755),Vector3(0,1.2914213,-0.16259176),Vector3(0,1.2983648,0.01902825),Vector3(0.013063501,1.322028,0.07035075),Vector3(0.0028980002,1.3222058,0.07482825),Vector3(0.0125235,1.3076798,0.064433254),Vector3(0,1.4606326,0.13146076),Vector3(0,1.2834226,0.080925755),Vector3(0,1.3306253,0.11602575),Vector3(0.0047970004,1.3255043,0.10527075),Vector3(0.0133335,1.391175,0.11015325),Vector3(0.02079225,1.3973175,0.107655756),Vector3(0.086467505,1.42767,0.07665075),Vector3(0.025020001,1.420335,0.12158326),Vector3(0.0733725,1.431045,0.092918254),Vector3(0.029857501,1.4143951,0.11638576),Vector3(0.0470025,1.419705,0.110535756),Vector3(0.071347505,1.424025,0.09219825),Vector3(0.0145350015,1.408545,0.122078255),Vector3(0,1.4368275,-0.19465426),Vector3(0,1.5318,0.13888577),Vector3(0,1.48248,0.15117076),Vector3(0,1.380105,0.11667826),Vector3(0,1.3520925,0.13780576),Vector3(0,1.3259408,0.10932076),Vector3(0.0167085,1.4193676,0.12259576),Vector3(-0.07924501,1.4435551,-0.17667675),Vector3(-0.055777505,1.4909626,-0.16747425),Vector3(-0.10622251,1.4909626,-0.13374676),Vector3(-0.11198251,1.4333401,-0.14308426),Vector3(-0.055777505,1.4436,-0.18380925),Vector3(-0.11526751,1.3808701,-0.13478175),Vector3(-0.07704,1.3545,-0.17919676),Vector3(-0.043357503,1.3572226,-0.21546677),Vector3(0,1.3970926,-0.20565677),Vector3(-0.055777505,1.5507001,-0.14758426),Vector3(-0.10746001,1.522845,-0.11115676),Vector3(0,1.558125,-0.15188175),Vector3(-0.044370003,1.5286726,0.12759075),Vector3(-0.0500625,1.5576751,0.10389825),Vector3(-0.055777505,1.57815,0.06702075),Vector3(0,1.586925,0.07611075),Vector3(-0.134145,1.411965,0.01077075),Vector3(-0.12744,1.4940226,0.004254751),Vector3(-0.11826,1.3732876,0.03009825),Vector3(-0.01006875,1.4778225,0.15020326),Vector3(-0.0350775,1.476135,0.14223826),Vector3(-0.0570825,1.4701725,0.12770325),Vector3(-0.0627975,1.4260726,0.11994076),Vector3(-0.083115004,1.4622526,0.10351576),Vector3(-0.01746225,1.4231701,0.13942575),Vector3(-0.0538875,1.424025,0.12734327),Vector3(-0.011542501,1.4633551,0.14473575),Vector3(-0.01006875,1.4778225,0.15020326),Vector3(-0.01746225,1.4231701,0.13942575),Vector3(-0.01006875,1.4778225,0.15020326),Vector3(-0.087435,1.4609926,0.09595576),Vector3(-0.0828225,1.429515,0.09708075),Vector3(-0.086085,1.4251726,0.08949825),Vector3(-0.091395,1.4446801,0.07953076),Vector3(-0.108967505,1.4518801,0.061755754),Vector3(-0.099180005,1.5197176,0.06720076),Vector3(-0.082282506,1.5193801,0.09615826),Vector3(-0.1029375,1.3979701,0.074693255),Vector3(-0.0868275,1.3995225,0.08274825),Vector3(-0.07389,1.36827,0.08558325),Vector3(-0.10221751,1.4054401,0.06328575),Vector3(-0.11396251,1.3392676,0.012615751),Vector3(-0.1374975,1.4114026,-0.00951525),Vector3(-0.1248525,1.4371201,0.04562325),Vector3(-0.122445,1.3999051,0.049515754),Vector3(-0.1161225,1.3584375,0.04580325),Vector3(-0.090922505,1.3315119,0.06382576),Vector3(-0.109417506,1.351575,0.03788325),Vector3(-0.13095,1.4007375,-0.065819256),Vector3(-0.1579725,1.3500226,-0.036045),Vector3(-0.14233501,1.4181975,-0.05031675),Vector3(-0.14778,1.4218875,-0.03188475),Vector3(-0.09486,1.3897575,-0.13088925),Vector3(-0.140175,1.3313318,-0.09286425),Vector3(-0.14233501,1.41741,-0.081816755),Vector3(-0.05841,1.3813876,-0.17548425),Vector3(-0.12564,1.4856975,-0.077991754),Vector3(-0.1046475,1.5588001,-0.07610176),Vector3(-0.1258875,1.484325,-0.06361425),Vector3(-0.13169251,1.4855176,-0.05531175),Vector3(-0.13515751,1.48941,-0.028125001),Vector3(-0.106605,1.5630751,-0.028728),Vector3(-0.11657251,1.50336,0.031898253),Vector3(-0.1030725,1.550925,0.027150752),Vector3(-0.068355,1.555425,0.08454825),Vector3(-0.0263925,1.35387,-0.15300675),Vector3(0,1.3359375,-0.15113926),Vector3(0,1.3154109,-0.20176426),Vector3(-0.06563251,1.2917588,-0.17991675),Vector3(-0.089505,1.36494,-0.119841754),Vector3(-0.0747675,1.3594501,-0.13628925),Vector3(-0.0733725,1.3453425,-0.11111175),Vector3(-0.051187504,1.3324658,-0.10010926),Vector3(-0.040950004,1.3416525,-0.13163176),Vector3(-0.044280004,1.2775276,-0.12823425),Vector3(-0.08590501,1.3515526,-0.08606925),Vector3(-0.08352,1.3402126,-0.06696675),Vector3(-0.0317475,1.3251173,-0.093831755),Vector3(-0.09945001,1.306071,-0.11617426),Vector3(-0.1060425,1.36764,-0.09367425),Vector3(-0.127305,1.3711276,-0.060059253),Vector3(-0.02116575,1.3286318,-0.11752426),Vector3(-0.106515005,1.3642876,-0.02619675),Vector3(-0.104940005,1.354635,-0.04775175),Vector3(-0.055777505,1.59615,0.03385575),Vector3(0,1.6026751,0.03385575),Vector3(-0.055777505,1.605375,-0.028728),Vector3(-0.055777505,1.5932251,-0.08458425),Vector3(0,1.6119001,-0.028728),Vector3(-0.08012251,1.3369726,-0.05040675),Vector3(-0.0916425,1.3472326,-0.02108925),Vector3(-0.0629775,1.3193123,0.029130751),Vector3(-0.113355,1.3596076,-0.00951525),Vector3(-0.091665,1.3534425,0.018060751),Vector3(-0.1203975,1.3637025,-0.00966375),Vector3(-0.113715,1.4114026,-0.00951525),Vector3(-0.107955,1.411965,0.01077075),Vector3(-0.1254375,1.4249926,-0.0044685),Vector3(-0.1295775,1.4096925,-0.030492),Vector3(-0.12762,1.3828275,-0.03093075),Vector3(-0.10388251,1.4008275,0.029130751),Vector3(-0.097695,1.380015,0.040448252),Vector3(-0.106965005,1.4368275,0.051383253),Vector3(-0.0774675,1.3401,0.056580752),Vector3(-0.032355,1.2951024,0.050258253),Vector3(-0.047205005,1.3112506,-0.0066802497),Vector3(-0.025312502,1.4620726,0.12459826),Vector3(-0.044370003,1.5417001,0.10376325),Vector3(0,1.5339825,0.11505826),Vector3(-0.047047503,1.3105283,-0.05209425),Vector3(-0.044370003,1.463085,0.11436076),Vector3(-0.07989751,1.4581801,0.08940825),Vector3(-0.0564075,1.3174245,0.06256575),Vector3(-0.02817,1.2968168,0.06900075),Vector3(-0.005049,1.3306253,0.11602575),Vector3(-0.0032805,1.3383225,0.11881576),Vector3(0,1.3383225,0.11883825),Vector3(-0.009177751,1.3299998,0.11355075),Vector3(-0.010332,1.345095,0.10941075),Vector3(-0.0490725,1.341675,0.09037576),Vector3(-0.026640002,1.3239248,0.094695754),Vector3(-0.05562,1.3581675,0.09080326),Vector3(-0.0206865,1.365615,0.105653256),Vector3(0,1.2886876,0.052260753),Vector3(0,1.284975,0.06499575),Vector3(-0.0790875,1.3621275,0.066255756),Vector3(-0.0243675,1.3080038,0.086505756),Vector3(0,1.362285,0.12959325),Vector3(-0.0145350015,1.408545,0.122078255),Vector3(0,1.4015026,0.11557575),Vector3(-0.00588375,1.4015026,0.11557575),Vector3(-0.0238725,1.3765726,0.102458246),Vector3(-0.0133335,1.391175,0.11015325),Vector3(0,1.419075,0.12502575),Vector3(-0.0167085,1.4193676,0.12259576),Vector3(-0.086467505,1.391085,0.06272325),Vector3(-0.09013501,1.4077351,0.062183253),Vector3(-0.0489375,1.412145,0.10362825),Vector3(-0.0470025,1.419705,0.110535756),Vector3(-0.029857501,1.4143951,0.11638576),Vector3(-0.0359775,1.4077126,0.106710754),Vector3(-0.0752625,1.3757851,0.074265756),Vector3(-0.059557505,1.3745251,0.085380755),Vector3(-0.062887505,1.39293,0.08574076),Vector3(-0.041287504,1.3933575,0.09730576),Vector3(-0.069345005,1.3932226,0.07919325),Vector3(-0.03051,1.394595,0.10248076),Vector3(-0.02079225,1.3973175,0.107655756),Vector3(-0.023490002,1.4000626,0.10727326),Vector3(-0.0726075,1.3960576,0.07705575),Vector3(-0.0459675,1.427265,0.11512575),Vector3(-0.082912505,1.4077126,0.07210575),Vector3(-0.025020001,1.420335,0.12158326),Vector3(-0.0861525,1.4944726,0.07631326),Vector3(-0.086467505,1.42767,0.07665075),Vector3(-0.0733725,1.431045,0.092918254),Vector3(-0.127305,1.3711276,-0.060059253),Vector3(-0.08352,1.3402126,-0.06696675),Vector3(-0.005049,1.3259408,0.10932076),Vector3(-0.06813001,1.4154075,0.08992576),Vector3(-0.036472503,1.41066,0.077325754),Vector3(-0.047025,1.4123701,0.06778575),Vector3(-0.029970001,1.4071951,0.07944075),Vector3(-0.024075001,1.401075,0.080048256),Vector3(-0.028215,1.3967326,0.07746076),Vector3(-0.034065004,1.3956751,0.07428825),Vector3(-0.045787502,1.394955,0.06686325),Vector3(-0.049545,1.3947076,0.06229575),Vector3(-0.05121,1.3967326,0.060563255),Vector3(-0.056227505,1.405305,0.056130752),Vector3(-0.013063501,1.322028,0.07035075),Vector3(-0.0125235,1.3076798,0.064433254),Vector3(-0.0047970004,1.3255043,0.10527075),Vector3(-0.0028980002,1.3222058,0.07482825),Vector3(0,1.3255268,0.10533825),Vector3(0,1.3223386,0.074693255),Vector3(0,1.3067731,0.058493253),Vector3(-0.071347505,1.424025,0.09219825)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart60;
+begin
+
 { .SetCoord }
 IndexedFaceSet775.Coord := Coordinate776;
 TextureCoordinate777 := TTextureCoordinateNode.Create;
@@ -4519,6 +4820,11 @@ Appearance781.Material := Material782;
 ImageTexture783 := ImageTexture36;
 { .SetTexture }
 Appearance781.Texture := ImageTexture783;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart61;
+begin
+
 { .SetAppearance }
 Shape780.Appearance := Appearance781;
 IndexedFaceSet784 := TIndexedFaceSetNode.Create;
@@ -4573,6 +4879,11 @@ IndexedFaceSet793.TexCoord := TextureCoordinate795;
 Shape789.Geometry := IndexedFaceSet793;
 { .AddChildren }
 HAnimSegment788.AddChildren([Shape789]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart62;
+begin
+
 { .AddChildren }
 HAnimJoint787.AddChildren([HAnimSegment788]);
 { .AddChildren }
@@ -4625,6 +4936,11 @@ Material809.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance808.Material := Material809;
 ImageTexture810 := ImageTexture36;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart63;
+begin
+
 { .SetTexture }
 Appearance808.Texture := ImageTexture810;
 { .SetAppearance }
@@ -4679,6 +4995,11 @@ TextureCoordinate822.SetPoint([Vector2(0.344,0.8611),Vector2(0.3991,0.8726),Vect
 IndexedFaceSet820.TexCoord := TextureCoordinate822;
 { .SetGeometry }
 Shape816.Geometry := IndexedFaceSet820;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart64;
+begin
+
 { .AddChildren }
 HAnimSegment815.AddChildren([Shape816]);
 { .AddChildren }
@@ -4732,6 +5053,11 @@ Material836 := TMaterialNode.Create;
 Material836.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance835.Material := Material836;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart65;
+begin
+
 ImageTexture837 := ImageTexture36;
 { .SetTexture }
 Appearance835.Texture := ImageTexture837;
@@ -4791,6 +5117,11 @@ Appearance844.Texture := ImageTexture846;
 Shape843.Appearance := Appearance844;
 IndexedFaceSet847 := TIndexedFaceSetNode.Create;
 IndexedFaceSet847.SetCoordIndex([9,6,1,-1,1,0,9,-1,6,5,2,-1,2,1,6,-1,8,3,2,-1,2,5,8,-1,8,7,4,-1,4,3,8,-1,9,0,4,-1,4,7,9,-1,2,3,4,-1,2,4,0,-1,1,2,0,-1,13,14,10,-1,12,13,10,-1,11,12,10,-1,6,9,11,-1,11,10,6,-1,9,7,12,-1,12,11,9,-1,7,8,13,-1,13,12,7,-1,8,5,14,-1,14,13,8,-1,5,6,10,-1,10,14,5,-1]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart66;
+begin
+
 IndexedFaceSet847.CreaseAngle := 3.14159;
 IndexedFaceSet847.SetTexCoordIndex([9,6,1,-1,1,0,9,-1,6,5,2,-1,2,1,6,-1,8,3,2,-1,2,5,8,-1,8,7,4,-1,4,3,8,-1,9,0,4,-1,4,7,9,-1,2,3,4,-1,2,4,0,-1,1,2,0,-1,13,14,10,-1,12,13,10,-1,11,12,10,-1,6,9,11,-1,11,10,6,-1,9,7,12,-1,12,11,9,-1,7,8,13,-1,13,12,7,-1,8,5,14,-1,14,13,8,-1,5,6,10,-1,10,14,5,-1]);
 Coordinate848 := TCoordinateNode.Create;
@@ -4844,6 +5175,11 @@ HAnimJoint850.AddChildren([HAnimSegment851]);
 HAnimJoint859 := THAnimJointNode.Create;
 HAnimJoint859.NameField := 'l_shoulder';
 HAnimJoint859.Center := Vector3(0.16506,1.1785501,-0.0032670002);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart67;
+begin
+
 HAnimSegment860 := THAnimSegmentNode.Create;
 HAnimSegment860.NameField := 'l_upperarm';
 Shape861 := TShapeNode.Create;
@@ -4895,6 +5231,11 @@ IndexedFaceSet874 := TIndexedFaceSetNode.Create;
 IndexedFaceSet874.SetCoordIndex([2,1,0,-1,3,2,0,-1,4,3,0,-1,0,1,6,-1,6,5,0,-1,1,2,7,-1,7,6,1,-1,2,3,8,-1,8,7,2,-1,3,4,9,-1,9,8,3,-1,4,0,5,-1,5,9,4,-1,5,6,11,-1,11,10,5,-1,6,7,12,-1,12,11,6,-1,7,8,13,-1,13,12,7,-1,8,9,14,-1,14,13,8,-1,9,5,10,-1,10,14,9,-1,10,11,16,-1,16,15,10,-1,11,12,17,-1,17,16,11,-1,12,13,18,-1,18,17,12,-1,13,14,19,-1,19,18,13,-1,14,10,15,-1,15,19,14,-1,21,22,23,-1,20,21,23,-1,24,20,23,-1,21,20,15,-1,15,16,21,-1,22,21,16,-1,16,17,22,-1,23,22,17,-1,17,18,23,-1,24,23,18,-1,18,19,24,-1,20,24,19,-1,19,15,20,-1]);
 IndexedFaceSet874.CreaseAngle := 3.14159;
 IndexedFaceSet874.SetTexCoordIndex([2,3,4,-1,1,2,4,-1,0,1,4,-1,4,3,5,-1,5,6,4,-1,3,2,7,-1,7,5,3,-1,2,1,8,-1,8,7,2,-1,1,0,9,-1,9,8,1,-1,0,4,6,-1,6,9,0,-1,6,5,10,-1,10,11,6,-1,5,7,12,-1,12,10,5,-1,7,8,13,-1,13,12,7,-1,8,9,14,-1,14,13,8,-1,9,6,11,-1,11,14,9,-1,11,10,15,-1,15,16,11,-1,10,12,17,-1,17,15,10,-1,12,13,18,-1,18,17,12,-1,13,14,19,-1,19,18,13,-1,14,11,16,-1,16,19,14,-1,22,23,24,-1,21,22,24,-1,20,21,24,-1,22,21,16,-1,16,15,22,-1,23,22,15,-1,15,17,23,-1,24,23,17,-1,17,18,24,-1,20,24,18,-1,18,19,20,-1,21,20,19,-1,19,16,21,-1]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart68;
+begin
+
 Coordinate875 := TCoordinateNode.Create;
 Coordinate875.SetPoint([Vector3(0.18693002,0.9356558,-0.0315495),Vector3(0.20808002,0.9354735,-0.011452501),Vector3(0.19604027,0.93557924,0.017770499),Vector3(0.16745627,0.9358245,0.015725251),Vector3(0.16182451,0.9358718,-0.014751001),Vector3(0.18533702,0.909792,-0.042192),Vector3(0.21521252,0.90953773,-0.015239251),Vector3(0.19821152,0.909684,0.030933002),Vector3(0.15781501,0.9100305,0.0277155),Vector3(0.14985001,0.910098,-0.020452501),Vector3(0.18508051,0.85005003,-0.041787002),Vector3(0.21699002,0.8497575,-0.015135751),Vector3(0.19966502,0.8629875,0.030595502),Vector3(0.15653251,0.86334753,0.027400503),Vector3(0.14719501,0.850365,-0.020297252),Vector3(0.18342452,0.7327575,-0.037962),Vector3(0.20668502,0.732555,-0.008507251),Vector3(0.19344826,0.73269004,0.028345501),Vector3(0.16199552,0.73296,0.025353),Vector3(0.15579002,0.733005,-0.013342501),Vector3(0.18229951,0.71874,-0.02555325),Vector3(0.19818902,0.718605,-0.0054405),Vector3(0.18914627,0.7186725,0.017838),Vector3(0.16766551,0.7188525,0.015788252),Vector3(0.16343552,0.71889746,-0.00874125)]);
 { .SetCoord }
@@ -4948,6 +5289,11 @@ HAnimJoint886.NameField := 'l_midcarpal_1';
 HAnimJoint886.Center := Vector3(0.1812825,0.70605004,0.0193275);
 HAnimSegment887 := THAnimSegmentNode.Create;
 HAnimSegment887.NameField := 'l_trapezium';
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart69;
+begin
+
 Shape888 := TShapeNode.Create;
 Appearance889 := TAppearanceNode.Create;
 Material890 := TMaterialNode.Create;
@@ -4999,6 +5345,11 @@ IndexedFaceSet901.CreaseAngle := 3.14159;
 IndexedFaceSet901.SetTexCoordIndex([0,3,2,-1,2,1,0,-1,27,4,28,-1,28,26,27,-1,3,6,7,-1,7,2,3,-1,28,4,30,-1,30,29,28,-1,10,7,6,-1,15,14,13,-1,15,13,12,-1,11,15,12,-1,16,19,18,-1,18,17,16,-1,20,23,22,-1,22,21,20,-1,21,22,25,-1,25,24,21,-1,6,22,23,-1,23,10,6,-1,10,23,20,-1,20,8,10,-1,8,20,21,-1,21,5,8,-1,5,21,24,-1,24,0,5,-1,0,24,25,-1,25,3,0,-1,3,25,22,-1,22,6,3,-1,30,34,35,-1,35,29,30,-1,8,19,16,-1,16,10,8,-1,10,16,17,-1,17,7,10,-1,7,17,18,-1,18,9,7,-1,4,32,33,-1,33,30,4,-1,9,15,11,-1,11,7,9,-1,7,11,12,-1,12,2,7,-1,2,12,13,-1,13,1,2,-1,27,31,32,-1,32,4,27,-1]);
 Coordinate902 := TCoordinateNode.Create;
 Coordinate902.SetPoint([Vector3(0.16755526,0.6742823,0.03437775),Vector3(0.17370002,0.6787328,0.04048425),Vector3(0.18907651,0.6812753,0.042723),Vector3(0.19660501,0.6722078,0.02954475),Vector3(0.17226002,0.66453755,0.02409975),Vector3(0.19891351,0.670122,0.025339501),Vector3(0.19714051,0.68851805,0.01707975),Vector3(0.16689827,0.68851805,0.01707975),Vector3(0.17229602,0.694881,0.0330345),Vector3(0.19136027,0.6948608,0.03458925),Vector3(0.16982101,0.6924578,0.02767275),Vector3(0.18889202,0.66602254,0.032742),Vector3(0.18843977,0.66456,0.03101175),Vector3(0.17499377,0.662985,0.0287775),Vector3(0.17032501,0.66602254,0.034326002),Vector3(0.17576101,0.6710625,0.040788002),Vector3(0.18514352,0.67381877,0.04385475),Vector3(0.17099102,0.6868958,0.013740749),Vector3(0.17505677,0.6639525,0.01973025),Vector3(0.19423802,0.66888005,0.020241),Vector3(0.19362602,0.6868913,0.013734),Vector3(0.17167051,0.6944108,0.02554875),Vector3(0.16913252,0.6921765,0.0197415),Vector3(0.19210726,0.6916703,0.019944001),Vector3(0.18894826,0.6964133,0.031797),Vector3(0.1764405,0.6964178,0.030825)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart70;
+begin
+
 { .SetCoord }
 IndexedFaceSet901.Coord := Coordinate902;
 TextureCoordinate903 := TTextureCoordinateNode.Create;
@@ -5052,6 +5403,11 @@ HAnimSegment914 := THAnimSegmentNode.Create;
 HAnimSegment914.NameField := 'l_carpal_distal_phalanx_1';
 Shape915 := TShapeNode.Create;
 Appearance916 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart71;
+begin
+
 Material917 := TMaterialNode.Create;
 Material917.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -5107,6 +5463,11 @@ IndexedFaceSet928 := TIndexedFaceSetNode.Create;
 IndexedFaceSet928.SetCoordIndex([14,12,1,-1,1,2,14,-1,0,13,15,-1,15,3,0,-1,11,10,9,-1,9,8,11,-1,4,5,17,-1,17,16,4,-1,18,6,7,-1,7,19,18,-1,0,4,16,-1,16,13,0,-1,12,17,5,-1,5,1,12,-1,1,5,4,-1,4,0,1,-1,2,6,18,-1,18,14,2,-1,15,19,7,-1,7,3,15,-1,3,7,6,-1,6,2,3,-1,3,8,9,-1,9,0,3,-1,0,9,10,-1,10,1,0,-1,1,10,11,-1,11,2,1,-1,2,11,8,-1,8,3,2,-1,22,23,24,-1,24,25,26,-1,26,27,20,-1,24,26,20,-1,22,24,20,-1,21,22,20,-1,12,14,21,-1,21,20,12,-1,14,18,22,-1,22,21,14,-1,18,19,23,-1,23,22,18,-1,19,15,24,-1,24,23,19,-1,15,13,25,-1,25,24,15,-1,13,16,26,-1,26,25,13,-1,16,17,27,-1,27,26,16,-1,17,12,20,-1,20,27,17,-1]);
 IndexedFaceSet928.CreaseAngle := 3.14159;
 IndexedFaceSet928.SetTexCoordIndex([21,19,1,-1,1,0,21,-1,12,20,22,-1,22,13,12,-1,5,4,7,-1,7,6,5,-1,8,9,25,-1,25,23,8,-1,26,17,18,-1,18,28,26,-1,12,16,24,-1,24,20,12,-1,19,25,9,-1,9,1,19,-1,1,9,8,-1,8,2,1,-1,0,10,27,-1,27,21,0,-1,22,28,18,-1,18,13,22,-1,3,11,10,-1,10,0,3,-1,13,14,15,-1,15,12,13,-1,2,7,4,-1,4,1,2,-1,1,4,5,-1,5,0,1,-1,0,5,6,-1,6,3,0,-1,31,32,33,-1,33,34,35,-1,35,36,29,-1,33,35,29,-1,31,33,29,-1,30,31,29,-1,19,21,30,-1,30,29,19,-1,21,27,31,-1,31,30,21,-1,26,28,32,-1,32,31,26,-1,28,22,33,-1,33,32,28,-1,22,20,34,-1,34,33,22,-1,20,24,35,-1,35,34,20,-1,23,25,36,-1,36,35,23,-1,25,19,29,-1,29,36,25,-1]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart72;
+begin
+
 Coordinate929 := TCoordinateNode.Create;
 Coordinate929.SetPoint([Vector3(0.166977,0.6858473,0.0032265),Vector3(0.19887976,0.6858473,0.0032265),Vector3(0.19663201,0.70836526,0.00230625),Vector3(0.16765426,0.70836526,0.00251325),Vector3(0.16957352,0.68211,0.003339),Vector3(0.19546652,0.68211,0.003339),Vector3(0.19281827,0.71530426,0.0018315002),Vector3(0.170982,0.71531105,0.0019709999),Vector3(0.16942726,0.706842,0.00071774976),Vector3(0.16802101,0.687564,0.0015682501),Vector3(0.19680077,0.687564,0.0015817503),Vector3(0.19487476,0.706842,0.00052200013),Vector3(0.19715177,0.68846405,0.01708425),Vector3(0.16690727,0.68846405,0.01708425),Vector3(0.19406252,0.70588803,0.014298751),Vector3(0.16910776,0.70588577,0.0143235),Vector3(0.17034976,0.6845355,0.018283501),Vector3(0.19404002,0.68424755,0.017797502),Vector3(0.19088101,0.7127483,0.013095001),Vector3(0.17110576,0.7127033,0.013176001),Vector3(0.195084,0.68997604,0.01834425),Vector3(0.19240876,0.70506227,0.01593225),Vector3(0.18965477,0.71100456,0.0148905),Vector3(0.17252776,0.7109663,0.014958001),Vector3(0.17079976,0.70506227,0.015954752),Vector3(0.16889401,0.68997604,0.01834425),Vector3(0.17187302,0.68657404,0.0193815),Vector3(0.19239075,0.6863243,0.018963)]);
 { .SetCoord }
@@ -5160,6 +5521,11 @@ HAnimJoint940.NameField := 'l_metacarpophalangeal_2';
 HAnimJoint940.Center := Vector3(0.18373501,0.6372,0.015075001);
 HAnimSegment941 := THAnimSegmentNode.Create;
 HAnimSegment941.NameField := 'l_carpal_proximal_phalanx_2';
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart73;
+begin
+
 Shape942 := TShapeNode.Create;
 Appearance943 := TAppearanceNode.Create;
 Material944 := TMaterialNode.Create;
@@ -5211,6 +5577,11 @@ IndexedFaceSet955.CreaseAngle := 3.14159;
 IndexedFaceSet955.SetTexCoordIndex([3,25,24,-1,24,0,3,-1,4,1,5,-1,3,0,7,-1,7,6,3,-1,5,10,9,-1,9,8,5,-1,11,4,5,-1,5,8,11,-1,11,8,12,-1,27,6,7,-1,7,26,27,-1,12,8,9,-1,9,13,12,-1,10,5,1,-1,1,2,10,-1,4,11,15,-1,15,14,4,-1,0,28,29,-1,29,7,0,-1,16,14,15,-1,15,17,16,-1,4,14,16,-1,16,1,4,-1,12,17,15,-1,15,11,12,-1,29,26,7,-1,0,24,28,-1,2,19,18,-1,18,10,2,-1,6,21,20,-1,20,3,6,-1,10,18,22,-1,22,9,10,-1,27,31,21,-1,21,6,27,-1,9,22,23,-1,23,13,9,-1,3,20,30,-1,30,25,3,-1,20,21,31,-1,31,30,20,-1,18,19,23,-1,23,22,18,-1]);
 Coordinate956 := TCoordinateNode.Create;
 Coordinate956.SetPoint([Vector3(0.17981552,0.5814675,0.0060615004),Vector3(0.17215426,0.581715,0.0187065),Vector3(0.18831602,0.584235,0.018918),Vector3(0.19035676,0.6023385,0.01937475),Vector3(0.19035676,0.60245776,0.007888501),Vector3(0.17213401,0.607077,0.00793575),Vector3(0.19116676,0.609426,0.0079605),Vector3(0.17213401,0.60695773,0.019422),Vector3(0.19116676,0.609309,0.019444501),Vector3(0.17627852,0.61142623,0.00798075),Vector3(0.17627852,0.611307,0.01946475),Vector3(0.18567227,0.61107075,0.0194625),Vector3(0.18567227,0.61119,0.007978501),Vector3(0.18113627,0.6065505,0.0055327504),Vector3(0.18113627,0.60636604,0.022119751),Vector3(0.17982227,0.5812875,0.021402001),Vector3(0.18550576,0.5763825,0.018405002),Vector3(0.18002251,0.57555,0.0185895),Vector3(0.17214976,0.5818275,0.0084645),Vector3(0.17369325,0.57798,0.017784001),Vector3(0.173691,0.57807,0.00932175),Vector3(0.18831152,0.584352,0.0082755005),Vector3(0.18550126,0.576495,0.0086917505),Vector3(0.18001801,0.57564,0.008667001)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart74;
+begin
+
 { .SetCoord }
 IndexedFaceSet955.Coord := Coordinate956;
 TextureCoordinate957 := TTextureCoordinateNode.Create;
@@ -5269,6 +5640,11 @@ HAnimJoint922.AddChildren([HAnimJoint931]);
 HAnimJoint877.AddChildren([HAnimJoint922]);
 HAnimJoint967 := THAnimJointNode.Create;
 HAnimJoint967.NameField := 'l_midcarpal_3';
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart75;
+begin
+
 HAnimJoint967.Center := Vector3(0.18108001,0.708525,-0.0047970004);
 HAnimSegment968 := THAnimSegmentNode.Create;
 HAnimSegment968.NameField := 'l_capitate';
@@ -5320,6 +5696,11 @@ Shape978.Appearance := Appearance979;
 IndexedFaceSet982 := TIndexedFaceSetNode.Create;
 IndexedFaceSet982.SetCoordIndex([0,8,6,-1,6,3,0,-1,10,5,1,-1,1,7,10,-1,2,9,7,-1,7,1,2,-1,8,0,4,-1,4,11,8,-1,14,13,12,-1,12,15,14,-1,34,33,32,-1,32,35,34,-1,25,24,29,-1,29,28,25,-1,17,20,19,-1,19,18,17,-1,25,28,27,-1,27,26,25,-1,20,17,16,-1,16,21,20,-1,6,12,13,-1,13,3,6,-1,24,31,30,-1,30,29,24,-1,2,14,15,-1,15,9,2,-1,16,23,22,-1,22,21,16,-1,9,16,17,-1,17,7,9,-1,7,17,18,-1,18,10,7,-1,10,18,19,-1,19,11,10,-1,11,19,20,-1,20,8,11,-1,8,20,21,-1,21,6,8,-1,6,21,22,-1,22,12,6,-1,12,22,23,-1,23,15,12,-1,15,23,16,-1,16,9,15,-1,3,24,25,-1,25,0,3,-1,0,25,26,-1,26,4,0,-1,4,26,27,-1,27,5,4,-1,5,27,28,-1,28,1,5,-1,1,28,29,-1,29,2,1,-1,2,29,30,-1,30,14,2,-1,14,30,31,-1,31,13,14,-1,13,31,24,-1,24,3,13,-1,10,32,33,-1,33,5,10,-1,5,33,34,-1,34,4,5,-1,4,34,35,-1,35,11,4,-1,11,35,32,-1,32,10,11,-1]);
 IndexedFaceSet982.CreaseAngle := 3.14159;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart76;
+begin
+
 IndexedFaceSet982.SetTexCoordIndex([2,1,0,-1,0,3,2,-1,39,38,37,-1,37,36,39,-1,40,41,36,-1,36,37,40,-1,1,2,11,-1,11,10,1,-1,12,15,14,-1,14,13,12,-1,43,46,45,-1,45,44,43,-1,20,23,22,-1,22,21,20,-1,48,51,50,-1,50,49,48,-1,20,21,29,-1,29,28,20,-1,27,24,31,-1,31,30,27,-1,0,14,15,-1,15,3,0,-1,23,33,32,-1,32,22,23,-1,8,12,13,-1,13,9,8,-1,31,35,34,-1,34,30,31,-1,9,31,24,-1,24,4,9,-1,36,48,49,-1,49,39,36,-1,7,25,26,-1,26,10,7,-1,10,26,27,-1,27,1,10,-1,1,27,30,-1,30,0,1,-1,0,30,34,-1,34,14,0,-1,14,34,35,-1,35,13,14,-1,13,35,31,-1,31,9,13,-1,3,23,20,-1,20,2,3,-1,2,20,28,-1,28,11,2,-1,42,52,53,-1,53,38,42,-1,38,53,47,-1,47,37,38,-1,5,21,22,-1,22,8,5,-1,8,22,32,-1,32,12,8,-1,12,32,33,-1,33,15,12,-1,15,33,23,-1,23,3,15,-1,39,45,46,-1,46,38,39,-1,6,19,16,-1,16,11,6,-1,11,16,17,-1,17,10,11,-1,10,17,18,-1,18,7,10,-1]);
 Coordinate983 := TCoordinateNode.Create;
 Coordinate983.SetPoint([Vector3(0.19760627,0.6594075,-0.0120825),Vector3(0.16938001,0.6594075,-0.0120825),Vector3(0.17236577,0.6382125,-0.0126315),Vector3(0.19481401,0.6382125,-0.0126315),Vector3(0.19895177,0.685728,-0.012235501),Vector3(0.16650002,0.685782,-0.012237751),Vector3(0.19481851,0.6378975,0.0054944996),Vector3(0.16924277,0.6584175,0.00474975),Vector3(0.19739701,0.6584175,0.00474975),Vector3(0.17246026,0.6378975,0.0054944996),Vector3(0.16696352,0.6858383,0.0032264998),Vector3(0.19886626,0.6858383,0.0032264998),Vector3(0.19304326,0.63441,0.00480825),Vector3(0.19304101,0.6342975,-0.011493),Vector3(0.17432326,0.6342975,-0.011493),Vector3(0.17440426,0.63441,0.00480825),Vector3(0.17473051,0.6385275,0.0070222495),Vector3(0.17154676,0.65864253,0.00820575),Vector3(0.16866902,0.68629724,0.0066375),Vector3(0.19644752,0.68629724,0.0066375),Vector3(0.19507277,0.6585075,0.0082125),Vector3(0.19271027,0.63850504,0.0070222495),Vector3(0.19150652,0.6363,0.006617251),Vector3(0.17594552,0.6363,0.006617251),Vector3(0.19257301,0.639,-0.014694751),Vector3(0.19507502,0.659295,-0.0149715),Vector3(0.19630127,0.6859755,-0.014953501),Vector3(0.16859026,0.6860205,-0.014955751),Vector3(0.17187527,0.65943,-0.014976),Vector3(0.17475076,0.6390225,-0.014697),Vector3(0.17597927,0.6363675,-0.013995001),Vector3(0.19135576,0.6363675,-0.013995001),Vector3(0.16898626,0.68825024,0.00019800001),Vector3(0.16870502,0.6882278,-0.0099990005),Vector3(0.19595252,0.68817824,-0.00999675),Vector3(0.19589852,0.68825704,0.00019800001)]);
@@ -5373,6 +5754,11 @@ HAnimJoint994 := THAnimJointNode.Create;
 HAnimJoint994.NameField := 'l_carpal_proximal_interphalangeal_3';
 HAnimJoint994.Center := Vector3(0.18171,0.603225,-0.003537);
 HAnimSegment995 := THAnimSegmentNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart77;
+begin
+
 HAnimSegment995.NameField := 'l_carpal_middle_phalanx_3';
 Shape996 := TShapeNode.Create;
 Appearance997 := TAppearanceNode.Create;
@@ -5424,6 +5810,11 @@ IndexedFaceSet1009.SetCoordIndex([0,25,31,-1,24,1,32,-1,1,0,2,-1,2,3,1,-1,31,23,
 IndexedFaceSet1009.CreaseAngle := 3.14159;
 IndexedFaceSet1009.SetTexCoordIndex([0,2,1,-1,3,5,4,-1,5,0,7,-1,7,6,5,-1,33,10,9,-1,9,35,33,-1,0,1,8,-1,8,7,0,-1,10,12,11,-1,11,9,10,-1,4,5,6,-1,6,13,4,-1,12,34,36,-1,36,11,12,-1,7,16,15,-1,15,14,7,-1,35,9,18,-1,18,37,35,-1,7,8,17,-1,17,16,7,-1,18,19,21,-1,21,20,18,-1,13,6,23,-1,23,22,13,-1,11,36,38,-1,38,19,11,-1,16,17,24,-1,24,15,16,-1,39,37,18,-1,18,20,39,-1,2,0,5,-1,5,3,2,-1,14,25,27,-1,27,26,14,-1,28,21,41,-1,41,40,28,-1,6,14,26,-1,26,23,6,-1,14,6,7,-1,9,11,19,-1,19,18,9,-1,20,21,28,-1,14,15,24,-1,24,25,14,-1,39,20,28,-1,28,40,39,-1,23,26,27,-1,27,22,23,-1,41,21,19,-1,19,38,41,-1,2,3,30,-1,30,29,2,-1,10,42,43,-1,43,12,10,-1,31,29,30,-1,30,32,31,-1,2,29,31,-1,31,1,2,-1,4,32,30,-1,30,3,4,-1,43,34,12,-1,10,33,42,-1]);
 Coordinate1010 := TCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart78;
+begin
+
 Coordinate1010.SetPoint([Vector3(0.18762301,0.572184,0.00201825),Vector3(0.1876275,0.57204,-0.00863325),Vector3(0.18634725,0.5641898,0.001917),Vector3(0.18635625,0.5639558,-0.0081),Vector3(0.172926,0.56471854,0.0023422502),Vector3(0.1790595,0.564426,0.00405225),Vector3(0.172935,0.56446654,-0.00853875),Vector3(0.179073,0.564093,-0.0104625),Vector3(0.18352576,0.5565938,0.00140625),Vector3(0.18353476,0.55637324,-0.00758475),Vector3(0.17291474,0.5568255,0.0012892501),Vector3(0.17824051,0.5568548,0.00300375),Vector3(0.1729215,0.55661404,-0.00731925),Vector3(0.17825176,0.55656224,-0.00915975),Vector3(0.1842435,0.555075,-0.003087),Vector3(0.17371576,0.5550165,-0.0030915001),Vector3(0.17821576,0.5540333,-0.0030735),Vector3(0.184149,0.555435,-0.0006097499),Vector3(0.173628,0.555318,-0.0051795),Vector3(0.17850825,0.5546205,0.00021374994),Vector3(0.1841535,0.5552955,-0.00543825),Vector3(0.1736235,0.55543727,-0.00089325005),Vector3(0.17851725,0.55437976,-0.0061515),Vector3(0.17235675,0.57595503,0.001719),Vector3(0.188514,0.57859427,-0.008802),Vector3(0.1885095,0.578736,0.0018472502),Vector3(0.1838205,0.5808375,0.001404),Vector3(0.183825,0.580707,-0.00846),Vector3(0.17575425,0.5809185,0.0013972502),Vector3(0.17236125,0.57582,-0.008529751),Vector3(0.17575875,0.58078575,-0.008469),Vector3(0.18006974,0.5755343,0.00443475),Vector3(0.1800765,0.5753273,-0.0109125)]);
 { .SetCoord }
 IndexedFaceSet1009.Coord := Coordinate1010;
@@ -5482,6 +5873,11 @@ HAnimSegment1013.AddChildren([Shape1014]);
 { .AddChildren }
 HAnimJoint1012.AddChildren([HAnimSegment1013]);
 HAnimJoint1021 := THAnimJointNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart79;
+begin
+
 HAnimJoint1021.NameField := 'l_carpometacarpal_4';
 HAnimJoint1021.Center := Vector3(0.18108001,0.68625003,-0.01991925);
 HAnimSegment1022 := THAnimSegmentNode.Create;
@@ -5533,6 +5929,11 @@ Appearance1033.Texture := ImageTexture1035;
 Shape1032.Appearance := Appearance1033;
 IndexedFaceSet1036 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1036.SetCoordIndex([3,4,22,-1,22,23,3,-1,5,6,31,-1,31,32,5,-1,4,44,22,-1,0,14,6,-1,6,5,0,-1,4,3,17,-1,17,1,4,-1,0,5,7,-1,7,2,0,-1,7,4,1,-1,1,2,7,-1,7,5,45,-1,45,43,7,-1,4,7,43,-1,43,44,4,-1,45,5,32,-1,15,13,11,-1,11,17,15,-1,0,8,10,-1,10,14,0,-1,17,11,9,-1,9,1,17,-1,2,12,8,-1,8,0,2,-1,1,9,12,-1,12,2,1,-1,14,10,13,-1,13,15,14,-1,10,8,12,-1,12,13,10,-1,11,13,12,-1,12,9,11,-1,3,23,40,-1,14,15,16,-1,16,6,14,-1,16,15,17,-1,17,3,16,-1,16,41,42,-1,42,6,16,-1,3,40,41,-1,41,16,3,-1,42,31,6,-1,21,20,19,-1,19,18,21,-1,22,18,19,-1,19,23,22,-1,24,30,29,-1,24,29,28,-1,28,27,26,-1,28,26,25,-1,24,28,25,-1,31,20,21,-1,21,32,31,-1,33,39,38,-1,33,38,37,-1,37,36,35,-1,33,37,35,-1,33,35,34,-1,40,25,26,-1,26,41,40,-1,41,26,27,-1,27,42,41,-1,42,27,28,-1,28,31,42,-1,31,28,29,-1,29,20,31,-1,20,29,30,-1,30,19,20,-1,19,30,24,-1,24,23,19,-1,23,24,25,-1,25,40,23,-1,43,35,36,-1,36,44,43,-1,44,36,37,-1,37,22,44,-1,22,37,38,-1,38,18,22,-1,18,38,39,-1,39,21,18,-1,21,39,33,-1,33,32,21,-1,32,33,34,-1,34,45,32,-1,45,34,35,-1,35,43,45,-1]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart80;
+begin
+
 IndexedFaceSet1036.CreaseAngle := 3.14159;
 IndexedFaceSet1036.SetTexCoordIndex([0,3,2,-1,2,1,0,-1,4,7,47,-1,47,46,4,-1,3,8,2,-1,9,10,7,-1,7,4,9,-1,3,0,12,-1,12,11,3,-1,9,4,49,-1,49,48,9,-1,14,3,11,-1,11,13,14,-1,49,4,51,-1,51,50,49,-1,3,14,15,-1,15,8,3,-1,51,4,46,-1,17,19,18,-1,18,12,17,-1,9,21,20,-1,20,10,9,-1,12,18,22,-1,22,11,12,-1,48,54,21,-1,21,9,48,-1,11,22,23,-1,23,13,11,-1,10,20,53,-1,53,52,10,-1,20,21,54,-1,54,53,20,-1,18,19,23,-1,23,22,18,-1,0,1,24,-1,10,52,55,-1,55,7,10,-1,25,17,12,-1,12,0,25,-1,55,57,56,-1,56,7,55,-1,0,24,27,-1,27,25,0,-1,56,47,7,-1,31,30,29,-1,29,28,31,-1,2,28,29,-1,29,1,2,-1,32,38,37,-1,32,37,36,-1,36,35,34,-1,36,34,33,-1,32,36,33,-1,6,30,31,-1,31,5,6,-1,39,45,44,-1,39,44,43,-1,43,42,41,-1,39,43,41,-1,39,41,40,-1,24,33,34,-1,34,27,24,-1,27,34,35,-1,35,26,27,-1,26,35,36,-1,36,6,26,-1,6,36,37,-1,37,30,6,-1,30,37,38,-1,38,29,30,-1,29,38,32,-1,32,1,29,-1,1,32,33,-1,33,24,1,-1,15,41,42,-1,42,8,15,-1,8,42,43,-1,43,2,8,-1,2,43,44,-1,44,28,2,-1,28,44,45,-1,45,31,28,-1,31,45,39,-1,39,5,31,-1,5,39,40,-1,40,16,5,-1,16,40,41,-1,41,15,16,-1]);
 Coordinate1037 := TCoordinateNode.Create;
@@ -5586,6 +5987,11 @@ HAnimJoint1039.AddChildren([HAnimSegment1040]);
 HAnimJoint1048 := THAnimJointNode.Create;
 HAnimJoint1048.NameField := 'l_carpal_distal_interphalangeal_4';
 HAnimJoint1048.Center := Vector3(0.180675,0.580725,-0.019777501);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart81;
+begin
+
 HAnimSegment1049 := THAnimSegmentNode.Create;
 HAnimSegment1049.NameField := 'l_carpal_distal_phalanx_4';
 Shape1050 := TShapeNode.Create;
@@ -5641,6 +6047,11 @@ Appearance1060.Material := Material1061;
 ImageTexture1062 := ImageTexture36;
 { .SetTexture }
 Appearance1060.Texture := ImageTexture1062;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart82;
+begin
+
 { .SetAppearance }
 Shape1059.Appearance := Appearance1060;
 IndexedFaceSet1063 := TIndexedFaceSetNode.Create;
@@ -5695,6 +6106,11 @@ Shape1068.Geometry := IndexedFaceSet1072;
 HAnimSegment1067.AddChildren([Shape1068]);
 { .AddChildren }
 HAnimJoint1066.AddChildren([HAnimSegment1067]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart83;
+begin
+
 HAnimJoint1075 := THAnimJointNode.Create;
 HAnimJoint1075.NameField := 'l_carpal_proximal_interphalangeal_5';
 HAnimJoint1075.Center := Vector3(0.18166502,0.62100005,-0.037147503);
@@ -5746,6 +6162,11 @@ Appearance1087.Texture := ImageTexture1089;
 { .SetAppearance }
 Shape1086.Appearance := Appearance1087;
 IndexedFaceSet1090 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart84;
+begin
+
 IndexedFaceSet1090.SetCoordIndex([0,25,31,-1,24,1,32,-1,1,0,2,-1,2,3,1,-1,31,23,4,-1,4,5,31,-1,0,31,5,-1,5,2,0,-1,23,29,6,-1,6,4,23,-1,32,1,3,-1,3,7,32,-1,29,32,7,-1,7,6,29,-1,2,8,17,-1,17,14,2,-1,5,4,10,-1,10,11,5,-1,2,5,11,-1,11,8,2,-1,10,12,18,-1,18,21,10,-1,7,3,9,-1,9,13,7,-1,6,7,13,-1,13,12,6,-1,8,11,19,-1,19,17,8,-1,19,11,10,-1,10,21,19,-1,25,0,1,-1,1,24,25,-1,14,16,22,-1,22,20,14,-1,15,18,22,-1,22,16,15,-1,3,14,20,-1,20,9,3,-1,14,3,2,-1,4,6,12,-1,12,10,4,-1,21,18,15,-1,14,17,19,-1,19,16,14,-1,19,21,15,-1,15,16,19,-1,9,20,22,-1,22,13,9,-1,22,18,12,-1,12,13,22,-1,25,24,27,-1,27,26,25,-1,23,28,30,-1,30,29,23,-1,28,26,27,-1,27,30,28,-1,25,26,28,-1,28,31,25,-1,32,30,27,-1,27,24,32,-1,30,32,29,-1,23,31,28,-1]);
 IndexedFaceSet1090.CreaseAngle := 3.14159;
 IndexedFaceSet1090.SetTexCoordIndex([0,2,1,-1,3,5,4,-1,5,0,7,-1,7,6,5,-1,33,10,9,-1,9,35,33,-1,0,1,8,-1,8,7,0,-1,10,12,11,-1,11,9,10,-1,4,5,6,-1,6,13,4,-1,12,34,36,-1,36,11,12,-1,7,16,15,-1,15,14,7,-1,35,9,18,-1,18,37,35,-1,7,8,17,-1,17,16,7,-1,18,19,21,-1,21,20,18,-1,13,6,23,-1,23,22,13,-1,11,36,38,-1,38,19,11,-1,16,17,24,-1,24,15,16,-1,39,37,18,-1,18,20,39,-1,2,0,5,-1,5,3,2,-1,14,25,27,-1,27,26,14,-1,28,21,41,-1,41,40,28,-1,6,14,26,-1,26,23,6,-1,14,6,7,-1,9,11,19,-1,19,18,9,-1,20,21,28,-1,14,15,24,-1,24,25,14,-1,39,20,28,-1,28,40,39,-1,23,26,27,-1,27,22,23,-1,41,21,19,-1,19,38,41,-1,2,3,30,-1,30,29,2,-1,10,42,43,-1,43,12,10,-1,31,29,30,-1,30,32,31,-1,2,29,31,-1,31,1,2,-1,4,32,30,-1,30,3,4,-1,43,34,12,-1,10,33,42,-1]);
@@ -5803,6 +6224,11 @@ IndexedFaceSet1099.CreaseAngle := 3.14159;
 IndexedFaceSet1099.SetTexCoordIndex([9,0,1,-1,1,6,9,-1,6,1,2,-1,2,5,6,-1,8,5,2,-1,2,3,8,-1,8,3,4,-1,4,7,8,-1,9,7,4,-1,4,0,9,-1,4,3,2,-1,0,4,2,-1,1,0,2,-1,10,14,13,-1,10,13,12,-1,11,10,12,-1,6,10,11,-1,11,9,6,-1,9,11,12,-1,12,7,9,-1,7,12,13,-1,13,8,7,-1,8,13,14,-1,14,5,8,-1,5,14,10,-1,10,6,5,-1]);
 Coordinate1100 := TCoordinateNode.Create;
 Coordinate1100.SetPoint([Vector3(-0.15075,1.21104,-0.033234753),Vector3(-0.1526175,1.2199343,-0.012728251),Vector3(-0.14436,1.2125138,0.0131692495),Vector3(-0.14267251,1.1677725,0.01105425),Vector3(-0.14166,1.1716201,-0.01659375),Vector3(-0.114435,1.217439,0.026061753),Vector3(-0.1260225,1.2309526,-0.014994),Vector3(-0.1328175,1.152675,-0.026640002),Vector3(-0.137205,1.152675,0.018366752),Vector3(-0.1230975,1.2159855,-0.051855754),Vector3(-0.035691753,1.222902,-0.0180225),Vector3(-0.035691753,1.2154658,-0.034994252),Vector3(-0.035691753,1.1767951,-0.019584),Vector3(-0.035691753,1.1773801,0.0003082502),Vector3(-0.035691753,1.2145185,0.0046170005)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart85;
+begin
+
 { .SetCoord }
 IndexedFaceSet1099.Coord := Coordinate1100;
 TextureCoordinate1101 := TTextureCoordinateNode.Create;
@@ -5856,6 +6282,11 @@ HAnimSegment1112 := THAnimSegmentNode.Create;
 HAnimSegment1112.NameField := 'r_upperarm';
 Shape1113 := TShapeNode.Create;
 Appearance1114 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart86;
+begin
+
 Material1115 := TMaterialNode.Create;
 Material1115.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -5908,6 +6339,11 @@ Coordinate1127.SetPoint([Vector3(-0.18657,0.9356558,-0.0315495),Vector3(-0.20772
 { .SetCoord }
 IndexedFaceSet1126.Coord := Coordinate1127;
 TextureCoordinate1128 := TTextureCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart87;
+begin
+
 TextureCoordinate1128.SetPoint([Vector2(0.8857,0.572),Vector2(0.9344,0.572),Vector2(0.9377,0.5719),Vector2(0.8909,0.5718),Vector2(0.8588,0.5719),Vector2(0.8849,0.5578),Vector2(0.8418,0.558),Vector2(0.9588,0.5579),Vector2(0.9536,0.5581),Vector2(0.8765,0.5581),Vector2(0.885,0.5257),Vector2(0.8424,0.5258),Vector2(0.9582,0.5328),Vector2(0.9531,0.533),Vector2(0.8768,0.526),Vector2(0.8957,0.4625),Vector2(0.8485,0.4627),Vector2(0.9546,0.4626),Vector2(0.9498,0.4628),Vector2(0.8879,0.4628),Vector2(0.8953,0.4552),Vector2(0.8684,0.4551),Vector2(0.9006,0.455),Vector2(0.9378,0.4551),Vector2(0.9345,0.4552)]);
 { .SetTexCoord }
 IndexedFaceSet1126.TexCoord := TextureCoordinate1128;
@@ -5960,6 +6396,11 @@ Shape1140 := TShapeNode.Create;
 Appearance1141 := TAppearanceNode.Create;
 Material1142 := TMaterialNode.Create;
 Material1142.DiffuseColor := Vector3(0.588,0.588,0.588);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart88;
+begin
+
 { .SetMaterial }
 Appearance1141.Material := Material1142;
 ImageTexture1143 := ImageTexture36;
@@ -6013,6 +6454,11 @@ TextureCoordinate1155 := TTextureCoordinateNode.Create;
 TextureCoordinate1155.SetPoint([Vector2(0.8819,0.0483),Vector2(0.8625,0.0359),Vector2(0.8625,0.0344),Vector2(0.8786,0.0507),Vector2(0.8948,0.2599),Vector2(0.867,0.0598),Vector2(0.857,0.0621),Vector2(0.8381,0.0441),Vector2(0.8533,0.0697),Vector2(0.8381,0.0441),Vector2(0.8503,0.0646),Vector2(0.8419,0.0407),Vector2(0.8588,0.0334),Vector2(0.8588,0.0347),Vector2(0.8467,0.0405),Vector2(0.8415,0.0402),Vector2(0.8445,0.0658),Vector2(0.8331,0.0451),Vector2(0.8331,0.0451),Vector2(0.8468,0.0705),Vector2(0.8593,0.0711),Vector2(0.8712,0.0644),Vector2(0.8626,0.068),Vector2(0.8607,0.0696),Vector2(0.877,0.0609),Vector2(0.8798,0.0581),Vector2(0.8632,0.2548),Vector2(0.8814,0.2691),Vector2(0.8729,0.2464),Vector2(0.8847,0.2342),Vector2(0.904,0.2568),Vector2(0.8853,0.2697),Vector2(0.8962,0.2618),Vector2(0.9014,0.2613),Vector2(0.9088,0.2549),Vector2(0.8909,0.2323)]);
 { .SetTexCoord }
 IndexedFaceSet1153.TexCoord := TextureCoordinate1155;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart89;
+begin
+
 { .SetGeometry }
 Shape1149.Geometry := IndexedFaceSet1153;
 { .AddChildren }
@@ -6065,6 +6511,11 @@ Material1169.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance1168.Material := Material1169;
 ImageTexture1170 := ImageTexture36;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart90;
+begin
+
 { .SetTexture }
 Appearance1168.Texture := ImageTexture1170;
 { .SetAppearance }
@@ -6120,6 +6571,11 @@ Coordinate1181.SetPoint([Vector3(-0.16666201,0.6858473,0.0032265),Vector3(-0.198
 { .SetCoord }
 IndexedFaceSet1180.Coord := Coordinate1181;
 TextureCoordinate1182 := TTextureCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart91;
+begin
+
 TextureCoordinate1182.SetPoint([Vector2(0.813,0.0266),Vector2(0.8136,0.0488),Vector2(0.8136,0.0488),Vector2(0.8133,0.0266),Vector2(0.8111,0.0474),Vector2(0.8105,0.0283),Vector2(0.8108,0.0283),Vector2(0.8111,0.0474),Vector2(0.8141,0.0525),Vector2(0.8141,0.0525),Vector2(0.8123,0.0198),Vector2(0.8125,0.0198),Vector2(0.9273,0.2479),Vector2(0.9315,0.2698),Vector2(0.9337,0.2676),Vector2(0.9301,0.2489),Vector2(0.9262,0.2444),Vector2(0.9337,0.2762),Vector2(0.9335,0.2763),Vector2(0.8381,0.0441),Vector2(0.904,0.2568),Vector2(0.8327,0.0273),Vector2(0.9122,0.2724),Vector2(0.8401,0.0478),Vector2(0.9014,0.2535),Vector2(0.8395,0.0482),Vector2(0.9142,0.2789),Vector2(0.8319,0.0206),Vector2(0.9141,0.2788),Vector2(0.8381,0.0441),Vector2(0.8327,0.0273),Vector2(0.8319,0.0206),Vector2(0.9141,0.2788),Vector2(0.9122,0.2724),Vector2(0.904,0.2568),Vector2(0.9014,0.2535),Vector2(0.8395,0.0482)]);
 { .SetTexCoord }
 IndexedFaceSet1180.TexCoord := TextureCoordinate1182;
@@ -6172,6 +6628,11 @@ Shape1194 := TShapeNode.Create;
 Appearance1195 := TAppearanceNode.Create;
 Material1196 := TMaterialNode.Create;
 Material1196.DiffuseColor := Vector3(0.588,0.588,0.588);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart92;
+begin
+
 { .SetMaterial }
 Appearance1195.Material := Material1196;
 ImageTexture1197 := ImageTexture36;
@@ -6225,6 +6686,11 @@ TextureCoordinate1209 := TTextureCoordinateNode.Create;
 TextureCoordinate1209.SetPoint([Vector2(0.8782,0.1769),Vector2(0.8543,0.1273),Vector2(0.8574,0.1518),Vector2(0.8703,0.1535),Vector2(0.8493,0.125),Vector2(0.8504,0.1318),Vector2(0.8846,0.1491),Vector2(0.8931,0.1724),Vector2(0.8349,0.1336),Vector2(0.8379,0.1515),Vector2(0.8533,0.1496),Vector2(0.8338,0.1268),Vector2(0.8302,0.1302),Vector2(0.8351,0.1545),Vector2(0.849,0.1233),Vector2(0.8336,0.1251),Vector2(0.849,0.123),Vector2(0.8335,0.1249),Vector2(0.8539,0.1573),Vector2(0.8543,0.1579),Vector2(0.8703,0.1496),Vector2(0.8822,0.146),Vector2(0.8398,0.159),Vector2(0.8399,0.1597),Vector2(0.8737,0.1777),Vector2(0.8664,0.1541),Vector2(0.8969,0.1707),Vector2(0.8878,0.1476),Vector2(0.8796,0.181),Vector2(0.8945,0.1764),Vector2(0.8684,0.1475),Vector2(0.8822,0.1433)]);
 { .SetTexCoord }
 IndexedFaceSet1207.TexCoord := TextureCoordinate1209;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart93;
+begin
+
 { .SetGeometry }
 Shape1203.Geometry := IndexedFaceSet1207;
 { .AddChildren }
@@ -6281,6 +6747,11 @@ HAnimJoint1219.Center := Vector3(-0.18072,0.708525,-0.0047970004);
 HAnimSegment1220 := THAnimSegmentNode.Create;
 HAnimSegment1220.NameField := 'r_capitate';
 Shape1221 := TShapeNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart94;
+begin
+
 Appearance1222 := TAppearanceNode.Create;
 Material1223 := TMaterialNode.Create;
 Material1223.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -6333,6 +6804,11 @@ Coordinate1235 := TCoordinateNode.Create;
 Coordinate1235.SetPoint([Vector3(-0.19724625,0.6594075,-0.0120825),Vector3(-0.16902,0.6594075,-0.0120825),Vector3(-0.17200574,0.6382125,-0.0126315),Vector3(-0.194454,0.6382125,-0.0126315),Vector3(-0.19859175,0.685728,-0.012235501),Vector3(-0.16613999,0.685782,-0.012237751),Vector3(-0.1944585,0.6378975,0.0054944996),Vector3(-0.16888274,0.6584175,0.00474975),Vector3(-0.197037,0.6584175,0.00474975),Vector3(-0.17210025,0.6378975,0.0054944996),Vector3(-0.16660349,0.6858383,0.0032264998),Vector3(-0.19850625,0.6858383,0.0032264998),Vector3(-0.19268325,0.63441,0.00480825),Vector3(-0.192681,0.6342975,-0.011493),Vector3(-0.17396325,0.6342975,-0.011493),Vector3(-0.17404425,0.63441,0.00480825),Vector3(-0.1743705,0.6385275,0.0070222495),Vector3(-0.17118675,0.65864253,0.00820575),Vector3(-0.168309,0.68629724,0.0066375),Vector3(-0.1960875,0.68629724,0.0066375),Vector3(-0.19471274,0.6585075,0.0082125),Vector3(-0.19235025,0.63850504,0.0070222495),Vector3(-0.1911465,0.6363,0.006617251),Vector3(-0.1755855,0.6363,0.006617251),Vector3(-0.192213,0.639,-0.014694751),Vector3(-0.194715,0.659295,-0.0149715),Vector3(-0.19594125,0.6859755,-0.014953501),Vector3(-0.16823025,0.6860205,-0.014955751),Vector3(-0.17151524,0.65943,-0.014976),Vector3(-0.17439075,0.6390225,-0.014697),Vector3(-0.17561924,0.6363675,-0.013995001),Vector3(-0.19099575,0.6363675,-0.013995001),Vector3(-0.16862625,0.68825024,0.00019800001),Vector3(-0.168345,0.6882278,-0.0099990005),Vector3(-0.1955925,0.68817824,-0.00999675),Vector3(-0.19553849,0.68825704,0.00019800001)]);
 { .SetCoord }
 IndexedFaceSet1234.Coord := Coordinate1235;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart95;
+begin
+
 TextureCoordinate1236 := TTextureCoordinateNode.Create;
 TextureCoordinate1236.SetPoint([Vector2(0.8225,0.0994),Vector2(0.8195,0.0808),Vector2(0.7938,0.0824),Vector2(0.7939,0.1016),Vector2(0.8195,0.0808),Vector2(0.7938,0.0824),Vector2(0.7924,0.0507),Vector2(0.8136,0.0488),Vector2(0.7939,0.1016),Vector2(0.8225,0.0994),Vector2(0.8136,0.0488),Vector2(0.7924,0.0508),Vector2(0.7964,0.1053),Vector2(0.8205,0.103),Vector2(0.8205,0.103),Vector2(0.7964,0.1053),Vector2(0.796,0.0481),Vector2(0.809,0.0468),Vector2(0.809,0.0469),Vector2(0.796,0.048),Vector2(0.7888,0.0827),Vector2(0.7888,0.0826),Vector2(0.7886,0.1011),Vector2(0.7887,0.1011),Vector2(0.8243,0.0799),Vector2(0.8186,0.0479),Vector2(0.8186,0.0479),Vector2(0.8243,0.0801),Vector2(0.7878,0.051),Vector2(0.7878,0.0509),Vector2(0.8275,0.0984),Vector2(0.8275,0.0983),Vector2(0.7902,0.1036),Vector2(0.7902,0.1036),Vector2(0.8264,0.1006),Vector2(0.8264,0.1006),Vector2(0.916,0.2175),Vector2(0.941,0.2114),Vector2(0.9479,0.2423),Vector2(0.9273,0.2479),Vector2(0.9376,0.1925),Vector2(0.9098,0.1997),Vector2(0.9479,0.2423),Vector2(0.9448,0.2456),Vector2(0.9323,0.249),Vector2(0.9323,0.249),Vector2(0.9448,0.2456),Vector2(0.9459,0.2103),Vector2(0.9115,0.2191),Vector2(0.9226,0.2496),Vector2(0.9226,0.2496),Vector2(0.9114,0.219),Vector2(0.9524,0.2413),Vector2(0.9524,0.2414)]);
 { .SetTexCoord }
@@ -6385,6 +6861,11 @@ HAnimSegment1247.NameField := 'r_carpal_middle_phalanx_3';
 Shape1248 := TShapeNode.Create;
 Appearance1249 := TAppearanceNode.Create;
 Material1250 := TMaterialNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart96;
+begin
+
 Material1250.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance1249.Material := Material1250;
@@ -6437,6 +6918,11 @@ Coordinate1262.SetPoint([Vector3(-0.1872405,0.572184,0.00201825),Vector3(-0.1872
 IndexedFaceSet1261.Coord := Coordinate1262;
 TextureCoordinate1263 := TTextureCoordinateNode.Create;
 TextureCoordinate1263.SetPoint([Vector2(0.8204,0.1649),Vector2(0.8238,0.1612),Vector2(0.8199,0.1584),Vector2(0.8044,0.1596),Vector2(0.8014,0.1628),Vector2(0.8049,0.166),Vector2(0.807,0.1802),Vector2(0.8204,0.1792),Vector2(0.8232,0.1783),Vector2(0.8982,0.1238),Vector2(0.9018,0.1387),Vector2(0.9123,0.1202),Vector2(0.9163,0.135),Vector2(0.8038,0.18),Vector2(0.8141,0.1881),Vector2(0.8169,0.1876),Vector2(0.8192,0.1861),Vector2(0.8213,0.1861),Vector2(0.8983,0.1142),Vector2(0.9079,0.1117),Vector2(0.9004,0.112),Vector2(0.9052,0.1108),Vector2(0.8067,0.1872),Vector2(0.8088,0.1869),Vector2(0.8179,0.1883),Vector2(0.8142,0.1891),Vector2(0.8114,0.188),Vector2(0.8106,0.1889),Vector2(0.9027,0.111),Vector2(0.8192,0.1563),Vector2(0.8048,0.1573),Vector2(0.8192,0.156),Vector2(0.8048,0.1571),Vector2(0.8978,0.139),Vector2(0.9196,0.1336),Vector2(0.8956,0.1239),Vector2(0.9147,0.119),Vector2(0.8959,0.1141),Vector2(0.9101,0.1105),Vector2(0.8989,0.1113),Vector2(0.9025,0.1098),Vector2(0.906,0.1094),Vector2(0.9033,0.1433),Vector2(0.9173,0.1398)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart97;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet1261.TexCoord := TextureCoordinate1263;
 { .SetGeometry }
@@ -6494,6 +6980,11 @@ HAnimJoint1273.NameField := 'r_carpometacarpal_4';
 HAnimJoint1273.Center := Vector3(-0.18072,0.68625003,-0.01991925);
 HAnimSegment1274 := THAnimSegmentNode.Create;
 HAnimSegment1274.NameField := 'r_metacarpal_4';
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart98;
+begin
+
 Shape1275 := TShapeNode.Create;
 Appearance1276 := TAppearanceNode.Create;
 Material1277 := TMaterialNode.Create;
@@ -6545,6 +7036,11 @@ IndexedFaceSet1288.CreaseAngle := 3.14159;
 IndexedFaceSet1288.SetTexCoordIndex([0,1,2,-1,2,3,0,-1,4,46,47,-1,47,7,4,-1,3,2,8,-1,9,4,7,-1,7,10,9,-1,3,11,12,-1,12,0,3,-1,9,48,49,-1,49,4,9,-1,14,13,11,-1,11,3,14,-1,49,50,51,-1,51,4,49,-1,3,8,15,-1,15,14,3,-1,51,46,4,-1,17,12,18,-1,18,19,17,-1,9,10,20,-1,20,21,9,-1,12,11,22,-1,22,18,12,-1,48,9,21,-1,21,54,48,-1,11,13,23,-1,23,22,11,-1,10,52,53,-1,53,20,10,-1,20,53,54,-1,54,21,20,-1,18,22,23,-1,23,19,18,-1,0,24,1,-1,10,7,55,-1,55,52,10,-1,25,0,12,-1,12,17,25,-1,55,7,56,-1,56,57,55,-1,0,25,27,-1,27,24,0,-1,56,7,47,-1,31,28,29,-1,29,30,31,-1,2,1,29,-1,29,28,2,-1,34,35,36,-1,33,34,36,-1,32,33,36,-1,32,36,37,-1,32,37,38,-1,6,5,31,-1,31,30,6,-1,39,40,41,-1,41,42,43,-1,39,41,43,-1,39,43,44,-1,39,44,45,-1,24,27,34,-1,34,33,24,-1,27,26,35,-1,35,34,27,-1,26,6,36,-1,36,35,26,-1,6,30,37,-1,37,36,6,-1,30,29,38,-1,38,37,30,-1,29,1,32,-1,32,38,29,-1,1,24,33,-1,33,32,1,-1,15,8,42,-1,42,41,15,-1,8,2,43,-1,43,42,8,-1,2,28,44,-1,44,43,2,-1,28,31,45,-1,45,44,28,-1,31,5,39,-1,39,45,31,-1,5,16,40,-1,40,39,5,-1,16,15,41,-1,41,40,16,-1]);
 Coordinate1289 := TCoordinateNode.Create;
 Coordinate1289.SetPoint([Vector3(-0.17174701,0.60705,-0.0258795),Vector3(-0.19077976,0.609435,-0.025958251),Vector3(-0.18074927,0.60642004,-0.02859075),Vector3(-0.19255501,0.6331613,-0.014764501),Vector3(-0.19255726,0.63415354,-0.0260055),Vector3(-0.17284052,0.63415354,-0.0260055),Vector3(-0.17284052,0.6331613,-0.014764501),Vector3(-0.18203402,0.63180006,-0.02882925),Vector3(-0.17342326,0.6032025,-0.0251595),Vector3(-0.18718201,0.6012675,-0.0257535),Vector3(-0.17342326,0.6034275,-0.0161595),Vector3(-0.18718201,0.60156006,-0.01541925),Vector3(-0.18072677,0.60054755,-0.025749),Vector3(-0.18072677,0.60084003,-0.0151965),Vector3(-0.17174701,0.60729754,-0.0155902505),Vector3(-0.18074927,0.6068025,-0.012564001),Vector3(-0.18203402,0.6298245,-0.0128092505),Vector3(-0.19077976,0.60968256,-0.015669),Vector3(-0.19080451,0.6457995,-0.02811375),Vector3(-0.19080901,0.64443606,-0.013034251),Vector3(-0.17431426,0.64443606,-0.013034251),Vector3(-0.17423101,0.6457995,-0.02811375),Vector3(-0.19388251,0.64009804,-0.028516501),Vector3(-0.19444501,0.6383993,-0.0126315),Vector3(-0.19395451,0.63868505,-0.011583),Vector3(-0.19206001,0.6341423,-0.01149525),Vector3(-0.18205427,0.63094276,-0.0117855),Vector3(-0.17340751,0.63410854,-0.011493),Vector3(-0.17271452,0.6386805,-0.01158075),Vector3(-0.17477776,0.64445406,-0.011286001),Vector3(-0.19041526,0.64445406,-0.011286001),Vector3(-0.1719945,0.6383993,-0.0126315),Vector3(-0.17204176,0.64006203,-0.028512001),Vector3(-0.17313752,0.6407708,-0.029679751),Vector3(-0.17386651,0.6354585,-0.029855251),Vector3(-0.18206102,0.63284177,-0.02927925),Vector3(-0.19165951,0.6355238,-0.029862002),Vector3(-0.19340776,0.6407618,-0.029679751),Vector3(-0.19013402,0.64594126,-0.02914875),Vector3(-0.17505452,0.64594126,-0.02914875),Vector3(-0.19255501,0.63289577,-0.012372751),Vector3(-0.18203402,0.6298065,-0.0124425),Vector3(-0.17284052,0.63289577,-0.012372751),Vector3(-0.18196651,0.63183606,-0.029081251),Vector3(-0.19229177,0.634338,-0.028856251),Vector3(-0.17284052,0.634338,-0.028856251)]);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart99;
+begin
+
 { .SetCoord }
 IndexedFaceSet1288.Coord := Coordinate1289;
 TextureCoordinate1290 := TTextureCoordinateNode.Create;
@@ -6598,6 +7094,11 @@ HAnimSegment1301 := THAnimSegmentNode.Create;
 HAnimSegment1301.NameField := 'r_carpal_distal_phalanx_4';
 Shape1302 := TShapeNode.Create;
 Appearance1303 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart100;
+begin
+
 Material1304 := TMaterialNode.Create;
 Material1304.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -6654,6 +7155,11 @@ Shape1311.Appearance := Appearance1312;
 IndexedFaceSet1315 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1315.SetCoordIndex([11,9,0,-1,0,3,11,-1,5,2,1,-1,1,4,5,-1,3,0,2,-1,2,5,3,-1,9,13,8,-1,8,0,9,-1,2,7,6,-1,6,1,2,-1,6,14,10,-1,10,1,6,-1,1,10,12,-1,12,4,1,-1,0,8,7,-1,7,2,0,-1,25,26,27,-1,27,20,25,-1,16,17,18,-1,16,18,19,-1,15,16,19,-1,30,31,32,-1,29,30,32,-1,28,29,32,-1,11,3,16,-1,16,15,11,-1,3,5,17,-1,17,16,3,-1,5,4,18,-1,18,17,5,-1,4,12,19,-1,19,18,4,-1,24,21,22,-1,22,23,24,-1,20,21,24,-1,24,25,20,-1,9,11,21,-1,21,20,9,-1,11,15,22,-1,22,21,11,-1,15,19,23,-1,23,22,15,-1,19,12,24,-1,24,23,19,-1,12,10,25,-1,25,24,12,-1,10,14,26,-1,26,25,10,-1,14,13,27,-1,27,26,14,-1,13,9,20,-1,20,27,13,-1,14,6,29,-1,29,28,14,-1,6,7,30,-1,30,29,6,-1,7,8,31,-1,31,30,7,-1,8,13,32,-1,32,31,8,-1,13,14,28,-1,28,32,13,-1]);
 IndexedFaceSet1315.CreaseAngle := 3.14159;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart101;
+begin
+
 IndexedFaceSet1315.SetTexCoordIndex([0,1,2,-1,2,3,0,-1,33,34,6,-1,6,35,33,-1,3,2,5,-1,5,4,3,-1,1,8,9,-1,9,2,1,-1,34,37,11,-1,11,6,34,-1,11,12,38,-1,38,6,11,-1,6,38,39,-1,39,35,6,-1,2,9,10,-1,10,5,2,-1,40,16,41,-1,41,42,40,-1,20,21,22,-1,20,22,23,-1,19,20,23,-1,43,44,45,-1,25,43,45,-1,24,25,45,-1,0,3,20,-1,20,19,0,-1,3,4,21,-1,21,20,3,-1,4,7,22,-1,22,21,4,-1,7,14,23,-1,23,22,7,-1,29,30,31,-1,31,32,29,-1,18,30,29,-1,29,15,18,-1,1,0,30,-1,30,18,1,-1,0,19,31,-1,31,30,0,-1,19,23,32,-1,32,31,19,-1,23,14,29,-1,29,32,23,-1,14,13,15,-1,15,29,14,-1,38,12,16,-1,16,40,38,-1,12,36,41,-1,41,16,12,-1,8,1,18,-1,18,17,8,-1,12,11,25,-1,25,24,12,-1,11,37,43,-1,43,25,11,-1,10,9,27,-1,27,26,10,-1,9,8,28,-1,28,27,9,-1,36,12,24,-1,24,45,36,-1]);
 Coordinate1316 := TCoordinateNode.Create;
 Coordinate1316.SetPoint([Vector3(-0.19349325,0.6631875,-0.041503504),Vector3(-0.1709685,0.6631875,-0.04150125),Vector3(-0.18213975,0.66453755,-0.04487625),Vector3(-0.19251676,0.6424875,-0.042288754),Vector3(-0.172314,0.6424875,-0.042288754),Vector3(-0.1816965,0.64305,-0.045207),Vector3(-0.1704465,0.68892527,-0.037809003),Vector3(-0.18251775,0.68990403,-0.04086),Vector3(-0.19374976,0.68885106,-0.037786502),Vector3(-0.1957905,0.661185,-0.028487252),Vector3(-0.16945875,0.661185,-0.028487252),Vector3(-0.19388475,0.63992256,-0.028509751),Vector3(-0.17204624,0.6399,-0.0285075),Vector3(-0.1977525,0.6869655,-0.02761875),Vector3(-0.1670805,0.68697906,-0.027625501),Vector3(-0.190368,0.63564754,-0.030093752),Vector3(-0.188721,0.6382125,-0.039924003),Vector3(-0.181728,0.6386625,-0.0419895),Vector3(-0.17538525,0.63823503,-0.040023003),Vector3(-0.175194,0.635625,-0.030087002),Vector3(-0.1936035,0.660825,-0.025400251),Vector3(-0.1917405,0.63994503,-0.026401501),Vector3(-0.18915525,0.6367725,-0.02700675),Vector3(-0.17647426,0.63675004,-0.027),Vector3(-0.1741815,0.6399,-0.026415002),Vector3(-0.17163225,0.660915,-0.025395751),Vector3(-0.16956225,0.6866483,-0.025272002),Vector3(-0.195444,0.68663704,-0.025267502),Vector3(-0.17140275,0.6900098,-0.029655002),Vector3(-0.173205,0.6909728,-0.035464503),Vector3(-0.18252675,0.6918683,-0.037914753),Vector3(-0.1911915,0.6909278,-0.035563502),Vector3(-0.19337401,0.69001204,-0.029650502)]);
@@ -6707,6 +7213,11 @@ HAnimJoint1327 := THAnimJointNode.Create;
 HAnimJoint1327.NameField := 'r_carpal_proximal_interphalangeal_5';
 HAnimJoint1327.Center := Vector3(-0.18130499,0.62100005,-0.037147503);
 HAnimSegment1328 := THAnimSegmentNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart102;
+begin
+
 HAnimSegment1328.NameField := 'r_carpal_middle_phalanx_5';
 Shape1329 := TShapeNode.Create;
 Appearance1330 := TAppearanceNode.Create;
@@ -6758,6 +7269,11 @@ IndexedFaceSet1342.SetCoordIndex([0,31,25,-1,24,32,1,-1,1,3,2,-1,2,0,1,-1,31,5,4
 IndexedFaceSet1342.CreaseAngle := 3.14159;
 IndexedFaceSet1342.SetTexCoordIndex([0,1,2,-1,3,4,5,-1,5,6,7,-1,7,0,5,-1,33,35,9,-1,9,10,33,-1,0,7,8,-1,8,1,0,-1,10,9,11,-1,11,12,10,-1,4,13,6,-1,6,5,4,-1,12,11,36,-1,36,34,12,-1,7,14,15,-1,15,16,7,-1,35,37,18,-1,18,9,35,-1,7,16,17,-1,17,8,7,-1,18,20,21,-1,21,19,18,-1,13,22,23,-1,23,6,13,-1,11,19,38,-1,38,36,11,-1,16,15,24,-1,24,17,16,-1,39,20,18,-1,18,37,39,-1,2,3,5,-1,5,0,2,-1,14,26,27,-1,27,25,14,-1,28,40,41,-1,41,21,28,-1,6,23,26,-1,26,14,6,-1,14,7,6,-1,9,18,19,-1,19,11,9,-1,20,28,21,-1,14,25,24,-1,24,15,14,-1,39,40,28,-1,28,20,39,-1,23,22,27,-1,27,26,23,-1,41,38,19,-1,19,21,41,-1,2,29,30,-1,30,3,2,-1,10,12,43,-1,43,42,10,-1,31,32,30,-1,30,29,31,-1,2,1,31,-1,31,29,2,-1,4,3,30,-1,30,32,4,-1,43,12,34,-1,10,42,33,-1]);
 Coordinate1343 := TCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart103;
+begin
+
 Coordinate1343.SetPoint([Vector3(-0.18756452,0.600165,-0.032132253),Vector3(-0.18758927,0.59988606,-0.041499),Vector3(-0.18690526,0.59157676,-0.032332502),Vector3(-0.18695927,0.5913113,-0.041112002),Vector3(-0.17244002,0.5912168,-0.031977),Vector3(-0.17947352,0.5913518,-0.030294001),Vector3(-0.17249852,0.5909288,-0.04151475),Vector3(-0.17955227,0.59095806,-0.04321125),Vector3(-0.18574427,0.5849618,-0.03273975),Vector3(-0.18580277,0.58472776,-0.04043025),Vector3(-0.17225552,0.58423054,-0.03285),Vector3(-0.17887501,0.58430254,-0.031142252),Vector3(-0.17231402,0.5840078,-0.04021425),Vector3(-0.17896052,0.58397627,-0.041976),Vector3(-0.18625952,0.5834565,-0.03654675),Vector3(-0.17369327,0.5824328,-0.036553502),Vector3(-0.17933401,0.5818298,-0.03651075),Vector3(-0.18605927,0.58382106,-0.034434002),Vector3(-0.17351551,0.5827343,-0.038349003),Vector3(-0.17959277,0.5824643,-0.0337095),Vector3(-0.18609752,0.5836725,-0.038562752),Vector3(-0.17348401,0.5828603,-0.034683753),Vector3(-0.17965576,0.58221227,-0.039154503),Vector3(-0.17221501,0.6030968,-0.03242025),Vector3(-0.18780527,0.6045345,-0.04177125),Vector3(-0.18777601,0.60483605,-0.03231),Vector3(-0.18310277,0.6063705,-0.032724),Vector3(-0.18310277,0.6060893,-0.041463003),Vector3(-0.17527276,0.6065595,-0.03273075),Vector3(-0.17221501,0.6028043,-0.0415125),Vector3(-0.17527276,0.6062783,-0.041469753),Vector3(-0.17973001,0.60272104,-0.029918252),Vector3(-0.17973001,0.6022823,-0.043704003)]);
 { .SetCoord }
 IndexedFaceSet1342.Coord := Coordinate1343;
@@ -6833,6 +7349,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1345);
 HAnimJoint1346 := HAnimJoint40;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1346);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart104;
+begin
+
 HAnimJoint1347 := HAnimJoint553;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1347);
@@ -6893,6 +7414,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1365);
 HAnimJoint1366 := HAnimJoint724;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1366);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart105;
+begin
+
 HAnimJoint1367 := HAnimJoint733;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1367);
@@ -6953,6 +7479,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1385);
 HAnimJoint1386 := HAnimJoint1165;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1386);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart106;
+begin
+
 HAnimJoint1387 := HAnimJoint949;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1387);
@@ -7013,6 +7544,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1405);
 HAnimJoint1406 := HAnimJoint337;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1406);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart107;
+begin
+
 HAnimJoint1407 := HAnimJoint121;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1407);
@@ -7073,6 +7609,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1425);
 HAnimJoint1426 := HAnimJoint1192;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1426);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart108;
+begin
+
 HAnimJoint1427 := HAnimJoint985;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1427);
@@ -7133,6 +7674,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1445);
 HAnimJoint1446 := HAnimJoint1174;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1446);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart109;
+begin
+
 HAnimJoint1447 := HAnimJoint967;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1447);
@@ -7193,6 +7739,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1465);
 HAnimJoint1466 := HAnimJoint454;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1466);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart110;
+begin
+
 HAnimJoint1467 := HAnimJoint256;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1467);
@@ -7253,6 +7804,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1485);
 HAnimJoint1486 := HAnimJoint481;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1486);
+end;
+
+procedure InitJinLOA4_scaled1_FinalPart111;
+begin
+
 HAnimJoint1487 := HAnimJoint265;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1487);
@@ -7296,6 +7852,122 @@ Group1499 := TGroupNode.Create;
 Group19.AddChildren([Group1499]);
 { .AddGroup }
 X3D0.AddChildren([Group19]);
+end;
+
+function CreateJinLOA4_scaled1_Final: TX3DRootNode;
+begin
+InitJinLOA4_scaled1_FinalPart0;
+InitJinLOA4_scaled1_FinalPart1;
+InitJinLOA4_scaled1_FinalPart2;
+InitJinLOA4_scaled1_FinalPart3;
+InitJinLOA4_scaled1_FinalPart4;
+InitJinLOA4_scaled1_FinalPart5;
+InitJinLOA4_scaled1_FinalPart6;
+InitJinLOA4_scaled1_FinalPart7;
+InitJinLOA4_scaled1_FinalPart8;
+InitJinLOA4_scaled1_FinalPart9;
+InitJinLOA4_scaled1_FinalPart10;
+InitJinLOA4_scaled1_FinalPart11;
+InitJinLOA4_scaled1_FinalPart12;
+InitJinLOA4_scaled1_FinalPart13;
+InitJinLOA4_scaled1_FinalPart14;
+InitJinLOA4_scaled1_FinalPart15;
+InitJinLOA4_scaled1_FinalPart16;
+InitJinLOA4_scaled1_FinalPart17;
+InitJinLOA4_scaled1_FinalPart18;
+InitJinLOA4_scaled1_FinalPart19;
+InitJinLOA4_scaled1_FinalPart20;
+InitJinLOA4_scaled1_FinalPart21;
+InitJinLOA4_scaled1_FinalPart22;
+InitJinLOA4_scaled1_FinalPart23;
+InitJinLOA4_scaled1_FinalPart24;
+InitJinLOA4_scaled1_FinalPart25;
+InitJinLOA4_scaled1_FinalPart26;
+InitJinLOA4_scaled1_FinalPart27;
+InitJinLOA4_scaled1_FinalPart28;
+InitJinLOA4_scaled1_FinalPart29;
+InitJinLOA4_scaled1_FinalPart30;
+InitJinLOA4_scaled1_FinalPart31;
+InitJinLOA4_scaled1_FinalPart32;
+InitJinLOA4_scaled1_FinalPart33;
+InitJinLOA4_scaled1_FinalPart34;
+InitJinLOA4_scaled1_FinalPart35;
+InitJinLOA4_scaled1_FinalPart36;
+InitJinLOA4_scaled1_FinalPart37;
+InitJinLOA4_scaled1_FinalPart38;
+InitJinLOA4_scaled1_FinalPart39;
+InitJinLOA4_scaled1_FinalPart40;
+InitJinLOA4_scaled1_FinalPart41;
+InitJinLOA4_scaled1_FinalPart42;
+InitJinLOA4_scaled1_FinalPart43;
+InitJinLOA4_scaled1_FinalPart44;
+InitJinLOA4_scaled1_FinalPart45;
+InitJinLOA4_scaled1_FinalPart46;
+InitJinLOA4_scaled1_FinalPart47;
+InitJinLOA4_scaled1_FinalPart48;
+InitJinLOA4_scaled1_FinalPart49;
+InitJinLOA4_scaled1_FinalPart50;
+InitJinLOA4_scaled1_FinalPart51;
+InitJinLOA4_scaled1_FinalPart52;
+InitJinLOA4_scaled1_FinalPart53;
+InitJinLOA4_scaled1_FinalPart54;
+InitJinLOA4_scaled1_FinalPart55;
+InitJinLOA4_scaled1_FinalPart56;
+InitJinLOA4_scaled1_FinalPart57;
+InitJinLOA4_scaled1_FinalPart58;
+InitJinLOA4_scaled1_FinalPart59;
+InitJinLOA4_scaled1_FinalPart60;
+InitJinLOA4_scaled1_FinalPart61;
+InitJinLOA4_scaled1_FinalPart62;
+InitJinLOA4_scaled1_FinalPart63;
+InitJinLOA4_scaled1_FinalPart64;
+InitJinLOA4_scaled1_FinalPart65;
+InitJinLOA4_scaled1_FinalPart66;
+InitJinLOA4_scaled1_FinalPart67;
+InitJinLOA4_scaled1_FinalPart68;
+InitJinLOA4_scaled1_FinalPart69;
+InitJinLOA4_scaled1_FinalPart70;
+InitJinLOA4_scaled1_FinalPart71;
+InitJinLOA4_scaled1_FinalPart72;
+InitJinLOA4_scaled1_FinalPart73;
+InitJinLOA4_scaled1_FinalPart74;
+InitJinLOA4_scaled1_FinalPart75;
+InitJinLOA4_scaled1_FinalPart76;
+InitJinLOA4_scaled1_FinalPart77;
+InitJinLOA4_scaled1_FinalPart78;
+InitJinLOA4_scaled1_FinalPart79;
+InitJinLOA4_scaled1_FinalPart80;
+InitJinLOA4_scaled1_FinalPart81;
+InitJinLOA4_scaled1_FinalPart82;
+InitJinLOA4_scaled1_FinalPart83;
+InitJinLOA4_scaled1_FinalPart84;
+InitJinLOA4_scaled1_FinalPart85;
+InitJinLOA4_scaled1_FinalPart86;
+InitJinLOA4_scaled1_FinalPart87;
+InitJinLOA4_scaled1_FinalPart88;
+InitJinLOA4_scaled1_FinalPart89;
+InitJinLOA4_scaled1_FinalPart90;
+InitJinLOA4_scaled1_FinalPart91;
+InitJinLOA4_scaled1_FinalPart92;
+InitJinLOA4_scaled1_FinalPart93;
+InitJinLOA4_scaled1_FinalPart94;
+InitJinLOA4_scaled1_FinalPart95;
+InitJinLOA4_scaled1_FinalPart96;
+InitJinLOA4_scaled1_FinalPart97;
+InitJinLOA4_scaled1_FinalPart98;
+InitJinLOA4_scaled1_FinalPart99;
+InitJinLOA4_scaled1_FinalPart100;
+InitJinLOA4_scaled1_FinalPart101;
+InitJinLOA4_scaled1_FinalPart102;
+InitJinLOA4_scaled1_FinalPart103;
+InitJinLOA4_scaled1_FinalPart104;
+InitJinLOA4_scaled1_FinalPart105;
+InitJinLOA4_scaled1_FinalPart106;
+InitJinLOA4_scaled1_FinalPart107;
+InitJinLOA4_scaled1_FinalPart108;
+InitJinLOA4_scaled1_FinalPart109;
+InitJinLOA4_scaled1_FinalPart110;
+InitJinLOA4_scaled1_FinalPart111;
 Result := X3D0;
 end;
 

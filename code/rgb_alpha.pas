@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Creatergb_alpha: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group20: TGroupNode;
@@ -40,6 +39,8 @@ Appearance43: TAppearanceNode;
 Material44: TMaterialNode;
 PixelTexture45: TPixelTextureNode;
 Cylinder46: TCylinderNode;
+
+procedure Initrgb_alphaPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -87,6 +88,11 @@ Box28 := TBoxNode.Create;
 Shape24.Geometry := Box28;
 { .AddChild }
 Transform23.AddChildren([Shape24]);
+end;
+
+procedure Initrgb_alphaPart1;
+begin
+
 { .AddChildren }
 Group22.AddChildren([Transform23]);
 Transform29 := TTransformNode.Create;
@@ -146,10 +152,22 @@ Shape42.Geometry := Cylinder46;
 Transform41.AddChildren([Shape42]);
 { .AddChildren }
 Group22.AddChildren([Transform41]);
+end;
+
+procedure Initrgb_alphaPart2;
+begin
+
 { .AddChildren }
 Group20.AddChildren([Group22]);
 { .AddGroup }
 X3D0.AddChildren([Group20]);
+end;
+
+function Creatergb_alpha: TX3DRootNode;
+begin
+Initrgb_alphaPart0;
+Initrgb_alphaPart1;
+Initrgb_alphaPart2;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createplainflowers: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -32,6 +31,8 @@ X3DPrototype22: TX3DPrototypeNode;
 X3DPrototype23: TX3DPrototypeNode;
 X3DPrototype24: TX3DPrototypeNode;
 X3DPrototype25: TX3DPrototypeNode;
+
+procedure InitplainflowersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -78,6 +79,11 @@ X3DPrototype14.NameField := 'flower';
 X3DPrototype15 := TX3DPrototype.Create;
 Group16 := TGroupNode.Create;
 X3DPrototype17 := TX3DPrototypeNode.Create;
+end;
+
+procedure InitplainflowersPart1;
+begin
+
 X3DPrototype17.NameField := 'FlowerProto';
 MFString18 := TMFString.Create(FlowerProto2, false, 'vertex', (['../shaders/gl_flowers_plain.vs']));
 MFString18.NameField := 'vertex';
@@ -125,6 +131,12 @@ Group10.X3DPrototype := X3DPrototype25;
 Group7.AddChildren([Group10]);
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createplainflowers: TX3DRootNode;
+begin
+InitplainflowersPart0;
+InitplainflowersPart1;
 Result := X3D0;
 end;
 

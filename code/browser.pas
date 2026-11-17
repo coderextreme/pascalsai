@@ -10,12 +10,13 @@ implementation
 
 uses CastleVectors;
 
-function Createbrowser: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
 Script8: TScriptNode;
 Script9: TScriptNode;
+
+procedure InitbrowserPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -49,6 +50,11 @@ Script9.SetSourceCode('''ecmascript:\n"+
 Group7.AddChildren([Script9]);
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createbrowser: TX3DRootNode;
+begin
+InitbrowserPart0;
 Result := X3D0;
 end;
 

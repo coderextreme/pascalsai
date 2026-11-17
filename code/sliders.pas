@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createsliders: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -162,6 +161,8 @@ SFNode165: TSFNode;
 Script166: TScriptNode;
 Layer167: TLayerNode;
 Viewpoint168: TViewpointNode;
+
+procedure InitslidersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -207,6 +208,11 @@ Viewpoint21 := TViewpointNode.Create;
 Viewpoint21.Description := 'My Overview';
 Viewpoint21.FieldOfView := 1.570796;
 Viewpoint21.Position := Vector3(0,1.75,60);
+end;
+
+procedure InitslidersPart1;
+begin
+
 { .AddChildren }
 Layer17.AddChildren([Viewpoint21]);
 Group22 := TGroupNode.Create;
@@ -261,6 +267,11 @@ Shape34.Geometry := Cylinder35;
 Appearance36 := TAppearanceNode.Create;
 Material37 := TMaterialNode.Create;
 Material37.DiffuseColor := Vector3(0,1,0);
+end;
+
+procedure InitslidersPart2;
+begin
+
 Material37.EmissiveColor := Vector3(0,1,0);
 { .SetMaterial }
 Appearance36.Material := Material37;
@@ -319,6 +330,11 @@ Material52 := Material47;
 Appearance51.Material := Material52;
 { .SetAppearance }
 Shape49.Appearance := Appearance51;
+end;
+
+procedure InitslidersPart3;
+begin
+
 { .AddChild }
 Transform48.AddChildren([Shape49]);
 { .AddChildren }
@@ -373,6 +389,11 @@ Script60.X3DField := X3DField63;
 X3DField64 := TX3DField.Create;
 X3DField64.NameField := 'b';
 X3DField64.Type := 'SFFloat';
+end;
+
+procedure InitslidersPart4;
+begin
+
 X3DField64.AccessType := 'inputOutput';
 X3DField64.Value := '5';
 { .AddX3DField }
@@ -947,6 +968,15 @@ LayerSet16.Layers := Layer167;
 Group15.AddChildren([LayerSet16]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function Createsliders: TX3DRootNode;
+begin
+InitslidersPart0;
+InitslidersPart1;
+InitslidersPart2;
+InitslidersPart3;
+InitslidersPart4;
 Result := X3D0;
 end;
 

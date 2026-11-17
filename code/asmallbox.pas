@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createasmallbox: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -37,6 +36,8 @@ X3DPrototype27: TX3DPrototypeNode;
 MFNode28: TMFNode;
 Shape29: TShapeNode;
 Box30: TBoxNode;
+
+procedure InitasmallboxPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -87,6 +88,11 @@ X3DInterfaceDeclaration18 := TX3DInterfaceDeclaration.Create(nil);
 X3DField19 := TX3DField.Create;
 X3DField19.NameField := 'myShape';
 X3DField19.AccessType := 'inputOutput';
+end;
+
+procedure InitasmallboxPart1;
+begin
+
 X3DField19.Type := 'MFNode';
 Shape20 := TShapeNode.Create;
 Cylinder21 := TCylinderNode.Create;
@@ -134,6 +140,12 @@ X3DPrototype27.MFNode := MFNode28;
 Group7.X3DPrototype := X3DPrototype27;
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function Createasmallbox: TX3DRootNode;
+begin
+InitasmallboxPart0;
+InitasmallboxPart1;
 Result := X3D0;
 end;
 

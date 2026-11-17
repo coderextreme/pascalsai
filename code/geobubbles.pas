@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Creategeobubbles: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group8: TGroupNode;
@@ -28,6 +27,8 @@ X3DField19: TX3DField;
 X3DField20: TX3DField;
 X3DField21: TX3DField;
 X3DField22: TX3DField;
+
+procedure InitgeobubblesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -79,6 +80,11 @@ TimeSensor16.CycleInterval := 5;
 TimeSensor16.Loop := True;
 { .AddChildren }
 Group8.AddChildren([TimeSensor16]);
+end;
+
+procedure InitgeobubblesPart1;
+begin
+
 GeoPositionInterpolator17 := TGeoPositionInterpolatorNode.Create;
 GeoPositionInterpolator17.SetKey([0,1]);
 GeoPositionInterpolator17.SetKeyValue(0.0015708,0,4,0,0.0015708,4);
@@ -142,6 +148,12 @@ Group8.AddRoute(GeoPositionInterpolator17.EventGeovalue_changed, GeoViewpoint9.E
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group8]);
+end;
+
+function Creategeobubbles: TX3DRootNode;
+begin
+InitgeobubblesPart0;
+InitgeobubblesPart1;
 Result := X3D0;
 end;
 

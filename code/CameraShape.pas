@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateCameraShape: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group13: TGroupNode;
@@ -58,6 +57,8 @@ Transform54: TTransformNode;
 Shape55: TShapeNode;
 Appearance56: TAppearanceNode;
 IndexedFaceSet57: TIndexedFaceSetNode;
+
+procedure InitCameraShapePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interactive';
@@ -104,6 +105,11 @@ Viewpoint18.Position := Vector3(0,15,-5);
 Group13.AddChildren([Viewpoint18]);
 Viewpoint19 := TViewpointNode.Create;
 Viewpoint19.Description := 'Camera view from left side';
+end;
+
+procedure InitCameraShapePart1;
+begin
+
 Viewpoint19.Orientation := Vector4(0,1,0,-1.5708);
 Viewpoint19.Position := Vector3(-12,0,-4);
 { .AddChildren }
@@ -155,6 +161,11 @@ IndexedFaceSet30.Coord := Coordinate31;
 { .SetGeometry }
 Shape29.Geometry := IndexedFaceSet30;
 Appearance32 := Appearance23;
+end;
+
+procedure InitCameraShapePart2;
+begin
+
 { .SetAppearance }
 Shape29.Appearance := Appearance32;
 { .AddChildren }
@@ -182,6 +193,11 @@ IndexedFaceSet38.SetCoordIndex([0,1,12,11,-1,1,2,13,12,-1,2,3,14,13,-1,3,4,15,14
 IndexedFaceSet38.CreaseAngle := 0.7854;
 Coordinate39 := TCoordinateNode.Create;
 Coordinate39.SetPoint([Vector3(0.06,-0.43,-0.02),Vector3(0.05,-0.43,-0.04),Vector3(0.04,-0.43,-0.05),Vector3(0.02,-0.43,-0.06),Vector3(0,-0.43,-0.07),Vector3(-0.02,-0.43,-0.06),Vector3(-0.04,-0.43,-0.05),Vector3(-0.05,-0.43,-0.04),Vector3(-0.06,-0.43,-0.02),Vector3(-0.07,-0.43,0),Vector3(0.07,-0.43,0),Vector3(0.13,-0.41,-0.04),Vector3(0.11,-0.41,-0.08),Vector3(0.08,-0.41,-0.11),Vector3(0.04,-0.41,-0.13),Vector3(0,-0.41,-0.13),Vector3(-0.04,-0.41,-0.13),Vector3(-0.08,-0.41,-0.11),Vector3(-0.11,-0.41,-0.08),Vector3(-0.13,-0.41,-0.04),Vector3(-0.13,-0.41,0),Vector3(0.13,-0.41,0),Vector3(0.19,-0.38,-0.06),Vector3(0.16,-0.38,-0.11),Vector3(0.11,-0.38,-0.16),Vector3(0.06,-0.38,-0.19),Vector3(0,-0.38,-0.2),Vector3(-0.06,-0.38,-0.19),Vector3(-0.11,-0.38,-0.16),Vector3(-0.16,-0.38,-0.11),Vector3(-0.19,-0.38,-0.06),Vector3(-0.2,-0.38,0),Vector3(0.2,-0.38,0),Vector3(0.24,-0.35,-0.08),Vector3(0.2,-0.35,-0.15),Vector3(0.15,-0.35,-0.2),Vector3(0.08,-0.35,-0.24),Vector3(0,-0.35,-0.25),Vector3(-0.08,-0.35,-0.24),Vector3(-0.15,-0.35,-0.2),Vector3(-0.2,-0.35,-0.15),Vector3(-0.24,-0.35,-0.08),Vector3(-0.25,-0.35,0),Vector3(0.25,-0.35,0),Vector3(0.29,-0.3,-0.09),Vector3(0.25,-0.3,-0.18),Vector3(0.18,-0.3,-0.25),Vector3(0.09,-0.3,-0.29),Vector3(0,-0.3,-0.3),Vector3(-0.09,-0.3,-0.29),Vector3(-0.18,-0.3,-0.25),Vector3(-0.25,-0.3,-0.18),Vector3(-0.29,-0.3,-0.09),Vector3(-0.3,-0.3,0),Vector3(0.3,-0.3,0),Vector3(0.33,-0.25,-0.11),Vector3(0.28,-0.25,-0.2),Vector3(0.2,-0.25,-0.28),Vector3(0.11,-0.25,-0.33),Vector3(0,-0.25,-0.35),Vector3(-0.11,-0.25,-0.33),Vector3(-0.2,-0.25,-0.28),Vector3(-0.28,-0.25,-0.2),Vector3(-0.33,-0.25,-0.11),Vector3(-0.35,-0.25,0),Vector3(0.35,-0.25,0),Vector3(0.37,-0.2,-0.12),Vector3(0.31,-0.2,-0.23),Vector3(0.23,-0.2,-0.31),Vector3(0.12,-0.2,-0.37),Vector3(0,-0.2,-0.38),Vector3(-0.12,-0.2,-0.37),Vector3(-0.23,-0.2,-0.31),Vector3(-0.31,-0.2,-0.23),Vector3(-0.37,-0.2,-0.12),Vector3(-0.38,-0.2,0),Vector3(0.38,-0.2,0),Vector3(0.39,-0.13,-0.13),Vector3(0.33,-0.13,-0.24),Vector3(0.24,-0.13,-0.33),Vector3(0.13,-0.13,-0.39),Vector3(0,-0.13,-0.41),Vector3(-0.13,-0.13,-0.39),Vector3(-0.24,-0.13,-0.33),Vector3(-0.33,-0.13,-0.24),Vector3(-0.39,-0.13,-0.13),Vector3(-0.41,-0.13,0),Vector3(0.41,-0.13,0),Vector3(0.4,-0.07,-0.13),Vector3(0.34,-0.07,-0.25),Vector3(0.25,-0.07,-0.34),Vector3(0.13,-0.07,-0.4),Vector3(0,-0.07,-0.43),Vector3(-0.13,-0.07,-0.4),Vector3(-0.25,-0.07,-0.34),Vector3(-0.34,-0.07,-0.25),Vector3(-0.4,-0.07,-0.13),Vector3(-0.43,-0.07,0),Vector3(0.43,-0.07,0),Vector3(0.41,0,-0.13),Vector3(0.35,0,-0.25),Vector3(0.25,0,-0.35),Vector3(0.13,0,-0.41),Vector3(0,0,-0.43),Vector3(-0.13,0,-0.41),Vector3(-0.25,0,-0.35),Vector3(-0.35,0,-0.25),Vector3(-0.41,0,-0.13),Vector3(-0.43,0,0),Vector3(0.43,0,0),Vector3(0.4,0.07,-0.13),Vector3(0.34,0.07,-0.25),Vector3(0.25,0.07,-0.34),Vector3(0.13,0.07,-0.4),Vector3(0,0.07,-0.43),Vector3(-0.13,0.07,-0.4),Vector3(-0.25,0.07,-0.34),Vector3(-0.34,0.07,-0.25),Vector3(-0.4,0.07,-0.13),Vector3(-0.43,0.07,0),Vector3(0.43,0.07,0),Vector3(0.39,0.13,-0.13),Vector3(0.33,0.13,-0.24),Vector3(0.24,0.13,-0.33),Vector3(0.13,0.13,-0.39),Vector3(0,0.13,-0.41),Vector3(-0.13,0.13,-0.39),Vector3(-0.24,0.13,-0.33),Vector3(-0.33,0.13,-0.24),Vector3(-0.39,0.13,-0.13),Vector3(-0.41,0.13,0),Vector3(0.41,0.13,0),Vector3(0.37,0.2,-0.12),Vector3(0.31,0.2,-0.23),Vector3(0.23,0.2,-0.31),Vector3(0.12,0.2,-0.37),Vector3(0,0.2,-0.38),Vector3(-0.12,0.2,-0.37),Vector3(-0.23,0.2,-0.31),Vector3(-0.31,0.2,-0.23),Vector3(-0.37,0.2,-0.12),Vector3(-0.38,0.2,0),Vector3(0.38,0.2,0),Vector3(0.33,0.25,-0.11),Vector3(0.28,0.25,-0.2),Vector3(0.2,0.25,-0.28),Vector3(0.11,0.25,-0.33),Vector3(0,0.25,-0.35),Vector3(-0.11,0.25,-0.33),Vector3(-0.2,0.25,-0.28),Vector3(-0.28,0.25,-0.2),Vector3(-0.33,0.25,-0.11),Vector3(-0.35,0.25,0),Vector3(0.35,0.25,0),Vector3(0.29,0.3,-0.09),Vector3(0.25,0.3,-0.18),Vector3(0.18,0.3,-0.25),Vector3(0.09,0.3,-0.29),Vector3(0,0.3,-0.3),Vector3(-0.09,0.3,-0.29),Vector3(-0.18,0.3,-0.25),Vector3(-0.25,0.3,-0.18),Vector3(-0.29,0.3,-0.09),Vector3(-0.3,0.3,0),Vector3(0.3,0.3,0),Vector3(0.24,0.35,-0.08),Vector3(0.2,0.35,-0.15),Vector3(0.15,0.35,-0.2),Vector3(0.08,0.35,-0.24),Vector3(0,0.35,-0.25),Vector3(-0.08,0.35,-0.24),Vector3(-0.15,0.35,-0.2),Vector3(-0.2,0.35,-0.15),Vector3(-0.24,0.35,-0.08),Vector3(-0.25,0.35,0),Vector3(0.25,0.35,0),Vector3(0.19,0.38,-0.06),Vector3(0.16,0.38,-0.11),Vector3(0.11,0.38,-0.16),Vector3(0.06,0.38,-0.19),Vector3(0,0.38,-0.2),Vector3(-0.06,0.38,-0.19),Vector3(-0.11,0.38,-0.16),Vector3(-0.16,0.38,-0.11),Vector3(-0.19,0.38,-0.06),Vector3(-0.2,0.38,0),Vector3(0.2,0.38,0),Vector3(0.13,0.41,-0.04),Vector3(0.11,0.41,-0.08),Vector3(0.08,0.41,-0.11),Vector3(0.04,0.41,-0.13),Vector3(0,0.41,-0.13),Vector3(-0.04,0.41,-0.13),Vector3(-0.08,0.41,-0.11),Vector3(-0.11,0.41,-0.08),Vector3(-0.13,0.41,-0.04),Vector3(-0.13,0.41,0),Vector3(0.13,0.41,0),Vector3(0.06,0.43,-0.02),Vector3(0.05,0.43,-0.04),Vector3(0.04,0.43,-0.05),Vector3(0.02,0.43,-0.06),Vector3(0,0.43,-0.07),Vector3(-0.02,0.43,-0.06),Vector3(-0.04,0.43,-0.05),Vector3(-0.05,0.43,-0.04),Vector3(-0.06,0.43,-0.02),Vector3(-0.07,0.43,0),Vector3(0.07,0.43,0),Vector3(0,-0.43,0),Vector3(0,0.43,0)]);
+end;
+
+procedure InitCameraShapePart3;
+begin
+
 { .SetCoord }
 IndexedFaceSet38.Coord := Coordinate39;
 { .SetGeometry }
@@ -239,6 +255,11 @@ Group41.AddChildren([Transform50]);
 Transform54 := TTransformNode.Create;
 Transform54.Scale := Vector3(1.1,1.1,0.1);
 Transform54.Translation := Vector3(-0.015385,1.628515,-2.569231);
+end;
+
+procedure InitCameraShapePart4;
+begin
+
 Shape55 := TShapeNode.Create;
 Appearance56 := Appearance23;
 { .SetAppearance }
@@ -256,6 +277,15 @@ Transform20.AddChildren([Group41]);
 Group13.AddChildren([Transform20]);
 { .AddGroup }
 X3D0.AddChildren([Group13]);
+end;
+
+function CreateCameraShape: TX3DRootNode;
+begin
+InitCameraShapePart0;
+InitCameraShapePart1;
+InitCameraShapePart2;
+InitCameraShapePart3;
+InitCameraShapePart4;
 Result := X3D0;
 end;
 

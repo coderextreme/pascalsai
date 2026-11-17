@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createapp: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group6: TGroupNode;
@@ -20,6 +19,8 @@ Appearance9: TAppearanceNode;
 Material10: TMaterialNode;
 Box11: TBoxNode;
 Transform12: TTransformNode;
+
+procedure InitappPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -54,6 +55,11 @@ Transform12.Translation := Vector3(1,2,3);
 Group6.AddChildren([Transform12]);
 { .AddGroup }
 X3D0.AddChildren([Group6]);
+end;
+
+function Createapp: TX3DRootNode;
+begin
+InitappPart0;
 Result := X3D0;
 end;
 

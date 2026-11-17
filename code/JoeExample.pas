@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateJoeExample: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group3: TGroupNode;
@@ -26,6 +25,8 @@ Sphere12: TSphereNode;
 Sound13: TSoundNode;
 AudioClip14: TAudioClipNode;
 TouchSensor15: TTouchSensorNode;
+
+procedure InitJoeExamplePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -112,6 +113,11 @@ Group3.AddRoute(Script4.FdVaultunlocked, AudioClip14.FdStarttime);
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group3]);
+end;
+
+function CreateJoeExample: TX3DRootNode;
+begin
+InitJoeExamplePart0;
 Result := X3D0;
 end;
 

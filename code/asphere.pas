@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createasphere: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group8: TGroupNode;
@@ -19,6 +18,8 @@ Shape10: TShapeNode;
 Appearance11: TAppearanceNode;
 Material12: TMaterialNode;
 Sphere13: TSphereNode;
+
+procedure InitaspherePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -49,6 +50,11 @@ Group9.AddChildren([Shape10]);
 Group8.AddChildren([Group9]);
 { .AddGroup }
 X3D0.AddChildren([Group8]);
+end;
+
+function Createasphere: TX3DRootNode;
+begin
+InitaspherePart0;
 Result := X3D0;
 end;
 

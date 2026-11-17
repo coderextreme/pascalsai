@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createmirror2: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -60,6 +59,8 @@ X3DField58: TX3DField;
 X3DField59: TX3DField;
 X3DField60: TX3DField;
 TimeSensor61: TTimeSensorNode;
+
+procedure Initmirror2Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -105,6 +106,11 @@ Appearance20.Material := Material21;
 ComposedCubeMapTexture22 := TComposedCubeMapTextureNode.Create;
 ImageTexture23 := TImageTextureNode.Create;
 ImageTexture23.SetUrl(['../resources/images/all_probes/beach_cross/beach_back.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_back.png']);
+end;
+
+procedure Initmirror2Part1;
+begin
+
 { .SetBackTexture }
 ComposedCubeMapTexture22.BackTexture := ImageTexture23;
 ImageTexture24 := TImageTextureNode.Create;
@@ -156,6 +162,11 @@ ComposedShader29.X3DField := X3DField32;
 X3DField33 := TX3DField.Create;
 X3DField33.NameField := 'scale';
 X3DField33.AccessType := 'inputOutput';
+end;
+
+procedure Initmirror2Part2;
+begin
+
 X3DField33.Type := 'SFFloat';
 X3DField33.Value := '0.5';
 { .AddX3DField }
@@ -204,6 +215,11 @@ X3DField40.Value := '0.5';
 ComposedShader37.X3DField := X3DField40;
 X3DField41 := TX3DField.Create;
 X3DField41.NameField := 'scale';
+end;
+
+procedure Initmirror2Part3;
+begin
+
 X3DField41.AccessType := 'inputOutput';
 X3DField41.Type := 'SFFloat';
 X3DField41.Value := '0.5';
@@ -254,6 +270,11 @@ X3DField48.Value := '\'../resources/images/all_probes/beach_cross/beach_back.png
 Script46.X3DField := X3DField48;
 X3DField49 := TX3DField.Create;
 X3DField49.NameField := 'leftUrls';
+end;
+
+procedure Initmirror2Part4;
+begin
+
 X3DField49.Type := 'MFString';
 X3DField49.AccessType := 'initializeOnly';
 X3DField49.Value := '\'../resources/images/all_probes/beach_cross/beach_left.png\' \'../resources/images/all_probes/building_cross/building_left.png\' \'../resources/images/all_probes/campus_cross/campus_left.png\' \'../resources/images/all_probes/galileo_cross/galileo_left.png\' \'../resources/images/all_probes/grace_cross/grace_left.png\' \'../resources/images/all_probes/kitchen_cross/kitchen_left.png\' \'../resources/images/all_probes/rnl_cross/rnl_left.png\' \'../resources/images/all_probes/stpeters_cross/stpeters_left.png\' \'../resources/images/all_probes/uffizi_cross/uffizi_left.png\'';
@@ -301,6 +322,11 @@ Script46.X3DField := X3DField55;
 X3DField56 := TX3DField.Create;
 X3DField56.NameField := 'right_changed';
 X3DField56.Type := 'MFString';
+end;
+
+procedure Initmirror2Part5;
+begin
+
 X3DField56.AccessType := 'outputOnly';
 { .AddX3DField }
 Script46.X3DField := X3DField56;
@@ -384,6 +410,16 @@ Transform18.AddRoute(Script46.EventBottom_changed, ImageTexture24.FdUrl);
 Group15.AddChildren([Transform18]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function Createmirror2: TX3DRootNode;
+begin
+Initmirror2Part0;
+Initmirror2Part1;
+Initmirror2Part2;
+Initmirror2Part3;
+Initmirror2Part4;
+Initmirror2Part5;
 Result := X3D0;
 end;
 

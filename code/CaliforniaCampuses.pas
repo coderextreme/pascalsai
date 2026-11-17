@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateCaliforniaCampuses: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group20: TGroupNode;
@@ -140,6 +139,8 @@ X3DField145: TX3DField;
 X3DField146: TX3DField;
 X3DPrototype147: TX3DPrototypeNode;
 SFBool148: TSFBool;
+
+procedure InitCaliforniaCampusesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -190,6 +191,11 @@ GeoViewpoint26 := TGeoViewpointNode.Create;
 GeoViewpoint26.Description := 'Naval Postgraduate School';
 GeoViewpoint26.Orientation := Vector4(1,0,0,-1.57);
 GeoViewpoint26.Position := Vector3Double(36.595599,-121.877148,250000);
+end;
+
+procedure InitCaliforniaCampusesPart1;
+begin
+
 { .AddChildren }
 Group25.AddChildren([GeoViewpoint26]);
 GeoViewpoint27 := TGeoViewpointNode.Create;
@@ -238,6 +244,11 @@ GeoViewpoint34 := TGeoViewpointNode.Create;
 GeoViewpoint34.Description := 'University of California Irvine';
 GeoViewpoint34.Orientation := Vector4(1,0,0,-1.57);
 GeoViewpoint34.Position := Vector3Double(33.64623283675919,-117.8427064139082,250000);
+end;
+
+procedure InitCaliforniaCampusesPart2;
+begin
+
 { .AddChildren }
 Group25.AddChildren([GeoViewpoint34]);
 GeoViewpoint35 := TGeoViewpointNode.Create;
@@ -286,6 +297,11 @@ GeoViewpoint42 := TGeoViewpointNode.Create;
 GeoViewpoint42.Description := 'San Francisco State University';
 GeoViewpoint42.Orientation := Vector4(1,0,0,-1.57);
 GeoViewpoint42.Position := Vector3Double(37.722876,-122.4781512190666,250000);
+end;
+
+procedure InitCaliforniaCampusesPart3;
+begin
+
 { .AddChildren }
 Group25.AddChildren([GeoViewpoint42]);
 GeoViewpoint43 := TGeoViewpointNode.Create;
@@ -334,6 +350,11 @@ GeoViewpoint50 := TGeoViewpointNode.Create;
 GeoViewpoint50.Description := 'California State University, Channel Islands';
 GeoViewpoint50.Orientation := Vector4(1,0,0,-1.57);
 GeoViewpoint50.Position := Vector3Double(34.1624126428852,-119.0425264841287,250000);
+end;
+
+procedure InitCaliforniaCampusesPart4;
+begin
+
 { .AddChildren }
 Group25.AddChildren([GeoViewpoint50]);
 GeoViewpoint51 := TGeoViewpointNode.Create;
@@ -382,6 +403,11 @@ GeoViewpoint58 := TGeoViewpointNode.Create;
 GeoViewpoint58.Description := 'California State University, San Marcos';
 GeoViewpoint58.Orientation := Vector4(1,0,0,-1.57);
 GeoViewpoint58.Position := Vector3Double(33.12837619265174,-117.1600194071002,250000);
+end;
+
+procedure InitCaliforniaCampusesPart5;
+begin
+
 { .AddChildren }
 Group25.AddChildren([GeoViewpoint58]);
 GeoViewpoint59 := TGeoViewpointNode.Create;
@@ -431,6 +457,11 @@ X3DField65.Appinfo := 'size of CrossHair in meters';
 X3DField65.Type := 'SFVec3f';
 { .AddX3DField }
 X3DExternalPrototype61.X3DField := X3DField65;
+end;
+
+procedure InitCaliforniaCampusesPart6;
+begin
+
 X3DField66 := TX3DField.Create;
 X3DField66.NameField := 'positionOffsetFromCamera';
 X3DField66.AccessType := 'inputOutput';
@@ -480,6 +511,11 @@ X3DField74 := TX3DField.Create;
 X3DField74.NameField := 'screenOffset';
 X3DField74.AccessType := 'inputOutput';
 X3DField74.Appinfo := 'offset position for HUD relative to current view location, default 0 0 -5';
+end;
+
+procedure InitCaliforniaCampusesPart7;
+begin
+
 X3DField74.Type := 'SFVec3f';
 { .AddX3DField }
 X3DExternalPrototype72.X3DField := X3DField74;
@@ -528,6 +564,11 @@ X3DExternalPrototype77.X3DField := X3DField80;
 X3DField81 := TX3DField.Create;
 X3DField81.NameField := 'set_enabled';
 X3DField81.AccessType := 'inputOnly';
+end;
+
+procedure InitCaliforniaCampusesPart8;
+begin
+
 X3DField81.Appinfo := 'whether ViewpointSequencer is enabled or not';
 X3DField81.Type := 'SFBool';
 { .AddX3DField }
@@ -576,6 +617,11 @@ X3DField87.Type := 'SFBool';
 X3DExternalPrototype77.X3DField := X3DField87;
 { .AddX3DExternalPrototype }
 Group20.X3DExternalPrototype := X3DExternalPrototype77;
+end;
+
+procedure InitCaliforniaCampusesPart9;
+begin
+
 X3DPrototype88 := TX3DPrototypeNode.Create;
 X3DPrototype88.NameField := 'ViewpointSequencer';
 SFTime89 := TSFTime.Create(ViewpointSequencer3, false, 'interval', 30);
@@ -631,6 +677,11 @@ MFNode92.GeoViewpoint := GeoViewpoint103;
 GeoViewpoint104 := GeoViewpoint37;
 { .AddGeoViewpoint }
 MFNode92.GeoViewpoint := GeoViewpoint104;
+end;
+
+procedure InitCaliforniaCampusesPart10;
+begin
+
 GeoViewpoint105 := GeoViewpoint38;
 { .AddGeoViewpoint }
 MFNode92.GeoViewpoint := GeoViewpoint105;
@@ -691,6 +742,11 @@ MFNode92.GeoViewpoint := GeoViewpoint123;
 GeoViewpoint124 := GeoViewpoint57;
 { .AddGeoViewpoint }
 MFNode92.GeoViewpoint := GeoViewpoint124;
+end;
+
+procedure InitCaliforniaCampusesPart11;
+begin
+
 GeoViewpoint125 := GeoViewpoint58;
 { .AddGeoViewpoint }
 MFNode92.GeoViewpoint := GeoViewpoint125;
@@ -747,6 +803,11 @@ GeoLocation129.AddChildren([TouchSensor136]);
 BooleanToggle137 := TBooleanToggleNode.Create;
 { .AddChildren }
 GeoLocation129.AddChildren([BooleanToggle137]);
+end;
+
+procedure InitCaliforniaCampusesPart12;
+begin
+
 GeoLocation129.AddRoute(TouchSensor136.FdIsactive, BooleanToggle137.EventSet_boolean);
 { .AddX3DRoute }
 GeoLocation129.AddRoute(BooleanToggle137.FdToggle, X3DPrototype88.EventSet_enabled);
@@ -796,6 +857,11 @@ X3DExternalPrototype140.X3DField := X3DField145;
 X3DField146 := TX3DField.Create;
 X3DField146.NameField := 'outputViewpointString';
 X3DField146.AccessType := 'outputOnly';
+end;
+
+procedure InitCaliforniaCampusesPart13;
+begin
+
 X3DField146.Appinfo := 'MFString value of new Viewpoint';
 X3DField146.Type := 'MFString';
 { .AddX3DField }
@@ -814,6 +880,24 @@ Group20.X3DPrototype := X3DPrototype147;
 { ==================== }
 { .AddGroup }
 X3D0.AddChildren([Group20]);
+end;
+
+function CreateCaliforniaCampuses: TX3DRootNode;
+begin
+InitCaliforniaCampusesPart0;
+InitCaliforniaCampusesPart1;
+InitCaliforniaCampusesPart2;
+InitCaliforniaCampusesPart3;
+InitCaliforniaCampusesPart4;
+InitCaliforniaCampusesPart5;
+InitCaliforniaCampusesPart6;
+InitCaliforniaCampusesPart7;
+InitCaliforniaCampusesPart8;
+InitCaliforniaCampusesPart9;
+InitCaliforniaCampusesPart10;
+InitCaliforniaCampusesPart11;
+InitCaliforniaCampusesPart12;
+InitCaliforniaCampusesPart13;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createparticleballs: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group14: TGroupNode;
@@ -42,6 +41,8 @@ X3DField39: TX3DField;
 X3DField40: TX3DField;
 ShaderPart41: TShaderPartNode;
 ShaderPart42: TShaderPartNode;
+
+procedure InitparticleballsPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -87,6 +88,11 @@ ParticleSystem20 := TParticleSystemNode.Create;
 ParticleSystem20.MaxParticles := 20;
 ParticleSystem20.GeometryType := 'GEOMETRY';
 BoundedPhysicsModel21 := TBoundedPhysicsModelNode.Create;
+end;
+
+procedure InitparticleballsPart1;
+begin
+
 Sphere22 := TSphereNode.Create;
 Sphere22.Radius := 100;
 { .SetGeometry }
@@ -160,6 +166,11 @@ ComposedShader34.Language := 'GLSL';
 X3DField35 := TX3DField.Create;
 X3DField35.NameField := 'chromaticDispertion';
 X3DField35.AccessType := 'initializeOnly';
+end;
+
+procedure InitparticleballsPart2;
+begin
+
 X3DField35.Type := 'SFVec3f';
 X3DField35.Value := '0.98 1 1.033';
 { .SetX3DField }
@@ -213,8 +224,21 @@ Transform19.AddChildren([ParticleSystem20]);
 { </Shape> }
 { .AddChildren }
 Group14.AddChildren([Transform19]);
+end;
+
+procedure InitparticleballsPart3;
+begin
+
 { .AddGroup }
 X3D0.AddChildren([Group14]);
+end;
+
+function Createparticleballs: TX3DRootNode;
+begin
+InitparticleballsPart0;
+InitparticleballsPart1;
+InitparticleballsPart2;
+InitparticleballsPart3;
 Result := X3D0;
 end;
 

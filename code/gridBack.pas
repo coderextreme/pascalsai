@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreategridBack: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group13: TGroupNode;
@@ -20,6 +19,8 @@ Material16: TMaterialNode;
 IndexedFaceSet17: TIndexedFaceSetNode;
 Coordinate18: TCoordinateNode;
 Color19: TColorNode;
+
+procedure InitgridBackPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -66,6 +67,11 @@ Shape14.Geometry := IndexedFaceSet17;
 Group13.AddChildren([Shape14]);
 { .AddGroup }
 X3D0.AddChildren([Group13]);
+end;
+
+function CreategridBack: TX3DRootNode;
+begin
+InitgridBackPart0;
 Result := X3D0;
 end;
 

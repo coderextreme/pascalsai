@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createjumpcut_loadurl: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group16: TGroupNode;
@@ -29,6 +28,8 @@ Script28: TScriptNode;
 X3DField29: TX3DField;
 X3DField30: TX3DField;
 X3DField31: TX3DField;
+
+procedure Initjumpcut_loadurlPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -75,6 +76,11 @@ Viewpoint21.Position := Vector3(0,10,0);
 Group16.AddChildren([Viewpoint21]);
 TouchSensor22 := TTouchSensorNode.Create;
 TouchSensor22.Description := 'touch to activate';
+end;
+
+procedure Initjumpcut_loadurlPart1;
+begin
+
 { .AddChildren }
 Group16.AddChildren([TouchSensor22]);
 Transform23 := TTransformNode.Create;
@@ -120,6 +126,12 @@ Group16.AddRoute(TouchSensor22.FdIsactive, Script28.FdTrigger_event);
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group16]);
+end;
+
+function Createjumpcut_loadurl: TX3DRootNode;
+begin
+Initjumpcut_loadurlPart0;
+Initjumpcut_loadurlPart1;
 Result := X3D0;
 end;
 

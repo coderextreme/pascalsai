@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateJohnJoint2: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group11: TGroupNode;
@@ -326,6 +325,8 @@ HAnimJoint320: THAnimJointNode;
 HAnimJoint321: THAnimJointNode;
 HAnimJoint322: THAnimJointNode;
 HAnimJoint323: THAnimJointNode;
+
+procedure InitJohnJoint2Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -384,6 +385,11 @@ Shape20.Geometry := Sphere21;
 Appearance22 := TAppearanceNode.Create;
 Material23 := TMaterialNode.Create;
 Material23.DiffuseColor := Vector3(0,0,0.8);
+end;
+
+procedure InitJohnJoint2Part1;
+begin
+
 Material23.Transparency := 0.3;
 { .SetMaterial }
 Appearance22.Material := Material23;
@@ -448,6 +454,11 @@ HAnimJoint33.Center := Vector3(0,0.9149,0.0016);
 HAnimJoint34 := THAnimJointNode.Create;
 HAnimJoint34.NameField := 'l_hip';
 HAnimJoint34.Center := Vector3(0.0961,0.9124,-0.0001);
+end;
+
+procedure InitJohnJoint2Part2;
+begin
+
 HAnimJoint35 := THAnimJointNode.Create;
 HAnimJoint35.NameField := 'l_knee';
 HAnimJoint35.Center := Vector3(0.104,0.4867,0.0308);
@@ -492,6 +503,11 @@ HAnimJoint45.Center := Vector3(0,1,0);
 HAnimJoint46 := THAnimJointNode.Create;
 HAnimJoint46.NameField := 'l_tarsal_distal_interphalangeal_2';
 HAnimJoint46.Center := Vector3(0,1,0);
+end;
+
+procedure InitJohnJoint2Part3;
+begin
+
 { .AddChildren }
 HAnimJoint45.AddChildren([HAnimJoint46]);
 { .AddChildren }
@@ -543,6 +559,11 @@ HAnimJoint55.NameField := 'l_metatarsophalangeal_4';
 HAnimJoint55.Center := Vector3(0,1,0);
 HAnimJoint56 := THAnimJointNode.Create;
 HAnimJoint56.NameField := 'l_tarsal_proximal_interphalangeal_4';
+end;
+
+procedure InitJohnJoint2Part4;
+begin
+
 HAnimJoint56.Center := Vector3(0,1,0);
 HAnimJoint57 := THAnimJointNode.Create;
 HAnimJoint57.NameField := 'l_tarsal_distal_interphalangeal_4';
@@ -596,6 +617,11 @@ HAnimJoint64.NameField := 'r_talocrural';
 HAnimJoint64.Center := Vector3(-0.0801,0.0712,-0.0766);
 HAnimJoint65 := THAnimJointNode.Create;
 HAnimJoint65.NameField := 'r_talocalcaneonavicular';
+end;
+
+procedure InitJohnJoint2Part5;
+begin
+
 HAnimJoint65.Center := Vector3(0,1,0);
 HAnimJoint66 := THAnimJointNode.Create;
 HAnimJoint66.NameField := 'r_cuneonavicular_1';
@@ -645,6 +671,11 @@ HAnimJoint65.AddChildren([HAnimJoint70]);
 HAnimJoint75 := THAnimJointNode.Create;
 HAnimJoint75.NameField := 'r_cuneonavicular_3';
 HAnimJoint75.Center := Vector3(0,1,0);
+end;
+
+procedure InitJohnJoint2Part6;
+begin
+
 HAnimJoint76 := THAnimJointNode.Create;
 HAnimJoint76.NameField := 'r_tarsometatarsal_3';
 HAnimJoint76.Center := Vector3(0,1,0);
@@ -695,6 +726,11 @@ HAnimJoint83.AddChildren([HAnimJoint84]);
 HAnimJoint82.AddChildren([HAnimJoint83]);
 { .AddChildren }
 HAnimJoint81.AddChildren([HAnimJoint82]);
+end;
+
+procedure InitJohnJoint2Part7;
+begin
+
 HAnimJoint86 := THAnimJointNode.Create;
 HAnimJoint86.NameField := 'r_tarsometatarsal_5';
 HAnimJoint86.Center := Vector3(0,1,0);
@@ -745,6 +781,11 @@ HAnimJoint94.Center := Vector3(0.0048,1.1912,-0.0805);
 HAnimJoint95 := THAnimJointNode.Create;
 HAnimJoint95.NameField := 'vt12';
 HAnimJoint95.Center := Vector3(0.0051,1.2278,-0.0808);
+end;
+
+procedure InitJohnJoint2Part8;
+begin
+
 HAnimJoint96 := THAnimJointNode.Create;
 HAnimJoint96.NameField := 'vt11';
 HAnimJoint96.Center := Vector3(0.0053,1.2679,-0.081);
@@ -785,6 +826,11 @@ HAnimJoint108 := THAnimJointNode.Create;
 HAnimJoint108.NameField := 'vc6';
 HAnimJoint108.Center := Vector3(0.0066,1.5357,-0.0143);
 HAnimJoint109 := THAnimJointNode.Create;
+end;
+
+procedure InitJohnJoint2Part9;
+begin
+
 HAnimJoint109.NameField := 'vc5';
 HAnimJoint109.Center := Vector3(0.0066,1.552,-0.0082);
 HAnimJoint110 := THAnimJointNode.Create;
@@ -830,6 +876,11 @@ HAnimJoint114.AddChildren([HAnimJoint119]);
 HAnimJoint120 := THAnimJointNode.Create;
 HAnimJoint120.NameField := 'r_eyebrow_joint';
 HAnimJoint120.Center := Vector3(0,1,0);
+end;
+
+procedure InitJohnJoint2Part10;
+begin
+
 { .AddChildren }
 HAnimJoint114.AddChildren([HAnimJoint120]);
 HAnimJoint121 := THAnimJointNode.Create;
@@ -880,6 +931,11 @@ HAnimJoint129.Center := Vector3(0.1951,0.8226,0.0246);
 HAnimJoint130 := THAnimJointNode.Create;
 HAnimJoint130.NameField := 'l_carpal_interphalangeal_1';
 HAnimJoint130.Center := Vector3(0.1955,0.8159,0.0464);
+end;
+
+procedure InitJohnJoint2Part11;
+begin
+
 { .AddChildren }
 HAnimJoint129.AddChildren([HAnimJoint130]);
 { .AddChildren }
@@ -930,6 +986,11 @@ HAnimJoint140.NameField := 'l_carpal_distal_interphalangeal_3';
 HAnimJoint140.Center := Vector3(0.2026,0.7011,-0.0494);
 { .AddChildren }
 HAnimJoint139.AddChildren([HAnimJoint140]);
+end;
+
+procedure InitJohnJoint2Part12;
+begin
+
 { .AddChildren }
 HAnimJoint138.AddChildren([HAnimJoint139]);
 { .AddChildren }
@@ -983,6 +1044,11 @@ HAnimJoint146.AddChildren([HAnimJoint147]);
 HAnimJoint141.AddChildren([HAnimJoint146]);
 { .AddChildren }
 HAnimJoint126.AddChildren([HAnimJoint141]);
+end;
+
+procedure InitJohnJoint2Part13;
+begin
+
 { .AddChildren }
 HAnimJoint125.AddChildren([HAnimJoint126]);
 { .AddChildren }
@@ -1032,6 +1098,11 @@ HAnimJoint159 := THAnimJointNode.Create;
 HAnimJoint159.NameField := 'r_midcarpal_2';
 HAnimJoint159.Center := Vector3(0,1,0);
 HAnimJoint160 := THAnimJointNode.Create;
+end;
+
+procedure InitJohnJoint2Part14;
+begin
+
 HAnimJoint160.NameField := 'r_carpometacarpal_2';
 HAnimJoint160.Center := Vector3(-0.1961,0.8055,-0.0218);
 HAnimJoint161 := THAnimJointNode.Create;
@@ -1082,6 +1153,11 @@ HAnimJoint169 := THAnimJointNode.Create;
 HAnimJoint169.NameField := 'r_midcarpal_4_5';
 HAnimJoint169.Center := Vector3(0,1,0);
 HAnimJoint170 := THAnimJointNode.Create;
+end;
+
+procedure InitJohnJoint2Part15;
+begin
+
 HAnimJoint170.NameField := 'r_carpometacarpal_4';
 HAnimJoint170.Center := Vector3(-0.1951,0.8049,-0.0732);
 HAnimJoint171 := THAnimJointNode.Create;
@@ -1139,6 +1215,11 @@ HAnimJoint105.AddChildren([HAnimJoint106]);
 HAnimJoint104.AddChildren([HAnimJoint105]);
 { .AddChildren }
 HAnimJoint103.AddChildren([HAnimJoint104]);
+end;
+
+procedure InitJohnJoint2Part16;
+begin
+
 { .AddChildren }
 HAnimJoint102.AddChildren([HAnimJoint103]);
 { .AddChildren }
@@ -1206,6 +1287,11 @@ HAnimJoint189 := HAnimJoint43;
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint189);
 HAnimJoint190 := HAnimJoint44;
+end;
+
+procedure InitJohnJoint2Part17;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint190);
 HAnimJoint191 := HAnimJoint45;
@@ -1266,6 +1352,11 @@ HAnimJoint209 := HAnimJoint63;
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint209);
 HAnimJoint210 := HAnimJoint64;
+end;
+
+procedure InitJohnJoint2Part18;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint210);
 HAnimJoint211 := HAnimJoint65;
@@ -1326,6 +1417,11 @@ HAnimJoint229 := HAnimJoint83;
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint229);
 HAnimJoint230 := HAnimJoint84;
+end;
+
+procedure InitJohnJoint2Part19;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint230);
 HAnimJoint231 := HAnimJoint85;
@@ -1386,6 +1482,11 @@ HAnimJoint249 := HAnimJoint103;
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint249);
 HAnimJoint250 := HAnimJoint104;
+end;
+
+procedure InitJohnJoint2Part20;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint250);
 HAnimJoint251 := HAnimJoint105;
@@ -1446,6 +1547,11 @@ HAnimJoint269 := HAnimJoint123;
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint269);
 HAnimJoint270 := HAnimJoint124;
+end;
+
+procedure InitJohnJoint2Part21;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint270);
 HAnimJoint271 := HAnimJoint125;
@@ -1506,6 +1612,11 @@ HAnimJoint289 := HAnimJoint143;
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint289);
 HAnimJoint290 := HAnimJoint144;
+end;
+
+procedure InitJohnJoint2Part22;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint290);
 HAnimJoint291 := HAnimJoint145;
@@ -1566,6 +1677,11 @@ HAnimJoint309 := HAnimJoint163;
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint309);
 HAnimJoint310 := HAnimJoint164;
+end;
+
+procedure InitJohnJoint2Part23;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid31.FdJoints.Add(HAnimJoint310);
 HAnimJoint311 := HAnimJoint165;
@@ -1611,6 +1727,34 @@ HAnimHumanoid31.FdJoints.Add(HAnimJoint323);
 Group11.AddChildren([HAnimHumanoid31]);
 { .AddGroup }
 X3D0.AddChildren([Group11]);
+end;
+
+function CreateJohnJoint2: TX3DRootNode;
+begin
+InitJohnJoint2Part0;
+InitJohnJoint2Part1;
+InitJohnJoint2Part2;
+InitJohnJoint2Part3;
+InitJohnJoint2Part4;
+InitJohnJoint2Part5;
+InitJohnJoint2Part6;
+InitJohnJoint2Part7;
+InitJohnJoint2Part8;
+InitJohnJoint2Part9;
+InitJohnJoint2Part10;
+InitJohnJoint2Part11;
+InitJohnJoint2Part12;
+InitJohnJoint2Part13;
+InitJohnJoint2Part14;
+InitJohnJoint2Part15;
+InitJohnJoint2Part16;
+InitJohnJoint2Part17;
+InitJohnJoint2Part18;
+InitJohnJoint2Part19;
+InitJohnJoint2Part20;
+InitJohnJoint2Part21;
+InitJohnJoint2Part22;
+InitJohnJoint2Part23;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateSmokeTestProgramOutputCanonical: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 unit5: TunitNode;
@@ -151,6 +150,8 @@ ShaderProgram165: TShaderProgramNode;
 X3DPrototype166: TX3DPrototypeNode;
 ComposedShader167: TComposedShaderNode;
 ShaderPart168: TShaderPartNode;
+
+procedure InitSmokeTestProgramOutputCanonicalPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -199,6 +200,11 @@ Group26 := TGroupNode.Create;
 ViewpointGroup27 := TViewpointGroupNode.Create;
 ViewpointGroup27.Description := 'Available viewpoints';
 Viewpoint28 := TViewpointNode.Create;
+end;
+
+procedure InitSmokeTestProgramOutputCanonicalPart1;
+begin
+
 Viewpoint28.Description := 'Hello X3DJSAIL';
 { .AddChildren }
 ViewpointGroup27.AddChildren([Viewpoint28]);
@@ -251,6 +257,11 @@ ImageTexture41.SetUrl(['images/X3dJavaSceneAccessInterfaceSaiLibrary.png','https
 Appearance39.Texture := ImageTexture41;
 { .SetAppearance }
 Shape38.Appearance := Appearance39;
+end;
+
+procedure InitSmokeTestProgramOutputCanonicalPart2;
+begin
+
 Box42 := TBoxNode.Create;
 { .SetGeometry }
 Shape38.Geometry := Box42;
@@ -309,6 +320,11 @@ Text56.SetText(['X3D Java','SAI Library','X3DJSAIL']);
 MetadataSet57 := TMetadataSetNode.Create;
 MetadataSet57.NameField := 'EscapedQuotationMarksMetadataSet';
 MetadataString58 := TMetadataStringNode.Create;
+end;
+
+procedure InitSmokeTestProgramOutputCanonicalPart3;
+begin
+
 MetadataString58.NameField := 'quotesTestC';
 MetadataString58.SetValue(['MFString example C, backslash-escaped quotes: He said, "Immel did it!"']);
 { .FdValue.Add }
@@ -373,6 +389,11 @@ X3DField71 := TX3DField.Create;
 X3DField71.NameField := 'colorInput';
 X3DField71.AccessType := 'inputOnly';
 X3DField71.Type := 'SFColor';
+end;
+
+procedure InitSmokeTestProgramOutputCanonicalPart4;
+begin
+
 { .SetX3DField }
 Script70.X3DField := X3DField71;
 X3DField72 := TX3DField.Create;
@@ -884,6 +905,15 @@ Shape162.Appearance := Appearance163;
 Group26.AddChildren([Shape162]);
 { .AddGroup }
 X3D0.AddChildren([Group26]);
+end;
+
+function CreateSmokeTestProgramOutputCanonical: TX3DRootNode;
+begin
+InitSmokeTestProgramOutputCanonicalPart0;
+InitSmokeTestProgramOutputCanonicalPart1;
+InitSmokeTestProgramOutputCanonicalPart2;
+InitSmokeTestProgramOutputCanonicalPart3;
+InitSmokeTestProgramOutputCanonicalPart4;
 Result := X3D0;
 end;
 

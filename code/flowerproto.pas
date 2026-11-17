@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createflowerproto: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group16: TGroupNode;
@@ -61,6 +60,8 @@ X3DField60: TX3DField;
 X3DField61: TX3DField;
 X3DField62: TX3DField;
 TimeSensor63: TTimeSensorNode;
+
+procedure InitflowerprotoPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -107,6 +108,11 @@ Appearance24 := TAppearanceNode.Create;
 Material25 := TMaterialNode.Create;
 Material25.DiffuseColor := Vector3(0.7,0.7,0.7);
 Material25.SpecularColor := Vector3(0.5,0.5,0.5);
+end;
+
+procedure InitflowerprotoPart1;
+begin
+
 { .SetMaterial }
 Appearance24.Material := Material25;
 ComposedCubeMapTexture26 := TComposedCubeMapTextureNode.Create;
@@ -159,6 +165,11 @@ X3DField37 := TX3DField.Create;
 X3DField37.NameField := 'bias';
 X3DField37.Type := 'SFFloat';
 X3DField37.AccessType := 'inputOnly';
+end;
+
+procedure InitflowerprotoPart2;
+begin
+
 X3DField37.Value := '0.5';
 { .AddX3DField }
 ComposedShader33.X3DField := X3DField37;
@@ -206,6 +217,11 @@ X3DField43.Value := '20';
 ComposedShader33.X3DField := X3DField43;
 X3DField44 := TX3DField.Create;
 X3DField44.NameField := 'tdelta';
+end;
+
+procedure InitflowerprotoPart3;
+begin
+
 X3DField44.Type := 'SFFloat';
 X3DField44.AccessType := 'inputOnly';
 X3DField44.Value := '0';
@@ -258,6 +274,11 @@ X3DField54.NameField := 'translation';
 X3DField54.AccessType := 'inputOutput';
 X3DField54.Type := 'SFVec3f';
 X3DField54.Value := '0 0 0';
+end;
+
+procedure InitflowerprotoPart4;
+begin
+
 { .SetX3DField }
 Script53.X3DField := X3DField54;
 X3DField55 := TX3DField.Create;
@@ -305,6 +326,11 @@ X3DField61 := TX3DField.Create;
 X3DField61.NameField := 'tdelta';
 X3DField61.Type := 'SFFloat';
 X3DField61.AccessType := 'outputOnly';
+end;
+
+procedure InitflowerprotoPart5;
+begin
+
 X3DField61.Value := '0.5';
 { .AddX3DField }
 Script53.X3DField := X3DField61;
@@ -413,6 +439,16 @@ X3DPrototype17.X3DPrototype := X3DPrototype21;
 Group16.X3DPrototype := X3DPrototype17;
 { .AddGroup }
 X3D0.AddChildren([Group16]);
+end;
+
+function Createflowerproto: TX3DRootNode;
+begin
+InitflowerprotoPart0;
+InitflowerprotoPart1;
+InitflowerprotoPart2;
+InitflowerprotoPart3;
+InitflowerprotoPart4;
+InitflowerprotoPart5;
 Result := X3D0;
 end;
 

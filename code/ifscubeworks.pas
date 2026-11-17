@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createifscubeworks: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group9: TGroupNode;
@@ -21,6 +20,8 @@ IndexedFaceSet13: TIndexedFaceSetNode;
 Coordinate14: TCoordinateNode;
 Normal15: TNormalNode;
 Color16: TColorNode;
+
+procedure InitifscubeworksPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -65,6 +66,11 @@ Group11.AddChildren([Shape12]);
 Group9.AddChildren([Group11]);
 { .AddGroup }
 X3D0.AddChildren([Group9]);
+end;
+
+function Createifscubeworks: TX3DRootNode;
+begin
+InitifscubeworksPart0;
 Result := X3D0;
 end;
 

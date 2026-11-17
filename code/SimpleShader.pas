@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateSimpleShader: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group22: TGroupNode;
@@ -44,6 +43,8 @@ MetadataDouble49: TMetadataDoubleNode;
 MetadataDouble50: TMetadataDoubleNode;
 MetadataDouble51: TMetadataDoubleNode;
 X3DPrototype52: TX3DPrototypeNode;
+
+procedure InitSimpleShaderPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -88,6 +89,11 @@ Transform27 := TTransformNode.Create;
 Shape28 := TShapeNode.Create;
 Appearance29 := TAppearanceNode.Create;
 Material30 := TMaterialNode.Create;
+end;
+
+procedure InitSimpleShaderPart1;
+begin
+
 Material30.DiffuseColor := Vector3(0.5,0.5,0.9);
 { .SetMaterial }
 Appearance29.Material := Material30;
@@ -140,6 +146,11 @@ Appearance29.Shaders := ComposedShader37;
 Shape28.Appearance := Appearance29;
 Sphere41 := TSphereNode.Create;
 Sphere41.Radius := 1.75;
+end;
+
+procedure InitSimpleShaderPart2;
+begin
+
 { .SetGeometry }
 Shape28.Geometry := Sphere41;
 { .AddChild }
@@ -192,6 +203,11 @@ MetadataDouble50.Reference := 'http://titania.create3000.de';
 MetadataDouble50.SetValue-0.110173424710488,0.990158061907379,-0.0863065984000336,1.21146676119191;
 { .FdValue.Add }
 MetadataSet48.FdValue.Add(MetadataDouble50);
+end;
+
+procedure InitSimpleShaderPart3;
+begin
+
 MetadataDouble51 := TMetadataDoubleNode.Create;
 MetadataDouble51.NameField := 'centerOfRotation';
 MetadataDouble51.Reference := 'http://titania.create3000.de';
@@ -210,6 +226,14 @@ X3DPrototype52.NameField := 'myPrototype';
 Group22.X3DPrototype := X3DPrototype52;
 { .AddGroup }
 X3D0.AddChildren([Group22]);
+end;
+
+function CreateSimpleShader: TX3DRootNode;
+begin
+InitSimpleShaderPart0;
+InitSimpleShaderPart1;
+InitSimpleShaderPart2;
+InitSimpleShaderPart3;
 Result := X3D0;
 end;
 

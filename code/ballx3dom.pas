@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createballx3dom: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -39,6 +38,8 @@ X3DField37: TX3DField;
 X3DField38: TX3DField;
 ShaderPart39: TShaderPartNode;
 ShaderPart40: TShaderPartNode;
+
+procedure Initballx3domPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -85,6 +86,11 @@ Sphere22 := TSphereNode.Create;
 { .SetGeometry }
 Shape21.Geometry := Sphere22;
 Appearance23 := TAppearanceNode.Create;
+end;
+
+procedure Initballx3domPart1;
+begin
+
 Material24 := TMaterialNode.Create;
 Material24.DiffuseColor := Vector3(0.7,0.7,0.7);
 Material24.SpecularColor := Vector3(0.5,0.5,0.5);
@@ -136,6 +142,11 @@ X3DField34.ComposedCubeMapTexture := ComposedCubeMapTexture35;
 { .AddX3DField }
 ComposedShader32.X3DField := X3DField34;
 X3DField36 := TX3DField.Create;
+end;
+
+procedure Initballx3domPart2;
+begin
+
 X3DField36.NameField := 'bias';
 X3DField36.AccessType := 'inputOutput';
 X3DField36.Type := 'SFFloat';
@@ -176,6 +187,13 @@ Transform20.AddChildren([Shape21]);
 Group15.AddChildren([Transform20]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function Createballx3dom: TX3DRootNode;
+begin
+Initballx3domPart0;
+Initballx3domPart1;
+Initballx3domPart2;
 Result := X3D0;
 end;
 

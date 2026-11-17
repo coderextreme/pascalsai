@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateHumanoid1: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group11: TGroupNode;
@@ -688,6 +687,8 @@ HAnimJoint682: THAnimJointNode;
 HAnimJoint683: THAnimJointNode;
 HAnimJoint684: THAnimJointNode;
 HAnimJoint685: THAnimJointNode;
+
+procedure InitHumanoid1Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -738,6 +739,11 @@ Shape20.Geometry := Sphere21;
 Appearance22 := TAppearanceNode.Create;
 Material23 := TMaterialNode.Create;
 Material23.DiffuseColor := Vector3(0,0,0);
+end;
+
+procedure InitHumanoid1Part1;
+begin
+
 { .SetMaterial }
 Appearance22.Material := Material23;
 { .SetAppearance }
@@ -794,6 +800,11 @@ Shape30.Appearance := Appearance34;
 Transform29.AddChildren([Shape30]);
 { .AddChildren }
 Transform18.AddChildren([Transform29]);
+end;
+
+procedure InitHumanoid1Part2;
+begin
+
 { .AddChildren }
 Group17.AddChildren([Transform18]);
 { .AddChildren }
@@ -820,6 +831,11 @@ IndexedFaceSet40.SetCoordIndex([0,9,5,-1,0,7,9,-1,0,5,1,-1,1,5,2,-1,1,3,7,-1,2,4
 IndexedFaceSet40.CreaseAngle := 3.1;
 Coordinate41 := TCoordinateNode.Create;
 Coordinate41.SetPoint([Vector3(0,1.77,0),Vector3(0,1.665,0.09),Vector3(-0.033,1.62,0.087),Vector3(0.033,1.62,0.087),Vector3(0,1.55,0.097),Vector3(-0.077,1.64,-0.01),Vector3(-0.0527,1.58,0.015),Vector3(0.077,1.64,-0.01),Vector3(0.0527,1.58,0.015),Vector3(0,1.625,-0.0925),Vector3(-0.03,1.46,0.035),Vector3(0,1.44,0.03),Vector3(0.03,1.46,0.035),Vector3(-0.1135,1.318,0.095),Vector3(0.1135,1.318,0.095),Vector3(0,1.25,0.113),Vector3(-0.087,1.19,0.09),Vector3(-0.0935,1.03,0.075),Vector3(0.087,1.19,0.09),Vector3(0.0935,1.03,0.075),Vector3(-0.1425,1.065,0.0033),Vector3(-0.15,0.9,-0.01),Vector3(0.1425,1.065,0.0033),Vector3(0.15,0.9,-0.01),Vector3(0,1.53,-0.084),Vector3(0.0049,1.1908,-0.1113),Vector3(-0.0773,1.019,-0.12),Vector3(0.0773,1.019,-0.12),Vector3(0.005,1.0915,-0.1091),Vector3(-0.178,1.4825,-0.0625),Vector3(-0.17,1.38,0.007),Vector3(-0.1884,0.8676,-0.036),Vector3(-0.16,1.38,-0.127),Vector3(-0.2,1.1388,-0.08),Vector3(-0.244,1.1388,-0.04),Vector3(-0.165,1.1388,-0.04),Vector3(-0.23,1.133,-0.055),Vector3(-0.1977,0.8169,-0.0177),Vector3(-0.1941,0.6772,-0.0423),Vector3(-0.2117,0.8562,-0.0584),Vector3(-0.1929,0.789,-0.1064),Vector3(0.175,1.4825,-0.06),Vector3(0.17,1.38,0.007),Vector3(0.1901,0.8645,-0.0415),Vector3(0.16,1.38,-0.125),Vector3(0.2,1.1388,-0.08),Vector3(0.165,1.1388,-0.04),Vector3(0.244,1.1388,-0.04),Vector3(0.23,1.133,-0.055),Vector3(0.2009,0.8139,-0.0237),Vector3(0.2056,0.6743,-0.0482),Vector3(0.2142,0.8529,-0.0648),Vector3(0.1929,0.786,-0.1122),Vector3(-0.1,0.4913,-0.03),Vector3(-0.17,0.466,0),Vector3(-0.05,0.466,0),Vector3(-0.165,0.01,0.12),Vector3(-0.15,0.07,0),Vector3(-0.085,0.086,0.0125),Vector3(-0.09,0.056,0.0125),Vector3(-0.115,0.02,0.122),Vector3(-0.115,0.04,-0.055),Vector3(-0.11,0.011,0.19),Vector3(0.0993,0.4881,-0.0309),Vector3(0.17,0.466,0),Vector3(0.05,0.4867,0),Vector3(0.165,0.01,0.12),Vector3(0.15,0.07,0),Vector3(0.085,0.086,0.0125),Vector3(0.09,0.056,0.0125),Vector3(0.115,0.02,0.122),Vector3(0.115,0.04,-0.055),Vector3(0.11,0.011,0.19),Vector3(0,0.875,0),Vector3(-0.0646,1.5149,-0.038),Vector3(0.0646,1.5149,-0.038),Vector3(0,1.07225,0.09),Vector3(-0.11,1.427,-0.1375),Vector3(-0.235,1.42,-0.0625),Vector3(0.11,1.427,-0.1375),Vector3(0.235,1.42,-0.0625),Vector3(0,1.41,-0.145),Vector3(0,0.925,0.08),Vector3(-0.087,1.19,-0.09),Vector3(0.087,1.19,-0.09),Vector3(0.172,1.32,-0.03),Vector3(-0.172,1.32,-0.03),Vector3(0.15,1.23,-0.015),Vector3(-0.15,1.23,-0.015),Vector3(0.079,0.92,-0.14),Vector3(0.1,0.9,0.077),Vector3(-0.079,0.92,-0.14),Vector3(-0.1,0.9,0.075),Vector3(0,0.87,0),Vector3(0.171,0.65,0),Vector3(0.02,0.65,0),Vector3(0.1,0.65,-0.08),Vector3(0.1,0.65,0.07),Vector3(-0.171,0.65,0),Vector3(-0.02,0.65,0),Vector3(-0.1,0.65,-0.08),Vector3(-0.1,0.65,0.07),Vector3(0.25,1.27,-0.04),Vector3(0.17,1.27,-0.04),Vector3(0.2,1.27,-0.09),Vector3(0.2,1.27,0.02),Vector3(0.244,1.1388,-0.04),Vector3(0.165,1.1388,-0.04),Vector3(0.2,1.1388,-0.08),Vector3(0.2,1.1388,-0.013),Vector3(0.225,1,-0.01),Vector3(0.225,1,-0.07),Vector3(0.185,1,-0.01),Vector3(0.185,1,-0.07),Vector3(0.2,1.1388,-0.04),Vector3(0.225,0.92,-0.04),Vector3(0.175,0.92,-0.04),Vector3(0.2,0.92,-0.065),Vector3(0.2,0.92,-0.015),Vector3(0.225,0.89,-0.04),Vector3(0.175,0.89,-0.04),Vector3(0.2,0.89,-0.065),Vector3(0.2,0.89,-0.015),Vector3(0.218,0.86,-0.04),Vector3(0.184,0.86,-0.04),Vector3(0.2,0.87,-0.07),Vector3(0.2,0.87,0),Vector3(0.21,0.85,0),Vector3(0.1854,0.85,0),Vector3(0.212,0.84,-0.015),Vector3(0.183,0.84,-0.015),Vector3(0.213,0.835,-0.04),Vector3(0.19,0.835,-0.04),Vector3(0.211,0.835,-0.065),Vector3(0.192,0.835,-0.065),Vector3(0.208,0.84,-0.085),Vector3(0.19,0.84,-0.085),Vector3(0.2,0.84,-0.095),Vector3(0.215,0.82,0),Vector3(0.193,0.815,0.005),Vector3(0.198,0.8,0.012),Vector3(0.21,0.82,0.03),Vector3(0.19,0.82,0.03),Vector3(0.2,0.835,0.039),Vector3(0.212,0.8,0.05),Vector3(0.188,0.8,0.05),Vector3(0.2,0.807,0.057),Vector3(0.2,0.793,0.035),Vector3(0.2,0.774,0.076),Vector3(0.212,0.78,0.07),Vector3(0.188,0.78,0.07),Vector3(0.2,0.785,0.075),Vector3(0.2,0.77,0.062),Vector3(0.215,0.793,-0.015),Vector3(0.187,0.793,-0.015),Vector3(0.2,0.793,-0.005),Vector3(0.215,0.788,-0.04),Vector3(0.187,0.788,-0.04),Vector3(0.215,0.793,-0.065),Vector3(0.187,0.793,-0.065),Vector3(0.21,0.79,-0.085),Vector3(0.19,0.79,-0.085),Vector3(0.2,0.79,-0.095),Vector3(0.19,0.77,-0.0275),Vector3(0.19,0.77,-0.0525),Vector3(0.19,0.78,-0.0775),Vector3(0.212,0.745,-0.015),Vector3(0.188,0.745,-0.02),Vector3(0.2,0.745,-0.0255),Vector3(0.2,0.745,-0.0045),Vector3(0.211,0.72,-0.015),Vector3(0.189,0.72,-0.015),Vector3(0.2,0.72,-0.0252),Vector3(0.2,0.72,-0.0048),Vector3(0.21,0.695,-0.015),Vector3(0.19,0.695,-0.015),Vector3(0.2,0.695,-0.025),Vector3(0.2,0.695,-0.005),Vector3(0.2,0.685,-0.015),Vector3(0.215,0.74,-0.04),Vector3(0.185,0.74,-0.04),Vector3(0.2,0.74,-0.055),Vector3(0.2,0.74,-0.025),Vector3(0.21,0.7142,-0.04),Vector3(0.19,0.7142,-0.04),Vector3(0.2,0.7142,-0.053),Vector3(0.2,0.7142,-0.027),Vector3(0.21,0.68,-0.04),Vector3(0.19,0.68,-0.04),Vector3(0.2,0.68,-0.05),Vector3(0.2,0.68,-0.03),Vector3(0.2,0.67,-0.04),Vector3(0.212,0.74,-0.065),Vector3(0.188,0.74,-0.065),Vector3(0.2,0.74,-0.0756),Vector3(0.2,0.74,-0.0542),Vector3(0.21,0.7177,-0.065),Vector3(0.19,0.7177,-0.065),Vector3(0.2,0.7177,-0.0751),Vector3(0.2,0.7177,-0.0549),Vector3(0.21,0.695,-0.065),Vector3(0.19,0.695,-0.065),Vector3(0.2,0.695,-0.075),Vector3(0.2,0.695,-0.055),Vector3(0.2,0.685,-0.065),Vector3(0.211,0.755,-0.085),Vector3(0.189,0.755,-0.085),Vector3(0.2,0.755,-0.0952),Vector3(0.2,0.755,-0.0748),Vector3(0.21,0.735,-0.085),Vector3(0.19,0.735,-0.085),Vector3(0.2,0.735,-0.0951),Vector3(0.2,0.735,-0.0749),Vector3(0.21,0.72,-0.085),Vector3(0.19,0.72,-0.085),Vector3(0.2,0.72,-0.095),Vector3(0.2,0.72,-0.075),Vector3(0.2,0.71,-0.085),Vector3(-0.23,1.23,-0.04),Vector3(-0.16,1.23,-0.04),Vector3(-0.2,1.235,-0.105),Vector3(-0.2,1.235,0.02),Vector3(-0.244,1.1388,-0.04),Vector3(-0.165,1.1388,-0.04),Vector3(-0.2,1.1388,-0.08),Vector3(-0.2,1.1388,0.013),Vector3(-0.225,1,-0.01),Vector3(-0.225,1,-0.07),Vector3(-0.185,1,-0.01),Vector3(-0.185,1,-0.07),Vector3(-0.2,1.1388,-0.04),Vector3(-0.225,0.92,-0.04),Vector3(-0.175,0.92,-0.04),Vector3(-0.2,0.92,-0.065),Vector3(-0.2,0.92,-0.015),Vector3(-0.225,0.89,-0.04),Vector3(-0.175,0.89,-0.04),Vector3(-0.2,0.89,-0.065),Vector3(-0.2,0.89,-0.015),Vector3(-0.218,0.86,-0.04),Vector3(-0.184,0.86,-0.04),Vector3(-0.2,0.87,-0.07),Vector3(-0.2,0.87,0),Vector3(-0.21,0.85,0),Vector3(-0.1854,0.85,0),Vector3(-0.212,0.84,-0.015),Vector3(-0.183,0.84,-0.015),Vector3(-0.213,0.835,-0.04),Vector3(-0.19,0.835,-0.04),Vector3(-0.211,0.835,-0.065),Vector3(-0.192,0.835,-0.065),Vector3(-0.208,0.84,-0.085),Vector3(-0.19,0.84,-0.085),Vector3(-0.2,0.84,-0.095),Vector3(-0.215,0.82,0),Vector3(-0.193,0.815,0.005),Vector3(-0.198,0.8,0.012),Vector3(-0.21,0.82,0.03),Vector3(-0.19,0.82,0.03),Vector3(-0.2,0.835,0.039),Vector3(-0.212,0.8,0.05),Vector3(-0.188,0.8,0.05),Vector3(-0.2,0.807,0.057),Vector3(-0.2,0.793,0.035),Vector3(-0.2,0.774,0.076),Vector3(-0.212,0.78,0.07),Vector3(-0.188,0.78,0.07),Vector3(-0.2,0.785,0.075),Vector3(-0.2,0.77,0.062),Vector3(-0.215,0.793,-0.015),Vector3(-0.187,0.793,-0.015),Vector3(-0.2,0.793,-0.005),Vector3(-0.215,0.788,-0.04),Vector3(-0.187,0.788,-0.04),Vector3(-0.215,0.793,-0.065),Vector3(-0.187,0.793,-0.065),Vector3(-0.21,0.79,-0.085),Vector3(-0.19,0.79,-0.085),Vector3(-0.2,0.79,-0.095),Vector3(-0.19,0.77,-0.0275),Vector3(-0.19,0.77,-0.0525),Vector3(-0.19,0.78,-0.0775),Vector3(-0.212,0.745,-0.015),Vector3(-0.188,0.745,-0.02),Vector3(-0.2,0.745,-0.0255),Vector3(-0.2,0.745,-0.0045),Vector3(-0.211,0.72,-0.015),Vector3(-0.189,0.72,-0.015),Vector3(-0.2,0.72,-0.0252),Vector3(-0.2,0.72,-0.0048),Vector3(-0.21,0.695,-0.015),Vector3(-0.19,0.695,-0.015),Vector3(-0.2,0.695,-0.025),Vector3(-0.2,0.695,-0.005),Vector3(-0.2,0.685,-0.015),Vector3(-0.215,0.74,-0.04),Vector3(-0.185,0.74,-0.04),Vector3(-0.2,0.74,-0.055),Vector3(-0.2,0.74,-0.025),Vector3(-0.21,0.7142,-0.04),Vector3(-0.19,0.7142,-0.04),Vector3(-0.2,0.7142,-0.053),Vector3(-0.2,0.7142,-0.027),Vector3(-0.21,0.68,-0.04),Vector3(-0.19,0.68,-0.04),Vector3(-0.2,0.68,-0.05),Vector3(-0.2,0.68,-0.03),Vector3(-0.2,0.67,-0.04),Vector3(-0.212,0.74,-0.065),Vector3(-0.188,0.74,-0.065),Vector3(-0.2,0.74,-0.0756),Vector3(-0.2,0.74,-0.0542),Vector3(-0.21,0.7177,-0.065),Vector3(-0.19,0.7177,-0.065),Vector3(-0.2,0.7177,-0.0751),Vector3(-0.2,0.7177,-0.0549),Vector3(-0.21,0.695,-0.065),Vector3(-0.19,0.695,-0.065),Vector3(-0.2,0.695,-0.075),Vector3(-0.2,0.695,-0.055),Vector3(-0.2,0.685,-0.065),Vector3(-0.211,0.755,-0.085),Vector3(-0.189,0.755,-0.085),Vector3(-0.2,0.755,-0.0952),Vector3(-0.2,0.755,-0.0748),Vector3(-0.21,0.735,-0.085),Vector3(-0.19,0.735,-0.085),Vector3(-0.2,0.735,-0.0951),Vector3(-0.2,0.735,-0.0749),Vector3(-0.21,0.72,-0.085),Vector3(-0.19,0.72,-0.085),Vector3(-0.2,0.72,-0.095),Vector3(-0.2,0.72,-0.075),Vector3(-0.2,0.71,-0.085),Vector3(0.115,0.466,0.06),Vector3(0.115,0.466,-0.055),Vector3(0.15,0.466,0),Vector3(0.05,0.466,0),Vector3(0.17,0.3,0),Vector3(0.06,0.3,0),Vector3(0.1,0.3,-0.05),Vector3(0.1,0.3,0.05),Vector3(0.15,0.07,0),Vector3(0.085,0.086,0.0125),Vector3(0.115,0.069,-0.045),Vector3(0.117,0.0975,0.0615),Vector3(0.1375,0.006,-0.03),Vector3(0.095,0.006,-0.03),Vector3(0.115,0.015,-0.045),Vector3(0.115,0.06,0.1),Vector3(0.115,0,0.07),Vector3(0.165,0,0.07),Vector3(0.095,0,0.07),Vector3(0.115,0.04,0.13),Vector3(0.125,0,0.12),Vector3(0.165,0,0.12),Vector3(0.087,0,0.122),Vector3(0.09,0.012,0.188),Vector3(0.11,0.011,0.19),Vector3(0.128,0.011,0.185),Vector3(0.142,0.011,0.178),Vector3(0.154,0.01,0.168),Vector3(-0.115,0.466,0.06),Vector3(-0.115,0.466,-0.055),Vector3(-0.17,0.466,0),Vector3(-0.05,0.466,0),Vector3(-0.17,0.3,0),Vector3(-0.06,0.3,0),Vector3(-0.1,0.3,-0.05),Vector3(-0.1,0.3,0.05),Vector3(-0.15,0.07,0),Vector3(-0.085,0.086,0.0125),Vector3(-0.115,0.069,-0.045),Vector3(-0.117,0.0975,0.0615),Vector3(-0.1375,0.006,-0.03),Vector3(-0.095,0.006,-0.03),Vector3(-0.095,0.006,-0.03),Vector3(-0.115,0.06,0.1),Vector3(-0.115,0,0.07),Vector3(-0.165,0,0.07),Vector3(-0.095,0,0.07),Vector3(-0.115,0.04,0.13),Vector3(-0.125,0,0.12),Vector3(-0.165,0,0.12),Vector3(-0.087,0,0.122),Vector3(-0.09,0.012,0.188),Vector3(-0.11,0.011,0.19),Vector3(-0.128,0.011,0.185),Vector3(-0.142,0.011,0.178),Vector3(-0.154,0.01,0.168)]);
+end;
+
+procedure InitHumanoid1Part3;
+begin
+
 { .SetCoord }
 IndexedFaceSet40.Coord := Coordinate41;
 Color42 := TColorNode.Create;
@@ -866,6 +882,11 @@ Transform49.AddChildren([Transform50]);
 HAnimSegment48.AddChildren([Transform49]);
 Shape52 := TShapeNode.Create;
 LineSet53 := TLineSetNode.Create;
+end;
+
+procedure InitHumanoid1Part4;
+begin
+
 LineSet53.SetVertexCount([2]);
 Coordinate54 := TCoordinateNode.Create;
 Coordinate54.SetPoint([Vector3(0,0.824,0.0277),Vector3(0,0.9149,0.0016)]);
@@ -925,6 +946,11 @@ ColorRGBA68 := ColorRGBA27;
 LineSet66.Color := ColorRGBA68;
 { .SetGeometry }
 Shape65.Geometry := LineSet66;
+end;
+
+procedure InitHumanoid1Part5;
+begin
+
 { .AddChildren }
 HAnimSegment61.AddChildren([Shape65]);
 HAnimSite69 := THAnimSiteNode.Create;
@@ -980,6 +1006,11 @@ HAnimSite76.AddChildren([Billboard79]);
 HAnimSegment61.AddChildren([HAnimSite76]);
 HAnimSite83 := THAnimSiteNode.Create;
 HAnimSite83.NameField := 'l_asis';
+end;
+
+procedure InitHumanoid1Part6;
+begin
+
 HAnimSite83.Translation := Vector3(0.0925,0.9983,0.1052);
 TouchSensor84 := TTouchSensorNode.Create;
 TouchSensor84.Description := 'HAnimSite 32 l_asis';
@@ -1034,6 +1065,11 @@ HAnimSite97 := THAnimSiteNode.Create;
 HAnimSite97.NameField := 'l_psis';
 HAnimSite97.Translation := Vector3(0.0774,1.019,-0.1151);
 TouchSensor98 := TTouchSensorNode.Create;
+end;
+
+procedure InitHumanoid1Part7;
+begin
+
 TouchSensor98.Description := 'HAnimSite 34 l_psis';
 { .AddChildren }
 HAnimSite97.AddChildren([TouchSensor98]);
@@ -1089,6 +1125,11 @@ TouchSensor112 := TTouchSensorNode.Create;
 TouchSensor112.Description := 'HAnimSite 35 r_asis';
 { .AddChildren }
 HAnimSite111.AddChildren([TouchSensor112]);
+end;
+
+procedure InitHumanoid1Part8;
+begin
+
 Shape113 := Shape30;
 { .AddChildren }
 HAnimSite111.AddChildren([Shape113]);
@@ -1144,6 +1185,11 @@ HAnimSite125.AddChildren([TouchSensor126]);
 Shape127 := Shape30;
 { .AddChildren }
 HAnimSite125.AddChildren([Shape127]);
+end;
+
+procedure InitHumanoid1Part9;
+begin
+
 Billboard128 := TBillboardNode.Create;
 Shape129 := TShapeNode.Create;
 Text130 := TTextNode.Create;
@@ -1201,6 +1247,11 @@ LineSet140.Color := ColorRGBA142;
 Shape139.Geometry := LineSet140;
 { .AddChildren }
 HAnimSegment61.AddChildren([Shape139]);
+end;
+
+procedure InitHumanoid1Part10;
+begin
+
 { .AddChildren }
 HAnimJoint60.AddChildren([HAnimSegment61]);
 HAnimJoint143 := THAnimJointNode.Create;
@@ -1256,6 +1307,11 @@ Text157.FontStyle := FontStyle158;
 Shape156.Geometry := Text157;
 { .AddChildren }
 Billboard155.AddChildren([Shape156]);
+end;
+
+procedure InitHumanoid1Part11;
+begin
+
 { .AddChildren }
 HAnimSite152.AddChildren([Billboard155]);
 { .AddChildren }
@@ -1312,6 +1368,11 @@ Billboard169.AddChildren([Shape170]);
 HAnimSite166.AddChildren([Billboard169]);
 { .AddChildren }
 HAnimSegment144.AddChildren([HAnimSite166]);
+end;
+
+procedure InitHumanoid1Part12;
+begin
+
 HAnimSite173 := THAnimSiteNode.Create;
 HAnimSite173.NameField := 'l_suprapatella';
 TouchSensor174 := TTouchSensorNode.Create;
@@ -1368,6 +1429,11 @@ ColorRGBA188 := ColorRGBA27;
 LineSet186.Color := ColorRGBA188;
 { .SetGeometry }
 Shape185.Geometry := LineSet186;
+end;
+
+procedure InitHumanoid1Part13;
+begin
+
 { .AddChildren }
 HAnimSegment181.AddChildren([Shape185]);
 HAnimSite189 := THAnimSiteNode.Create;
@@ -1423,6 +1489,11 @@ HAnimSite196.AddChildren([Billboard199]);
 { .AddChildren }
 HAnimSegment181.AddChildren([HAnimSite196]);
 HAnimSite203 := THAnimSiteNode.Create;
+end;
+
+procedure InitHumanoid1Part14;
+begin
+
 HAnimSite203.NameField := 'l_tibiale';
 TouchSensor204 := TTouchSensorNode.Create;
 TouchSensor204.Description := 'HAnimSite 47 l_tibiale';
@@ -1479,6 +1550,11 @@ LineSet216.Coord := Coordinate217;
 ColorRGBA218 := ColorRGBA27;
 { .SetColor }
 LineSet216.Color := ColorRGBA218;
+end;
+
+procedure InitHumanoid1Part15;
+begin
+
 { .SetGeometry }
 Shape215.Geometry := LineSet216;
 { .AddChildren }
@@ -1535,6 +1611,11 @@ Billboard229.AddChildren([Shape230]);
 HAnimSite226.AddChildren([Billboard229]);
 { .AddChildren }
 HAnimSegment211.AddChildren([HAnimSite226]);
+end;
+
+procedure InitHumanoid1Part16;
+begin
+
 { .AddChildren }
 HAnimJoint210.AddChildren([HAnimSegment211]);
 HAnimJoint233 := THAnimJointNode.Create;
@@ -1591,6 +1672,11 @@ Shape245 := Shape30;
 HAnimSite243.AddChildren([Shape245]);
 Billboard246 := TBillboardNode.Create;
 Shape247 := TShapeNode.Create;
+end;
+
+procedure InitHumanoid1Part17;
+begin
+
 Text248 := TTextNode.Create;
 Text248.SetText(['44']);
 FontStyle249 := TFontStyleNode.Create;
@@ -1645,6 +1731,11 @@ Billboard260 := TBillboardNode.Create;
 Shape261 := TShapeNode.Create;
 Text262 := TTextNode.Create;
 Text262.SetText(['91']);
+end;
+
+procedure InitHumanoid1Part18;
+begin
+
 FontStyle263 := TFontStyleNode.Create;
 FontStyle263.Size := 0.035;
 { .SetFontStyle }
@@ -1702,6 +1793,11 @@ Transform273.AddChildren([Transform274]);
 HAnimSegment272.AddChildren([Transform273]);
 Shape276 := TShapeNode.Create;
 LineSet277 := TLineSetNode.Create;
+end;
+
+procedure InitHumanoid1Part19;
+begin
+
 LineSet277.SetVertexCount([2]);
 Coordinate278 := TCoordinateNode.Create;
 Coordinate278.SetPoint([Vector3(-0.0867,0.4913,0.0318),Vector3(-0.0801,0.0712,-0.0766)]);
@@ -1756,6 +1852,11 @@ Shape291 := TShapeNode.Create;
 Text292 := TTextNode.Create;
 Text292.SetText(['52']);
 FontStyle293 := TFontStyleNode.Create;
+end;
+
+procedure InitHumanoid1Part20;
+begin
+
 FontStyle293.Size := 0.035;
 { .SetFontStyle }
 Text292.FontStyle := FontStyle293;
@@ -1814,6 +1915,11 @@ Transform303.AddChildren([Transform304]);
 { .AddChildren }
 HAnimSegment302.AddChildren([Transform303]);
 Shape306 := TShapeNode.Create;
+end;
+
+procedure InitHumanoid1Part21;
+begin
+
 LineSet307 := TLineSetNode.Create;
 LineSet307.SetVertexCount([2]);
 Coordinate308 := TCoordinateNode.Create;
@@ -1868,6 +1974,11 @@ Billboard320 := TBillboardNode.Create;
 Shape321 := TShapeNode.Create;
 Text322 := TTextNode.Create;
 Text322.SetText(['54']);
+end;
+
+procedure InitHumanoid1Part22;
+begin
+
 FontStyle323 := TFontStyleNode.Create;
 FontStyle323.Size := 0.035;
 { .SetFontStyle }
@@ -1928,6 +2039,11 @@ Shape330.Geometry := LineSet331;
 HAnimSegment326.AddChildren([Shape330]);
 HAnimSite334 := THAnimSiteNode.Create;
 HAnimSite334.NameField := 'adams_apple';
+end;
+
+procedure InitHumanoid1Part23;
+begin
+
 TouchSensor335 := TTouchSensorNode.Create;
 TouchSensor335.Description := 'HAnimSite 11 adams_apple';
 { .AddChildren }
@@ -1982,6 +2098,11 @@ HAnimSite348.NameField := 'l_acromion';
 HAnimSite348.Translation := Vector3(0.2032,1.476,-0.049);
 TouchSensor349 := TTouchSensorNode.Create;
 TouchSensor349.Description := 'HAnimSite 15 l_acromion';
+end;
+
+procedure InitHumanoid1Part24;
+begin
+
 { .AddChildren }
 HAnimSite348.AddChildren([TouchSensor349]);
 Shape350 := Shape30;
@@ -2038,6 +2159,11 @@ HAnimSite362.AddChildren([TouchSensor363]);
 Shape364 := Shape30;
 { .AddChildren }
 HAnimSite362.AddChildren([Shape364]);
+end;
+
+procedure InitHumanoid1Part25;
+begin
+
 Billboard365 := TBillboardNode.Create;
 Shape366 := TShapeNode.Create;
 Text367 := TTextNode.Create;
@@ -2092,6 +2218,11 @@ HAnimSite376.AddChildren([Shape378]);
 Billboard379 := TBillboardNode.Create;
 Shape380 := TShapeNode.Create;
 Text381 := TTextNode.Create;
+end;
+
+procedure InitHumanoid1Part26;
+begin
+
 Text381.SetText(['94']);
 FontStyle382 := TFontStyleNode.Create;
 FontStyle382.Size := 0.035;
@@ -2146,6 +2277,11 @@ Shape394 := TShapeNode.Create;
 Text395 := TTextNode.Create;
 Text395.SetText(['82']);
 FontStyle396 := TFontStyleNode.Create;
+end;
+
+procedure InitHumanoid1Part27;
+begin
+
 FontStyle396.Size := 0.035;
 { .SetFontStyle }
 Text395.FontStyle := FontStyle396;
@@ -2201,6 +2337,11 @@ FontStyle410 := TFontStyleNode.Create;
 FontStyle410.Size := 0.035;
 { .SetFontStyle }
 Text409.FontStyle := FontStyle410;
+end;
+
+procedure InitHumanoid1Part28;
+begin
+
 { .SetGeometry }
 Shape408.Geometry := Text409;
 { .AddChildren }
@@ -2258,6 +2399,11 @@ Shape422.Geometry := Text423;
 Billboard421.AddChildren([Shape422]);
 { .AddChildren }
 HAnimSite418.AddChildren([Billboard421]);
+end;
+
+procedure InitHumanoid1Part29;
+begin
+
 { .AddChildren }
 HAnimSegment326.AddChildren([HAnimSite418]);
 HAnimSite425 := THAnimSiteNode.Create;
@@ -2313,6 +2459,11 @@ HAnimSite432.AddChildren([Billboard435]);
 { .AddChildren }
 HAnimSegment326.AddChildren([HAnimSite432]);
 HAnimSite439 := THAnimSiteNode.Create;
+end;
+
+procedure InitHumanoid1Part30;
+begin
+
 HAnimSite439.NameField := 'r_axilla_posterior_folds';
 TouchSensor440 := TTouchSensorNode.Create;
 TouchSensor440.Description := 'HAnimSite 23 r_axilla_posterior_folds';
@@ -2367,6 +2518,11 @@ HAnimSite453 := THAnimSiteNode.Create;
 HAnimSite453.NameField := 'r_chest_midsagittal_plane';
 TouchSensor454 := TTouchSensorNode.Create;
 TouchSensor454.Description := 'HAnimSite 95 r_chest_midsagittal_plane';
+end;
+
+procedure InitHumanoid1Part31;
+begin
+
 { .AddChildren }
 HAnimSite453.AddChildren([TouchSensor454]);
 Shape455 := Shape30;
@@ -2422,6 +2578,11 @@ TouchSensor468.Description := 'HAnimSite 83 r_neck_base';
 { .AddChildren }
 HAnimSite467.AddChildren([TouchSensor468]);
 Shape469 := Shape30;
+end;
+
+procedure InitHumanoid1Part32;
+begin
+
 { .AddChildren }
 HAnimSite467.AddChildren([Shape469]);
 Billboard470 := TBillboardNode.Create;
@@ -2477,6 +2638,11 @@ Shape483 := Shape30;
 { .AddChildren }
 HAnimSite481.AddChildren([Shape483]);
 Billboard484 := TBillboardNode.Create;
+end;
+
+procedure InitHumanoid1Part33;
+begin
+
 Shape485 := TShapeNode.Create;
 Text486 := TTextNode.Create;
 Text486.SetText(['31']);
@@ -2531,6 +2697,11 @@ Shape499 := TShapeNode.Create;
 Text500 := TTextNode.Create;
 Text500.SetText(['24']);
 FontStyle501 := TFontStyleNode.Create;
+end;
+
+procedure InitHumanoid1Part34;
+begin
+
 FontStyle501.Size := 0.035;
 { .SetFontStyle }
 Text500.FontStyle := FontStyle501;
@@ -2587,6 +2758,11 @@ FontStyle515.Size := 0.035;
 Text514.FontStyle := FontStyle515;
 { .SetGeometry }
 Shape513.Geometry := Text514;
+end;
+
+procedure InitHumanoid1Part35;
+begin
+
 { .AddChildren }
 Billboard512.AddChildren([Shape513]);
 { .AddChildren }
@@ -2644,6 +2820,11 @@ Billboard526.AddChildren([Shape527]);
 HAnimSite523.AddChildren([Billboard526]);
 { .AddChildren }
 HAnimSegment326.AddChildren([HAnimSite523]);
+end;
+
+procedure InitHumanoid1Part36;
+begin
+
 HAnimSite530 := THAnimSiteNode.Create;
 HAnimSite530.NameField := 'waist_preferred_posterior';
 HAnimSite530.Translation := Vector3(0.29,1.0915,-0.1091);
@@ -2702,6 +2883,11 @@ Shape541.Geometry := LineSet542;
 HAnimSegment326.AddChildren([Shape541]);
 { .AddChildren }
 HAnimJoint325.AddChildren([HAnimSegment326]);
+end;
+
+procedure InitHumanoid1Part37;
+begin
+
 HAnimJoint545 := THAnimJointNode.Create;
 HAnimJoint545.NameField := 'skullbase';
 HAnimJoint545.Center := Vector3(0.0044,1.6209,0.0236);
@@ -2755,6 +2941,11 @@ FontStyle561 := TFontStyleNode.Create;
 FontStyle561.Size := 0.035;
 { .SetFontStyle }
 Text560.FontStyle := FontStyle561;
+end;
+
+procedure InitHumanoid1Part38;
+begin
+
 { .SetGeometry }
 Shape559.Geometry := Text560;
 { .AddChildren }
@@ -2811,6 +3002,11 @@ Shape574 := TShapeNode.Create;
 LineSet575 := TLineSetNode.Create;
 LineSet575.SetVertexCount([2]);
 Coordinate576 := TCoordinateNode.Create;
+end;
+
+procedure InitHumanoid1Part39;
+begin
+
 Coordinate576.SetPoint([Vector3(0.2014,1.1357,-0.0682),Vector3(0.1984,0.8663,-0.0583)]);
 { .SetCoord }
 LineSet575.Coord := Coordinate576;
@@ -2866,6 +3062,11 @@ FontStyle591 := TFontStyleNode.Create;
 FontStyle591.Size := 0.035;
 { .SetFontStyle }
 Text590.FontStyle := FontStyle591;
+end;
+
+procedure InitHumanoid1Part40;
+begin
+
 { .SetGeometry }
 Shape589.Geometry := Text590;
 { .AddChildren }
@@ -2922,6 +3123,11 @@ Text604.FontStyle := FontStyle605;
 Shape603.Geometry := Text604;
 { .AddChildren }
 Billboard602.AddChildren([Shape603]);
+end;
+
+procedure InitHumanoid1Part41;
+begin
+
 { .AddChildren }
 HAnimSite599.AddChildren([Billboard602]);
 { .AddChildren }
@@ -2979,6 +3185,11 @@ Shape618 := Shape30;
 HAnimSite616.AddChildren([Shape618]);
 Billboard619 := TBillboardNode.Create;
 Shape620 := TShapeNode.Create;
+end;
+
+procedure InitHumanoid1Part42;
+begin
+
 Text621 := TTextNode.Create;
 Text621.SetText(['97']);
 FontStyle622 := TFontStyleNode.Create;
@@ -3035,6 +3246,11 @@ Shape634 := Shape20;
 Transform633.AddChildren([Shape634]);
 { .AddChildren }
 Transform632.AddChildren([Transform633]);
+end;
+
+procedure InitHumanoid1Part43;
+begin
+
 { .AddChildren }
 HAnimSegment631.AddChildren([Transform632]);
 Shape635 := TShapeNode.Create;
@@ -3090,6 +3306,11 @@ Shape648 := Shape30;
 HAnimSite646.AddChildren([Shape648]);
 Billboard649 := TBillboardNode.Create;
 Shape650 := TShapeNode.Create;
+end;
+
+procedure InitHumanoid1Part44;
+begin
+
 Text651 := TTextNode.Create;
 Text651.SetText(['68']);
 FontStyle652 := TFontStyleNode.Create;
@@ -3144,6 +3365,11 @@ Billboard663 := TBillboardNode.Create;
 Shape664 := TShapeNode.Create;
 Text665 := TTextNode.Create;
 Text665.SetText(['72']);
+end;
+
+procedure InitHumanoid1Part45;
+begin
+
 FontStyle666 := TFontStyleNode.Create;
 FontStyle666.Size := 0.035;
 { .SetFontStyle }
@@ -3207,6 +3433,11 @@ HAnimHumanoid38.FdJoints.Add(HAnimJoint678);
 HAnimJoint679 := HAnimJoint545;
 { .FdJoints.Add }
 HAnimHumanoid38.FdJoints.Add(HAnimJoint679);
+end;
+
+procedure InitHumanoid1Part46;
+begin
+
 HAnimJoint680 := HAnimJoint546;
 { .FdJoints.Add }
 HAnimHumanoid38.FdJoints.Add(HAnimJoint680);
@@ -3229,6 +3460,57 @@ HAnimHumanoid38.FdJoints.Add(HAnimJoint685);
 Group11.AddChildren([HAnimHumanoid38]);
 { .AddGroup }
 X3D0.AddChildren([Group11]);
+end;
+
+function CreateHumanoid1: TX3DRootNode;
+begin
+InitHumanoid1Part0;
+InitHumanoid1Part1;
+InitHumanoid1Part2;
+InitHumanoid1Part3;
+InitHumanoid1Part4;
+InitHumanoid1Part5;
+InitHumanoid1Part6;
+InitHumanoid1Part7;
+InitHumanoid1Part8;
+InitHumanoid1Part9;
+InitHumanoid1Part10;
+InitHumanoid1Part11;
+InitHumanoid1Part12;
+InitHumanoid1Part13;
+InitHumanoid1Part14;
+InitHumanoid1Part15;
+InitHumanoid1Part16;
+InitHumanoid1Part17;
+InitHumanoid1Part18;
+InitHumanoid1Part19;
+InitHumanoid1Part20;
+InitHumanoid1Part21;
+InitHumanoid1Part22;
+InitHumanoid1Part23;
+InitHumanoid1Part24;
+InitHumanoid1Part25;
+InitHumanoid1Part26;
+InitHumanoid1Part27;
+InitHumanoid1Part28;
+InitHumanoid1Part29;
+InitHumanoid1Part30;
+InitHumanoid1Part31;
+InitHumanoid1Part32;
+InitHumanoid1Part33;
+InitHumanoid1Part34;
+InitHumanoid1Part35;
+InitHumanoid1Part36;
+InitHumanoid1Part37;
+InitHumanoid1Part38;
+InitHumanoid1Part39;
+InitHumanoid1Part40;
+InitHumanoid1Part41;
+InitHumanoid1Part42;
+InitHumanoid1Part43;
+InitHumanoid1Part44;
+InitHumanoid1Part45;
+InitHumanoid1Part46;
 Result := X3D0;
 end;
 

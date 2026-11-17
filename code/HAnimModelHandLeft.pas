@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateHAnimModelHandLeft: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group24: TGroupNode;
@@ -286,6 +285,8 @@ HAnimJoint293: THAnimJointNode;
 HAnimJoint294: THAnimJointNode;
 HAnimJoint295: THAnimJointNode;
 HAnimJoint296: THAnimJointNode;
+
+procedure InitHAnimModelHandLeftPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -329,6 +330,11 @@ MetadataSet27.Reference := 'https://www.web3d.org/documents/specifications/19774
 MetadataString28 := TMetadataStringNode.Create;
 MetadataString28.NameField := 'authorName';
 MetadataString28.SetValue(['Kwan-Hee YOO, Don Brutzman and Joe Williams']);
+end;
+
+procedure InitHAnimModelHandLeftPart1;
+begin
+
 { .FdValue.Add }
 MetadataSet27.FdValue.Add(MetadataString28);
 { .AddMetadata }
@@ -384,6 +390,11 @@ Material44.EmissiveColor := Vector3(1,1,1);
 Appearance43.Material := Material44;
 { .SetAppearance }
 Shape42.Appearance := Appearance43;
+end;
+
+procedure InitHAnimModelHandLeftPart2;
+begin
+
 IndexedLineSet45 := TIndexedLineSetNode.Create;
 IndexedLineSet45.SetCoordIndex([0,1]);
 Coordinate46 := TCoordinateNode.Create;
@@ -439,6 +450,11 @@ Transform54.AddChildren([Shape55]);
 { .AddChildren }
 HAnimSegment53.AddChildren([Transform54]);
 Shape59 := TShapeNode.Create;
+end;
+
+procedure InitHAnimModelHandLeftPart3;
+begin
+
 Appearance60 := TAppearanceNode.Create;
 Material61 := TMaterialNode.Create;
 Material61.EmissiveColor := Vector3(1,1,1);
@@ -493,6 +509,11 @@ Shape73 := TShapeNode.Create;
 Appearance74 := TAppearanceNode.Create;
 Material75 := TMaterialNode.Create;
 Material75.EmissiveColor := Vector3(1,1,1);
+end;
+
+procedure InitHAnimModelHandLeftPart4;
+begin
+
 { .SetMaterial }
 Appearance74.Material := Material75;
 { .SetAppearance }
@@ -547,6 +568,11 @@ HAnimJoint87.Center := Vector3(0.35,0.4,0);
 HAnimSegment88 := THAnimSegmentNode.Create;
 HAnimSegment88.NameField := 'l_carpal_distal_phalanx_1';
 Transform89 := TTransformNode.Create;
+end;
+
+procedure InitHAnimModelHandLeftPart5;
+begin
+
 Transform89.Translation := Vector3(0.35,0.4,0);
 Shape90 := Shape33;
 { .AddChild }
@@ -604,6 +630,11 @@ Appearance101.Material := Material102;
 Shape100.Appearance := Appearance101;
 IndexedLineSet103 := TIndexedLineSetNode.Create;
 IndexedLineSet103.SetCoordIndex([0,1]);
+end;
+
+procedure InitHAnimModelHandLeftPart6;
+begin
+
 Coordinate104 := TCoordinateNode.Create;
 Coordinate104.SetPoint([Vector3(-0.1,0.1,0),Vector3(-0.1,0.2,0)]);
 { .SetCoord }
@@ -659,6 +690,11 @@ Shape117 := Shape33;
 Transform116.AddChildren([Shape117]);
 { .AddChildren }
 HAnimSegment115.AddChildren([Transform116]);
+end;
+
+procedure InitHAnimModelHandLeftPart7;
+begin
+
 Shape118 := TShapeNode.Create;
 Appearance119 := TAppearanceNode.Create;
 Material120 := TMaterialNode.Create;
@@ -713,6 +749,11 @@ HAnimSegment124.AddChildren([Shape127]);
 HAnimJoint123.AddChildren([HAnimSegment124]);
 HAnimJoint132 := THAnimJointNode.Create;
 HAnimJoint132.NameField := 'l_carpal_distal_interphalangeal_2';
+end;
+
+procedure InitHAnimModelHandLeftPart8;
+begin
+
 HAnimJoint132.Center := Vector3(0.24,0.87,0);
 HAnimSegment133 := THAnimSegmentNode.Create;
 HAnimSegment133.NameField := 'l_carpal_distal_phalanx_2';
@@ -769,6 +810,11 @@ HAnimSegment142.AddChildren([Transform143]);
 Shape145 := TShapeNode.Create;
 Appearance146 := TAppearanceNode.Create;
 Material147 := TMaterialNode.Create;
+end;
+
+procedure InitHAnimModelHandLeftPart9;
+begin
+
 Material147.EmissiveColor := Vector3(1,1,1);
 { .SetMaterial }
 Appearance146.Material := Material147;
@@ -824,6 +870,11 @@ HAnimJoint159.NameField := 'l_metacarpophalangeal_3';
 HAnimJoint159.Center := Vector3(0.03,0.5,0);
 HAnimSegment160 := THAnimSegmentNode.Create;
 HAnimSegment160.NameField := 'l_carpal_proximal_phalanx_3';
+end;
+
+procedure InitHAnimModelHandLeftPart10;
+begin
+
 Transform161 := TTransformNode.Create;
 Transform161.Translation := Vector3(0.03,0.5,0);
 Shape162 := Shape33;
@@ -877,6 +928,11 @@ Coordinate176 := TCoordinateNode.Create;
 Coordinate176.SetPoint([Vector3(0.05,0.75,0),Vector3(0.08,0.96,0)]);
 { .SetCoord }
 IndexedLineSet175.Coord := Coordinate176;
+end;
+
+procedure InitHAnimModelHandLeftPart11;
+begin
+
 { .SetGeometry }
 Shape172.Geometry := IndexedLineSet175;
 { .AddChildren }
@@ -934,6 +990,11 @@ HAnimSegment187.NameField := 'l_hamate';
 Transform188 := TTransformNode.Create;
 Transform188.Translation := Vector3(-0.1,0.1,0);
 Shape189 := Shape55;
+end;
+
+procedure InitHAnimModelHandLeftPart12;
+begin
+
 { .AddChild }
 Transform188.AddChildren([Shape189]);
 { .AddChildren }
@@ -990,6 +1051,11 @@ Transform202.AddChildren([Shape203]);
 { .AddChildren }
 HAnimSegment201.AddChildren([Transform202]);
 Shape204 := TShapeNode.Create;
+end;
+
+procedure InitHAnimModelHandLeftPart13;
+begin
+
 Appearance205 := TAppearanceNode.Create;
 Material206 := TMaterialNode.Create;
 Material206.EmissiveColor := Vector3(1,1,1);
@@ -1044,6 +1110,11 @@ HAnimJoint209.AddChildren([HAnimSegment210]);
 HAnimJoint218 := THAnimJointNode.Create;
 HAnimJoint218.NameField := 'l_carpal_proximal_interphalangeal_4';
 HAnimJoint218.Center := Vector3(-0.1,0.7,0);
+end;
+
+procedure InitHAnimModelHandLeftPart14;
+begin
+
 HAnimSegment219 := THAnimSegmentNode.Create;
 HAnimSegment219.NameField := 'l_carpal_middle_phalanx_4';
 Transform220 := TTransformNode.Create;
@@ -1096,6 +1167,11 @@ Shape231.Appearance := Appearance232;
 IndexedLineSet234 := TIndexedLineSetNode.Create;
 IndexedLineSet234.SetCoordIndex([0,1]);
 Coordinate235 := TCoordinateNode.Create;
+end;
+
+procedure InitHAnimModelHandLeftPart15;
+begin
+
 Coordinate235.SetPoint([Vector3(-0.1,0.93,0),Vector3(-0.1,1,0)]);
 { .SetCoord }
 IndexedLineSet234.Coord := Coordinate235;
@@ -1153,6 +1229,11 @@ HAnimSegment246 := THAnimSegmentNode.Create;
 HAnimSegment246.NameField := 'l_carpal_proximal_phalanx_5';
 Transform247 := TTransformNode.Create;
 Transform247.Translation := Vector3(-0.2,0.4,0);
+end;
+
+procedure InitHAnimModelHandLeftPart16;
+begin
+
 Shape248 := Shape33;
 { .AddChild }
 Transform247.AddChildren([Shape248]);
@@ -1208,6 +1289,11 @@ IndexedLineSet261.Coord := Coordinate262;
 Shape258.Geometry := IndexedLineSet261;
 { .AddChildren }
 HAnimSegment255.AddChildren([Shape258]);
+end;
+
+procedure InitHAnimModelHandLeftPart17;
+begin
+
 { .AddChildren }
 HAnimJoint254.AddChildren([HAnimSegment255]);
 HAnimJoint263 := THAnimJointNode.Create;
@@ -1268,6 +1354,11 @@ HAnimHumanoid26.FdJoints.Add(HAnimJoint274);
 HAnimJoint275 := HAnimJoint227;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint275);
+end;
+
+procedure InitHAnimModelHandLeftPart18;
+begin
+
 HAnimJoint276 := HAnimJoint263;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint276);
@@ -1328,6 +1419,11 @@ HAnimHumanoid26.FdJoints.Add(HAnimJoint294);
 HAnimJoint295 := HAnimJoint186;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint295);
+end;
+
+procedure InitHAnimModelHandLeftPart19;
+begin
+
 HAnimJoint296 := HAnimJoint30;
 { .FdJoints.Add }
 HAnimHumanoid26.FdJoints.Add(HAnimJoint296);
@@ -1335,6 +1431,30 @@ HAnimHumanoid26.FdJoints.Add(HAnimJoint296);
 Group24.AddChildren([HAnimHumanoid26]);
 { .AddGroup }
 X3D0.AddChildren([Group24]);
+end;
+
+function CreateHAnimModelHandLeft: TX3DRootNode;
+begin
+InitHAnimModelHandLeftPart0;
+InitHAnimModelHandLeftPart1;
+InitHAnimModelHandLeftPart2;
+InitHAnimModelHandLeftPart3;
+InitHAnimModelHandLeftPart4;
+InitHAnimModelHandLeftPart5;
+InitHAnimModelHandLeftPart6;
+InitHAnimModelHandLeftPart7;
+InitHAnimModelHandLeftPart8;
+InitHAnimModelHandLeftPart9;
+InitHAnimModelHandLeftPart10;
+InitHAnimModelHandLeftPart11;
+InitHAnimModelHandLeftPart12;
+InitHAnimModelHandLeftPart13;
+InitHAnimModelHandLeftPart14;
+InitHAnimModelHandLeftPart15;
+InitHAnimModelHandLeftPart16;
+InitHAnimModelHandLeftPart17;
+InitHAnimModelHandLeftPart18;
+InitHAnimModelHandLeftPart19;
 Result := X3D0;
 end;
 

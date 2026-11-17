@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateHAnimPoseExternProtoDeclare: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group20: TGroupNode;
@@ -54,6 +53,8 @@ Appearance57: TAppearanceNode;
 Shape58: TShapeNode;
 Box59: TBoxNode;
 Appearance60: TAppearanceNode;
+
+procedure InitHAnimPoseExternProtoDeclarePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -98,6 +99,11 @@ X3DField25 := TX3DField.Create;
 X3DField25.NameField := 'parentHAnimHumanoid';
 X3DField25.AccessType := 'inputOutput';
 X3DField25.Appinfo := 'HAnimHumanoid for this Pose to act upon';
+end;
+
+procedure InitHAnimPoseExternProtoDeclarePart1;
+begin
+
 X3DField25.Type := 'SFNode';
 { .SetX3DField }
 X3DExternalPrototype24.X3DField := X3DField25;
@@ -146,6 +152,11 @@ X3DField31.Type := 'SFTime';
 X3DExternalPrototype24.X3DField := X3DField31;
 X3DField32 := TX3DField.Create;
 X3DField32.NameField := 'metadata';
+end;
+
+procedure InitHAnimPoseExternProtoDeclarePart2;
+begin
+
 X3DField32.AccessType := 'inputOutput';
 X3DField32.Appinfo := 'single Metadata* node';
 X3DField32.Type := 'SFNode';
@@ -193,6 +204,11 @@ X3DField38.Appinfo := 'possible notification from LoadSensor if using HAnimHuman
 X3DField38.Type := 'SFBool';
 { .AddX3DField }
 X3DExternalPrototype24.X3DField := X3DField38;
+end;
+
+procedure InitHAnimPoseExternProtoDeclarePart3;
+begin
+
 X3DField39 := TX3DField.Create;
 X3DField39.NameField := 'traceEnabled';
 X3DField39.AccessType := 'inputOutput';
@@ -242,6 +258,11 @@ Box49.Size := Vector3(3.5,0.5,0.001);
 Shape48.Geometry := Box49;
 Appearance50 := TAppearanceNode.Create;
 Material51 := TMaterialNode.Create;
+end;
+
+procedure InitHAnimPoseExternProtoDeclarePart4;
+begin
+
 Material51.Transparency := 1;
 { .SetMaterial }
 Appearance50.Material := Material51;
@@ -288,6 +309,15 @@ Transform52.AddChildren([Shape58]);
 Group20.AddChildren([Transform52]);
 { .AddGroup }
 X3D0.AddChildren([Group20]);
+end;
+
+function CreateHAnimPoseExternProtoDeclare: TX3DRootNode;
+begin
+InitHAnimPoseExternProtoDeclarePart0;
+InitHAnimPoseExternProtoDeclarePart1;
+InitHAnimPoseExternProtoDeclarePart2;
+InitHAnimPoseExternProtoDeclarePart3;
+InitHAnimPoseExternProtoDeclarePart4;
 Result := X3D0;
 end;
 

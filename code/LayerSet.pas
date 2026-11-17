@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateLayerSet: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group9: TGroupNode;
@@ -33,6 +32,8 @@ Appearance25: TAppearanceNode;
 Material26: TMaterialNode;
 Text27: TTextNode;
 FontStyle28: TFontStyleNode;
+
+procedure InitLayerSetPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -85,6 +86,11 @@ Transform15.AddChildren([Shape16]);
 Layer11.AddChildren([Transform15]);
 { .AddLayers }
 LayerSet10.Layers := Layer11;
+end;
+
+procedure InitLayerSetPart1;
+begin
+
 Layer20 := TLayerNode.Create;
 Layer20.Pickable := True;
 Layer20.SetObjectType(['ALL']);
@@ -130,6 +136,12 @@ LayerSet10.Layers := Layer20;
 Group9.AddChildren([LayerSet10]);
 { .AddGroup }
 X3D0.AddChildren([Group9]);
+end;
+
+function CreateLayerSet: TX3DRootNode;
+begin
+InitLayerSetPart0;
+InitLayerSetPart1;
 Result := X3D0;
 end;
 

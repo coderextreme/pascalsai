@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbumpyx_itesliders: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group16: TGroupNode;
@@ -212,6 +211,8 @@ Viewpoint216: TViewpointNode;
 Script217: TScriptNode;
 Group218: TGroupNode;
 Group219: TGroupNode;
+
+procedure Initbumpyx_iteslidersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -264,6 +265,11 @@ Layer18.AddChildren([DirectionalLight21]);
 Viewpoint22 := TViewpointNode.Create;
 Viewpoint22.Description := 'My Overview';
 Viewpoint22.FieldOfView := 1.570796;
+end;
+
+procedure Initbumpyx_iteslidersPart1;
+begin
+
 Viewpoint22.Position := Vector3(0,1.75,60);
 { .AddChildren }
 Layer18.AddChildren([Viewpoint22]);
@@ -319,6 +325,11 @@ Cylinder36 := Cylinder26;
 Shape35.Geometry := Cylinder36;
 Appearance37 := TAppearanceNode.Create;
 Material38 := TMaterialNode.Create;
+end;
+
+procedure Initbumpyx_iteslidersPart2;
+begin
+
 Material38.DiffuseColor := Vector3(0,1,0);
 Material38.EmissiveColor := Vector3(0,1,0);
 { .SetMaterial }
@@ -376,6 +387,11 @@ Appearance52 := TAppearanceNode.Create;
 Material53 := Material48;
 { .SetMaterial }
 Appearance52.Material := Material53;
+end;
+
+procedure Initbumpyx_iteslidersPart3;
+begin
+
 { .SetAppearance }
 Shape50.Appearance := Appearance52;
 { .AddChild }
@@ -432,6 +448,11 @@ ImageTexture66.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_l
 ComposedCubeMapTexture62.LeftTexture := ImageTexture66;
 ImageTexture67 := TImageTextureNode.Create;
 ImageTexture67.SetUrl(['../resources/images/all_probes/stpeters_cross/stpeters_right.png','https://coderextreme.net/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png']);
+end;
+
+procedure Initbumpyx_iteslidersPart4;
+begin
+
 { .SetRightTexture }
 ComposedCubeMapTexture62.RightTexture := ImageTexture67;
 ImageTexture68 := TImageTextureNode.Create;
@@ -481,6 +502,11 @@ X3DField75.Value := '2';
 ComposedShader69.X3DField := X3DField75;
 X3DField76 := TX3DField.Create;
 X3DField76.NameField := 'a';
+end;
+
+procedure Initbumpyx_iteslidersPart5;
+begin
+
 X3DField76.Type := 'SFFloat';
 X3DField76.AccessType := 'inputOutput';
 X3DField76.Value := '15';
@@ -528,6 +554,11 @@ ShaderPart82.Type := 'VERTEX';
 ComposedShader69.Parts := ShaderPart82;
 ShaderPart83 := TShaderPartNode.Create;
 ShaderPart83.SetUrl(['../shaders/x_ite.fs','https://coderextreme.net/X3DJSONLD/src/main/shaders/x_ite.fs']);
+end;
+
+procedure Initbumpyx_iteslidersPart6;
+begin
+
 ShaderPart83.Type := 'FRAGMENT';
 { .AddParts }
 ComposedShader69.Parts := ShaderPart83;
@@ -582,6 +613,11 @@ X3DField90 := TX3DField.Create;
 X3DField90.NameField := 'd';
 X3DField90.Type := 'SFFloat';
 X3DField90.AccessType := 'inputOutput';
+end;
+
+procedure Initbumpyx_iteslidersPart7;
+begin
+
 X3DField90.Value := '2';
 { .AddX3DField }
 Script84.X3DField := X3DField90;
@@ -1215,6 +1251,18 @@ LayerSet17.Layers := Layer215;
 Group16.AddChildren([LayerSet17]);
 { .AddGroup }
 X3D0.AddChildren([Group16]);
+end;
+
+function Createbumpyx_itesliders: TX3DRootNode;
+begin
+Initbumpyx_iteslidersPart0;
+Initbumpyx_iteslidersPart1;
+Initbumpyx_iteslidersPart2;
+Initbumpyx_iteslidersPart3;
+Initbumpyx_iteslidersPart4;
+Initbumpyx_iteslidersPart5;
+Initbumpyx_iteslidersPart6;
+Initbumpyx_iteslidersPart7;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbumpyx_ite: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group15: TGroupNode;
@@ -45,6 +44,8 @@ X3DField43: TX3DField;
 X3DField44: TX3DField;
 ShaderPart45: TShaderPartNode;
 ShaderPart46: TShaderPartNode;
+
+procedure Initbumpyx_itePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -92,6 +93,11 @@ Transform20 := TTransformNode.Create;
 Shape21 := TShapeNode.Create;
 Sphere22 := TSphereNode.Create;
 Sphere22.Radius := 40;
+end;
+
+procedure Initbumpyx_itePart1;
+begin
+
 { .SetGeometry }
 Shape21.Geometry := Sphere22;
 Appearance23 := TAppearanceNode.Create;
@@ -143,6 +149,11 @@ X3DField34.AccessType := 'inputOnly';
 ComposedCubeMapTexture35 := ComposedCubeMapTexture25;
 { .SetComposedCubeMapTexture }
 X3DField34.ComposedCubeMapTexture := ComposedCubeMapTexture35;
+end;
+
+procedure Initbumpyx_itePart2;
+begin
+
 { .AddX3DField }
 ComposedShader32.X3DField := X3DField34;
 X3DField36 := TX3DField.Create;
@@ -190,6 +201,11 @@ ComposedShader32.X3DField := X3DField41;
 X3DField42 := TX3DField.Create;
 X3DField42.NameField := 'd';
 X3DField42.Type := 'SFFloat';
+end;
+
+procedure Initbumpyx_itePart3;
+begin
+
 X3DField42.AccessType := 'inputOutput';
 X3DField42.Value := '5';
 { .AddX3DField }
@@ -231,6 +247,14 @@ Transform20.AddChildren([Shape21]);
 Group15.AddChildren([Transform20]);
 { .AddGroup }
 X3D0.AddChildren([Group15]);
+end;
+
+function Createbumpyx_ite: TX3DRootNode;
+begin
+Initbumpyx_itePart0;
+Initbumpyx_itePart1;
+Initbumpyx_itePart2;
+Initbumpyx_itePart3;
 Result := X3D0;
 end;
 

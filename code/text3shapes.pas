@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createtext3shapes: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group8: TGroupNode;
@@ -32,6 +31,8 @@ Appearance23: TAppearanceNode;
 Material24: TMaterialNode;
 Script25: TScriptNode;
 X3DField26: TX3DField;
+
+procedure Inittext3shapesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -85,6 +86,11 @@ FontStyle22 := TFontStyleNode.Create;
 Text21.FontStyle := FontStyle22;
 { .SetGeometry }
 Shape20.Geometry := Text21;
+end;
+
+procedure Inittext3shapesPart1;
+begin
+
 Appearance23 := TAppearanceNode.Create;
 Material24 := TMaterialNode.Create;
 { .SetMaterial }
@@ -110,6 +116,12 @@ Transform9.AddChildren([Script25]);
 Group8.AddChildren([Transform9]);
 { .AddGroup }
 X3D0.AddChildren([Group8]);
+end;
+
+function Createtext3shapes: TX3DRootNode;
+begin
+Inittext3shapesPart0;
+Inittext3shapesPart1;
 Result := X3D0;
 end;
 

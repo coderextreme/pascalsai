@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateJoeSkinTexcoordDisplacerKick: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group22: TGroupNode;
@@ -367,6 +366,8 @@ Shape570: TShapeNode;
 Appearance571: TAppearanceNode;
 Material572: TMaterialNode;
 IndexedLineSet573: TIndexedLineSetNode;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -411,6 +412,11 @@ SpotLight26.BeamWidth := 1.5;
 SpotLight26.Color := Vector3(0.8,0.8,1);
 SpotLight26.CutOffAngle := 0.6;
 SpotLight26.Direction := Vector3(0,0,0);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart1;
+begin
+
 SpotLight26.Location := Vector3(0,3,3);
 SpotLight26.Radius := 10;
 { .AddChildren }
@@ -459,6 +465,11 @@ Group22.AddChildren([Viewpoint32]);
 Group33 := TGroupNode.Create;
 HAnimHumanoid34 := THAnimHumanoidNode.Create;
 HAnimHumanoid34.NameField := 'Human';
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart2;
+begin
+
 HAnimHumanoid34.Version := '2.0';
 HAnimJoint35 := THAnimJointNode.Create;
 HAnimJoint35.NameField := 'humanoid_root';
@@ -511,6 +522,11 @@ HAnimSegment38.AddChildren([HAnimSite39]);
 HAnimJoint35.AddChildren([HAnimSegment38]);
 HAnimJoint46 := THAnimJointNode.Create;
 HAnimJoint46.NameField := 'sacroiliac';
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart3;
+begin
+
 HAnimJoint46.Center := Vector3(0,0.92,0);
 HAnimJoint46.SetSkinCoordIndex([17,19,20,21,22,23,26,27,73,82,89,91,93]);
 HAnimJoint46.SetSkinCoordWeight([1,1,1,1,1,1,1,1,1,1,0.35,0.35,1]);
@@ -557,6 +573,11 @@ HAnimJoint47.AddChildren([HAnimJoint48]);
 { .AddChildren }
 HAnimJoint46.AddChildren([HAnimJoint47]);
 HAnimJoint53 := THAnimJointNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart4;
+begin
+
 HAnimJoint53.NameField := 'r_hip';
 HAnimJoint53.Center := Vector3(-0.1,0.92,0);
 HAnimJoint53.SetSkinCoordIndex([91,92,98,99,100,101,362,363]);
@@ -604,6 +625,11 @@ HAnimJoint59 := THAnimJointNode.Create;
 HAnimJoint59.NameField := 'vl5';
 HAnimJoint59.Center := Vector3(0,1.045,-0.095);
 HAnimJoint59.SetSkinCoordIndex([28,76]);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart5;
+begin
+
 HAnimJoint59.SetSkinCoordWeight([1,1]);
 HAnimJoint60 := THAnimJointNode.Create;
 HAnimJoint60.NameField := 'vl4';
@@ -644,6 +670,11 @@ HAnimJoint69.Center := Vector3(0,1.323,-0.1155);
 HAnimJoint70 := THAnimJointNode.Create;
 HAnimJoint70.NameField := 'vt6';
 HAnimJoint70.Center := Vector3(0,1.352,-0.12);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart6;
+begin
+
 HAnimJoint71 := THAnimJointNode.Create;
 HAnimJoint71.NameField := 'vt5';
 HAnimJoint71.Center := Vector3(0,1.381,-0.1235);
@@ -684,6 +715,11 @@ HAnimJoint81 := THAnimJointNode.Create;
 HAnimJoint81.NameField := 'vc2';
 HAnimJoint81.Center := Vector3(0,1.595,-0.0175);
 HAnimJoint82 := THAnimJointNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart7;
+begin
+
 HAnimJoint82.NameField := 'vc1';
 HAnimJoint82.Center := Vector3(0,1.61,-0.015);
 HAnimJoint83 := THAnimJointNode.Create;
@@ -732,6 +768,11 @@ HAnimJoint91.NameField := 'temporomandibular';
 HAnimJoint91.Center := Vector3(0.034,1.659,0.06);
 { .AddChildren }
 HAnimJoint83.AddChildren([HAnimJoint91]);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart8;
+begin
+
 { .AddChildren }
 HAnimJoint82.AddChildren([HAnimJoint83]);
 { .AddChildren }
@@ -780,6 +821,11 @@ HAnimJoint97.SetSkinCoordIndex([127,128]);
 HAnimJoint97.SetSkinCoordWeight([1,1]);
 HAnimJoint98 := THAnimJointNode.Create;
 HAnimJoint98.NameField := 'l_thumb2';
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart9;
+begin
+
 HAnimJoint98.Center := Vector3(0.1951,0.8226,0.0246);
 HAnimJoint98.SetSkinCoordIndex([138,139,140,141,142,143]);
 HAnimJoint98.SetSkinCoordWeight([0.5,0.5,0.5,1,1,1]);
@@ -827,6 +873,11 @@ HAnimJoint104.NameField := 'l_middle0';
 HAnimJoint104.Center := Vector3(0.1987,0.8029,-0.053);
 HAnimJoint104.SetSkinCoordIndex([131,132]);
 HAnimJoint104.SetSkinCoordWeight([1,1]);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart10;
+begin
+
 HAnimJoint105 := THAnimJointNode.Create;
 HAnimJoint105.NameField := 'l_middle1';
 HAnimJoint105.Center := Vector3(0.1987,0.7818,-0.053);
@@ -872,6 +923,11 @@ HAnimJoint111.SetSkinCoordIndex([196,197,198,199,200,201,202,203,204]);
 HAnimJoint111.SetSkinCoordWeight([1,1,1,1,1,1,1,1,1]);
 { .AddChildren }
 HAnimJoint110.AddChildren([HAnimJoint111]);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart11;
+begin
+
 { .AddChildren }
 HAnimJoint109.AddChildren([HAnimJoint110]);
 { .AddChildren }
@@ -924,6 +980,11 @@ HAnimJoint116.SetSkinCoordWeight([1]);
 HAnimJoint117 := THAnimJointNode.Create;
 HAnimJoint117.NameField := 'r_acromioclavicular';
 HAnimJoint117.Center := Vector3(-0.09,1.41,-0.11);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart12;
+begin
+
 HAnimJoint117.SetSkinCoordIndex([77,29]);
 HAnimJoint117.SetSkinCoordWeight([1,0.9]);
 HAnimJoint118 := THAnimJointNode.Create;
@@ -967,6 +1028,11 @@ HAnimJoint124.NameField := 'r_index0';
 HAnimJoint124.Center := Vector3(-0.2,0.84,-0.015);
 HAnimJoint124.SetSkinCoordIndex([245,246]);
 HAnimJoint124.SetSkinCoordWeight([1,1]);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart13;
+begin
+
 HAnimJoint125 := THAnimJointNode.Create;
 HAnimJoint125.NameField := 'r_index1';
 HAnimJoint125.Center := Vector3(-0.2,0.793,-0.015);
@@ -1012,6 +1078,11 @@ HAnimJoint131.SetSkinCoordIndex([299,300,301,302,303,304,305,306,307]);
 HAnimJoint131.SetSkinCoordWeight([1,1,1,1,1,1,1,1,1]);
 { .AddChildren }
 HAnimJoint130.AddChildren([HAnimJoint131]);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart14;
+begin
+
 { .AddChildren }
 HAnimJoint129.AddChildren([HAnimJoint130]);
 { .AddChildren }
@@ -1059,6 +1130,11 @@ HAnimJoint137.SetSkinCoordWeight([1,1,1]);
 HAnimJoint138 := THAnimJointNode.Create;
 HAnimJoint138.NameField := 'r_pinky2';
 HAnimJoint138.Center := Vector3(-0.2,0.755,-0.085);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart15;
+begin
+
 HAnimJoint138.SetSkinCoordIndex([321,322,323,324]);
 HAnimJoint138.SetSkinCoordWeight([1,1,1,1]);
 HAnimJoint139 := THAnimJointNode.Create;
@@ -1127,6 +1203,11 @@ Material142.DiffuseColor := Vector3(0.3,0.3,0.6);
 Material142.EmissiveColor := Vector3(0.3,0.3,0.6);
 { .SetMaterial }
 Appearance141.Material := Material142;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart16;
+begin
+
 ImageTexture143 := TImageTextureNode.Create;
 ImageTexture143.SetUrl(['JoeBodyTexture29.png','https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Legacy/JoeBodyTexture29.png']);
 { .SetTexture }
@@ -1141,6 +1222,11 @@ IndexedFaceSet145.SetCoordIndex([0,9,5,-1,0,7,9,-1,0,5,1,-1,1,5,2,-1,1,3,7,-1,2,
 IndexedFaceSet145.CreaseAngle := 3.14;
 Coordinate146 := TCoordinateNode.Create;
 Coordinate146.SetPoint([Vector3(0,1.77,0),Vector3(0,1.665,0.09),Vector3(-0.033,1.62,0.087),Vector3(0.033,1.62,0.087),Vector3(0,1.55,0.097),Vector3(-0.077,1.64,-0.01),Vector3(-0.0527,1.58,0.015),Vector3(0.077,1.64,-0.01),Vector3(0.0527,1.58,0.015),Vector3(0,1.625,-0.0925),Vector3(-0.03,1.46,0.035),Vector3(0,1.44,0.03),Vector3(0.03,1.46,0.035),Vector3(-0.1135,1.318,0.095),Vector3(0.1135,1.318,0.095),Vector3(0,1.25,0.113),Vector3(-0.087,1.19,0.09),Vector3(-0.0935,1.03,0.075),Vector3(0.087,1.19,0.09),Vector3(0.0935,1.03,0.075),Vector3(-0.1425,1.065,0.0033),Vector3(-0.15,0.9,-0.01),Vector3(0.1425,1.065,0.0033),Vector3(0.15,0.9,-0.01),Vector3(0,1.53,-0.084),Vector3(0.0049,1.1908,-0.1113),Vector3(-0.0773,1.019,-0.12),Vector3(0.0773,1.019,-0.12),Vector3(0.005,1.0915,-0.1091),Vector3(-0.178,1.4825,-0.0625),Vector3(-0.17,1.38,0.007),Vector3(-0.1884,0.8676,-0.036),Vector3(-0.16,1.38,-0.127),Vector3(-0.2,1.1388,-0.08),Vector3(-0.244,1.1388,-0.04),Vector3(-0.165,1.1388,-0.04),Vector3(-0.23,1.133,-0.055),Vector3(-0.1977,0.8169,-0.0177),Vector3(-0.1941,0.6772,-0.0423),Vector3(-0.2117,0.8562,-0.0584),Vector3(-0.1929,0.789,-0.1064),Vector3(0.175,1.4825,-0.06),Vector3(0.17,1.38,0.007),Vector3(0.1901,0.8645,-0.0415),Vector3(0.16,1.38,-0.125),Vector3(0.2,1.1388,-0.08),Vector3(0.165,1.1388,-0.04),Vector3(0.244,1.1388,-0.04),Vector3(0.23,1.133,-0.055),Vector3(0.2009,0.8139,-0.0237),Vector3(0.2056,0.6743,-0.0482),Vector3(0.2142,0.8529,-0.0648),Vector3(0.1929,0.786,-0.1122),Vector3(-0.1,0.4913,-0.03),Vector3(-0.17,0.466,0),Vector3(-0.05,0.466,0),Vector3(-0.165,0.01,0.12),Vector3(-0.15,0.07,0),Vector3(-0.085,0.086,0.0125),Vector3(-0.09,0.056,0.0125),Vector3(-0.115,0.02,0.122),Vector3(-0.115,0.04,-0.055),Vector3(-0.11,0.011,0.19),Vector3(0.0993,0.4881,-0.0309),Vector3(0.17,0.466,0),Vector3(0.05,0.4867,0),Vector3(0.165,0.01,0.12),Vector3(0.15,0.07,0),Vector3(0.085,0.086,0.0125),Vector3(0.09,0.056,0.0125),Vector3(0.115,0.02,0.122),Vector3(0.115,0.04,-0.055),Vector3(0.11,0.011,0.19),Vector3(0,0.875,0),Vector3(-0.0646,1.5149,-0.038),Vector3(0.0646,1.5149,-0.038),Vector3(0,1.07225,0.09),Vector3(-0.11,1.427,-0.1375),Vector3(-0.235,1.42,-0.0625),Vector3(0.11,1.427,-0.1375),Vector3(0.235,1.42,-0.0625),Vector3(0,1.41,-0.145),Vector3(0,0.925,0.08),Vector3(-0.087,1.19,-0.09),Vector3(0.087,1.19,-0.09),Vector3(0.172,1.32,-0.03),Vector3(-0.172,1.32,-0.03),Vector3(0.15,1.23,-0.015),Vector3(-0.15,1.23,-0.015),Vector3(0.079,0.92,-0.14),Vector3(0.1,0.9,0.077),Vector3(-0.079,0.92,-0.14),Vector3(-0.1,0.9,0.075),Vector3(0,0.87,0),Vector3(0.171,0.65,0),Vector3(0.02,0.65,0),Vector3(0.1,0.65,-0.08),Vector3(0.1,0.65,0.07),Vector3(-0.171,0.65,0),Vector3(-0.02,0.65,0),Vector3(-0.1,0.65,-0.08),Vector3(-0.1,0.65,0.07),Vector3(0.25,1.27,-0.04),Vector3(0.17,1.27,-0.04),Vector3(0.2,1.27,-0.09),Vector3(0.2,1.27,0.02),Vector3(0.244,1.1388,-0.04),Vector3(0.165,1.1388,-0.04),Vector3(0.2,1.1388,-0.08),Vector3(0.2,1.1388,-0.013),Vector3(0.225,1,-0.01),Vector3(0.225,1,-0.07),Vector3(0.185,1,-0.01),Vector3(0.185,1,-0.07),Vector3(0.2,1.1388,-0.04),Vector3(0.225,0.92,-0.04),Vector3(0.175,0.92,-0.04),Vector3(0.2,0.92,-0.065),Vector3(0.2,0.92,-0.015),Vector3(0.225,0.89,-0.04),Vector3(0.175,0.89,-0.04),Vector3(0.2,0.89,-0.065),Vector3(0.2,0.89,-0.015),Vector3(0.218,0.86,-0.04),Vector3(0.184,0.86,-0.04),Vector3(0.2,0.87,-0.07),Vector3(0.2,0.87,0),Vector3(0.21,0.85,0),Vector3(0.1854,0.85,0),Vector3(0.212,0.84,-0.015),Vector3(0.183,0.84,-0.015),Vector3(0.213,0.835,-0.04),Vector3(0.19,0.835,-0.04),Vector3(0.211,0.835,-0.065),Vector3(0.192,0.835,-0.065),Vector3(0.208,0.84,-0.085),Vector3(0.19,0.84,-0.085),Vector3(0.2,0.84,-0.095),Vector3(0.215,0.82,0),Vector3(0.193,0.815,0.005),Vector3(0.198,0.8,0.012),Vector3(0.21,0.82,0.03),Vector3(0.19,0.82,0.03),Vector3(0.2,0.835,0.039),Vector3(0.212,0.8,0.05),Vector3(0.188,0.8,0.05),Vector3(0.2,0.807,0.057),Vector3(0.2,0.793,0.035),Vector3(0.2,0.774,0.076),Vector3(0.212,0.78,0.07),Vector3(0.188,0.78,0.07),Vector3(0.2,0.785,0.075),Vector3(0.2,0.77,0.062),Vector3(0.215,0.793,-0.015),Vector3(0.187,0.793,-0.015),Vector3(0.2,0.793,-0.005),Vector3(0.215,0.788,-0.04),Vector3(0.187,0.788,-0.04),Vector3(0.215,0.793,-0.065),Vector3(0.187,0.793,-0.065),Vector3(0.21,0.79,-0.085),Vector3(0.19,0.79,-0.085),Vector3(0.2,0.79,-0.095),Vector3(0.19,0.77,-0.0275),Vector3(0.19,0.77,-0.0525),Vector3(0.19,0.78,-0.0775),Vector3(0.212,0.745,-0.015),Vector3(0.188,0.745,-0.02),Vector3(0.2,0.745,-0.0255),Vector3(0.2,0.745,-0.0045),Vector3(0.211,0.72,-0.015),Vector3(0.189,0.72,-0.015),Vector3(0.2,0.72,-0.0252),Vector3(0.2,0.72,-0.0048),Vector3(0.21,0.695,-0.015),Vector3(0.19,0.695,-0.015),Vector3(0.2,0.695,-0.025),Vector3(0.2,0.695,-0.005),Vector3(0.2,0.685,-0.015),Vector3(0.215,0.74,-0.04),Vector3(0.185,0.74,-0.04),Vector3(0.2,0.74,-0.055),Vector3(0.2,0.74,-0.025),Vector3(0.21,0.7142,-0.04),Vector3(0.19,0.7142,-0.04),Vector3(0.2,0.7142,-0.053),Vector3(0.2,0.7142,-0.027),Vector3(0.21,0.68,-0.04),Vector3(0.19,0.68,-0.04),Vector3(0.2,0.68,-0.05),Vector3(0.2,0.68,-0.03),Vector3(0.2,0.67,-0.04),Vector3(0.212,0.74,-0.065),Vector3(0.188,0.74,-0.065),Vector3(0.2,0.74,-0.0756),Vector3(0.2,0.74,-0.0542),Vector3(0.21,0.7177,-0.065),Vector3(0.19,0.7177,-0.065),Vector3(0.2,0.7177,-0.0751),Vector3(0.2,0.7177,-0.0549),Vector3(0.21,0.695,-0.065),Vector3(0.19,0.695,-0.065),Vector3(0.2,0.695,-0.075),Vector3(0.2,0.695,-0.055),Vector3(0.2,0.685,-0.065),Vector3(0.211,0.755,-0.085),Vector3(0.189,0.755,-0.085),Vector3(0.2,0.755,-0.0952),Vector3(0.2,0.755,-0.0748),Vector3(0.21,0.735,-0.085),Vector3(0.19,0.735,-0.085),Vector3(0.2,0.735,-0.0951),Vector3(0.2,0.735,-0.0749),Vector3(0.21,0.72,-0.085),Vector3(0.19,0.72,-0.085),Vector3(0.2,0.72,-0.095),Vector3(0.2,0.72,-0.075),Vector3(0.2,0.71,-0.085),Vector3(-0.23,1.23,-0.04),Vector3(-0.16,1.23,-0.04),Vector3(-0.2,1.235,-0.105),Vector3(-0.2,1.255,0.02),Vector3(-0.244,1.1388,-0.04),Vector3(-0.165,1.1388,-0.04),Vector3(-0.2,1.1388,-0.08),Vector3(-0.2,1.1388,0.013),Vector3(-0.225,1,-0.01),Vector3(-0.225,1,-0.07),Vector3(-0.185,1,-0.01),Vector3(-0.185,1,-0.07),Vector3(-0.2,1.1388,-0.04),Vector3(-0.225,0.92,-0.04),Vector3(-0.175,0.92,-0.04),Vector3(-0.2,0.92,-0.065),Vector3(-0.2,0.92,-0.015),Vector3(-0.225,0.89,-0.04),Vector3(-0.175,0.89,-0.04),Vector3(-0.2,0.89,-0.065),Vector3(-0.2,0.89,-0.015),Vector3(-0.218,0.86,-0.04),Vector3(-0.184,0.86,-0.04),Vector3(-0.2,0.87,-0.07),Vector3(-0.2,0.87,0),Vector3(-0.21,0.85,0),Vector3(-0.1854,0.85,0),Vector3(-0.212,0.84,-0.015),Vector3(-0.183,0.84,-0.015),Vector3(-0.213,0.835,-0.04),Vector3(-0.19,0.835,-0.04),Vector3(-0.211,0.835,-0.065),Vector3(-0.192,0.835,-0.065),Vector3(-0.208,0.84,-0.085),Vector3(-0.19,0.84,-0.085),Vector3(-0.2,0.84,-0.095),Vector3(-0.215,0.82,0),Vector3(-0.193,0.815,0.005),Vector3(-0.198,0.8,0.012),Vector3(-0.21,0.82,0.03),Vector3(-0.19,0.82,0.03),Vector3(-0.2,0.835,0.039),Vector3(-0.212,0.8,0.05),Vector3(-0.188,0.8,0.05),Vector3(-0.2,0.807,0.057),Vector3(-0.2,0.793,0.035),Vector3(-0.2,0.774,0.076),Vector3(-0.212,0.78,0.07),Vector3(-0.188,0.78,0.07),Vector3(-0.2,0.785,0.075),Vector3(-0.2,0.77,0.062),Vector3(-0.215,0.793,-0.015),Vector3(-0.187,0.793,-0.015),Vector3(-0.2,0.793,-0.005),Vector3(-0.215,0.788,-0.04),Vector3(-0.187,0.788,-0.04),Vector3(-0.215,0.793,-0.065),Vector3(-0.187,0.793,-0.065),Vector3(-0.21,0.79,-0.085),Vector3(-0.19,0.79,-0.085),Vector3(-0.2,0.79,-0.095),Vector3(-0.19,0.77,-0.0275),Vector3(-0.19,0.77,-0.0525),Vector3(-0.19,0.78,-0.0775),Vector3(-0.212,0.745,-0.015),Vector3(-0.188,0.745,-0.02),Vector3(-0.2,0.745,-0.0255),Vector3(-0.2,0.745,-0.0045),Vector3(-0.211,0.72,-0.015),Vector3(-0.189,0.72,-0.015),Vector3(-0.2,0.72,-0.0252),Vector3(-0.2,0.72,-0.0048),Vector3(-0.21,0.695,-0.015),Vector3(-0.19,0.695,-0.015),Vector3(-0.2,0.695,-0.025),Vector3(-0.2,0.695,-0.005),Vector3(-0.2,0.685,-0.015),Vector3(-0.215,0.74,-0.04),Vector3(-0.185,0.74,-0.04),Vector3(-0.2,0.74,-0.055),Vector3(-0.2,0.74,-0.025),Vector3(-0.21,0.7142,-0.04),Vector3(-0.19,0.7142,-0.04),Vector3(-0.2,0.7142,-0.053),Vector3(-0.2,0.7142,-0.027),Vector3(-0.21,0.68,-0.04),Vector3(-0.19,0.68,-0.04),Vector3(-0.2,0.68,-0.05),Vector3(-0.2,0.68,-0.03),Vector3(-0.2,0.67,-0.04),Vector3(-0.212,0.74,-0.065),Vector3(-0.188,0.74,-0.065),Vector3(-0.2,0.74,-0.0756),Vector3(-0.2,0.74,-0.0542),Vector3(-0.21,0.7177,-0.065),Vector3(-0.19,0.7177,-0.065),Vector3(-0.2,0.7177,-0.0751),Vector3(-0.2,0.7177,-0.0549),Vector3(-0.21,0.695,-0.065),Vector3(-0.19,0.695,-0.065),Vector3(-0.2,0.695,-0.075),Vector3(-0.2,0.695,-0.055),Vector3(-0.2,0.685,-0.065),Vector3(-0.211,0.755,-0.085),Vector3(-0.189,0.755,-0.085),Vector3(-0.2,0.755,-0.0952),Vector3(-0.2,0.755,-0.0748),Vector3(-0.21,0.735,-0.085),Vector3(-0.19,0.735,-0.085),Vector3(-0.2,0.735,-0.0951),Vector3(-0.2,0.735,-0.0749),Vector3(-0.21,0.72,-0.085),Vector3(-0.19,0.72,-0.085),Vector3(-0.2,0.72,-0.095),Vector3(-0.2,0.72,-0.075),Vector3(-0.2,0.71,-0.085),Vector3(0.115,0.466,0.06),Vector3(0.115,0.466,-0.055),Vector3(0.15,0.466,0),Vector3(0.05,0.466,0),Vector3(0.17,0.3,0),Vector3(0.06,0.3,0),Vector3(0.1,0.3,-0.05),Vector3(0.1,0.3,0.05),Vector3(0.15,0.07,0),Vector3(0.085,0.086,0.0125),Vector3(0.115,0.069,-0.045),Vector3(0.117,0.0975,0.0615),Vector3(0.1375,0.006,-0.03),Vector3(0.095,0.006,-0.03),Vector3(0.115,0.015,-0.045),Vector3(0.115,0.06,0.1),Vector3(0.115,0,0.07),Vector3(0.165,0,0.07),Vector3(0.095,0,0.07),Vector3(0.115,0.04,0.13),Vector3(0.125,0,0.12),Vector3(0.165,0,0.12),Vector3(0.087,0,0.122),Vector3(0.09,0.012,0.188),Vector3(0.11,0.011,0.19),Vector3(0.128,0.011,0.185),Vector3(0.142,0.011,0.178),Vector3(0.154,0.01,0.168),Vector3(-0.115,0.466,0.06),Vector3(-0.115,0.466,-0.055),Vector3(-0.17,0.466,0),Vector3(-0.05,0.466,0),Vector3(-0.17,0.3,0),Vector3(-0.06,0.3,0),Vector3(-0.1,0.3,-0.05),Vector3(-0.1,0.3,0.05),Vector3(-0.15,0.07,0),Vector3(-0.085,0.086,0.0125),Vector3(-0.115,0.069,-0.045),Vector3(-0.117,0.0975,0.0615),Vector3(-0.1375,0.006,-0.03),Vector3(-0.095,0.006,-0.03),Vector3(-0.095,0.006,-0.03),Vector3(-0.115,0.06,0.1),Vector3(-0.115,0,0.07),Vector3(-0.165,0,0.07),Vector3(-0.095,0,0.07),Vector3(-0.115,0.04,0.13),Vector3(-0.125,0,0.12),Vector3(-0.165,0,0.12),Vector3(-0.087,0,0.122),Vector3(-0.09,0.012,0.188),Vector3(-0.11,0.011,0.19),Vector3(-0.128,0.011,0.185),Vector3(-0.142,0.011,0.178),Vector3(-0.154,0.01,0.168)]);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart17;
+begin
+
 { .SetCoord }
 IndexedFaceSet145.Coord := Coordinate146;
 TextureCoordinate147 := TTextureCoordinateNode.Create;
@@ -1202,6 +1288,11 @@ HAnimHumanoid34.FdJoints.Add(HAnimJoint163);
 HAnimJoint164 := HAnimJoint72;
 { .FdJoints.Add }
 HAnimHumanoid34.FdJoints.Add(HAnimJoint164);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart18;
+begin
+
 HAnimJoint165 := HAnimJoint73;
 { .FdJoints.Add }
 HAnimHumanoid34.FdJoints.Add(HAnimJoint165);
@@ -1262,6 +1353,11 @@ HAnimHumanoid34.FdJoints.Add(HAnimJoint183);
 HAnimJoint184 := HAnimJoint89;
 { .FdJoints.Add }
 HAnimHumanoid34.FdJoints.Add(HAnimJoint184);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart19;
+begin
+
 HAnimJoint185 := HAnimJoint87;
 { .FdJoints.Add }
 HAnimHumanoid34.FdJoints.Add(HAnimJoint185);
@@ -1322,6 +1418,11 @@ HAnimHumanoid34.FdJoints.Add(HAnimJoint203);
 HAnimJoint204 := HAnimJoint128;
 { .FdJoints.Add }
 HAnimHumanoid34.FdJoints.Add(HAnimJoint204);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart20;
+begin
+
 HAnimJoint205 := HAnimJoint105;
 { .FdJoints.Add }
 HAnimHumanoid34.FdJoints.Add(HAnimJoint205);
@@ -1382,6 +1483,11 @@ HAnimHumanoid34.FdJoints.Add(HAnimJoint223);
 HAnimJoint224 := HAnimJoint133;
 { .FdJoints.Add }
 HAnimHumanoid34.FdJoints.Add(HAnimJoint224);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart21;
+begin
+
 HAnimJoint225 := HAnimJoint110;
 { .FdJoints.Add }
 HAnimHumanoid34.FdJoints.Add(HAnimJoint225);
@@ -1442,6 +1548,11 @@ HAnimHumanoid34.FdSegments.Add(HAnimSegment243);
 HAnimSite244 := HAnimSite39;
 { .AddSites }
 HAnimHumanoid34.Sites := HAnimSite244;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart22;
+begin
+
 { .AddChildren }
 Group33.AddChildren([HAnimHumanoid34]);
 { .AddChildren }
@@ -1494,6 +1605,11 @@ OrientationInterpolator254.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector
 { .AddChildren }
 Group245.AddChildren([OrientationInterpolator254]);
 OrientationInterpolator255 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart23;
+begin
+
 OrientationInterpolator255.SetKey([0,0.5,1]);
 OrientationInterpolator255.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -1544,6 +1660,11 @@ OrientationInterpolator264.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector
 { .AddChildren }
 Group245.AddChildren([OrientationInterpolator264]);
 OrientationInterpolator265 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart24;
+begin
+
 OrientationInterpolator265.SetKey([0,0.5,1]);
 OrientationInterpolator265.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -1594,6 +1715,11 @@ OrientationInterpolator274.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector
 { .AddChildren }
 Group245.AddChildren([OrientationInterpolator274]);
 OrientationInterpolator275 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart25;
+begin
+
 OrientationInterpolator275.SetKey([0,0.5,1]);
 OrientationInterpolator275.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -1644,6 +1770,11 @@ OrientationInterpolator284.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector
 { .AddChildren }
 Group245.AddChildren([OrientationInterpolator284]);
 OrientationInterpolator285 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart26;
+begin
+
 OrientationInterpolator285.SetKey([0,0.5,1]);
 OrientationInterpolator285.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -1694,6 +1825,11 @@ OrientationInterpolator294.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector
 { .AddChildren }
 Group245.AddChildren([OrientationInterpolator294]);
 OrientationInterpolator295 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart27;
+begin
+
 OrientationInterpolator295.SetKey([0,0.5,1]);
 OrientationInterpolator295.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -1744,6 +1880,11 @@ OrientationInterpolator304.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector
 { .AddChildren }
 Group245.AddChildren([OrientationInterpolator304]);
 OrientationInterpolator305 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart28;
+begin
+
 OrientationInterpolator305.SetKey([0,0.5,1]);
 OrientationInterpolator305.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -1794,6 +1935,11 @@ OrientationInterpolator314.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector
 { .AddChildren }
 Group245.AddChildren([OrientationInterpolator314]);
 OrientationInterpolator315 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart29;
+begin
+
 OrientationInterpolator315.SetKey([0,0.5,1]);
 OrientationInterpolator315.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -1844,6 +1990,11 @@ OrientationInterpolator324.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector
 { .AddChildren }
 Group245.AddChildren([OrientationInterpolator324]);
 OrientationInterpolator325 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart30;
+begin
+
 OrientationInterpolator325.SetKey([0,0.5,1]);
 OrientationInterpolator325.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -1894,6 +2045,11 @@ OrientationInterpolator334.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector
 { .AddChildren }
 Group245.AddChildren([OrientationInterpolator334]);
 OrientationInterpolator335 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart31;
+begin
+
 OrientationInterpolator335.SetKey([0,0.5,0.75,1]);
 OrientationInterpolator335.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -1954,6 +2110,11 @@ Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator256
 Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator257.EventSet_fraction);
 { .AddX3DRoute }
 Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator258.EventSet_fraction);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart32;
+begin
+
 { .AddX3DRoute }
 Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator259.EventSet_fraction);
 { .AddX3DRoute }
@@ -2034,6 +2195,11 @@ Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator296
 Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator297.EventSet_fraction);
 { .AddX3DRoute }
 Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator298.EventSet_fraction);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart33;
+begin
+
 { .AddX3DRoute }
 Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator299.EventSet_fraction);
 { .AddX3DRoute }
@@ -2114,6 +2280,11 @@ Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator336
 Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator337.EventSet_fraction);
 { .AddX3DRoute }
 Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator338.EventSet_fraction);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart34;
+begin
+
 { .AddX3DRoute }
 Group22.AddRoute(TimeSensor246.EventFraction_changed, OrientationInterpolator339.EventSet_fraction);
 { .AddX3DRoute }
@@ -2195,6 +2366,11 @@ Group22.AddRoute(OrientationInterpolator281.EventValue_changed, HAnimJoint78.FdR
 Group22.AddRoute(OrientationInterpolator282.EventValue_changed, HAnimJoint79.FdRotation);
 { .AddX3DRoute }
 Group22.AddRoute(OrientationInterpolator283.EventValue_changed, HAnimJoint80.FdRotation);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart35;
+begin
+
 { .AddX3DRoute }
 Group22.AddRoute(OrientationInterpolator284.EventValue_changed, HAnimJoint81.FdRotation);
 { .AddX3DRoute }
@@ -2275,6 +2451,11 @@ Group22.AddRoute(OrientationInterpolator321.EventValue_changed, HAnimJoint119.Fd
 Group22.AddRoute(OrientationInterpolator322.EventValue_changed, HAnimJoint120.FdRotation);
 { .AddX3DRoute }
 Group22.AddRoute(OrientationInterpolator323.EventValue_changed, HAnimJoint121.FdRotation);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart36;
+begin
+
 { .AddX3DRoute }
 Group22.AddRoute(OrientationInterpolator324.EventValue_changed, HAnimJoint122.FdRotation);
 { .AddX3DRoute }
@@ -2343,6 +2524,11 @@ Transform541.Rotation := Vector4(0.7,0,0.7,0.1);
 Transform541.Scale := Vector3(0.23,0.23,0.23);
 Transform541.Translation := Vector3(-0.916,0.37,-0.92);
 Shape542 := TShapeNode.Create;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart37;
+begin
+
 Appearance543 := TAppearanceNode.Create;
 Material544 := TMaterialNode.Create;
 Material544.DiffuseColor := Vector3(0.3,0.3,1);
@@ -2402,6 +2588,11 @@ Transform556.AddChildren([Shape557]);
 Group555.AddChildren([Transform556]);
 Transform558 := TTransformNode.Create;
 Transform558.Scale := Vector3(1.175,1,1.175);
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart38;
+begin
+
 Shape559 := TShapeNode.Create;
 Appearance560 := TAppearanceNode.Create;
 Material561 := TMaterialNode.Create;
@@ -2456,6 +2647,11 @@ Shape570.Appearance := Appearance571;
 IndexedLineSet573 := IndexedLineSet562;
 { .SetGeometry }
 Shape570.Geometry := IndexedLineSet573;
+end;
+
+procedure InitJoeSkinTexcoordDisplacerKickPart39;
+begin
+
 { .AddChild }
 Transform569.AddChildren([Shape570]);
 { .AddChildren }
@@ -2464,6 +2660,50 @@ Group555.AddChildren([Transform569]);
 Group22.AddChildren([Group555]);
 { .AddGroup }
 X3D0.AddChildren([Group22]);
+end;
+
+function CreateJoeSkinTexcoordDisplacerKick: TX3DRootNode;
+begin
+InitJoeSkinTexcoordDisplacerKickPart0;
+InitJoeSkinTexcoordDisplacerKickPart1;
+InitJoeSkinTexcoordDisplacerKickPart2;
+InitJoeSkinTexcoordDisplacerKickPart3;
+InitJoeSkinTexcoordDisplacerKickPart4;
+InitJoeSkinTexcoordDisplacerKickPart5;
+InitJoeSkinTexcoordDisplacerKickPart6;
+InitJoeSkinTexcoordDisplacerKickPart7;
+InitJoeSkinTexcoordDisplacerKickPart8;
+InitJoeSkinTexcoordDisplacerKickPart9;
+InitJoeSkinTexcoordDisplacerKickPart10;
+InitJoeSkinTexcoordDisplacerKickPart11;
+InitJoeSkinTexcoordDisplacerKickPart12;
+InitJoeSkinTexcoordDisplacerKickPart13;
+InitJoeSkinTexcoordDisplacerKickPart14;
+InitJoeSkinTexcoordDisplacerKickPart15;
+InitJoeSkinTexcoordDisplacerKickPart16;
+InitJoeSkinTexcoordDisplacerKickPart17;
+InitJoeSkinTexcoordDisplacerKickPart18;
+InitJoeSkinTexcoordDisplacerKickPart19;
+InitJoeSkinTexcoordDisplacerKickPart20;
+InitJoeSkinTexcoordDisplacerKickPart21;
+InitJoeSkinTexcoordDisplacerKickPart22;
+InitJoeSkinTexcoordDisplacerKickPart23;
+InitJoeSkinTexcoordDisplacerKickPart24;
+InitJoeSkinTexcoordDisplacerKickPart25;
+InitJoeSkinTexcoordDisplacerKickPart26;
+InitJoeSkinTexcoordDisplacerKickPart27;
+InitJoeSkinTexcoordDisplacerKickPart28;
+InitJoeSkinTexcoordDisplacerKickPart29;
+InitJoeSkinTexcoordDisplacerKickPart30;
+InitJoeSkinTexcoordDisplacerKickPart31;
+InitJoeSkinTexcoordDisplacerKickPart32;
+InitJoeSkinTexcoordDisplacerKickPart33;
+InitJoeSkinTexcoordDisplacerKickPart34;
+InitJoeSkinTexcoordDisplacerKickPart35;
+InitJoeSkinTexcoordDisplacerKickPart36;
+InitJoeSkinTexcoordDisplacerKickPart37;
+InitJoeSkinTexcoordDisplacerKickPart38;
+InitJoeSkinTexcoordDisplacerKickPart39;
 Result := X3D0;
 end;
 

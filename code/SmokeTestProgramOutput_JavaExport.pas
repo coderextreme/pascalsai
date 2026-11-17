@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateSmokeTestProgramOutput_JavaExport: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 unit9: TunitNode;
@@ -184,6 +183,8 @@ PackagedShader203: TPackagedShaderNode;
 ShaderPart204: TShaderPartNode;
 ShaderProgram205: TShaderProgramNode;
 OrthoViewpoint206: TOrthoViewpointNode;
+
+procedure InitSmokeTestProgramOutput_JavaExportPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -233,6 +234,11 @@ X3D0.Meta['creator'] := 'Don Brutzman';
 X3D0.Meta['reference'] := 'https://sourceforge.net/p/x3d/code/HEAD/tree/www.web3d.org/x3d/stylesheets/java/examples/SmokeTestProgramOutput.x3d';
 X3D0.Meta['reference'] := 'Console output, ClassicVRML encoding, VRML97 encoding and pretty-print documentation:';
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.txt';
+end;
+
+procedure InitSmokeTestProgramOutput_JavaExportPart1;
+begin
+
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.x3dv';
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.wrl';
 X3D0.Meta['reference'] := 'SmokeTestProgramOutput.html';
@@ -283,6 +289,11 @@ Transform43 := TTransformNode.Create;
 Transform43.Translation := Vector3(0,1.5,0);
 Anchor44 := TAnchorNode.Create;
 Anchor44.Description := 'select for X3D Java SAI Library (X3DJSAIL) description';
+end;
+
+procedure InitSmokeTestProgramOutput_JavaExportPart2;
+begin
+
 Anchor44.SetUrl(['../X3DJSAIL.html','https://www.web3d.org/specifications/java/X3DJSAIL.html']);
 Shape45 := TShapeNode.Create;
 Appearance46 := TAppearanceNode.Create;
@@ -339,6 +350,11 @@ Group32.AddChildren([TimeSensor56]);
 Group32.AddRoute(TimeSensor56.EventFraction_changed, PositionInterpolator55.EventSet_fraction);
 { .AddX3DRoute }
 Group32.AddRoute(PositionInterpolator55.EventValue_changed, Transform43.FdTranslation);
+end;
+
+procedure InitSmokeTestProgramOutput_JavaExportPart3;
+begin
+
 { .AddX3DRoute }
 Transform59 := TTransformNode.Create;
 Transform59.Translation := Vector3(0,-1.5,0);
@@ -405,6 +421,11 @@ Group32.AddChildren([TimeSensor71]);
 Group32.AddRoute(TimeSensor71.EventFraction_changed, OrientationInterpolator70.EventSet_fraction);
 { .AddX3DRoute }
 Group32.AddRoute(OrientationInterpolator70.EventValue_changed, Transform59.FdRotation);
+end;
+
+procedure InitSmokeTestProgramOutput_JavaExportPart4;
+begin
+
 { .AddX3DRoute }
 Group74 := TGroupNode.Create;
 Background75 := TBackgroundNode.Create;
@@ -1030,6 +1051,15 @@ OrthoViewpoint206.SetFieldOfView([1,3,2,4]);
 Group32.AddChildren([OrthoViewpoint206]);
 { .AddGroup }
 X3D0.AddChildren([Group32]);
+end;
+
+function CreateSmokeTestProgramOutput_JavaExport: TX3DRootNode;
+begin
+InitSmokeTestProgramOutput_JavaExportPart0;
+InitSmokeTestProgramOutput_JavaExportPart1;
+InitSmokeTestProgramOutput_JavaExportPart2;
+InitSmokeTestProgramOutput_JavaExportPart3;
+InitSmokeTestProgramOutput_JavaExportPart4;
 Result := X3D0;
 end;
 

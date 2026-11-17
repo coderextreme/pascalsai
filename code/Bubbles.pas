@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateBubbles: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group10: TGroupNode;
@@ -80,6 +79,8 @@ Appearance73: TAppearanceNode;
 Material74: TMaterialNode;
 Sphere75: TSphereNode;
 Background96: TBackgroundNode;
+
+procedure InitBubblesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Interchange';
@@ -127,6 +128,11 @@ PositionInterpolator18.SetKeyValue([Vector3(0,0,0),Vector3(0.5,0.5,0.005),Vector
 Group13.AddChildren([PositionInterpolator18]);
 PositionInterpolator19 := TPositionInterpolatorNode.Create;
 PositionInterpolator19.SetKey([0,0.25,0.35,0.65,1]);
+end;
+
+procedure InitBubblesPart1;
+begin
+
 PositionInterpolator19.SetKeyValue([Vector3(0,0,0),Vector3(0.5,0.5,0.005),Vector3(0.6,0.6,0.006),Vector3(0.75,0.75,0.0075),Vector3(1.84444,1.22222,0.1)]);
 { .AddChildren }
 Group13.AddChildren([PositionInterpolator19]);
@@ -178,6 +184,11 @@ Transform31 := TTransformNode.Create;
 Shape32 := TShapeNode.Create;
 Appearance33 := TAppearanceNode.Create;
 Material34 := TMaterialNode.Create;
+end;
+
+procedure InitBubblesPart2;
+begin
+
 Material34.DiffuseColor := Vector3(1,1,1);
 Material34.Transparency := 0.8;
 { .SetMaterial }
@@ -233,6 +244,11 @@ Shape47 := TShapeNode.Create;
 Appearance48 := TAppearanceNode.Create;
 Material49 := TMaterialNode.Create;
 Material49.DiffuseColor := Vector3(1,1,1);
+end;
+
+procedure InitBubblesPart3;
+begin
+
 Material49.Transparency := 0.8;
 { .SetMaterial }
 Appearance48.Material := Material49;
@@ -288,6 +304,11 @@ Appearance63 := TAppearanceNode.Create;
 Material64 := TMaterialNode.Create;
 Material64.DiffuseColor := Vector3(1,1,1);
 Material64.Transparency := 0.8;
+end;
+
+procedure InitBubblesPart4;
+begin
+
 { .SetMaterial }
 Appearance63.Material := Material64;
 { .SetAppearance }
@@ -349,6 +370,11 @@ Transform25.AddRoute(TimeSensor14.EventFraction_changed, PositionInterpolator19.
 Transform25.AddRoute(TimeSensor14.EventFraction_changed, PositionInterpolator20.EventSet_fraction);
 { .AddX3DRoute }
 Transform25.AddRoute(TimeSensor14.EventFraction_changed, PositionInterpolator21.EventSet_fraction);
+end;
+
+procedure InitBubblesPart5;
+begin
+
 { .AddX3DRoute }
 Transform25.AddRoute(TimeSensor14.EventFraction_changed, PositionInterpolator22.EventSet_fraction);
 { .AddX3DRoute }
@@ -388,6 +414,16 @@ Background96.SetSkyColor([Vector3(0,0,0.6)]);
 Group10.AddChildren([Background96]);
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function CreateBubbles: TX3DRootNode;
+begin
+InitBubblesPart0;
+InitBubblesPart1;
+InitBubblesPart2;
+InitBubblesPart3;
+InitBubblesPart4;
+InitBubblesPart5;
 Result := X3D0;
 end;
 

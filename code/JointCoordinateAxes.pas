@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateJointCoordinateAxes: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group4: TGroupNode;
@@ -52,6 +51,8 @@ Shape39: TShapeNode;
 Appearance40: TAppearanceNode;
 Text41: TTextNode;
 FontStyle42: TFontStyleNode;
+
+procedure InitJointCoordinateAxesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -102,6 +103,11 @@ Transform16 := TTransformNode.Create;
 Transform16.Translation := Vector3(0,-1,0);
 Transform16.Rotation := Vector4(1,0,0,3.1416);
 Shape17 := Shape13;
+end;
+
+procedure InitJointCoordinateAxesPart1;
+begin
+
 { .AddChild }
 Transform16.AddChildren([Shape17]);
 { .AddChildren }
@@ -155,6 +161,11 @@ Shape30.Appearance := Appearance31;
 Text32 := TTextNode.Create;
 Text32.SetText(['X']);
 FontStyle33 := FontStyle24;
+end;
+
+procedure InitJointCoordinateAxesPart2;
+begin
+
 { .SetFontStyle }
 Text32.FontStyle := FontStyle33;
 { .SetGeometry }
@@ -202,6 +213,13 @@ Transform34.AddChildren([Group35]);
 Group4.AddChildren([Transform34]);
 { .AddGroup }
 X3D0.AddChildren([Group4]);
+end;
+
+function CreateJointCoordinateAxes: TX3DRootNode;
+begin
+InitJointCoordinateAxesPart0;
+InitJointCoordinateAxesPart1;
+InitJointCoordinateAxesPart2;
 Result := X3D0;
 end;
 

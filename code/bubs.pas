@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createbubs: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group8: TGroupNode;
@@ -35,6 +34,8 @@ X3DPrototype29: TX3DPrototypeNode;
 X3DPrototype30: TX3DPrototypeNode;
 X3DPrototype31: TX3DPrototypeNode;
 X3DPrototype32: TX3DPrototypeNode;
+
+procedure InitbubsPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -81,6 +82,11 @@ Material18.DiffuseColor := Vector3(1,0,0);
 Material18.Transparency := 0.2;
 { .SetMaterial }
 Appearance17.Material := Material18;
+end;
+
+procedure InitbubsPart1;
+begin
+
 { .SetAppearance }
 Shape15.Appearance := Appearance17;
 { .AddChild }
@@ -197,6 +203,12 @@ X3DPrototype32.NameField := 'Bubble';
 Group8.X3DPrototype := X3DPrototype32;
 { .AddGroup }
 X3D0.AddChildren([Group8]);
+end;
+
+function Createbubs: TX3DRootNode;
+begin
+InitbubsPart0;
+InitbubsPart1;
 Result := X3D0;
 end;
 

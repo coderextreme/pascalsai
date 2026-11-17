@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateMyBounce: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -27,6 +26,8 @@ X3DField17: TX3DField;
 X3DField18: TX3DField;
 X3DField19: TX3DField;
 TimeSensor20: TTimeSensorNode;
+
+procedure InitMyBouncePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -76,6 +77,11 @@ Script14.X3DField := X3DField16;
 X3DField17 := TX3DField.Create;
 X3DField17.NameField := 'translation';
 X3DField17.AccessType := 'inputOutput';
+end;
+
+procedure InitMyBouncePart1;
+begin
+
 X3DField17.Type := 'SFVec3f';
 X3DField17.Value := '0 0 0';
 { .AddX3DField }
@@ -138,6 +144,12 @@ Group7.AddRoute(Script14.EventTranslation_changed, Transform9.FdTranslation);
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function CreateMyBounce: TX3DRootNode;
+begin
+InitMyBouncePart0;
+InitMyBouncePart1;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateDesignPatternsApparelMedicalSkinLayers: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group18: TGroupNode;
@@ -70,6 +69,8 @@ Shape71: TShapeNode;
 Box72: TBoxNode;
 Appearance73: TAppearanceNode;
 Material74: TMaterialNode;
+
+procedure InitDesignPatternsApparelMedicalSkinLayersPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -115,6 +116,11 @@ HAnimJoint24 := THAnimJointNode.Create;
 HAnimJoint24.NameField := 'humanoid_root';
 HAnimSegment25 := THAnimSegmentNode.Create;
 HAnimSegment25.NameField := 'sacrum';
+end;
+
+procedure InitDesignPatternsApparelMedicalSkinLayersPart1;
+begin
+
 Shape26 := TShapeNode.Create;
 { .AddChildren }
 HAnimSegment25.AddChildren([Shape26]);
@@ -174,6 +180,11 @@ Group21.AddChildren([HAnimHumanoid35]);
 { ============================== }
 HAnimHumanoid39 := THAnimHumanoidNode.Create;
 HAnimHumanoid39.NameField := 'SkinShapeIndexedGeometry';
+end;
+
+procedure InitDesignPatternsApparelMedicalSkinLayersPart2;
+begin
+
 HAnimHumanoid39.Version := '2.0';
 HAnimJoint40 := THAnimJointNode.Create;
 HAnimJoint40.NameField := 'humanoid_root';
@@ -231,6 +242,11 @@ HAnimHumanoid50.SetSkeleton([HAnimJoint51]);
 Shape53 := TShapeNode.Create;
 IndexedFaceSet54 := TIndexedFaceSetNode.Create;
 Coordinate55 := TCoordinateNode.Create;
+end;
+
+procedure InitDesignPatternsApparelMedicalSkinLayersPart3;
+begin
+
 { .SetCoord }
 IndexedFaceSet54.Coord := Coordinate55;
 { .SetGeometry }
@@ -293,6 +309,11 @@ Shape66 := TShapeNode.Create;
 { TODO adjust Text string and Box size, then set Material transparency='1' }
 Text67 := TTextNode.Create;
 Text67.SetText(['DesignPatternsApparelMedicalSkinLayers.x3d','explores potential apparel approaches']);
+end;
+
+procedure InitDesignPatternsApparelMedicalSkinLayersPart4;
+begin
+
 FontStyle68 := TFontStyleNode.Create;
 FontStyle68.Family := ffSans;
 FontStyle68.Justify := fjMiddle;
@@ -331,6 +352,15 @@ Anchor65.AddChildren([Shape71]);
 Group18.AddChildren([Anchor65]);
 { .AddGroup }
 X3D0.AddChildren([Group18]);
+end;
+
+function CreateDesignPatternsApparelMedicalSkinLayers: TX3DRootNode;
+begin
+InitDesignPatternsApparelMedicalSkinLayersPart0;
+InitDesignPatternsApparelMedicalSkinLayersPart1;
+InitDesignPatternsApparelMedicalSkinLayersPart2;
+InitDesignPatternsApparelMedicalSkinLayersPart3;
+InitDesignPatternsApparelMedicalSkinLayersPart4;
 Result := X3D0;
 end;
 

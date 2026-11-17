@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateHumanoid4_1: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group11: TGroupNode;
@@ -1749,6 +1748,8 @@ HAnimJoint1743: THAnimJointNode;
 HAnimJoint1744: THAnimJointNode;
 HAnimJoint1745: THAnimJointNode;
 HAnimJoint1746: THAnimJointNode;
+
+procedure InitHumanoid4_1Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -1799,6 +1800,11 @@ Shape20.Geometry := Sphere21;
 Appearance22 := TAppearanceNode.Create;
 Material23 := TMaterialNode.Create;
 Material23.DiffuseColor := Vector3(0.8,0,0);
+end;
+
+procedure InitHumanoid4_1Part1;
+begin
+
 Material23.Transparency := 0.3;
 { .SetMaterial }
 Appearance22.Material := Material23;
@@ -1853,6 +1859,11 @@ IndexedFaceSet36 := TIndexedFaceSetNode.Create;
 IndexedFaceSet36.CreaseAngle := 0.5;
 IndexedFaceSet36.Solid := False;
 IndexedFaceSet36.SetCoordIndex([0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1,5,2,1,-1,5,3,2,-1,5,4,3,-1,5,1,4,-1]);
+end;
+
+procedure InitHumanoid4_1Part2;
+begin
+
 ColorRGBA37 := TColorRGBANode.Create;
 ColorRGBA37.SetColor([Vector4(1,1,0,1),Vector4(1,1,0,0.1),Vector4(1,1,0,1),Vector4(1,1,0,0.1),Vector4(1,1,0,1),Vector4(1,1,0,0.1)]);
 { .SetColor }
@@ -1909,6 +1920,11 @@ Shape49 := Shape25;
 Transform48.AddChildren([Shape49]);
 { .AddChildren }
 Transform47.AddChildren([Transform48]);
+end;
+
+procedure InitHumanoid4_1Part3;
+begin
+
 { .AddChildren }
 HAnimSegment46.AddChildren([Transform47]);
 Shape50 := TShapeNode.Create;
@@ -1964,6 +1980,11 @@ HAnimSegment46.AddChildren([HAnimSite60]);
 HAnimSite63 := THAnimSiteNode.Create;
 HAnimSite63.NameField := 'l_iliocristale_pt';
 HAnimSite63.Translation := Vector3(0.1612,1.0537,0.0008);
+end;
+
+procedure InitHumanoid4_1Part4;
+begin
+
 TouchSensor64 := TTouchSensorNode.Create;
 TouchSensor64.Description := 'HAnimSite l_iliocristale_pt';
 { .AddChildren }
@@ -2017,6 +2038,11 @@ TouchSensor76.Description := 'HAnimSite r_iliocristale_pt';
 { .AddChildren }
 HAnimSite75.AddChildren([TouchSensor76]);
 Shape77 := Shape35;
+end;
+
+procedure InitHumanoid4_1Part5;
+begin
+
 { .AddChildren }
 HAnimSite75.AddChildren([Shape77]);
 { .AddChildren }
@@ -2073,6 +2099,11 @@ HAnimSite88.AddChildren([Shape90]);
 { .AddChildren }
 HAnimSegment46.AddChildren([HAnimSite88]);
 HAnimSite91 := THAnimSiteNode.Create;
+end;
+
+procedure InitHumanoid4_1Part6;
+begin
+
 HAnimSite91.NameField := 'waist_preferred_anterior_pt';
 TouchSensor92 := TTouchSensorNode.Create;
 TouchSensor92.Description := 'HAnimSite waist_preferred_anterior_pt';
@@ -2129,6 +2160,11 @@ Shape102.Geometry := LineSet103;
 { .AddChildren }
 HAnimSegment98.AddChildren([Shape102]);
 HAnimSite106 := THAnimSiteNode.Create;
+end;
+
+procedure InitHumanoid4_1Part7;
+begin
+
 HAnimSite106.NameField := 'l_femoral_lateral_epicondyles_pt';
 HAnimSite106.Translation := Vector3(0.1598,0.4967,0.0297);
 TouchSensor107 := TTouchSensorNode.Create;
@@ -2182,6 +2218,11 @@ Coordinate120 := TCoordinateNode.Create;
 Coordinate120.SetPoint([Vector3(0,0.9149,0.0016),Vector3(-0.095,0.9171,0.0029)]);
 { .SetCoord }
 LineSet119.Coord := Coordinate120;
+end;
+
+procedure InitHumanoid4_1Part8;
+begin
+
 { from sacroiliac to r_hip vertices 2 }
 ColorRGBA121 := ColorRGBA32;
 { .SetColor }
@@ -2239,6 +2280,11 @@ HAnimSite131.AddChildren([Shape133]);
 HAnimSegment98.AddChildren([HAnimSite131]);
 { .AddChildren }
 HAnimJoint97.AddChildren([HAnimSegment98]);
+end;
+
+procedure InitHumanoid4_1Part9;
+begin
+
 HAnimJoint134 := THAnimJointNode.Create;
 HAnimJoint134.NameField := 'l_hip';
 HAnimJoint134.Center := Vector3(0.0961,0.9124,-0.0001);
@@ -2294,6 +2340,11 @@ Shape148 := Shape35;
 HAnimSite146.AddChildren([Shape148]);
 { .AddChildren }
 HAnimSegment135.AddChildren([HAnimSite146]);
+end;
+
+procedure InitHumanoid4_1Part10;
+begin
+
 HAnimSite149 := THAnimSiteNode.Create;
 HAnimSite149.NameField := 'l_tibiale_pt';
 TouchSensor150 := TTouchSensorNode.Create;
@@ -2350,6 +2401,11 @@ Shape163 := Shape35;
 HAnimSite161.AddChildren([Shape163]);
 { .AddChildren }
 HAnimSegment153.AddChildren([HAnimSite161]);
+end;
+
+procedure InitHumanoid4_1Part11;
+begin
+
 HAnimSite164 := THAnimSiteNode.Create;
 HAnimSite164.NameField := 'l_sphyrion_pt';
 HAnimSite164.Translation := Vector3(0.089,0.0575,-0.0943);
@@ -2405,6 +2461,11 @@ Coordinate178 := TCoordinateNode.Create;
 Coordinate178.SetPoint([Vector3(0.1101,0.0656,-0.0736),Vector3(3.9515,0.0653,-0.6895)]);
 { .SetCoord }
 LineSet177.Coord := Coordinate178;
+end;
+
+procedure InitHumanoid4_1Part12;
+begin
+
 { from l_talocrural to l_calcaneocuboid vertices 2 }
 ColorRGBA179 := ColorRGBA32;
 { .SetColor }
@@ -2464,6 +2525,11 @@ HAnimSegment181.AddChildren([Shape189]);
 Shape193 := TShapeNode.Create;
 LineSet194 := TLineSetNode.Create;
 LineSet194.SetVertexCount([2]);
+end;
+
+procedure InitHumanoid4_1Part13;
+begin
+
 Coordinate195 := TCoordinateNode.Create;
 Coordinate195.SetPoint([Vector3(3.4715,0.0374,0.6807),Vector3(4.1235,0.0328,1.3453)]);
 { .SetCoord }
@@ -2521,6 +2587,11 @@ Transform208.Translation := Vector3(2.8635,0.0194,2.4285);
 Transform209 := TTransformNode.Create;
 { Empty Transform }
 Shape210 := Shape25;
+end;
+
+procedure InitHumanoid4_1Part14;
+begin
+
 { .AddChild }
 Transform209.AddChildren([Shape210]);
 { .AddChildren }
@@ -2578,6 +2649,11 @@ Coordinate225 := TCoordinateNode.Create;
 Coordinate225.SetPoint([Vector3(2.7525,0.0077,4.6255),Vector3(2.7525,0.0077,4.6255)]);
 { .SetCoord }
 LineSet224.Coord := Coordinate225;
+end;
+
+procedure InitHumanoid4_1Part15;
+begin
+
 { from l_metatarsophalangeal_1 to l_tarsal_interphalangeal_1 vertices 2 }
 ColorRGBA226 := ColorRGBA32;
 { .SetColor }
@@ -2638,6 +2714,11 @@ ColorRGBA239 := ColorRGBA32;
 LineSet237.Color := ColorRGBA239;
 { .SetGeometry }
 Shape236.Geometry := LineSet237;
+end;
+
+procedure InitHumanoid4_1Part16;
+begin
+
 { .AddChildren }
 HAnimSegment232.AddChildren([Shape236]);
 { .AddChildren }
@@ -2694,6 +2775,11 @@ HAnimSegment250.AddChildren([Transform251]);
 Shape254 := TShapeNode.Create;
 LineSet255 := TLineSetNode.Create;
 LineSet255.SetVertexCount([2]);
+end;
+
+procedure InitHumanoid4_1Part17;
+begin
+
 Coordinate256 := TCoordinateNode.Create;
 Coordinate256.SetPoint([Vector3(3.6595,0.0085,4.8125),Vector3(3.7385,0.0054,5.5315)]);
 { .SetCoord }
@@ -2753,6 +2839,11 @@ HAnimSite267.AddChildren([Shape269]);
 HAnimSegment259.AddChildren([HAnimSite267]);
 { .AddChildren }
 HAnimJoint258.AddChildren([HAnimSegment259]);
+end;
+
+procedure InitHumanoid4_1Part18;
+begin
+
 HAnimJoint270 := THAnimJointNode.Create;
 HAnimJoint270.NameField := 'l_tarsal_distal_interphalangeal_2';
 HAnimJoint270.Center := Vector3(3.7385,0.0017,5.9505);
@@ -2810,6 +2901,11 @@ Transform283 := TTransformNode.Create;
 Shape284 := Shape25;
 { .AddChild }
 Transform283.AddChildren([Shape284]);
+end;
+
+procedure InitHumanoid4_1Part19;
+begin
+
 { .AddChildren }
 Transform282.AddChildren([Transform283]);
 { .AddChildren }
@@ -2868,6 +2964,11 @@ HAnimJoint298 := THAnimJointNode.Create;
 HAnimJoint298.NameField := 'l_tarsal_proximal_interphalangeal_3';
 HAnimJoint298.Center := Vector3(4.3855,0.0044,5.3745);
 HAnimSegment299 := THAnimSegmentNode.Create;
+end;
+
+procedure InitHumanoid4_1Part20;
+begin
+
 HAnimSegment299.NameField := 'l_tarsal_middle_phalanx_3';
 Transform300 := TTransformNode.Create;
 Transform300.Translation := Vector3(4.3855,0.0044,5.3745);
@@ -2927,6 +3028,11 @@ HAnimJoint311 := THAnimJointNode.Create;
 HAnimJoint311.NameField := 'l_calcaneocuboid';
 HAnimJoint311.Center := Vector3(3.9515,0.0653,-0.6895);
 HAnimSegment312 := THAnimSegmentNode.Create;
+end;
+
+procedure InitHumanoid4_1Part21;
+begin
+
 HAnimSegment312.NameField := 'l_calcaneus';
 Transform313 := TTransformNode.Create;
 Transform313.Translation := Vector3(3.9515,0.0653,-0.6895);
@@ -2985,6 +3091,11 @@ ColorRGBA328 := ColorRGBA32;
 LineSet326.Color := ColorRGBA328;
 { .SetGeometry }
 Shape325.Geometry := LineSet326;
+end;
+
+procedure InitHumanoid4_1Part22;
+begin
+
 { .AddChildren }
 HAnimSegment321.AddChildren([Shape325]);
 Shape329 := TShapeNode.Create;
@@ -3042,6 +3153,11 @@ HAnimJoint342.NameField := 'l_metatarsophalangeal_4';
 HAnimJoint342.Center := Vector3(4.8745,0.0076,4.5165);
 HAnimSegment343 := THAnimSegmentNode.Create;
 HAnimSegment343.NameField := 'l_tarsal_proximal_phalanx_4';
+end;
+
+procedure InitHumanoid4_1Part23;
+begin
+
 Transform344 := TTransformNode.Create;
 Transform344.Translation := Vector3(4.8745,0.0076,4.5165);
 Transform345 := TTransformNode.Create;
@@ -3101,6 +3217,11 @@ LineSet357.Color := ColorRGBA359;
 Shape356.Geometry := LineSet357;
 { .AddChildren }
 HAnimSegment352.AddChildren([Shape356]);
+end;
+
+procedure InitHumanoid4_1Part24;
+begin
+
 HAnimSite360 := THAnimSiteNode.Create;
 HAnimSite360.NameField := 'l_tarsal_distal_phalanx_4_tip';
 TouchSensor361 := TTouchSensorNode.Create;
@@ -3158,6 +3279,11 @@ Shape369.Geometry := LineSet370;
 HAnimSegment365.AddChildren([Shape369]);
 HAnimSite373 := THAnimSiteNode.Create;
 HAnimSite373.NameField := 'l_metatarsal_phalanx_5_pt';
+end;
+
+procedure InitHumanoid4_1Part25;
+begin
+
 TouchSensor374 := TTouchSensorNode.Create;
 TouchSensor374.Description := 'HAnimSite l_metatarsal_phalanx_5_pt';
 { .AddChildren }
@@ -3214,6 +3340,11 @@ Transform388 := TTransformNode.Create;
 Shape389 := Shape25;
 { .AddChild }
 Transform388.AddChildren([Shape389]);
+end;
+
+procedure InitHumanoid4_1Part26;
+begin
+
 { .AddChildren }
 Transform387.AddChildren([Transform388]);
 { .AddChildren }
@@ -3274,6 +3405,11 @@ HAnimSegment399 := THAnimSegmentNode.Create;
 HAnimSegment399.NameField := 'r_thigh';
 Transform400 := TTransformNode.Create;
 Transform400.Translation := Vector3(-0.095,0.9171,0.0029);
+end;
+
+procedure InitHumanoid4_1Part27;
+begin
+
 Transform401 := TTransformNode.Create;
 { Empty Transform }
 Shape402 := Shape25;
@@ -3331,6 +3467,11 @@ HAnimSite413.AddChildren([TouchSensor414]);
 Shape415 := Shape35;
 { .AddChildren }
 HAnimSite413.AddChildren([Shape415]);
+end;
+
+procedure InitHumanoid4_1Part28;
+begin
+
 { .AddChildren }
 HAnimSegment399.AddChildren([HAnimSite413]);
 { .AddChildren }
@@ -3386,6 +3527,11 @@ TouchSensor429.Description := 'HAnimSite r_sphyrion_pt';
 { .AddChildren }
 HAnimSite428.AddChildren([TouchSensor429]);
 Shape430 := Shape35;
+end;
+
+procedure InitHumanoid4_1Part29;
+begin
+
 { .AddChildren }
 HAnimSite428.AddChildren([Shape430]);
 { .AddChildren }
@@ -3445,6 +3591,11 @@ HAnimSegment432.AddChildren([Shape440]);
 HAnimJoint431.AddChildren([HAnimSegment432]);
 HAnimJoint444 := THAnimJointNode.Create;
 HAnimJoint444.NameField := 'r_talocalcaneonavicular';
+end;
+
+procedure InitHumanoid4_1Part30;
+begin
+
 HAnimJoint444.Center := Vector3(-3.4725,0.0374,0.6807);
 HAnimSegment445 := THAnimSegmentNode.Create;
 HAnimSegment445.NameField := 'r_navicular';
@@ -3504,6 +3655,11 @@ LineSet458.Color := ColorRGBA460;
 Shape457.Geometry := LineSet458;
 { .AddChildren }
 HAnimSegment445.AddChildren([Shape457]);
+end;
+
+procedure InitHumanoid4_1Part31;
+begin
+
 { .AddChildren }
 HAnimJoint444.AddChildren([HAnimSegment445]);
 HAnimJoint461 := THAnimJointNode.Create;
@@ -3559,6 +3715,11 @@ Shape475 := TShapeNode.Create;
 LineSet476 := TLineSetNode.Create;
 LineSet476.SetVertexCount([2]);
 Coordinate477 := TCoordinateNode.Create;
+end;
+
+procedure InitHumanoid4_1Part32;
+begin
+
 Coordinate477.SetPoint([Vector3(-2.8645,0.0194,2.4285),Vector3(-2.7535,0.0077,4.6255)]);
 { .SetCoord }
 LineSet476.Coord := Coordinate477;
@@ -3617,6 +3778,11 @@ HAnimSegment483.AddChildren([Shape487]);
 HAnimSite491 := THAnimSiteNode.Create;
 HAnimSite491.NameField := 'r_tarsal_distal_phalanx_1_tip';
 TouchSensor492 := TTouchSensorNode.Create;
+end;
+
+procedure InitHumanoid4_1Part33;
+begin
+
 TouchSensor492.Description := 'HAnimSite r_tarsal_distal_phalanx_1_tip';
 { .AddChildren }
 HAnimSite491.AddChildren([TouchSensor492]);
@@ -3675,6 +3841,11 @@ HAnimJoint504.NameField := 'r_tarsometatarsal_2';
 HAnimJoint504.Center := Vector3(-3.5565,0.0232,2.2895);
 HAnimSegment505 := THAnimSegmentNode.Create;
 HAnimSegment505.NameField := 'r_metatarsal_2';
+end;
+
+procedure InitHumanoid4_1Part34;
+begin
+
 Transform506 := TTransformNode.Create;
 Transform506.Translation := Vector3(-3.5565,0.0232,2.2895);
 Transform507 := TTransformNode.Create;
@@ -3734,6 +3905,11 @@ LineSet519.Color := ColorRGBA521;
 Shape518.Geometry := LineSet519;
 { .AddChildren }
 HAnimSegment514.AddChildren([Shape518]);
+end;
+
+procedure InitHumanoid4_1Part35;
+begin
+
 { .AddChildren }
 HAnimJoint513.AddChildren([HAnimSegment514]);
 HAnimJoint522 := THAnimJointNode.Create;
@@ -3792,6 +3968,11 @@ HAnimJoint513.AddChildren([HAnimJoint522]);
 HAnimJoint504.AddChildren([HAnimJoint513]);
 { .AddChildren }
 HAnimJoint495.AddChildren([HAnimJoint504]);
+end;
+
+procedure InitHumanoid4_1Part36;
+begin
+
 { .AddChildren }
 HAnimJoint444.AddChildren([HAnimJoint495]);
 HAnimJoint535 := THAnimJointNode.Create;
@@ -3847,6 +4028,11 @@ LineSet550 := TLineSetNode.Create;
 LineSet550.SetVertexCount([2]);
 Coordinate551 := TCoordinateNode.Create;
 Coordinate551.SetPoint([Vector3(-4.2795,0.0086,4.7055)]);
+end;
+
+procedure InitHumanoid4_1Part37;
+begin
+
 { .SetCoord }
 LineSet550.Coord := Coordinate551;
 { from r_tarsometatarsal_3 to r_metatarsophalangeal_3 vertices 1 }
@@ -3906,6 +4092,11 @@ Shape566 := Shape25;
 Transform565.AddChildren([Shape566]);
 { .AddChildren }
 Transform564.AddChildren([Transform565]);
+end;
+
+procedure InitHumanoid4_1Part38;
+begin
+
 { .AddChildren }
 HAnimSegment563.AddChildren([Transform564]);
 Shape567 := TShapeNode.Create;
@@ -3965,6 +4156,11 @@ Shape579 := Shape25;
 Transform578.AddChildren([Shape579]);
 { .AddChildren }
 Transform577.AddChildren([Transform578]);
+end;
+
+procedure InitHumanoid4_1Part39;
+begin
+
 { .AddChildren }
 HAnimSegment576.AddChildren([Transform577]);
 Shape580 := TShapeNode.Create;
@@ -4022,6 +4218,11 @@ Coordinate595 := TCoordinateNode.Create;
 Coordinate595.SetPoint([Vector3(-4.9095,0.0353,0.5574),Vector3(-5.3615,0.0164,2.0085)]);
 { .SetCoord }
 LineSet594.Coord := Coordinate595;
+end;
+
+procedure InitHumanoid4_1Part40;
+begin
+
 { from r_transversetarsal to r_tarsometatarsal_5 vertices 2 }
 ColorRGBA596 := ColorRGBA32;
 { .SetColor }
@@ -4081,6 +4282,11 @@ Transform609.AddChildren([Shape610]);
 Transform608.AddChildren([Transform609]);
 { .AddChildren }
 HAnimSegment607.AddChildren([Transform608]);
+end;
+
+procedure InitHumanoid4_1Part41;
+begin
+
 Shape611 := TShapeNode.Create;
 LineSet612 := TLineSetNode.Create;
 LineSet612.SetVertexCount([2]);
@@ -4138,6 +4344,11 @@ HAnimSite624.AddChildren([TouchSensor625]);
 Shape626 := Shape35;
 { .AddChildren }
 HAnimSite624.AddChildren([Shape626]);
+end;
+
+procedure InitHumanoid4_1Part42;
+begin
+
 { .AddChildren }
 HAnimSegment616.AddChildren([HAnimSite624]);
 { .AddChildren }
@@ -4197,6 +4408,11 @@ HAnimSite637.AddChildren([Shape639]);
 HAnimSegment629.AddChildren([HAnimSite637]);
 { .AddChildren }
 HAnimJoint628.AddChildren([HAnimSegment629]);
+end;
+
+procedure InitHumanoid4_1Part43;
+begin
+
 HAnimJoint640 := THAnimJointNode.Create;
 HAnimJoint640.NameField := 'r_metatarsophalangeal_5';
 HAnimJoint640.Center := Vector3(-5.5055,0.0067,4.3115);
@@ -4251,6 +4467,11 @@ LineSet655 := TLineSetNode.Create;
 LineSet655.SetVertexCount([2]);
 Coordinate656 := TCoordinateNode.Create;
 Coordinate656.SetPoint([Vector3(-5.6085,0.003,4.6485),Vector3(-5.6495,0,4.9925)]);
+end;
+
+procedure InitHumanoid4_1Part44;
+begin
+
 { .SetCoord }
 LineSet655.Coord := Coordinate656;
 { from r_tarsal_proximal_interphalangeal_5 to r_tarsal_distal_interphalangeal_5 vertices 2 }
@@ -4314,6 +4535,11 @@ Transform664.AddChildren([Transform665]);
 { .AddChildren }
 HAnimSegment663.AddChildren([Transform664]);
 Shape667 := TShapeNode.Create;
+end;
+
+procedure InitHumanoid4_1Part45;
+begin
+
 LineSet668 := TLineSetNode.Create;
 LineSet668.SetVertexCount([2]);
 Coordinate669 := TCoordinateNode.Create;
@@ -4370,6 +4596,11 @@ HAnimSegment681 := THAnimSegmentNode.Create;
 HAnimSegment681.NameField := 'l3';
 Transform682 := TTransformNode.Create;
 Transform682.Translation := Vector3(0.0041,1.1276,-0.0796);
+end;
+
+procedure InitHumanoid4_1Part46;
+begin
+
 Transform683 := TTransformNode.Create;
 { Empty Transform }
 Shape684 := Shape25;
@@ -4427,6 +4658,11 @@ HAnimSite695.AddChildren([TouchSensor696]);
 Shape697 := Shape35;
 { .AddChildren }
 HAnimSite695.AddChildren([Shape697]);
+end;
+
+procedure InitHumanoid4_1Part47;
+begin
+
 { .AddChildren }
 HAnimSegment681.AddChildren([HAnimSite695]);
 { .AddChildren }
@@ -4483,6 +4719,11 @@ HAnimSegment708.AddChildren([Transform709]);
 Shape712 := TShapeNode.Create;
 LineSet713 := TLineSetNode.Create;
 LineSet713.SetVertexCount([2]);
+end;
+
+procedure InitHumanoid4_1Part48;
+begin
+
 Coordinate714 := TCoordinateNode.Create;
 Coordinate714.SetPoint([Vector3(0.0048,1.1912,-0.0805),Vector3(0.0051,1.2278,-0.0808)]);
 { .SetCoord }
@@ -4540,6 +4781,11 @@ Transform727.Translation := Vector3(0.0053,1.2679,-0.081);
 Transform728 := TTransformNode.Create;
 { Empty Transform }
 Shape729 := Shape25;
+end;
+
+procedure InitHumanoid4_1Part49;
+begin
+
 { .AddChild }
 Transform728.AddChildren([Shape729]);
 { .AddChildren }
@@ -4596,6 +4842,11 @@ LineSet743 := TLineSetNode.Create;
 LineSet743.SetVertexCount([2]);
 Coordinate744 := TCoordinateNode.Create;
 Coordinate744.SetPoint([Vector3(0.0056,1.2848,-0.0822),Vector3(0.0057,1.3126,-0.0838)]);
+end;
+
+procedure InitHumanoid4_1Part50;
+begin
+
 { .SetCoord }
 LineSet743.Coord := Coordinate744;
 { from vt10 to vt9 vertices 2 }
@@ -4652,6 +4903,11 @@ Shape757 := TShapeNode.Create;
 LineSet758 := TLineSetNode.Create;
 LineSet758.SetVertexCount([2]);
 Coordinate759 := TCoordinateNode.Create;
+end;
+
+procedure InitHumanoid4_1Part51;
+begin
+
 Coordinate759.SetPoint([Vector3(0.0057,1.3126,-0.0838),Vector3(0.0057,1.3382,-0.0845)]);
 { .SetCoord }
 LineSet758.Coord := Coordinate759;
@@ -4710,6 +4966,11 @@ Transform773 := TTransformNode.Create;
 Shape774 := Shape25;
 { .AddChild }
 Transform773.AddChildren([Shape774]);
+end;
+
+procedure InitHumanoid4_1Part52;
+begin
+
 { .AddChildren }
 Transform772.AddChildren([Transform773]);
 { .AddChildren }
@@ -4766,6 +5027,11 @@ HAnimSite788 := THAnimSiteNode.Create;
 HAnimSite788.NameField := 'rear_center_midsagittal_plane_pt';
 TouchSensor789 := TTouchSensorNode.Create;
 TouchSensor789.Description := 'HAnimSite rear_center_midsagittal_plane_pt';
+end;
+
+procedure InitHumanoid4_1Part53;
+begin
+
 { .AddChildren }
 HAnimSite788.AddChildren([TouchSensor789]);
 Shape790 := Shape35;
@@ -4823,6 +5089,11 @@ HAnimJoint803 := THAnimJointNode.Create;
 HAnimJoint803.NameField := 'vt5';
 HAnimJoint803.Center := Vector3(0.006,1.4102,-0.0745);
 HAnimSegment804 := THAnimSegmentNode.Create;
+end;
+
+procedure InitHumanoid4_1Part54;
+begin
+
 HAnimSegment804.NameField := 't5';
 Transform805 := TTransformNode.Create;
 Transform805.Translation := Vector3(0.006,1.4102,-0.0745);
@@ -4881,6 +5152,11 @@ ColorRGBA820 := ColorRGBA32;
 LineSet818.Color := ColorRGBA820;
 { .SetGeometry }
 Shape817.Geometry := LineSet818;
+end;
+
+procedure InitHumanoid4_1Part55;
+begin
+
 { .AddChildren }
 HAnimSegment813.AddChildren([Shape817]);
 { .AddChildren }
@@ -4937,6 +5213,11 @@ HAnimSegment831.AddChildren([Transform832]);
 Shape835 := TShapeNode.Create;
 LineSet836 := TLineSetNode.Create;
 LineSet836.SetVertexCount([2]);
+end;
+
+procedure InitHumanoid4_1Part56;
+begin
+
 Coordinate837 := TCoordinateNode.Create;
 Coordinate837.SetPoint([Vector3(0.0063,1.4761,-0.0484),Vector3(0.0065,1.4951,-0.0387)]);
 { .SetCoord }
@@ -4993,6 +5274,11 @@ Transform847.AddChildren([Transform848]);
 HAnimSegment846.AddChildren([Transform847]);
 Shape850 := TShapeNode.Create;
 LineSet851 := TLineSetNode.Create;
+end;
+
+procedure InitHumanoid4_1Part57;
+begin
+
 LineSet851.SetVertexCount([2]);
 Coordinate852 := TCoordinateNode.Create;
 Coordinate852.SetPoint([Vector3(0.0065,1.4951,-0.0387),Vector3(0.0066,1.5132,-0.0301)]);
@@ -5049,6 +5335,11 @@ HAnimSite864 := THAnimSiteNode.Create;
 HAnimSite864.NameField := 'l_acromion_pt';
 HAnimSite864.Translation := Vector3(0.2032,1.476,-0.049);
 TouchSensor865 := TTouchSensorNode.Create;
+end;
+
+procedure InitHumanoid4_1Part58;
+begin
+
 TouchSensor865.Description := 'HAnimSite l_acromion_pt';
 { .AddChildren }
 HAnimSite864.AddChildren([TouchSensor865]);
@@ -5104,6 +5395,11 @@ Shape878 := Shape35;
 HAnimSite876.AddChildren([Shape878]);
 { .AddChildren }
 HAnimSegment846.AddChildren([HAnimSite876]);
+end;
+
+procedure InitHumanoid4_1Part59;
+begin
+
 Shape879 := TShapeNode.Create;
 LineSet880 := TLineSetNode.Create;
 LineSet880.SetVertexCount([2]);
@@ -5158,6 +5454,11 @@ HAnimSite892 := THAnimSiteNode.Create;
 HAnimSite892.NameField := 'r_axilla_proximal_pt';
 HAnimSite892.Translation := Vector3(-0.1626,1.4072,-0.0031);
 TouchSensor893 := TTouchSensorNode.Create;
+end;
+
+procedure InitHumanoid4_1Part60;
+begin
+
 TouchSensor893.Description := 'HAnimSite r_axilla_proximal_pt';
 { .AddChildren }
 HAnimSite892.AddChildren([TouchSensor893]);
@@ -5215,6 +5516,11 @@ HAnimSegment899.AddChildren([Shape903]);
 HAnimJoint898.AddChildren([HAnimSegment899]);
 HAnimJoint907 := THAnimJointNode.Create;
 HAnimJoint907.NameField := 'vc6';
+end;
+
+procedure InitHumanoid4_1Part61;
+begin
+
 HAnimJoint907.Center := Vector3(0.0066,1.5357,-0.0143);
 HAnimSegment908 := THAnimSegmentNode.Create;
 HAnimSegment908.NameField := 'c6';
@@ -5271,6 +5577,11 @@ Coordinate923.SetPoint([Vector3(0.0066,1.552,-0.0082),Vector3(0.0066,1.5662,-0.0
 LineSet922.Coord := Coordinate923;
 { from vc5 to vc4 vertices 2 }
 ColorRGBA924 := ColorRGBA32;
+end;
+
+procedure InitHumanoid4_1Part62;
+begin
+
 { .SetColor }
 LineSet922.Color := ColorRGBA924;
 { .SetGeometry }
@@ -5329,6 +5640,11 @@ Transform936.AddChildren([Transform937]);
 { .AddChildren }
 HAnimSegment935.AddChildren([Transform936]);
 Shape939 := TShapeNode.Create;
+end;
+
+procedure InitHumanoid4_1Part63;
+begin
+
 LineSet940 := TLineSetNode.Create;
 LineSet940.SetVertexCount([2]);
 Coordinate941 := TCoordinateNode.Create;
@@ -5387,6 +5703,11 @@ LineSet952.Color := ColorRGBA954;
 Shape951.Geometry := LineSet952;
 { .AddChildren }
 HAnimSegment947.AddChildren([Shape951]);
+end;
+
+procedure InitHumanoid4_1Part64;
+begin
+
 { .AddChildren }
 HAnimJoint946.AddChildren([HAnimSegment947]);
 HAnimJoint955 := THAnimJointNode.Create;
@@ -5443,6 +5764,11 @@ HAnimSite967.AddChildren([Shape969]);
 { .AddChildren }
 HAnimSegment956.AddChildren([HAnimSite967]);
 HAnimSite970 := THAnimSiteNode.Create;
+end;
+
+procedure InitHumanoid4_1Part65;
+begin
+
 HAnimSite970.NameField := 'l_infraorbitale_pt';
 HAnimSite970.Translation := Vector3(0.0341,1.6171,0.0752);
 TouchSensor971 := TTouchSensorNode.Create;
@@ -5496,6 +5822,11 @@ TouchSensor983.Description := 'HAnimSite r_ectocanthus_pt';
 { .AddChildren }
 HAnimSite982.AddChildren([TouchSensor983]);
 Shape984 := Shape35;
+end;
+
+procedure InitHumanoid4_1Part66;
+begin
+
 { .AddChildren }
 HAnimSite982.AddChildren([Shape984]);
 { .AddChildren }
@@ -5551,6 +5882,11 @@ HAnimSegment956.AddChildren([HAnimSite994]);
 { .AddChildren }
 HAnimJoint955.AddChildren([HAnimSegment956]);
 HAnimJoint997 := THAnimJointNode.Create;
+end;
+
+procedure InitHumanoid4_1Part67;
+begin
+
 HAnimJoint997.NameField := 'skullbase';
 HAnimJoint997.Center := Vector3(0.0044,1.6209,0.0236);
 HAnimSegment998 := THAnimSegmentNode.Create;
@@ -5609,6 +5945,11 @@ ColorRGBA1013 := ColorRGBA32;
 LineSet1011.Color := ColorRGBA1013;
 { .SetGeometry }
 Shape1010.Geometry := LineSet1011;
+end;
+
+procedure InitHumanoid4_1Part68;
+begin
+
 { .AddChildren }
 HAnimSegment998.AddChildren([Shape1010]);
 Shape1014 := TShapeNode.Create;
@@ -5669,6 +6010,11 @@ ColorRGBA1029 := ColorRGBA32;
 LineSet1027.Color := ColorRGBA1029;
 { .SetGeometry }
 Shape1026.Geometry := LineSet1027;
+end;
+
+procedure InitHumanoid4_1Part69;
+begin
+
 { .AddChildren }
 HAnimSegment998.AddChildren([Shape1026]);
 HAnimSite1030 := THAnimSiteNode.Create;
@@ -5723,6 +6069,11 @@ HAnimJoint997.AddChildren([HAnimSegment998]);
 HAnimJoint1042 := THAnimJointNode.Create;
 HAnimJoint1042.NameField := 'l_eyelid_joint';
 HAnimJoint1042.Center := Vector3(2.2365,1.87,1.9285);
+end;
+
+procedure InitHumanoid4_1Part70;
+begin
+
 { .AddChildren }
 HAnimJoint997.AddChildren([HAnimJoint1042]);
 HAnimJoint1043 := THAnimJointNode.Create;
@@ -5778,6 +6129,11 @@ HAnimSegment1050 := THAnimSegmentNode.Create;
 HAnimSegment1050.NameField := 'l_clavicle';
 Transform1051 := TTransformNode.Create;
 Transform1051.Translation := Vector3(0.082,1.4488,-0.0353);
+end;
+
+procedure InitHumanoid4_1Part71;
+begin
+
 Transform1052 := TTransformNode.Create;
 { Empty Transform }
 Shape1053 := Shape25;
@@ -5837,6 +6193,11 @@ Shape1063.Geometry := LineSet1064;
 HAnimSegment1059.AddChildren([Shape1063]);
 HAnimSite1067 := THAnimSiteNode.Create;
 HAnimSite1067.NameField := 'l_bideltoid_pt';
+end;
+
+procedure InitHumanoid4_1Part72;
+begin
+
 TouchSensor1068 := TTouchSensorNode.Create;
 TouchSensor1068.Description := 'HAnimSite l_bideltoid_pt';
 { .AddChildren }
@@ -5893,6 +6254,11 @@ Shape1078.Geometry := LineSet1079;
 HAnimSegment1074.AddChildren([Shape1078]);
 HAnimSite1082 := THAnimSiteNode.Create;
 HAnimSite1082.NameField := 'l_humeral_medial_epicondyles_pt';
+end;
+
+procedure InitHumanoid4_1Part73;
+begin
+
 HAnimSite1082.Translation := Vector3(0.1735,1.1272,-0.1113);
 TouchSensor1083 := TTouchSensorNode.Create;
 TouchSensor1083.Description := 'HAnimSite l_humeral_medial_epicondyles_pt';
@@ -5946,6 +6312,11 @@ HAnimJoint1094.NameField := 'l_elbow';
 HAnimJoint1094.Center := Vector3(0.2014,1.1357,-0.0682);
 HAnimSegment1095 := THAnimSegmentNode.Create;
 HAnimSegment1095.NameField := 'l_forearm';
+end;
+
+procedure InitHumanoid4_1Part74;
+begin
+
 Transform1096 := TTransformNode.Create;
 Transform1096.Translation := Vector3(0.2014,1.1357,-0.0682);
 Transform1097 := TTransformNode.Create;
@@ -6002,6 +6373,11 @@ Transform1109.Rotation := Vector4(0,1,0,-1.57);
 Shape1110 := Shape25;
 { .AddChild }
 Transform1109.AddChildren([Shape1110]);
+end;
+
+procedure InitHumanoid4_1Part75;
+begin
+
 { .AddChildren }
 Transform1108.AddChildren([Transform1109]);
 { .AddChildren }
@@ -6062,6 +6438,11 @@ LineSet1124.Coord := Coordinate1125;
 ColorRGBA1126 := ColorRGBA32;
 { .SetColor }
 LineSet1124.Color := ColorRGBA1126;
+end;
+
+procedure InitHumanoid4_1Part76;
+begin
+
 { .SetGeometry }
 Shape1123.Geometry := LineSet1124;
 { .AddChildren }
@@ -6119,6 +6500,11 @@ Transform1138.AddChildren([Transform1139]);
 HAnimSegment1137.AddChildren([Transform1138]);
 Shape1141 := TShapeNode.Create;
 LineSet1142 := TLineSetNode.Create;
+end;
+
+procedure InitHumanoid4_1Part77;
+begin
+
 LineSet1142.SetVertexCount([2]);
 Coordinate1143 := TCoordinateNode.Create;
 Coordinate1143.SetPoint([Vector3(0.1924,0.8472,-0.0534),Vector3(0.1951,0.8226,0.0246)]);
@@ -6178,6 +6564,11 @@ HAnimSite1154.AddChildren([Shape1156]);
 HAnimSegment1146.AddChildren([HAnimSite1154]);
 { .AddChildren }
 HAnimJoint1145.AddChildren([HAnimSegment1146]);
+end;
+
+procedure InitHumanoid4_1Part78;
+begin
+
 HAnimJoint1157 := THAnimJointNode.Create;
 HAnimJoint1157.NameField := 'l_carpal_interphalangeal_1';
 HAnimJoint1157.Center := Vector3(0.1955,0.8159,0.0464);
@@ -6235,6 +6626,11 @@ HAnimSegment1159.AddChildren([HAnimSite1167]);
 { .AddChildren }
 HAnimJoint1158.AddChildren([HAnimSegment1159]);
 HAnimJoint1170 := THAnimJointNode.Create;
+end;
+
+procedure InitHumanoid4_1Part79;
+begin
+
 HAnimJoint1170.NameField := 'l_carpometacarpal_2';
 HAnimJoint1170.Center := Vector3(0.1983,0.8024,-0.028);
 HAnimSegment1171 := THAnimSegmentNode.Create;
@@ -6290,6 +6686,11 @@ Coordinate1186 := TCoordinateNode.Create;
 Coordinate1186.SetPoint([Vector3(0.1983,0.7815,-0.028),Vector3(0.2017,0.7363,-0.0248)]);
 { .SetCoord }
 LineSet1185.Coord := Coordinate1186;
+end;
+
+procedure InitHumanoid4_1Part80;
+begin
+
 { from l_metacarpophalangeal_2 to l_carpal_proximal_interphalangeal_2 vertices 2 }
 ColorRGBA1187 := ColorRGBA32;
 { .SetColor }
@@ -6347,6 +6748,11 @@ HAnimSite1200.NameField := 'l_dactylion_pt';
 HAnimSite1200.Translation := Vector3(0.2056,0.6743,-0.0482);
 TouchSensor1201 := TTouchSensorNode.Create;
 TouchSensor1201.Description := 'HAnimSite l_dactylion_pt';
+end;
+
+procedure InitHumanoid4_1Part81;
+begin
+
 { .AddChildren }
 HAnimSite1200.AddChildren([TouchSensor1201]);
 Shape1202 := Shape35;
@@ -6406,6 +6812,11 @@ TouchSensor1214 := TTouchSensorNode.Create;
 TouchSensor1214.Description := 'HAnimSite l_metacarpal_phalanx_3_pt';
 { .AddChildren }
 HAnimSite1213.AddChildren([TouchSensor1214]);
+end;
+
+procedure InitHumanoid4_1Part82;
+begin
+
 Shape1215 := Shape35;
 { .AddChildren }
 HAnimSite1213.AddChildren([Shape1215]);
@@ -6463,6 +6874,11 @@ Transform1227.AddChildren([Transform1228]);
 { .AddChildren }
 HAnimSegment1226.AddChildren([Transform1227]);
 Shape1230 := TShapeNode.Create;
+end;
+
+procedure InitHumanoid4_1Part83;
+begin
+
 LineSet1231 := TLineSetNode.Create;
 LineSet1231.SetVertexCount([2]);
 Coordinate1232 := TCoordinateNode.Create;
@@ -6521,6 +6937,11 @@ Shape1245 := Shape35;
 HAnimSite1243.AddChildren([Shape1245]);
 { .AddChildren }
 HAnimSegment1235.AddChildren([HAnimSite1243]);
+end;
+
+procedure InitHumanoid4_1Part84;
+begin
+
 { .AddChildren }
 HAnimJoint1234.AddChildren([HAnimSegment1235]);
 HAnimJoint1246 := THAnimJointNode.Create;
@@ -6580,6 +7001,11 @@ ColorRGBA1259 := ColorRGBA32;
 LineSet1257.Color := ColorRGBA1259;
 { .SetGeometry }
 Shape1256.Geometry := LineSet1257;
+end;
+
+procedure InitHumanoid4_1Part85;
+begin
+
 { .AddChildren }
 HAnimSegment1248.AddChildren([Shape1256]);
 HAnimSite1260 := THAnimSiteNode.Create;
@@ -6635,6 +7061,11 @@ HAnimJoint1272.Center := Vector3(0.1956,0.7815,-0.0794);
 HAnimSegment1273 := THAnimSegmentNode.Create;
 HAnimSegment1273.NameField := 'l_carpal_proximal_phalanx_4';
 Transform1274 := TTransformNode.Create;
+end;
+
+procedure InitHumanoid4_1Part86;
+begin
+
 Transform1274.Translation := Vector3(0.1956,0.7815,-0.0794);
 Transform1275 := TTransformNode.Create;
 { Empty Transform }
@@ -6694,6 +7125,11 @@ Shape1286.Geometry := LineSet1287;
 { .AddChildren }
 HAnimSegment1282.AddChildren([Shape1286]);
 HAnimSite1290 := THAnimSiteNode.Create;
+end;
+
+procedure InitHumanoid4_1Part87;
+begin
+
 HAnimSite1290.NameField := 'l_carpal_distal_phalanx_4_tip';
 TouchSensor1291 := TTouchSensorNode.Create;
 TouchSensor1291.Description := 'HAnimSite l_carpal_distal_phalanx_4_tip';
@@ -6752,6 +7188,11 @@ HAnimSegment1295.AddChildren([Shape1299]);
 HAnimJoint1294.AddChildren([HAnimSegment1295]);
 HAnimJoint1303 := THAnimJointNode.Create;
 HAnimJoint1303.NameField := 'l_metacarpophalangeal_5';
+end;
+
+procedure InitHumanoid4_1Part88;
+begin
+
 HAnimJoint1303.Center := Vector3(0.1925,0.7866,-0.1036);
 HAnimSegment1304 := THAnimSegmentNode.Create;
 HAnimSegment1304.NameField := 'l_carpal_proximal_phalanx_5';
@@ -6808,6 +7249,11 @@ Coordinate1319.SetPoint([Vector3(0.1938,0.7452,-0.1024),Vector3(0.1948,0.7277,-0
 LineSet1318.Coord := Coordinate1319;
 { from l_carpal_proximal_interphalangeal_5 to l_carpal_distal_interphalangeal_5 vertices 2 }
 ColorRGBA1320 := ColorRGBA32;
+end;
+
+procedure InitHumanoid4_1Part89;
+begin
+
 { .SetColor }
 LineSet1318.Color := ColorRGBA1320;
 { .SetGeometry }
@@ -6869,6 +7315,11 @@ HAnimSegment1326.AddChildren([Transform1327]);
 Shape1330 := TShapeNode.Create;
 LineSet1331 := TLineSetNode.Create;
 LineSet1331.SetVertexCount([2]);
+end;
+
+procedure InitHumanoid4_1Part90;
+begin
+
 Coordinate1332 := TCoordinateNode.Create;
 Coordinate1332.SetPoint([Vector3(-0.0694,1.46,-0.033),Vector3(-0.0836,1.4281,-0.0401)]);
 { .SetCoord }
@@ -6927,6 +7378,11 @@ HAnimSite1343.AddChildren([Shape1345]);
 HAnimSegment1335.AddChildren([HAnimSite1343]);
 HAnimSite1346 := THAnimSiteNode.Create;
 HAnimSite1346.NameField := 'r_humeral_lateral_epicondyles_pt';
+end;
+
+procedure InitHumanoid4_1Part91;
+begin
+
 HAnimSite1346.Translation := Vector3(-0.2224,1.1517,-0.1033);
 TouchSensor1347 := TTouchSensorNode.Create;
 TouchSensor1347.Description := 'HAnimSite r_humeral_lateral_epicondyles_pt';
@@ -6983,6 +7439,11 @@ HAnimSite1358.AddChildren([Shape1360]);
 { .AddChildren }
 HAnimSegment1350.AddChildren([HAnimSite1358]);
 HAnimSite1361 := THAnimSiteNode.Create;
+end;
+
+procedure InitHumanoid4_1Part92;
+begin
+
 HAnimSite1361.NameField := 'r_olecranon_pt';
 HAnimSite1361.Translation := Vector3(-0.1907,1.1405,-0.1065);
 TouchSensor1362 := TTouchSensorNode.Create;
@@ -7037,6 +7498,11 @@ Transform1372.AddChildren([Transform1373]);
 { .AddChildren }
 HAnimSegment1371.AddChildren([Transform1372]);
 Shape1375 := TShapeNode.Create;
+end;
+
+procedure InitHumanoid4_1Part93;
+begin
+
 LineSet1376 := TLineSetNode.Create;
 LineSet1376.SetVertexCount([2]);
 Coordinate1377 := TCoordinateNode.Create;
@@ -7092,6 +7558,11 @@ Coordinate1389 := TCoordinateNode.Create;
 Coordinate1389.SetPoint([Vector3(-0.1959,0.8694,-0.0521),Vector3(-8.0515,0.9213,1.3235)]);
 { .SetCoord }
 LineSet1388.Coord := Coordinate1389;
+end;
+
+procedure InitHumanoid4_1Part94;
+begin
+
 { from r_radiocarpal to r_midcarpal_1 vertices 2 }
 ColorRGBA1390 := ColorRGBA32;
 { .SetColor }
@@ -7152,6 +7623,11 @@ HAnimJoint1403.NameField := 'r_midcarpal_1';
 HAnimJoint1403.Center := Vector3(-8.0515,0.9213,1.3235);
 HAnimSegment1404 := THAnimSegmentNode.Create;
 HAnimSegment1404.NameField := 'r_trapezium';
+end;
+
+procedure InitHumanoid4_1Part95;
+begin
+
 Transform1405 := TTransformNode.Create;
 Transform1405.Translation := Vector3(-8.0515,0.9213,1.3235);
 Transform1406 := TTransformNode.Create;
@@ -7211,6 +7687,11 @@ LineSet1418.Color := ColorRGBA1420;
 Shape1417.Geometry := LineSet1418;
 { .AddChildren }
 HAnimSegment1413.AddChildren([Shape1417]);
+end;
+
+procedure InitHumanoid4_1Part96;
+begin
+
 { .AddChildren }
 HAnimJoint1412.AddChildren([HAnimSegment1413]);
 HAnimJoint1421 := THAnimJointNode.Create;
@@ -7269,6 +7750,11 @@ HAnimJoint1403.AddChildren([HAnimJoint1412]);
 { .AddChildren }
 HAnimJoint1382.AddChildren([HAnimJoint1403]);
 HAnimJoint1434 := THAnimJointNode.Create;
+end;
+
+procedure InitHumanoid4_1Part97;
+begin
+
 HAnimJoint1434.NameField := 'r_midcarpal_2';
 HAnimJoint1434.Center := Vector3(-8.0515,0.9225,0.8386);
 HAnimSegment1435 := THAnimSegmentNode.Create;
@@ -7323,6 +7809,11 @@ Transform1448.Translation := Vector3(-0.1961,0.8055,-0.0218);
 Transform1449 := TTransformNode.Create;
 { Empty Transform }
 Shape1450 := Shape25;
+end;
+
+procedure InitHumanoid4_1Part98;
+begin
+
 { .AddChild }
 Transform1449.AddChildren([Shape1450]);
 { .AddChildren }
@@ -7382,6 +7873,11 @@ HAnimJoint1455.AddChildren([HAnimSegment1456]);
 HAnimJoint1464 := THAnimJointNode.Create;
 HAnimJoint1464.NameField := 'r_carpal_proximal_interphalangeal_2';
 HAnimJoint1464.Center := Vector3(-0.1954,0.7393,-0.0185);
+end;
+
+procedure InitHumanoid4_1Part99;
+begin
+
 HAnimSegment1465 := THAnimSegmentNode.Create;
 HAnimSegment1465.NameField := 'r_carpal_middle_phalanx_2';
 Transform1466 := TTransformNode.Create;
@@ -7438,6 +7934,11 @@ HAnimJoint1464.AddChildren([HAnimSegment1465]);
 HAnimJoint1479 := THAnimJointNode.Create;
 HAnimJoint1479.NameField := 'r_carpal_distal_interphalangeal_2';
 HAnimJoint1479.Center := Vector3(-0.1945,0.7169,-0.0173);
+end;
+
+procedure InitHumanoid4_1Part100;
+begin
+
 { .AddChildren }
 HAnimJoint1464.AddChildren([HAnimJoint1479]);
 { .AddChildren }
@@ -7496,6 +7997,11 @@ HAnimJoint1492 := THAnimJointNode.Create;
 HAnimJoint1492.NameField := 'r_carpometacarpal_3';
 HAnimJoint1492.Center := Vector3(-0.1972,0.806,-0.0468);
 HAnimSegment1493 := THAnimSegmentNode.Create;
+end;
+
+procedure InitHumanoid4_1Part101;
+begin
+
 HAnimSegment1493.NameField := 'r_metacarpal_3';
 Transform1494 := TTransformNode.Create;
 Transform1494.Translation := Vector3(-0.1972,0.806,-0.0468);
@@ -7554,6 +8060,11 @@ ColorRGBA1509 := ColorRGBA32;
 LineSet1507.Color := ColorRGBA1509;
 { .SetGeometry }
 Shape1506.Geometry := LineSet1507;
+end;
+
+procedure InitHumanoid4_1Part102;
+begin
+
 { .AddChildren }
 HAnimSegment1502.AddChildren([Shape1506]);
 { .AddChildren }
@@ -7613,6 +8124,11 @@ HAnimJoint1501.AddChildren([HAnimJoint1510]);
 HAnimJoint1492.AddChildren([HAnimJoint1501]);
 { .AddChildren }
 HAnimJoint1480.AddChildren([HAnimJoint1492]);
+end;
+
+procedure InitHumanoid4_1Part103;
+begin
+
 { .AddChildren }
 HAnimJoint1382.AddChildren([HAnimJoint1480]);
 HAnimJoint1523 := THAnimJointNode.Create;
@@ -7669,6 +8185,11 @@ TouchSensor1537.Description := 'HAnimSite r_metacarpal_phalanx_5_pt';
 { .AddChildren }
 HAnimSite1536.AddChildren([TouchSensor1537]);
 Shape1538 := Shape35;
+end;
+
+procedure InitHumanoid4_1Part104;
+begin
+
 { .AddChildren }
 HAnimSite1536.AddChildren([Shape1538]);
 { .AddChildren }
@@ -7726,6 +8247,11 @@ Transform1550.AddChildren([Transform1551]);
 HAnimSegment1549.AddChildren([Transform1550]);
 Shape1553 := TShapeNode.Create;
 LineSet1554 := TLineSetNode.Create;
+end;
+
+procedure InitHumanoid4_1Part105;
+begin
+
 LineSet1554.SetVertexCount([2]);
 Coordinate1555 := TCoordinateNode.Create;
 Coordinate1555.SetPoint([Vector3(-0.1951,0.7845,-0.0732),Vector3(-0.192,0.7318,-0.0716)]);
@@ -7785,6 +8311,11 @@ HAnimSite1566.AddChildren([Shape1568]);
 HAnimSegment1558.AddChildren([HAnimSite1566]);
 { .AddChildren }
 HAnimJoint1557.AddChildren([HAnimSegment1558]);
+end;
+
+procedure InitHumanoid4_1Part106;
+begin
+
 HAnimJoint1569 := THAnimJointNode.Create;
 HAnimJoint1569.NameField := 'r_carpal_distal_interphalangeal_4';
 HAnimJoint1569.Center := Vector3(-0.1908,0.7077,-0.0706);
@@ -7841,6 +8372,11 @@ Transform1582 := TTransformNode.Create;
 Shape1583 := Shape25;
 { .AddChild }
 Transform1582.AddChildren([Shape1583]);
+end;
+
+procedure InitHumanoid4_1Part107;
+begin
+
 { .AddChildren }
 Transform1581.AddChildren([Transform1582]);
 { .AddChildren }
@@ -7899,6 +8435,11 @@ TouchSensor1598 := TTouchSensorNode.Create;
 TouchSensor1598.Description := 'HAnimSite r_carpal_distal_phalanx_5_tip';
 { .AddChildren }
 HAnimSite1597.AddChildren([TouchSensor1598]);
+end;
+
+procedure InitHumanoid4_1Part108;
+begin
+
 Shape1599 := Shape35;
 { .AddChildren }
 HAnimSite1597.AddChildren([Shape1599]);
@@ -7972,6 +8513,11 @@ HAnimJoint1602 := HAnimJoint1058;
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1602);
 HAnimJoint1603 := HAnimJoint311;
+end;
+
+procedure InitHumanoid4_1Part109;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1603);
 HAnimJoint1604 := HAnimJoint1203;
@@ -8032,6 +8578,11 @@ HAnimJoint1622 := HAnimJoint1044;
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1622);
 HAnimJoint1623 := HAnimJoint1046;
+end;
+
+procedure InitHumanoid4_1Part110;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1623);
 HAnimJoint1624 := HAnimJoint1042;
@@ -8092,6 +8643,11 @@ HAnimJoint1642 := HAnimJoint1073;
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1642);
 HAnimJoint1643 := HAnimJoint1049;
+end;
+
+procedure InitHumanoid4_1Part111;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1643);
 HAnimJoint1644 := HAnimJoint180;
@@ -8152,6 +8708,11 @@ HAnimJoint1662 := HAnimJoint575;
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1662);
 HAnimJoint1663 := HAnimJoint1479;
+end;
+
+procedure InitHumanoid4_1Part112;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1663);
 HAnimJoint1664 := HAnimJoint1522;
@@ -8212,6 +8773,11 @@ HAnimJoint1682 := HAnimJoint1047;
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1682);
 HAnimJoint1683 := HAnimJoint1043;
+end;
+
+procedure InitHumanoid4_1Part113;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1683);
 HAnimJoint1684 := HAnimJoint398;
@@ -8272,6 +8838,11 @@ HAnimJoint1702 := HAnimJoint1325;
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1702);
 HAnimJoint1703 := HAnimJoint444;
+end;
+
+procedure InitHumanoid4_1Part114;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1703);
 HAnimJoint1704 := HAnimJoint431;
@@ -8332,6 +8903,11 @@ HAnimJoint1722 := HAnimJoint1048;
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1722);
 HAnimJoint1723 := HAnimJoint955;
+end;
+
+procedure InitHumanoid4_1Part115;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1723);
 HAnimJoint1724 := HAnimJoint946;
@@ -8392,6 +8968,11 @@ HAnimJoint1742 := HAnimJoint803;
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1742);
 HAnimJoint1743 := HAnimJoint791;
+end;
+
+procedure InitHumanoid4_1Part116;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid43.FdJoints.Add(HAnimJoint1743);
 HAnimJoint1744 := HAnimJoint770;
@@ -8407,6 +8988,127 @@ HAnimHumanoid43.FdJoints.Add(HAnimJoint1746);
 Group11.AddChildren([HAnimHumanoid43]);
 { .AddGroup }
 X3D0.AddChildren([Group11]);
+end;
+
+function CreateHumanoid4_1: TX3DRootNode;
+begin
+InitHumanoid4_1Part0;
+InitHumanoid4_1Part1;
+InitHumanoid4_1Part2;
+InitHumanoid4_1Part3;
+InitHumanoid4_1Part4;
+InitHumanoid4_1Part5;
+InitHumanoid4_1Part6;
+InitHumanoid4_1Part7;
+InitHumanoid4_1Part8;
+InitHumanoid4_1Part9;
+InitHumanoid4_1Part10;
+InitHumanoid4_1Part11;
+InitHumanoid4_1Part12;
+InitHumanoid4_1Part13;
+InitHumanoid4_1Part14;
+InitHumanoid4_1Part15;
+InitHumanoid4_1Part16;
+InitHumanoid4_1Part17;
+InitHumanoid4_1Part18;
+InitHumanoid4_1Part19;
+InitHumanoid4_1Part20;
+InitHumanoid4_1Part21;
+InitHumanoid4_1Part22;
+InitHumanoid4_1Part23;
+InitHumanoid4_1Part24;
+InitHumanoid4_1Part25;
+InitHumanoid4_1Part26;
+InitHumanoid4_1Part27;
+InitHumanoid4_1Part28;
+InitHumanoid4_1Part29;
+InitHumanoid4_1Part30;
+InitHumanoid4_1Part31;
+InitHumanoid4_1Part32;
+InitHumanoid4_1Part33;
+InitHumanoid4_1Part34;
+InitHumanoid4_1Part35;
+InitHumanoid4_1Part36;
+InitHumanoid4_1Part37;
+InitHumanoid4_1Part38;
+InitHumanoid4_1Part39;
+InitHumanoid4_1Part40;
+InitHumanoid4_1Part41;
+InitHumanoid4_1Part42;
+InitHumanoid4_1Part43;
+InitHumanoid4_1Part44;
+InitHumanoid4_1Part45;
+InitHumanoid4_1Part46;
+InitHumanoid4_1Part47;
+InitHumanoid4_1Part48;
+InitHumanoid4_1Part49;
+InitHumanoid4_1Part50;
+InitHumanoid4_1Part51;
+InitHumanoid4_1Part52;
+InitHumanoid4_1Part53;
+InitHumanoid4_1Part54;
+InitHumanoid4_1Part55;
+InitHumanoid4_1Part56;
+InitHumanoid4_1Part57;
+InitHumanoid4_1Part58;
+InitHumanoid4_1Part59;
+InitHumanoid4_1Part60;
+InitHumanoid4_1Part61;
+InitHumanoid4_1Part62;
+InitHumanoid4_1Part63;
+InitHumanoid4_1Part64;
+InitHumanoid4_1Part65;
+InitHumanoid4_1Part66;
+InitHumanoid4_1Part67;
+InitHumanoid4_1Part68;
+InitHumanoid4_1Part69;
+InitHumanoid4_1Part70;
+InitHumanoid4_1Part71;
+InitHumanoid4_1Part72;
+InitHumanoid4_1Part73;
+InitHumanoid4_1Part74;
+InitHumanoid4_1Part75;
+InitHumanoid4_1Part76;
+InitHumanoid4_1Part77;
+InitHumanoid4_1Part78;
+InitHumanoid4_1Part79;
+InitHumanoid4_1Part80;
+InitHumanoid4_1Part81;
+InitHumanoid4_1Part82;
+InitHumanoid4_1Part83;
+InitHumanoid4_1Part84;
+InitHumanoid4_1Part85;
+InitHumanoid4_1Part86;
+InitHumanoid4_1Part87;
+InitHumanoid4_1Part88;
+InitHumanoid4_1Part89;
+InitHumanoid4_1Part90;
+InitHumanoid4_1Part91;
+InitHumanoid4_1Part92;
+InitHumanoid4_1Part93;
+InitHumanoid4_1Part94;
+InitHumanoid4_1Part95;
+InitHumanoid4_1Part96;
+InitHumanoid4_1Part97;
+InitHumanoid4_1Part98;
+InitHumanoid4_1Part99;
+InitHumanoid4_1Part100;
+InitHumanoid4_1Part101;
+InitHumanoid4_1Part102;
+InitHumanoid4_1Part103;
+InitHumanoid4_1Part104;
+InitHumanoid4_1Part105;
+InitHumanoid4_1Part106;
+InitHumanoid4_1Part107;
+InitHumanoid4_1Part108;
+InitHumanoid4_1Part109;
+InitHumanoid4_1Part110;
+InitHumanoid4_1Part111;
+InitHumanoid4_1Part112;
+InitHumanoid4_1Part113;
+InitHumanoid4_1Part114;
+InitHumanoid4_1Part115;
+InitHumanoid4_1Part116;
 Result := X3D0;
 end;
 

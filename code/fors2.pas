@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createfors2: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group10: TGroupNode;
@@ -56,6 +55,8 @@ SFVec3f54: TSFVec3f;
 X3DPrototype55: TX3DPrototypeNode;
 SFVec3f56: TSFVec3f;
 X3DPrototype57: TX3DPrototypeNode;
+
+procedure Initfors2Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -109,6 +110,11 @@ Material22.DiffuseColor := Vector3(1,0,0);
 Appearance21.Material := Material22;
 { .SetAppearance }
 Shape19.Appearance := Appearance21;
+end;
+
+procedure Initfors2Part1;
+begin
+
 { .AddChild }
 Transform16.AddChildren([Shape19]);
 { .AddChildren }
@@ -294,6 +300,12 @@ Group10.AddRoute(X3DPrototype55.FdPosition, X3DPrototype57.FdPositionb);
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group10]);
+end;
+
+function Createfors2: TX3DRootNode;
+begin
+Initfors2Part0;
+Initfors2Part1;
 Result := X3D0;
 end;
 

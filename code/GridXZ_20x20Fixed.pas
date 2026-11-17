@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateGridXZ_20x20Fixed: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group12: TGroupNode;
@@ -55,6 +54,8 @@ Shape50: TShapeNode;
 Text51: TTextNode;
 FontStyle52: TFontStyleNode;
 Appearance53: TAppearanceNode;
+
+procedure InitGridXZ_20x20FixedPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -102,6 +103,11 @@ Shape17.Geometry := IndexedLineSet18;
 Group16.AddChildren([Shape17]);
 Transform21 := TTransformNode.Create;
 Transform21.Rotation := Vector4(0,1,0,1.57079);
+end;
+
+procedure InitGridXZ_20x20FixedPart1;
+begin
+
 Shape22 := Shape17;
 { .AddChild }
 Transform21.AddChildren([Shape22]);
@@ -157,6 +163,11 @@ Transform36 := TTransformNode.Create;
 Transform36.Translation := Vector3(10,-0.5,-10);
 Billboard37 := TBillboardNode.Create;
 Shape38 := TShapeNode.Create;
+end;
+
+procedure InitGridXZ_20x20FixedPart2;
+begin
+
 Text39 := TTextNode.Create;
 Text39.SetText(['10 0 -10']);
 FontStyle40 := FontStyle27;
@@ -217,8 +228,21 @@ Group16.AddChildren([Transform48]);
 Transform15.AddChildren([Group16]);
 { .AddChildren }
 Group12.AddChildren([Transform15]);
+end;
+
+procedure InitGridXZ_20x20FixedPart3;
+begin
+
 { .AddGroup }
 X3D0.AddChildren([Group12]);
+end;
+
+function CreateGridXZ_20x20Fixed: TX3DRootNode;
+begin
+InitGridXZ_20x20FixedPart0;
+InitGridXZ_20x20FixedPart1;
+InitGridXZ_20x20FixedPart2;
+InitGridXZ_20x20FixedPart3;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createmyextrusion: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group9: TGroupNode;
@@ -23,6 +22,8 @@ TimeSensor15: TTimeSensorNode;
 Script16: TScriptNode;
 X3DField17: TX3DField;
 X3DField18: TX3DField;
+
+procedure InitmyextrusionPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -71,6 +72,11 @@ X3DField18.Type := 'MFVec3f';
 X3DField18.Value := '-50 -50 0 50 50 0';
 { .AddX3DField }
 Script16.X3DField := X3DField18;
+end;
+
+procedure InitmyextrusionPart1;
+begin
+
 
 Script16.SetSourceCode('''ecmascript:\n"+
 "\n"+
@@ -93,6 +99,12 @@ Group10.AddRoute(Script16.EventSpine_changed, Extrusion12.EventSet_spine);
 Group9.AddChildren([Group10]);
 { .AddGroup }
 X3D0.AddChildren([Group9]);
+end;
+
+function Createmyextrusion: TX3DRootNode;
+begin
+InitmyextrusionPart0;
+InitmyextrusionPart1;
 Result := X3D0;
 end;
 

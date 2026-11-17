@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateCameraPrototypes: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group16: TGroupNode;
@@ -252,6 +251,8 @@ Text258: TTextNode;
 FontStyle259: TFontStyleNode;
 Appearance260: TAppearanceNode;
 Material261: TMaterialNode;
+
+procedure InitCameraPrototypesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -297,6 +298,11 @@ X3DField21 := TX3DField.Create;
 X3DField21.NameField := 'orientation';
 X3DField21.AccessType := 'inputOutput';
 X3DField21.Appinfo := 'Camera rotation in local transformation frame, which is default prior to first CameraShot initialPosition getting activated';
+end;
+
+procedure InitCameraPrototypesPart1;
+begin
+
 X3DField21.Type := 'SFRotation';
 X3DField21.Value := '0 0 1 0';
 { .AddX3DField }
@@ -343,6 +349,11 @@ X3DField27.AccessType := 'inputOutput';
 X3DField27.Appinfo := 'Vector distance to near clipping plane corresponds to NavigationInfo.avatarSize[0]';
 X3DField27.Type := 'SFFloat';
 X3DField27.Value := '0.25';
+end;
+
+procedure InitCameraPrototypesPart2;
+begin
+
 { .AddX3DField }
 X3DInterfaceDeclaration18.X3DField := X3DField27;
 X3DField28 := TX3DField.Create;
@@ -390,6 +401,11 @@ X3DField33.NameField := 'filterColor';
 X3DField33.AccessType := 'inputOutput';
 X3DField33.Appinfo := 'Camera filter color that modifies virtual lens capture';
 X3DField33.Type := 'SFColor';
+end;
+
+procedure InitCameraPrototypesPart3;
+begin
+
 X3DField33.Value := '1 1 1';
 { .AddX3DField }
 X3DInterfaceDeclaration18.X3DField := X3DField33;
@@ -436,6 +452,11 @@ X3DField39 := TX3DField.Create;
 X3DField39.NameField := 'totalDuration';
 X3DField39.AccessType := 'outputOnly';
 X3DField39.Appinfo := 'Total duration of contained enabled CameraShot (and thus CameraMovement) move durations';
+end;
+
+procedure InitCameraPrototypesPart4;
+begin
+
 X3DField39.Type := 'SFTime';
 { .AddX3DField }
 X3DInterfaceDeclaration18.X3DField := X3DField39;
@@ -486,6 +507,11 @@ connect49.ProtoField := 'set_bind';
 { .AddConnect }
 IS44.Connect := connect49;
 connect50 := Tconnect.Create;
+end;
+
+procedure InitCameraPrototypesPart5;
+begin
+
 connect50.NodeField := 'bindTime';
 connect50.ProtoField := 'bindTime';
 { .AddConnect }
@@ -541,6 +567,11 @@ IS58.Connect := connect60;
 connect61 := Tconnect.Create;
 connect61.NodeField := 'intensity';
 connect61.ProtoField := 'headlightIntensity';
+end;
+
+procedure InitCameraPrototypesPart6;
+begin
+
 { .AddConnect }
 IS58.Connect := connect61;
 { .SetIS }
@@ -595,6 +626,11 @@ X3DField72.Appinfo := 'Camera position in local transformation frame';
 X3DField72.Type := 'SFVec3f';
 { .AddX3DField }
 Script70.X3DField := X3DField72;
+end;
+
+procedure InitCameraPrototypesPart7;
+begin
+
 X3DField73 := TX3DField.Create;
 X3DField73.NameField := 'orientation';
 X3DField73.AccessType := 'inputOutput';
@@ -641,6 +677,11 @@ X3DField79 := TX3DField.Create;
 X3DField79.NameField := 'shots';
 X3DField79.AccessType := 'inputOutput';
 X3DField79.Appinfo := 'Array of CameraShot nodes which in turn contain CameraMovement nodes';
+end;
+
+procedure InitCameraPrototypesPart8;
+begin
+
 X3DField79.Type := 'MFNode';
 { initialization nodes (if any) go here }
 { .AddX3DField }
@@ -689,6 +730,11 @@ X3DField85.Type := 'SFBool';
 Script70.X3DField := X3DField85;
 X3DField86 := TX3DField.Create;
 X3DField86.NameField := 'totalDuration';
+end;
+
+procedure InitCameraPrototypesPart9;
+begin
+
 X3DField86.AccessType := 'outputOnly';
 X3DField86.Appinfo := 'Total duration of contained enabled CameraShot (and thus CameraMovement) move durations';
 X3DField86.Type := 'SFTime';
@@ -738,6 +784,11 @@ X3DField94.AccessType := 'initializeOnly';
 X3DField94.Appinfo := 'node reference to permit getting setting fields from within Script';
 X3DField94.Type := 'SFNode';
 OrientationInterpolator95 := OrientationInterpolator65;
+end;
+
+procedure InitCameraPrototypesPart10;
+begin
+
 { .SetOrientationInterpolator }
 X3DField94.OrientationInterpolator := OrientationInterpolator95;
 { .AddX3DField }
@@ -785,6 +836,11 @@ X3DField101.AccessType := 'initializeOnly';
 X3DField101.Appinfo := 'how many CameraShot nodes are contained in shots array';
 X3DField101.Type := 'SFInt32';
 X3DField101.Value := '0';
+end;
+
+procedure InitCameraPrototypesPart11;
+begin
+
 { .AddX3DField }
 Script70.X3DField := X3DField101;
 X3DField102 := TX3DField.Create;
@@ -832,6 +888,11 @@ connect108.NodeField := 'description';
 connect108.ProtoField := 'description';
 { .AddConnect }
 IS107.Connect := connect108;
+end;
+
+procedure InitCameraPrototypesPart12;
+begin
+
 connect109 := Tconnect.Create;
 connect109.NodeField := 'position';
 connect109.ProtoField := 'position';
@@ -882,6 +943,11 @@ connect118.NodeField := 'filterTransparency';
 connect118.ProtoField := 'filterTransparency';
 { .AddConnect }
 IS107.Connect := connect118;
+end;
+
+procedure InitCameraPrototypesPart13;
+begin
+
 connect119 := Tconnect.Create;
 connect119.NodeField := 'upVector';
 connect119.ProtoField := 'upVector';
@@ -1774,6 +1840,24 @@ Anchor255.AddChildren([Transform256]);
 Group16.AddChildren([Anchor255]);
 { .AddGroup }
 X3D0.AddChildren([Group16]);
+end;
+
+function CreateCameraPrototypes: TX3DRootNode;
+begin
+InitCameraPrototypesPart0;
+InitCameraPrototypesPart1;
+InitCameraPrototypesPart2;
+InitCameraPrototypesPart3;
+InitCameraPrototypesPart4;
+InitCameraPrototypesPart5;
+InitCameraPrototypesPart6;
+InitCameraPrototypesPart7;
+InitCameraPrototypesPart8;
+InitCameraPrototypesPart9;
+InitCameraPrototypesPart10;
+InitCameraPrototypesPart11;
+InitCameraPrototypesPart12;
+InitCameraPrototypesPart13;
 Result := X3D0;
 end;
 

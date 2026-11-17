@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateArtDecoExamples: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group13: TGroupNode;
@@ -555,6 +554,8 @@ Appearance551: TAppearanceNode;
 Material552: TMaterialNode;
 Text553: TTextNode;
 FontStyle554: TFontStyleNode;
+
+procedure InitArtDecoExamplesPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -600,6 +601,11 @@ Group13.X3DExternalPrototype := X3DExternalPrototype17;
 X3DExternalPrototype18 := TX3DExternalPrototype.Create;
 X3DExternalPrototype18.NameField := 'ArtDeco03';
 X3DExternalPrototype18.Appinfo := 'UniversalMediaMaterials prototype';
+end;
+
+procedure InitArtDecoExamplesPart1;
+begin
+
 X3DExternalPrototype18.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 X3DExternalPrototype18.Url := '\"../data/ArtDecoPrototypes.x3dj#ArtDeco03\" \"../data/ArtDecoPrototypes.json#ArtDeco03\" \"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.x3d#ArtDeco03\" \"ArtDecoPrototypes.wrl#ArtDeco03\" \"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.wrl#ArtDeco03\"';
 { .AddX3DExternalPrototype }
@@ -647,6 +653,11 @@ X3DExternalPrototype24.Url := '\"../data/ArtDecoPrototypes.x3dj#ArtDeco09\" \"..
 { .AddX3DExternalPrototype }
 Group13.X3DExternalPrototype := X3DExternalPrototype24;
 X3DExternalPrototype25 := TX3DExternalPrototype.Create;
+end;
+
+procedure InitArtDecoExamplesPart2;
+begin
+
 X3DExternalPrototype25.NameField := 'ArtDeco10';
 X3DExternalPrototype25.Appinfo := 'UniversalMediaMaterials prototype';
 X3DExternalPrototype25.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
@@ -693,6 +704,11 @@ X3DExternalPrototype31.NameField := 'ArtDeco16';
 X3DExternalPrototype31.Appinfo := 'UniversalMediaMaterials prototype';
 X3DExternalPrototype31.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 X3DExternalPrototype31.Url := '\"../data/ArtDecoPrototypes.x3dj#ArtDeco16\" \"../data/ArtDecoPrototypes.json#ArtDeco16\" \"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.x3d#ArtDeco16\" \"ArtDecoPrototypes.wrl#ArtDeco16\" \"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.wrl#ArtDeco16\"';
+end;
+
+procedure InitArtDecoExamplesPart3;
+begin
+
 { .AddX3DExternalPrototype }
 Group13.X3DExternalPrototype := X3DExternalPrototype31;
 X3DExternalPrototype32 := TX3DExternalPrototype.Create;
@@ -740,6 +756,11 @@ Group13.X3DExternalPrototype := X3DExternalPrototype37;
 X3DExternalPrototype38 := TX3DExternalPrototype.Create;
 X3DExternalPrototype38.NameField := 'ArtDeco23';
 X3DExternalPrototype38.Appinfo := 'UniversalMediaMaterials prototype';
+end;
+
+procedure InitArtDecoExamplesPart4;
+begin
+
 X3DExternalPrototype38.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 X3DExternalPrototype38.Url := '\"../data/ArtDecoPrototypes.x3dj#ArtDeco23\" \"../data/ArtDecoPrototypes.json#ArtDeco23\" \"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.x3d#ArtDeco23\" \"ArtDecoPrototypes.wrl#ArtDeco23\" \"https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.wrl#ArtDeco23\"';
 { .AddX3DExternalPrototype }
@@ -787,6 +808,11 @@ X3DExternalPrototype44.Url := '\"../data/ArtDecoPrototypes.x3dj#ArtDeco29\" \"..
 { .AddX3DExternalPrototype }
 Group13.X3DExternalPrototype := X3DExternalPrototype44;
 X3DExternalPrototype45 := TX3DExternalPrototype.Create;
+end;
+
+procedure InitArtDecoExamplesPart5;
+begin
+
 X3DExternalPrototype45.NameField := 'ArtDeco30';
 X3DExternalPrototype45.Appinfo := 'UniversalMediaMaterials prototype';
 X3DExternalPrototype45.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
@@ -834,6 +860,11 @@ Group50.AddChildren([Viewpoint52]);
 Viewpoint53 := TViewpointNode.Create;
 Viewpoint53.Description := 'Low Right';
 Viewpoint53.Orientation := Vector4(0.74291,0.30772,0.59447,1.2171);
+end;
+
+procedure InitArtDecoExamplesPart6;
+begin
+
 Viewpoint53.Position := Vector3(6.9282,-6.9282,6.9282);
 { .AddChildren }
 Group50.AddChildren([Viewpoint53]);
@@ -883,6 +914,11 @@ Transform63 := TTransformNode.Create;
 Transform63.Translation := Vector3(0,0,-0.5);
 Inline64 := TInlineNode.Create;
 Inline64.SetUrl(['../data/gridBack.x3dj','../data/gridBack.json','https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/gridBack.x3d','gridBack.wrl','https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/gridBack.wrl']);
+end;
+
+procedure InitArtDecoExamplesPart7;
+begin
+
 { .AddChildren }
 Transform63.AddChildren([Inline64]);
 { .AddChildren }
@@ -934,6 +970,11 @@ Text77.SetText(['ArtDeco00']);
 FontStyle78 := TFontStyleNode.Create;
 FontStyle78.Family := ffSans;
 FontStyle78.Justify := fjMiddle;
+end;
+
+procedure InitArtDecoExamplesPart8;
+begin
+
 FontStyle78.JustifyMinor := fjMiddle;
 FontStyle78.Size := 0.3;
 FontStyle78.Style := fsBold;
@@ -988,6 +1029,11 @@ Appearance89.Material := Material90;
 { .SetAppearance }
 Shape88.Appearance := Appearance89;
 Text91 := TTextNode.Create;
+end;
+
+procedure InitArtDecoExamplesPart9;
+begin
+
 Text91.SetText(['ArtDeco01']);
 FontStyle92 := FontStyle78;
 { .SetFontStyle }
@@ -1042,6 +1088,11 @@ Appearance103.Material := Material104;
 Shape102.Appearance := Appearance103;
 Text105 := TTextNode.Create;
 Text105.SetText(['ArtDeco02']);
+end;
+
+procedure InitArtDecoExamplesPart10;
+begin
+
 FontStyle106 := FontStyle78;
 { .SetFontStyle }
 Text105.FontStyle := FontStyle106;
@@ -1096,6 +1147,11 @@ Shape116.Appearance := Appearance117;
 Text119 := TTextNode.Create;
 Text119.SetText(['ArtDeco03']);
 FontStyle120 := FontStyle78;
+end;
+
+procedure InitArtDecoExamplesPart11;
+begin
+
 { .SetFontStyle }
 Text119.FontStyle := FontStyle120;
 { .SetGeometry }
@@ -1151,6 +1207,11 @@ Text133.SetText(['ArtDeco04']);
 FontStyle134 := FontStyle78;
 { .SetFontStyle }
 Text133.FontStyle := FontStyle134;
+end;
+
+procedure InitArtDecoExamplesPart12;
+begin
+
 { .SetGeometry }
 Shape130.Geometry := Text133;
 { .AddChildren }
@@ -1206,6 +1267,11 @@ FontStyle148 := FontStyle78;
 Text147.FontStyle := FontStyle148;
 { .SetGeometry }
 Shape144.Geometry := Text147;
+end;
+
+procedure InitArtDecoExamplesPart13;
+begin
+
 { .AddChildren }
 Anchor143.AddChildren([Shape144]);
 { .AddChildren }
@@ -1261,6 +1327,11 @@ Text161.FontStyle := FontStyle162;
 Shape158.Geometry := Text161;
 { .AddChildren }
 Anchor157.AddChildren([Shape158]);
+end;
+
+procedure InitArtDecoExamplesPart14;
+begin
+
 { .AddChildren }
 Transform156.AddChildren([Anchor157]);
 { .AddChildren }
@@ -1316,6 +1387,11 @@ Shape172.Geometry := Text175;
 Anchor171.AddChildren([Shape172]);
 { .AddChildren }
 Transform170.AddChildren([Anchor171]);
+end;
+
+procedure InitArtDecoExamplesPart15;
+begin
+
 { .AddChildren }
 Transform164.AddChildren([Transform170]);
 { .AddChildren }
@@ -1371,6 +1447,11 @@ Anchor185.AddChildren([Shape186]);
 Transform184.AddChildren([Anchor185]);
 { .AddChildren }
 Transform178.AddChildren([Transform184]);
+end;
+
+procedure InitArtDecoExamplesPart16;
+begin
+
 { .AddChildren }
 Group50.AddChildren([Transform178]);
 Viewpoint191 := TViewpointNode.Create;
@@ -1426,6 +1507,11 @@ Transform198.AddChildren([Anchor199]);
 Transform192.AddChildren([Transform198]);
 { .AddChildren }
 Group50.AddChildren([Transform192]);
+end;
+
+procedure InitArtDecoExamplesPart17;
+begin
+
 Viewpoint205 := TViewpointNode.Create;
 Viewpoint205.Description := 'ArtDeco10';
 Viewpoint205.Position := Vector3(2.25,2.25,3);
@@ -1480,6 +1566,11 @@ Transform206.AddChildren([Transform212]);
 { .AddChildren }
 Group50.AddChildren([Transform206]);
 Viewpoint219 := TViewpointNode.Create;
+end;
+
+procedure InitArtDecoExamplesPart18;
+begin
+
 Viewpoint219.Description := 'ArtDeco11';
 Viewpoint219.Position := Vector3(3.75,2.25,3);
 { .AddChildren }
@@ -1534,6 +1625,11 @@ Transform220.AddChildren([Transform226]);
 Group50.AddChildren([Transform220]);
 Viewpoint233 := TViewpointNode.Create;
 Viewpoint233.Description := 'ArtDeco12';
+end;
+
+procedure InitArtDecoExamplesPart19;
+begin
+
 Viewpoint233.Position := Vector3(-3.75,0.75,3);
 { .AddChildren }
 Group50.AddChildren([Viewpoint233]);
@@ -1588,6 +1684,11 @@ Group50.AddChildren([Transform234]);
 Viewpoint247 := TViewpointNode.Create;
 Viewpoint247.Description := 'ArtDeco13';
 Viewpoint247.Position := Vector3(-2.25,0.75,3);
+end;
+
+procedure InitArtDecoExamplesPart20;
+begin
+
 { .AddChildren }
 Group50.AddChildren([Viewpoint247]);
 Transform248 := TTransformNode.Create;
@@ -1643,6 +1744,11 @@ Viewpoint261.Description := 'ArtDeco14';
 Viewpoint261.Position := Vector3(-0.75,0.75,3);
 { .AddChildren }
 Group50.AddChildren([Viewpoint261]);
+end;
+
+procedure InitArtDecoExamplesPart21;
+begin
+
 Transform262 := TTransformNode.Create;
 Transform262.Translation := Vector3(-0.75,0.75,0);
 Anchor263 := TAnchorNode.Create;
@@ -1697,6 +1803,11 @@ Viewpoint275.Position := Vector3(0.75,0.75,3);
 { .AddChildren }
 Group50.AddChildren([Viewpoint275]);
 Transform276 := TTransformNode.Create;
+end;
+
+procedure InitArtDecoExamplesPart22;
+begin
+
 Transform276.Translation := Vector3(0.75,0.75,0);
 Anchor277 := TAnchorNode.Create;
 Anchor277.Description := 'ArtDeco15 view';
@@ -1751,6 +1862,11 @@ Viewpoint289.Position := Vector3(2.25,0.75,3);
 Group50.AddChildren([Viewpoint289]);
 Transform290 := TTransformNode.Create;
 Transform290.Translation := Vector3(2.25,0.75,0);
+end;
+
+procedure InitArtDecoExamplesPart23;
+begin
+
 Anchor291 := TAnchorNode.Create;
 Anchor291.Description := 'ArtDeco16 view';
 Anchor291.SetUrl(['#View16']);
@@ -1805,6 +1921,11 @@ Group50.AddChildren([Viewpoint303]);
 Transform304 := TTransformNode.Create;
 Transform304.Translation := Vector3(3.75,0.75,0);
 Anchor305 := TAnchorNode.Create;
+end;
+
+procedure InitArtDecoExamplesPart24;
+begin
+
 Anchor305.Description := 'ArtDeco17 view';
 Anchor305.SetUrl(['#View17']);
 Shape306 := TShapeNode.Create;
@@ -1859,6 +1980,11 @@ Transform318 := TTransformNode.Create;
 Transform318.Translation := Vector3(-3.75,-0.75,0);
 Anchor319 := TAnchorNode.Create;
 Anchor319.Description := 'ArtDeco18 view';
+end;
+
+procedure InitArtDecoExamplesPart25;
+begin
+
 Anchor319.SetUrl(['#View18']);
 Shape320 := TShapeNode.Create;
 Appearance321 := TAppearanceNode.Create;
@@ -1913,6 +2039,11 @@ Transform332.Translation := Vector3(-2.25,-0.75,0);
 Anchor333 := TAnchorNode.Create;
 Anchor333.Description := 'ArtDeco19 view';
 Anchor333.SetUrl(['#View19']);
+end;
+
+procedure InitArtDecoExamplesPart26;
+begin
+
 Shape334 := TShapeNode.Create;
 Appearance335 := TAppearanceNode.Create;
 X3DPrototype336 := TX3DPrototypeNode.Create;
@@ -1967,6 +2098,11 @@ Anchor347 := TAnchorNode.Create;
 Anchor347.Description := 'ArtDeco20 view';
 Anchor347.SetUrl(['#View20']);
 Shape348 := TShapeNode.Create;
+end;
+
+procedure InitArtDecoExamplesPart27;
+begin
+
 Appearance349 := TAppearanceNode.Create;
 X3DPrototype350 := TX3DPrototypeNode.Create;
 X3DPrototype350.NameField := 'ArtDeco20';
@@ -2021,6 +2157,11 @@ Anchor361.Description := 'ArtDeco21 view';
 Anchor361.SetUrl(['#View21']);
 Shape362 := TShapeNode.Create;
 Appearance363 := TAppearanceNode.Create;
+end;
+
+procedure InitArtDecoExamplesPart28;
+begin
+
 X3DPrototype364 := TX3DPrototypeNode.Create;
 X3DPrototype364.NameField := 'ArtDeco21';
 { .SetMaterial }
@@ -2075,6 +2216,11 @@ Anchor375.SetUrl(['#View22']);
 Shape376 := TShapeNode.Create;
 Appearance377 := TAppearanceNode.Create;
 X3DPrototype378 := TX3DPrototypeNode.Create;
+end;
+
+procedure InitArtDecoExamplesPart29;
+begin
+
 X3DPrototype378.NameField := 'ArtDeco22';
 { .SetMaterial }
 Appearance377.Material := X3DPrototype378;
@@ -2129,6 +2275,11 @@ Shape390 := TShapeNode.Create;
 Appearance391 := TAppearanceNode.Create;
 X3DPrototype392 := TX3DPrototypeNode.Create;
 X3DPrototype392.NameField := 'ArtDeco23';
+end;
+
+procedure InitArtDecoExamplesPart30;
+begin
+
 { .SetMaterial }
 Appearance391.Material := X3DPrototype392;
 { .SetAppearance }
@@ -2184,6 +2335,11 @@ X3DPrototype406 := TX3DPrototypeNode.Create;
 X3DPrototype406.NameField := 'ArtDeco24';
 { .SetMaterial }
 Appearance405.Material := X3DPrototype406;
+end;
+
+procedure InitArtDecoExamplesPart31;
+begin
+
 { .SetAppearance }
 Shape404.Appearance := Appearance405;
 Sphere407 := Sphere71;
@@ -2239,6 +2395,11 @@ X3DPrototype420.NameField := 'ArtDeco25';
 Appearance419.Material := X3DPrototype420;
 { .SetAppearance }
 Shape418.Appearance := Appearance419;
+end;
+
+procedure InitArtDecoExamplesPart32;
+begin
+
 Sphere421 := Sphere71;
 { .SetGeometry }
 Shape418.Geometry := Sphere421;
@@ -2293,6 +2454,11 @@ Appearance433.Material := X3DPrototype434;
 { .SetAppearance }
 Shape432.Appearance := Appearance433;
 Sphere435 := Sphere71;
+end;
+
+procedure InitArtDecoExamplesPart33;
+begin
+
 { .SetGeometry }
 Shape432.Geometry := Sphere435;
 { .AddChildren }
@@ -2348,6 +2514,11 @@ Shape446.Appearance := Appearance447;
 Sphere449 := Sphere71;
 { .SetGeometry }
 Shape446.Geometry := Sphere449;
+end;
+
+procedure InitArtDecoExamplesPart34;
+begin
+
 { .AddChildren }
 Anchor445.AddChildren([Shape446]);
 { .AddChildren }
@@ -2403,6 +2574,11 @@ Sphere463 := Sphere71;
 Shape460.Geometry := Sphere463;
 { .AddChildren }
 Anchor459.AddChildren([Shape460]);
+end;
+
+procedure InitArtDecoExamplesPart35;
+begin
+
 { .AddChildren }
 Transform458.AddChildren([Anchor459]);
 Transform464 := TTransformNode.Create;
@@ -2458,6 +2634,11 @@ Shape474.Geometry := Sphere477;
 Anchor473.AddChildren([Shape474]);
 { .AddChildren }
 Transform472.AddChildren([Anchor473]);
+end;
+
+procedure InitArtDecoExamplesPart36;
+begin
+
 Transform478 := TTransformNode.Create;
 Transform478.Translation := Vector3(0,0.3,0.5);
 Anchor479 := TAnchorNode.Create;
@@ -2512,6 +2693,11 @@ Anchor487.AddChildren([Shape488]);
 { .AddChildren }
 Transform486.AddChildren([Anchor487]);
 Transform492 := TTransformNode.Create;
+end;
+
+procedure InitArtDecoExamplesPart37;
+begin
+
 Transform492.Translation := Vector3(0,0.3,0.5);
 Anchor493 := TAnchorNode.Create;
 Anchor493.Description := 'ArtDeco30 view source documentation';
@@ -2566,6 +2752,11 @@ Anchor501.AddChildren([Shape502]);
 Transform500.AddChildren([Anchor501]);
 Transform506 := TTransformNode.Create;
 Transform506.Translation := Vector3(0,0.3,0.5);
+end;
+
+procedure InitArtDecoExamplesPart38;
+begin
+
 Anchor507 := TAnchorNode.Create;
 Anchor507.Description := 'ArtDeco31 view source documentation';
 Anchor507.SetParameter(['target=_source']);
@@ -2620,6 +2811,11 @@ Transform514.AddChildren([Anchor515]);
 Transform520 := TTransformNode.Create;
 Transform520.Translation := Vector3(0,0.3,0.5);
 Anchor521 := TAnchorNode.Create;
+end;
+
+procedure InitArtDecoExamplesPart39;
+begin
+
 Anchor521.Description := 'ArtDeco32 view source documentation';
 Anchor521.SetParameter(['target=_source']);
 Anchor521.SetUrl(['../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco32','https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco32']);
@@ -2674,6 +2870,11 @@ Transform534 := TTransformNode.Create;
 Transform534.Translation := Vector3(0,0.3,0.5);
 Anchor535 := TAnchorNode.Create;
 Anchor535.Description := 'ArtDeco33 view source documentation';
+end;
+
+procedure InitArtDecoExamplesPart40;
+begin
+
 Anchor535.SetParameter(['target=_source']);
 Anchor535.SetUrl(['../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco33','https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco33']);
 Shape536 := TShapeNode.Create;
@@ -2728,6 +2929,11 @@ Transform548.Translation := Vector3(0,0.3,0.5);
 Anchor549 := TAnchorNode.Create;
 Anchor549.Description := 'ArtDeco34 view source documentation';
 Anchor549.SetParameter(['target=_source']);
+end;
+
+procedure InitArtDecoExamplesPart41;
+begin
+
 Anchor549.SetUrl(['../html/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco34','https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials/ArtDecoPrototypes.html#ProtoDeclare_ArtDeco34']);
 Shape550 := TShapeNode.Create;
 Appearance551 := TAppearanceNode.Create;
@@ -2759,6 +2965,52 @@ Group13.AddRoute(PositionInterpolator57.EventValue_changed, Transform56.FdTransl
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group13]);
+end;
+
+function CreateArtDecoExamples: TX3DRootNode;
+begin
+InitArtDecoExamplesPart0;
+InitArtDecoExamplesPart1;
+InitArtDecoExamplesPart2;
+InitArtDecoExamplesPart3;
+InitArtDecoExamplesPart4;
+InitArtDecoExamplesPart5;
+InitArtDecoExamplesPart6;
+InitArtDecoExamplesPart7;
+InitArtDecoExamplesPart8;
+InitArtDecoExamplesPart9;
+InitArtDecoExamplesPart10;
+InitArtDecoExamplesPart11;
+InitArtDecoExamplesPart12;
+InitArtDecoExamplesPart13;
+InitArtDecoExamplesPart14;
+InitArtDecoExamplesPart15;
+InitArtDecoExamplesPart16;
+InitArtDecoExamplesPart17;
+InitArtDecoExamplesPart18;
+InitArtDecoExamplesPart19;
+InitArtDecoExamplesPart20;
+InitArtDecoExamplesPart21;
+InitArtDecoExamplesPart22;
+InitArtDecoExamplesPart23;
+InitArtDecoExamplesPart24;
+InitArtDecoExamplesPart25;
+InitArtDecoExamplesPart26;
+InitArtDecoExamplesPart27;
+InitArtDecoExamplesPart28;
+InitArtDecoExamplesPart29;
+InitArtDecoExamplesPart30;
+InitArtDecoExamplesPart31;
+InitArtDecoExamplesPart32;
+InitArtDecoExamplesPart33;
+InitArtDecoExamplesPart34;
+InitArtDecoExamplesPart35;
+InitArtDecoExamplesPart36;
+InitArtDecoExamplesPart37;
+InitArtDecoExamplesPart38;
+InitArtDecoExamplesPart39;
+InitArtDecoExamplesPart40;
+InitArtDecoExamplesPart41;
 Result := X3D0;
 end;
 

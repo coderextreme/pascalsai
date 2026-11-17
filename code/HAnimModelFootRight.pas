@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateHAnimModelFootRight: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group25: TGroupNode;
@@ -303,6 +302,8 @@ HAnimJoint311: THAnimJointNode;
 HAnimJoint312: THAnimJointNode;
 HAnimJoint313: THAnimJointNode;
 HAnimJoint314: THAnimJointNode;
+
+procedure InitHAnimModelFootRightPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -346,6 +347,11 @@ MetadataSet28.NameField := 'HAnimHumanoid.info';
 MetadataSet28.Reference := 'https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid';
 MetadataString29 := TMetadataStringNode.Create;
 MetadataString29.NameField := 'authorName';
+end;
+
+procedure InitHAnimModelFootRightPart1;
+begin
+
 MetadataString29.SetValue(['Kwan-Hee YOO, Don Brutzman and Joe Williams']);
 { .FdValue.Add }
 MetadataSet28.FdValue.Add(MetadataString29);
@@ -400,6 +406,11 @@ Material45 := TMaterialNode.Create;
 Material45.EmissiveColor := Vector3(1,1,1);
 { .SetMaterial }
 Appearance44.Material := Material45;
+end;
+
+procedure InitHAnimModelFootRightPart2;
+begin
+
 { .SetAppearance }
 Shape43.Appearance := Appearance44;
 IndexedLineSet46 := TIndexedLineSetNode.Create;
@@ -455,6 +466,11 @@ Appearance58.Material := Material59;
 Shape57.Appearance := Appearance58;
 IndexedLineSet60 := TIndexedLineSetNode.Create;
 IndexedLineSet60.SetCoordIndex([0,1]);
+end;
+
+procedure InitHAnimModelFootRightPart3;
+begin
+
 Coordinate61 := TCoordinateNode.Create;
 Coordinate61.SetPoint([Vector3(0,-0.3,0),Vector3(0,-0.45,0)]);
 { .SetCoord }
@@ -510,6 +526,11 @@ Coordinate75 := TCoordinateNode.Create;
 Coordinate75.SetPoint([Vector3(0.1,-0.45,0),Vector3(0.1,-0.6,0)]);
 { .SetCoord }
 IndexedLineSet74.Coord := Coordinate75;
+end;
+
+procedure InitHAnimModelFootRightPart4;
+begin
+
 { .SetGeometry }
 Shape71.Geometry := IndexedLineSet74;
 { .AddChildren }
@@ -563,6 +584,11 @@ HAnimSegment86.AddChildren([Transform87]);
 Shape89 := TShapeNode.Create;
 Appearance90 := TAppearanceNode.Create;
 Material91 := TMaterialNode.Create;
+end;
+
+procedure InitHAnimModelFootRightPart5;
+begin
+
 Material91.EmissiveColor := Vector3(1,1,1);
 { .SetMaterial }
 Appearance90.Material := Material91;
@@ -622,6 +648,11 @@ HAnimJoint67.AddChildren([HAnimJoint76]);
 HAnimJoint48.AddChildren([HAnimJoint67]);
 { CN2 }
 HAnimJoint103 := THAnimJointNode.Create;
+end;
+
+procedure InitHAnimModelFootRightPart6;
+begin
+
 HAnimJoint103.NameField := 'r_cuneonavicular_2';
 HAnimJoint103.Center := Vector3(0,-0.45,0);
 HAnimSegment104 := THAnimSegmentNode.Create;
@@ -674,6 +705,11 @@ Appearance117.Material := Material118;
 { .SetAppearance }
 Shape116.Appearance := Appearance117;
 IndexedLineSet119 := TIndexedLineSetNode.Create;
+end;
+
+procedure InitHAnimModelFootRightPart7;
+begin
+
 IndexedLineSet119.SetCoordIndex([0,1]);
 Coordinate120 := TCoordinateNode.Create;
 Coordinate120.SetPoint([Vector3(-0.05,-0.6,0),Vector3(-0.05,-0.9,0)]);
@@ -727,6 +763,11 @@ Transform132.Translation := Vector3(-0.05,-1.05,0);
 Shape133 := Shape34;
 { .AddChild }
 Transform132.AddChildren([Shape133]);
+end;
+
+procedure InitHAnimModelFootRightPart8;
+begin
+
 { .AddChildren }
 HAnimSegment131.AddChildren([Transform132]);
 Shape134 := TShapeNode.Create;
@@ -783,6 +824,11 @@ HAnimSegment140.AddChildren([Shape143]);
 HAnimJoint139.AddChildren([HAnimSegment140]);
 { .AddChildren }
 HAnimJoint130.AddChildren([HAnimJoint139]);
+end;
+
+procedure InitHAnimModelFootRightPart9;
+begin
+
 { .AddChildren }
 HAnimJoint121.AddChildren([HAnimJoint130]);
 { .AddChildren }
@@ -838,6 +884,11 @@ Transform159.AddChildren([Shape160]);
 HAnimSegment158.AddChildren([Transform159]);
 Shape161 := TShapeNode.Create;
 Appearance162 := TAppearanceNode.Create;
+end;
+
+procedure InitHAnimModelFootRightPart10;
+begin
+
 Material163 := TMaterialNode.Create;
 Material163.EmissiveColor := Vector3(1,1,1);
 { .SetMaterial }
@@ -892,6 +943,11 @@ HAnimJoint175 := THAnimJointNode.Create;
 HAnimJoint175.NameField := 'r_tarsal_proximal_interphalangeal_3';
 HAnimJoint175.Center := Vector3(-0.15,-1.05,0);
 HAnimSegment176 := THAnimSegmentNode.Create;
+end;
+
+procedure InitHAnimModelFootRightPart11;
+begin
+
 HAnimSegment176.NameField := 'r_tarsal_middle_phalanx_3';
 Transform177 := TTransformNode.Create;
 Transform177.Translation := Vector3(-0.15,-1.05,0);
@@ -944,6 +1000,11 @@ IndexedLineSet191 := TIndexedLineSetNode.Create;
 IndexedLineSet191.SetCoordIndex([0,1]);
 Coordinate192 := TCoordinateNode.Create;
 Coordinate192.SetPoint([Vector3(-0.15,-1.13,0),Vector3(-0.15,-1.16,0)]);
+end;
+
+procedure InitHAnimModelFootRightPart12;
+begin
+
 { .SetCoord }
 IndexedLineSet191.Coord := Coordinate192;
 { .SetGeometry }
@@ -1004,6 +1065,11 @@ HAnimJoint202.Center := Vector3(-0.21,-0.3,0);
 HAnimSegment203 := THAnimSegmentNode.Create;
 HAnimSegment203.NameField := 'r_cuboid';
 Transform204 := TTransformNode.Create;
+end;
+
+procedure InitHAnimModelFootRightPart13;
+begin
+
 Transform204.Translation := Vector3(-0.21,-0.3,0);
 Shape205 := Shape34;
 { .AddChild }
@@ -1059,6 +1125,11 @@ Transform218.Translation := Vector3(-0.25,-0.58,0);
 Shape219 := Shape34;
 { .AddChild }
 Transform218.AddChildren([Shape219]);
+end;
+
+procedure InitHAnimModelFootRightPart14;
+begin
+
 { .AddChildren }
 HAnimSegment217.AddChildren([Transform218]);
 Shape220 := TShapeNode.Create;
@@ -1114,6 +1185,11 @@ HAnimSegment226.AddChildren([Shape229]);
 { .AddChildren }
 HAnimJoint225.AddChildren([HAnimSegment226]);
 HAnimJoint234 := THAnimJointNode.Create;
+end;
+
+procedure InitHAnimModelFootRightPart15;
+begin
+
 HAnimJoint234.NameField := 'r_tarsal_proximal_interphalangeal_4';
 HAnimJoint234.Center := Vector3(-0.25,-1,0);
 HAnimSegment235 := THAnimSegmentNode.Create;
@@ -1166,6 +1242,11 @@ Appearance248.Material := Material249;
 { .SetAppearance }
 Shape247.Appearance := Appearance248;
 IndexedLineSet250 := TIndexedLineSetNode.Create;
+end;
+
+procedure InitHAnimModelFootRightPart16;
+begin
+
 IndexedLineSet250.SetCoordIndex([0,1]);
 Coordinate251 := TCoordinateNode.Create;
 Coordinate251.SetPoint([Vector3(-0.25,-1.1,0),Vector3(-0.25,-1.15,0)]);
@@ -1223,6 +1304,11 @@ HAnimJoint261.NameField := 'r_metatarsophalangeal_5';
 HAnimJoint261.Center := Vector3(-0.34,-0.8,0);
 HAnimSegment262 := THAnimSegmentNode.Create;
 HAnimSegment262.NameField := 'r_tarsal_proximal_phalanx_5';
+end;
+
+procedure InitHAnimModelFootRightPart17;
+begin
+
 Transform263 := TTransformNode.Create;
 Transform263.Translation := Vector3(-0.34,-0.8,0);
 Shape264 := Shape34;
@@ -1276,6 +1362,11 @@ Coordinate278 := TCoordinateNode.Create;
 Coordinate278.SetPoint([Vector3(-0.34,-0.95,0),Vector3(-0.34,-1.05,0)]);
 { .SetCoord }
 IndexedLineSet277.Coord := Coordinate278;
+end;
+
+procedure InitHAnimModelFootRightPart18;
+begin
+
 { .SetGeometry }
 Shape274.Geometry := IndexedLineSet277;
 { .AddChildren }
@@ -1337,6 +1428,11 @@ HAnimJoint289 := HAnimJoint193;
 { .FdJoints.Add }
 HAnimHumanoid27.FdJoints.Add(HAnimJoint289);
 HAnimJoint290 := HAnimJoint67;
+end;
+
+procedure InitHAnimModelFootRightPart19;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid27.FdJoints.Add(HAnimJoint290);
 HAnimJoint291 := HAnimJoint103;
@@ -1397,6 +1493,11 @@ HAnimJoint309 := HAnimJoint76;
 { .FdJoints.Add }
 HAnimHumanoid27.FdJoints.Add(HAnimJoint309);
 HAnimJoint310 := HAnimJoint112;
+end;
+
+procedure InitHAnimModelFootRightPart20;
+begin
+
 { .FdJoints.Add }
 HAnimHumanoid27.FdJoints.Add(HAnimJoint310);
 HAnimJoint311 := HAnimJoint157;
@@ -1415,6 +1516,31 @@ HAnimHumanoid27.FdJoints.Add(HAnimJoint314);
 Group25.AddChildren([HAnimHumanoid27]);
 { .AddGroup }
 X3D0.AddChildren([Group25]);
+end;
+
+function CreateHAnimModelFootRight: TX3DRootNode;
+begin
+InitHAnimModelFootRightPart0;
+InitHAnimModelFootRightPart1;
+InitHAnimModelFootRightPart2;
+InitHAnimModelFootRightPart3;
+InitHAnimModelFootRightPart4;
+InitHAnimModelFootRightPart5;
+InitHAnimModelFootRightPart6;
+InitHAnimModelFootRightPart7;
+InitHAnimModelFootRightPart8;
+InitHAnimModelFootRightPart9;
+InitHAnimModelFootRightPart10;
+InitHAnimModelFootRightPart11;
+InitHAnimModelFootRightPart12;
+InitHAnimModelFootRightPart13;
+InitHAnimModelFootRightPart14;
+InitHAnimModelFootRightPart15;
+InitHAnimModelFootRightPart16;
+InitHAnimModelFootRightPart17;
+InitHAnimModelFootRightPart18;
+InitHAnimModelFootRightPart19;
+InitHAnimModelFootRightPart20;
 Result := X3D0;
 end;
 

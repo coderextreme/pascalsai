@@ -10,13 +10,14 @@ implementation
 
 uses CastleVectors;
 
-function CreateSmokeTestProgramOutput_MeshLabImport: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group6: TGroupNode;
 Shape7: TShapeNode;
 IndexedFaceSet8: TIndexedFaceSetNode;
 Coordinate9: TCoordinateNode;
+
+procedure InitSmokeTestProgramOutput_MeshLabImportPart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -39,6 +40,11 @@ Shape7.Geometry := IndexedFaceSet8;
 Group6.AddChildren([Shape7]);
 { .AddGroup }
 X3D0.AddChildren([Group6]);
+end;
+
+function CreateSmokeTestProgramOutput_MeshLabImport: TX3DRootNode;
+begin
+InitSmokeTestProgramOutput_MeshLabImportPart0;
 Result := X3D0;
 end;
 

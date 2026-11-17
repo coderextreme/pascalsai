@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createflowers2: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group11: TGroupNode;
@@ -59,6 +58,8 @@ SFVec3f58: TSFVec3f;
 SFColor59: TSFColor;
 SFColor60: TSFColor;
 SFFloat61: TSFFloat;
+
+procedure Initflowers2Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -105,6 +106,11 @@ X3DField19.Value := '1 0.5 0';
 { .AddX3DField }
 X3DInterfaceDeclaration17.X3DField := X3DField19;
 X3DField20 := TX3DField.Create;
+end;
+
+procedure Initflowers2Part1;
+begin
+
 X3DField20.NameField := 'specularColor';
 X3DField20.AccessType := 'inputOutput';
 X3DField20.Type := 'SFColor';
@@ -153,6 +159,11 @@ IS32.Connect := connect33;
 connect34 := Tconnect.Create;
 connect34.NodeField := 'specularColor';
 connect34.ProtoField := 'specularColor';
+end;
+
+procedure Initflowers2Part2;
+begin
+
 { .AddConnect }
 IS32.Connect := connect34;
 connect35 := Tconnect.Create;
@@ -209,6 +220,11 @@ X3DField42.Type := 'SFFloat';
 X3DField42.Value := '5';
 { .AddX3DField }
 Script38.X3DField := X3DField42;
+end;
+
+procedure Initflowers2Part3;
+begin
+
 X3DField43 := TX3DField.Create;
 X3DField43.NameField := 'f';
 X3DField43.AccessType := 'inputOutput';
@@ -373,6 +389,14 @@ Group14.X3DPrototype := X3DPrototype57;
 Group11.AddChildren([Group14]);
 { .AddGroup }
 X3D0.AddChildren([Group11]);
+end;
+
+function Createflowers2: TX3DRootNode;
+begin
+Initflowers2Part0;
+Initflowers2Part1;
+Initflowers2Part2;
+Initflowers2Part3;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function Createflowers7: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group16: TGroupNode;
@@ -83,6 +82,8 @@ X3DField82: TX3DField;
 X3DField83: TX3DField;
 X3DField84: TX3DField;
 TimeSensor85: TTimeSensorNode;
+
+procedure Initflowers7Part0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -129,6 +130,11 @@ Material23.DiffuseColor := Vector3(0.7,0.7,0.7);
 Material23.SpecularColor := Vector3(0.5,0.5,0.5);
 { .SetMaterial }
 Appearance22.Material := Material23;
+end;
+
+procedure Initflowers7Part1;
+begin
+
 ComposedCubeMapTexture24 := TComposedCubeMapTextureNode.Create;
 ImageTexture25 := TImageTextureNode.Create;
 ImageTexture25.SetUrl(['../resources/images/all_probes/beach_cross/beach_back.png','https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_back.png']);
@@ -180,6 +186,11 @@ X3DField35.NameField := 'bias';
 X3DField35.Type := 'SFFloat';
 X3DField35.AccessType := 'inputOutput';
 X3DField35.Value := '0.5';
+end;
+
+procedure Initflowers7Part2;
+begin
+
 { .AddX3DField }
 ComposedShader31.X3DField := X3DField35;
 X3DField36 := TX3DField.Create;
@@ -227,6 +238,11 @@ ComposedShader31.X3DField := X3DField41;
 X3DField42 := TX3DField.Create;
 X3DField42.NameField := 'tdelta';
 X3DField42.Type := 'SFFloat';
+end;
+
+procedure Initflowers7Part3;
+begin
+
 X3DField42.AccessType := 'inputOutput';
 X3DField42.Value := '0';
 { .AddX3DField }
@@ -276,6 +292,11 @@ X3DField50.Value := '0.5';
 { .AddX3DField }
 ComposedShader46.X3DField := X3DField50;
 X3DField51 := TX3DField.Create;
+end;
+
+procedure Initflowers7Part4;
+begin
+
 X3DField51.NameField := 'scale';
 X3DField51.Type := 'SFFloat';
 X3DField51.AccessType := 'inputOnly';
@@ -322,6 +343,11 @@ X3DField57.NameField := 'tdelta';
 X3DField57.Type := 'SFFloat';
 X3DField57.AccessType := 'inputOnly';
 X3DField57.Value := '0';
+end;
+
+procedure Initflowers7Part5;
+begin
+
 { .AddX3DField }
 ComposedShader46.X3DField := X3DField57;
 X3DField58 := TX3DField.Create;
@@ -377,6 +403,11 @@ X3DField65.Value := '\'https://coderextreme.net/X3DJSONLD/src/main/resources/ima
 Script62.X3DField := X3DField65;
 X3DField66 := TX3DField.Create;
 X3DField66.NameField := 'rightUrls';
+end;
+
+procedure Initflowers7Part6;
+begin
+
 X3DField66.Type := 'MFString';
 X3DField66.AccessType := 'initializeOnly';
 X3DField66.Value := '\'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/beach_cross/beach_right.png\' \'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/building_cross/building_right.png\' \'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/campus_cross/campus_right.png\' \'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/galileo_cross/galileo_right.png\' \'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/grace_cross/grace_right.png\' \'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/kitchen_cross/kitchen_right.png\' \'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/rnl_cross/rnl_right.png\' \'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/stpeters_cross/stpeters_right.png\' \'https://coderextreme.net/X3DJSONLD/src/main/resources/images/all_probes/uffizi_cross/uffizi_right.png\'';
@@ -428,6 +459,11 @@ X3DField73.AccessType := 'inputOutput';
 Script62.X3DField := X3DField73;
 X3DField74 := TX3DField.Create;
 X3DField74.NameField := 'bottom';
+end;
+
+procedure Initflowers7Part7;
+begin
+
 X3DField74.Type := 'MFString';
 X3DField74.AccessType := 'inputOutput';
 { .AddX3DField }
@@ -590,6 +626,18 @@ Group16.AddRoute(Script77.FdTdelta, ComposedShader31.FdTdelta);
 { .AddX3DRoute }
 { .AddGroup }
 X3D0.AddChildren([Group16]);
+end;
+
+function Createflowers7: TX3DRootNode;
+begin
+Initflowers7Part0;
+Initflowers7Part1;
+Initflowers7Part2;
+Initflowers7Part3;
+Initflowers7Part4;
+Initflowers7Part5;
+Initflowers7Part6;
+Initflowers7Part7;
 Result := X3D0;
 end;
 

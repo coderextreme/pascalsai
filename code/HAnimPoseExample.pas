@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreateHAnimPoseExample: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group17: TGroupNode;
@@ -144,6 +143,8 @@ HAnimPose154: THAnimPoseNode;
 HAnimPose155: THAnimPoseNode;
 HAnimPose156: THAnimPoseNode;
 HAnimPose157: THAnimPoseNode;
+
+procedure InitHAnimPoseExamplePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Full';
@@ -193,6 +194,11 @@ IMPORT23.InlineDEF := 'HumanoidInline';
 { .AddChildren }
 Group21.AddChildren([IMPORT23]);
 LoadSensor24 := TLoadSensorNode.Create;
+end;
+
+procedure InitHAnimPoseExamplePart1;
+begin
+
 LoadSensor24.TimeOut := 2;
 Inline25 := Inline22;
 { .AddChildren }
@@ -244,6 +250,11 @@ HAnimJoint32.Rotation := Vector4(0,0,1,0.5);
 { .AddChildren }
 HAnimPose31.AddChildren([HAnimJoint32]);
 HAnimJoint33 := THAnimJointNode.Create;
+end;
+
+procedure InitHAnimPoseExamplePart2;
+begin
+
 HAnimJoint33.NameField := 'r_shoulder';
 HAnimJoint33.Description := 'right shoulder';
 HAnimJoint33.Rotation := Vector4(0,0,-1,0.5);
@@ -293,6 +304,11 @@ HAnimJoint41.Rotation := Vector4(-0.2,0,0.1,0.25);
 HAnimPose34.AddChildren([HAnimJoint41]);
 HAnimJoint42 := THAnimJointNode.Create;
 HAnimJoint42.NameField := 'vl5';
+end;
+
+procedure InitHAnimPoseExamplePart3;
+begin
+
 HAnimJoint42.Rotation := Vector4(0,0,0.01,0.2);
 { .AddChildren }
 HAnimPose34.AddChildren([HAnimJoint42]);
@@ -345,6 +361,11 @@ HAnimPose51.TransitionDuration := 1.5;
 { .AddChildren }
 Group17.AddChildren([HAnimPose51]);
 HAnimPose52 := THAnimPoseNode.Create;
+end;
+
+procedure InitHAnimPoseExamplePart4;
+begin
+
 HAnimPose52.NameField := 'H';
 HAnimPose52.Description := 'TODO experimental pose not yet implemented';
 HAnimPose52.Enabled := False;
@@ -391,6 +412,11 @@ FontStyle61.Justify := fjMiddle;
 FontStyle61.JustifyMinor := fjMiddle;
 FontStyle61.Size := 0.15;
 FontStyle61.Style := fsBold;
+end;
+
+procedure InitHAnimPoseExamplePart5;
+begin
+
 { .SetFontStyle }
 Text60.FontStyle := FontStyle61;
 { .SetGeometry }
@@ -448,6 +474,11 @@ Transform64.AddRoute(TouchSensor73.FdIsactive, HAnimPose27.FdCommencepose);
 { .AddX3DRoute }
 { .AddChildren }
 Group57.AddChildren([Transform64]);
+end;
+
+procedure InitHAnimPoseExamplePart6;
+begin
+
 Transform75 := TTransformNode.Create;
 Transform75.Translation := Vector3(-1.5,1,0);
 Shape76 := TShapeNode.Create;
@@ -506,6 +537,11 @@ Box92 := TBoxNode.Create;
 Box92.Size := Vector3(0.85,0.2,0.001);
 { .SetGeometry }
 Shape90.Geometry := Box92;
+end;
+
+procedure InitHAnimPoseExamplePart7;
+begin
+
 { .AddChild }
 Transform85.AddChildren([Shape90]);
 TouchSensor93 := TTouchSensorNode.Create;
@@ -565,6 +601,11 @@ Appearance109 := Appearance62;
 Shape106.Appearance := Appearance109;
 { .AddChild }
 Transform105.AddChildren([Shape106]);
+end;
+
+procedure InitHAnimPoseExamplePart8;
+begin
+
 Shape110 := TShapeNode.Create;
 Appearance111 := Appearance70;
 { .SetAppearance }
@@ -622,6 +663,11 @@ Transform125.Translation := Vector3(1.5,0.5,0);
 Shape126 := TShapeNode.Create;
 Text127 := TTextNode.Create;
 Text127.SetText(['Direct animation','to, from "I" Pose']);
+end;
+
+procedure InitHAnimPoseExamplePart9;
+begin
+
 FontStyle128 := FontStyle67;
 { .SetFontStyle }
 Text127.FontStyle := FontStyle128;
@@ -681,6 +727,11 @@ Text142.FontStyle := FontStyle143;
 { .SetGeometry }
 Shape141.Geometry := Text142;
 Appearance144 := Appearance129;
+end;
+
+procedure InitHAnimPoseExamplePart10;
+begin
+
 { .SetAppearance }
 Shape141.Appearance := Appearance144;
 { .AddChild }
@@ -736,6 +787,21 @@ HAnimHumanoid150.Children := HAnimPose157;
 Group17.AddChildren([HAnimHumanoid150]);
 { .AddGroup }
 X3D0.AddChildren([Group17]);
+end;
+
+function CreateHAnimPoseExample: TX3DRootNode;
+begin
+InitHAnimPoseExamplePart0;
+InitHAnimPoseExamplePart1;
+InitHAnimPoseExamplePart2;
+InitHAnimPoseExamplePart3;
+InitHAnimPoseExamplePart4;
+InitHAnimPoseExamplePart5;
+InitHAnimPoseExamplePart6;
+InitHAnimPoseExamplePart7;
+InitHAnimPoseExamplePart8;
+InitHAnimPoseExamplePart9;
+InitHAnimPoseExamplePart10;
 Result := X3D0;
 end;
 

@@ -10,7 +10,6 @@ implementation
 
 uses CastleVectors;
 
-function CreaterubikOnFire: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
 Group7: TGroupNode;
@@ -97,6 +96,8 @@ X3DPrototype87: TX3DPrototypeNode;
 SFVec3f88: TSFVec3f;
 SFNode89: TSFNode;
 Box90: TBoxNode;
+
+procedure InitrubikOnFirePart0;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -144,6 +145,11 @@ IS17 := TIS.Create;
 connect18 := Tconnect.Create;
 connect18.NodeField := 'translation';
 connect18.ProtoField := 'xtranslation';
+end;
+
+procedure InitrubikOnFirePart1;
+begin
+
 { .AddConnect }
 IS17.Connect := connect18;
 { .SetIS }
@@ -198,6 +204,11 @@ Transform30 := TTransformNode.Create;
 IS31 := TIS.Create;
 connect32 := Tconnect.Create;
 connect32.NodeField := 'translation';
+end;
+
+procedure InitrubikOnFirePart2;
+begin
+
 connect32.ProtoField := 'ytranslation';
 { .AddConnect }
 IS31.Connect := connect32;
@@ -250,6 +261,11 @@ connect44.NodeField := 'myShape';
 connect44.ProtoField := 'myShape';
 { .AddConnect }
 IS43.Connect := connect44;
+end;
+
+procedure InitrubikOnFirePart3;
+begin
+
 { .SetIS }
 X3DPrototype41.IS := IS43;
 { .AddX3DPrototype }
@@ -302,6 +318,11 @@ IS56 := TIS.Create;
 connect57 := Tconnect.Create;
 connect57.NodeField := 'myShape';
 connect57.ProtoField := 'myShape';
+end;
+
+procedure InitrubikOnFirePart4;
+begin
+
 { .AddConnect }
 IS56.Connect := connect57;
 { .SetIS }
@@ -356,6 +377,11 @@ X3DField68.NameField := 'ttranslation';
 X3DField68.AccessType := 'inputOutput';
 X3DField68.Type := 'SFVec3f';
 X3DField68.Value := '0 0 0';
+end;
+
+procedure InitrubikOnFirePart5;
+begin
+
 { .SetX3DField }
 X3DInterfaceDeclaration67.X3DField := X3DField68;
 X3DField69 := TX3DField.Create;
@@ -407,6 +433,11 @@ IS81 := TIS.Create;
 connect82 := Tconnect.Create;
 connect82.NodeField := 'myShape';
 connect82.ProtoField := 'myShape';
+end;
+
+procedure InitrubikOnFirePart6;
+begin
+
 { .AddConnect }
 IS81.Connect := connect82;
 { .SetIS }
@@ -455,6 +486,17 @@ X3DPrototype87.SFNode := SFNode89;
 Group7.X3DPrototype := X3DPrototype87;
 { .AddGroup }
 X3D0.AddChildren([Group7]);
+end;
+
+function CreaterubikOnFire: TX3DRootNode;
+begin
+InitrubikOnFirePart0;
+InitrubikOnFirePart1;
+InitrubikOnFirePart2;
+InitrubikOnFirePart3;
+InitrubikOnFirePart4;
+InitrubikOnFirePart5;
+InitrubikOnFirePart6;
 Result := X3D0;
 end;
 
