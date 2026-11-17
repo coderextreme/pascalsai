@@ -965,56 +965,56 @@ HAnimSite165.AddChildren([Viewpoint169]);
 { .SetViewpoints }
 HAnimHumanoid23.Viewpoints := HAnimSite165;
 HAnimJoint170 := HAnimJoint24;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint170;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint170);
 HAnimJoint171 := HAnimJoint25;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint171;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint171);
 HAnimJoint172 := HAnimJoint156;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint172;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint172);
 HAnimJoint173 := HAnimJoint147;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint173;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint173);
 HAnimJoint174 := HAnimJoint86;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint174;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint174);
 HAnimJoint175 := HAnimJoint52;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint175;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint175);
 HAnimJoint176 := HAnimJoint78;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint176;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint176);
 HAnimJoint177 := HAnimJoint104;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint177;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint177);
 HAnimJoint178 := HAnimJoint130;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint178;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint178);
 HAnimJoint179 := HAnimJoint34;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint179;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint179);
 HAnimJoint180 := HAnimJoint60;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint180;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint180);
 HAnimJoint181 := HAnimJoint43;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint181;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint181);
 HAnimJoint182 := HAnimJoint69;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint182;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint182);
 HAnimJoint183 := HAnimJoint95;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint183;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint183);
 HAnimJoint184 := HAnimJoint121;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint184;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint184);
 HAnimJoint185 := HAnimJoint113;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint185;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint185);
 HAnimJoint186 := HAnimJoint139;
-{ .AddJoints }
-HAnimHumanoid23.Joints := HAnimJoint186;
+{ .FdJoints.Add }
+HAnimHumanoid23.FdJoints.Add(HAnimJoint186);
 { .AddChildren }
 Group21.AddChildren([HAnimHumanoid23]);
 NavigationInfo187 := TNavigationInfoNode.Create;

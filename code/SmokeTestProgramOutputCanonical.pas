@@ -524,7 +524,6 @@ Group26.AddChildren([Shape95]);
 Shape100 := TShapeNode.Create;
 Appearance101 := TAppearanceNode.Create;
 { ArtDeco02Material ProtoInstance USE goes here. Note that name field is NOT defined as part of ProtoInstance USE. }
-X3DPrototype102.NameField := 'ArtDeco02Material';
 X3DPrototype102 := X3DPrototype97;
 { .SetMaterial }
 Appearance101.Material := X3DPrototype102;

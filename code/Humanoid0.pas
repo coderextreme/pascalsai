@@ -209,15 +209,15 @@ Shape39.Appearance := Appearance43;
 { .SetSkin }
 HAnimHumanoid38.SetSkin([Shape39]);
 Coordinate46 := Coordinate41;
-{ .SetSkinCoord }
-HAnimHumanoid38.SetSkinCoord(Coordinate46);
+{ .FdSkinCoord.Set }
+HAnimHumanoid38.FdSkinCoord.Set(Coordinate46);
 HAnimJoint47 := THAnimJointNode.Create;
 HAnimJoint47.NameField := 'humanoid_root';
 { .AddSkeleton }
 HAnimHumanoid38.SetSkeleton([HAnimJoint47]);
 HAnimJoint48 := HAnimJoint47;
-{ .AddJoints }
-HAnimHumanoid38.Joints := HAnimJoint48;
+{ .FdJoints.Add }
+HAnimHumanoid38.FdJoints.Add(HAnimJoint48);
 { .AddChildren }
 Group11.AddChildren([HAnimHumanoid38]);
 { .AddGroup }

@@ -1331,86 +1331,86 @@ HAnimJoint30.AddChildren([HAnimJoint31]);
 { .AddSkeleton }
 HAnimHumanoid27.SetSkeleton([HAnimJoint30]);
 HAnimJoint288 := HAnimJoint30;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint288;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint288);
 HAnimJoint289 := HAnimJoint193;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint289;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint289);
 HAnimJoint290 := HAnimJoint67;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint290;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint290);
 HAnimJoint291 := HAnimJoint103;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint291;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint291);
 HAnimJoint292 := HAnimJoint148;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint292;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint292);
 HAnimJoint293 := HAnimJoint85;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint293;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint293);
 HAnimJoint294 := HAnimJoint121;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint294;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint294);
 HAnimJoint295 := HAnimJoint166;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint295;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint295);
 HAnimJoint296 := HAnimJoint225;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint296;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint296);
 HAnimJoint297 := HAnimJoint261;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint297;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint297);
 HAnimJoint298 := HAnimJoint48;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint298;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint298);
 HAnimJoint299 := HAnimJoint31;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint299;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint299);
 HAnimJoint300 := HAnimJoint139;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint300;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint300);
 HAnimJoint301 := HAnimJoint184;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint301;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint301);
 HAnimJoint302 := HAnimJoint243;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint302;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint302);
 HAnimJoint303 := HAnimJoint279;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint303;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint303);
 HAnimJoint304 := HAnimJoint94;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint304;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint304);
 HAnimJoint305 := HAnimJoint130;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint305;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint305);
 HAnimJoint306 := HAnimJoint175;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint306;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint306);
 HAnimJoint307 := HAnimJoint234;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint307;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint307);
 HAnimJoint308 := HAnimJoint270;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint308;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint308);
 HAnimJoint309 := HAnimJoint76;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint309;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint309);
 HAnimJoint310 := HAnimJoint112;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint310;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint310);
 HAnimJoint311 := HAnimJoint157;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint311;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint311);
 HAnimJoint312 := HAnimJoint216;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint312;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint312);
 HAnimJoint313 := HAnimJoint252;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint313;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint313);
 HAnimJoint314 := HAnimJoint202;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint314;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint314);
 { .AddChildren }
 Group25.AddChildren([HAnimHumanoid27]);
 { .AddGroup }

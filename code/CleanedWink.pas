@@ -1872,11 +1872,11 @@ HAnimJoint28.AddChildren([HAnimJoint33]);
 { .AddSkeleton }
 HAnimHumanoid27.SetSkeleton([HAnimJoint28]);
 HAnimJoint387 := HAnimJoint28;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint387;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint387);
 HAnimJoint388 := HAnimJoint33;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint388;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint388);
 { .AddChildren }
 Group22.AddChildren([HAnimHumanoid27]);
 Group22.AddRoute(ScalarInterpolator26.EventValue_changed, HAnimDisplacer192.FdWeight);

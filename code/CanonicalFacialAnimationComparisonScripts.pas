@@ -940,7 +940,7 @@ X3D0.Meta['identifier'] := 'https://github.com/coderextreme/ci2had/CanonicalFaci
 X3D0.Meta['description'] := 'X3D scene with multiple facial animations controlled by a multi-selection menu';
 X3D0.Meta['created'] := '12 December 2024';
 X3D0.Meta['modified'] := '22 December 2024';
-X3D0.Meta['creator'] := 'John Carlson, Joe Williams, Gyu Ri Cho, Hyun Ho Chu, Min Joo Lee, Yujin Jung';
+X3D0.Meta['creator'] := 'John Carlson (Menu), Joe Williams, Gyu Ri Cho, Hyun Ho Chu, Min Joo Lee, Yujin Jung';
 Group9 := TGroupNode.Create;
 WorldInfo10 := TWorldInfoNode.Create;
 WorldInfo10.Title := 'CanonicalFacialAnimationComparisonScripts.x3d';
@@ -4377,11 +4377,11 @@ HAnimJoint46.AddChildren([HAnimJoint48]);
 { .AddSkeleton }
 HAnimHumanoid45.SetSkeleton([HAnimJoint46]);
 HAnimJoint708 := HAnimJoint46;
-{ .AddJoints }
-HAnimHumanoid45.Joints := HAnimJoint708;
+{ .FdJoints.Add }
+HAnimHumanoid45.FdJoints.Add(HAnimJoint708);
 HAnimJoint709 := HAnimJoint48;
-{ .AddJoints }
-HAnimHumanoid45.Joints := HAnimJoint709;
+{ .FdJoints.Add }
+HAnimHumanoid45.FdJoints.Add(HAnimJoint709);
 { .AddChildren }
 Group44.AddChildren([HAnimHumanoid45]);
 { .AddChildren }

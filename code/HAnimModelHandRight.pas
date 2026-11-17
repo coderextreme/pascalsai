@@ -1234,80 +1234,80 @@ HAnimJoint29.AddChildren([HAnimJoint30]);
 { .AddSkeleton }
 HAnimHumanoid26.SetSkeleton([HAnimJoint29]);
 HAnimJoint267 := HAnimJoint29;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint267;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint267);
 HAnimJoint268 := HAnimJoint127;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint268;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint268);
 HAnimJoint269 := HAnimJoint172;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint269;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint269);
 HAnimJoint270 := HAnimJoint222;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint270;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint270);
 HAnimJoint271 := HAnimJoint258;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint271;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint271);
 HAnimJoint272 := HAnimJoint82;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint272;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint272);
 HAnimJoint273 := HAnimJoint118;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint273;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint273);
 HAnimJoint274 := HAnimJoint163;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint274;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint274);
 HAnimJoint275 := HAnimJoint213;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint275;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint275);
 HAnimJoint276 := HAnimJoint249;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint276;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint276);
 HAnimJoint277 := HAnimJoint64;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint277;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint277);
 HAnimJoint278 := HAnimJoint100;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint278;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint278);
 HAnimJoint279 := HAnimJoint145;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint279;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint279);
 HAnimJoint280 := HAnimJoint195;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint280;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint280);
 HAnimJoint281 := HAnimJoint231;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint281;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint281);
 HAnimJoint282 := HAnimJoint73;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint282;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint282);
 HAnimJoint283 := HAnimJoint109;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint283;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint283);
 HAnimJoint284 := HAnimJoint154;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint284;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint284);
 HAnimJoint285 := HAnimJoint204;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint285;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint285);
 HAnimJoint286 := HAnimJoint240;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint286;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint286);
 HAnimJoint287 := HAnimJoint52;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint287;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint287);
 HAnimJoint288 := HAnimJoint91;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint288;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint288);
 HAnimJoint289 := HAnimJoint136;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint289;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint289);
 HAnimJoint290 := HAnimJoint181;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint290;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint290);
 HAnimJoint291 := HAnimJoint30;
-{ .AddJoints }
-HAnimHumanoid26.Joints := HAnimJoint291;
+{ .FdJoints.Add }
+HAnimHumanoid26.FdJoints.Add(HAnimJoint291);
 { .AddChildren }
 Group24.AddChildren([HAnimHumanoid26]);
 { .AddGroup }

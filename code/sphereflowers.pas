@@ -32,9 +32,6 @@ X3DPrototype32: TX3DPrototypeNode;
 X3DPrototype33: TX3DPrototypeNode;
 X3DPrototype34: TX3DPrototypeNode;
 X3DPrototype35: TX3DPrototypeNode;
-TimeSensor36: TTimeSensorNode;
-Sound37: TSoundNode;
-AudioClip38: TAudioClipNode;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
@@ -134,25 +131,6 @@ X3DPrototype35 := TX3DPrototypeNode.Create;
 X3DPrototype35.NameField := 'flower';
 { .AddX3DPrototype }
 Group20.X3DPrototype := X3DPrototype35;
-TimeSensor36 := TTimeSensorNode.Create;
-TimeSensor36.Loop := True;
-{ .AddChildren }
-Group20.AddChildren([TimeSensor36]);
-Sound37 := TSoundNode.Create;
-Sound37.MaxBack := 100;
-Sound37.MaxFront := 100;
-Sound37.MinBack := 20;
-Sound37.MinFront := 20;
-Sound37.Location := Vector3(0,1,0);
-AudioClip38 := TAudioClipNode.Create;
-AudioClip38.Description := 'Chandubabamusic #1';
-AudioClip38.SetUrl(['../resources/chandubabamusic1.wav','https://coderextreme.net/X3DJSONLD/src/main/resources/chandubabamusic1.wav']);
-{ .SetSource }
-Sound37.Source := AudioClip38;
-{ .AddChildren }
-Group20.AddChildren([Sound37]);
-Group20.AddRoute(TimeSensor36.FdCycletime, AudioClip38.FdStarttime);
-{ .AddX3DRoute }
 { .AddChildren }
 Group17.AddChildren([Group20]);
 { .AddGroup }

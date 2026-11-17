@@ -5963,545 +5963,545 @@ Shape1177.Geometry := IndexedFaceSet1181;
 { .SetSkin }
 HAnimHumanoid75.SetSkin([Shape1177]);
 Coordinate1184 := Coordinate1183;
-{ .SetSkinCoord }
-HAnimHumanoid75.SetSkinCoord(Coordinate1184);
+{ .FdSkinCoord.Set }
+HAnimHumanoid75.FdSkinCoord.Set(Coordinate1184);
 HAnimJoint1185 := HAnimJoint78;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1185;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1185);
 HAnimJoint1186 := HAnimJoint90;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1186;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1186);
 HAnimJoint1187 := HAnimJoint392;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1187;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1187);
 HAnimJoint1188 := HAnimJoint407;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1188;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1188);
 HAnimJoint1189 := HAnimJoint415;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1189;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1189);
 HAnimJoint1190 := HAnimJoint423;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1190;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1190);
 HAnimJoint1191 := HAnimJoint449;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1191;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1191);
 HAnimJoint1192 := HAnimJoint457;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1192;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1192);
 HAnimJoint1193 := HAnimJoint465;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1193;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1193);
 HAnimJoint1194 := HAnimJoint473;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1194;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1194);
 HAnimJoint1195 := HAnimJoint483;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1195;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1195);
 HAnimJoint1196 := HAnimJoint495;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1196;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1196);
 HAnimJoint1197 := HAnimJoint503;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1197;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1197);
 HAnimJoint1198 := HAnimJoint511;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1198;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1198);
 HAnimJoint1199 := HAnimJoint519;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1199;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1199);
 HAnimJoint1200 := HAnimJoint527;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1200;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1200);
 HAnimJoint1201 := HAnimJoint537;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1201;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1201);
 HAnimJoint1202 := HAnimJoint545;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1202;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1202);
 HAnimJoint1203 := HAnimJoint553;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1203;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1203);
 HAnimJoint1204 := HAnimJoint565;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1204;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1204);
 HAnimJoint1205 := HAnimJoint577;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1205;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1205);
 HAnimJoint1206 := HAnimJoint585;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1206;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1206);
 HAnimJoint1207 := HAnimJoint593;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1207;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1207);
 HAnimJoint1208 := HAnimJoint601;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1208;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1208);
 HAnimJoint1209 := HAnimJoint609;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1209;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1209);
 HAnimJoint1210 := HAnimJoint617;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1210;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1210);
 HAnimJoint1211 := HAnimJoint625;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1211;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1211);
 HAnimJoint1212 := HAnimJoint679;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1212;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1212);
 HAnimJoint1213 := HAnimJoint929;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1213;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1213);
 HAnimJoint1214 := HAnimJoint805;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1214;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1214);
 HAnimJoint1215 := HAnimJoint1061;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1215;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1215);
 HAnimJoint1216 := HAnimJoint841;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1216;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1216);
 HAnimJoint1217 := HAnimJoint1095;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1217;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1217);
 HAnimJoint1218 := HAnimJoint875;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1218;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1218);
 HAnimJoint1219 := HAnimJoint1131;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1219;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1219);
 HAnimJoint1220 := HAnimJoint909;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1220;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1220);
 HAnimJoint1221 := HAnimJoint1167;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1221;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1221);
 HAnimJoint1222 := HAnimJoint771;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1222;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1222);
 HAnimJoint1223 := HAnimJoint1023;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1223;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1223);
 HAnimJoint1224 := HAnimJoint797;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1224;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1224);
 HAnimJoint1225 := HAnimJoint1053;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1225;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1225);
 HAnimJoint1226 := HAnimJoint833;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1226;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1226);
 HAnimJoint1227 := HAnimJoint1087;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1227;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1227);
 HAnimJoint1228 := HAnimJoint867;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1228;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1228);
 HAnimJoint1229 := HAnimJoint1123;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1229;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1229);
 HAnimJoint1230 := HAnimJoint901;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1230;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1230);
 HAnimJoint1231 := HAnimJoint1159;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1231;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1231);
 HAnimJoint1232 := HAnimJoint755;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1232;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1232);
 HAnimJoint1233 := HAnimJoint1007;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1233;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1233);
 HAnimJoint1234 := HAnimJoint781;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1234;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1234);
 HAnimJoint1235 := HAnimJoint1035;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1235;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1235);
 HAnimJoint1236 := HAnimJoint817;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1236;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1236);
 HAnimJoint1237 := HAnimJoint1071;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1237;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1237);
 HAnimJoint1238 := HAnimJoint851;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1238;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1238);
 HAnimJoint1239 := HAnimJoint1107;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1239;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1239);
 HAnimJoint1240 := HAnimJoint885;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1240;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1240);
 HAnimJoint1241 := HAnimJoint1141;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1241;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1241);
 HAnimJoint1242 := HAnimJoint719;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1242;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1242);
 HAnimJoint1243 := HAnimJoint975;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1243;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1243);
 HAnimJoint1244 := HAnimJoint653;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1244;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1244);
 HAnimJoint1245 := HAnimJoint661;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1245;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1245);
 HAnimJoint1246 := HAnimJoint120;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1246;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1246);
 HAnimJoint1247 := HAnimJoint256;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1247;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1247);
 HAnimJoint1248 := HAnimJoint146;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1248;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1248);
 HAnimJoint1249 := HAnimJoint282;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1249;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1249);
 HAnimJoint1250 := HAnimJoint763;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1250;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1250);
 HAnimJoint1251 := HAnimJoint1015;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1251;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1251);
 HAnimJoint1252 := HAnimJoint789;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1252;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1252);
 HAnimJoint1253 := HAnimJoint1045;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1253;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1253);
 HAnimJoint1254 := HAnimJoint825;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1254;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1254);
 HAnimJoint1255 := HAnimJoint1079;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1255;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1255);
 HAnimJoint1256 := HAnimJoint859;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1256;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1256);
 HAnimJoint1257 := HAnimJoint1115;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1257;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1257);
 HAnimJoint1258 := HAnimJoint893;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1258;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1258);
 HAnimJoint1259 := HAnimJoint1151;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1259;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1259);
 HAnimJoint1260 := HAnimJoint226;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1260;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1260);
 HAnimJoint1261 := HAnimJoint208;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1261;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1261);
 HAnimJoint1262 := HAnimJoint344;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1262;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1262);
 HAnimJoint1263 := HAnimJoint741;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1263;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1263);
 HAnimJoint1264 := HAnimJoint997;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1264;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1264);
 HAnimJoint1265 := HAnimJoint695;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1265;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1265);
 HAnimJoint1266 := HAnimJoint945;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1266;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1266);
 HAnimJoint1267 := HAnimJoint669;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1267;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1267);
 HAnimJoint1268 := HAnimJoint919;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1268;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1268);
 HAnimJoint1269 := HAnimJoint174;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1269;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1269);
 HAnimJoint1270 := HAnimJoint310;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1270;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1270);
 HAnimJoint1271 := HAnimJoint362;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1271;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1271);
 HAnimJoint1272 := HAnimJoint194;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1272;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1272);
 HAnimJoint1273 := HAnimJoint330;
-{ .AddJoints }
-HAnimHumanoid75.Joints := HAnimJoint1273;
+{ .FdJoints.Add }
+HAnimHumanoid75.FdJoints.Add(HAnimJoint1273);
 HAnimSegment1274 := HAnimSegment618;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1274;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1274);
 HAnimSegment1275 := HAnimSegment610;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1275;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1275);
 HAnimSegment1276 := HAnimSegment602;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1276;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1276);
 HAnimSegment1277 := HAnimSegment594;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1277;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1277);
 HAnimSegment1278 := HAnimSegment586;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1278;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1278);
 HAnimSegment1279 := HAnimSegment578;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1279;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1279);
 HAnimSegment1280 := HAnimSegment566;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1280;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1280);
 HAnimSegment1281 := HAnimSegment450;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1281;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1281);
 HAnimSegment1282 := HAnimSegment424;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1282;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1282);
 HAnimSegment1283 := HAnimSegment416;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1283;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1283);
 HAnimSegment1284 := HAnimSegment408;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1284;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1284);
 HAnimSegment1285 := HAnimSegment398;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1285;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1285);
 HAnimSegment1286 := HAnimSegment91;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1286;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1286);
 HAnimSegment1287 := HAnimSegment79;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1287;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1287);
 HAnimSegment1288 := HAnimSegment626;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1288;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1288);
 HAnimSegment1289 := HAnimSegment554;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1289;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1289);
 HAnimSegment1290 := HAnimSegment474;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1290;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1290);
 HAnimSegment1291 := HAnimSegment466;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1291;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1291);
 HAnimSegment1292 := HAnimSegment458;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1292;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1292);
 HAnimSegment1293 := HAnimSegment546;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1293;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1293);
 HAnimSegment1294 := HAnimSegment538;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1294;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1294);
 HAnimSegment1295 := HAnimSegment528;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1295;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1295);
 HAnimSegment1296 := HAnimSegment520;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1296;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1296);
 HAnimSegment1297 := HAnimSegment512;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1297;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1297);
 HAnimSegment1298 := HAnimSegment504;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1298;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1298);
 HAnimSegment1299 := HAnimSegment496;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1299;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1299);
 HAnimSegment1300 := HAnimSegment484;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1300;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1300);
 HAnimSegment1301 := HAnimSegment393;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1301;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1301);
 HAnimSegment1302 := HAnimSegment147;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1302;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1302);
 HAnimSegment1303 := HAnimSegment283;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1303;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1303);
 HAnimSegment1304 := HAnimSegment742;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1304;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1304);
 HAnimSegment1305 := HAnimSegment998;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1305;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1305);
 HAnimSegment1306 := HAnimSegment772;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1306;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1306);
 HAnimSegment1307 := HAnimSegment1024;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1307;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1307);
 HAnimSegment1308 := HAnimSegment806;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1308;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1308);
 HAnimSegment1309 := HAnimSegment1062;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1309;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1309);
 HAnimSegment1310 := HAnimSegment842;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1310;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1310);
 HAnimSegment1311 := HAnimSegment1096;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1311;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1311);
 HAnimSegment1312 := HAnimSegment876;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1312;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1312);
 HAnimSegment1313 := HAnimSegment1132;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1313;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1313);
 HAnimSegment1314 := HAnimSegment910;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1314;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1314);
 HAnimSegment1315 := HAnimSegment1168;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1315;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1315);
 HAnimSegment1316 := HAnimSegment798;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1316;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1316);
 HAnimSegment1317 := HAnimSegment1054;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1317;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1317);
 HAnimSegment1318 := HAnimSegment834;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1318;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1318);
 HAnimSegment1319 := HAnimSegment1088;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1319;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1319);
 HAnimSegment1320 := HAnimSegment868;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1320;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1320);
 HAnimSegment1321 := HAnimSegment1124;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1321;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1321);
 HAnimSegment1322 := HAnimSegment902;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1322;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1322);
 HAnimSegment1323 := HAnimSegment1160;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1323;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1323);
 HAnimSegment1324 := HAnimSegment764;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1324;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1324);
 HAnimSegment1325 := HAnimSegment1016;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1325;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1325);
 HAnimSegment1326 := HAnimSegment790;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1326;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1326);
 HAnimSegment1327 := HAnimSegment1046;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1327;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1327);
 HAnimSegment1328 := HAnimSegment826;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1328;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1328);
 HAnimSegment1329 := HAnimSegment1080;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1329;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1329);
 HAnimSegment1330 := HAnimSegment860;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1330;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1330);
 HAnimSegment1331 := HAnimSegment1116;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1331;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1331);
 HAnimSegment1332 := HAnimSegment894;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1332;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1332);
 HAnimSegment1333 := HAnimSegment1152;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1333;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1333);
 HAnimSegment1334 := HAnimSegment670;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1334;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1334);
 HAnimSegment1335 := HAnimSegment920;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1335;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1335);
 HAnimSegment1336 := HAnimSegment654;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1336;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1336);
 HAnimSegment1337 := HAnimSegment662;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1337;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1337);
 HAnimSegment1338 := HAnimSegment720;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1338;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1338);
 HAnimSegment1339 := HAnimSegment976;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1339;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1339);
 HAnimSegment1340 := HAnimSegment756;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1340;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1340);
 HAnimSegment1341 := HAnimSegment1008;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1341;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1341);
 HAnimSegment1342 := HAnimSegment782;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1342;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1342);
 HAnimSegment1343 := HAnimSegment1036;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1343;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1343);
 HAnimSegment1344 := HAnimSegment818;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1344;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1344);
 HAnimSegment1345 := HAnimSegment1072;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1345;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1345);
 HAnimSegment1346 := HAnimSegment852;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1346;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1346);
 HAnimSegment1347 := HAnimSegment1108;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1347;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1347);
 HAnimSegment1348 := HAnimSegment886;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1348;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1348);
 HAnimSegment1349 := HAnimSegment1142;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1349;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1349);
 HAnimSegment1350 := HAnimSegment195;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1350;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1350);
 HAnimSegment1351 := HAnimSegment331;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1351;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1351);
 HAnimSegment1352 := HAnimSegment680;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1352;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1352);
 HAnimSegment1353 := HAnimSegment930;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1353;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1353);
 HAnimSegment1354 := HAnimSegment175;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1354;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1354);
 HAnimSegment1355 := HAnimSegment311;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1355;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1355);
 HAnimSegment1356 := HAnimSegment227;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1356;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1356);
 HAnimSegment1357 := HAnimSegment363;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1357;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1357);
 HAnimSegment1358 := HAnimSegment209;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1358;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1358);
 HAnimSegment1359 := HAnimSegment345;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1359;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1359);
 HAnimSegment1360 := HAnimSegment121;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1360;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1360);
 HAnimSegment1361 := HAnimSegment257;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1361;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1361);
 HAnimSegment1362 := HAnimSegment696;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1362;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1362);
 HAnimSegment1363 := HAnimSegment946;
-{ .AddSegments }
-HAnimHumanoid75.Segments := HAnimSegment1363;
+{ .FdSegments.Add }
+HAnimHumanoid75.FdSegments.Add(HAnimSegment1363);
 HAnimSite1364 := HAnimSite563;
 { .AddSites }
 HAnimHumanoid75.Sites := HAnimSite1364;

@@ -16,6 +16,8 @@ uses SysUtils,
   X3DNodes,
 
   asphere,
+  JinScaledV2L1LOA4OnlyMarkers11g,
+  { StandardHumanoid, }
   ifscubeworks,
   BoxPrototype
   {$region 'Castle Initialization Uses'}
@@ -65,7 +67,9 @@ begin
   BoxProto := TBoxProto.Create;
   AddScene(Application,Viewport,BoxProto.CreateBoxes(Root));
   AddScene(Application,Viewport,CreateIfscubeworks);
-  AddScene(Application,Viewport,CreateAsphere);
+  { AddScene(Application,Viewport,CreateAsphere); }
+  AddScene(Application,Viewport,JinScaledV2L1LOA4OnlyMarkers11g);
+  { AddScene(Application,Viewport,CreateStandardHumanoid); }
 
   { Frame the camera on the cubes (done before adding the large ground, so the
     ground does not push the camera far away), and log what the scene holds

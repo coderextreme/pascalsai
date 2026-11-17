@@ -91,7 +91,7 @@ X3D0.ForceVersion.Minor := 0;
 X3D0.Components['X_ITE'] := 1;
 X3D0.Meta['title'] := 'Bobble Spheres Full Animation (Final Working)';
 X3D0.Meta['description'] := 'Full scene with corrected Script nodes that use the initialize() function to safely reference nodes and prevent race conditions.';
-X3D0.Meta['creator'] := 'Generated from Python script';
+X3D0.Meta['creator'] := 'Generated from Python script by John Carlson';
 Group6 := TGroupNode.Create;
 WorldInfo7 := TWorldInfoNode.Create;
 WorldInfo7.Title := 'Bobble Spheres (PBR Full Animation)';
@@ -373,9 +373,9 @@ PhysicalMaterial71 := TPhysicalMaterialNode.Create;
 PhysicalMaterial71.TransmissionFactor := '0.95';
 PhysicalMaterial71.Roughness := 0.05;
 IORMaterialExtension72 := TIORMaterialExtensionNode.Create;
-IORMaterialExtension72.IndexOfRefraction := 1.5;
-{ .AddExtensions }
-PhysicalMaterial71.Extensions := IORMaterialExtension72;
+IORMaterialExtension72.IndexOfRefraction := '1.5';
+{ .SetIORMaterialExtension }
+PhysicalMaterial71.IORMaterialExtension := IORMaterialExtension72;
 { .SetMaterial }
 Appearance70.Material := PhysicalMaterial71;
 { .SetAppearance }
@@ -420,11 +420,11 @@ PhysicalMaterial84.TransmissionFactor := '0.95';
 PhysicalMaterial84.Roughness := 0.05;
 PhysicalMaterial84.IndexOfRefraction := '1.33';
 IridescenceMaterialExtension85 := TIridescenceMaterialExtensionNode.Create;
-IridescenceMaterialExtension85.Iridescence := 1;
-IridescenceMaterialExtension85.IridescenceIndexOfRefraction := 1.3;
-IridescenceMaterialExtension85.IridescenceThicknessMinimum := 100;
-{ .AddExtensions }
-PhysicalMaterial84.Extensions := IridescenceMaterialExtension85;
+IridescenceMaterialExtension85.Iridescence := '1';
+IridescenceMaterialExtension85.IridescenceIndexOfRefraction := '1.3';
+IridescenceMaterialExtension85.IridescenceThicknessMinimum := '100';
+{ .SetIridescenceMaterialExtension }
+PhysicalMaterial84.IridescenceMaterialExtension := IridescenceMaterialExtension85;
 { .SetMaterial }
 Appearance83.Material := PhysicalMaterial84;
 { .SetAppearance }

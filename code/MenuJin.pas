@@ -13,552 +13,553 @@ uses CastleVectors;
 function CreateMenuJin: TX3DRootNode;
 var
 X3D0: TX3DRootNode;
-Group4: TGroupNode;
-Viewpoint5: TViewpointNode;
-Group6: TGroupNode;
-Switch7: TSwitchNode;
-Group8: TGroupNode;
-Script9: TScriptNode;
-X3DField10: TX3DField;
+Group5: TGroupNode;
+Viewpoint6: TViewpointNode;
+Group7: TGroupNode;
+Switch8: TSwitchNode;
+Group9: TGroupNode;
+Script10: TScriptNode;
 X3DField11: TX3DField;
-Inline12: TInlineNode;
-Group13: TGroupNode;
-Script14: TScriptNode;
-X3DField15: TX3DField;
+X3DField12: TX3DField;
+Inline13: TInlineNode;
+Group14: TGroupNode;
+Script15: TScriptNode;
 X3DField16: TX3DField;
-Inline17: TInlineNode;
-Group18: TGroupNode;
-Script19: TScriptNode;
-X3DField20: TX3DField;
+X3DField17: TX3DField;
+Inline18: TInlineNode;
+Group19: TGroupNode;
+Script20: TScriptNode;
 X3DField21: TX3DField;
-Inline22: TInlineNode;
-Group23: TGroupNode;
-Script24: TScriptNode;
-X3DField25: TX3DField;
+X3DField22: TX3DField;
+Inline23: TInlineNode;
+Group24: TGroupNode;
+Script25: TScriptNode;
 X3DField26: TX3DField;
-Inline27: TInlineNode;
-Group28: TGroupNode;
-Script29: TScriptNode;
-X3DField30: TX3DField;
+X3DField27: TX3DField;
+Inline28: TInlineNode;
+Group29: TGroupNode;
+Script30: TScriptNode;
 X3DField31: TX3DField;
-Inline32: TInlineNode;
-Group33: TGroupNode;
-Script34: TScriptNode;
-X3DField35: TX3DField;
+X3DField32: TX3DField;
+Inline33: TInlineNode;
+Group34: TGroupNode;
+Script35: TScriptNode;
 X3DField36: TX3DField;
-Inline37: TInlineNode;
-Group38: TGroupNode;
-Script39: TScriptNode;
-X3DField40: TX3DField;
+X3DField37: TX3DField;
+Inline38: TInlineNode;
+Group39: TGroupNode;
+Script40: TScriptNode;
 X3DField41: TX3DField;
-Inline42: TInlineNode;
-Group43: TGroupNode;
-Script44: TScriptNode;
-X3DField45: TX3DField;
+X3DField42: TX3DField;
+Inline43: TInlineNode;
+Group44: TGroupNode;
+Script45: TScriptNode;
 X3DField46: TX3DField;
-Inline47: TInlineNode;
-Group48: TGroupNode;
-Script49: TScriptNode;
-X3DField50: TX3DField;
+X3DField47: TX3DField;
+Inline48: TInlineNode;
+Group49: TGroupNode;
+Script50: TScriptNode;
 X3DField51: TX3DField;
-Inline52: TInlineNode;
-Group53: TGroupNode;
-Script54: TScriptNode;
-X3DField55: TX3DField;
+X3DField52: TX3DField;
+Inline53: TInlineNode;
+Group54: TGroupNode;
+Script55: TScriptNode;
 X3DField56: TX3DField;
-Inline57: TInlineNode;
-Group58: TGroupNode;
-Script59: TScriptNode;
-X3DField60: TX3DField;
+X3DField57: TX3DField;
+Inline58: TInlineNode;
+Group59: TGroupNode;
+Script60: TScriptNode;
 X3DField61: TX3DField;
-Inline62: TInlineNode;
-Group63: TGroupNode;
-Script64: TScriptNode;
-X3DField65: TX3DField;
+X3DField62: TX3DField;
+Inline63: TInlineNode;
+Group64: TGroupNode;
+Script65: TScriptNode;
 X3DField66: TX3DField;
-Inline67: TInlineNode;
-Group68: TGroupNode;
-Script69: TScriptNode;
-X3DField70: TX3DField;
+X3DField67: TX3DField;
+Inline68: TInlineNode;
+Group69: TGroupNode;
+Script70: TScriptNode;
 X3DField71: TX3DField;
-Inline72: TInlineNode;
-Group73: TGroupNode;
-Script74: TScriptNode;
-X3DField75: TX3DField;
+X3DField72: TX3DField;
+Inline73: TInlineNode;
+Group74: TGroupNode;
+Script75: TScriptNode;
 X3DField76: TX3DField;
-Inline77: TInlineNode;
-Group78: TGroupNode;
-Script79: TScriptNode;
-X3DField80: TX3DField;
+X3DField77: TX3DField;
+Inline78: TInlineNode;
+Group79: TGroupNode;
+Script80: TScriptNode;
 X3DField81: TX3DField;
-Inline82: TInlineNode;
-Group83: TGroupNode;
-Script84: TScriptNode;
-X3DField85: TX3DField;
+X3DField82: TX3DField;
+Inline83: TInlineNode;
+Group84: TGroupNode;
+Script85: TScriptNode;
 X3DField86: TX3DField;
-Inline87: TInlineNode;
-Group88: TGroupNode;
-Script89: TScriptNode;
-X3DField90: TX3DField;
+X3DField87: TX3DField;
+Inline88: TInlineNode;
+Group89: TGroupNode;
+Script90: TScriptNode;
 X3DField91: TX3DField;
-Inline92: TInlineNode;
-Group93: TGroupNode;
-Script94: TScriptNode;
-X3DField95: TX3DField;
+X3DField92: TX3DField;
+Inline93: TInlineNode;
+Group94: TGroupNode;
+Script95: TScriptNode;
 X3DField96: TX3DField;
-Inline97: TInlineNode;
-Group98: TGroupNode;
-Script99: TScriptNode;
-X3DField100: TX3DField;
+X3DField97: TX3DField;
+Inline98: TInlineNode;
+Group99: TGroupNode;
+Script100: TScriptNode;
 X3DField101: TX3DField;
-Inline102: TInlineNode;
-Group103: TGroupNode;
-Script104: TScriptNode;
-X3DField105: TX3DField;
+X3DField102: TX3DField;
+Inline103: TInlineNode;
+Group104: TGroupNode;
+Script105: TScriptNode;
 X3DField106: TX3DField;
-Inline107: TInlineNode;
-Group108: TGroupNode;
-Script109: TScriptNode;
-X3DField110: TX3DField;
+X3DField107: TX3DField;
+Inline108: TInlineNode;
+Group109: TGroupNode;
+Script110: TScriptNode;
 X3DField111: TX3DField;
-Inline112: TInlineNode;
-Group113: TGroupNode;
-Script114: TScriptNode;
-X3DField115: TX3DField;
+X3DField112: TX3DField;
+Inline113: TInlineNode;
+Group114: TGroupNode;
+Script115: TScriptNode;
 X3DField116: TX3DField;
-Inline117: TInlineNode;
-Group118: TGroupNode;
-Script119: TScriptNode;
-X3DField120: TX3DField;
+X3DField117: TX3DField;
+Inline118: TInlineNode;
+Group119: TGroupNode;
+Script120: TScriptNode;
 X3DField121: TX3DField;
-Inline122: TInlineNode;
-Group123: TGroupNode;
-Script124: TScriptNode;
-X3DField125: TX3DField;
+X3DField122: TX3DField;
+Inline123: TInlineNode;
+Group124: TGroupNode;
+Script125: TScriptNode;
 X3DField126: TX3DField;
-Inline127: TInlineNode;
-Group128: TGroupNode;
-Script129: TScriptNode;
-X3DField130: TX3DField;
+X3DField127: TX3DField;
+Inline128: TInlineNode;
+Group129: TGroupNode;
+Script130: TScriptNode;
 X3DField131: TX3DField;
-Inline132: TInlineNode;
-Group133: TGroupNode;
-Script134: TScriptNode;
-X3DField135: TX3DField;
+X3DField132: TX3DField;
+Inline133: TInlineNode;
+Group134: TGroupNode;
+Script135: TScriptNode;
 X3DField136: TX3DField;
-Inline137: TInlineNode;
-Group138: TGroupNode;
-Script139: TScriptNode;
-X3DField140: TX3DField;
+X3DField137: TX3DField;
+Inline138: TInlineNode;
+Group139: TGroupNode;
+Script140: TScriptNode;
 X3DField141: TX3DField;
-Inline142: TInlineNode;
-Group143: TGroupNode;
-Script144: TScriptNode;
-X3DField145: TX3DField;
+X3DField142: TX3DField;
+Inline143: TInlineNode;
+Group144: TGroupNode;
+Script145: TScriptNode;
 X3DField146: TX3DField;
-Inline147: TInlineNode;
-Group148: TGroupNode;
-Script149: TScriptNode;
-X3DField150: TX3DField;
+X3DField147: TX3DField;
+Inline148: TInlineNode;
+Group149: TGroupNode;
+Script150: TScriptNode;
 X3DField151: TX3DField;
-Inline152: TInlineNode;
-Group153: TGroupNode;
-Script154: TScriptNode;
-X3DField155: TX3DField;
+X3DField152: TX3DField;
+Inline153: TInlineNode;
+Group154: TGroupNode;
+Script155: TScriptNode;
 X3DField156: TX3DField;
-Inline157: TInlineNode;
-Transform158: TTransformNode;
-TouchSensor159: TTouchSensorNode;
-Shape160: TShapeNode;
-Appearance161: TAppearanceNode;
-Material162: TMaterialNode;
-Text163: TTextNode;
-FontStyle164: TFontStyleNode;
-Shape165: TShapeNode;
-Appearance166: TAppearanceNode;
-Material167: TMaterialNode;
-IndexedFaceSet168: TIndexedFaceSetNode;
-Coordinate169: TCoordinateNode;
-Transform172: TTransformNode;
-TouchSensor173: TTouchSensorNode;
-Shape174: TShapeNode;
-Appearance175: TAppearanceNode;
-Material176: TMaterialNode;
-Text177: TTextNode;
-FontStyle178: TFontStyleNode;
-Shape179: TShapeNode;
-Appearance180: TAppearanceNode;
-Material181: TMaterialNode;
-IndexedFaceSet182: TIndexedFaceSetNode;
-Coordinate183: TCoordinateNode;
-Transform186: TTransformNode;
-TouchSensor187: TTouchSensorNode;
-Shape188: TShapeNode;
-Appearance189: TAppearanceNode;
-Material190: TMaterialNode;
-Text191: TTextNode;
-FontStyle192: TFontStyleNode;
-Shape193: TShapeNode;
-Appearance194: TAppearanceNode;
-Material195: TMaterialNode;
-IndexedFaceSet196: TIndexedFaceSetNode;
-Coordinate197: TCoordinateNode;
-Transform200: TTransformNode;
-TouchSensor201: TTouchSensorNode;
-Shape202: TShapeNode;
-Appearance203: TAppearanceNode;
-Material204: TMaterialNode;
-Text205: TTextNode;
-FontStyle206: TFontStyleNode;
-Shape207: TShapeNode;
-Appearance208: TAppearanceNode;
-Material209: TMaterialNode;
-IndexedFaceSet210: TIndexedFaceSetNode;
-Coordinate211: TCoordinateNode;
-Transform214: TTransformNode;
-TouchSensor215: TTouchSensorNode;
-Shape216: TShapeNode;
-Appearance217: TAppearanceNode;
-Material218: TMaterialNode;
-Text219: TTextNode;
-FontStyle220: TFontStyleNode;
-Shape221: TShapeNode;
-Appearance222: TAppearanceNode;
-Material223: TMaterialNode;
-IndexedFaceSet224: TIndexedFaceSetNode;
-Coordinate225: TCoordinateNode;
-Transform228: TTransformNode;
-TouchSensor229: TTouchSensorNode;
-Shape230: TShapeNode;
-Appearance231: TAppearanceNode;
-Material232: TMaterialNode;
-Text233: TTextNode;
-FontStyle234: TFontStyleNode;
-Shape235: TShapeNode;
-Appearance236: TAppearanceNode;
-Material237: TMaterialNode;
-IndexedFaceSet238: TIndexedFaceSetNode;
-Coordinate239: TCoordinateNode;
-Transform242: TTransformNode;
-TouchSensor243: TTouchSensorNode;
-Shape244: TShapeNode;
-Appearance245: TAppearanceNode;
-Material246: TMaterialNode;
-Text247: TTextNode;
-FontStyle248: TFontStyleNode;
-Shape249: TShapeNode;
-Appearance250: TAppearanceNode;
-Material251: TMaterialNode;
-IndexedFaceSet252: TIndexedFaceSetNode;
-Coordinate253: TCoordinateNode;
-Transform256: TTransformNode;
-TouchSensor257: TTouchSensorNode;
-Shape258: TShapeNode;
-Appearance259: TAppearanceNode;
-Material260: TMaterialNode;
-Text261: TTextNode;
-FontStyle262: TFontStyleNode;
-Shape263: TShapeNode;
-Appearance264: TAppearanceNode;
-Material265: TMaterialNode;
-IndexedFaceSet266: TIndexedFaceSetNode;
-Coordinate267: TCoordinateNode;
-Transform270: TTransformNode;
-TouchSensor271: TTouchSensorNode;
-Shape272: TShapeNode;
-Appearance273: TAppearanceNode;
-Material274: TMaterialNode;
-Text275: TTextNode;
-FontStyle276: TFontStyleNode;
-Shape277: TShapeNode;
-Appearance278: TAppearanceNode;
-Material279: TMaterialNode;
-IndexedFaceSet280: TIndexedFaceSetNode;
-Coordinate281: TCoordinateNode;
-Transform284: TTransformNode;
-TouchSensor285: TTouchSensorNode;
-Shape286: TShapeNode;
-Appearance287: TAppearanceNode;
-Material288: TMaterialNode;
-Text289: TTextNode;
-FontStyle290: TFontStyleNode;
-Shape291: TShapeNode;
-Appearance292: TAppearanceNode;
-Material293: TMaterialNode;
-IndexedFaceSet294: TIndexedFaceSetNode;
-Coordinate295: TCoordinateNode;
-Transform298: TTransformNode;
-TouchSensor299: TTouchSensorNode;
-Shape300: TShapeNode;
-Appearance301: TAppearanceNode;
-Material302: TMaterialNode;
-Text303: TTextNode;
-FontStyle304: TFontStyleNode;
-Shape305: TShapeNode;
-Appearance306: TAppearanceNode;
-Material307: TMaterialNode;
-IndexedFaceSet308: TIndexedFaceSetNode;
-Coordinate309: TCoordinateNode;
-Transform312: TTransformNode;
-TouchSensor313: TTouchSensorNode;
-Shape314: TShapeNode;
-Appearance315: TAppearanceNode;
-Material316: TMaterialNode;
-Text317: TTextNode;
-FontStyle318: TFontStyleNode;
-Shape319: TShapeNode;
-Appearance320: TAppearanceNode;
-Material321: TMaterialNode;
-IndexedFaceSet322: TIndexedFaceSetNode;
-Coordinate323: TCoordinateNode;
-Transform326: TTransformNode;
-TouchSensor327: TTouchSensorNode;
-Shape328: TShapeNode;
-Appearance329: TAppearanceNode;
-Material330: TMaterialNode;
-Text331: TTextNode;
-FontStyle332: TFontStyleNode;
-Shape333: TShapeNode;
-Appearance334: TAppearanceNode;
-Material335: TMaterialNode;
-IndexedFaceSet336: TIndexedFaceSetNode;
-Coordinate337: TCoordinateNode;
-Transform340: TTransformNode;
-TouchSensor341: TTouchSensorNode;
-Shape342: TShapeNode;
-Appearance343: TAppearanceNode;
-Material344: TMaterialNode;
-Text345: TTextNode;
-FontStyle346: TFontStyleNode;
-Shape347: TShapeNode;
-Appearance348: TAppearanceNode;
-Material349: TMaterialNode;
-IndexedFaceSet350: TIndexedFaceSetNode;
-Coordinate351: TCoordinateNode;
-Transform354: TTransformNode;
-TouchSensor355: TTouchSensorNode;
-Shape356: TShapeNode;
-Appearance357: TAppearanceNode;
-Material358: TMaterialNode;
-Text359: TTextNode;
-FontStyle360: TFontStyleNode;
-Shape361: TShapeNode;
-Appearance362: TAppearanceNode;
-Material363: TMaterialNode;
-IndexedFaceSet364: TIndexedFaceSetNode;
-Coordinate365: TCoordinateNode;
-Transform368: TTransformNode;
-TouchSensor369: TTouchSensorNode;
-Shape370: TShapeNode;
-Appearance371: TAppearanceNode;
-Material372: TMaterialNode;
-Text373: TTextNode;
-FontStyle374: TFontStyleNode;
-Shape375: TShapeNode;
-Appearance376: TAppearanceNode;
-Material377: TMaterialNode;
-IndexedFaceSet378: TIndexedFaceSetNode;
-Coordinate379: TCoordinateNode;
-Transform382: TTransformNode;
-TouchSensor383: TTouchSensorNode;
-Shape384: TShapeNode;
-Appearance385: TAppearanceNode;
-Material386: TMaterialNode;
-Text387: TTextNode;
-FontStyle388: TFontStyleNode;
-Shape389: TShapeNode;
-Appearance390: TAppearanceNode;
-Material391: TMaterialNode;
-IndexedFaceSet392: TIndexedFaceSetNode;
-Coordinate393: TCoordinateNode;
-Transform396: TTransformNode;
-TouchSensor397: TTouchSensorNode;
-Shape398: TShapeNode;
-Appearance399: TAppearanceNode;
-Material400: TMaterialNode;
-Text401: TTextNode;
-FontStyle402: TFontStyleNode;
-Shape403: TShapeNode;
-Appearance404: TAppearanceNode;
-Material405: TMaterialNode;
-IndexedFaceSet406: TIndexedFaceSetNode;
-Coordinate407: TCoordinateNode;
-Transform410: TTransformNode;
-TouchSensor411: TTouchSensorNode;
-Shape412: TShapeNode;
-Appearance413: TAppearanceNode;
-Material414: TMaterialNode;
-Text415: TTextNode;
-FontStyle416: TFontStyleNode;
-Shape417: TShapeNode;
-Appearance418: TAppearanceNode;
-Material419: TMaterialNode;
-IndexedFaceSet420: TIndexedFaceSetNode;
-Coordinate421: TCoordinateNode;
-Transform424: TTransformNode;
-TouchSensor425: TTouchSensorNode;
-Shape426: TShapeNode;
-Appearance427: TAppearanceNode;
-Material428: TMaterialNode;
-Text429: TTextNode;
-FontStyle430: TFontStyleNode;
-Shape431: TShapeNode;
-Appearance432: TAppearanceNode;
-Material433: TMaterialNode;
-IndexedFaceSet434: TIndexedFaceSetNode;
-Coordinate435: TCoordinateNode;
-Transform438: TTransformNode;
-TouchSensor439: TTouchSensorNode;
-Shape440: TShapeNode;
-Appearance441: TAppearanceNode;
-Material442: TMaterialNode;
-Text443: TTextNode;
-FontStyle444: TFontStyleNode;
-Shape445: TShapeNode;
-Appearance446: TAppearanceNode;
-Material447: TMaterialNode;
-IndexedFaceSet448: TIndexedFaceSetNode;
-Coordinate449: TCoordinateNode;
-Transform452: TTransformNode;
-TouchSensor453: TTouchSensorNode;
-Shape454: TShapeNode;
-Appearance455: TAppearanceNode;
-Material456: TMaterialNode;
-Text457: TTextNode;
-FontStyle458: TFontStyleNode;
-Shape459: TShapeNode;
-Appearance460: TAppearanceNode;
-Material461: TMaterialNode;
-IndexedFaceSet462: TIndexedFaceSetNode;
-Coordinate463: TCoordinateNode;
-Transform466: TTransformNode;
-TouchSensor467: TTouchSensorNode;
-Shape468: TShapeNode;
-Appearance469: TAppearanceNode;
-Material470: TMaterialNode;
-Text471: TTextNode;
-FontStyle472: TFontStyleNode;
-Shape473: TShapeNode;
-Appearance474: TAppearanceNode;
-Material475: TMaterialNode;
-IndexedFaceSet476: TIndexedFaceSetNode;
-Coordinate477: TCoordinateNode;
-Transform480: TTransformNode;
-TouchSensor481: TTouchSensorNode;
-Shape482: TShapeNode;
-Appearance483: TAppearanceNode;
-Material484: TMaterialNode;
-Text485: TTextNode;
-FontStyle486: TFontStyleNode;
-Shape487: TShapeNode;
-Appearance488: TAppearanceNode;
-Material489: TMaterialNode;
-IndexedFaceSet490: TIndexedFaceSetNode;
-Coordinate491: TCoordinateNode;
-Transform494: TTransformNode;
-TouchSensor495: TTouchSensorNode;
-Shape496: TShapeNode;
-Appearance497: TAppearanceNode;
-Material498: TMaterialNode;
-Text499: TTextNode;
-FontStyle500: TFontStyleNode;
-Shape501: TShapeNode;
-Appearance502: TAppearanceNode;
-Material503: TMaterialNode;
-IndexedFaceSet504: TIndexedFaceSetNode;
-Coordinate505: TCoordinateNode;
-Transform508: TTransformNode;
-TouchSensor509: TTouchSensorNode;
-Shape510: TShapeNode;
-Appearance511: TAppearanceNode;
-Material512: TMaterialNode;
-Text513: TTextNode;
-FontStyle514: TFontStyleNode;
-Shape515: TShapeNode;
-Appearance516: TAppearanceNode;
-Material517: TMaterialNode;
-IndexedFaceSet518: TIndexedFaceSetNode;
-Coordinate519: TCoordinateNode;
-Transform522: TTransformNode;
-TouchSensor523: TTouchSensorNode;
-Shape524: TShapeNode;
-Appearance525: TAppearanceNode;
-Material526: TMaterialNode;
-Text527: TTextNode;
-FontStyle528: TFontStyleNode;
-Shape529: TShapeNode;
-Appearance530: TAppearanceNode;
-Material531: TMaterialNode;
-IndexedFaceSet532: TIndexedFaceSetNode;
-Coordinate533: TCoordinateNode;
-Transform536: TTransformNode;
-TouchSensor537: TTouchSensorNode;
-Shape538: TShapeNode;
-Appearance539: TAppearanceNode;
-Material540: TMaterialNode;
-Text541: TTextNode;
-FontStyle542: TFontStyleNode;
-Shape543: TShapeNode;
-Appearance544: TAppearanceNode;
-Material545: TMaterialNode;
-IndexedFaceSet546: TIndexedFaceSetNode;
-Coordinate547: TCoordinateNode;
-Transform550: TTransformNode;
-TouchSensor551: TTouchSensorNode;
-Shape552: TShapeNode;
-Appearance553: TAppearanceNode;
-Material554: TMaterialNode;
-Text555: TTextNode;
-FontStyle556: TFontStyleNode;
-Shape557: TShapeNode;
-Appearance558: TAppearanceNode;
-Material559: TMaterialNode;
-IndexedFaceSet560: TIndexedFaceSetNode;
-Coordinate561: TCoordinateNode;
-Transform564: TTransformNode;
-TouchSensor565: TTouchSensorNode;
-Shape566: TShapeNode;
-Appearance567: TAppearanceNode;
-Material568: TMaterialNode;
-Text569: TTextNode;
-FontStyle570: TFontStyleNode;
-Shape571: TShapeNode;
-Appearance572: TAppearanceNode;
-Material573: TMaterialNode;
-IndexedFaceSet574: TIndexedFaceSetNode;
-Coordinate575: TCoordinateNode;
+X3DField157: TX3DField;
+Inline158: TInlineNode;
+Transform159: TTransformNode;
+TouchSensor160: TTouchSensorNode;
+Shape161: TShapeNode;
+Appearance162: TAppearanceNode;
+Material163: TMaterialNode;
+Text164: TTextNode;
+FontStyle165: TFontStyleNode;
+Shape166: TShapeNode;
+Appearance167: TAppearanceNode;
+Material168: TMaterialNode;
+IndexedFaceSet169: TIndexedFaceSetNode;
+Coordinate170: TCoordinateNode;
+Transform173: TTransformNode;
+TouchSensor174: TTouchSensorNode;
+Shape175: TShapeNode;
+Appearance176: TAppearanceNode;
+Material177: TMaterialNode;
+Text178: TTextNode;
+FontStyle179: TFontStyleNode;
+Shape180: TShapeNode;
+Appearance181: TAppearanceNode;
+Material182: TMaterialNode;
+IndexedFaceSet183: TIndexedFaceSetNode;
+Coordinate184: TCoordinateNode;
+Transform187: TTransformNode;
+TouchSensor188: TTouchSensorNode;
+Shape189: TShapeNode;
+Appearance190: TAppearanceNode;
+Material191: TMaterialNode;
+Text192: TTextNode;
+FontStyle193: TFontStyleNode;
+Shape194: TShapeNode;
+Appearance195: TAppearanceNode;
+Material196: TMaterialNode;
+IndexedFaceSet197: TIndexedFaceSetNode;
+Coordinate198: TCoordinateNode;
+Transform201: TTransformNode;
+TouchSensor202: TTouchSensorNode;
+Shape203: TShapeNode;
+Appearance204: TAppearanceNode;
+Material205: TMaterialNode;
+Text206: TTextNode;
+FontStyle207: TFontStyleNode;
+Shape208: TShapeNode;
+Appearance209: TAppearanceNode;
+Material210: TMaterialNode;
+IndexedFaceSet211: TIndexedFaceSetNode;
+Coordinate212: TCoordinateNode;
+Transform215: TTransformNode;
+TouchSensor216: TTouchSensorNode;
+Shape217: TShapeNode;
+Appearance218: TAppearanceNode;
+Material219: TMaterialNode;
+Text220: TTextNode;
+FontStyle221: TFontStyleNode;
+Shape222: TShapeNode;
+Appearance223: TAppearanceNode;
+Material224: TMaterialNode;
+IndexedFaceSet225: TIndexedFaceSetNode;
+Coordinate226: TCoordinateNode;
+Transform229: TTransformNode;
+TouchSensor230: TTouchSensorNode;
+Shape231: TShapeNode;
+Appearance232: TAppearanceNode;
+Material233: TMaterialNode;
+Text234: TTextNode;
+FontStyle235: TFontStyleNode;
+Shape236: TShapeNode;
+Appearance237: TAppearanceNode;
+Material238: TMaterialNode;
+IndexedFaceSet239: TIndexedFaceSetNode;
+Coordinate240: TCoordinateNode;
+Transform243: TTransformNode;
+TouchSensor244: TTouchSensorNode;
+Shape245: TShapeNode;
+Appearance246: TAppearanceNode;
+Material247: TMaterialNode;
+Text248: TTextNode;
+FontStyle249: TFontStyleNode;
+Shape250: TShapeNode;
+Appearance251: TAppearanceNode;
+Material252: TMaterialNode;
+IndexedFaceSet253: TIndexedFaceSetNode;
+Coordinate254: TCoordinateNode;
+Transform257: TTransformNode;
+TouchSensor258: TTouchSensorNode;
+Shape259: TShapeNode;
+Appearance260: TAppearanceNode;
+Material261: TMaterialNode;
+Text262: TTextNode;
+FontStyle263: TFontStyleNode;
+Shape264: TShapeNode;
+Appearance265: TAppearanceNode;
+Material266: TMaterialNode;
+IndexedFaceSet267: TIndexedFaceSetNode;
+Coordinate268: TCoordinateNode;
+Transform271: TTransformNode;
+TouchSensor272: TTouchSensorNode;
+Shape273: TShapeNode;
+Appearance274: TAppearanceNode;
+Material275: TMaterialNode;
+Text276: TTextNode;
+FontStyle277: TFontStyleNode;
+Shape278: TShapeNode;
+Appearance279: TAppearanceNode;
+Material280: TMaterialNode;
+IndexedFaceSet281: TIndexedFaceSetNode;
+Coordinate282: TCoordinateNode;
+Transform285: TTransformNode;
+TouchSensor286: TTouchSensorNode;
+Shape287: TShapeNode;
+Appearance288: TAppearanceNode;
+Material289: TMaterialNode;
+Text290: TTextNode;
+FontStyle291: TFontStyleNode;
+Shape292: TShapeNode;
+Appearance293: TAppearanceNode;
+Material294: TMaterialNode;
+IndexedFaceSet295: TIndexedFaceSetNode;
+Coordinate296: TCoordinateNode;
+Transform299: TTransformNode;
+TouchSensor300: TTouchSensorNode;
+Shape301: TShapeNode;
+Appearance302: TAppearanceNode;
+Material303: TMaterialNode;
+Text304: TTextNode;
+FontStyle305: TFontStyleNode;
+Shape306: TShapeNode;
+Appearance307: TAppearanceNode;
+Material308: TMaterialNode;
+IndexedFaceSet309: TIndexedFaceSetNode;
+Coordinate310: TCoordinateNode;
+Transform313: TTransformNode;
+TouchSensor314: TTouchSensorNode;
+Shape315: TShapeNode;
+Appearance316: TAppearanceNode;
+Material317: TMaterialNode;
+Text318: TTextNode;
+FontStyle319: TFontStyleNode;
+Shape320: TShapeNode;
+Appearance321: TAppearanceNode;
+Material322: TMaterialNode;
+IndexedFaceSet323: TIndexedFaceSetNode;
+Coordinate324: TCoordinateNode;
+Transform327: TTransformNode;
+TouchSensor328: TTouchSensorNode;
+Shape329: TShapeNode;
+Appearance330: TAppearanceNode;
+Material331: TMaterialNode;
+Text332: TTextNode;
+FontStyle333: TFontStyleNode;
+Shape334: TShapeNode;
+Appearance335: TAppearanceNode;
+Material336: TMaterialNode;
+IndexedFaceSet337: TIndexedFaceSetNode;
+Coordinate338: TCoordinateNode;
+Transform341: TTransformNode;
+TouchSensor342: TTouchSensorNode;
+Shape343: TShapeNode;
+Appearance344: TAppearanceNode;
+Material345: TMaterialNode;
+Text346: TTextNode;
+FontStyle347: TFontStyleNode;
+Shape348: TShapeNode;
+Appearance349: TAppearanceNode;
+Material350: TMaterialNode;
+IndexedFaceSet351: TIndexedFaceSetNode;
+Coordinate352: TCoordinateNode;
+Transform355: TTransformNode;
+TouchSensor356: TTouchSensorNode;
+Shape357: TShapeNode;
+Appearance358: TAppearanceNode;
+Material359: TMaterialNode;
+Text360: TTextNode;
+FontStyle361: TFontStyleNode;
+Shape362: TShapeNode;
+Appearance363: TAppearanceNode;
+Material364: TMaterialNode;
+IndexedFaceSet365: TIndexedFaceSetNode;
+Coordinate366: TCoordinateNode;
+Transform369: TTransformNode;
+TouchSensor370: TTouchSensorNode;
+Shape371: TShapeNode;
+Appearance372: TAppearanceNode;
+Material373: TMaterialNode;
+Text374: TTextNode;
+FontStyle375: TFontStyleNode;
+Shape376: TShapeNode;
+Appearance377: TAppearanceNode;
+Material378: TMaterialNode;
+IndexedFaceSet379: TIndexedFaceSetNode;
+Coordinate380: TCoordinateNode;
+Transform383: TTransformNode;
+TouchSensor384: TTouchSensorNode;
+Shape385: TShapeNode;
+Appearance386: TAppearanceNode;
+Material387: TMaterialNode;
+Text388: TTextNode;
+FontStyle389: TFontStyleNode;
+Shape390: TShapeNode;
+Appearance391: TAppearanceNode;
+Material392: TMaterialNode;
+IndexedFaceSet393: TIndexedFaceSetNode;
+Coordinate394: TCoordinateNode;
+Transform397: TTransformNode;
+TouchSensor398: TTouchSensorNode;
+Shape399: TShapeNode;
+Appearance400: TAppearanceNode;
+Material401: TMaterialNode;
+Text402: TTextNode;
+FontStyle403: TFontStyleNode;
+Shape404: TShapeNode;
+Appearance405: TAppearanceNode;
+Material406: TMaterialNode;
+IndexedFaceSet407: TIndexedFaceSetNode;
+Coordinate408: TCoordinateNode;
+Transform411: TTransformNode;
+TouchSensor412: TTouchSensorNode;
+Shape413: TShapeNode;
+Appearance414: TAppearanceNode;
+Material415: TMaterialNode;
+Text416: TTextNode;
+FontStyle417: TFontStyleNode;
+Shape418: TShapeNode;
+Appearance419: TAppearanceNode;
+Material420: TMaterialNode;
+IndexedFaceSet421: TIndexedFaceSetNode;
+Coordinate422: TCoordinateNode;
+Transform425: TTransformNode;
+TouchSensor426: TTouchSensorNode;
+Shape427: TShapeNode;
+Appearance428: TAppearanceNode;
+Material429: TMaterialNode;
+Text430: TTextNode;
+FontStyle431: TFontStyleNode;
+Shape432: TShapeNode;
+Appearance433: TAppearanceNode;
+Material434: TMaterialNode;
+IndexedFaceSet435: TIndexedFaceSetNode;
+Coordinate436: TCoordinateNode;
+Transform439: TTransformNode;
+TouchSensor440: TTouchSensorNode;
+Shape441: TShapeNode;
+Appearance442: TAppearanceNode;
+Material443: TMaterialNode;
+Text444: TTextNode;
+FontStyle445: TFontStyleNode;
+Shape446: TShapeNode;
+Appearance447: TAppearanceNode;
+Material448: TMaterialNode;
+IndexedFaceSet449: TIndexedFaceSetNode;
+Coordinate450: TCoordinateNode;
+Transform453: TTransformNode;
+TouchSensor454: TTouchSensorNode;
+Shape455: TShapeNode;
+Appearance456: TAppearanceNode;
+Material457: TMaterialNode;
+Text458: TTextNode;
+FontStyle459: TFontStyleNode;
+Shape460: TShapeNode;
+Appearance461: TAppearanceNode;
+Material462: TMaterialNode;
+IndexedFaceSet463: TIndexedFaceSetNode;
+Coordinate464: TCoordinateNode;
+Transform467: TTransformNode;
+TouchSensor468: TTouchSensorNode;
+Shape469: TShapeNode;
+Appearance470: TAppearanceNode;
+Material471: TMaterialNode;
+Text472: TTextNode;
+FontStyle473: TFontStyleNode;
+Shape474: TShapeNode;
+Appearance475: TAppearanceNode;
+Material476: TMaterialNode;
+IndexedFaceSet477: TIndexedFaceSetNode;
+Coordinate478: TCoordinateNode;
+Transform481: TTransformNode;
+TouchSensor482: TTouchSensorNode;
+Shape483: TShapeNode;
+Appearance484: TAppearanceNode;
+Material485: TMaterialNode;
+Text486: TTextNode;
+FontStyle487: TFontStyleNode;
+Shape488: TShapeNode;
+Appearance489: TAppearanceNode;
+Material490: TMaterialNode;
+IndexedFaceSet491: TIndexedFaceSetNode;
+Coordinate492: TCoordinateNode;
+Transform495: TTransformNode;
+TouchSensor496: TTouchSensorNode;
+Shape497: TShapeNode;
+Appearance498: TAppearanceNode;
+Material499: TMaterialNode;
+Text500: TTextNode;
+FontStyle501: TFontStyleNode;
+Shape502: TShapeNode;
+Appearance503: TAppearanceNode;
+Material504: TMaterialNode;
+IndexedFaceSet505: TIndexedFaceSetNode;
+Coordinate506: TCoordinateNode;
+Transform509: TTransformNode;
+TouchSensor510: TTouchSensorNode;
+Shape511: TShapeNode;
+Appearance512: TAppearanceNode;
+Material513: TMaterialNode;
+Text514: TTextNode;
+FontStyle515: TFontStyleNode;
+Shape516: TShapeNode;
+Appearance517: TAppearanceNode;
+Material518: TMaterialNode;
+IndexedFaceSet519: TIndexedFaceSetNode;
+Coordinate520: TCoordinateNode;
+Transform523: TTransformNode;
+TouchSensor524: TTouchSensorNode;
+Shape525: TShapeNode;
+Appearance526: TAppearanceNode;
+Material527: TMaterialNode;
+Text528: TTextNode;
+FontStyle529: TFontStyleNode;
+Shape530: TShapeNode;
+Appearance531: TAppearanceNode;
+Material532: TMaterialNode;
+IndexedFaceSet533: TIndexedFaceSetNode;
+Coordinate534: TCoordinateNode;
+Transform537: TTransformNode;
+TouchSensor538: TTouchSensorNode;
+Shape539: TShapeNode;
+Appearance540: TAppearanceNode;
+Material541: TMaterialNode;
+Text542: TTextNode;
+FontStyle543: TFontStyleNode;
+Shape544: TShapeNode;
+Appearance545: TAppearanceNode;
+Material546: TMaterialNode;
+IndexedFaceSet547: TIndexedFaceSetNode;
+Coordinate548: TCoordinateNode;
+Transform551: TTransformNode;
+TouchSensor552: TTouchSensorNode;
+Shape553: TShapeNode;
+Appearance554: TAppearanceNode;
+Material555: TMaterialNode;
+Text556: TTextNode;
+FontStyle557: TFontStyleNode;
+Shape558: TShapeNode;
+Appearance559: TAppearanceNode;
+Material560: TMaterialNode;
+IndexedFaceSet561: TIndexedFaceSetNode;
+Coordinate562: TCoordinateNode;
+Transform565: TTransformNode;
+TouchSensor566: TTouchSensorNode;
+Shape567: TShapeNode;
+Appearance568: TAppearanceNode;
+Material569: TMaterialNode;
+Text570: TTextNode;
+FontStyle571: TFontStyleNode;
+Shape572: TShapeNode;
+Appearance573: TAppearanceNode;
+Material574: TMaterialNode;
+IndexedFaceSet575: TIndexedFaceSetNode;
+Coordinate576: TCoordinateNode;
 begin
 X3D0 := TX3DRootNode.Create;
 X3D0.Profile := 'Immersive';
 X3D0.ForceVersion.Major := 4;
 X3D0.ForceVersion.Minor := 0;
 X3D0.Meta['title'] := 'Menu.x3d';
+X3D0.Meta['creator'] := 'John Carlson';
 X3D0.Meta['description'] := 'X3D scene with a Switch of Inlines controlled by a menu';
-Group4 := TGroupNode.Create;
+Group5 := TGroupNode.Create;
 { Viewpoint and any other scene setup }
-Viewpoint5 := TViewpointNode.Create;
-Viewpoint5.Position := Vector3(0,20,110);
+Viewpoint6 := TViewpointNode.Create;
+Viewpoint6.Position := Vector3(0,20,110);
 { .AddChildren }
-Group4.AddChildren([Viewpoint5]);
-Group6 := TGroupNode.Create;
-Switch7 := TSwitchNode.Create;
-Switch7.WhichChoice := 0;
-Group8 := TGroupNode.Create;
-Script9 := TScriptNode.Create;
-X3DField10 := TX3DField.Create;
-X3DField10.NameField := 'touchTime';
-X3DField10.Type := 'SFTime';
-X3DField10.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script9.X3DField := X3DField10;
+Group5.AddChildren([Viewpoint6]);
+Group7 := TGroupNode.Create;
+Switch8 := TSwitchNode.Create;
+Switch8.WhichChoice := 0;
+Group9 := TGroupNode.Create;
+Script10 := TScriptNode.Create;
 X3DField11 := TX3DField.Create;
-X3DField11.NameField := 'choice';
-X3DField11.Type := 'SFInt32';
-X3DField11.AccessType := 'outputOnly';
+X3DField11.NameField := 'touchTime';
+X3DField11.Type := 'SFTime';
+X3DField11.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script10.X3DField := X3DField11;
+X3DField12 := TX3DField.Create;
+X3DField12.NameField := 'choice';
+X3DField12.Type := 'SFInt32';
+X3DField12.AccessType := 'outputOnly';
 { .AddX3DField }
-Script9.X3DField := X3DField11;
+Script10.X3DField := X3DField12;
 
-Script9.SetSourceCode('''ecmascript:\n"+
+Script10.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 0;\n"+
 "      }\n"+
@@ -566,29 +567,29 @@ Script9.SetSourceCode('''ecmascript:\n"+
 "          choice = 0;\n"+
 "      }''');
 { .AddChildren }
-Group8.AddChildren([Script9]);
-Inline12 := TInlineNode.Create;
-Inline12.SetUrl(['../resources/JinBlink.x3d','JinBlink.x3d']);
+Group9.AddChildren([Script10]);
+Inline13 := TInlineNode.Create;
+Inline13.SetUrl(['../resources/JinBlink.x3d','JinBlink.x3d']);
 { .AddChildren }
-Group8.AddChildren([Inline12]);
+Group9.AddChildren([Inline13]);
 { .AddChildren }
-Switch7.AddChildren([Group8]);
-Group13 := TGroupNode.Create;
-Script14 := TScriptNode.Create;
-X3DField15 := TX3DField.Create;
-X3DField15.NameField := 'touchTime';
-X3DField15.Type := 'SFTime';
-X3DField15.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script14.X3DField := X3DField15;
+Switch8.AddChildren([Group9]);
+Group14 := TGroupNode.Create;
+Script15 := TScriptNode.Create;
 X3DField16 := TX3DField.Create;
-X3DField16.NameField := 'choice';
-X3DField16.Type := 'SFInt32';
-X3DField16.AccessType := 'outputOnly';
+X3DField16.NameField := 'touchTime';
+X3DField16.Type := 'SFTime';
+X3DField16.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script15.X3DField := X3DField16;
+X3DField17 := TX3DField.Create;
+X3DField17.NameField := 'choice';
+X3DField17.Type := 'SFInt32';
+X3DField17.AccessType := 'outputOnly';
 { .AddX3DField }
-Script14.X3DField := X3DField16;
+Script15.X3DField := X3DField17;
 
-Script14.SetSourceCode('''ecmascript:\n"+
+Script15.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 1;\n"+
 "      }\n"+
@@ -596,29 +597,29 @@ Script14.SetSourceCode('''ecmascript:\n"+
 "          choice = 1;\n"+
 "      }''');
 { .AddChildren }
-Group13.AddChildren([Script14]);
-Inline17 := TInlineNode.Create;
-Inline17.SetUrl(['../resources/JinBrowLowerer.x3d','JinBrowLowerer.x3d']);
+Group14.AddChildren([Script15]);
+Inline18 := TInlineNode.Create;
+Inline18.SetUrl(['../resources/JinBrowLowerer.x3d','JinBrowLowerer.x3d']);
 { .AddChildren }
-Group13.AddChildren([Inline17]);
+Group14.AddChildren([Inline18]);
 { .AddChildren }
-Switch7.AddChildren([Group13]);
-Group18 := TGroupNode.Create;
-Script19 := TScriptNode.Create;
-X3DField20 := TX3DField.Create;
-X3DField20.NameField := 'touchTime';
-X3DField20.Type := 'SFTime';
-X3DField20.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script19.X3DField := X3DField20;
+Switch8.AddChildren([Group14]);
+Group19 := TGroupNode.Create;
+Script20 := TScriptNode.Create;
 X3DField21 := TX3DField.Create;
-X3DField21.NameField := 'choice';
-X3DField21.Type := 'SFInt32';
-X3DField21.AccessType := 'outputOnly';
+X3DField21.NameField := 'touchTime';
+X3DField21.Type := 'SFTime';
+X3DField21.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script20.X3DField := X3DField21;
+X3DField22 := TX3DField.Create;
+X3DField22.NameField := 'choice';
+X3DField22.Type := 'SFInt32';
+X3DField22.AccessType := 'outputOnly';
 { .AddX3DField }
-Script19.X3DField := X3DField21;
+Script20.X3DField := X3DField22;
 
-Script19.SetSourceCode('''ecmascript:\n"+
+Script20.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 2;\n"+
 "      }\n"+
@@ -626,29 +627,29 @@ Script19.SetSourceCode('''ecmascript:\n"+
 "          choice = 2;\n"+
 "      }''');
 { .AddChildren }
-Group18.AddChildren([Script19]);
-Inline22 := TInlineNode.Create;
-Inline22.SetUrl(['../resources/JinCheekPuffer.x3d','JinCheekPuffer.x3d']);
+Group19.AddChildren([Script20]);
+Inline23 := TInlineNode.Create;
+Inline23.SetUrl(['../resources/JinCheekPuffer.x3d','JinCheekPuffer.x3d']);
 { .AddChildren }
-Group18.AddChildren([Inline22]);
+Group19.AddChildren([Inline23]);
 { .AddChildren }
-Switch7.AddChildren([Group18]);
-Group23 := TGroupNode.Create;
-Script24 := TScriptNode.Create;
-X3DField25 := TX3DField.Create;
-X3DField25.NameField := 'touchTime';
-X3DField25.Type := 'SFTime';
-X3DField25.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script24.X3DField := X3DField25;
+Switch8.AddChildren([Group19]);
+Group24 := TGroupNode.Create;
+Script25 := TScriptNode.Create;
 X3DField26 := TX3DField.Create;
-X3DField26.NameField := 'choice';
-X3DField26.Type := 'SFInt32';
-X3DField26.AccessType := 'outputOnly';
+X3DField26.NameField := 'touchTime';
+X3DField26.Type := 'SFTime';
+X3DField26.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script25.X3DField := X3DField26;
+X3DField27 := TX3DField.Create;
+X3DField27.NameField := 'choice';
+X3DField27.Type := 'SFInt32';
+X3DField27.AccessType := 'outputOnly';
 { .AddX3DField }
-Script24.X3DField := X3DField26;
+Script25.X3DField := X3DField27;
 
-Script24.SetSourceCode('''ecmascript:\n"+
+Script25.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 3;\n"+
 "      }\n"+
@@ -656,29 +657,29 @@ Script24.SetSourceCode('''ecmascript:\n"+
 "          choice = 3;\n"+
 "      }''');
 { .AddChildren }
-Group23.AddChildren([Script24]);
-Inline27 := TInlineNode.Create;
-Inline27.SetUrl(['../resources/JinCheekRaiser.x3d','JinCheekRaiser.x3d']);
+Group24.AddChildren([Script25]);
+Inline28 := TInlineNode.Create;
+Inline28.SetUrl(['../resources/JinCheekRaiser.x3d','JinCheekRaiser.x3d']);
 { .AddChildren }
-Group23.AddChildren([Inline27]);
+Group24.AddChildren([Inline28]);
 { .AddChildren }
-Switch7.AddChildren([Group23]);
-Group28 := TGroupNode.Create;
-Script29 := TScriptNode.Create;
-X3DField30 := TX3DField.Create;
-X3DField30.NameField := 'touchTime';
-X3DField30.Type := 'SFTime';
-X3DField30.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script29.X3DField := X3DField30;
+Switch8.AddChildren([Group24]);
+Group29 := TGroupNode.Create;
+Script30 := TScriptNode.Create;
 X3DField31 := TX3DField.Create;
-X3DField31.NameField := 'choice';
-X3DField31.Type := 'SFInt32';
-X3DField31.AccessType := 'outputOnly';
+X3DField31.NameField := 'touchTime';
+X3DField31.Type := 'SFTime';
+X3DField31.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script30.X3DField := X3DField31;
+X3DField32 := TX3DField.Create;
+X3DField32.NameField := 'choice';
+X3DField32.Type := 'SFInt32';
+X3DField32.AccessType := 'outputOnly';
 { .AddX3DField }
-Script29.X3DField := X3DField31;
+Script30.X3DField := X3DField32;
 
-Script29.SetSourceCode('''ecmascript:\n"+
+Script30.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 4;\n"+
 "      }\n"+
@@ -686,29 +687,29 @@ Script29.SetSourceCode('''ecmascript:\n"+
 "          choice = 4;\n"+
 "      }''');
 { .AddChildren }
-Group28.AddChildren([Script29]);
-Inline32 := TInlineNode.Create;
-Inline32.SetUrl(['../resources/JinChinRaiser.x3d','JinChinRaiser.x3d']);
+Group29.AddChildren([Script30]);
+Inline33 := TInlineNode.Create;
+Inline33.SetUrl(['../resources/JinChinRaiser.x3d','JinChinRaiser.x3d']);
 { .AddChildren }
-Group28.AddChildren([Inline32]);
+Group29.AddChildren([Inline33]);
 { .AddChildren }
-Switch7.AddChildren([Group28]);
-Group33 := TGroupNode.Create;
-Script34 := TScriptNode.Create;
-X3DField35 := TX3DField.Create;
-X3DField35.NameField := 'touchTime';
-X3DField35.Type := 'SFTime';
-X3DField35.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script34.X3DField := X3DField35;
+Switch8.AddChildren([Group29]);
+Group34 := TGroupNode.Create;
+Script35 := TScriptNode.Create;
 X3DField36 := TX3DField.Create;
-X3DField36.NameField := 'choice';
-X3DField36.Type := 'SFInt32';
-X3DField36.AccessType := 'outputOnly';
+X3DField36.NameField := 'touchTime';
+X3DField36.Type := 'SFTime';
+X3DField36.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script35.X3DField := X3DField36;
+X3DField37 := TX3DField.Create;
+X3DField37.NameField := 'choice';
+X3DField37.Type := 'SFInt32';
+X3DField37.AccessType := 'outputOnly';
 { .AddX3DField }
-Script34.X3DField := X3DField36;
+Script35.X3DField := X3DField37;
 
-Script34.SetSourceCode('''ecmascript:\n"+
+Script35.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 5;\n"+
 "      }\n"+
@@ -716,29 +717,29 @@ Script34.SetSourceCode('''ecmascript:\n"+
 "          choice = 5;\n"+
 "      }''');
 { .AddChildren }
-Group33.AddChildren([Script34]);
-Inline37 := TInlineNode.Create;
-Inline37.SetUrl(['../resources/JinDimpler.x3d','JinDimpler.x3d']);
+Group34.AddChildren([Script35]);
+Inline38 := TInlineNode.Create;
+Inline38.SetUrl(['../resources/JinDimpler.x3d','JinDimpler.x3d']);
 { .AddChildren }
-Group33.AddChildren([Inline37]);
+Group34.AddChildren([Inline38]);
 { .AddChildren }
-Switch7.AddChildren([Group33]);
-Group38 := TGroupNode.Create;
-Script39 := TScriptNode.Create;
-X3DField40 := TX3DField.Create;
-X3DField40.NameField := 'touchTime';
-X3DField40.Type := 'SFTime';
-X3DField40.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script39.X3DField := X3DField40;
+Switch8.AddChildren([Group34]);
+Group39 := TGroupNode.Create;
+Script40 := TScriptNode.Create;
 X3DField41 := TX3DField.Create;
-X3DField41.NameField := 'choice';
-X3DField41.Type := 'SFInt32';
-X3DField41.AccessType := 'outputOnly';
+X3DField41.NameField := 'touchTime';
+X3DField41.Type := 'SFTime';
+X3DField41.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script40.X3DField := X3DField41;
+X3DField42 := TX3DField.Create;
+X3DField42.NameField := 'choice';
+X3DField42.Type := 'SFInt32';
+X3DField42.AccessType := 'outputOnly';
 { .AddX3DField }
-Script39.X3DField := X3DField41;
+Script40.X3DField := X3DField42;
 
-Script39.SetSourceCode('''ecmascript:\n"+
+Script40.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 6;\n"+
 "      }\n"+
@@ -746,29 +747,29 @@ Script39.SetSourceCode('''ecmascript:\n"+
 "          choice = 6;\n"+
 "      }''');
 { .AddChildren }
-Group38.AddChildren([Script39]);
-Inline42 := TInlineNode.Create;
-Inline42.SetUrl(['../resources/JinEyesClosed.x3d','JinEyesClosed.x3d']);
+Group39.AddChildren([Script40]);
+Inline43 := TInlineNode.Create;
+Inline43.SetUrl(['../resources/JinEyesClosed.x3d','JinEyesClosed.x3d']);
 { .AddChildren }
-Group38.AddChildren([Inline42]);
+Group39.AddChildren([Inline43]);
 { .AddChildren }
-Switch7.AddChildren([Group38]);
-Group43 := TGroupNode.Create;
-Script44 := TScriptNode.Create;
-X3DField45 := TX3DField.Create;
-X3DField45.NameField := 'touchTime';
-X3DField45.Type := 'SFTime';
-X3DField45.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script44.X3DField := X3DField45;
+Switch8.AddChildren([Group39]);
+Group44 := TGroupNode.Create;
+Script45 := TScriptNode.Create;
 X3DField46 := TX3DField.Create;
-X3DField46.NameField := 'choice';
-X3DField46.Type := 'SFInt32';
-X3DField46.AccessType := 'outputOnly';
+X3DField46.NameField := 'touchTime';
+X3DField46.Type := 'SFTime';
+X3DField46.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script45.X3DField := X3DField46;
+X3DField47 := TX3DField.Create;
+X3DField47.NameField := 'choice';
+X3DField47.Type := 'SFInt32';
+X3DField47.AccessType := 'outputOnly';
 { .AddX3DField }
-Script44.X3DField := X3DField46;
+Script45.X3DField := X3DField47;
 
-Script44.SetSourceCode('''ecmascript:\n"+
+Script45.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 7;\n"+
 "      }\n"+
@@ -776,29 +777,29 @@ Script44.SetSourceCode('''ecmascript:\n"+
 "          choice = 7;\n"+
 "      }''');
 { .AddChildren }
-Group43.AddChildren([Script44]);
-Inline47 := TInlineNode.Create;
-Inline47.SetUrl(['../resources/JinInnerBrowRaiser.x3d','JinInnerBrowRaiser.x3d']);
+Group44.AddChildren([Script45]);
+Inline48 := TInlineNode.Create;
+Inline48.SetUrl(['../resources/JinInnerBrowRaiser.x3d','JinInnerBrowRaiser.x3d']);
 { .AddChildren }
-Group43.AddChildren([Inline47]);
+Group44.AddChildren([Inline48]);
 { .AddChildren }
-Switch7.AddChildren([Group43]);
-Group48 := TGroupNode.Create;
-Script49 := TScriptNode.Create;
-X3DField50 := TX3DField.Create;
-X3DField50.NameField := 'touchTime';
-X3DField50.Type := 'SFTime';
-X3DField50.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script49.X3DField := X3DField50;
+Switch8.AddChildren([Group44]);
+Group49 := TGroupNode.Create;
+Script50 := TScriptNode.Create;
 X3DField51 := TX3DField.Create;
-X3DField51.NameField := 'choice';
-X3DField51.Type := 'SFInt32';
-X3DField51.AccessType := 'outputOnly';
+X3DField51.NameField := 'touchTime';
+X3DField51.Type := 'SFTime';
+X3DField51.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script50.X3DField := X3DField51;
+X3DField52 := TX3DField.Create;
+X3DField52.NameField := 'choice';
+X3DField52.Type := 'SFInt32';
+X3DField52.AccessType := 'outputOnly';
 { .AddX3DField }
-Script49.X3DField := X3DField51;
+Script50.X3DField := X3DField52;
 
-Script49.SetSourceCode('''ecmascript:\n"+
+Script50.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 8;\n"+
 "      }\n"+
@@ -806,29 +807,29 @@ Script49.SetSourceCode('''ecmascript:\n"+
 "          choice = 8;\n"+
 "      }''');
 { .AddChildren }
-Group48.AddChildren([Script49]);
-Inline52 := TInlineNode.Create;
-Inline52.SetUrl(['../resources/JinJawDrop.x3d','JinJawDrop.x3d']);
+Group49.AddChildren([Script50]);
+Inline53 := TInlineNode.Create;
+Inline53.SetUrl(['../resources/JinJawDrop.x3d','JinJawDrop.x3d']);
 { .AddChildren }
-Group48.AddChildren([Inline52]);
+Group49.AddChildren([Inline53]);
 { .AddChildren }
-Switch7.AddChildren([Group48]);
-Group53 := TGroupNode.Create;
-Script54 := TScriptNode.Create;
-X3DField55 := TX3DField.Create;
-X3DField55.NameField := 'touchTime';
-X3DField55.Type := 'SFTime';
-X3DField55.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script54.X3DField := X3DField55;
+Switch8.AddChildren([Group49]);
+Group54 := TGroupNode.Create;
+Script55 := TScriptNode.Create;
 X3DField56 := TX3DField.Create;
-X3DField56.NameField := 'choice';
-X3DField56.Type := 'SFInt32';
-X3DField56.AccessType := 'outputOnly';
+X3DField56.NameField := 'touchTime';
+X3DField56.Type := 'SFTime';
+X3DField56.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script55.X3DField := X3DField56;
+X3DField57 := TX3DField.Create;
+X3DField57.NameField := 'choice';
+X3DField57.Type := 'SFInt32';
+X3DField57.AccessType := 'outputOnly';
 { .AddX3DField }
-Script54.X3DField := X3DField56;
+Script55.X3DField := X3DField57;
 
-Script54.SetSourceCode('''ecmascript:\n"+
+Script55.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 9;\n"+
 "      }\n"+
@@ -836,29 +837,29 @@ Script54.SetSourceCode('''ecmascript:\n"+
 "          choice = 9;\n"+
 "      }''');
 { .AddChildren }
-Group53.AddChildren([Script54]);
-Inline57 := TInlineNode.Create;
-Inline57.SetUrl(['../resources/JinLidDroop.x3d','JinLidDroop.x3d']);
+Group54.AddChildren([Script55]);
+Inline58 := TInlineNode.Create;
+Inline58.SetUrl(['../resources/JinLidDroop.x3d','JinLidDroop.x3d']);
 { .AddChildren }
-Group53.AddChildren([Inline57]);
+Group54.AddChildren([Inline58]);
 { .AddChildren }
-Switch7.AddChildren([Group53]);
-Group58 := TGroupNode.Create;
-Script59 := TScriptNode.Create;
-X3DField60 := TX3DField.Create;
-X3DField60.NameField := 'touchTime';
-X3DField60.Type := 'SFTime';
-X3DField60.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script59.X3DField := X3DField60;
+Switch8.AddChildren([Group54]);
+Group59 := TGroupNode.Create;
+Script60 := TScriptNode.Create;
 X3DField61 := TX3DField.Create;
-X3DField61.NameField := 'choice';
-X3DField61.Type := 'SFInt32';
-X3DField61.AccessType := 'outputOnly';
+X3DField61.NameField := 'touchTime';
+X3DField61.Type := 'SFTime';
+X3DField61.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script60.X3DField := X3DField61;
+X3DField62 := TX3DField.Create;
+X3DField62.NameField := 'choice';
+X3DField62.Type := 'SFInt32';
+X3DField62.AccessType := 'outputOnly';
 { .AddX3DField }
-Script59.X3DField := X3DField61;
+Script60.X3DField := X3DField62;
 
-Script59.SetSourceCode('''ecmascript:\n"+
+Script60.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 10;\n"+
 "      }\n"+
@@ -866,29 +867,29 @@ Script59.SetSourceCode('''ecmascript:\n"+
 "          choice = 10;\n"+
 "      }''');
 { .AddChildren }
-Group58.AddChildren([Script59]);
-Inline62 := TInlineNode.Create;
-Inline62.SetUrl(['../resources/JinLidTightener.x3d','JinLidTightener.x3d']);
+Group59.AddChildren([Script60]);
+Inline63 := TInlineNode.Create;
+Inline63.SetUrl(['../resources/JinLidTightener.x3d','JinLidTightener.x3d']);
 { .AddChildren }
-Group58.AddChildren([Inline62]);
+Group59.AddChildren([Inline63]);
 { .AddChildren }
-Switch7.AddChildren([Group58]);
-Group63 := TGroupNode.Create;
-Script64 := TScriptNode.Create;
-X3DField65 := TX3DField.Create;
-X3DField65.NameField := 'touchTime';
-X3DField65.Type := 'SFTime';
-X3DField65.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script64.X3DField := X3DField65;
+Switch8.AddChildren([Group59]);
+Group64 := TGroupNode.Create;
+Script65 := TScriptNode.Create;
 X3DField66 := TX3DField.Create;
-X3DField66.NameField := 'choice';
-X3DField66.Type := 'SFInt32';
-X3DField66.AccessType := 'outputOnly';
+X3DField66.NameField := 'touchTime';
+X3DField66.Type := 'SFTime';
+X3DField66.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script65.X3DField := X3DField66;
+X3DField67 := TX3DField.Create;
+X3DField67.NameField := 'choice';
+X3DField67.Type := 'SFInt32';
+X3DField67.AccessType := 'outputOnly';
 { .AddX3DField }
-Script64.X3DField := X3DField66;
+Script65.X3DField := X3DField67;
 
-Script64.SetSourceCode('''ecmascript:\n"+
+Script65.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 11;\n"+
 "      }\n"+
@@ -896,29 +897,29 @@ Script64.SetSourceCode('''ecmascript:\n"+
 "          choice = 11;\n"+
 "      }''');
 { .AddChildren }
-Group63.AddChildren([Script64]);
-Inline67 := TInlineNode.Create;
-Inline67.SetUrl(['../resources/JinLipCornerDepressor.x3d','JinLipCornerDepressor.x3d']);
+Group64.AddChildren([Script65]);
+Inline68 := TInlineNode.Create;
+Inline68.SetUrl(['../resources/JinLipCornerDepressor.x3d','JinLipCornerDepressor.x3d']);
 { .AddChildren }
-Group63.AddChildren([Inline67]);
+Group64.AddChildren([Inline68]);
 { .AddChildren }
-Switch7.AddChildren([Group63]);
-Group68 := TGroupNode.Create;
-Script69 := TScriptNode.Create;
-X3DField70 := TX3DField.Create;
-X3DField70.NameField := 'touchTime';
-X3DField70.Type := 'SFTime';
-X3DField70.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script69.X3DField := X3DField70;
+Switch8.AddChildren([Group64]);
+Group69 := TGroupNode.Create;
+Script70 := TScriptNode.Create;
 X3DField71 := TX3DField.Create;
-X3DField71.NameField := 'choice';
-X3DField71.Type := 'SFInt32';
-X3DField71.AccessType := 'outputOnly';
+X3DField71.NameField := 'touchTime';
+X3DField71.Type := 'SFTime';
+X3DField71.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script70.X3DField := X3DField71;
+X3DField72 := TX3DField.Create;
+X3DField72.NameField := 'choice';
+X3DField72.Type := 'SFInt32';
+X3DField72.AccessType := 'outputOnly';
 { .AddX3DField }
-Script69.X3DField := X3DField71;
+Script70.X3DField := X3DField72;
 
-Script69.SetSourceCode('''ecmascript:\n"+
+Script70.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 12;\n"+
 "      }\n"+
@@ -926,29 +927,29 @@ Script69.SetSourceCode('''ecmascript:\n"+
 "          choice = 12;\n"+
 "      }''');
 { .AddChildren }
-Group68.AddChildren([Script69]);
-Inline72 := TInlineNode.Create;
-Inline72.SetUrl(['../resources/JinLipCornerPuller.x3d','JinLipCornerPuller.x3d']);
+Group69.AddChildren([Script70]);
+Inline73 := TInlineNode.Create;
+Inline73.SetUrl(['../resources/JinLipCornerPuller.x3d','JinLipCornerPuller.x3d']);
 { .AddChildren }
-Group68.AddChildren([Inline72]);
+Group69.AddChildren([Inline73]);
 { .AddChildren }
-Switch7.AddChildren([Group68]);
-Group73 := TGroupNode.Create;
-Script74 := TScriptNode.Create;
-X3DField75 := TX3DField.Create;
-X3DField75.NameField := 'touchTime';
-X3DField75.Type := 'SFTime';
-X3DField75.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script74.X3DField := X3DField75;
+Switch8.AddChildren([Group69]);
+Group74 := TGroupNode.Create;
+Script75 := TScriptNode.Create;
 X3DField76 := TX3DField.Create;
-X3DField76.NameField := 'choice';
-X3DField76.Type := 'SFInt32';
-X3DField76.AccessType := 'outputOnly';
+X3DField76.NameField := 'touchTime';
+X3DField76.Type := 'SFTime';
+X3DField76.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script75.X3DField := X3DField76;
+X3DField77 := TX3DField.Create;
+X3DField77.NameField := 'choice';
+X3DField77.Type := 'SFInt32';
+X3DField77.AccessType := 'outputOnly';
 { .AddX3DField }
-Script74.X3DField := X3DField76;
+Script75.X3DField := X3DField77;
 
-Script74.SetSourceCode('''ecmascript:\n"+
+Script75.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 13;\n"+
 "      }\n"+
@@ -956,29 +957,29 @@ Script74.SetSourceCode('''ecmascript:\n"+
 "          choice = 13;\n"+
 "      }''');
 { .AddChildren }
-Group73.AddChildren([Script74]);
-Inline77 := TInlineNode.Create;
-Inline77.SetUrl(['../resources/JinLipFunneler.x3d','JinLipFunneler.x3d']);
+Group74.AddChildren([Script75]);
+Inline78 := TInlineNode.Create;
+Inline78.SetUrl(['../resources/JinLipFunneler.x3d','JinLipFunneler.x3d']);
 { .AddChildren }
-Group73.AddChildren([Inline77]);
+Group74.AddChildren([Inline78]);
 { .AddChildren }
-Switch7.AddChildren([Group73]);
-Group78 := TGroupNode.Create;
-Script79 := TScriptNode.Create;
-X3DField80 := TX3DField.Create;
-X3DField80.NameField := 'touchTime';
-X3DField80.Type := 'SFTime';
-X3DField80.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script79.X3DField := X3DField80;
+Switch8.AddChildren([Group74]);
+Group79 := TGroupNode.Create;
+Script80 := TScriptNode.Create;
 X3DField81 := TX3DField.Create;
-X3DField81.NameField := 'choice';
-X3DField81.Type := 'SFInt32';
-X3DField81.AccessType := 'outputOnly';
+X3DField81.NameField := 'touchTime';
+X3DField81.Type := 'SFTime';
+X3DField81.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script80.X3DField := X3DField81;
+X3DField82 := TX3DField.Create;
+X3DField82.NameField := 'choice';
+X3DField82.Type := 'SFInt32';
+X3DField82.AccessType := 'outputOnly';
 { .AddX3DField }
-Script79.X3DField := X3DField81;
+Script80.X3DField := X3DField82;
 
-Script79.SetSourceCode('''ecmascript:\n"+
+Script80.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 14;\n"+
 "      }\n"+
@@ -986,29 +987,29 @@ Script79.SetSourceCode('''ecmascript:\n"+
 "          choice = 14;\n"+
 "      }''');
 { .AddChildren }
-Group78.AddChildren([Script79]);
-Inline82 := TInlineNode.Create;
-Inline82.SetUrl(['../resources/JinLipPressor.x3d','JinLipPressor.x3d']);
+Group79.AddChildren([Script80]);
+Inline83 := TInlineNode.Create;
+Inline83.SetUrl(['../resources/JinLipPressor.x3d','JinLipPressor.x3d']);
 { .AddChildren }
-Group78.AddChildren([Inline82]);
+Group79.AddChildren([Inline83]);
 { .AddChildren }
-Switch7.AddChildren([Group78]);
-Group83 := TGroupNode.Create;
-Script84 := TScriptNode.Create;
-X3DField85 := TX3DField.Create;
-X3DField85.NameField := 'touchTime';
-X3DField85.Type := 'SFTime';
-X3DField85.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script84.X3DField := X3DField85;
+Switch8.AddChildren([Group79]);
+Group84 := TGroupNode.Create;
+Script85 := TScriptNode.Create;
 X3DField86 := TX3DField.Create;
-X3DField86.NameField := 'choice';
-X3DField86.Type := 'SFInt32';
-X3DField86.AccessType := 'outputOnly';
+X3DField86.NameField := 'touchTime';
+X3DField86.Type := 'SFTime';
+X3DField86.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script85.X3DField := X3DField86;
+X3DField87 := TX3DField.Create;
+X3DField87.NameField := 'choice';
+X3DField87.Type := 'SFInt32';
+X3DField87.AccessType := 'outputOnly';
 { .AddX3DField }
-Script84.X3DField := X3DField86;
+Script85.X3DField := X3DField87;
 
-Script84.SetSourceCode('''ecmascript:\n"+
+Script85.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 15;\n"+
 "      }\n"+
@@ -1016,29 +1017,29 @@ Script84.SetSourceCode('''ecmascript:\n"+
 "          choice = 15;\n"+
 "      }''');
 { .AddChildren }
-Group83.AddChildren([Script84]);
-Inline87 := TInlineNode.Create;
-Inline87.SetUrl(['../resources/JinLipPuckerer.x3d','JinLipPuckerer.x3d']);
+Group84.AddChildren([Script85]);
+Inline88 := TInlineNode.Create;
+Inline88.SetUrl(['../resources/JinLipPuckerer.x3d','JinLipPuckerer.x3d']);
 { .AddChildren }
-Group83.AddChildren([Inline87]);
+Group84.AddChildren([Inline88]);
 { .AddChildren }
-Switch7.AddChildren([Group83]);
-Group88 := TGroupNode.Create;
-Script89 := TScriptNode.Create;
-X3DField90 := TX3DField.Create;
-X3DField90.NameField := 'touchTime';
-X3DField90.Type := 'SFTime';
-X3DField90.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script89.X3DField := X3DField90;
+Switch8.AddChildren([Group84]);
+Group89 := TGroupNode.Create;
+Script90 := TScriptNode.Create;
 X3DField91 := TX3DField.Create;
-X3DField91.NameField := 'choice';
-X3DField91.Type := 'SFInt32';
-X3DField91.AccessType := 'outputOnly';
+X3DField91.NameField := 'touchTime';
+X3DField91.Type := 'SFTime';
+X3DField91.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script90.X3DField := X3DField91;
+X3DField92 := TX3DField.Create;
+X3DField92.NameField := 'choice';
+X3DField92.Type := 'SFInt32';
+X3DField92.AccessType := 'outputOnly';
 { .AddX3DField }
-Script89.X3DField := X3DField91;
+Script90.X3DField := X3DField92;
 
-Script89.SetSourceCode('''ecmascript:\n"+
+Script90.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 16;\n"+
 "      }\n"+
@@ -1046,29 +1047,29 @@ Script89.SetSourceCode('''ecmascript:\n"+
 "          choice = 16;\n"+
 "      }''');
 { .AddChildren }
-Group88.AddChildren([Script89]);
-Inline92 := TInlineNode.Create;
-Inline92.SetUrl(['../resources/JinLipsPart.x3d','JinLipsPart.x3d']);
+Group89.AddChildren([Script90]);
+Inline93 := TInlineNode.Create;
+Inline93.SetUrl(['../resources/JinLipsPart.x3d','JinLipsPart.x3d']);
 { .AddChildren }
-Group88.AddChildren([Inline92]);
+Group89.AddChildren([Inline93]);
 { .AddChildren }
-Switch7.AddChildren([Group88]);
-Group93 := TGroupNode.Create;
-Script94 := TScriptNode.Create;
-X3DField95 := TX3DField.Create;
-X3DField95.NameField := 'touchTime';
-X3DField95.Type := 'SFTime';
-X3DField95.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script94.X3DField := X3DField95;
+Switch8.AddChildren([Group89]);
+Group94 := TGroupNode.Create;
+Script95 := TScriptNode.Create;
 X3DField96 := TX3DField.Create;
-X3DField96.NameField := 'choice';
-X3DField96.Type := 'SFInt32';
-X3DField96.AccessType := 'outputOnly';
+X3DField96.NameField := 'touchTime';
+X3DField96.Type := 'SFTime';
+X3DField96.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script95.X3DField := X3DField96;
+X3DField97 := TX3DField.Create;
+X3DField97.NameField := 'choice';
+X3DField97.Type := 'SFInt32';
+X3DField97.AccessType := 'outputOnly';
 { .AddX3DField }
-Script94.X3DField := X3DField96;
+Script95.X3DField := X3DField97;
 
-Script94.SetSourceCode('''ecmascript:\n"+
+Script95.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 17;\n"+
 "      }\n"+
@@ -1076,29 +1077,29 @@ Script94.SetSourceCode('''ecmascript:\n"+
 "          choice = 17;\n"+
 "      }''');
 { .AddChildren }
-Group93.AddChildren([Script94]);
-Inline97 := TInlineNode.Create;
-Inline97.SetUrl(['../resources/JinLipStretcher.x3d','JinLipStretcher.x3d']);
+Group94.AddChildren([Script95]);
+Inline98 := TInlineNode.Create;
+Inline98.SetUrl(['../resources/JinLipStretcher.x3d','JinLipStretcher.x3d']);
 { .AddChildren }
-Group93.AddChildren([Inline97]);
+Group94.AddChildren([Inline98]);
 { .AddChildren }
-Switch7.AddChildren([Group93]);
-Group98 := TGroupNode.Create;
-Script99 := TScriptNode.Create;
-X3DField100 := TX3DField.Create;
-X3DField100.NameField := 'touchTime';
-X3DField100.Type := 'SFTime';
-X3DField100.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script99.X3DField := X3DField100;
+Switch8.AddChildren([Group94]);
+Group99 := TGroupNode.Create;
+Script100 := TScriptNode.Create;
 X3DField101 := TX3DField.Create;
-X3DField101.NameField := 'choice';
-X3DField101.Type := 'SFInt32';
-X3DField101.AccessType := 'outputOnly';
+X3DField101.NameField := 'touchTime';
+X3DField101.Type := 'SFTime';
+X3DField101.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script100.X3DField := X3DField101;
+X3DField102 := TX3DField.Create;
+X3DField102.NameField := 'choice';
+X3DField102.Type := 'SFInt32';
+X3DField102.AccessType := 'outputOnly';
 { .AddX3DField }
-Script99.X3DField := X3DField101;
+Script100.X3DField := X3DField102;
 
-Script99.SetSourceCode('''ecmascript:\n"+
+Script100.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 18;\n"+
 "      }\n"+
@@ -1106,29 +1107,29 @@ Script99.SetSourceCode('''ecmascript:\n"+
 "          choice = 18;\n"+
 "      }''');
 { .AddChildren }
-Group98.AddChildren([Script99]);
-Inline102 := TInlineNode.Create;
-Inline102.SetUrl(['../resources/JinLipSuck.x3d','JinLipSuck.x3d']);
+Group99.AddChildren([Script100]);
+Inline103 := TInlineNode.Create;
+Inline103.SetUrl(['../resources/JinLipSuck.x3d','JinLipSuck.x3d']);
 { .AddChildren }
-Group98.AddChildren([Inline102]);
+Group99.AddChildren([Inline103]);
 { .AddChildren }
-Switch7.AddChildren([Group98]);
-Group103 := TGroupNode.Create;
-Script104 := TScriptNode.Create;
-X3DField105 := TX3DField.Create;
-X3DField105.NameField := 'touchTime';
-X3DField105.Type := 'SFTime';
-X3DField105.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script104.X3DField := X3DField105;
+Switch8.AddChildren([Group99]);
+Group104 := TGroupNode.Create;
+Script105 := TScriptNode.Create;
 X3DField106 := TX3DField.Create;
-X3DField106.NameField := 'choice';
-X3DField106.Type := 'SFInt32';
-X3DField106.AccessType := 'outputOnly';
+X3DField106.NameField := 'touchTime';
+X3DField106.Type := 'SFTime';
+X3DField106.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script105.X3DField := X3DField106;
+X3DField107 := TX3DField.Create;
+X3DField107.NameField := 'choice';
+X3DField107.Type := 'SFInt32';
+X3DField107.AccessType := 'outputOnly';
 { .AddX3DField }
-Script104.X3DField := X3DField106;
+Script105.X3DField := X3DField107;
 
-Script104.SetSourceCode('''ecmascript:\n"+
+Script105.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 19;\n"+
 "      }\n"+
@@ -1136,29 +1137,29 @@ Script104.SetSourceCode('''ecmascript:\n"+
 "          choice = 19;\n"+
 "      }''');
 { .AddChildren }
-Group103.AddChildren([Script104]);
-Inline107 := TInlineNode.Create;
-Inline107.SetUrl(['../resources/JinLipTightener.x3d','JinLipTightener.x3d']);
+Group104.AddChildren([Script105]);
+Inline108 := TInlineNode.Create;
+Inline108.SetUrl(['../resources/JinLipTightener.x3d','JinLipTightener.x3d']);
 { .AddChildren }
-Group103.AddChildren([Inline107]);
+Group104.AddChildren([Inline108]);
 { .AddChildren }
-Switch7.AddChildren([Group103]);
-Group108 := TGroupNode.Create;
-Script109 := TScriptNode.Create;
-X3DField110 := TX3DField.Create;
-X3DField110.NameField := 'touchTime';
-X3DField110.Type := 'SFTime';
-X3DField110.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script109.X3DField := X3DField110;
+Switch8.AddChildren([Group104]);
+Group109 := TGroupNode.Create;
+Script110 := TScriptNode.Create;
 X3DField111 := TX3DField.Create;
-X3DField111.NameField := 'choice';
-X3DField111.Type := 'SFInt32';
-X3DField111.AccessType := 'outputOnly';
+X3DField111.NameField := 'touchTime';
+X3DField111.Type := 'SFTime';
+X3DField111.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script110.X3DField := X3DField111;
+X3DField112 := TX3DField.Create;
+X3DField112.NameField := 'choice';
+X3DField112.Type := 'SFInt32';
+X3DField112.AccessType := 'outputOnly';
 { .AddX3DField }
-Script109.X3DField := X3DField111;
+Script110.X3DField := X3DField112;
 
-Script109.SetSourceCode('''ecmascript:\n"+
+Script110.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 20;\n"+
 "      }\n"+
@@ -1166,29 +1167,29 @@ Script109.SetSourceCode('''ecmascript:\n"+
 "          choice = 20;\n"+
 "      }''');
 { .AddChildren }
-Group108.AddChildren([Script109]);
-Inline112 := TInlineNode.Create;
-Inline112.SetUrl(['../resources/JinLowerLipDepressor.x3d','JinLowerLipDepressor.x3d']);
+Group109.AddChildren([Script110]);
+Inline113 := TInlineNode.Create;
+Inline113.SetUrl(['../resources/JinLowerLipDepressor.x3d','JinLowerLipDepressor.x3d']);
 { .AddChildren }
-Group108.AddChildren([Inline112]);
+Group109.AddChildren([Inline113]);
 { .AddChildren }
-Switch7.AddChildren([Group108]);
-Group113 := TGroupNode.Create;
-Script114 := TScriptNode.Create;
-X3DField115 := TX3DField.Create;
-X3DField115.NameField := 'touchTime';
-X3DField115.Type := 'SFTime';
-X3DField115.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script114.X3DField := X3DField115;
+Switch8.AddChildren([Group109]);
+Group114 := TGroupNode.Create;
+Script115 := TScriptNode.Create;
 X3DField116 := TX3DField.Create;
-X3DField116.NameField := 'choice';
-X3DField116.Type := 'SFInt32';
-X3DField116.AccessType := 'outputOnly';
+X3DField116.NameField := 'touchTime';
+X3DField116.Type := 'SFTime';
+X3DField116.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script115.X3DField := X3DField116;
+X3DField117 := TX3DField.Create;
+X3DField117.NameField := 'choice';
+X3DField117.Type := 'SFInt32';
+X3DField117.AccessType := 'outputOnly';
 { .AddX3DField }
-Script114.X3DField := X3DField116;
+Script115.X3DField := X3DField117;
 
-Script114.SetSourceCode('''ecmascript:\n"+
+Script115.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 21;\n"+
 "      }\n"+
@@ -1196,29 +1197,29 @@ Script114.SetSourceCode('''ecmascript:\n"+
 "          choice = 21;\n"+
 "      }''');
 { .AddChildren }
-Group113.AddChildren([Script114]);
-Inline117 := TInlineNode.Create;
-Inline117.SetUrl(['../resources/JinMouthStretch.x3d','JinMouthStretch.x3d']);
+Group114.AddChildren([Script115]);
+Inline118 := TInlineNode.Create;
+Inline118.SetUrl(['../resources/JinMouthStretch.x3d','JinMouthStretch.x3d']);
 { .AddChildren }
-Group113.AddChildren([Inline117]);
+Group114.AddChildren([Inline118]);
 { .AddChildren }
-Switch7.AddChildren([Group113]);
-Group118 := TGroupNode.Create;
-Script119 := TScriptNode.Create;
-X3DField120 := TX3DField.Create;
-X3DField120.NameField := 'touchTime';
-X3DField120.Type := 'SFTime';
-X3DField120.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script119.X3DField := X3DField120;
+Switch8.AddChildren([Group114]);
+Group119 := TGroupNode.Create;
+Script120 := TScriptNode.Create;
 X3DField121 := TX3DField.Create;
-X3DField121.NameField := 'choice';
-X3DField121.Type := 'SFInt32';
-X3DField121.AccessType := 'outputOnly';
+X3DField121.NameField := 'touchTime';
+X3DField121.Type := 'SFTime';
+X3DField121.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script120.X3DField := X3DField121;
+X3DField122 := TX3DField.Create;
+X3DField122.NameField := 'choice';
+X3DField122.Type := 'SFInt32';
+X3DField122.AccessType := 'outputOnly';
 { .AddX3DField }
-Script119.X3DField := X3DField121;
+Script120.X3DField := X3DField122;
 
-Script119.SetSourceCode('''ecmascript:\n"+
+Script120.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 22;\n"+
 "      }\n"+
@@ -1226,29 +1227,29 @@ Script119.SetSourceCode('''ecmascript:\n"+
 "          choice = 22;\n"+
 "      }''');
 { .AddChildren }
-Group118.AddChildren([Script119]);
-Inline122 := TInlineNode.Create;
-Inline122.SetUrl(['../resources/JinNasolabialDeepener.x3d','JinNasolabialDeepener.x3d']);
+Group119.AddChildren([Script120]);
+Inline123 := TInlineNode.Create;
+Inline123.SetUrl(['../resources/JinNasolabialDeepener.x3d','JinNasolabialDeepener.x3d']);
 { .AddChildren }
-Group118.AddChildren([Inline122]);
+Group119.AddChildren([Inline123]);
 { .AddChildren }
-Switch7.AddChildren([Group118]);
-Group123 := TGroupNode.Create;
-Script124 := TScriptNode.Create;
-X3DField125 := TX3DField.Create;
-X3DField125.NameField := 'touchTime';
-X3DField125.Type := 'SFTime';
-X3DField125.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script124.X3DField := X3DField125;
+Switch8.AddChildren([Group119]);
+Group124 := TGroupNode.Create;
+Script125 := TScriptNode.Create;
 X3DField126 := TX3DField.Create;
-X3DField126.NameField := 'choice';
-X3DField126.Type := 'SFInt32';
-X3DField126.AccessType := 'outputOnly';
+X3DField126.NameField := 'touchTime';
+X3DField126.Type := 'SFTime';
+X3DField126.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script125.X3DField := X3DField126;
+X3DField127 := TX3DField.Create;
+X3DField127.NameField := 'choice';
+X3DField127.Type := 'SFInt32';
+X3DField127.AccessType := 'outputOnly';
 { .AddX3DField }
-Script124.X3DField := X3DField126;
+Script125.X3DField := X3DField127;
 
-Script124.SetSourceCode('''ecmascript:\n"+
+Script125.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 23;\n"+
 "      }\n"+
@@ -1256,29 +1257,29 @@ Script124.SetSourceCode('''ecmascript:\n"+
 "          choice = 23;\n"+
 "      }''');
 { .AddChildren }
-Group123.AddChildren([Script124]);
-Inline127 := TInlineNode.Create;
-Inline127.SetUrl(['../resources/JinNoseWrinkler.x3d','JinNoseWrinkler.x3d']);
+Group124.AddChildren([Script125]);
+Inline128 := TInlineNode.Create;
+Inline128.SetUrl(['../resources/JinNoseWrinkler.x3d','JinNoseWrinkler.x3d']);
 { .AddChildren }
-Group123.AddChildren([Inline127]);
+Group124.AddChildren([Inline128]);
 { .AddChildren }
-Switch7.AddChildren([Group123]);
-Group128 := TGroupNode.Create;
-Script129 := TScriptNode.Create;
-X3DField130 := TX3DField.Create;
-X3DField130.NameField := 'touchTime';
-X3DField130.Type := 'SFTime';
-X3DField130.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script129.X3DField := X3DField130;
+Switch8.AddChildren([Group124]);
+Group129 := TGroupNode.Create;
+Script130 := TScriptNode.Create;
 X3DField131 := TX3DField.Create;
-X3DField131.NameField := 'choice';
-X3DField131.Type := 'SFInt32';
-X3DField131.AccessType := 'outputOnly';
+X3DField131.NameField := 'touchTime';
+X3DField131.Type := 'SFTime';
+X3DField131.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script130.X3DField := X3DField131;
+X3DField132 := TX3DField.Create;
+X3DField132.NameField := 'choice';
+X3DField132.Type := 'SFInt32';
+X3DField132.AccessType := 'outputOnly';
 { .AddX3DField }
-Script129.X3DField := X3DField131;
+Script130.X3DField := X3DField132;
 
-Script129.SetSourceCode('''ecmascript:\n"+
+Script130.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 24;\n"+
 "      }\n"+
@@ -1286,29 +1287,29 @@ Script129.SetSourceCode('''ecmascript:\n"+
 "          choice = 24;\n"+
 "      }''');
 { .AddChildren }
-Group128.AddChildren([Script129]);
-Inline132 := TInlineNode.Create;
-Inline132.SetUrl(['../resources/JinOuterBrowRaiser.x3d','JinOuterBrowRaiser.x3d']);
+Group129.AddChildren([Script130]);
+Inline133 := TInlineNode.Create;
+Inline133.SetUrl(['../resources/JinOuterBrowRaiser.x3d','JinOuterBrowRaiser.x3d']);
 { .AddChildren }
-Group128.AddChildren([Inline132]);
+Group129.AddChildren([Inline133]);
 { .AddChildren }
-Switch7.AddChildren([Group128]);
-Group133 := TGroupNode.Create;
-Script134 := TScriptNode.Create;
-X3DField135 := TX3DField.Create;
-X3DField135.NameField := 'touchTime';
-X3DField135.Type := 'SFTime';
-X3DField135.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script134.X3DField := X3DField135;
+Switch8.AddChildren([Group129]);
+Group134 := TGroupNode.Create;
+Script135 := TScriptNode.Create;
 X3DField136 := TX3DField.Create;
-X3DField136.NameField := 'choice';
-X3DField136.Type := 'SFInt32';
-X3DField136.AccessType := 'outputOnly';
+X3DField136.NameField := 'touchTime';
+X3DField136.Type := 'SFTime';
+X3DField136.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script135.X3DField := X3DField136;
+X3DField137 := TX3DField.Create;
+X3DField137.NameField := 'choice';
+X3DField137.Type := 'SFInt32';
+X3DField137.AccessType := 'outputOnly';
 { .AddX3DField }
-Script134.X3DField := X3DField136;
+Script135.X3DField := X3DField137;
 
-Script134.SetSourceCode('''ecmascript:\n"+
+Script135.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 25;\n"+
 "      }\n"+
@@ -1316,29 +1317,29 @@ Script134.SetSourceCode('''ecmascript:\n"+
 "          choice = 25;\n"+
 "      }''');
 { .AddChildren }
-Group133.AddChildren([Script134]);
-Inline137 := TInlineNode.Create;
-Inline137.SetUrl(['../resources/JinSlit.x3d','JinSlit.x3d']);
+Group134.AddChildren([Script135]);
+Inline138 := TInlineNode.Create;
+Inline138.SetUrl(['../resources/JinSlit.x3d','JinSlit.x3d']);
 { .AddChildren }
-Group133.AddChildren([Inline137]);
+Group134.AddChildren([Inline138]);
 { .AddChildren }
-Switch7.AddChildren([Group133]);
-Group138 := TGroupNode.Create;
-Script139 := TScriptNode.Create;
-X3DField140 := TX3DField.Create;
-X3DField140.NameField := 'touchTime';
-X3DField140.Type := 'SFTime';
-X3DField140.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script139.X3DField := X3DField140;
+Switch8.AddChildren([Group134]);
+Group139 := TGroupNode.Create;
+Script140 := TScriptNode.Create;
 X3DField141 := TX3DField.Create;
-X3DField141.NameField := 'choice';
-X3DField141.Type := 'SFInt32';
-X3DField141.AccessType := 'outputOnly';
+X3DField141.NameField := 'touchTime';
+X3DField141.Type := 'SFTime';
+X3DField141.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script140.X3DField := X3DField141;
+X3DField142 := TX3DField.Create;
+X3DField142.NameField := 'choice';
+X3DField142.Type := 'SFInt32';
+X3DField142.AccessType := 'outputOnly';
 { .AddX3DField }
-Script139.X3DField := X3DField141;
+Script140.X3DField := X3DField142;
 
-Script139.SetSourceCode('''ecmascript:\n"+
+Script140.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 26;\n"+
 "      }\n"+
@@ -1346,29 +1347,29 @@ Script139.SetSourceCode('''ecmascript:\n"+
 "          choice = 26;\n"+
 "      }''');
 { .AddChildren }
-Group138.AddChildren([Script139]);
-Inline142 := TInlineNode.Create;
-Inline142.SetUrl(['../resources/JinSquint.x3d','JinSquint.x3d']);
+Group139.AddChildren([Script140]);
+Inline143 := TInlineNode.Create;
+Inline143.SetUrl(['../resources/JinSquint.x3d','JinSquint.x3d']);
 { .AddChildren }
-Group138.AddChildren([Inline142]);
+Group139.AddChildren([Inline143]);
 { .AddChildren }
-Switch7.AddChildren([Group138]);
-Group143 := TGroupNode.Create;
-Script144 := TScriptNode.Create;
-X3DField145 := TX3DField.Create;
-X3DField145.NameField := 'touchTime';
-X3DField145.Type := 'SFTime';
-X3DField145.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script144.X3DField := X3DField145;
+Switch8.AddChildren([Group139]);
+Group144 := TGroupNode.Create;
+Script145 := TScriptNode.Create;
 X3DField146 := TX3DField.Create;
-X3DField146.NameField := 'choice';
-X3DField146.Type := 'SFInt32';
-X3DField146.AccessType := 'outputOnly';
+X3DField146.NameField := 'touchTime';
+X3DField146.Type := 'SFTime';
+X3DField146.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script145.X3DField := X3DField146;
+X3DField147 := TX3DField.Create;
+X3DField147.NameField := 'choice';
+X3DField147.Type := 'SFInt32';
+X3DField147.AccessType := 'outputOnly';
 { .AddX3DField }
-Script144.X3DField := X3DField146;
+Script145.X3DField := X3DField147;
 
-Script144.SetSourceCode('''ecmascript:\n"+
+Script145.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 27;\n"+
 "      }\n"+
@@ -1376,59 +1377,59 @@ Script144.SetSourceCode('''ecmascript:\n"+
 "          choice = 27;\n"+
 "      }''');
 { .AddChildren }
-Group143.AddChildren([Script144]);
-Inline147 := TInlineNode.Create;
-Inline147.SetUrl(['../resources/JinUpperLidRaiser.x3d','JinUpperLidRaiser.x3d']);
+Group144.AddChildren([Script145]);
+Inline148 := TInlineNode.Create;
+Inline148.SetUrl(['../resources/JinUpperLidRaiser.x3d','JinUpperLidRaiser.x3d']);
 { .AddChildren }
-Group143.AddChildren([Inline147]);
+Group144.AddChildren([Inline148]);
 { .AddChildren }
-Switch7.AddChildren([Group143]);
-Group148 := TGroupNode.Create;
-Script149 := TScriptNode.Create;
-X3DField150 := TX3DField.Create;
-X3DField150.NameField := 'touchTime';
-X3DField150.Type := 'SFTime';
-X3DField150.AccessType := 'inputOnly';
-{ .SetX3DField }
-Script149.X3DField := X3DField150;
+Switch8.AddChildren([Group144]);
+Group149 := TGroupNode.Create;
+Script150 := TScriptNode.Create;
 X3DField151 := TX3DField.Create;
-X3DField151.NameField := 'choice';
-X3DField151.Type := 'SFInt32';
-X3DField151.AccessType := 'outputOnly';
-{ .AddX3DField }
-Script149.X3DField := X3DField151;
-
-Script149.SetSourceCode('''ecmascript:\n"+
-"      function set_touchTime(value) {\n"+
-"          choice = 28;\n"+
-"      }\n"+
-"      function touchTime(value) {\n"+
-"          choice = 28;\n"+
-"      }''');
-{ .AddChildren }
-Group148.AddChildren([Script149]);
-Inline152 := TInlineNode.Create;
-Inline152.SetUrl(['../resources/JinUpperLipRaiser.x3d','JinUpperLipRaiser.x3d']);
-{ .AddChildren }
-Group148.AddChildren([Inline152]);
-{ .AddChildren }
-Switch7.AddChildren([Group148]);
-Group153 := TGroupNode.Create;
-Script154 := TScriptNode.Create;
-X3DField155 := TX3DField.Create;
-X3DField155.NameField := 'touchTime';
-X3DField155.Type := 'SFTime';
-X3DField155.AccessType := 'inputOnly';
+X3DField151.NameField := 'touchTime';
+X3DField151.Type := 'SFTime';
+X3DField151.AccessType := 'inputOnly';
 { .SetX3DField }
-Script154.X3DField := X3DField155;
-X3DField156 := TX3DField.Create;
-X3DField156.NameField := 'choice';
-X3DField156.Type := 'SFInt32';
-X3DField156.AccessType := 'outputOnly';
+Script150.X3DField := X3DField151;
+X3DField152 := TX3DField.Create;
+X3DField152.NameField := 'choice';
+X3DField152.Type := 'SFInt32';
+X3DField152.AccessType := 'outputOnly';
 { .AddX3DField }
-Script154.X3DField := X3DField156;
+Script150.X3DField := X3DField152;
 
-Script154.SetSourceCode('''ecmascript:\n"+
+Script150.SetSourceCode('''ecmascript:\n"+
+"      function set_touchTime(value) {\n"+
+"          choice = 28;\n"+
+"      }\n"+
+"      function touchTime(value) {\n"+
+"          choice = 28;\n"+
+"      }''');
+{ .AddChildren }
+Group149.AddChildren([Script150]);
+Inline153 := TInlineNode.Create;
+Inline153.SetUrl(['../resources/JinUpperLipRaiser.x3d','JinUpperLipRaiser.x3d']);
+{ .AddChildren }
+Group149.AddChildren([Inline153]);
+{ .AddChildren }
+Switch8.AddChildren([Group149]);
+Group154 := TGroupNode.Create;
+Script155 := TScriptNode.Create;
+X3DField156 := TX3DField.Create;
+X3DField156.NameField := 'touchTime';
+X3DField156.Type := 'SFTime';
+X3DField156.AccessType := 'inputOnly';
+{ .SetX3DField }
+Script155.X3DField := X3DField156;
+X3DField157 := TX3DField.Create;
+X3DField157.NameField := 'choice';
+X3DField157.Type := 'SFInt32';
+X3DField157.AccessType := 'outputOnly';
+{ .AddX3DField }
+Script155.X3DField := X3DField157;
+
+Script155.SetSourceCode('''ecmascript:\n"+
 "      function set_touchTime(value) {\n"+
 "          choice = 29;\n"+
 "      }\n"+
@@ -1436,1549 +1437,1549 @@ Script154.SetSourceCode('''ecmascript:\n"+
 "          choice = 29;\n"+
 "      }''');
 { .AddChildren }
-Group153.AddChildren([Script154]);
-Inline157 := TInlineNode.Create;
-Inline157.SetUrl(['../resources/JinWink.x3d','JinWink.x3d']);
+Group154.AddChildren([Script155]);
+Inline158 := TInlineNode.Create;
+Inline158.SetUrl(['../resources/JinWink.x3d','JinWink.x3d']);
 { .AddChildren }
-Group153.AddChildren([Inline157]);
+Group154.AddChildren([Inline158]);
 { .AddChildren }
-Switch7.AddChildren([Group153]);
+Switch8.AddChildren([Group154]);
 { .AddChildren }
-Group6.AddChildren([Switch7]);
-Transform158 := TTransformNode.Create;
-Transform158.Translation := Vector3(48,63.4,0);
-TouchSensor159 := TTouchSensorNode.Create;
-TouchSensor159.Description := 'TSJinBlink';
+Group7.AddChildren([Switch8]);
+Transform159 := TTransformNode.Create;
+Transform159.Translation := Vector3(48,63.4,0);
+TouchSensor160 := TTouchSensorNode.Create;
+TouchSensor160.Description := 'TSJinBlink';
 { .AddChildren }
-Transform158.AddChildren([TouchSensor159]);
-Shape160 := TShapeNode.Create;
-Appearance161 := TAppearanceNode.Create;
-Material162 := TMaterialNode.Create;
-Material162.DiffuseColor := Vector3(1,1,1);
+Transform159.AddChildren([TouchSensor160]);
+Shape161 := TShapeNode.Create;
+Appearance162 := TAppearanceNode.Create;
+Material163 := TMaterialNode.Create;
+Material163.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance161.Material := Material162;
+Appearance162.Material := Material163;
 { .SetAppearance }
-Shape160.Appearance := Appearance161;
-Text163 := TTextNode.Create;
-Text163.SetText(['JinBlink']);
-FontStyle164 := TFontStyleNode.Create;
-FontStyle164.Size := 2.4;
-FontStyle164.Spacing := 1.2;
-FontStyle164.Justify := fjMiddle;
-FontStyle164.JustifyMinor := fjMiddle;
+Shape161.Appearance := Appearance162;
+Text164 := TTextNode.Create;
+Text164.SetText(['JinBlink']);
+FontStyle165 := TFontStyleNode.Create;
+FontStyle165.Size := 2.4;
+FontStyle165.Spacing := 1.2;
+FontStyle165.Justify := fjMiddle;
+FontStyle165.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text163.FontStyle := FontStyle164;
+Text164.FontStyle := FontStyle165;
 { .SetGeometry }
-Shape160.Geometry := Text163;
+Shape161.Geometry := Text164;
 { .AddChild }
-Transform158.AddChildren([Shape160]);
-Shape165 := TShapeNode.Create;
-Appearance166 := TAppearanceNode.Create;
-Material167 := TMaterialNode.Create;
-Material167.DiffuseColor := Vector3(0,0,1);
+Transform159.AddChildren([Shape161]);
+Shape166 := TShapeNode.Create;
+Appearance167 := TAppearanceNode.Create;
+Material168 := TMaterialNode.Create;
+Material168.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance166.Material := Material167;
+Appearance167.Material := Material168;
 { .SetAppearance }
-Shape165.Appearance := Appearance166;
-IndexedFaceSet168 := TIndexedFaceSetNode.Create;
-IndexedFaceSet168.SetCoordIndex([0,1,2,3,-1]);
-Coordinate169 := TCoordinateNode.Create;
-Coordinate169.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape166.Appearance := Appearance167;
+IndexedFaceSet169 := TIndexedFaceSetNode.Create;
+IndexedFaceSet169.SetCoordIndex([0,1,2,3,-1]);
+Coordinate170 := TCoordinateNode.Create;
+Coordinate170.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet168.Coord := Coordinate169;
+IndexedFaceSet169.Coord := Coordinate170;
 { .SetGeometry }
-Shape165.Geometry := IndexedFaceSet168;
+Shape166.Geometry := IndexedFaceSet169;
 { .AddChild }
-Transform158.AddChildren([Shape165]);
+Transform159.AddChildren([Shape166]);
 { .AddChildren }
-Group6.AddChildren([Transform158]);
-Group6.AddRoute(TouchSensor159.EventTouchtime, Script9.FdTouchtime);
+Group7.AddChildren([Transform159]);
+Group7.AddRoute(TouchSensor160.EventTouchtime, Script10.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script9.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script10.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform172 := TTransformNode.Create;
-Transform172.Translation := Vector3(48,60.4,0);
-TouchSensor173 := TTouchSensorNode.Create;
-TouchSensor173.Description := 'TSJinBrowLowerer';
+Transform173 := TTransformNode.Create;
+Transform173.Translation := Vector3(48,60.4,0);
+TouchSensor174 := TTouchSensorNode.Create;
+TouchSensor174.Description := 'TSJinBrowLowerer';
 { .AddChildren }
-Transform172.AddChildren([TouchSensor173]);
-Shape174 := TShapeNode.Create;
-Appearance175 := TAppearanceNode.Create;
-Material176 := TMaterialNode.Create;
-Material176.DiffuseColor := Vector3(1,1,1);
+Transform173.AddChildren([TouchSensor174]);
+Shape175 := TShapeNode.Create;
+Appearance176 := TAppearanceNode.Create;
+Material177 := TMaterialNode.Create;
+Material177.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance175.Material := Material176;
+Appearance176.Material := Material177;
 { .SetAppearance }
-Shape174.Appearance := Appearance175;
-Text177 := TTextNode.Create;
-Text177.SetText(['JinBrowLowerer']);
-FontStyle178 := TFontStyleNode.Create;
-FontStyle178.Size := 2.4;
-FontStyle178.Spacing := 1.2;
-FontStyle178.Justify := fjMiddle;
-FontStyle178.JustifyMinor := fjMiddle;
+Shape175.Appearance := Appearance176;
+Text178 := TTextNode.Create;
+Text178.SetText(['JinBrowLowerer']);
+FontStyle179 := TFontStyleNode.Create;
+FontStyle179.Size := 2.4;
+FontStyle179.Spacing := 1.2;
+FontStyle179.Justify := fjMiddle;
+FontStyle179.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text177.FontStyle := FontStyle178;
+Text178.FontStyle := FontStyle179;
 { .SetGeometry }
-Shape174.Geometry := Text177;
+Shape175.Geometry := Text178;
 { .AddChild }
-Transform172.AddChildren([Shape174]);
-Shape179 := TShapeNode.Create;
-Appearance180 := TAppearanceNode.Create;
-Material181 := TMaterialNode.Create;
-Material181.DiffuseColor := Vector3(0,0,1);
+Transform173.AddChildren([Shape175]);
+Shape180 := TShapeNode.Create;
+Appearance181 := TAppearanceNode.Create;
+Material182 := TMaterialNode.Create;
+Material182.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance180.Material := Material181;
+Appearance181.Material := Material182;
 { .SetAppearance }
-Shape179.Appearance := Appearance180;
-IndexedFaceSet182 := TIndexedFaceSetNode.Create;
-IndexedFaceSet182.SetCoordIndex([0,1,2,3,-1]);
-Coordinate183 := TCoordinateNode.Create;
-Coordinate183.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape180.Appearance := Appearance181;
+IndexedFaceSet183 := TIndexedFaceSetNode.Create;
+IndexedFaceSet183.SetCoordIndex([0,1,2,3,-1]);
+Coordinate184 := TCoordinateNode.Create;
+Coordinate184.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet182.Coord := Coordinate183;
+IndexedFaceSet183.Coord := Coordinate184;
 { .SetGeometry }
-Shape179.Geometry := IndexedFaceSet182;
+Shape180.Geometry := IndexedFaceSet183;
 { .AddChild }
-Transform172.AddChildren([Shape179]);
+Transform173.AddChildren([Shape180]);
 { .AddChildren }
-Group6.AddChildren([Transform172]);
-Group6.AddRoute(TouchSensor173.EventTouchtime, Script14.FdTouchtime);
+Group7.AddChildren([Transform173]);
+Group7.AddRoute(TouchSensor174.EventTouchtime, Script15.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script14.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script15.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform186 := TTransformNode.Create;
-Transform186.Translation := Vector3(48,57.39999999999999,0);
-TouchSensor187 := TTouchSensorNode.Create;
-TouchSensor187.Description := 'TSJinCheekPuffer';
+Transform187 := TTransformNode.Create;
+Transform187.Translation := Vector3(48,57.39999999999999,0);
+TouchSensor188 := TTouchSensorNode.Create;
+TouchSensor188.Description := 'TSJinCheekPuffer';
 { .AddChildren }
-Transform186.AddChildren([TouchSensor187]);
-Shape188 := TShapeNode.Create;
-Appearance189 := TAppearanceNode.Create;
-Material190 := TMaterialNode.Create;
-Material190.DiffuseColor := Vector3(1,1,1);
+Transform187.AddChildren([TouchSensor188]);
+Shape189 := TShapeNode.Create;
+Appearance190 := TAppearanceNode.Create;
+Material191 := TMaterialNode.Create;
+Material191.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance189.Material := Material190;
+Appearance190.Material := Material191;
 { .SetAppearance }
-Shape188.Appearance := Appearance189;
-Text191 := TTextNode.Create;
-Text191.SetText(['JinCheekPuffer']);
-FontStyle192 := TFontStyleNode.Create;
-FontStyle192.Size := 2.4;
-FontStyle192.Spacing := 1.2;
-FontStyle192.Justify := fjMiddle;
-FontStyle192.JustifyMinor := fjMiddle;
+Shape189.Appearance := Appearance190;
+Text192 := TTextNode.Create;
+Text192.SetText(['JinCheekPuffer']);
+FontStyle193 := TFontStyleNode.Create;
+FontStyle193.Size := 2.4;
+FontStyle193.Spacing := 1.2;
+FontStyle193.Justify := fjMiddle;
+FontStyle193.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text191.FontStyle := FontStyle192;
+Text192.FontStyle := FontStyle193;
 { .SetGeometry }
-Shape188.Geometry := Text191;
+Shape189.Geometry := Text192;
 { .AddChild }
-Transform186.AddChildren([Shape188]);
-Shape193 := TShapeNode.Create;
-Appearance194 := TAppearanceNode.Create;
-Material195 := TMaterialNode.Create;
-Material195.DiffuseColor := Vector3(0,0,1);
+Transform187.AddChildren([Shape189]);
+Shape194 := TShapeNode.Create;
+Appearance195 := TAppearanceNode.Create;
+Material196 := TMaterialNode.Create;
+Material196.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance194.Material := Material195;
+Appearance195.Material := Material196;
 { .SetAppearance }
-Shape193.Appearance := Appearance194;
-IndexedFaceSet196 := TIndexedFaceSetNode.Create;
-IndexedFaceSet196.SetCoordIndex([0,1,2,3,-1]);
-Coordinate197 := TCoordinateNode.Create;
-Coordinate197.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape194.Appearance := Appearance195;
+IndexedFaceSet197 := TIndexedFaceSetNode.Create;
+IndexedFaceSet197.SetCoordIndex([0,1,2,3,-1]);
+Coordinate198 := TCoordinateNode.Create;
+Coordinate198.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet196.Coord := Coordinate197;
+IndexedFaceSet197.Coord := Coordinate198;
 { .SetGeometry }
-Shape193.Geometry := IndexedFaceSet196;
+Shape194.Geometry := IndexedFaceSet197;
 { .AddChild }
-Transform186.AddChildren([Shape193]);
+Transform187.AddChildren([Shape194]);
 { .AddChildren }
-Group6.AddChildren([Transform186]);
-Group6.AddRoute(TouchSensor187.EventTouchtime, Script19.FdTouchtime);
+Group7.AddChildren([Transform187]);
+Group7.AddRoute(TouchSensor188.EventTouchtime, Script20.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script19.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script20.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform200 := TTransformNode.Create;
-Transform200.Translation := Vector3(48,54.39999999999999,0);
-TouchSensor201 := TTouchSensorNode.Create;
-TouchSensor201.Description := 'TSJinCheekRaiser';
+Transform201 := TTransformNode.Create;
+Transform201.Translation := Vector3(48,54.39999999999999,0);
+TouchSensor202 := TTouchSensorNode.Create;
+TouchSensor202.Description := 'TSJinCheekRaiser';
 { .AddChildren }
-Transform200.AddChildren([TouchSensor201]);
-Shape202 := TShapeNode.Create;
-Appearance203 := TAppearanceNode.Create;
-Material204 := TMaterialNode.Create;
-Material204.DiffuseColor := Vector3(1,1,1);
+Transform201.AddChildren([TouchSensor202]);
+Shape203 := TShapeNode.Create;
+Appearance204 := TAppearanceNode.Create;
+Material205 := TMaterialNode.Create;
+Material205.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance203.Material := Material204;
+Appearance204.Material := Material205;
 { .SetAppearance }
-Shape202.Appearance := Appearance203;
-Text205 := TTextNode.Create;
-Text205.SetText(['JinCheekRaiser']);
-FontStyle206 := TFontStyleNode.Create;
-FontStyle206.Size := 2.4;
-FontStyle206.Spacing := 1.2;
-FontStyle206.Justify := fjMiddle;
-FontStyle206.JustifyMinor := fjMiddle;
+Shape203.Appearance := Appearance204;
+Text206 := TTextNode.Create;
+Text206.SetText(['JinCheekRaiser']);
+FontStyle207 := TFontStyleNode.Create;
+FontStyle207.Size := 2.4;
+FontStyle207.Spacing := 1.2;
+FontStyle207.Justify := fjMiddle;
+FontStyle207.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text205.FontStyle := FontStyle206;
+Text206.FontStyle := FontStyle207;
 { .SetGeometry }
-Shape202.Geometry := Text205;
+Shape203.Geometry := Text206;
 { .AddChild }
-Transform200.AddChildren([Shape202]);
-Shape207 := TShapeNode.Create;
-Appearance208 := TAppearanceNode.Create;
-Material209 := TMaterialNode.Create;
-Material209.DiffuseColor := Vector3(0,0,1);
+Transform201.AddChildren([Shape203]);
+Shape208 := TShapeNode.Create;
+Appearance209 := TAppearanceNode.Create;
+Material210 := TMaterialNode.Create;
+Material210.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance208.Material := Material209;
+Appearance209.Material := Material210;
 { .SetAppearance }
-Shape207.Appearance := Appearance208;
-IndexedFaceSet210 := TIndexedFaceSetNode.Create;
-IndexedFaceSet210.SetCoordIndex([0,1,2,3,-1]);
-Coordinate211 := TCoordinateNode.Create;
-Coordinate211.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape208.Appearance := Appearance209;
+IndexedFaceSet211 := TIndexedFaceSetNode.Create;
+IndexedFaceSet211.SetCoordIndex([0,1,2,3,-1]);
+Coordinate212 := TCoordinateNode.Create;
+Coordinate212.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet210.Coord := Coordinate211;
+IndexedFaceSet211.Coord := Coordinate212;
 { .SetGeometry }
-Shape207.Geometry := IndexedFaceSet210;
+Shape208.Geometry := IndexedFaceSet211;
 { .AddChild }
-Transform200.AddChildren([Shape207]);
+Transform201.AddChildren([Shape208]);
 { .AddChildren }
-Group6.AddChildren([Transform200]);
-Group6.AddRoute(TouchSensor201.EventTouchtime, Script24.FdTouchtime);
+Group7.AddChildren([Transform201]);
+Group7.AddRoute(TouchSensor202.EventTouchtime, Script25.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script24.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script25.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform214 := TTransformNode.Create;
-Transform214.Translation := Vector3(48,51.39999999999999,0);
-TouchSensor215 := TTouchSensorNode.Create;
-TouchSensor215.Description := 'TSJinChinRaiser';
+Transform215 := TTransformNode.Create;
+Transform215.Translation := Vector3(48,51.39999999999999,0);
+TouchSensor216 := TTouchSensorNode.Create;
+TouchSensor216.Description := 'TSJinChinRaiser';
 { .AddChildren }
-Transform214.AddChildren([TouchSensor215]);
-Shape216 := TShapeNode.Create;
-Appearance217 := TAppearanceNode.Create;
-Material218 := TMaterialNode.Create;
-Material218.DiffuseColor := Vector3(1,1,1);
+Transform215.AddChildren([TouchSensor216]);
+Shape217 := TShapeNode.Create;
+Appearance218 := TAppearanceNode.Create;
+Material219 := TMaterialNode.Create;
+Material219.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance217.Material := Material218;
+Appearance218.Material := Material219;
 { .SetAppearance }
-Shape216.Appearance := Appearance217;
-Text219 := TTextNode.Create;
-Text219.SetText(['JinChinRaiser']);
-FontStyle220 := TFontStyleNode.Create;
-FontStyle220.Size := 2.4;
-FontStyle220.Spacing := 1.2;
-FontStyle220.Justify := fjMiddle;
-FontStyle220.JustifyMinor := fjMiddle;
+Shape217.Appearance := Appearance218;
+Text220 := TTextNode.Create;
+Text220.SetText(['JinChinRaiser']);
+FontStyle221 := TFontStyleNode.Create;
+FontStyle221.Size := 2.4;
+FontStyle221.Spacing := 1.2;
+FontStyle221.Justify := fjMiddle;
+FontStyle221.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text219.FontStyle := FontStyle220;
+Text220.FontStyle := FontStyle221;
 { .SetGeometry }
-Shape216.Geometry := Text219;
+Shape217.Geometry := Text220;
 { .AddChild }
-Transform214.AddChildren([Shape216]);
-Shape221 := TShapeNode.Create;
-Appearance222 := TAppearanceNode.Create;
-Material223 := TMaterialNode.Create;
-Material223.DiffuseColor := Vector3(0,0,1);
+Transform215.AddChildren([Shape217]);
+Shape222 := TShapeNode.Create;
+Appearance223 := TAppearanceNode.Create;
+Material224 := TMaterialNode.Create;
+Material224.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance222.Material := Material223;
+Appearance223.Material := Material224;
 { .SetAppearance }
-Shape221.Appearance := Appearance222;
-IndexedFaceSet224 := TIndexedFaceSetNode.Create;
-IndexedFaceSet224.SetCoordIndex([0,1,2,3,-1]);
-Coordinate225 := TCoordinateNode.Create;
-Coordinate225.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape222.Appearance := Appearance223;
+IndexedFaceSet225 := TIndexedFaceSetNode.Create;
+IndexedFaceSet225.SetCoordIndex([0,1,2,3,-1]);
+Coordinate226 := TCoordinateNode.Create;
+Coordinate226.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet224.Coord := Coordinate225;
+IndexedFaceSet225.Coord := Coordinate226;
 { .SetGeometry }
-Shape221.Geometry := IndexedFaceSet224;
+Shape222.Geometry := IndexedFaceSet225;
 { .AddChild }
-Transform214.AddChildren([Shape221]);
+Transform215.AddChildren([Shape222]);
 { .AddChildren }
-Group6.AddChildren([Transform214]);
-Group6.AddRoute(TouchSensor215.EventTouchtime, Script29.FdTouchtime);
+Group7.AddChildren([Transform215]);
+Group7.AddRoute(TouchSensor216.EventTouchtime, Script30.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script29.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script30.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform228 := TTransformNode.Create;
-Transform228.Translation := Vector3(48,48.39999999999999,0);
-TouchSensor229 := TTouchSensorNode.Create;
-TouchSensor229.Description := 'TSJinDimpler';
+Transform229 := TTransformNode.Create;
+Transform229.Translation := Vector3(48,48.39999999999999,0);
+TouchSensor230 := TTouchSensorNode.Create;
+TouchSensor230.Description := 'TSJinDimpler';
 { .AddChildren }
-Transform228.AddChildren([TouchSensor229]);
-Shape230 := TShapeNode.Create;
-Appearance231 := TAppearanceNode.Create;
-Material232 := TMaterialNode.Create;
-Material232.DiffuseColor := Vector3(1,1,1);
+Transform229.AddChildren([TouchSensor230]);
+Shape231 := TShapeNode.Create;
+Appearance232 := TAppearanceNode.Create;
+Material233 := TMaterialNode.Create;
+Material233.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance231.Material := Material232;
+Appearance232.Material := Material233;
 { .SetAppearance }
-Shape230.Appearance := Appearance231;
-Text233 := TTextNode.Create;
-Text233.SetText(['JinDimpler']);
-FontStyle234 := TFontStyleNode.Create;
-FontStyle234.Size := 2.4;
-FontStyle234.Spacing := 1.2;
-FontStyle234.Justify := fjMiddle;
-FontStyle234.JustifyMinor := fjMiddle;
+Shape231.Appearance := Appearance232;
+Text234 := TTextNode.Create;
+Text234.SetText(['JinDimpler']);
+FontStyle235 := TFontStyleNode.Create;
+FontStyle235.Size := 2.4;
+FontStyle235.Spacing := 1.2;
+FontStyle235.Justify := fjMiddle;
+FontStyle235.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text233.FontStyle := FontStyle234;
+Text234.FontStyle := FontStyle235;
 { .SetGeometry }
-Shape230.Geometry := Text233;
+Shape231.Geometry := Text234;
 { .AddChild }
-Transform228.AddChildren([Shape230]);
-Shape235 := TShapeNode.Create;
-Appearance236 := TAppearanceNode.Create;
-Material237 := TMaterialNode.Create;
-Material237.DiffuseColor := Vector3(0,0,1);
+Transform229.AddChildren([Shape231]);
+Shape236 := TShapeNode.Create;
+Appearance237 := TAppearanceNode.Create;
+Material238 := TMaterialNode.Create;
+Material238.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance236.Material := Material237;
+Appearance237.Material := Material238;
 { .SetAppearance }
-Shape235.Appearance := Appearance236;
-IndexedFaceSet238 := TIndexedFaceSetNode.Create;
-IndexedFaceSet238.SetCoordIndex([0,1,2,3,-1]);
-Coordinate239 := TCoordinateNode.Create;
-Coordinate239.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape236.Appearance := Appearance237;
+IndexedFaceSet239 := TIndexedFaceSetNode.Create;
+IndexedFaceSet239.SetCoordIndex([0,1,2,3,-1]);
+Coordinate240 := TCoordinateNode.Create;
+Coordinate240.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet238.Coord := Coordinate239;
+IndexedFaceSet239.Coord := Coordinate240;
 { .SetGeometry }
-Shape235.Geometry := IndexedFaceSet238;
+Shape236.Geometry := IndexedFaceSet239;
 { .AddChild }
-Transform228.AddChildren([Shape235]);
+Transform229.AddChildren([Shape236]);
 { .AddChildren }
-Group6.AddChildren([Transform228]);
-Group6.AddRoute(TouchSensor229.EventTouchtime, Script34.FdTouchtime);
+Group7.AddChildren([Transform229]);
+Group7.AddRoute(TouchSensor230.EventTouchtime, Script35.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script34.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script35.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform242 := TTransformNode.Create;
-Transform242.Translation := Vector3(48,45.39999999999999,0);
-TouchSensor243 := TTouchSensorNode.Create;
-TouchSensor243.Description := 'TSJinEyesClosed';
+Transform243 := TTransformNode.Create;
+Transform243.Translation := Vector3(48,45.39999999999999,0);
+TouchSensor244 := TTouchSensorNode.Create;
+TouchSensor244.Description := 'TSJinEyesClosed';
 { .AddChildren }
-Transform242.AddChildren([TouchSensor243]);
-Shape244 := TShapeNode.Create;
-Appearance245 := TAppearanceNode.Create;
-Material246 := TMaterialNode.Create;
-Material246.DiffuseColor := Vector3(1,1,1);
+Transform243.AddChildren([TouchSensor244]);
+Shape245 := TShapeNode.Create;
+Appearance246 := TAppearanceNode.Create;
+Material247 := TMaterialNode.Create;
+Material247.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance245.Material := Material246;
+Appearance246.Material := Material247;
 { .SetAppearance }
-Shape244.Appearance := Appearance245;
-Text247 := TTextNode.Create;
-Text247.SetText(['JinEyesClosed']);
-FontStyle248 := TFontStyleNode.Create;
-FontStyle248.Size := 2.4;
-FontStyle248.Spacing := 1.2;
-FontStyle248.Justify := fjMiddle;
-FontStyle248.JustifyMinor := fjMiddle;
+Shape245.Appearance := Appearance246;
+Text248 := TTextNode.Create;
+Text248.SetText(['JinEyesClosed']);
+FontStyle249 := TFontStyleNode.Create;
+FontStyle249.Size := 2.4;
+FontStyle249.Spacing := 1.2;
+FontStyle249.Justify := fjMiddle;
+FontStyle249.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text247.FontStyle := FontStyle248;
+Text248.FontStyle := FontStyle249;
 { .SetGeometry }
-Shape244.Geometry := Text247;
+Shape245.Geometry := Text248;
 { .AddChild }
-Transform242.AddChildren([Shape244]);
-Shape249 := TShapeNode.Create;
-Appearance250 := TAppearanceNode.Create;
-Material251 := TMaterialNode.Create;
-Material251.DiffuseColor := Vector3(0,0,1);
+Transform243.AddChildren([Shape245]);
+Shape250 := TShapeNode.Create;
+Appearance251 := TAppearanceNode.Create;
+Material252 := TMaterialNode.Create;
+Material252.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance250.Material := Material251;
+Appearance251.Material := Material252;
 { .SetAppearance }
-Shape249.Appearance := Appearance250;
-IndexedFaceSet252 := TIndexedFaceSetNode.Create;
-IndexedFaceSet252.SetCoordIndex([0,1,2,3,-1]);
-Coordinate253 := TCoordinateNode.Create;
-Coordinate253.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape250.Appearance := Appearance251;
+IndexedFaceSet253 := TIndexedFaceSetNode.Create;
+IndexedFaceSet253.SetCoordIndex([0,1,2,3,-1]);
+Coordinate254 := TCoordinateNode.Create;
+Coordinate254.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet252.Coord := Coordinate253;
+IndexedFaceSet253.Coord := Coordinate254;
 { .SetGeometry }
-Shape249.Geometry := IndexedFaceSet252;
+Shape250.Geometry := IndexedFaceSet253;
 { .AddChild }
-Transform242.AddChildren([Shape249]);
+Transform243.AddChildren([Shape250]);
 { .AddChildren }
-Group6.AddChildren([Transform242]);
-Group6.AddRoute(TouchSensor243.EventTouchtime, Script39.FdTouchtime);
+Group7.AddChildren([Transform243]);
+Group7.AddRoute(TouchSensor244.EventTouchtime, Script40.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script39.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script40.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform256 := TTransformNode.Create;
-Transform256.Translation := Vector3(48,42.39999999999999,0);
-TouchSensor257 := TTouchSensorNode.Create;
-TouchSensor257.Description := 'TSJinInnerBrowRaiser';
+Transform257 := TTransformNode.Create;
+Transform257.Translation := Vector3(48,42.39999999999999,0);
+TouchSensor258 := TTouchSensorNode.Create;
+TouchSensor258.Description := 'TSJinInnerBrowRaiser';
 { .AddChildren }
-Transform256.AddChildren([TouchSensor257]);
-Shape258 := TShapeNode.Create;
-Appearance259 := TAppearanceNode.Create;
-Material260 := TMaterialNode.Create;
-Material260.DiffuseColor := Vector3(1,1,1);
+Transform257.AddChildren([TouchSensor258]);
+Shape259 := TShapeNode.Create;
+Appearance260 := TAppearanceNode.Create;
+Material261 := TMaterialNode.Create;
+Material261.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance259.Material := Material260;
+Appearance260.Material := Material261;
 { .SetAppearance }
-Shape258.Appearance := Appearance259;
-Text261 := TTextNode.Create;
-Text261.SetText(['JinInnerBrowRaiser']);
-FontStyle262 := TFontStyleNode.Create;
-FontStyle262.Size := 2.4;
-FontStyle262.Spacing := 1.2;
-FontStyle262.Justify := fjMiddle;
-FontStyle262.JustifyMinor := fjMiddle;
+Shape259.Appearance := Appearance260;
+Text262 := TTextNode.Create;
+Text262.SetText(['JinInnerBrowRaiser']);
+FontStyle263 := TFontStyleNode.Create;
+FontStyle263.Size := 2.4;
+FontStyle263.Spacing := 1.2;
+FontStyle263.Justify := fjMiddle;
+FontStyle263.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text261.FontStyle := FontStyle262;
+Text262.FontStyle := FontStyle263;
 { .SetGeometry }
-Shape258.Geometry := Text261;
+Shape259.Geometry := Text262;
 { .AddChild }
-Transform256.AddChildren([Shape258]);
-Shape263 := TShapeNode.Create;
-Appearance264 := TAppearanceNode.Create;
-Material265 := TMaterialNode.Create;
-Material265.DiffuseColor := Vector3(0,0,1);
+Transform257.AddChildren([Shape259]);
+Shape264 := TShapeNode.Create;
+Appearance265 := TAppearanceNode.Create;
+Material266 := TMaterialNode.Create;
+Material266.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance264.Material := Material265;
+Appearance265.Material := Material266;
 { .SetAppearance }
-Shape263.Appearance := Appearance264;
-IndexedFaceSet266 := TIndexedFaceSetNode.Create;
-IndexedFaceSet266.SetCoordIndex([0,1,2,3,-1]);
-Coordinate267 := TCoordinateNode.Create;
-Coordinate267.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape264.Appearance := Appearance265;
+IndexedFaceSet267 := TIndexedFaceSetNode.Create;
+IndexedFaceSet267.SetCoordIndex([0,1,2,3,-1]);
+Coordinate268 := TCoordinateNode.Create;
+Coordinate268.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet266.Coord := Coordinate267;
+IndexedFaceSet267.Coord := Coordinate268;
 { .SetGeometry }
-Shape263.Geometry := IndexedFaceSet266;
+Shape264.Geometry := IndexedFaceSet267;
 { .AddChild }
-Transform256.AddChildren([Shape263]);
+Transform257.AddChildren([Shape264]);
 { .AddChildren }
-Group6.AddChildren([Transform256]);
-Group6.AddRoute(TouchSensor257.EventTouchtime, Script44.FdTouchtime);
+Group7.AddChildren([Transform257]);
+Group7.AddRoute(TouchSensor258.EventTouchtime, Script45.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script44.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script45.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform270 := TTransformNode.Create;
-Transform270.Translation := Vector3(48,39.39999999999999,0);
-TouchSensor271 := TTouchSensorNode.Create;
-TouchSensor271.Description := 'TSJinJawDrop';
+Transform271 := TTransformNode.Create;
+Transform271.Translation := Vector3(48,39.39999999999999,0);
+TouchSensor272 := TTouchSensorNode.Create;
+TouchSensor272.Description := 'TSJinJawDrop';
 { .AddChildren }
-Transform270.AddChildren([TouchSensor271]);
-Shape272 := TShapeNode.Create;
-Appearance273 := TAppearanceNode.Create;
-Material274 := TMaterialNode.Create;
-Material274.DiffuseColor := Vector3(1,1,1);
+Transform271.AddChildren([TouchSensor272]);
+Shape273 := TShapeNode.Create;
+Appearance274 := TAppearanceNode.Create;
+Material275 := TMaterialNode.Create;
+Material275.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance273.Material := Material274;
+Appearance274.Material := Material275;
 { .SetAppearance }
-Shape272.Appearance := Appearance273;
-Text275 := TTextNode.Create;
-Text275.SetText(['JinJawDrop']);
-FontStyle276 := TFontStyleNode.Create;
-FontStyle276.Size := 2.4;
-FontStyle276.Spacing := 1.2;
-FontStyle276.Justify := fjMiddle;
-FontStyle276.JustifyMinor := fjMiddle;
+Shape273.Appearance := Appearance274;
+Text276 := TTextNode.Create;
+Text276.SetText(['JinJawDrop']);
+FontStyle277 := TFontStyleNode.Create;
+FontStyle277.Size := 2.4;
+FontStyle277.Spacing := 1.2;
+FontStyle277.Justify := fjMiddle;
+FontStyle277.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text275.FontStyle := FontStyle276;
+Text276.FontStyle := FontStyle277;
 { .SetGeometry }
-Shape272.Geometry := Text275;
+Shape273.Geometry := Text276;
 { .AddChild }
-Transform270.AddChildren([Shape272]);
-Shape277 := TShapeNode.Create;
-Appearance278 := TAppearanceNode.Create;
-Material279 := TMaterialNode.Create;
-Material279.DiffuseColor := Vector3(0,0,1);
+Transform271.AddChildren([Shape273]);
+Shape278 := TShapeNode.Create;
+Appearance279 := TAppearanceNode.Create;
+Material280 := TMaterialNode.Create;
+Material280.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance278.Material := Material279;
+Appearance279.Material := Material280;
 { .SetAppearance }
-Shape277.Appearance := Appearance278;
-IndexedFaceSet280 := TIndexedFaceSetNode.Create;
-IndexedFaceSet280.SetCoordIndex([0,1,2,3,-1]);
-Coordinate281 := TCoordinateNode.Create;
-Coordinate281.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape278.Appearance := Appearance279;
+IndexedFaceSet281 := TIndexedFaceSetNode.Create;
+IndexedFaceSet281.SetCoordIndex([0,1,2,3,-1]);
+Coordinate282 := TCoordinateNode.Create;
+Coordinate282.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet280.Coord := Coordinate281;
+IndexedFaceSet281.Coord := Coordinate282;
 { .SetGeometry }
-Shape277.Geometry := IndexedFaceSet280;
+Shape278.Geometry := IndexedFaceSet281;
 { .AddChild }
-Transform270.AddChildren([Shape277]);
+Transform271.AddChildren([Shape278]);
 { .AddChildren }
-Group6.AddChildren([Transform270]);
-Group6.AddRoute(TouchSensor271.EventTouchtime, Script49.FdTouchtime);
+Group7.AddChildren([Transform271]);
+Group7.AddRoute(TouchSensor272.EventTouchtime, Script50.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script49.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script50.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform284 := TTransformNode.Create;
-Transform284.Translation := Vector3(48,36.39999999999999,0);
-TouchSensor285 := TTouchSensorNode.Create;
-TouchSensor285.Description := 'TSJinLidDroop';
+Transform285 := TTransformNode.Create;
+Transform285.Translation := Vector3(48,36.39999999999999,0);
+TouchSensor286 := TTouchSensorNode.Create;
+TouchSensor286.Description := 'TSJinLidDroop';
 { .AddChildren }
-Transform284.AddChildren([TouchSensor285]);
-Shape286 := TShapeNode.Create;
-Appearance287 := TAppearanceNode.Create;
-Material288 := TMaterialNode.Create;
-Material288.DiffuseColor := Vector3(1,1,1);
+Transform285.AddChildren([TouchSensor286]);
+Shape287 := TShapeNode.Create;
+Appearance288 := TAppearanceNode.Create;
+Material289 := TMaterialNode.Create;
+Material289.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance287.Material := Material288;
+Appearance288.Material := Material289;
 { .SetAppearance }
-Shape286.Appearance := Appearance287;
-Text289 := TTextNode.Create;
-Text289.SetText(['JinLidDroop']);
-FontStyle290 := TFontStyleNode.Create;
-FontStyle290.Size := 2.4;
-FontStyle290.Spacing := 1.2;
-FontStyle290.Justify := fjMiddle;
-FontStyle290.JustifyMinor := fjMiddle;
+Shape287.Appearance := Appearance288;
+Text290 := TTextNode.Create;
+Text290.SetText(['JinLidDroop']);
+FontStyle291 := TFontStyleNode.Create;
+FontStyle291.Size := 2.4;
+FontStyle291.Spacing := 1.2;
+FontStyle291.Justify := fjMiddle;
+FontStyle291.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text289.FontStyle := FontStyle290;
+Text290.FontStyle := FontStyle291;
 { .SetGeometry }
-Shape286.Geometry := Text289;
+Shape287.Geometry := Text290;
 { .AddChild }
-Transform284.AddChildren([Shape286]);
-Shape291 := TShapeNode.Create;
-Appearance292 := TAppearanceNode.Create;
-Material293 := TMaterialNode.Create;
-Material293.DiffuseColor := Vector3(0,0,1);
+Transform285.AddChildren([Shape287]);
+Shape292 := TShapeNode.Create;
+Appearance293 := TAppearanceNode.Create;
+Material294 := TMaterialNode.Create;
+Material294.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance292.Material := Material293;
+Appearance293.Material := Material294;
 { .SetAppearance }
-Shape291.Appearance := Appearance292;
-IndexedFaceSet294 := TIndexedFaceSetNode.Create;
-IndexedFaceSet294.SetCoordIndex([0,1,2,3,-1]);
-Coordinate295 := TCoordinateNode.Create;
-Coordinate295.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape292.Appearance := Appearance293;
+IndexedFaceSet295 := TIndexedFaceSetNode.Create;
+IndexedFaceSet295.SetCoordIndex([0,1,2,3,-1]);
+Coordinate296 := TCoordinateNode.Create;
+Coordinate296.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet294.Coord := Coordinate295;
+IndexedFaceSet295.Coord := Coordinate296;
 { .SetGeometry }
-Shape291.Geometry := IndexedFaceSet294;
+Shape292.Geometry := IndexedFaceSet295;
 { .AddChild }
-Transform284.AddChildren([Shape291]);
+Transform285.AddChildren([Shape292]);
 { .AddChildren }
-Group6.AddChildren([Transform284]);
-Group6.AddRoute(TouchSensor285.EventTouchtime, Script54.FdTouchtime);
+Group7.AddChildren([Transform285]);
+Group7.AddRoute(TouchSensor286.EventTouchtime, Script55.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script54.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script55.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform298 := TTransformNode.Create;
-Transform298.Translation := Vector3(48,33.39999999999999,0);
-TouchSensor299 := TTouchSensorNode.Create;
-TouchSensor299.Description := 'TSJinLidTightener';
+Transform299 := TTransformNode.Create;
+Transform299.Translation := Vector3(48,33.39999999999999,0);
+TouchSensor300 := TTouchSensorNode.Create;
+TouchSensor300.Description := 'TSJinLidTightener';
 { .AddChildren }
-Transform298.AddChildren([TouchSensor299]);
-Shape300 := TShapeNode.Create;
-Appearance301 := TAppearanceNode.Create;
-Material302 := TMaterialNode.Create;
-Material302.DiffuseColor := Vector3(1,1,1);
+Transform299.AddChildren([TouchSensor300]);
+Shape301 := TShapeNode.Create;
+Appearance302 := TAppearanceNode.Create;
+Material303 := TMaterialNode.Create;
+Material303.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance301.Material := Material302;
+Appearance302.Material := Material303;
 { .SetAppearance }
-Shape300.Appearance := Appearance301;
-Text303 := TTextNode.Create;
-Text303.SetText(['JinLidTightener']);
-FontStyle304 := TFontStyleNode.Create;
-FontStyle304.Size := 2.4;
-FontStyle304.Spacing := 1.2;
-FontStyle304.Justify := fjMiddle;
-FontStyle304.JustifyMinor := fjMiddle;
+Shape301.Appearance := Appearance302;
+Text304 := TTextNode.Create;
+Text304.SetText(['JinLidTightener']);
+FontStyle305 := TFontStyleNode.Create;
+FontStyle305.Size := 2.4;
+FontStyle305.Spacing := 1.2;
+FontStyle305.Justify := fjMiddle;
+FontStyle305.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text303.FontStyle := FontStyle304;
+Text304.FontStyle := FontStyle305;
 { .SetGeometry }
-Shape300.Geometry := Text303;
+Shape301.Geometry := Text304;
 { .AddChild }
-Transform298.AddChildren([Shape300]);
-Shape305 := TShapeNode.Create;
-Appearance306 := TAppearanceNode.Create;
-Material307 := TMaterialNode.Create;
-Material307.DiffuseColor := Vector3(0,0,1);
+Transform299.AddChildren([Shape301]);
+Shape306 := TShapeNode.Create;
+Appearance307 := TAppearanceNode.Create;
+Material308 := TMaterialNode.Create;
+Material308.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance306.Material := Material307;
+Appearance307.Material := Material308;
 { .SetAppearance }
-Shape305.Appearance := Appearance306;
-IndexedFaceSet308 := TIndexedFaceSetNode.Create;
-IndexedFaceSet308.SetCoordIndex([0,1,2,3,-1]);
-Coordinate309 := TCoordinateNode.Create;
-Coordinate309.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape306.Appearance := Appearance307;
+IndexedFaceSet309 := TIndexedFaceSetNode.Create;
+IndexedFaceSet309.SetCoordIndex([0,1,2,3,-1]);
+Coordinate310 := TCoordinateNode.Create;
+Coordinate310.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet308.Coord := Coordinate309;
+IndexedFaceSet309.Coord := Coordinate310;
 { .SetGeometry }
-Shape305.Geometry := IndexedFaceSet308;
+Shape306.Geometry := IndexedFaceSet309;
 { .AddChild }
-Transform298.AddChildren([Shape305]);
+Transform299.AddChildren([Shape306]);
 { .AddChildren }
-Group6.AddChildren([Transform298]);
-Group6.AddRoute(TouchSensor299.EventTouchtime, Script59.FdTouchtime);
+Group7.AddChildren([Transform299]);
+Group7.AddRoute(TouchSensor300.EventTouchtime, Script60.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script59.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script60.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform312 := TTransformNode.Create;
-Transform312.Translation := Vector3(48,30.399999999999995,0);
-TouchSensor313 := TTouchSensorNode.Create;
-TouchSensor313.Description := 'TSJinLipCornerDepressor';
+Transform313 := TTransformNode.Create;
+Transform313.Translation := Vector3(48,30.399999999999995,0);
+TouchSensor314 := TTouchSensorNode.Create;
+TouchSensor314.Description := 'TSJinLipCornerDepressor';
 { .AddChildren }
-Transform312.AddChildren([TouchSensor313]);
-Shape314 := TShapeNode.Create;
-Appearance315 := TAppearanceNode.Create;
-Material316 := TMaterialNode.Create;
-Material316.DiffuseColor := Vector3(1,1,1);
+Transform313.AddChildren([TouchSensor314]);
+Shape315 := TShapeNode.Create;
+Appearance316 := TAppearanceNode.Create;
+Material317 := TMaterialNode.Create;
+Material317.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance315.Material := Material316;
+Appearance316.Material := Material317;
 { .SetAppearance }
-Shape314.Appearance := Appearance315;
-Text317 := TTextNode.Create;
-Text317.SetText(['JinLipCornerDepressor']);
-FontStyle318 := TFontStyleNode.Create;
-FontStyle318.Size := 2.4;
-FontStyle318.Spacing := 1.2;
-FontStyle318.Justify := fjMiddle;
-FontStyle318.JustifyMinor := fjMiddle;
+Shape315.Appearance := Appearance316;
+Text318 := TTextNode.Create;
+Text318.SetText(['JinLipCornerDepressor']);
+FontStyle319 := TFontStyleNode.Create;
+FontStyle319.Size := 2.4;
+FontStyle319.Spacing := 1.2;
+FontStyle319.Justify := fjMiddle;
+FontStyle319.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text317.FontStyle := FontStyle318;
+Text318.FontStyle := FontStyle319;
 { .SetGeometry }
-Shape314.Geometry := Text317;
+Shape315.Geometry := Text318;
 { .AddChild }
-Transform312.AddChildren([Shape314]);
-Shape319 := TShapeNode.Create;
-Appearance320 := TAppearanceNode.Create;
-Material321 := TMaterialNode.Create;
-Material321.DiffuseColor := Vector3(0,0,1);
+Transform313.AddChildren([Shape315]);
+Shape320 := TShapeNode.Create;
+Appearance321 := TAppearanceNode.Create;
+Material322 := TMaterialNode.Create;
+Material322.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance320.Material := Material321;
+Appearance321.Material := Material322;
 { .SetAppearance }
-Shape319.Appearance := Appearance320;
-IndexedFaceSet322 := TIndexedFaceSetNode.Create;
-IndexedFaceSet322.SetCoordIndex([0,1,2,3,-1]);
-Coordinate323 := TCoordinateNode.Create;
-Coordinate323.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape320.Appearance := Appearance321;
+IndexedFaceSet323 := TIndexedFaceSetNode.Create;
+IndexedFaceSet323.SetCoordIndex([0,1,2,3,-1]);
+Coordinate324 := TCoordinateNode.Create;
+Coordinate324.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet322.Coord := Coordinate323;
+IndexedFaceSet323.Coord := Coordinate324;
 { .SetGeometry }
-Shape319.Geometry := IndexedFaceSet322;
+Shape320.Geometry := IndexedFaceSet323;
 { .AddChild }
-Transform312.AddChildren([Shape319]);
+Transform313.AddChildren([Shape320]);
 { .AddChildren }
-Group6.AddChildren([Transform312]);
-Group6.AddRoute(TouchSensor313.EventTouchtime, Script64.FdTouchtime);
+Group7.AddChildren([Transform313]);
+Group7.AddRoute(TouchSensor314.EventTouchtime, Script65.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script64.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script65.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform326 := TTransformNode.Create;
-Transform326.Translation := Vector3(48,27.399999999999995,0);
-TouchSensor327 := TTouchSensorNode.Create;
-TouchSensor327.Description := 'TSJinLipCornerPuller';
+Transform327 := TTransformNode.Create;
+Transform327.Translation := Vector3(48,27.399999999999995,0);
+TouchSensor328 := TTouchSensorNode.Create;
+TouchSensor328.Description := 'TSJinLipCornerPuller';
 { .AddChildren }
-Transform326.AddChildren([TouchSensor327]);
-Shape328 := TShapeNode.Create;
-Appearance329 := TAppearanceNode.Create;
-Material330 := TMaterialNode.Create;
-Material330.DiffuseColor := Vector3(1,1,1);
+Transform327.AddChildren([TouchSensor328]);
+Shape329 := TShapeNode.Create;
+Appearance330 := TAppearanceNode.Create;
+Material331 := TMaterialNode.Create;
+Material331.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance329.Material := Material330;
+Appearance330.Material := Material331;
 { .SetAppearance }
-Shape328.Appearance := Appearance329;
-Text331 := TTextNode.Create;
-Text331.SetText(['JinLipCornerPuller']);
-FontStyle332 := TFontStyleNode.Create;
-FontStyle332.Size := 2.4;
-FontStyle332.Spacing := 1.2;
-FontStyle332.Justify := fjMiddle;
-FontStyle332.JustifyMinor := fjMiddle;
+Shape329.Appearance := Appearance330;
+Text332 := TTextNode.Create;
+Text332.SetText(['JinLipCornerPuller']);
+FontStyle333 := TFontStyleNode.Create;
+FontStyle333.Size := 2.4;
+FontStyle333.Spacing := 1.2;
+FontStyle333.Justify := fjMiddle;
+FontStyle333.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text331.FontStyle := FontStyle332;
+Text332.FontStyle := FontStyle333;
 { .SetGeometry }
-Shape328.Geometry := Text331;
+Shape329.Geometry := Text332;
 { .AddChild }
-Transform326.AddChildren([Shape328]);
-Shape333 := TShapeNode.Create;
-Appearance334 := TAppearanceNode.Create;
-Material335 := TMaterialNode.Create;
-Material335.DiffuseColor := Vector3(0,0,1);
+Transform327.AddChildren([Shape329]);
+Shape334 := TShapeNode.Create;
+Appearance335 := TAppearanceNode.Create;
+Material336 := TMaterialNode.Create;
+Material336.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance334.Material := Material335;
+Appearance335.Material := Material336;
 { .SetAppearance }
-Shape333.Appearance := Appearance334;
-IndexedFaceSet336 := TIndexedFaceSetNode.Create;
-IndexedFaceSet336.SetCoordIndex([0,1,2,3,-1]);
-Coordinate337 := TCoordinateNode.Create;
-Coordinate337.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape334.Appearance := Appearance335;
+IndexedFaceSet337 := TIndexedFaceSetNode.Create;
+IndexedFaceSet337.SetCoordIndex([0,1,2,3,-1]);
+Coordinate338 := TCoordinateNode.Create;
+Coordinate338.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet336.Coord := Coordinate337;
+IndexedFaceSet337.Coord := Coordinate338;
 { .SetGeometry }
-Shape333.Geometry := IndexedFaceSet336;
+Shape334.Geometry := IndexedFaceSet337;
 { .AddChild }
-Transform326.AddChildren([Shape333]);
+Transform327.AddChildren([Shape334]);
 { .AddChildren }
-Group6.AddChildren([Transform326]);
-Group6.AddRoute(TouchSensor327.EventTouchtime, Script69.FdTouchtime);
+Group7.AddChildren([Transform327]);
+Group7.AddRoute(TouchSensor328.EventTouchtime, Script70.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script69.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script70.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform340 := TTransformNode.Create;
-Transform340.Translation := Vector3(48,24.399999999999995,0);
-TouchSensor341 := TTouchSensorNode.Create;
-TouchSensor341.Description := 'TSJinLipFunneler';
+Transform341 := TTransformNode.Create;
+Transform341.Translation := Vector3(48,24.399999999999995,0);
+TouchSensor342 := TTouchSensorNode.Create;
+TouchSensor342.Description := 'TSJinLipFunneler';
 { .AddChildren }
-Transform340.AddChildren([TouchSensor341]);
-Shape342 := TShapeNode.Create;
-Appearance343 := TAppearanceNode.Create;
-Material344 := TMaterialNode.Create;
-Material344.DiffuseColor := Vector3(1,1,1);
+Transform341.AddChildren([TouchSensor342]);
+Shape343 := TShapeNode.Create;
+Appearance344 := TAppearanceNode.Create;
+Material345 := TMaterialNode.Create;
+Material345.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance343.Material := Material344;
+Appearance344.Material := Material345;
 { .SetAppearance }
-Shape342.Appearance := Appearance343;
-Text345 := TTextNode.Create;
-Text345.SetText(['JinLipFunneler']);
-FontStyle346 := TFontStyleNode.Create;
-FontStyle346.Size := 2.4;
-FontStyle346.Spacing := 1.2;
-FontStyle346.Justify := fjMiddle;
-FontStyle346.JustifyMinor := fjMiddle;
+Shape343.Appearance := Appearance344;
+Text346 := TTextNode.Create;
+Text346.SetText(['JinLipFunneler']);
+FontStyle347 := TFontStyleNode.Create;
+FontStyle347.Size := 2.4;
+FontStyle347.Spacing := 1.2;
+FontStyle347.Justify := fjMiddle;
+FontStyle347.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text345.FontStyle := FontStyle346;
+Text346.FontStyle := FontStyle347;
 { .SetGeometry }
-Shape342.Geometry := Text345;
+Shape343.Geometry := Text346;
 { .AddChild }
-Transform340.AddChildren([Shape342]);
-Shape347 := TShapeNode.Create;
-Appearance348 := TAppearanceNode.Create;
-Material349 := TMaterialNode.Create;
-Material349.DiffuseColor := Vector3(0,0,1);
+Transform341.AddChildren([Shape343]);
+Shape348 := TShapeNode.Create;
+Appearance349 := TAppearanceNode.Create;
+Material350 := TMaterialNode.Create;
+Material350.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance348.Material := Material349;
+Appearance349.Material := Material350;
 { .SetAppearance }
-Shape347.Appearance := Appearance348;
-IndexedFaceSet350 := TIndexedFaceSetNode.Create;
-IndexedFaceSet350.SetCoordIndex([0,1,2,3,-1]);
-Coordinate351 := TCoordinateNode.Create;
-Coordinate351.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape348.Appearance := Appearance349;
+IndexedFaceSet351 := TIndexedFaceSetNode.Create;
+IndexedFaceSet351.SetCoordIndex([0,1,2,3,-1]);
+Coordinate352 := TCoordinateNode.Create;
+Coordinate352.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet350.Coord := Coordinate351;
+IndexedFaceSet351.Coord := Coordinate352;
 { .SetGeometry }
-Shape347.Geometry := IndexedFaceSet350;
+Shape348.Geometry := IndexedFaceSet351;
 { .AddChild }
-Transform340.AddChildren([Shape347]);
+Transform341.AddChildren([Shape348]);
 { .AddChildren }
-Group6.AddChildren([Transform340]);
-Group6.AddRoute(TouchSensor341.EventTouchtime, Script74.FdTouchtime);
+Group7.AddChildren([Transform341]);
+Group7.AddRoute(TouchSensor342.EventTouchtime, Script75.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script74.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script75.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform354 := TTransformNode.Create;
-Transform354.Translation := Vector3(48,21.399999999999995,0);
-TouchSensor355 := TTouchSensorNode.Create;
-TouchSensor355.Description := 'TSJinLipPressor';
+Transform355 := TTransformNode.Create;
+Transform355.Translation := Vector3(48,21.399999999999995,0);
+TouchSensor356 := TTouchSensorNode.Create;
+TouchSensor356.Description := 'TSJinLipPressor';
 { .AddChildren }
-Transform354.AddChildren([TouchSensor355]);
-Shape356 := TShapeNode.Create;
-Appearance357 := TAppearanceNode.Create;
-Material358 := TMaterialNode.Create;
-Material358.DiffuseColor := Vector3(1,1,1);
+Transform355.AddChildren([TouchSensor356]);
+Shape357 := TShapeNode.Create;
+Appearance358 := TAppearanceNode.Create;
+Material359 := TMaterialNode.Create;
+Material359.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance357.Material := Material358;
+Appearance358.Material := Material359;
 { .SetAppearance }
-Shape356.Appearance := Appearance357;
-Text359 := TTextNode.Create;
-Text359.SetText(['JinLipPressor']);
-FontStyle360 := TFontStyleNode.Create;
-FontStyle360.Size := 2.4;
-FontStyle360.Spacing := 1.2;
-FontStyle360.Justify := fjMiddle;
-FontStyle360.JustifyMinor := fjMiddle;
+Shape357.Appearance := Appearance358;
+Text360 := TTextNode.Create;
+Text360.SetText(['JinLipPressor']);
+FontStyle361 := TFontStyleNode.Create;
+FontStyle361.Size := 2.4;
+FontStyle361.Spacing := 1.2;
+FontStyle361.Justify := fjMiddle;
+FontStyle361.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text359.FontStyle := FontStyle360;
+Text360.FontStyle := FontStyle361;
 { .SetGeometry }
-Shape356.Geometry := Text359;
+Shape357.Geometry := Text360;
 { .AddChild }
-Transform354.AddChildren([Shape356]);
-Shape361 := TShapeNode.Create;
-Appearance362 := TAppearanceNode.Create;
-Material363 := TMaterialNode.Create;
-Material363.DiffuseColor := Vector3(0,0,1);
+Transform355.AddChildren([Shape357]);
+Shape362 := TShapeNode.Create;
+Appearance363 := TAppearanceNode.Create;
+Material364 := TMaterialNode.Create;
+Material364.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance362.Material := Material363;
+Appearance363.Material := Material364;
 { .SetAppearance }
-Shape361.Appearance := Appearance362;
-IndexedFaceSet364 := TIndexedFaceSetNode.Create;
-IndexedFaceSet364.SetCoordIndex([0,1,2,3,-1]);
-Coordinate365 := TCoordinateNode.Create;
-Coordinate365.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape362.Appearance := Appearance363;
+IndexedFaceSet365 := TIndexedFaceSetNode.Create;
+IndexedFaceSet365.SetCoordIndex([0,1,2,3,-1]);
+Coordinate366 := TCoordinateNode.Create;
+Coordinate366.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet364.Coord := Coordinate365;
+IndexedFaceSet365.Coord := Coordinate366;
 { .SetGeometry }
-Shape361.Geometry := IndexedFaceSet364;
+Shape362.Geometry := IndexedFaceSet365;
 { .AddChild }
-Transform354.AddChildren([Shape361]);
+Transform355.AddChildren([Shape362]);
 { .AddChildren }
-Group6.AddChildren([Transform354]);
-Group6.AddRoute(TouchSensor355.EventTouchtime, Script79.FdTouchtime);
+Group7.AddChildren([Transform355]);
+Group7.AddRoute(TouchSensor356.EventTouchtime, Script80.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script79.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script80.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform368 := TTransformNode.Create;
-Transform368.Translation := Vector3(48,18.4,0);
-TouchSensor369 := TTouchSensorNode.Create;
-TouchSensor369.Description := 'TSJinLipPuckerer';
+Transform369 := TTransformNode.Create;
+Transform369.Translation := Vector3(48,18.4,0);
+TouchSensor370 := TTouchSensorNode.Create;
+TouchSensor370.Description := 'TSJinLipPuckerer';
 { .AddChildren }
-Transform368.AddChildren([TouchSensor369]);
-Shape370 := TShapeNode.Create;
-Appearance371 := TAppearanceNode.Create;
-Material372 := TMaterialNode.Create;
-Material372.DiffuseColor := Vector3(1,1,1);
+Transform369.AddChildren([TouchSensor370]);
+Shape371 := TShapeNode.Create;
+Appearance372 := TAppearanceNode.Create;
+Material373 := TMaterialNode.Create;
+Material373.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance371.Material := Material372;
+Appearance372.Material := Material373;
 { .SetAppearance }
-Shape370.Appearance := Appearance371;
-Text373 := TTextNode.Create;
-Text373.SetText(['JinLipPuckerer']);
-FontStyle374 := TFontStyleNode.Create;
-FontStyle374.Size := 2.4;
-FontStyle374.Spacing := 1.2;
-FontStyle374.Justify := fjMiddle;
-FontStyle374.JustifyMinor := fjMiddle;
+Shape371.Appearance := Appearance372;
+Text374 := TTextNode.Create;
+Text374.SetText(['JinLipPuckerer']);
+FontStyle375 := TFontStyleNode.Create;
+FontStyle375.Size := 2.4;
+FontStyle375.Spacing := 1.2;
+FontStyle375.Justify := fjMiddle;
+FontStyle375.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text373.FontStyle := FontStyle374;
+Text374.FontStyle := FontStyle375;
 { .SetGeometry }
-Shape370.Geometry := Text373;
+Shape371.Geometry := Text374;
 { .AddChild }
-Transform368.AddChildren([Shape370]);
-Shape375 := TShapeNode.Create;
-Appearance376 := TAppearanceNode.Create;
-Material377 := TMaterialNode.Create;
-Material377.DiffuseColor := Vector3(0,0,1);
+Transform369.AddChildren([Shape371]);
+Shape376 := TShapeNode.Create;
+Appearance377 := TAppearanceNode.Create;
+Material378 := TMaterialNode.Create;
+Material378.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance376.Material := Material377;
+Appearance377.Material := Material378;
 { .SetAppearance }
-Shape375.Appearance := Appearance376;
-IndexedFaceSet378 := TIndexedFaceSetNode.Create;
-IndexedFaceSet378.SetCoordIndex([0,1,2,3,-1]);
-Coordinate379 := TCoordinateNode.Create;
-Coordinate379.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape376.Appearance := Appearance377;
+IndexedFaceSet379 := TIndexedFaceSetNode.Create;
+IndexedFaceSet379.SetCoordIndex([0,1,2,3,-1]);
+Coordinate380 := TCoordinateNode.Create;
+Coordinate380.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet378.Coord := Coordinate379;
+IndexedFaceSet379.Coord := Coordinate380;
 { .SetGeometry }
-Shape375.Geometry := IndexedFaceSet378;
+Shape376.Geometry := IndexedFaceSet379;
 { .AddChild }
-Transform368.AddChildren([Shape375]);
+Transform369.AddChildren([Shape376]);
 { .AddChildren }
-Group6.AddChildren([Transform368]);
-Group6.AddRoute(TouchSensor369.EventTouchtime, Script84.FdTouchtime);
+Group7.AddChildren([Transform369]);
+Group7.AddRoute(TouchSensor370.EventTouchtime, Script85.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script84.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script85.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform382 := TTransformNode.Create;
-Transform382.Translation := Vector3(48,15.399999999999997,0);
-TouchSensor383 := TTouchSensorNode.Create;
-TouchSensor383.Description := 'TSJinLipsPart';
+Transform383 := TTransformNode.Create;
+Transform383.Translation := Vector3(48,15.399999999999997,0);
+TouchSensor384 := TTouchSensorNode.Create;
+TouchSensor384.Description := 'TSJinLipsPart';
 { .AddChildren }
-Transform382.AddChildren([TouchSensor383]);
-Shape384 := TShapeNode.Create;
-Appearance385 := TAppearanceNode.Create;
-Material386 := TMaterialNode.Create;
-Material386.DiffuseColor := Vector3(1,1,1);
+Transform383.AddChildren([TouchSensor384]);
+Shape385 := TShapeNode.Create;
+Appearance386 := TAppearanceNode.Create;
+Material387 := TMaterialNode.Create;
+Material387.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance385.Material := Material386;
+Appearance386.Material := Material387;
 { .SetAppearance }
-Shape384.Appearance := Appearance385;
-Text387 := TTextNode.Create;
-Text387.SetText(['JinLipsPart']);
-FontStyle388 := TFontStyleNode.Create;
-FontStyle388.Size := 2.4;
-FontStyle388.Spacing := 1.2;
-FontStyle388.Justify := fjMiddle;
-FontStyle388.JustifyMinor := fjMiddle;
+Shape385.Appearance := Appearance386;
+Text388 := TTextNode.Create;
+Text388.SetText(['JinLipsPart']);
+FontStyle389 := TFontStyleNode.Create;
+FontStyle389.Size := 2.4;
+FontStyle389.Spacing := 1.2;
+FontStyle389.Justify := fjMiddle;
+FontStyle389.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text387.FontStyle := FontStyle388;
+Text388.FontStyle := FontStyle389;
 { .SetGeometry }
-Shape384.Geometry := Text387;
+Shape385.Geometry := Text388;
 { .AddChild }
-Transform382.AddChildren([Shape384]);
-Shape389 := TShapeNode.Create;
-Appearance390 := TAppearanceNode.Create;
-Material391 := TMaterialNode.Create;
-Material391.DiffuseColor := Vector3(0,0,1);
+Transform383.AddChildren([Shape385]);
+Shape390 := TShapeNode.Create;
+Appearance391 := TAppearanceNode.Create;
+Material392 := TMaterialNode.Create;
+Material392.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance390.Material := Material391;
+Appearance391.Material := Material392;
 { .SetAppearance }
-Shape389.Appearance := Appearance390;
-IndexedFaceSet392 := TIndexedFaceSetNode.Create;
-IndexedFaceSet392.SetCoordIndex([0,1,2,3,-1]);
-Coordinate393 := TCoordinateNode.Create;
-Coordinate393.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape390.Appearance := Appearance391;
+IndexedFaceSet393 := TIndexedFaceSetNode.Create;
+IndexedFaceSet393.SetCoordIndex([0,1,2,3,-1]);
+Coordinate394 := TCoordinateNode.Create;
+Coordinate394.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet392.Coord := Coordinate393;
+IndexedFaceSet393.Coord := Coordinate394;
 { .SetGeometry }
-Shape389.Geometry := IndexedFaceSet392;
+Shape390.Geometry := IndexedFaceSet393;
 { .AddChild }
-Transform382.AddChildren([Shape389]);
+Transform383.AddChildren([Shape390]);
 { .AddChildren }
-Group6.AddChildren([Transform382]);
-Group6.AddRoute(TouchSensor383.EventTouchtime, Script89.FdTouchtime);
+Group7.AddChildren([Transform383]);
+Group7.AddRoute(TouchSensor384.EventTouchtime, Script90.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script89.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script90.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform396 := TTransformNode.Create;
-Transform396.Translation := Vector3(48,12.399999999999999,0);
-TouchSensor397 := TTouchSensorNode.Create;
-TouchSensor397.Description := 'TSJinLipStretcher';
+Transform397 := TTransformNode.Create;
+Transform397.Translation := Vector3(48,12.399999999999999,0);
+TouchSensor398 := TTouchSensorNode.Create;
+TouchSensor398.Description := 'TSJinLipStretcher';
 { .AddChildren }
-Transform396.AddChildren([TouchSensor397]);
-Shape398 := TShapeNode.Create;
-Appearance399 := TAppearanceNode.Create;
-Material400 := TMaterialNode.Create;
-Material400.DiffuseColor := Vector3(1,1,1);
+Transform397.AddChildren([TouchSensor398]);
+Shape399 := TShapeNode.Create;
+Appearance400 := TAppearanceNode.Create;
+Material401 := TMaterialNode.Create;
+Material401.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance399.Material := Material400;
+Appearance400.Material := Material401;
 { .SetAppearance }
-Shape398.Appearance := Appearance399;
-Text401 := TTextNode.Create;
-Text401.SetText(['JinLipStretcher']);
-FontStyle402 := TFontStyleNode.Create;
-FontStyle402.Size := 2.4;
-FontStyle402.Spacing := 1.2;
-FontStyle402.Justify := fjMiddle;
-FontStyle402.JustifyMinor := fjMiddle;
+Shape399.Appearance := Appearance400;
+Text402 := TTextNode.Create;
+Text402.SetText(['JinLipStretcher']);
+FontStyle403 := TFontStyleNode.Create;
+FontStyle403.Size := 2.4;
+FontStyle403.Spacing := 1.2;
+FontStyle403.Justify := fjMiddle;
+FontStyle403.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text401.FontStyle := FontStyle402;
+Text402.FontStyle := FontStyle403;
 { .SetGeometry }
-Shape398.Geometry := Text401;
+Shape399.Geometry := Text402;
 { .AddChild }
-Transform396.AddChildren([Shape398]);
-Shape403 := TShapeNode.Create;
-Appearance404 := TAppearanceNode.Create;
-Material405 := TMaterialNode.Create;
-Material405.DiffuseColor := Vector3(0,0,1);
+Transform397.AddChildren([Shape399]);
+Shape404 := TShapeNode.Create;
+Appearance405 := TAppearanceNode.Create;
+Material406 := TMaterialNode.Create;
+Material406.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance404.Material := Material405;
+Appearance405.Material := Material406;
 { .SetAppearance }
-Shape403.Appearance := Appearance404;
-IndexedFaceSet406 := TIndexedFaceSetNode.Create;
-IndexedFaceSet406.SetCoordIndex([0,1,2,3,-1]);
-Coordinate407 := TCoordinateNode.Create;
-Coordinate407.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape404.Appearance := Appearance405;
+IndexedFaceSet407 := TIndexedFaceSetNode.Create;
+IndexedFaceSet407.SetCoordIndex([0,1,2,3,-1]);
+Coordinate408 := TCoordinateNode.Create;
+Coordinate408.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet406.Coord := Coordinate407;
+IndexedFaceSet407.Coord := Coordinate408;
 { .SetGeometry }
-Shape403.Geometry := IndexedFaceSet406;
+Shape404.Geometry := IndexedFaceSet407;
 { .AddChild }
-Transform396.AddChildren([Shape403]);
+Transform397.AddChildren([Shape404]);
 { .AddChildren }
-Group6.AddChildren([Transform396]);
-Group6.AddRoute(TouchSensor397.EventTouchtime, Script94.FdTouchtime);
+Group7.AddChildren([Transform397]);
+Group7.AddRoute(TouchSensor398.EventTouchtime, Script95.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script94.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script95.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform410 := TTransformNode.Create;
-Transform410.Translation := Vector3(48,9.399999999999999,0);
-TouchSensor411 := TTouchSensorNode.Create;
-TouchSensor411.Description := 'TSJinLipSuck';
+Transform411 := TTransformNode.Create;
+Transform411.Translation := Vector3(48,9.399999999999999,0);
+TouchSensor412 := TTouchSensorNode.Create;
+TouchSensor412.Description := 'TSJinLipSuck';
 { .AddChildren }
-Transform410.AddChildren([TouchSensor411]);
-Shape412 := TShapeNode.Create;
-Appearance413 := TAppearanceNode.Create;
-Material414 := TMaterialNode.Create;
-Material414.DiffuseColor := Vector3(1,1,1);
+Transform411.AddChildren([TouchSensor412]);
+Shape413 := TShapeNode.Create;
+Appearance414 := TAppearanceNode.Create;
+Material415 := TMaterialNode.Create;
+Material415.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance413.Material := Material414;
+Appearance414.Material := Material415;
 { .SetAppearance }
-Shape412.Appearance := Appearance413;
-Text415 := TTextNode.Create;
-Text415.SetText(['JinLipSuck']);
-FontStyle416 := TFontStyleNode.Create;
-FontStyle416.Size := 2.4;
-FontStyle416.Spacing := 1.2;
-FontStyle416.Justify := fjMiddle;
-FontStyle416.JustifyMinor := fjMiddle;
+Shape413.Appearance := Appearance414;
+Text416 := TTextNode.Create;
+Text416.SetText(['JinLipSuck']);
+FontStyle417 := TFontStyleNode.Create;
+FontStyle417.Size := 2.4;
+FontStyle417.Spacing := 1.2;
+FontStyle417.Justify := fjMiddle;
+FontStyle417.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text415.FontStyle := FontStyle416;
+Text416.FontStyle := FontStyle417;
 { .SetGeometry }
-Shape412.Geometry := Text415;
+Shape413.Geometry := Text416;
 { .AddChild }
-Transform410.AddChildren([Shape412]);
-Shape417 := TShapeNode.Create;
-Appearance418 := TAppearanceNode.Create;
-Material419 := TMaterialNode.Create;
-Material419.DiffuseColor := Vector3(0,0,1);
+Transform411.AddChildren([Shape413]);
+Shape418 := TShapeNode.Create;
+Appearance419 := TAppearanceNode.Create;
+Material420 := TMaterialNode.Create;
+Material420.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance418.Material := Material419;
+Appearance419.Material := Material420;
 { .SetAppearance }
-Shape417.Appearance := Appearance418;
-IndexedFaceSet420 := TIndexedFaceSetNode.Create;
-IndexedFaceSet420.SetCoordIndex([0,1,2,3,-1]);
-Coordinate421 := TCoordinateNode.Create;
-Coordinate421.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape418.Appearance := Appearance419;
+IndexedFaceSet421 := TIndexedFaceSetNode.Create;
+IndexedFaceSet421.SetCoordIndex([0,1,2,3,-1]);
+Coordinate422 := TCoordinateNode.Create;
+Coordinate422.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet420.Coord := Coordinate421;
+IndexedFaceSet421.Coord := Coordinate422;
 { .SetGeometry }
-Shape417.Geometry := IndexedFaceSet420;
+Shape418.Geometry := IndexedFaceSet421;
 { .AddChild }
-Transform410.AddChildren([Shape417]);
+Transform411.AddChildren([Shape418]);
 { .AddChildren }
-Group6.AddChildren([Transform410]);
-Group6.AddRoute(TouchSensor411.EventTouchtime, Script99.FdTouchtime);
+Group7.AddChildren([Transform411]);
+Group7.AddRoute(TouchSensor412.EventTouchtime, Script100.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script99.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script100.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform424 := TTransformNode.Create;
-Transform424.Translation := Vector3(48,6.399999999999999,0);
-TouchSensor425 := TTouchSensorNode.Create;
-TouchSensor425.Description := 'TSJinLipTightener';
+Transform425 := TTransformNode.Create;
+Transform425.Translation := Vector3(48,6.399999999999999,0);
+TouchSensor426 := TTouchSensorNode.Create;
+TouchSensor426.Description := 'TSJinLipTightener';
 { .AddChildren }
-Transform424.AddChildren([TouchSensor425]);
-Shape426 := TShapeNode.Create;
-Appearance427 := TAppearanceNode.Create;
-Material428 := TMaterialNode.Create;
-Material428.DiffuseColor := Vector3(1,1,1);
+Transform425.AddChildren([TouchSensor426]);
+Shape427 := TShapeNode.Create;
+Appearance428 := TAppearanceNode.Create;
+Material429 := TMaterialNode.Create;
+Material429.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance427.Material := Material428;
+Appearance428.Material := Material429;
 { .SetAppearance }
-Shape426.Appearance := Appearance427;
-Text429 := TTextNode.Create;
-Text429.SetText(['JinLipTightener']);
-FontStyle430 := TFontStyleNode.Create;
-FontStyle430.Size := 2.4;
-FontStyle430.Spacing := 1.2;
-FontStyle430.Justify := fjMiddle;
-FontStyle430.JustifyMinor := fjMiddle;
+Shape427.Appearance := Appearance428;
+Text430 := TTextNode.Create;
+Text430.SetText(['JinLipTightener']);
+FontStyle431 := TFontStyleNode.Create;
+FontStyle431.Size := 2.4;
+FontStyle431.Spacing := 1.2;
+FontStyle431.Justify := fjMiddle;
+FontStyle431.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text429.FontStyle := FontStyle430;
+Text430.FontStyle := FontStyle431;
 { .SetGeometry }
-Shape426.Geometry := Text429;
+Shape427.Geometry := Text430;
 { .AddChild }
-Transform424.AddChildren([Shape426]);
-Shape431 := TShapeNode.Create;
-Appearance432 := TAppearanceNode.Create;
-Material433 := TMaterialNode.Create;
-Material433.DiffuseColor := Vector3(0,0,1);
+Transform425.AddChildren([Shape427]);
+Shape432 := TShapeNode.Create;
+Appearance433 := TAppearanceNode.Create;
+Material434 := TMaterialNode.Create;
+Material434.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance432.Material := Material433;
+Appearance433.Material := Material434;
 { .SetAppearance }
-Shape431.Appearance := Appearance432;
-IndexedFaceSet434 := TIndexedFaceSetNode.Create;
-IndexedFaceSet434.SetCoordIndex([0,1,2,3,-1]);
-Coordinate435 := TCoordinateNode.Create;
-Coordinate435.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape432.Appearance := Appearance433;
+IndexedFaceSet435 := TIndexedFaceSetNode.Create;
+IndexedFaceSet435.SetCoordIndex([0,1,2,3,-1]);
+Coordinate436 := TCoordinateNode.Create;
+Coordinate436.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet434.Coord := Coordinate435;
+IndexedFaceSet435.Coord := Coordinate436;
 { .SetGeometry }
-Shape431.Geometry := IndexedFaceSet434;
+Shape432.Geometry := IndexedFaceSet435;
 { .AddChild }
-Transform424.AddChildren([Shape431]);
+Transform425.AddChildren([Shape432]);
 { .AddChildren }
-Group6.AddChildren([Transform424]);
-Group6.AddRoute(TouchSensor425.EventTouchtime, Script104.FdTouchtime);
+Group7.AddChildren([Transform425]);
+Group7.AddRoute(TouchSensor426.EventTouchtime, Script105.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script104.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script105.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform438 := TTransformNode.Create;
-Transform438.Translation := Vector3(48,3.399999999999995,0);
-TouchSensor439 := TTouchSensorNode.Create;
-TouchSensor439.Description := 'TSJinLowerLipDepressor';
+Transform439 := TTransformNode.Create;
+Transform439.Translation := Vector3(48,3.399999999999995,0);
+TouchSensor440 := TTouchSensorNode.Create;
+TouchSensor440.Description := 'TSJinLowerLipDepressor';
 { .AddChildren }
-Transform438.AddChildren([TouchSensor439]);
-Shape440 := TShapeNode.Create;
-Appearance441 := TAppearanceNode.Create;
-Material442 := TMaterialNode.Create;
-Material442.DiffuseColor := Vector3(1,1,1);
+Transform439.AddChildren([TouchSensor440]);
+Shape441 := TShapeNode.Create;
+Appearance442 := TAppearanceNode.Create;
+Material443 := TMaterialNode.Create;
+Material443.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance441.Material := Material442;
+Appearance442.Material := Material443;
 { .SetAppearance }
-Shape440.Appearance := Appearance441;
-Text443 := TTextNode.Create;
-Text443.SetText(['JinLowerLipDepressor']);
-FontStyle444 := TFontStyleNode.Create;
-FontStyle444.Size := 2.4;
-FontStyle444.Spacing := 1.2;
-FontStyle444.Justify := fjMiddle;
-FontStyle444.JustifyMinor := fjMiddle;
+Shape441.Appearance := Appearance442;
+Text444 := TTextNode.Create;
+Text444.SetText(['JinLowerLipDepressor']);
+FontStyle445 := TFontStyleNode.Create;
+FontStyle445.Size := 2.4;
+FontStyle445.Spacing := 1.2;
+FontStyle445.Justify := fjMiddle;
+FontStyle445.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text443.FontStyle := FontStyle444;
+Text444.FontStyle := FontStyle445;
 { .SetGeometry }
-Shape440.Geometry := Text443;
+Shape441.Geometry := Text444;
 { .AddChild }
-Transform438.AddChildren([Shape440]);
-Shape445 := TShapeNode.Create;
-Appearance446 := TAppearanceNode.Create;
-Material447 := TMaterialNode.Create;
-Material447.DiffuseColor := Vector3(0,0,1);
+Transform439.AddChildren([Shape441]);
+Shape446 := TShapeNode.Create;
+Appearance447 := TAppearanceNode.Create;
+Material448 := TMaterialNode.Create;
+Material448.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance446.Material := Material447;
+Appearance447.Material := Material448;
 { .SetAppearance }
-Shape445.Appearance := Appearance446;
-IndexedFaceSet448 := TIndexedFaceSetNode.Create;
-IndexedFaceSet448.SetCoordIndex([0,1,2,3,-1]);
-Coordinate449 := TCoordinateNode.Create;
-Coordinate449.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape446.Appearance := Appearance447;
+IndexedFaceSet449 := TIndexedFaceSetNode.Create;
+IndexedFaceSet449.SetCoordIndex([0,1,2,3,-1]);
+Coordinate450 := TCoordinateNode.Create;
+Coordinate450.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet448.Coord := Coordinate449;
+IndexedFaceSet449.Coord := Coordinate450;
 { .SetGeometry }
-Shape445.Geometry := IndexedFaceSet448;
+Shape446.Geometry := IndexedFaceSet449;
 { .AddChild }
-Transform438.AddChildren([Shape445]);
+Transform439.AddChildren([Shape446]);
 { .AddChildren }
-Group6.AddChildren([Transform438]);
-Group6.AddRoute(TouchSensor439.EventTouchtime, Script109.FdTouchtime);
+Group7.AddChildren([Transform439]);
+Group7.AddRoute(TouchSensor440.EventTouchtime, Script110.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script109.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script110.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform452 := TTransformNode.Create;
-Transform452.Translation := Vector3(48,0.399999999999995,0);
-TouchSensor453 := TTouchSensorNode.Create;
-TouchSensor453.Description := 'TSJinMouthStretch';
+Transform453 := TTransformNode.Create;
+Transform453.Translation := Vector3(48,0.399999999999995,0);
+TouchSensor454 := TTouchSensorNode.Create;
+TouchSensor454.Description := 'TSJinMouthStretch';
 { .AddChildren }
-Transform452.AddChildren([TouchSensor453]);
-Shape454 := TShapeNode.Create;
-Appearance455 := TAppearanceNode.Create;
-Material456 := TMaterialNode.Create;
-Material456.DiffuseColor := Vector3(1,1,1);
+Transform453.AddChildren([TouchSensor454]);
+Shape455 := TShapeNode.Create;
+Appearance456 := TAppearanceNode.Create;
+Material457 := TMaterialNode.Create;
+Material457.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance455.Material := Material456;
+Appearance456.Material := Material457;
 { .SetAppearance }
-Shape454.Appearance := Appearance455;
-Text457 := TTextNode.Create;
-Text457.SetText(['JinMouthStretch']);
-FontStyle458 := TFontStyleNode.Create;
-FontStyle458.Size := 2.4;
-FontStyle458.Spacing := 1.2;
-FontStyle458.Justify := fjMiddle;
-FontStyle458.JustifyMinor := fjMiddle;
+Shape455.Appearance := Appearance456;
+Text458 := TTextNode.Create;
+Text458.SetText(['JinMouthStretch']);
+FontStyle459 := TFontStyleNode.Create;
+FontStyle459.Size := 2.4;
+FontStyle459.Spacing := 1.2;
+FontStyle459.Justify := fjMiddle;
+FontStyle459.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text457.FontStyle := FontStyle458;
+Text458.FontStyle := FontStyle459;
 { .SetGeometry }
-Shape454.Geometry := Text457;
+Shape455.Geometry := Text458;
 { .AddChild }
-Transform452.AddChildren([Shape454]);
-Shape459 := TShapeNode.Create;
-Appearance460 := TAppearanceNode.Create;
-Material461 := TMaterialNode.Create;
-Material461.DiffuseColor := Vector3(0,0,1);
+Transform453.AddChildren([Shape455]);
+Shape460 := TShapeNode.Create;
+Appearance461 := TAppearanceNode.Create;
+Material462 := TMaterialNode.Create;
+Material462.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance460.Material := Material461;
+Appearance461.Material := Material462;
 { .SetAppearance }
-Shape459.Appearance := Appearance460;
-IndexedFaceSet462 := TIndexedFaceSetNode.Create;
-IndexedFaceSet462.SetCoordIndex([0,1,2,3,-1]);
-Coordinate463 := TCoordinateNode.Create;
-Coordinate463.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape460.Appearance := Appearance461;
+IndexedFaceSet463 := TIndexedFaceSetNode.Create;
+IndexedFaceSet463.SetCoordIndex([0,1,2,3,-1]);
+Coordinate464 := TCoordinateNode.Create;
+Coordinate464.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet462.Coord := Coordinate463;
+IndexedFaceSet463.Coord := Coordinate464;
 { .SetGeometry }
-Shape459.Geometry := IndexedFaceSet462;
+Shape460.Geometry := IndexedFaceSet463;
 { .AddChild }
-Transform452.AddChildren([Shape459]);
+Transform453.AddChildren([Shape460]);
 { .AddChildren }
-Group6.AddChildren([Transform452]);
-Group6.AddRoute(TouchSensor453.EventTouchtime, Script114.FdTouchtime);
+Group7.AddChildren([Transform453]);
+Group7.AddRoute(TouchSensor454.EventTouchtime, Script115.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script114.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script115.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform466 := TTransformNode.Create;
-Transform466.Translation := Vector3(48,-2.6000000000000085,0);
-TouchSensor467 := TTouchSensorNode.Create;
-TouchSensor467.Description := 'TSJinNasolabialDeepener';
+Transform467 := TTransformNode.Create;
+Transform467.Translation := Vector3(48,-2.6000000000000085,0);
+TouchSensor468 := TTouchSensorNode.Create;
+TouchSensor468.Description := 'TSJinNasolabialDeepener';
 { .AddChildren }
-Transform466.AddChildren([TouchSensor467]);
-Shape468 := TShapeNode.Create;
-Appearance469 := TAppearanceNode.Create;
-Material470 := TMaterialNode.Create;
-Material470.DiffuseColor := Vector3(1,1,1);
+Transform467.AddChildren([TouchSensor468]);
+Shape469 := TShapeNode.Create;
+Appearance470 := TAppearanceNode.Create;
+Material471 := TMaterialNode.Create;
+Material471.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance469.Material := Material470;
+Appearance470.Material := Material471;
 { .SetAppearance }
-Shape468.Appearance := Appearance469;
-Text471 := TTextNode.Create;
-Text471.SetText(['JinNasolabialDeepener']);
-FontStyle472 := TFontStyleNode.Create;
-FontStyle472.Size := 2.4;
-FontStyle472.Spacing := 1.2;
-FontStyle472.Justify := fjMiddle;
-FontStyle472.JustifyMinor := fjMiddle;
+Shape469.Appearance := Appearance470;
+Text472 := TTextNode.Create;
+Text472.SetText(['JinNasolabialDeepener']);
+FontStyle473 := TFontStyleNode.Create;
+FontStyle473.Size := 2.4;
+FontStyle473.Spacing := 1.2;
+FontStyle473.Justify := fjMiddle;
+FontStyle473.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text471.FontStyle := FontStyle472;
+Text472.FontStyle := FontStyle473;
 { .SetGeometry }
-Shape468.Geometry := Text471;
+Shape469.Geometry := Text472;
 { .AddChild }
-Transform466.AddChildren([Shape468]);
-Shape473 := TShapeNode.Create;
-Appearance474 := TAppearanceNode.Create;
-Material475 := TMaterialNode.Create;
-Material475.DiffuseColor := Vector3(0,0,1);
+Transform467.AddChildren([Shape469]);
+Shape474 := TShapeNode.Create;
+Appearance475 := TAppearanceNode.Create;
+Material476 := TMaterialNode.Create;
+Material476.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance474.Material := Material475;
+Appearance475.Material := Material476;
 { .SetAppearance }
-Shape473.Appearance := Appearance474;
-IndexedFaceSet476 := TIndexedFaceSetNode.Create;
-IndexedFaceSet476.SetCoordIndex([0,1,2,3,-1]);
-Coordinate477 := TCoordinateNode.Create;
-Coordinate477.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape474.Appearance := Appearance475;
+IndexedFaceSet477 := TIndexedFaceSetNode.Create;
+IndexedFaceSet477.SetCoordIndex([0,1,2,3,-1]);
+Coordinate478 := TCoordinateNode.Create;
+Coordinate478.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet476.Coord := Coordinate477;
+IndexedFaceSet477.Coord := Coordinate478;
 { .SetGeometry }
-Shape473.Geometry := IndexedFaceSet476;
+Shape474.Geometry := IndexedFaceSet477;
 { .AddChild }
-Transform466.AddChildren([Shape473]);
+Transform467.AddChildren([Shape474]);
 { .AddChildren }
-Group6.AddChildren([Transform466]);
-Group6.AddRoute(TouchSensor467.EventTouchtime, Script119.FdTouchtime);
+Group7.AddChildren([Transform467]);
+Group7.AddRoute(TouchSensor468.EventTouchtime, Script120.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script119.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script120.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform480 := TTransformNode.Create;
-Transform480.Translation := Vector3(48,-5.6000000000000085,0);
-TouchSensor481 := TTouchSensorNode.Create;
-TouchSensor481.Description := 'TSJinNoseWrinkler';
+Transform481 := TTransformNode.Create;
+Transform481.Translation := Vector3(48,-5.6000000000000085,0);
+TouchSensor482 := TTouchSensorNode.Create;
+TouchSensor482.Description := 'TSJinNoseWrinkler';
 { .AddChildren }
-Transform480.AddChildren([TouchSensor481]);
-Shape482 := TShapeNode.Create;
-Appearance483 := TAppearanceNode.Create;
-Material484 := TMaterialNode.Create;
-Material484.DiffuseColor := Vector3(1,1,1);
+Transform481.AddChildren([TouchSensor482]);
+Shape483 := TShapeNode.Create;
+Appearance484 := TAppearanceNode.Create;
+Material485 := TMaterialNode.Create;
+Material485.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance483.Material := Material484;
+Appearance484.Material := Material485;
 { .SetAppearance }
-Shape482.Appearance := Appearance483;
-Text485 := TTextNode.Create;
-Text485.SetText(['JinNoseWrinkler']);
-FontStyle486 := TFontStyleNode.Create;
-FontStyle486.Size := 2.4;
-FontStyle486.Spacing := 1.2;
-FontStyle486.Justify := fjMiddle;
-FontStyle486.JustifyMinor := fjMiddle;
+Shape483.Appearance := Appearance484;
+Text486 := TTextNode.Create;
+Text486.SetText(['JinNoseWrinkler']);
+FontStyle487 := TFontStyleNode.Create;
+FontStyle487.Size := 2.4;
+FontStyle487.Spacing := 1.2;
+FontStyle487.Justify := fjMiddle;
+FontStyle487.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text485.FontStyle := FontStyle486;
+Text486.FontStyle := FontStyle487;
 { .SetGeometry }
-Shape482.Geometry := Text485;
+Shape483.Geometry := Text486;
 { .AddChild }
-Transform480.AddChildren([Shape482]);
-Shape487 := TShapeNode.Create;
-Appearance488 := TAppearanceNode.Create;
-Material489 := TMaterialNode.Create;
-Material489.DiffuseColor := Vector3(0,0,1);
+Transform481.AddChildren([Shape483]);
+Shape488 := TShapeNode.Create;
+Appearance489 := TAppearanceNode.Create;
+Material490 := TMaterialNode.Create;
+Material490.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance488.Material := Material489;
+Appearance489.Material := Material490;
 { .SetAppearance }
-Shape487.Appearance := Appearance488;
-IndexedFaceSet490 := TIndexedFaceSetNode.Create;
-IndexedFaceSet490.SetCoordIndex([0,1,2,3,-1]);
-Coordinate491 := TCoordinateNode.Create;
-Coordinate491.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape488.Appearance := Appearance489;
+IndexedFaceSet491 := TIndexedFaceSetNode.Create;
+IndexedFaceSet491.SetCoordIndex([0,1,2,3,-1]);
+Coordinate492 := TCoordinateNode.Create;
+Coordinate492.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet490.Coord := Coordinate491;
+IndexedFaceSet491.Coord := Coordinate492;
 { .SetGeometry }
-Shape487.Geometry := IndexedFaceSet490;
+Shape488.Geometry := IndexedFaceSet491;
 { .AddChild }
-Transform480.AddChildren([Shape487]);
+Transform481.AddChildren([Shape488]);
 { .AddChildren }
-Group6.AddChildren([Transform480]);
-Group6.AddRoute(TouchSensor481.EventTouchtime, Script124.FdTouchtime);
+Group7.AddChildren([Transform481]);
+Group7.AddRoute(TouchSensor482.EventTouchtime, Script125.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script124.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script125.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform494 := TTransformNode.Create;
-Transform494.Translation := Vector3(48,-8.600000000000009,0);
-TouchSensor495 := TTouchSensorNode.Create;
-TouchSensor495.Description := 'TSJinOuterBrowRaiser';
+Transform495 := TTransformNode.Create;
+Transform495.Translation := Vector3(48,-8.600000000000009,0);
+TouchSensor496 := TTouchSensorNode.Create;
+TouchSensor496.Description := 'TSJinOuterBrowRaiser';
 { .AddChildren }
-Transform494.AddChildren([TouchSensor495]);
-Shape496 := TShapeNode.Create;
-Appearance497 := TAppearanceNode.Create;
-Material498 := TMaterialNode.Create;
-Material498.DiffuseColor := Vector3(1,1,1);
+Transform495.AddChildren([TouchSensor496]);
+Shape497 := TShapeNode.Create;
+Appearance498 := TAppearanceNode.Create;
+Material499 := TMaterialNode.Create;
+Material499.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance497.Material := Material498;
+Appearance498.Material := Material499;
 { .SetAppearance }
-Shape496.Appearance := Appearance497;
-Text499 := TTextNode.Create;
-Text499.SetText(['JinOuterBrowRaiser']);
-FontStyle500 := TFontStyleNode.Create;
-FontStyle500.Size := 2.4;
-FontStyle500.Spacing := 1.2;
-FontStyle500.Justify := fjMiddle;
-FontStyle500.JustifyMinor := fjMiddle;
+Shape497.Appearance := Appearance498;
+Text500 := TTextNode.Create;
+Text500.SetText(['JinOuterBrowRaiser']);
+FontStyle501 := TFontStyleNode.Create;
+FontStyle501.Size := 2.4;
+FontStyle501.Spacing := 1.2;
+FontStyle501.Justify := fjMiddle;
+FontStyle501.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text499.FontStyle := FontStyle500;
+Text500.FontStyle := FontStyle501;
 { .SetGeometry }
-Shape496.Geometry := Text499;
+Shape497.Geometry := Text500;
 { .AddChild }
-Transform494.AddChildren([Shape496]);
-Shape501 := TShapeNode.Create;
-Appearance502 := TAppearanceNode.Create;
-Material503 := TMaterialNode.Create;
-Material503.DiffuseColor := Vector3(0,0,1);
+Transform495.AddChildren([Shape497]);
+Shape502 := TShapeNode.Create;
+Appearance503 := TAppearanceNode.Create;
+Material504 := TMaterialNode.Create;
+Material504.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance502.Material := Material503;
+Appearance503.Material := Material504;
 { .SetAppearance }
-Shape501.Appearance := Appearance502;
-IndexedFaceSet504 := TIndexedFaceSetNode.Create;
-IndexedFaceSet504.SetCoordIndex([0,1,2,3,-1]);
-Coordinate505 := TCoordinateNode.Create;
-Coordinate505.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape502.Appearance := Appearance503;
+IndexedFaceSet505 := TIndexedFaceSetNode.Create;
+IndexedFaceSet505.SetCoordIndex([0,1,2,3,-1]);
+Coordinate506 := TCoordinateNode.Create;
+Coordinate506.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet504.Coord := Coordinate505;
+IndexedFaceSet505.Coord := Coordinate506;
 { .SetGeometry }
-Shape501.Geometry := IndexedFaceSet504;
+Shape502.Geometry := IndexedFaceSet505;
 { .AddChild }
-Transform494.AddChildren([Shape501]);
+Transform495.AddChildren([Shape502]);
 { .AddChildren }
-Group6.AddChildren([Transform494]);
-Group6.AddRoute(TouchSensor495.EventTouchtime, Script129.FdTouchtime);
+Group7.AddChildren([Transform495]);
+Group7.AddRoute(TouchSensor496.EventTouchtime, Script130.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script129.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script130.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform508 := TTransformNode.Create;
-Transform508.Translation := Vector3(48,-11.600000000000009,0);
-TouchSensor509 := TTouchSensorNode.Create;
-TouchSensor509.Description := 'TSJinSlit';
+Transform509 := TTransformNode.Create;
+Transform509.Translation := Vector3(48,-11.600000000000009,0);
+TouchSensor510 := TTouchSensorNode.Create;
+TouchSensor510.Description := 'TSJinSlit';
 { .AddChildren }
-Transform508.AddChildren([TouchSensor509]);
-Shape510 := TShapeNode.Create;
-Appearance511 := TAppearanceNode.Create;
-Material512 := TMaterialNode.Create;
-Material512.DiffuseColor := Vector3(1,1,1);
+Transform509.AddChildren([TouchSensor510]);
+Shape511 := TShapeNode.Create;
+Appearance512 := TAppearanceNode.Create;
+Material513 := TMaterialNode.Create;
+Material513.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance511.Material := Material512;
+Appearance512.Material := Material513;
 { .SetAppearance }
-Shape510.Appearance := Appearance511;
-Text513 := TTextNode.Create;
-Text513.SetText(['JinSlit']);
-FontStyle514 := TFontStyleNode.Create;
-FontStyle514.Size := 2.4;
-FontStyle514.Spacing := 1.2;
-FontStyle514.Justify := fjMiddle;
-FontStyle514.JustifyMinor := fjMiddle;
+Shape511.Appearance := Appearance512;
+Text514 := TTextNode.Create;
+Text514.SetText(['JinSlit']);
+FontStyle515 := TFontStyleNode.Create;
+FontStyle515.Size := 2.4;
+FontStyle515.Spacing := 1.2;
+FontStyle515.Justify := fjMiddle;
+FontStyle515.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text513.FontStyle := FontStyle514;
+Text514.FontStyle := FontStyle515;
 { .SetGeometry }
-Shape510.Geometry := Text513;
+Shape511.Geometry := Text514;
 { .AddChild }
-Transform508.AddChildren([Shape510]);
-Shape515 := TShapeNode.Create;
-Appearance516 := TAppearanceNode.Create;
-Material517 := TMaterialNode.Create;
-Material517.DiffuseColor := Vector3(0,0,1);
+Transform509.AddChildren([Shape511]);
+Shape516 := TShapeNode.Create;
+Appearance517 := TAppearanceNode.Create;
+Material518 := TMaterialNode.Create;
+Material518.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance516.Material := Material517;
+Appearance517.Material := Material518;
 { .SetAppearance }
-Shape515.Appearance := Appearance516;
-IndexedFaceSet518 := TIndexedFaceSetNode.Create;
-IndexedFaceSet518.SetCoordIndex([0,1,2,3,-1]);
-Coordinate519 := TCoordinateNode.Create;
-Coordinate519.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape516.Appearance := Appearance517;
+IndexedFaceSet519 := TIndexedFaceSetNode.Create;
+IndexedFaceSet519.SetCoordIndex([0,1,2,3,-1]);
+Coordinate520 := TCoordinateNode.Create;
+Coordinate520.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet518.Coord := Coordinate519;
+IndexedFaceSet519.Coord := Coordinate520;
 { .SetGeometry }
-Shape515.Geometry := IndexedFaceSet518;
+Shape516.Geometry := IndexedFaceSet519;
 { .AddChild }
-Transform508.AddChildren([Shape515]);
+Transform509.AddChildren([Shape516]);
 { .AddChildren }
-Group6.AddChildren([Transform508]);
-Group6.AddRoute(TouchSensor509.EventTouchtime, Script134.FdTouchtime);
+Group7.AddChildren([Transform509]);
+Group7.AddRoute(TouchSensor510.EventTouchtime, Script135.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script134.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script135.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform522 := TTransformNode.Create;
-Transform522.Translation := Vector3(48,-14.600000000000001,0);
-TouchSensor523 := TTouchSensorNode.Create;
-TouchSensor523.Description := 'TSJinSquint';
+Transform523 := TTransformNode.Create;
+Transform523.Translation := Vector3(48,-14.600000000000001,0);
+TouchSensor524 := TTouchSensorNode.Create;
+TouchSensor524.Description := 'TSJinSquint';
 { .AddChildren }
-Transform522.AddChildren([TouchSensor523]);
-Shape524 := TShapeNode.Create;
-Appearance525 := TAppearanceNode.Create;
-Material526 := TMaterialNode.Create;
-Material526.DiffuseColor := Vector3(1,1,1);
+Transform523.AddChildren([TouchSensor524]);
+Shape525 := TShapeNode.Create;
+Appearance526 := TAppearanceNode.Create;
+Material527 := TMaterialNode.Create;
+Material527.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance525.Material := Material526;
+Appearance526.Material := Material527;
 { .SetAppearance }
-Shape524.Appearance := Appearance525;
-Text527 := TTextNode.Create;
-Text527.SetText(['JinSquint']);
-FontStyle528 := TFontStyleNode.Create;
-FontStyle528.Size := 2.4;
-FontStyle528.Spacing := 1.2;
-FontStyle528.Justify := fjMiddle;
-FontStyle528.JustifyMinor := fjMiddle;
+Shape525.Appearance := Appearance526;
+Text528 := TTextNode.Create;
+Text528.SetText(['JinSquint']);
+FontStyle529 := TFontStyleNode.Create;
+FontStyle529.Size := 2.4;
+FontStyle529.Spacing := 1.2;
+FontStyle529.Justify := fjMiddle;
+FontStyle529.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text527.FontStyle := FontStyle528;
+Text528.FontStyle := FontStyle529;
 { .SetGeometry }
-Shape524.Geometry := Text527;
+Shape525.Geometry := Text528;
 { .AddChild }
-Transform522.AddChildren([Shape524]);
-Shape529 := TShapeNode.Create;
-Appearance530 := TAppearanceNode.Create;
-Material531 := TMaterialNode.Create;
-Material531.DiffuseColor := Vector3(0,0,1);
+Transform523.AddChildren([Shape525]);
+Shape530 := TShapeNode.Create;
+Appearance531 := TAppearanceNode.Create;
+Material532 := TMaterialNode.Create;
+Material532.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance530.Material := Material531;
+Appearance531.Material := Material532;
 { .SetAppearance }
-Shape529.Appearance := Appearance530;
-IndexedFaceSet532 := TIndexedFaceSetNode.Create;
-IndexedFaceSet532.SetCoordIndex([0,1,2,3,-1]);
-Coordinate533 := TCoordinateNode.Create;
-Coordinate533.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape530.Appearance := Appearance531;
+IndexedFaceSet533 := TIndexedFaceSetNode.Create;
+IndexedFaceSet533.SetCoordIndex([0,1,2,3,-1]);
+Coordinate534 := TCoordinateNode.Create;
+Coordinate534.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet532.Coord := Coordinate533;
+IndexedFaceSet533.Coord := Coordinate534;
 { .SetGeometry }
-Shape529.Geometry := IndexedFaceSet532;
+Shape530.Geometry := IndexedFaceSet533;
 { .AddChild }
-Transform522.AddChildren([Shape529]);
+Transform523.AddChildren([Shape530]);
 { .AddChildren }
-Group6.AddChildren([Transform522]);
-Group6.AddRoute(TouchSensor523.EventTouchtime, Script139.FdTouchtime);
+Group7.AddChildren([Transform523]);
+Group7.AddRoute(TouchSensor524.EventTouchtime, Script140.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script139.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script140.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform536 := TTransformNode.Create;
-Transform536.Translation := Vector3(48,-17.6,0);
-TouchSensor537 := TTouchSensorNode.Create;
-TouchSensor537.Description := 'TSJinUpperLidRaiser';
+Transform537 := TTransformNode.Create;
+Transform537.Translation := Vector3(48,-17.6,0);
+TouchSensor538 := TTouchSensorNode.Create;
+TouchSensor538.Description := 'TSJinUpperLidRaiser';
 { .AddChildren }
-Transform536.AddChildren([TouchSensor537]);
-Shape538 := TShapeNode.Create;
-Appearance539 := TAppearanceNode.Create;
-Material540 := TMaterialNode.Create;
-Material540.DiffuseColor := Vector3(1,1,1);
+Transform537.AddChildren([TouchSensor538]);
+Shape539 := TShapeNode.Create;
+Appearance540 := TAppearanceNode.Create;
+Material541 := TMaterialNode.Create;
+Material541.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance539.Material := Material540;
+Appearance540.Material := Material541;
 { .SetAppearance }
-Shape538.Appearance := Appearance539;
-Text541 := TTextNode.Create;
-Text541.SetText(['JinUpperLidRaiser']);
-FontStyle542 := TFontStyleNode.Create;
-FontStyle542.Size := 2.4;
-FontStyle542.Spacing := 1.2;
-FontStyle542.Justify := fjMiddle;
-FontStyle542.JustifyMinor := fjMiddle;
+Shape539.Appearance := Appearance540;
+Text542 := TTextNode.Create;
+Text542.SetText(['JinUpperLidRaiser']);
+FontStyle543 := TFontStyleNode.Create;
+FontStyle543.Size := 2.4;
+FontStyle543.Spacing := 1.2;
+FontStyle543.Justify := fjMiddle;
+FontStyle543.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text541.FontStyle := FontStyle542;
+Text542.FontStyle := FontStyle543;
 { .SetGeometry }
-Shape538.Geometry := Text541;
+Shape539.Geometry := Text542;
 { .AddChild }
-Transform536.AddChildren([Shape538]);
-Shape543 := TShapeNode.Create;
-Appearance544 := TAppearanceNode.Create;
-Material545 := TMaterialNode.Create;
-Material545.DiffuseColor := Vector3(0,0,1);
+Transform537.AddChildren([Shape539]);
+Shape544 := TShapeNode.Create;
+Appearance545 := TAppearanceNode.Create;
+Material546 := TMaterialNode.Create;
+Material546.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance544.Material := Material545;
+Appearance545.Material := Material546;
 { .SetAppearance }
-Shape543.Appearance := Appearance544;
-IndexedFaceSet546 := TIndexedFaceSetNode.Create;
-IndexedFaceSet546.SetCoordIndex([0,1,2,3,-1]);
-Coordinate547 := TCoordinateNode.Create;
-Coordinate547.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape544.Appearance := Appearance545;
+IndexedFaceSet547 := TIndexedFaceSetNode.Create;
+IndexedFaceSet547.SetCoordIndex([0,1,2,3,-1]);
+Coordinate548 := TCoordinateNode.Create;
+Coordinate548.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet546.Coord := Coordinate547;
+IndexedFaceSet547.Coord := Coordinate548;
 { .SetGeometry }
-Shape543.Geometry := IndexedFaceSet546;
+Shape544.Geometry := IndexedFaceSet547;
 { .AddChild }
-Transform536.AddChildren([Shape543]);
+Transform537.AddChildren([Shape544]);
 { .AddChildren }
-Group6.AddChildren([Transform536]);
-Group6.AddRoute(TouchSensor537.EventTouchtime, Script144.FdTouchtime);
+Group7.AddChildren([Transform537]);
+Group7.AddRoute(TouchSensor538.EventTouchtime, Script145.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script144.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script145.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform550 := TTransformNode.Create;
-Transform550.Translation := Vector3(48,-20.6,0);
-TouchSensor551 := TTouchSensorNode.Create;
-TouchSensor551.Description := 'TSJinUpperLipRaiser';
+Transform551 := TTransformNode.Create;
+Transform551.Translation := Vector3(48,-20.6,0);
+TouchSensor552 := TTouchSensorNode.Create;
+TouchSensor552.Description := 'TSJinUpperLipRaiser';
 { .AddChildren }
-Transform550.AddChildren([TouchSensor551]);
-Shape552 := TShapeNode.Create;
-Appearance553 := TAppearanceNode.Create;
-Material554 := TMaterialNode.Create;
-Material554.DiffuseColor := Vector3(1,1,1);
+Transform551.AddChildren([TouchSensor552]);
+Shape553 := TShapeNode.Create;
+Appearance554 := TAppearanceNode.Create;
+Material555 := TMaterialNode.Create;
+Material555.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance553.Material := Material554;
+Appearance554.Material := Material555;
 { .SetAppearance }
-Shape552.Appearance := Appearance553;
-Text555 := TTextNode.Create;
-Text555.SetText(['JinUpperLipRaiser']);
-FontStyle556 := TFontStyleNode.Create;
-FontStyle556.Size := 2.4;
-FontStyle556.Spacing := 1.2;
-FontStyle556.Justify := fjMiddle;
-FontStyle556.JustifyMinor := fjMiddle;
+Shape553.Appearance := Appearance554;
+Text556 := TTextNode.Create;
+Text556.SetText(['JinUpperLipRaiser']);
+FontStyle557 := TFontStyleNode.Create;
+FontStyle557.Size := 2.4;
+FontStyle557.Spacing := 1.2;
+FontStyle557.Justify := fjMiddle;
+FontStyle557.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text555.FontStyle := FontStyle556;
+Text556.FontStyle := FontStyle557;
 { .SetGeometry }
-Shape552.Geometry := Text555;
+Shape553.Geometry := Text556;
 { .AddChild }
-Transform550.AddChildren([Shape552]);
-Shape557 := TShapeNode.Create;
-Appearance558 := TAppearanceNode.Create;
-Material559 := TMaterialNode.Create;
-Material559.DiffuseColor := Vector3(0,0,1);
+Transform551.AddChildren([Shape553]);
+Shape558 := TShapeNode.Create;
+Appearance559 := TAppearanceNode.Create;
+Material560 := TMaterialNode.Create;
+Material560.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance558.Material := Material559;
+Appearance559.Material := Material560;
 { .SetAppearance }
-Shape557.Appearance := Appearance558;
-IndexedFaceSet560 := TIndexedFaceSetNode.Create;
-IndexedFaceSet560.SetCoordIndex([0,1,2,3,-1]);
-Coordinate561 := TCoordinateNode.Create;
-Coordinate561.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape558.Appearance := Appearance559;
+IndexedFaceSet561 := TIndexedFaceSetNode.Create;
+IndexedFaceSet561.SetCoordIndex([0,1,2,3,-1]);
+Coordinate562 := TCoordinateNode.Create;
+Coordinate562.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet560.Coord := Coordinate561;
+IndexedFaceSet561.Coord := Coordinate562;
 { .SetGeometry }
-Shape557.Geometry := IndexedFaceSet560;
+Shape558.Geometry := IndexedFaceSet561;
 { .AddChild }
-Transform550.AddChildren([Shape557]);
+Transform551.AddChildren([Shape558]);
 { .AddChildren }
-Group6.AddChildren([Transform550]);
-Group6.AddRoute(TouchSensor551.EventTouchtime, Script149.FdTouchtime);
+Group7.AddChildren([Transform551]);
+Group7.AddRoute(TouchSensor552.EventTouchtime, Script150.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script149.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script150.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
-Transform564 := TTransformNode.Create;
-Transform564.Translation := Vector3(48,-23.599999999999994,0);
-TouchSensor565 := TTouchSensorNode.Create;
-TouchSensor565.Description := 'TSJinWink';
+Transform565 := TTransformNode.Create;
+Transform565.Translation := Vector3(48,-23.599999999999994,0);
+TouchSensor566 := TTouchSensorNode.Create;
+TouchSensor566.Description := 'TSJinWink';
 { .AddChildren }
-Transform564.AddChildren([TouchSensor565]);
-Shape566 := TShapeNode.Create;
-Appearance567 := TAppearanceNode.Create;
-Material568 := TMaterialNode.Create;
-Material568.DiffuseColor := Vector3(1,1,1);
+Transform565.AddChildren([TouchSensor566]);
+Shape567 := TShapeNode.Create;
+Appearance568 := TAppearanceNode.Create;
+Material569 := TMaterialNode.Create;
+Material569.DiffuseColor := Vector3(1,1,1);
 { .SetMaterial }
-Appearance567.Material := Material568;
+Appearance568.Material := Material569;
 { .SetAppearance }
-Shape566.Appearance := Appearance567;
-Text569 := TTextNode.Create;
-Text569.SetText(['JinWink']);
-FontStyle570 := TFontStyleNode.Create;
-FontStyle570.Size := 2.4;
-FontStyle570.Spacing := 1.2;
-FontStyle570.Justify := fjMiddle;
-FontStyle570.JustifyMinor := fjMiddle;
+Shape567.Appearance := Appearance568;
+Text570 := TTextNode.Create;
+Text570.SetText(['JinWink']);
+FontStyle571 := TFontStyleNode.Create;
+FontStyle571.Size := 2.4;
+FontStyle571.Spacing := 1.2;
+FontStyle571.Justify := fjMiddle;
+FontStyle571.JustifyMinor := fjMiddle;
 { .SetFontStyle }
-Text569.FontStyle := FontStyle570;
+Text570.FontStyle := FontStyle571;
 { .SetGeometry }
-Shape566.Geometry := Text569;
+Shape567.Geometry := Text570;
 { .AddChild }
-Transform564.AddChildren([Shape566]);
-Shape571 := TShapeNode.Create;
-Appearance572 := TAppearanceNode.Create;
-Material573 := TMaterialNode.Create;
-Material573.DiffuseColor := Vector3(0,0,1);
+Transform565.AddChildren([Shape567]);
+Shape572 := TShapeNode.Create;
+Appearance573 := TAppearanceNode.Create;
+Material574 := TMaterialNode.Create;
+Material574.DiffuseColor := Vector3(0,0,1);
 { .SetMaterial }
-Appearance572.Material := Material573;
+Appearance573.Material := Material574;
 { .SetAppearance }
-Shape571.Appearance := Appearance572;
-IndexedFaceSet574 := TIndexedFaceSetNode.Create;
-IndexedFaceSet574.SetCoordIndex([0,1,2,3,-1]);
-Coordinate575 := TCoordinateNode.Create;
-Coordinate575.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
+Shape572.Appearance := Appearance573;
+IndexedFaceSet575 := TIndexedFaceSetNode.Create;
+IndexedFaceSet575.SetCoordIndex([0,1,2,3,-1]);
+Coordinate576 := TCoordinateNode.Create;
+Coordinate576.SetPoint([Vector3(20,1.3833333333333333,-0.1),Vector3(-20,1.3833333333333333,-0.1),Vector3(-20,-1.616666666666667,-0.1),Vector3(20,-1.616666666666667,-0.1)]);
 { .SetCoord }
-IndexedFaceSet574.Coord := Coordinate575;
+IndexedFaceSet575.Coord := Coordinate576;
 { .SetGeometry }
-Shape571.Geometry := IndexedFaceSet574;
+Shape572.Geometry := IndexedFaceSet575;
 { .AddChild }
-Transform564.AddChildren([Shape571]);
+Transform565.AddChildren([Shape572]);
 { .AddChildren }
-Group6.AddChildren([Transform564]);
-Group6.AddRoute(TouchSensor565.EventTouchtime, Script154.FdTouchtime);
+Group7.AddChildren([Transform565]);
+Group7.AddRoute(TouchSensor566.EventTouchtime, Script155.FdTouchtime);
 { .AddX3DRoute }
-Group6.AddRoute(Script154.FdChoice, Switch7.FdWhichchoice);
+Group7.AddRoute(Script155.FdChoice, Switch8.FdWhichchoice);
 { .AddX3DRoute }
 { .AddChildren }
-Group4.AddChildren([Group6]);
+Group5.AddChildren([Group7]);
 { .AddGroup }
-X3D0.AddChildren([Group4]);
+X3D0.AddChildren([Group5]);
 Result := X3D0;
 end;
 

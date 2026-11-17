@@ -429,7 +429,7 @@ X3D0.ForceVersion.Minor := 0;
 X3D0.Components['HAnim'] := 3;
 X3D0.Meta['title'] := 'JinFacsAu26JawDropMorpher.x3d';
 X3D0.Meta['description'] := 'Facial Action Coding System (FACS) example for Action Unit (AU) 26, Jaw Drop Morpher.';
-X3D0.Meta['creator'] := 'Gyu Ri Cho';
+X3D0.Meta['creator'] := 'Gyu Ri Cho, John Carlson (Displacer)';
 X3D0.Meta['translator'] := 'Chul Hee Jung';
 X3D0.Meta['translator'] := 'Myeong Won Lee';
 X3D0.Meta['created'] := '23 September 2022';
@@ -2091,11 +2091,11 @@ HAnimJoint28.AddChildren([HAnimJoint33]);
 { .AddSkeleton }
 HAnimHumanoid27.SetSkeleton([HAnimJoint28]);
 HAnimJoint428 := HAnimJoint28;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint428;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint428);
 HAnimJoint429 := HAnimJoint33;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint429;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint429);
 { .AddChildren }
 Group22.AddChildren([HAnimHumanoid27]);
 Group22.AddRoute(ScalarInterpolator26.EventValue_changed, HAnimDisplacer44.FdWeight);

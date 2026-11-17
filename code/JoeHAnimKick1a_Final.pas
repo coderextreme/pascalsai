@@ -913,276 +913,276 @@ HAnimJoint16.AddChildren([HAnimJoint35]);
 { .AddSkeleton }
 HAnimHumanoid15.SetSkeleton([HAnimJoint16]);
 HAnimJoint110 := HAnimJoint16;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint110;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint110);
 HAnimJoint111 := HAnimJoint22;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint111;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint111);
 HAnimJoint112 := HAnimJoint23;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint112;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint112);
 HAnimJoint113 := HAnimJoint24;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint113;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint113);
 HAnimJoint114 := HAnimJoint25;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint114;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint114);
 HAnimJoint115 := HAnimJoint26;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint115;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint115);
 HAnimJoint116 := HAnimJoint27;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint116;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint116);
 HAnimJoint117 := HAnimJoint28;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint117;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint117);
 HAnimJoint118 := HAnimJoint29;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint118;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint118);
 HAnimJoint119 := HAnimJoint30;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint119;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint119);
 HAnimJoint120 := HAnimJoint31;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint120;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint120);
 HAnimJoint121 := HAnimJoint32;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint121;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint121);
 HAnimJoint122 := HAnimJoint33;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint122;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint122);
 HAnimJoint123 := HAnimJoint34;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint123;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint123);
 HAnimJoint124 := HAnimJoint35;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint124;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint124);
 HAnimJoint125 := HAnimJoint36;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint125;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint125);
 HAnimJoint126 := HAnimJoint37;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint126;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint126);
 HAnimJoint127 := HAnimJoint38;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint127;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint127);
 HAnimJoint128 := HAnimJoint39;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint128;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint128);
 HAnimJoint129 := HAnimJoint40;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint129;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint129);
 HAnimJoint130 := HAnimJoint41;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint130;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint130);
 HAnimJoint131 := HAnimJoint42;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint131;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint131);
 HAnimJoint132 := HAnimJoint43;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint132;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint132);
 HAnimJoint133 := HAnimJoint44;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint133;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint133);
 HAnimJoint134 := HAnimJoint45;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint134;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint134);
 HAnimJoint135 := HAnimJoint46;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint135;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint135);
 HAnimJoint136 := HAnimJoint47;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint136;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint136);
 HAnimJoint137 := HAnimJoint48;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint137;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint137);
 HAnimJoint138 := HAnimJoint49;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint138;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint138);
 HAnimJoint139 := HAnimJoint50;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint139;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint139);
 HAnimJoint140 := HAnimJoint51;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint140;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint140);
 HAnimJoint141 := HAnimJoint52;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint141;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint141);
 HAnimJoint142 := HAnimJoint53;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint142;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint142);
 HAnimJoint143 := HAnimJoint54;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint143;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint143);
 HAnimJoint144 := HAnimJoint55;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint144;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint144);
 HAnimJoint145 := HAnimJoint56;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint145;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint145);
 HAnimJoint146 := HAnimJoint57;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint146;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint146);
 HAnimJoint147 := HAnimJoint58;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint147;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint147);
 HAnimJoint148 := HAnimJoint59;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint148;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint148);
 HAnimJoint149 := HAnimJoint60;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint149;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint149);
 HAnimJoint150 := HAnimJoint61;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint150;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint150);
 HAnimJoint151 := HAnimJoint62;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint151;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint151);
 HAnimJoint152 := HAnimJoint63;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint152;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint152);
 HAnimJoint153 := HAnimJoint64;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint153;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint153);
 HAnimJoint154 := HAnimJoint65;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint154;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint154);
 HAnimJoint155 := HAnimJoint66;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint155;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint155);
 HAnimJoint156 := HAnimJoint67;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint156;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint156);
 HAnimJoint157 := HAnimJoint68;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint157;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint157);
 HAnimJoint158 := HAnimJoint69;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint158;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint158);
 HAnimJoint159 := HAnimJoint70;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint159;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint159);
 HAnimJoint160 := HAnimJoint71;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint160;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint160);
 HAnimJoint161 := HAnimJoint72;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint161;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint161);
 HAnimJoint162 := HAnimJoint73;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint162;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint162);
 HAnimJoint163 := HAnimJoint74;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint163;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint163);
 HAnimJoint164 := HAnimJoint75;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint164;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint164);
 HAnimJoint165 := HAnimJoint76;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint165;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint165);
 HAnimJoint166 := HAnimJoint77;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint166;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint166);
 HAnimJoint167 := HAnimJoint78;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint167;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint167);
 HAnimJoint168 := HAnimJoint79;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint168;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint168);
 HAnimJoint169 := HAnimJoint80;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint169;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint169);
 HAnimJoint170 := HAnimJoint81;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint170;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint170);
 HAnimJoint171 := HAnimJoint82;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint171;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint171);
 HAnimJoint172 := HAnimJoint83;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint172;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint172);
 HAnimJoint173 := HAnimJoint84;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint173;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint173);
 HAnimJoint174 := HAnimJoint85;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint174;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint174);
 HAnimJoint175 := HAnimJoint86;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint175;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint175);
 HAnimJoint176 := HAnimJoint87;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint176;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint176);
 HAnimJoint177 := HAnimJoint88;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint177;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint177);
 HAnimJoint178 := HAnimJoint89;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint178;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint178);
 HAnimJoint179 := HAnimJoint90;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint179;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint179);
 HAnimJoint180 := HAnimJoint91;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint180;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint180);
 HAnimJoint181 := HAnimJoint92;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint181;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint181);
 HAnimJoint182 := HAnimJoint93;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint182;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint182);
 HAnimJoint183 := HAnimJoint94;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint183;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint183);
 HAnimJoint184 := HAnimJoint95;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint184;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint184);
 HAnimJoint185 := HAnimJoint96;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint185;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint185);
 HAnimJoint186 := HAnimJoint97;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint186;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint186);
 HAnimJoint187 := HAnimJoint98;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint187;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint187);
 HAnimJoint188 := HAnimJoint99;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint188;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint188);
 HAnimJoint189 := HAnimJoint100;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint189;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint189);
 HAnimJoint190 := HAnimJoint101;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint190;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint190);
 HAnimJoint191 := HAnimJoint102;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint191;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint191);
 HAnimJoint192 := HAnimJoint103;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint192;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint192);
 HAnimJoint193 := HAnimJoint104;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint193;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint193);
 HAnimJoint194 := HAnimJoint105;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint194;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint194);
 HAnimJoint195 := HAnimJoint106;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint195;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint195);
 HAnimJoint196 := HAnimJoint107;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint196;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint196);
 HAnimJoint197 := HAnimJoint108;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint197;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint197);
 HAnimJoint198 := HAnimJoint109;
-{ .AddJoints }
-HAnimHumanoid15.Joints := HAnimJoint198;
+{ .FdJoints.Add }
+HAnimHumanoid15.FdJoints.Add(HAnimJoint198);
 Coordinate199 := TCoordinateNode.Create;
 Coordinate199.SetPoint([Vector3(0,1.77,0),Vector3(0,1.665,0.09),Vector3(-0.033,1.62,0.087),Vector3(0.033,1.62,0.087),Vector3(0,1.55,0.097),Vector3(-0.077,1.64,-0.01),Vector3(-0.0527,1.58,0.015),Vector3(0.077,1.64,-0.01),Vector3(0.0527,1.58,0.015),Vector3(0,1.625,-0.0925),Vector3(-0.03,1.46,0.035),Vector3(0,1.44,0.03),Vector3(0.03,1.46,0.035),Vector3(-0.1135,1.318,0.095),Vector3(0.1135,1.318,0.095),Vector3(0,1.25,0.113),Vector3(-0.087,1.19,0.09),Vector3(-0.0935,1.03,0.075),Vector3(0.087,1.19,0.09),Vector3(0.0935,1.03,0.075),Vector3(-0.1425,1.065,0.0033),Vector3(-0.15,0.9,-0.01),Vector3(0.1425,1.065,0.0033),Vector3(0.15,0.9,-0.01),Vector3(0,1.53,-0.084),Vector3(0.0049,1.1908,-0.1113),Vector3(-0.0773,1.019,-0.12),Vector3(0.0773,1.019,-0.12),Vector3(0.005,1.0915,-0.1091),Vector3(-0.178,1.4825,-0.0625),Vector3(-0.17,1.38,0.007),Vector3(-0.1884,0.8676,-0.036),Vector3(-0.16,1.38,-0.127),Vector3(-0.2,1.1388,-0.08),Vector3(-0.244,1.1388,-0.04),Vector3(-0.165,1.1388,-0.04),Vector3(-0.23,1.133,-0.055),Vector3(-0.1977,0.8169,-0.0177),Vector3(-0.1941,0.6772,-0.0423),Vector3(-0.2117,0.8562,-0.0584),Vector3(-0.1929,0.789,-0.1064),Vector3(0.175,1.4825,-0.06),Vector3(0.17,1.38,0.007),Vector3(0.1901,0.8645,-0.0415),Vector3(0.16,1.38,-0.125),Vector3(0.2,1.1388,-0.08),Vector3(0.165,1.1388,-0.04),Vector3(0.244,1.1388,-0.04),Vector3(0.23,1.133,-0.055),Vector3(0.2009,0.8139,-0.0237),Vector3(0.2056,0.6743,-0.0482),Vector3(0.2142,0.8529,-0.0648),Vector3(0.1929,0.786,-0.1122),Vector3(-0.1,0.4913,-0.03),Vector3(-0.17,0.466,0),Vector3(-0.05,0.466,0),Vector3(-0.165,0.01,0.12),Vector3(-0.15,0.07,0),Vector3(-0.085,0.086,0.0125),Vector3(-0.09,0.056,0.0125),Vector3(-0.115,0.02,0.122),Vector3(-0.115,0.04,-0.055),Vector3(-0.11,0.011,0.19),Vector3(0.0993,0.4881,-0.0309),Vector3(0.17,0.466,0),Vector3(0.05,0.4867,0),Vector3(0.165,0.01,0.12),Vector3(0.15,0.07,0),Vector3(0.085,0.086,0.0125),Vector3(0.09,0.056,0.0125),Vector3(0.115,0.02,0.122),Vector3(0.115,0.04,-0.055),Vector3(0.11,0.011,0.19),Vector3(0,0.875,0),Vector3(-0.0646,1.5149,-0.038),Vector3(0.0646,1.5149,-0.038),Vector3(0,1.0723,0.09),Vector3(-0.11,1.427,-0.1375),Vector3(-0.235,1.42,-0.0625),Vector3(0.11,1.427,-0.1375),Vector3(0.235,1.42,-0.0625),Vector3(0,1.41,-0.145),Vector3(0,0.925,0.08),Vector3(-0.087,1.19,-0.09),Vector3(0.087,1.19,-0.09),Vector3(0.172,1.32,-0.03),Vector3(-0.172,1.32,-0.03),Vector3(0.15,1.23,-0.015),Vector3(-0.15,1.23,-0.015),Vector3(0.079,0.92,-0.14),Vector3(0.1,0.9,0.077),Vector3(-0.079,0.92,-0.14),Vector3(-0.1,0.9,0.075),Vector3(0,0.87,0),Vector3(0.171,0.65,0),Vector3(0.02,0.65,0),Vector3(0.1,0.65,-0.08),Vector3(0.1,0.65,0.07),Vector3(-0.171,0.65,0),Vector3(-0.02,0.65,0),Vector3(-0.1,0.65,-0.08),Vector3(-0.1,0.65,0.07),Vector3(0.25,1.27,-0.04),Vector3(0.17,1.27,-0.04),Vector3(0.2,1.27,-0.09),Vector3(0.2,1.27,0.02),Vector3(0.244,1.1388,-0.04),Vector3(0.165,1.1388,-0.04),Vector3(0.2,1.1388,-0.08),Vector3(0.2,1.1388,-0.013),Vector3(0.225,1,-0.01),Vector3(0.225,1,-0.07),Vector3(0.185,1,-0.01),Vector3(0.185,1,-0.07),Vector3(0.2,1.1388,-0.04),Vector3(0.225,0.92,-0.04),Vector3(0.175,0.92,-0.04),Vector3(0.2,0.92,-0.065),Vector3(0.2,0.92,-0.015),Vector3(0.225,0.89,-0.04),Vector3(0.175,0.89,-0.04),Vector3(0.2,0.89,-0.065),Vector3(0.2,0.89,-0.015),Vector3(0.218,0.86,-0.04),Vector3(0.184,0.86,-0.04),Vector3(0.2,0.87,-0.07),Vector3(0.2,0.87,0),Vector3(0.21,0.85,0),Vector3(0.1854,0.85,0),Vector3(0.212,0.84,-0.015),Vector3(0.183,0.84,-0.015),Vector3(0.213,0.835,-0.04),Vector3(0.19,0.835,-0.04),Vector3(0.211,0.835,-0.065),Vector3(0.192,0.835,-0.065),Vector3(0.208,0.84,-0.085),Vector3(0.19,0.84,-0.085),Vector3(0.2,0.84,-0.095),Vector3(0.215,0.82,0),Vector3(0.193,0.815,0.005),Vector3(0.198,0.8,0.012),Vector3(0.21,0.82,0.03),Vector3(0.19,0.82,0.03),Vector3(0.2,0.835,0.039),Vector3(0.212,0.8,0.05),Vector3(0.188,0.8,0.05),Vector3(0.2,0.807,0.057),Vector3(0.2,0.793,0.035),Vector3(0.2,0.774,0.076),Vector3(0.212,0.78,0.07),Vector3(0.188,0.78,0.07),Vector3(0.2,0.785,0.075),Vector3(0.2,0.77,0.062),Vector3(0.215,0.793,-0.015),Vector3(0.187,0.793,-0.015),Vector3(0.2,0.793,-0.005),Vector3(0.215,0.788,-0.04),Vector3(0.187,0.788,-0.04),Vector3(0.215,0.793,-0.065),Vector3(0.187,0.793,-0.065),Vector3(0.21,0.79,-0.085),Vector3(0.19,0.79,-0.085),Vector3(0.2,0.79,-0.095),Vector3(0.19,0.77,-0.0275),Vector3(0.19,0.77,-0.0525),Vector3(0.19,0.78,-0.0775),Vector3(0.212,0.745,-0.015),Vector3(0.188,0.745,-0.02),Vector3(0.2,0.745,-0.0255),Vector3(0.2,0.745,-0.0045),Vector3(0.211,0.72,-0.015),Vector3(0.189,0.72,-0.015),Vector3(0.2,0.72,-0.0252),Vector3(0.2,0.72,-0.0048),Vector3(0.21,0.695,-0.015),Vector3(0.19,0.695,-0.015),Vector3(0.2,0.695,-0.025),Vector3(0.2,0.695,-0.005),Vector3(0.2,0.685,-0.015),Vector3(0.215,0.74,-0.04),Vector3(0.185,0.74,-0.04),Vector3(0.2,0.74,-0.055),Vector3(0.2,0.74,-0.025),Vector3(0.21,0.7142,-0.04),Vector3(0.19,0.7142,-0.04),Vector3(0.2,0.7142,-0.053),Vector3(0.2,0.7142,-0.027),Vector3(0.21,0.68,-0.04),Vector3(0.19,0.68,-0.04),Vector3(0.2,0.68,-0.05),Vector3(0.2,0.68,-0.03),Vector3(0.2,0.67,-0.04),Vector3(0.212,0.74,-0.065),Vector3(0.188,0.74,-0.065),Vector3(0.2,0.74,-0.0756),Vector3(0.2,0.74,-0.0542),Vector3(0.21,0.7177,-0.065),Vector3(0.19,0.7177,-0.065),Vector3(0.2,0.7177,-0.0751),Vector3(0.2,0.7177,-0.0549),Vector3(0.21,0.695,-0.065),Vector3(0.19,0.695,-0.065),Vector3(0.2,0.695,-0.075),Vector3(0.2,0.695,-0.055),Vector3(0.2,0.685,-0.065),Vector3(0.211,0.755,-0.085),Vector3(0.189,0.755,-0.085),Vector3(0.2,0.755,-0.0952),Vector3(0.2,0.755,-0.0748),Vector3(0.21,0.735,-0.085),Vector3(0.19,0.735,-0.085),Vector3(0.2,0.735,-0.0951),Vector3(0.2,0.735,-0.0749),Vector3(0.21,0.72,-0.085),Vector3(0.19,0.72,-0.085),Vector3(0.2,0.72,-0.095),Vector3(0.2,0.72,-0.075),Vector3(0.2,0.71,-0.085),Vector3(-0.23,1.23,-0.04),Vector3(-0.16,1.23,-0.04),Vector3(-0.2,1.235,-0.105),Vector3(-0.2,1.255,0.02),Vector3(-0.244,1.1388,-0.04),Vector3(-0.165,1.1388,-0.04),Vector3(-0.2,1.1388,-0.08),Vector3(-0.2,1.1388,0.013),Vector3(-0.225,1,-0.01),Vector3(-0.225,1,-0.07),Vector3(-0.185,1,-0.01),Vector3(-0.185,1,-0.07),Vector3(-0.2,1.1388,-0.04),Vector3(-0.225,0.92,-0.04),Vector3(-0.175,0.92,-0.04),Vector3(-0.2,0.92,-0.065),Vector3(-0.2,0.92,-0.015),Vector3(-0.225,0.89,-0.04),Vector3(-0.175,0.89,-0.04),Vector3(-0.2,0.89,-0.065),Vector3(-0.2,0.89,-0.015),Vector3(-0.218,0.86,-0.04),Vector3(-0.184,0.86,-0.04),Vector3(-0.2,0.87,-0.07),Vector3(-0.2,0.87,0),Vector3(-0.21,0.85,0),Vector3(-0.1854,0.85,0),Vector3(-0.212,0.84,-0.015),Vector3(-0.183,0.84,-0.015),Vector3(-0.213,0.835,-0.04),Vector3(-0.19,0.835,-0.04),Vector3(-0.211,0.835,-0.065),Vector3(-0.192,0.835,-0.065),Vector3(-0.208,0.84,-0.085),Vector3(-0.19,0.84,-0.085),Vector3(-0.2,0.84,-0.095),Vector3(-0.215,0.82,0),Vector3(-0.193,0.815,0.005),Vector3(-0.198,0.8,0.012),Vector3(-0.21,0.82,0.03),Vector3(-0.19,0.82,0.03),Vector3(-0.2,0.835,0.039),Vector3(-0.212,0.8,0.05),Vector3(-0.188,0.8,0.05),Vector3(-0.2,0.807,0.057),Vector3(-0.2,0.793,0.035),Vector3(-0.2,0.774,0.076),Vector3(-0.212,0.78,0.07),Vector3(-0.188,0.78,0.07),Vector3(-0.2,0.785,0.075),Vector3(-0.2,0.77,0.062),Vector3(-0.215,0.793,-0.015),Vector3(-0.187,0.793,-0.015),Vector3(-0.2,0.793,-0.005),Vector3(-0.215,0.788,-0.04),Vector3(-0.187,0.788,-0.04),Vector3(-0.215,0.793,-0.065),Vector3(-0.187,0.793,-0.065),Vector3(-0.21,0.79,-0.085),Vector3(-0.19,0.79,-0.085),Vector3(-0.2,0.79,-0.095),Vector3(-0.19,0.77,-0.0275),Vector3(-0.19,0.77,-0.0525),Vector3(-0.19,0.78,-0.0775),Vector3(-0.212,0.745,-0.015),Vector3(-0.188,0.745,-0.02),Vector3(-0.2,0.745,-0.0255),Vector3(-0.2,0.745,-0.0045),Vector3(-0.211,0.72,-0.015),Vector3(-0.189,0.72,-0.015),Vector3(-0.2,0.72,-0.0252),Vector3(-0.2,0.72,-0.0048),Vector3(-0.21,0.695,-0.015),Vector3(-0.19,0.695,-0.015),Vector3(-0.2,0.695,-0.025),Vector3(-0.2,0.695,-0.005),Vector3(-0.2,0.685,-0.015),Vector3(-0.215,0.74,-0.04),Vector3(-0.185,0.74,-0.04),Vector3(-0.2,0.74,-0.055),Vector3(-0.2,0.74,-0.025),Vector3(-0.21,0.7142,-0.04),Vector3(-0.19,0.7142,-0.04),Vector3(-0.2,0.7142,-0.053),Vector3(-0.2,0.7142,-0.027),Vector3(-0.21,0.68,-0.04),Vector3(-0.19,0.68,-0.04),Vector3(-0.2,0.68,-0.05),Vector3(-0.2,0.68,-0.03),Vector3(-0.2,0.67,-0.04),Vector3(-0.212,0.74,-0.065),Vector3(-0.188,0.74,-0.065),Vector3(-0.2,0.74,-0.0756),Vector3(-0.2,0.74,-0.0542),Vector3(-0.21,0.7177,-0.065),Vector3(-0.19,0.7177,-0.065),Vector3(-0.2,0.7177,-0.0751),Vector3(-0.2,0.7177,-0.0549),Vector3(-0.21,0.695,-0.065),Vector3(-0.19,0.695,-0.065),Vector3(-0.2,0.695,-0.075),Vector3(-0.2,0.695,-0.055),Vector3(-0.2,0.685,-0.065),Vector3(-0.211,0.755,-0.085),Vector3(-0.189,0.755,-0.085),Vector3(-0.2,0.755,-0.0952),Vector3(-0.2,0.755,-0.0748),Vector3(-0.21,0.735,-0.085),Vector3(-0.19,0.735,-0.085),Vector3(-0.2,0.735,-0.0951),Vector3(-0.2,0.735,-0.0749),Vector3(-0.21,0.72,-0.085),Vector3(-0.19,0.72,-0.085),Vector3(-0.2,0.72,-0.095),Vector3(-0.2,0.72,-0.075),Vector3(-0.2,0.71,-0.085),Vector3(0.115,0.466,0.06),Vector3(0.115,0.466,-0.055),Vector3(0.15,0.466,0),Vector3(0.05,0.466,0),Vector3(0.17,0.3,0),Vector3(0.06,0.3,0),Vector3(0.1,0.3,-0.05),Vector3(0.1,0.3,0.05),Vector3(0.15,0.07,0),Vector3(0.085,0.086,0.0125),Vector3(0.115,0.069,-0.045),Vector3(0.117,0.0975,0.0615),Vector3(0.1375,0.006,-0.03),Vector3(0.095,0.006,-0.03),Vector3(0.115,0.015,-0.045),Vector3(0.115,0.06,0.1),Vector3(0.115,0,0.07),Vector3(0.165,0,0.07),Vector3(0.095,0,0.07),Vector3(0.115,0.04,0.13),Vector3(0.125,0,0.12),Vector3(0.165,0,0.12),Vector3(0.087,0,0.122),Vector3(0.09,0.012,0.188),Vector3(0.11,0.011,0.19),Vector3(0.128,0.011,0.185),Vector3(0.142,0.011,0.178),Vector3(0.154,0.01,0.168),Vector3(-0.115,0.466,0.06),Vector3(-0.115,0.466,-0.055),Vector3(-0.17,0.466,0),Vector3(-0.05,0.466,0),Vector3(-0.17,0.3,0),Vector3(-0.06,0.3,0),Vector3(-0.1,0.3,-0.05),Vector3(-0.1,0.3,0.05),Vector3(-0.15,0.07,0),Vector3(-0.085,0.086,0.0125),Vector3(-0.115,0.069,-0.045),Vector3(-0.117,0.0975,0.0615),Vector3(-0.1375,0.006,-0.03),Vector3(-0.095,0.006,-0.03),Vector3(-0.095,0.006,-0.03),Vector3(-0.115,0.06,0.1),Vector3(-0.115,0,0.07),Vector3(-0.165,0,0.07),Vector3(-0.095,0,0.07),Vector3(-0.115,0.04,0.13),Vector3(-0.125,0,0.12),Vector3(-0.165,0,0.12),Vector3(-0.087,0,0.122),Vector3(-0.09,0.012,0.188),Vector3(-0.11,0.011,0.19),Vector3(-0.128,0.011,0.185),Vector3(-0.142,0.011,0.178),Vector3(-0.154,0.01,0.168)]);
-{ .SetSkinCoord }
-HAnimHumanoid15.SetSkinCoord(Coordinate199);
+{ .FdSkinCoord.Set }
+HAnimHumanoid15.FdSkinCoord.Set(Coordinate199);
 Shape200 := TShapeNode.Create;
 Appearance201 := TAppearanceNode.Create;
 Material202 := TMaterialNode.Create;

@@ -1228,113 +1228,113 @@ HAnimJoint31.AddChildren([HAnimJoint131]);
 { .AddSkeleton }
 HAnimHumanoid28.SetSkeleton([HAnimJoint31]);
 HAnimJoint211 := HAnimJoint31;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint211;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint211);
 HAnimJoint212 := HAnimJoint41;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint212;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint212);
 HAnimJoint213 := HAnimJoint131;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint213;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint213);
 HAnimJoint214 := HAnimJoint141;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint214;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint214);
 HAnimJoint215 := HAnimJoint161;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint215;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint215);
 HAnimJoint216 := HAnimJoint191;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint216;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint216);
 HAnimJoint217 := HAnimJoint51;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint217;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint217);
 HAnimJoint218 := HAnimJoint91;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint218;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint218);
 HAnimJoint219 := HAnimJoint61;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint219;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint219);
 HAnimJoint220 := HAnimJoint101;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint220;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint220);
 HAnimJoint221 := HAnimJoint81;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint221;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint221);
 HAnimJoint222 := HAnimJoint121;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint222;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint222);
 HAnimJoint223 := HAnimJoint171;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint223;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint223);
 HAnimJoint224 := HAnimJoint201;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint224;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint224);
 HAnimJoint225 := HAnimJoint151;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint225;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint225);
 HAnimJoint226 := HAnimJoint181;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint226;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint226);
 HAnimJoint227 := HAnimJoint71;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint227;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint227);
 HAnimJoint228 := HAnimJoint111;
-{ .AddJoints }
-HAnimHumanoid28.Joints := HAnimJoint228;
+{ .FdJoints.Add }
+HAnimHumanoid28.FdJoints.Add(HAnimJoint228);
 HAnimSegment229 := HAnimSegment32;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment229;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment229);
 HAnimSegment230 := HAnimSegment42;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment230;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment230);
 HAnimSegment231 := HAnimSegment132;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment231;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment231);
 HAnimSegment232 := HAnimSegment142;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment232;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment232);
 HAnimSegment233 := HAnimSegment62;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment233;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment233);
 HAnimSegment234 := HAnimSegment102;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment234;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment234);
 HAnimSegment235 := HAnimSegment172;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment235;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment235);
 HAnimSegment236 := HAnimSegment202;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment236;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment236);
 HAnimSegment237 := HAnimSegment162;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment237;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment237);
 HAnimSegment238 := HAnimSegment192;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment238;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment238);
 HAnimSegment239 := HAnimSegment72;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment239;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment239);
 HAnimSegment240 := HAnimSegment112;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment240;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment240);
 HAnimSegment241 := HAnimSegment82;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment241;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment241);
 HAnimSegment242 := HAnimSegment122;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment242;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment242);
 HAnimSegment243 := HAnimSegment52;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment243;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment243);
 HAnimSegment244 := HAnimSegment92;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment244;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment244);
 HAnimSegment245 := HAnimSegment152;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment245;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment245);
 HAnimSegment246 := HAnimSegment182;
-{ .AddSegments }
-HAnimHumanoid28.Segments := HAnimSegment246;
+{ .FdSegments.Add }
+HAnimHumanoid28.FdSegments.Add(HAnimSegment246);
 { .AddChildren }
 Group27.AddChildren([HAnimHumanoid28]);
 WorldInfo247 := TWorldInfoNode.Create;
@@ -2029,7 +2029,7 @@ RigidBody425 := RigidBody396;
 { .SetBody2 }
 BallJoint423.Body2 := RigidBody425;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint423;
+RigidBodyCollection251.AddJoints([BallJoint423]);
 BallJoint426 := TBallJointNode.Create;
 BallJoint426.AnchorPoint := Vector3(4.207,32.02,-0.8155);
 RigidBody427 := RigidBody396;
@@ -2039,7 +2039,7 @@ RigidBody428 := RigidBody378;
 { .SetBody2 }
 BallJoint426.Body2 := RigidBody428;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint426;
+RigidBodyCollection251.AddJoints([BallJoint426]);
 BallJoint429 := TBallJointNode.Create;
 BallJoint429.AnchorPoint := Vector3(4.116,17.26,-0.8639);
 RigidBody430 := RigidBody378;
@@ -2049,7 +2049,7 @@ RigidBody431 := RigidBody360;
 { .SetBody2 }
 BallJoint429.Body2 := RigidBody431;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint429;
+RigidBodyCollection251.AddJoints([BallJoint429]);
 BallJoint432 := TBallJointNode.Create;
 BallJoint432.AnchorPoint := Vector3(3.854,3.939,-0.7038);
 RigidBody433 := RigidBody360;
@@ -2059,7 +2059,7 @@ RigidBody434 := RigidBody351;
 { .SetBody2 }
 BallJoint432.Body2 := RigidBody434;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint432;
+RigidBodyCollection251.AddJoints([BallJoint432]);
 BallJoint435 := TBallJointNode.Create;
 BallJoint435.AnchorPoint := Vector3(3.854,3.64,0.7402);
 RigidBody436 := RigidBody351;
@@ -2069,7 +2069,7 @@ RigidBody437 := RigidBody342;
 { .SetBody2 }
 BallJoint435.Body2 := RigidBody437;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint435;
+RigidBodyCollection251.AddJoints([BallJoint435]);
 BallJoint438 := TBallJointNode.Create;
 BallJoint438.AnchorPoint := Vector3(-4.207,32.02,-0.8155);
 RigidBody439 := RigidBody396;
@@ -2079,7 +2079,7 @@ RigidBody440 := RigidBody369;
 { .SetBody2 }
 BallJoint438.Body2 := RigidBody440;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint438;
+RigidBodyCollection251.AddJoints([BallJoint438]);
 BallJoint441 := TBallJointNode.Create;
 BallJoint441.AnchorPoint := Vector3(-4.116,17.26,-0.8639);
 RigidBody442 := RigidBody369;
@@ -2089,7 +2089,7 @@ RigidBody443 := RigidBody333;
 { .SetBody2 }
 BallJoint441.Body2 := RigidBody443;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint441;
+RigidBodyCollection251.AddJoints([BallJoint441]);
 BallJoint444 := TBallJointNode.Create;
 BallJoint444.AnchorPoint := Vector3(-3.854,3.939,-0.7038);
 RigidBody445 := RigidBody333;
@@ -2099,7 +2099,7 @@ RigidBody446 := RigidBody324;
 { .SetBody2 }
 BallJoint444.Body2 := RigidBody446;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint444;
+RigidBodyCollection251.AddJoints([BallJoint444]);
 BallJoint447 := TBallJointNode.Create;
 BallJoint447.AnchorPoint := Vector3(-3.854,3.64,0.7402);
 RigidBody448 := RigidBody324;
@@ -2109,7 +2109,7 @@ RigidBody449 := RigidBody315;
 { .SetBody2 }
 BallJoint447.Body2 := RigidBody449;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint447;
+RigidBodyCollection251.AddJoints([BallJoint447]);
 BallJoint450 := TBallJointNode.Create;
 BallJoint450.AnchorPoint := Vector3(0,40.07,-0.8527);
 RigidBody451 := RigidBody405;
@@ -2119,7 +2119,7 @@ RigidBody452 := RigidBody387;
 { .SetBody2 }
 BallJoint450.Body2 := RigidBody452;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint450;
+RigidBodyCollection251.AddJoints([BallJoint450]);
 BallJoint453 := TBallJointNode.Create;
 BallJoint453.AnchorPoint := Vector3(0,57.43,-0.6863);
 RigidBody454 := RigidBody387;
@@ -2129,7 +2129,7 @@ RigidBody455 := RigidBody306;
 { .SetBody2 }
 BallJoint453.Body2 := RigidBody455;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint453;
+RigidBodyCollection251.AddJoints([BallJoint453]);
 BallJoint456 := TBallJointNode.Create;
 BallJoint456.AnchorPoint := Vector3(5.975,52,-0.1452);
 RigidBody457 := RigidBody306;
@@ -2139,7 +2139,7 @@ RigidBody458 := RigidBody297;
 { .SetBody2 }
 BallJoint456.Body2 := RigidBody458;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint456;
+RigidBodyCollection251.AddJoints([BallJoint456]);
 BallJoint459 := TBallJointNode.Create;
 BallJoint459.AnchorPoint := Vector3(8.093,40.38,-0.2502);
 RigidBody460 := RigidBody297;
@@ -2149,7 +2149,7 @@ RigidBody461 := RigidBody279;
 { .SetBody2 }
 BallJoint459.Body2 := RigidBody461;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint459;
+RigidBodyCollection251.AddJoints([BallJoint459]);
 BallJoint462 := TBallJointNode.Create;
 BallJoint462.AnchorPoint := Vector3(7.808,31.46,-0.0585);
 RigidBody463 := RigidBody279;
@@ -2159,7 +2159,7 @@ RigidBody464 := RigidBody270;
 { .SetBody2 }
 BallJoint462.Body2 := RigidBody464;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint462;
+RigidBodyCollection251.AddJoints([BallJoint462]);
 BallJoint465 := TBallJointNode.Create;
 BallJoint465.AnchorPoint := Vector3(-5.975,52,-0.1452);
 RigidBody466 := RigidBody306;
@@ -2169,7 +2169,7 @@ RigidBody467 := RigidBody288;
 { .SetBody2 }
 BallJoint465.Body2 := RigidBody467;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint465;
+RigidBodyCollection251.AddJoints([BallJoint465]);
 BallJoint468 := TBallJointNode.Create;
 BallJoint468.AnchorPoint := Vector3(-8.093,40.38,-0.2502);
 RigidBody469 := RigidBody288;
@@ -2179,7 +2179,7 @@ RigidBody470 := RigidBody261;
 { .SetBody2 }
 BallJoint468.Body2 := RigidBody470;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint468;
+RigidBodyCollection251.AddJoints([BallJoint468]);
 BallJoint471 := TBallJointNode.Create;
 BallJoint471.AnchorPoint := Vector3(-7.808,31.46,-0.0585);
 RigidBody472 := RigidBody261;
@@ -2189,7 +2189,7 @@ RigidBody473 := RigidBody252;
 { .SetBody2 }
 BallJoint471.Body2 := RigidBody473;
 { .AddJoints }
-RigidBodyCollection251.Joints := BallJoint471;
+RigidBodyCollection251.AddJoints([BallJoint471]);
 { .AddChildren }
 Group27.AddChildren([RigidBodyCollection251]);
 EXPORT474 := TEXPORTNode.Create;

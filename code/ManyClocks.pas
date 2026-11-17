@@ -2124,7 +2124,7 @@ X3D0.Meta['identifier'] := 'https://coderextreme.net/X3DJSONLD/src/main/data/Man
 X3D0.Meta['description'] := 'X3D scene with multiple facial animations controlled by a multi-selection menu';
 X3D0.Meta['created'] := '12 December 2024';
 X3D0.Meta['modified'] := '13 December 2024';
-X3D0.Meta['creator'] := 'John Carlson, Joe Williams, Gyu Ri Cho, Hyun Ho Chu, Min Joo Lee, Yujin Jung';
+X3D0.Meta['creator'] := 'John Carlson (Menu), Joe Williams, Gyu Ri Cho, Hyun Ho Chu, Min Joo Lee, Yujin Jung';
 Group13 := TGroupNode.Create;
 LayerSet14 := TLayerSetNode.Create;
 LayerSet14.ActiveLayer := 1;
@@ -9732,11 +9732,11 @@ HAnimJoint87.AddChildren([HAnimJoint89]);
 { .AddSkeleton }
 HAnimHumanoid86.SetSkeleton([HAnimJoint87]);
 HAnimJoint1736 := HAnimJoint87;
-{ .AddJoints }
-HAnimHumanoid86.Joints := HAnimJoint1736;
+{ .FdJoints.Add }
+HAnimHumanoid86.FdJoints.Add(HAnimJoint1736);
 HAnimJoint1737 := HAnimJoint89;
-{ .AddJoints }
-HAnimHumanoid86.Joints := HAnimJoint1737;
+{ .FdJoints.Add }
+HAnimHumanoid86.FdJoints.Add(HAnimJoint1737);
 { .AddChildren }
 Transform85.AddChildren([HAnimHumanoid86]);
 { .AddChildren }

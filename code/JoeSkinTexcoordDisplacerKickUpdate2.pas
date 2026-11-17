@@ -1036,8 +1036,8 @@ Shape131.Geometry := IndexedFaceSet136;
 { .SetSkin }
 HAnimHumanoid27.SetSkin([Shape131]);
 Coordinate139 := Coordinate137;
-{ .SetSkinCoord }
-HAnimHumanoid27.SetSkinCoord(Coordinate139);
+{ .FdSkinCoord.Set }
+HAnimHumanoid27.FdSkinCoord.Set(Coordinate139);
 { .AddChildren }
 Group26.AddChildren([HAnimHumanoid27]);
 { .AddChildren }

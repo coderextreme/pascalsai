@@ -437,7 +437,7 @@ X3D0.ForceVersion.Minor := 0;
 X3D0.Components['HAnim'] := 3;
 X3D0.Meta['title'] := 'JinFacsAu12LipCornerPullerMorpher.x3d';
 X3D0.Meta['description'] := 'Facial Action Coding System (FACS) example for Action Unit (AU) 12, Lip Corner Puller Morpher.';
-X3D0.Meta['creator'] := 'Min Joo Lee';
+X3D0.Meta['creator'] := 'Min Joo Lee, John Carlson (Displacer)';
 X3D0.Meta['translator'] := 'Chul Hee Jung';
 X3D0.Meta['translator'] := 'Myeong Won Lee';
 X3D0.Meta['created'] := '29 September 2022';
@@ -2133,11 +2133,11 @@ HAnimJoint28.AddChildren([HAnimJoint33]);
 { .AddSkeleton }
 HAnimHumanoid27.SetSkeleton([HAnimJoint28]);
 HAnimJoint436 := HAnimJoint28;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint436;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint436);
 HAnimJoint437 := HAnimJoint33;
-{ .AddJoints }
-HAnimHumanoid27.Joints := HAnimJoint437;
+{ .FdJoints.Add }
+HAnimHumanoid27.FdJoints.Add(HAnimJoint437);
 { .AddChildren }
 Group22.AddChildren([HAnimHumanoid27]);
 Group22.AddRoute(ScalarInterpolator26.EventValue_changed, HAnimDisplacer44.FdWeight);
