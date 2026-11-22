@@ -15,14 +15,16 @@ uses SysUtils,
   CastleCameras, CastleVectors, CastleColors,
   X3DNodes,
 
-  asphere,
-  JinScaledV2L1LOA4OnlyMarkers11g,
+  { asphere, }
+  {JinScaledV2L1LOA4OnlyMarkers11g,}
+  { JinLOA4Animated, }
   { StandardHumanoid, }
-  ifscubeworks,
-  BoxPrototype
+  { ifscubeworks, }
+  HAnimGimbalJointController22,
+  { BoxPrototype, }
   {$region 'Castle Initialization Uses'}
   // The content here may be automatically updated by CGE editor.
-  , GameViewPSAI
+  GameViewPSAI
   {$endregion 'Castle Initialization Uses'};
 
 var
@@ -30,14 +32,14 @@ var
   Viewport: TCastleViewport;
   Light: TCastleDirectionalLight;
   Ground: TCastleBox;
-  BoxProto: TBoxProto;
+  { BoxProto: TBoxProto; }
   Root: TX3DRootNode;
 
 const
   { Shadow volumes are finicky; set false to check plain lighting first. }
   UseShadows = false;
 
-procedure addScene(Application: TCastleApplication; Viewport: TCastleViewport; Root: TX3DRootNode);
+function addScene(Application: TCastleApplication; Viewport: TCastleViewport; Root: TX3DRootNode): TX3DRootNode;
   
 var
   Scene: TCastleScene;
@@ -45,7 +47,10 @@ begin
   Scene := TCastleScene.Create(Application);
   Scene.Load(Root, true); // Scene takes ownership of Root
   Viewport.Items.Add(Scene);
+  Scene.AutoAnimation := 'idle';
+
   WritelnLog('AddScene', 'Scene bounding box: ' + Scene.BoundingBox.ToString);
+  Result := Root;
 end;
 
 { One-time initialization of resources. }
@@ -63,13 +68,15 @@ begin
     Navigation is now simply a child of the viewport. }
   Viewport.InsertFront(TCastleExamineNavigation.Create(Application));
 
-  Root := TX3DRootNode.Create;
-  BoxProto := TBoxProto.Create;
-  AddScene(Application,Viewport,BoxProto.CreateBoxes(Root));
-  AddScene(Application,Viewport,CreateIfscubeworks);
+  { Root := TX3DRootNode.Create; }
+  { BoxProto := TBoxProto.Create; }
+  { AddScene(Application,Viewport,BoxProto.CreateBoxes(Root)); }
+  { AddScene(Application,Viewport,CreateIfscubeworks); }
   { AddScene(Application,Viewport,CreateAsphere); }
-  AddScene(Application,Viewport,CreateJinScaledV2L1LOA4OnlyMarkers11g);
+  { AddScene(Application,Viewport,CreateJinScaledV2L1LOA4OnlyMarkers11g); }
+  { AddScene(Application,Viewport,CreateJinLOA4Animated); }
   { AddScene(Application,Viewport,CreateStandardHumanoid); }
+  Root := AddScene(Application,Viewport,CreateHAnimGimbalJointController22);
 
   { Frame the camera on the cubes (done before adding the large ground, so the
     ground does not push the camera far away), and log what the scene holds

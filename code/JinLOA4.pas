@@ -2119,16 +2119,17 @@ Viewpoint22.Position := Vector3(0,1,3);
 Group19.AddChildren([Viewpoint22]);
 HAnimHumanoid23 := THAnimHumanoidNode.Create;
 HAnimHumanoid23.NameField := 'JinLOA4';
+HAnimHumanoid23.X3DName := 'hanim_JinLOA4';
 HAnimHumanoid23.Loa := 4;
 HAnimHumanoid23.Scale := Vector3(0.0225,0.0225,0.0225);
 HAnimHumanoid23.Version := '2.0';
 MetadataSet24 := TMetadataSetNode.Create;
-MetadataSet24.NameField := 'HAnimHumanoid.info';
 end;
 
 procedure InitJinLOA4Part1;
 begin
 
+MetadataSet24.NameField := 'HAnimHumanoid.info';
 MetadataSet24.Reference := 'https://www.web3d.org/documents/specifications/19774/V2.0/Architecture/ObjectInterfaces.html#Humanoid';
 MetadataString25 := TMetadataStringNode.Create;
 MetadataString25.NameField := 'authorName';
@@ -2164,24 +2165,27 @@ MetadataSet24.FdValue.Add(MetadataString30);
 HAnimHumanoid23.Metadata := MetadataSet24;
 HAnimJoint31 := THAnimJointNode.Create;
 HAnimJoint31.NameField := 'humanoid_root';
+HAnimJoint31.X3DName := 'hanim_humanoid_root';
 HAnimJoint31.Center := Vector3(0,36.709999,-0.7076);
 HAnimSegment32 := THAnimSegmentNode.Create;
 HAnimSegment32.NameField := 'sacrum';
+HAnimSegment32.X3DName := 'hanim_sacrum';
 Transform33 := TTransformNode.Create;
 Transform33.Translation := Vector3(0,36.709999,-0.7076);
 Shape34 := TShapeNode.Create;
 Appearance35 := TAppearanceNode.Create;
 Material36 := TMaterialNode.Create;
 Material36.DiffuseColor := Vector3(0.588,0.588,0.588);
-{ .SetMaterial }
-Appearance35.Material := Material36;
-ImageTexture37 := TImageTextureNode.Create;
-ImageTexture37.SetUrl(['images/Jin.png','https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/images/Jin.png']);
 end;
 
 procedure InitJinLOA4Part2;
 begin
 
+{ .SetMaterial }
+Appearance35.Material := Material36;
+ImageTexture37 := TImageTextureNode.Create;
+ImageTexture37.X3DName := 'JinLOA4TextureAtlas';
+ImageTexture37.SetUrl(['images/Jin.png','https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Characters/images/Jin.png']);
 { .SetTexture }
 Appearance35.Texture := ImageTexture37;
 { .SetAppearance }
@@ -2208,9 +2212,11 @@ HAnimSegment32.AddChildren([Transform33]);
 HAnimJoint31.AddChildren([HAnimSegment32]);
 HAnimJoint41 := THAnimJointNode.Create;
 HAnimJoint41.NameField := 'sacroiliac';
+HAnimJoint41.X3DName := 'hanim_sacroiliac';
 HAnimJoint41.Center := Vector3(0,31.43,-0.7076);
 HAnimSegment42 := THAnimSegmentNode.Create;
 HAnimSegment42.NameField := 'pelvis';
+HAnimSegment42.X3DName := 'hanim_pelvis';
 Transform43 := TTransformNode.Create;
 Transform43.Translation := Vector3(0,31.43,-0.7076);
 Shape44 := TShapeNode.Create;
@@ -2227,14 +2233,14 @@ Shape44.Appearance := Appearance45;
 IndexedFaceSet48 := TIndexedFaceSetNode.Create;
 IndexedFaceSet48.SetCoordIndex([0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,5,-1,0,5,6,-1,0,6,7,-1,0,7,8,-1,0,8,9,-1,0,9,10,-1,0,10,11,-1,0,11,12,-1,0,12,1,-1,14,2,1,-1,1,13,14,-1,15,3,2,-1,2,14,15,-1,16,4,3,-1,3,15,16,-1,17,5,4,-1,4,16,17,-1,18,6,5,-1,5,17,18,-1,19,7,6,-1,6,18,19,-1,20,8,7,-1,7,19,20,-1,21,9,8,-1,8,20,21,-1,22,10,9,-1,9,21,22,-1,23,11,10,-1,10,22,23,-1,24,12,11,-1,11,23,24,-1,13,1,12,-1,12,24,13,-1,26,14,13,-1,13,25,26,-1,27,15,14,-1,14,26,27,-1,28,16,15,-1,15,27,28,-1,29,17,16,-1,16,28,29,-1,30,18,17,-1,17,29,30,-1,31,19,18,-1,18,30,31,-1,32,20,19,-1,19,31,32,-1,33,21,20,-1,20,32,33,-1,34,22,21,-1,21,33,34,-1,35,23,22,-1,22,34,35,-1,36,24,23,-1,23,35,36,-1,25,13,24,-1,24,36,25,-1,38,26,25,-1,25,37,38,-1,39,27,26,-1,26,38,39,-1,40,28,27,-1,27,39,40,-1,41,29,28,-1,28,40,41,-1,42,30,29,-1,29,41,42,-1,43,31,30,-1,30,42,43,-1,44,32,31,-1,31,43,44,-1,45,33,32,-1,32,44,45,-1,46,34,33,-1,33,45,46,-1,47,35,34,-1,34,46,47,-1,48,36,35,-1,35,47,48,-1,37,25,36,-1,36,48,37,-1,50,38,37,-1,37,49,50,-1,51,39,38,-1,38,50,51,-1,52,40,39,-1,39,51,52,-1,53,41,40,-1,40,52,53,-1,54,42,41,-1,41,53,54,-1,55,43,42,-1,42,54,55,-1,56,44,43,-1,43,55,56,-1,57,45,44,-1,44,56,57,-1,58,46,45,-1,45,57,58,-1,59,47,46,-1,46,58,59,-1,60,48,47,-1,47,59,60,-1,49,37,48,-1,48,60,49,-1,61,50,49,-1,61,51,50,-1,61,52,51,-1,61,53,52,-1,61,54,53,-1,61,55,54,-1,61,56,55,-1,61,57,56,-1,61,58,57,-1,61,59,58,-1,61,60,59,-1,61,49,60,-1]);
 IndexedFaceSet48.CreaseAngle := 3.14159;
-IndexedFaceSet48.SetTexCoordIndex([0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,5,-1,0,5,6,-1,0,6,7,-1,0,7,8,-1,0,8,9,-1,0,9,10,-1,0,10,11,-1,0,11,12,-1,0,12,1,-1,14,2,1,-1,1,13,14,-1,15,3,2,-1,2,14,15,-1,16,4,3,-1,3,15,16,-1,17,5,4,-1,4,16,17,-1,18,6,5,-1,5,17,18,-1,19,7,6,-1,6,18,19,-1,20,8,7,-1,7,19,20,-1,21,9,8,-1,8,20,21,-1,22,10,9,-1,9,21,22,-1,23,11,10,-1,10,22,23,-1,24,12,11,-1,11,23,24,-1,13,1,12,-1,12,24,13,-1,26,14,13,-1,13,25,26,-1,27,15,14,-1,14,26,27,-1,28,16,15,-1,15,27,28,-1,29,17,16,-1,16,28,29,-1,30,18,17,-1,17,29,30,-1,31,19,18,-1,18,30,31,-1,32,20,19,-1,19,31,32,-1,33,21,20,-1,20,32,33,-1,34,22,21,-1,21,33,34,-1,35,23,22,-1,22,34,35,-1,36,24,23,-1,23,35,36,-1,25,13,24,-1,24,36,25,-1,38,26,25,-1,25,37,38,-1,39,27,26,-1,26,38,39,-1,40,28,27,-1,27,39,40,-1,41,29,28,-1,28,40,41,-1,42,30,29,-1,29,41,42,-1,43,31,30,-1,30,42,43,-1,44,32,31,-1,31,43,44,-1,45,33,32,-1,32,44,45,-1,46,34,33,-1,33,45,46,-1,47,35,34,-1,34,46,47,-1,48,36,35,-1,35,47,48,-1,37,25,36,-1,36,48,37,-1,50,38,37,-1,37,49,50,-1,51,39,38,-1,38,50,51,-1,52,40,39,-1,39,51,52,-1,53,41,40,-1,40,52,53,-1,54,42,41,-1,41,53,54,-1,55,43,42,-1,42,54,55,-1,56,44,43,-1,43,55,56,-1,57,45,44,-1,44,56,57,-1,58,46,45,-1,45,57,58,-1,59,47,46,-1,46,58,59,-1,60,48,47,-1,47,59,60,-1,49,37,48,-1,48,60,49,-1,61,50,49,-1,61,51,50,-1,61,52,51,-1,61,53,52,-1,61,54,53,-1,61,55,54,-1,61,56,55,-1,61,57,56,-1,61,58,57,-1,61,59,58,-1,61,60,59,-1,61,49,60,-1]);
-Coordinate49 := TCoordinateNode.Create;
-Coordinate49.SetPoint([Vector3(0,10.79,0.1424),Vector3(0,10.06,-2.825),Vector3(-2.283,10.06,-2.428),Vector3(-3.954,10.06,-1.948),Vector3(-4.566,10.06,0.1424),Vector3(-3.954,10.06,2.233),Vector3(-2.283,10.06,2.712),Vector3(0,10.06,3.11),Vector3(2.283,10.06,2.712),Vector3(3.954,10.06,2.233),Vector3(4.566,10.06,0.1424),Vector3(3.954,10.06,-1.948),Vector3(2.283,10.06,-2.428),Vector3(0,8.045,-4.614),Vector3(-2.953,8.045,-3.977),Vector3(-5.114,8.045,-2.236),Vector3(-5.905,8.045,0.1424),Vector3(-5.114,8.045,2.521),Vector3(-2.953,8.045,3.645),Vector3(0,8.045,4.282),Vector3(2.953,8.045,3.645),Vector3(5.114,8.045,2.521),Vector3(5.905,8.045,0.1424),Vector3(5.114,8.045,-2.236),Vector3(2.953,8.045,-3.977),Vector3(0,5.297,-5.018),Vector3(-3.409,5.297,-4.282),Vector3(-5.905,5.297,-2.272),Vector3(-6.819,5.297,0.1424),Vector3(-5.905,5.297,2.889),Vector3(-3.409,5.297,4.282),Vector3(0,5.297,5.018),Vector3(3.409,5.297,4.282),Vector3(5.905,5.297,2.889),Vector3(6.819,5.297,0.1424),Vector3(5.905,5.297,-2.272),Vector3(3.409,5.297,-4.282),Vector3(0,2.548,-4.282),Vector3(-2.953,2.548,-3.645),Vector3(-5.114,2.548,-1.904),Vector3(-5.905,2.548,0.1424),Vector3(-5.114,2.548,2.521),Vector3(-2.953,2.548,3.645),Vector3(0,2.548,4.282),Vector3(2.953,2.548,3.645),Vector3(5.114,2.548,2.521),Vector3(5.905,2.548,0.1424),Vector3(5.114,2.548,-1.904),Vector3(2.953,2.548,-3.645),Vector3(0,0.5362,-2.272),Vector3(-1.705,0.5362,-1.904),Vector3(-2.953,0.5362,-1.231),Vector3(-3.409,0.5362,0.1424),Vector3(-2.953,0.5362,1.516),Vector3(-1.705,0.5362,2.521),Vector3(0,0.5362,2.889),Vector3(1.705,0.5362,2.521),Vector3(2.953,0.5362,1.516),Vector3(3.409,0.5362,0.1424),Vector3(2.953,0.5362,-1.231),Vector3(1.705,0.5362,-1.904),Vector3(0,-0.2003,0.1424)]);
 end;
 
 procedure InitJinLOA4Part3;
 begin
 
+IndexedFaceSet48.SetTexCoordIndex([0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,5,-1,0,5,6,-1,0,6,7,-1,0,7,8,-1,0,8,9,-1,0,9,10,-1,0,10,11,-1,0,11,12,-1,0,12,1,-1,14,2,1,-1,1,13,14,-1,15,3,2,-1,2,14,15,-1,16,4,3,-1,3,15,16,-1,17,5,4,-1,4,16,17,-1,18,6,5,-1,5,17,18,-1,19,7,6,-1,6,18,19,-1,20,8,7,-1,7,19,20,-1,21,9,8,-1,8,20,21,-1,22,10,9,-1,9,21,22,-1,23,11,10,-1,10,22,23,-1,24,12,11,-1,11,23,24,-1,13,1,12,-1,12,24,13,-1,26,14,13,-1,13,25,26,-1,27,15,14,-1,14,26,27,-1,28,16,15,-1,15,27,28,-1,29,17,16,-1,16,28,29,-1,30,18,17,-1,17,29,30,-1,31,19,18,-1,18,30,31,-1,32,20,19,-1,19,31,32,-1,33,21,20,-1,20,32,33,-1,34,22,21,-1,21,33,34,-1,35,23,22,-1,22,34,35,-1,36,24,23,-1,23,35,36,-1,25,13,24,-1,24,36,25,-1,38,26,25,-1,25,37,38,-1,39,27,26,-1,26,38,39,-1,40,28,27,-1,27,39,40,-1,41,29,28,-1,28,40,41,-1,42,30,29,-1,29,41,42,-1,43,31,30,-1,30,42,43,-1,44,32,31,-1,31,43,44,-1,45,33,32,-1,32,44,45,-1,46,34,33,-1,33,45,46,-1,47,35,34,-1,34,46,47,-1,48,36,35,-1,35,47,48,-1,37,25,36,-1,36,48,37,-1,50,38,37,-1,37,49,50,-1,51,39,38,-1,38,50,51,-1,52,40,39,-1,39,51,52,-1,53,41,40,-1,40,52,53,-1,54,42,41,-1,41,53,54,-1,55,43,42,-1,42,54,55,-1,56,44,43,-1,43,55,56,-1,57,45,44,-1,44,56,57,-1,58,46,45,-1,45,57,58,-1,59,47,46,-1,46,58,59,-1,60,48,47,-1,47,59,60,-1,49,37,48,-1,48,60,49,-1,61,50,49,-1,61,51,50,-1,61,52,51,-1,61,53,52,-1,61,54,53,-1,61,55,54,-1,61,56,55,-1,61,57,56,-1,61,58,57,-1,61,59,58,-1,61,60,59,-1,61,49,60,-1]);
+Coordinate49 := TCoordinateNode.Create;
+Coordinate49.SetPoint([Vector3(0,10.79,0.1424),Vector3(0,10.06,-2.825),Vector3(-2.283,10.06,-2.428),Vector3(-3.954,10.06,-1.948),Vector3(-4.566,10.06,0.1424),Vector3(-3.954,10.06,2.233),Vector3(-2.283,10.06,2.712),Vector3(0,10.06,3.11),Vector3(2.283,10.06,2.712),Vector3(3.954,10.06,2.233),Vector3(4.566,10.06,0.1424),Vector3(3.954,10.06,-1.948),Vector3(2.283,10.06,-2.428),Vector3(0,8.045,-4.614),Vector3(-2.953,8.045,-3.977),Vector3(-5.114,8.045,-2.236),Vector3(-5.905,8.045,0.1424),Vector3(-5.114,8.045,2.521),Vector3(-2.953,8.045,3.645),Vector3(0,8.045,4.282),Vector3(2.953,8.045,3.645),Vector3(5.114,8.045,2.521),Vector3(5.905,8.045,0.1424),Vector3(5.114,8.045,-2.236),Vector3(2.953,8.045,-3.977),Vector3(0,5.297,-5.018),Vector3(-3.409,5.297,-4.282),Vector3(-5.905,5.297,-2.272),Vector3(-6.819,5.297,0.1424),Vector3(-5.905,5.297,2.889),Vector3(-3.409,5.297,4.282),Vector3(0,5.297,5.018),Vector3(3.409,5.297,4.282),Vector3(5.905,5.297,2.889),Vector3(6.819,5.297,0.1424),Vector3(5.905,5.297,-2.272),Vector3(3.409,5.297,-4.282),Vector3(0,2.548,-4.282),Vector3(-2.953,2.548,-3.645),Vector3(-5.114,2.548,-1.904),Vector3(-5.905,2.548,0.1424),Vector3(-5.114,2.548,2.521),Vector3(-2.953,2.548,3.645),Vector3(0,2.548,4.282),Vector3(2.953,2.548,3.645),Vector3(5.114,2.548,2.521),Vector3(5.905,2.548,0.1424),Vector3(5.114,2.548,-1.904),Vector3(2.953,2.548,-3.645),Vector3(0,0.5362,-2.272),Vector3(-1.705,0.5362,-1.904),Vector3(-2.953,0.5362,-1.231),Vector3(-3.409,0.5362,0.1424),Vector3(-2.953,0.5362,1.516),Vector3(-1.705,0.5362,2.521),Vector3(0,0.5362,2.889),Vector3(1.705,0.5362,2.521),Vector3(2.953,0.5362,1.516),Vector3(3.409,0.5362,0.1424),Vector3(2.953,0.5362,-1.231),Vector3(1.705,0.5362,-1.904),Vector3(0,-0.2003,0.1424)]);
 { .SetCoord }
 IndexedFaceSet48.Coord := Coordinate49;
 TextureCoordinate50 := TTextureCoordinateNode.Create;
@@ -2251,9 +2257,11 @@ HAnimSegment42.AddChildren([Transform43]);
 HAnimJoint41.AddChildren([HAnimSegment42]);
 HAnimJoint51 := THAnimJointNode.Create;
 HAnimJoint51.NameField := 'l_hip';
+HAnimJoint51.X3DName := 'hanim_l_hip';
 HAnimJoint51.Center := Vector3(4.207,36.740002,-0.8155);
 HAnimSegment52 := THAnimSegmentNode.Create;
 HAnimSegment52.NameField := 'l_thigh';
+HAnimSegment52.X3DName := 'hanim_l_thigh';
 Transform53 := TTransformNode.Create;
 Transform53.Translation := Vector3(4.207,36.740002,-0.8155);
 Shape54 := TShapeNode.Create;
@@ -2277,6 +2285,11 @@ Coordinate59.SetPoint([Vector3(2.96,-0.0706,0),Vector3(1.643,-0.0706,3.209),Vect
 IndexedFaceSet58.Coord := Coordinate59;
 TextureCoordinate60 := TTextureCoordinateNode.Create;
 TextureCoordinate60.SetPoint([Vector2(0.719,0.5576),Vector2(0.6284,0.5576),Vector2(0.7414,0.5576),Vector2(0.6787,0.5576),Vector2(0.5781,0.5576),Vector2(0.5154,0.5576),Vector2(0.5378,0.5576),Vector2(0.6284,0.5029),Vector2(0.7509,0.3997),Vector2(0.6284,0.3997),Vector2(0.7509,0.5029),Vector2(0.7811,0.3997),Vector2(0.7811,0.5029),Vector2(0.6964,0.3997),Vector2(0.6964,0.5029),Vector2(0.5604,0.3997),Vector2(0.5604,0.5029),Vector2(0.4756,0.3997),Vector2(0.4756,0.5029),Vector2(0.5059,0.3997),Vector2(0.5059,0.5029),Vector2(0.7509,0.3197),Vector2(0.6284,0.3197),Vector2(0.7811,0.3197),Vector2(0.6964,0.3197),Vector2(0.5604,0.3197),Vector2(0.4756,0.3197),Vector2(0.5059,0.3197),Vector2(0.7651,0.2166),Vector2(0.6284,0.2166),Vector2(0.7989,0.2166),Vector2(0.7043,0.2166),Vector2(0.5525,0.2166),Vector2(0.4579,0.2166),Vector2(0.4917,0.2166),Vector2(0.7224,0.263),Vector2(0.6284,0.263),Vector2(0.7456,0.263),Vector2(0.6805,0.263),Vector2(0.5762,0.263),Vector2(0.5112,0.263),Vector2(0.5344,0.263),Vector2(0.8705,0.5452),Vector2(0.8705,0.5383),Vector2(0.8705,0.5369),Vector2(0.8705,0.5408),Vector2(0.8705,0.5483),Vector2(0.8705,0.5522),Vector2(0.8705,0.5509),Vector2(0.917,0.5452),Vector2(0.917,0.5266),Vector2(0.89,0.5304),Vector2(0.89,0.5452),Vector2(0.917,0.522),Vector2(0.89,0.5268),Vector2(0.917,0.5349),Vector2(0.89,0.537),Vector2(0.917,0.5555),Vector2(0.89,0.5534),Vector2(0.917,0.5684),Vector2(0.89,0.5636),Vector2(0.917,0.5638),Vector2(0.89,0.56),Vector2(0.8746,0.531),Vector2(0.8746,0.5452),Vector2(0.8746,0.5279),Vector2(0.8746,0.5368),Vector2(0.8746,0.5524),Vector2(0.8746,0.5613),Vector2(0.8746,0.5581)]);
+end;
+
+procedure InitJinLOA4Part4;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet58.TexCoord := TextureCoordinate60;
 { .SetGeometry }
@@ -2289,14 +2302,11 @@ HAnimSegment52.AddChildren([Transform53]);
 HAnimJoint51.AddChildren([HAnimSegment52]);
 HAnimJoint61 := THAnimJointNode.Create;
 HAnimJoint61.NameField := 'l_knee';
+HAnimJoint61.X3DName := 'hanim_l_knee';
 HAnimJoint61.Center := Vector3(4.116,18.17,-0.8639);
-end;
-
-procedure InitJinLOA4Part4;
-begin
-
 HAnimSegment62 := THAnimSegmentNode.Create;
 HAnimSegment62.NameField := 'l_calf';
+HAnimSegment62.X3DName := 'hanim_l_calf';
 Transform63 := TTransformNode.Create;
 Transform63.Translation := Vector3(4.116,18.17,-0.8639);
 Shape64 := TShapeNode.Create;
@@ -2332,9 +2342,16 @@ HAnimSegment62.AddChildren([Transform63]);
 HAnimJoint61.AddChildren([HAnimSegment62]);
 HAnimJoint71 := THAnimJointNode.Create;
 HAnimJoint71.NameField := 'l_talocrural';
+HAnimJoint71.X3DName := 'hanim_l_talocrural';
 HAnimJoint71.Center := Vector3(3.948,4.242,-0.4645);
+end;
+
+procedure InitJinLOA4Part5;
+begin
+
 HAnimSegment72 := THAnimSegmentNode.Create;
 HAnimSegment72.NameField := 'l_talus';
+HAnimSegment72.X3DName := 'hanim_l_talus';
 Transform73 := TTransformNode.Create;
 Transform73.Translation := Vector3(3.948,4.242,-0.4645);
 Shape74 := TShapeNode.Create;
@@ -2346,11 +2363,6 @@ Appearance75.Material := Material76;
 ImageTexture77 := ImageTexture37;
 { .SetTexture }
 Appearance75.Texture := ImageTexture77;
-end;
-
-procedure InitJinLOA4Part5;
-begin
-
 { .SetAppearance }
 Shape74.Appearance := Appearance75;
 IndexedFaceSet78 := TIndexedFaceSetNode.Create;
@@ -2375,15 +2387,22 @@ HAnimSegment72.AddChildren([Transform73]);
 HAnimJoint71.AddChildren([HAnimSegment72]);
 HAnimJoint81 := THAnimJointNode.Create;
 HAnimJoint81.NameField := 'l_talocalcaneonavicular';
+HAnimJoint81.X3DName := 'hanim_l_talocalcaneonavicular';
 HAnimJoint81.Center := Vector3(3.48,1.64,0.2162);
 HAnimSegment82 := THAnimSegmentNode.Create;
 HAnimSegment82.NameField := 'l_navicular';
+HAnimSegment82.X3DName := 'hanim_l_navicular';
 Transform83 := TTransformNode.Create;
 Transform83.Translation := Vector3(3.48,1.64,0.2162);
 Shape84 := TShapeNode.Create;
 Appearance85 := TAppearanceNode.Create;
 Material86 := TMaterialNode.Create;
 Material86.DiffuseColor := Vector3(0.588,0.588,0.588);
+end;
+
+procedure InitJinLOA4Part6;
+begin
+
 { .SetMaterial }
 Appearance85.Material := Material86;
 ImageTexture87 := ImageTexture37;
@@ -2403,11 +2422,6 @@ TextureCoordinate90 := TTextureCoordinateNode.Create;
 TextureCoordinate90.SetPoint([Vector2(0.2314,0.0879),Vector2(0.21,0.1541),Vector2(0.2053,0.1595),Vector2(0.2104,0.1443),Vector2(0.2271,0.0958),Vector2(0.2224,0.1067),Vector2(0.2032,0.149),Vector2(0.2132,0.1285),Vector2(0.2197,0.1123),Vector2(0.2163,0.1174),Vector2(0.227,0.1089),Vector2(0.2165,0.148),Vector2(0.2217,0.1285),Vector2(0.2407,0.0951),Vector2(0.2178,0.1526),Vector2(0.2363,0.0929),Vector2(0.2213,0.1179),Vector2(0.2171,0.1588),Vector2(0.2129,0.1643),Vector2(0.21,0.1541),Vector2(0.2053,0.1595),Vector2(0.2032,0.149),Vector2(0.2132,0.1285),Vector2(0.2224,0.1067),Vector2(0.2314,0.0879),Vector2(0.2271,0.0958),Vector2(0.2197,0.1123),Vector2(0.2163,0.1174),Vector2(0.2104,0.1443),Vector2(0.227,0.1089),Vector2(0.2217,0.1285),Vector2(0.2165,0.148),Vector2(0.2129,0.1643),Vector2(0.2171,0.1588),Vector2(0.2178,0.1526),Vector2(0.2213,0.1179),Vector2(0.2363,0.0929),Vector2(0.2407,0.0951),Vector2(0.2314,0.0879),Vector2(0.2407,0.0951),Vector2(0.2407,0.0951),Vector2(0.2363,0.0929),Vector2(0.2363,0.0929),Vector2(0.2271,0.0958),Vector2(0.2271,0.0958),Vector2(0.2314,0.0879)]);
 { .SetTexCoord }
 IndexedFaceSet88.TexCoord := TextureCoordinate90;
-end;
-
-procedure InitJinLOA4Part6;
-begin
-
 { .SetGeometry }
 Shape84.Geometry := IndexedFaceSet88;
 { .AddChild }
@@ -2418,9 +2432,11 @@ HAnimSegment82.AddChildren([Transform83]);
 HAnimJoint81.AddChildren([HAnimSegment82]);
 HAnimJoint91 := THAnimJointNode.Create;
 HAnimJoint91.NameField := 'l_cuneonavicular_1';
+HAnimJoint91.X3DName := 'hanim_l_cuneonavicular_1';
 HAnimJoint91.Center := Vector3(2.994,1.427,0.8174);
 HAnimSegment92 := THAnimSegmentNode.Create;
 HAnimSegment92.NameField := 'l_cuneiform_1';
+HAnimSegment92.X3DName := 'hanim_l_cuneiform_1';
 Transform93 := TTransformNode.Create;
 Transform93.Translation := Vector3(2.994,1.427,0.8174);
 Shape94 := TShapeNode.Create;
@@ -2439,6 +2455,11 @@ IndexedFaceSet98.SetCoordIndex([0,12,4,-1,1,0,6,-1,6,7,1,-1,10,12,0,-1,0,1,10,-1
 IndexedFaceSet98.CreaseAngle := 3.14159;
 IndexedFaceSet98.SetTexCoordIndex([0,12,1,-1,2,0,6,-1,6,7,2,-1,10,12,0,-1,0,2,10,-1,2,3,11,-1,11,10,2,-1,8,4,3,-1,3,5,8,-1,11,3,13,-1,12,15,1,-1,9,6,0,-1,0,1,9,-1,2,7,5,-1,5,3,2,-1,4,14,13,-1,13,3,4,-1,24,23,22,-1,25,24,22,-1,28,25,22,-1,15,12,10,-1,10,11,13,-1,15,10,13,-1,14,15,13,-1,16,19,18,-1,18,17,16,-1,21,20,19,-1,19,16,21,-1,4,16,17,-1,17,14,4,-1,14,17,18,-1,18,15,14,-1,15,18,19,-1,19,1,15,-1,1,19,20,-1,20,9,1,-1,28,27,26,-1,26,25,28,-1,8,21,16,-1,16,4,8,-1,6,22,23,-1,23,7,6,-1,7,23,24,-1,24,5,7,-1,5,24,25,-1,25,8,5,-1,8,25,26,-1,26,21,8,-1,21,26,27,-1,27,20,21,-1,20,27,28,-1,28,9,20,-1,9,28,22,-1,22,6,9,-1]);
 Coordinate99 := TCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4Part7;
+begin
+
 Coordinate99.SetPoint([Vector3(0.0007,-1.109,0.4253),Vector3(-0.2643,-0.769,0.4516),Vector3(-0.31,0.2508,0.3964),Vector3(0.3018,0.9142,0.48),Vector3(0.2988,-1.247,0.4693),Vector3(-0.4654,0.1787,1.077),Vector3(-0.3013,-1.107,1.108),Vector3(-0.5181,-0.7521,1.038),Vector3(0.2439,0.5544,1.187),Vector3(0.2465,-1.253,1.201),Vector3(-0.2008,-0.8201,-0.1723),Vector3(-0.3345,0.2174,-0.1914),Vector3(-0.0554,-1.183,-0.0314),Vector3(-0.1904,0.8791,-0.084),Vector3(0.3681,1.266,0.1166),Vector3(0.3487,-1.266,0.1234),Vector3(0.5607,0.81,0.4342),Vector3(0.5963,0.9711,0.2685),Vector3(0.5792,-1.134,0.2739),Vector3(0.5494,-1.122,0.4935),Vector3(0.506,-1.127,1.102),Vector3(0.5033,0.4765,1.089),Vector3(-0.2424,-0.982,1.47),Vector3(-0.4192,-0.7263,1.408),Vector3(-0.3724,0.0098,1.445),Vector3(0.2492,0.2999,1.549),Vector3(0.3973,0.2594,1.478),Vector3(0.3998,-1.02,1.489),Vector3(0.2312,-1.094,1.562)]);
 { .SetCoord }
 IndexedFaceSet98.Coord := Coordinate99;
@@ -2456,16 +2477,13 @@ HAnimSegment92.AddChildren([Transform93]);
 HAnimJoint91.AddChildren([HAnimSegment92]);
 HAnimJoint101 := THAnimJointNode.Create;
 HAnimJoint101.NameField := 'l_tarsometatarsal_1';
+HAnimJoint101.X3DName := 'hanim_l_tarsometatarsal_1';
 HAnimJoint101.Center := Vector3(2.872,1.033,1.964);
 HAnimSegment102 := THAnimSegmentNode.Create;
 HAnimSegment102.NameField := 'l_metatarsal_1';
+HAnimSegment102.X3DName := 'hanim_l_metatarsal_1';
 Transform103 := TTransformNode.Create;
 Transform103.Translation := Vector3(2.872,1.033,1.964);
-end;
-
-procedure InitJinLOA4Part7;
-begin
-
 Shape104 := TShapeNode.Create;
 Appearance105 := TAppearanceNode.Create;
 Material106 := TMaterialNode.Create;
@@ -2497,11 +2515,18 @@ Transform103.AddChildren([Shape104]);
 HAnimSegment102.AddChildren([Transform103]);
 { .AddChildren }
 HAnimJoint101.AddChildren([HAnimSegment102]);
+end;
+
+procedure InitJinLOA4Part8;
+begin
+
 HAnimJoint111 := THAnimJointNode.Create;
 HAnimJoint111.NameField := 'l_metatarsophalangeal_1';
+HAnimJoint111.X3DName := 'hanim_l_metatarsophalangeal_1';
 HAnimJoint111.Center := Vector3(2.761,0.6411,4.161);
 HAnimSegment112 := THAnimSegmentNode.Create;
 HAnimSegment112.NameField := 'l_tarsal_proximal_phalanx_1';
+HAnimSegment112.X3DName := 'hanim_l_tarsal_proximal_phalanx_1';
 Transform113 := TTransformNode.Create;
 Transform113.Translation := Vector3(2.761,0.6411,4.161);
 Shape114 := TShapeNode.Create;
@@ -2518,11 +2543,6 @@ Shape114.Appearance := Appearance115;
 IndexedFaceSet118 := TIndexedFaceSetNode.Create;
 IndexedFaceSet118.SetCoordIndex([9,16,17,-1,17,10,9,-1,11,8,2,-1,2,1,11,-1,7,3,2,-1,2,8,7,-1,7,13,4,-1,4,3,7,-1,12,5,4,-1,4,13,12,-1,5,12,0,-1,0,6,5,-1,0,11,1,-1,1,6,0,-1,14,15,19,-1,19,20,14,-1,14,10,17,-1,17,15,14,-1,9,21,18,-1,18,16,9,-1,7,8,9,-1,9,10,7,-1,8,11,21,-1,21,9,8,-1,12,13,14,-1,14,20,12,-1,13,7,10,-1,10,14,13,-1,11,22,21,-1,0,12,23,-1,23,24,0,-1,11,0,24,-1,24,22,11,-1,23,12,20,-1,37,42,41,-1,41,40,39,-1,37,41,39,-1,38,37,39,-1,35,34,33,-1,35,33,32,-1,31,35,32,-1,27,26,25,-1,28,27,25,-1,28,25,29,-1,35,31,30,-1,30,36,35,-1,17,25,26,-1,26,15,17,-1,15,26,27,-1,27,19,15,-1,19,27,28,-1,28,18,19,-1,18,28,29,-1,29,16,18,-1,16,29,25,-1,25,17,16,-1,19,30,31,-1,31,20,19,-1,20,31,32,-1,32,23,20,-1,23,32,33,-1,33,24,23,-1,24,33,34,-1,34,22,24,-1,22,34,35,-1,35,21,22,-1,21,35,36,-1,36,18,21,-1,18,36,30,-1,30,19,18,-1,2,37,38,-1,38,1,2,-1,1,38,39,-1,39,6,1,-1,6,39,40,-1,40,5,6,-1,5,40,41,-1,41,4,5,-1,4,41,42,-1,42,3,4,-1,3,42,37,-1,37,2,3,-1]);
 IndexedFaceSet118.CreaseAngle := 3.14159;
-end;
-
-procedure InitJinLOA4Part8;
-begin
-
 IndexedFaceSet118.SetTexCoordIndex([2,28,29,-1,29,1,2,-1,11,13,4,-1,4,5,11,-1,10,6,4,-1,4,13,10,-1,10,12,7,-1,7,6,10,-1,14,8,7,-1,7,12,14,-1,8,14,3,-1,3,9,8,-1,3,11,5,-1,5,9,3,-1,0,27,31,-1,31,33,0,-1,0,1,29,-1,29,27,0,-1,2,35,30,-1,30,28,2,-1,15,16,17,-1,17,18,15,-1,16,19,34,-1,34,17,16,-1,20,21,22,-1,22,32,20,-1,21,23,24,-1,24,22,21,-1,19,36,34,-1,25,20,37,-1,37,39,25,-1,19,26,38,-1,38,36,19,-1,37,20,32,-1,52,57,56,-1,56,55,54,-1,52,56,54,-1,53,52,54,-1,50,49,48,-1,50,48,47,-1,46,50,47,-1,42,41,40,-1,43,42,40,-1,43,40,44,-1,50,46,45,-1,45,51,50,-1,29,40,41,-1,41,27,29,-1,27,41,42,-1,42,31,27,-1,31,42,43,-1,43,30,31,-1,30,43,44,-1,44,28,30,-1,28,44,40,-1,40,29,28,-1,31,45,46,-1,46,33,31,-1,32,46,47,-1,47,37,32,-1,37,47,48,-1,48,39,37,-1,38,48,49,-1,49,36,38,-1,36,49,50,-1,50,34,36,-1,35,50,51,-1,51,30,35,-1,30,51,45,-1,45,31,30,-1,4,52,53,-1,53,5,4,-1,5,53,54,-1,54,9,5,-1,9,54,55,-1,55,8,9,-1,8,55,56,-1,56,7,8,-1,7,56,57,-1,57,6,7,-1,6,57,52,-1,52,4,6,-1]);
 Coordinate119 := TCoordinateNode.Create;
 Coordinate119.SetPoint([Vector3(0.5023,0.0206,0.5225),Vector3(0.5069,0.3389,0.9722),Vector3(-0.5239,0.3546,0.9857),Vector3(-0.5823,-0.1222,0.9958),Vector3(-0.5025,-0.5579,0.9554),Vector3(0.5186,-0.5579,0.958),Vector3(0.5816,-0.1339,0.9847),Vector3(-0.5039,-0.0963,0.5275),Vector3(-0.4495,0.4588,0.4262),Vector3(-0.3875,0.4353,0.2405),Vector3(-0.4682,-0.1454,0.2855),Vector3(0.4437,0.4412,0.4574),Vector3(0.4398,-0.4616,0.472),Vector3(-0.4332,-0.4607,0.456),Vector3(-0.3649,-0.4415,0.2162),Vector3(-0.4121,-0.4761,-0.0214),Vector3(-0.4225,0.4741,0.0111),Vector3(-0.5118,-0.1454,0.0829),Vector3(0.5687,0.5579,-0.0036),Vector3(0.5704,-0.4763,-0.041),Vector3(0.5628,-0.4412,0.2556),Vector3(0.5641,0.4495,0.2541),Vector3(0.5671,0.3479,0.4508),Vector3(0.5823,-0.2729,0.4646),Vector3(0.5691,0.0505,0.5098),Vector3(-0.3979,-0.127,-0.1621),Vector3(-0.3346,-0.3422,-0.2601),Vector3(0.4303,-0.3427,-0.2664),Vector3(0.429,0.4294,-0.2381),Vector3(-0.3281,0.3657,-0.237),Vector3(0.7564,-0.2649,-0.0329),Vector3(0.752,-0.2445,0.139),Vector3(0.7633,-0.147,0.2601),Vector3(0.7556,0.0405,0.2863),Vector3(0.7545,0.2128,0.2521),Vector3(0.7527,0.2716,0.1381),Vector3(0.7554,0.3345,-0.0112),Vector3(-0.4054,0.215,1.213),Vector3(0.3954,0.2028,1.201),Vector3(0.4497,-0.1402,1.217),Vector3(0.4063,-0.4314,1.193),Vector3(-0.3905,-0.4313,1.189),Vector3(-0.4468,-0.1239,1.226)]);
@@ -2542,11 +2562,18 @@ HAnimSegment112.AddChildren([Transform113]);
 HAnimJoint111.AddChildren([HAnimSegment112]);
 HAnimJoint121 := THAnimJointNode.Create;
 HAnimJoint121.NameField := 'l_tarsal_distal_interphalangeal_1';
+HAnimJoint121.X3DName := 'hanim_l_tarsal_distal_interphalangeal_1';
 HAnimJoint121.Center := Vector3(2.761,0.5394,5.125);
 HAnimSegment122 := THAnimSegmentNode.Create;
 HAnimSegment122.NameField := 'l_tarsal_distal_phalanx_1';
+HAnimSegment122.X3DName := 'hanim_l_tarsal_distal_phalanx_1';
 Transform123 := TTransformNode.Create;
 Transform123.Translation := Vector3(2.761,0.5394,5.125);
+end;
+
+procedure InitJinLOA4Part9;
+begin
+
 Shape124 := TShapeNode.Create;
 Appearance125 := TAppearanceNode.Create;
 Material126 := TMaterialNode.Create;
@@ -2578,11 +2605,6 @@ Transform123.AddChildren([Shape124]);
 HAnimSegment122.AddChildren([Transform123]);
 { .AddChildren }
 HAnimJoint121.AddChildren([HAnimSegment122]);
-end;
-
-procedure InitJinLOA4Part9;
-begin
-
 { .AddChildren }
 HAnimJoint111.AddChildren([HAnimJoint121]);
 { .AddChildren }
@@ -2593,9 +2615,11 @@ HAnimJoint91.AddChildren([HAnimJoint101]);
 HAnimJoint81.AddChildren([HAnimJoint91]);
 HAnimJoint131 := THAnimJointNode.Create;
 HAnimJoint131.NameField := 'l_cuneonavicular_2';
+HAnimJoint131.X3DName := 'hanim_l_cuneonavicular_2';
 HAnimJoint131.Center := Vector3(3.619,1.49,0.9523);
 HAnimSegment132 := THAnimSegmentNode.Create;
 HAnimSegment132.NameField := 'l_cuneiform_2';
+HAnimSegment132.X3DName := 'hanim_l_cuneiform_2';
 Transform133 := TTransformNode.Create;
 Transform133.Translation := Vector3(3.619,1.49,0.9523);
 Shape134 := TShapeNode.Create;
@@ -2604,6 +2628,11 @@ Material136 := TMaterialNode.Create;
 Material136.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance135.Material := Material136;
+end;
+
+procedure InitJinLOA4Part10;
+begin
+
 ImageTexture137 := ImageTexture37;
 { .SetTexture }
 Appearance135.Texture := ImageTexture137;
@@ -2631,16 +2660,13 @@ HAnimSegment132.AddChildren([Transform133]);
 HAnimJoint131.AddChildren([HAnimSegment132]);
 HAnimJoint141 := THAnimJointNode.Create;
 HAnimJoint141.NameField := 'l_tarsometatarsal_2';
+HAnimJoint141.X3DName := 'hanim_l_tarsometatarsal_2';
 HAnimJoint141.Center := Vector3(3.564,1.16,1.825);
 HAnimSegment142 := THAnimSegmentNode.Create;
 HAnimSegment142.NameField := 'l_metatarsal_2';
+HAnimSegment142.X3DName := 'hanim_l_metatarsal_2';
 Transform143 := TTransformNode.Create;
 Transform143.Translation := Vector3(3.564,1.16,1.825);
-end;
-
-procedure InitJinLOA4Part10;
-begin
-
 Shape144 := TShapeNode.Create;
 Appearance145 := TAppearanceNode.Create;
 Material146 := TMaterialNode.Create;
@@ -2658,6 +2684,11 @@ IndexedFaceSet148.CreaseAngle := 3.14159;
 IndexedFaceSet148.SetTexCoordIndex([1,7,10,-1,10,0,1,-1,2,11,12,-1,12,3,2,-1,5,15,16,-1,16,6,5,-1,8,2,3,-1,3,9,8,-1,11,5,6,-1,6,12,11,-1,4,13,1,-1,1,0,4,-1,17,14,13,-1,13,4,17,-1,45,42,41,-1,41,46,45,-1,49,54,53,-1,53,50,49,-1,32,38,37,-1,37,33,32,-1,22,29,28,-1,28,23,22,-1,31,30,29,-1,29,22,31,-1,24,27,26,-1,26,25,24,-1,40,39,38,-1,38,32,40,-1,33,21,34,-1,23,28,27,-1,27,24,23,-1,34,37,36,-1,36,35,34,-1,6,22,23,-1,23,12,6,-1,12,23,24,-1,24,3,12,-1,3,24,25,-1,25,9,3,-1,45,44,43,-1,43,42,45,-1,10,26,27,-1,27,0,10,-1,20,27,28,-1,28,18,20,-1,18,28,29,-1,29,19,18,-1,4,29,30,-1,30,17,4,-1,53,52,51,-1,51,50,53,-1,16,31,22,-1,22,6,16,-1,2,32,33,-1,33,11,2,-1,11,33,34,-1,34,5,11,-1,5,34,35,-1,35,15,5,-1,49,56,55,-1,55,54,49,-1,14,36,37,-1,37,13,14,-1,13,37,38,-1,38,1,13,-1,1,38,39,-1,39,7,1,-1,41,48,47,-1,47,46,41,-1,8,40,32,-1,32,2,8,-1,7,41,42,-1,42,10,7,-1,10,42,43,-1,43,26,10,-1,26,43,44,-1,44,25,26,-1,25,44,45,-1,45,9,25,-1,9,45,46,-1,46,8,9,-1,8,46,47,-1,47,40,8,-1,40,47,48,-1,48,39,40,-1,39,48,41,-1,41,7,39,-1,15,49,50,-1,50,16,15,-1,16,50,51,-1,51,31,16,-1,31,51,52,-1,52,30,31,-1,30,52,53,-1,53,17,30,-1,17,53,54,-1,54,14,17,-1,14,54,55,-1,55,36,14,-1,36,55,56,-1,56,35,36,-1,35,56,49,-1,49,15,35,-1]);
 Coordinate149 := TCoordinateNode.Create;
 Coordinate149.SetPoint([Vector3(0.376,0.2511,1.709),Vector3(0.3357,0.7759,0.5398),Vector3(-0.3119,0.2409,1.767),Vector3(-0.3526,0.6595,0.5874),Vector3(-0.3078,-1.076,1.666),Vector3(0.3874,0.0522,2.259),Vector3(-0.2343,0.0387,2.332),Vector3(-0.2326,-0.9956,2.295),Vector3(0.3451,0.5141,1.12),Vector3(-0.3463,0.4507,1.205),Vector3(0.3434,1.076,-0.0912),Vector3(-0.3267,0.8206,0.1791),Vector3(0.3294,-1.076,1.609),Vector3(0.2875,-1.012,0.4679),Vector3(-0.3874,-0.9909,0.4772),Vector3(0.3851,-0.9944,2.223),Vector3(-0.3874,-0.9909,0.4772),Vector3(0.2943,-1.002,-0.1052),Vector3(-0.3241,-0.9868,0.193),Vector3(-0.5947,0.492,0.5352),Vector3(-0.5929,0.2828,1.154),Vector3(-0.5593,0.0734,1.716),Vector3(-0.4991,-0.0854,2.16),Vector3(-0.4989,-0.8372,2.132),Vector3(-0.5532,-0.8961,1.67),Vector3(-0.6306,-0.8125,0.499),Vector3(-0.6285,-0.8121,0.4892),Vector3(-0.587,-0.8107,0.3782),Vector3(-0.5955,0.5581,0.3668),Vector3(0.6024,0.1292,1.656),Vector3(0.5716,0.3941,1.062),Vector3(0.5635,0.6565,0.4802),Vector3(0.5689,0.8722,0.0262),Vector3(0.528,-0.8844,0.0143),Vector3(0.522,-0.8924,0.4655),Vector3(0.5629,-0.9551,1.597),Vector3(0.6111,-0.8893,2.094),Vector3(0.6095,-0.0402,2.124),Vector3(0.3754,-0.8654,2.416),Vector3(-0.1932,-0.8668,2.492),Vector3(-0.3693,-0.7622,2.474),Vector3(-0.3695,-0.1901,2.494),Vector3(-0.1974,-0.1096,2.517),Vector3(0.3791,-0.0968,2.442),Vector3(0.5023,-0.1482,2.391),Vector3(0.5036,-0.8058,2.368),Vector3(0.2236,0.9197,-0.4593),Vector3(-0.3621,0.6915,-0.1877),Vector3(-0.5727,0.4882,-0.046),Vector3(-0.565,-0.7245,-0.0357),Vector3(-0.3891,-0.8422,-0.159),Vector3(0.1716,-0.8563,-0.4501),Vector3(0.3041,-0.7893,-0.3815),Vector3(0.3412,0.8037,-0.3708)]);
+end;
+
+procedure InitJinLOA4Part11;
+begin
+
 { .SetCoord }
 IndexedFaceSet148.Coord := Coordinate149;
 TextureCoordinate150 := TTextureCoordinateNode.Create;
@@ -2674,9 +2705,11 @@ HAnimSegment142.AddChildren([Transform143]);
 HAnimJoint141.AddChildren([HAnimSegment142]);
 HAnimJoint151 := THAnimJointNode.Create;
 HAnimJoint151.NameField := 'l_metatarsophalangeal_2';
+HAnimJoint151.X3DName := 'hanim_l_metatarsophalangeal_2';
 HAnimJoint151.Center := Vector3(3.668,0.6656,4.348);
 HAnimSegment152 := THAnimSegmentNode.Create;
 HAnimSegment152.NameField := 'l_tarsal_proximal_phalanx_2';
+HAnimSegment152.X3DName := 'hanim_l_tarsal_proximal_phalanx_2';
 Transform153 := TTransformNode.Create;
 Transform153.Translation := Vector3(3.668,0.6656,4.348);
 Shape154 := TShapeNode.Create;
@@ -2693,11 +2726,6 @@ Shape154.Appearance := Appearance155;
 IndexedFaceSet158 := TIndexedFaceSetNode.Create;
 IndexedFaceSet158.SetCoordIndex([8,6,20,-1,20,18,8,-1,14,11,19,-1,19,21,14,-1,6,1,20,-1,19,11,15,-1,0,2,3,-1,3,14,0,-1,12,8,16,-1,16,17,12,-1,15,11,12,-1,12,17,15,-1,6,3,2,-1,2,1,6,-1,0,14,21,-1,16,8,18,-1,3,6,5,-1,5,4,3,-1,6,8,7,-1,7,5,6,-1,10,9,12,-1,12,11,10,-1,14,13,10,-1,10,11,14,-1,13,14,3,-1,3,4,13,-1,8,12,9,-1,9,7,8,-1,19,23,24,-1,24,21,19,-1,22,18,20,-1,20,25,22,-1,31,30,36,-1,31,36,35,-1,34,31,35,-1,5,7,9,-1,9,10,13,-1,5,9,13,-1,4,5,13,-1,29,28,27,-1,27,26,29,-1,37,43,42,-1,42,41,37,-1,31,34,33,-1,33,32,31,-1,41,40,39,-1,41,39,38,-1,37,41,38,-1,25,26,27,-1,27,22,25,-1,22,27,28,-1,28,23,22,-1,23,28,29,-1,29,24,23,-1,24,29,26,-1,26,25,24,-1,15,30,31,-1,31,19,15,-1,19,31,32,-1,32,23,19,-1,23,32,33,-1,33,22,23,-1,22,33,34,-1,34,18,22,-1,18,34,35,-1,35,16,18,-1,16,35,36,-1,36,17,16,-1,17,36,30,-1,30,15,17,-1,21,37,38,-1,38,0,21,-1,0,38,39,-1,39,2,0,-1,2,39,40,-1,40,1,2,-1,1,40,41,-1,41,20,1,-1,20,41,42,-1,42,25,20,-1,25,42,43,-1,43,24,25,-1,24,43,37,-1,37,21,24,-1]);
 IndexedFaceSet158.CreaseAngle := 3.14159;
-end;
-
-procedure InitJinLOA4Part11;
-begin
-
 IndexedFaceSet158.SetTexCoordIndex([1,0,30,-1,30,24,1,-1,3,2,25,-1,25,31,3,-1,0,4,30,-1,25,2,26,-1,9,10,5,-1,5,3,9,-1,7,1,27,-1,27,28,7,-1,26,2,8,-1,8,29,26,-1,0,6,11,-1,11,4,0,-1,9,3,31,-1,27,1,24,-1,12,15,14,-1,14,13,12,-1,15,17,16,-1,16,14,15,-1,19,18,21,-1,21,20,19,-1,23,22,19,-1,19,20,23,-1,22,23,12,-1,12,13,22,-1,17,21,18,-1,18,16,17,-1,35,37,38,-1,38,34,35,-1,36,32,33,-1,33,39,36,-1,45,44,50,-1,45,50,49,-1,48,45,49,-1,14,16,18,-1,18,19,22,-1,14,18,22,-1,13,14,22,-1,43,42,41,-1,41,40,43,-1,51,57,56,-1,56,55,51,-1,45,48,47,-1,47,46,45,-1,55,54,53,-1,55,53,52,-1,51,55,52,-1,39,40,41,-1,41,36,39,-1,36,41,42,-1,42,37,36,-1,37,42,43,-1,43,38,37,-1,38,43,40,-1,40,39,38,-1,26,44,45,-1,45,25,26,-1,35,45,46,-1,46,37,35,-1,37,46,47,-1,47,36,37,-1,36,47,48,-1,48,32,36,-1,24,48,49,-1,49,27,24,-1,27,49,50,-1,50,28,27,-1,29,50,44,-1,44,26,29,-1,31,51,52,-1,52,9,31,-1,9,52,53,-1,53,10,9,-1,11,53,54,-1,54,4,11,-1,4,54,55,-1,55,30,4,-1,33,55,56,-1,56,39,33,-1,39,56,57,-1,57,38,39,-1,38,57,51,-1,51,34,38,-1]);
 Coordinate159 := TCoordinateNode.Create;
 Coordinate159.SetPoint([Vector3(-0.3393,0.3234,0.264),Vector3(-0.3241,-0.2974,0.2778),Vector3(-0.3373,0.026,0.323),Vector3(-0.2778,-0.0393,0.3227),Vector3(-0.2424,-0.183,0.7679),Vector3(-0.1972,-0.5469,0.7512),Vector3(-0.2409,-0.4436,0.2718),Vector3(0.2712,-0.5414,0.6896),Vector3(0.2313,-0.4503,0.2153),Vector3(0.3295,-0.1296,0.7058),Vector3(0.2745,0.3527,0.6921),Vector3(0.2339,0.4182,0.2093),Vector3(0.3003,-0.075,0.2531),Vector3(-0.204,0.3657,0.7504),Vector3(-0.2252,0.4123,0.2599),Vector3(0.3372,0.3253,0.1752),Vector3(0.3386,-0.3128,0.1812),Vector3(0.3436,0.0018,0.2359),Vector3(0.2944,-0.4678,-0.021),Vector3(0.3035,0.4187,-0.0402),Vector3(-0.3436,-0.4656,0.0689),Vector3(-0.3423,0.425,0.0673),Vector3(0.2817,-0.4996,-0.2995),Vector3(0.2839,0.5469,-0.2638),Vector3(-0.3377,0.5334,-0.1904),Vector3(-0.336,-0.5008,-0.2278),Vector3(-0.2473,-0.3729,-0.4869),Vector3(0.1345,-0.3721,-0.5309),Vector3(0.1362,0.4342,-0.5035),Vector3(-0.2486,0.4258,-0.4578),Vector3(0.5241,0.2491,-0.0133),Vector3(0.5013,0.3226,-0.1835),Vector3(0.4932,0.3669,-0.2606),Vector3(0.4932,-0.3819,-0.2863),Vector3(0.4923,-0.3672,-0.1575),Vector3(0.5259,-0.2546,-0.0109),Vector3(0.5286,-0.0001,0.0336),Vector3(-0.554,0.3222,-0.0429),Vector3(-0.5543,0.2475,0.1018),Vector3(-0.5536,0.0219,0.1466),Vector3(-0.5407,-0.2386,0.1101),Vector3(-0.5571,-0.3586,-0.0389),Vector3(-0.5501,-0.3746,-0.1733),Vector3(-0.5517,0.3659,-0.1465)]);
@@ -2716,10 +2744,17 @@ HAnimSegment152.AddChildren([Transform153]);
 { .AddChildren }
 HAnimJoint151.AddChildren([HAnimSegment152]);
 HAnimJoint161 := THAnimJointNode.Create;
+end;
+
+procedure InitJinLOA4Part12;
+begin
+
 HAnimJoint161.NameField := 'l_tarsal_proximal_interphalangeal_2';
+HAnimJoint161.X3DName := 'hanim_l_tarsal_proximal_interphalangeal_2';
 HAnimJoint161.Center := Vector3(3.747,0.5621,5.067);
 HAnimSegment162 := THAnimSegmentNode.Create;
 HAnimSegment162.NameField := 'l_tarsal_middle_phalanx_2';
+HAnimSegment162.X3DName := 'hanim_l_tarsal_middle_phalanx_2';
 Transform163 := TTransformNode.Create;
 Transform163.Translation := Vector3(3.747,0.5621,5.067);
 Shape164 := TShapeNode.Create;
@@ -2753,19 +2788,21 @@ Transform163.AddChildren([Shape164]);
 HAnimSegment162.AddChildren([Transform163]);
 { .AddChildren }
 HAnimJoint161.AddChildren([HAnimSegment162]);
-end;
-
-procedure InitJinLOA4Part12;
-begin
-
 HAnimJoint171 := THAnimJointNode.Create;
 HAnimJoint171.NameField := 'l_tarsal_distal_interphalangeal_2';
+HAnimJoint171.X3DName := 'hanim_l_tarsal_distal_interphalangeal_2';
 HAnimJoint171.Center := Vector3(3.747,0.4367,5.486);
 HAnimSegment172 := THAnimSegmentNode.Create;
 HAnimSegment172.NameField := 'l_tarsal_distal_phalanx_2';
+HAnimSegment172.X3DName := 'hanim_l_tarsal_distal_phalanx_2';
 Transform173 := TTransformNode.Create;
 Transform173.Translation := Vector3(3.747,0.4367,5.486);
 Shape174 := TShapeNode.Create;
+end;
+
+procedure InitJinLOA4Part13;
+begin
+
 Appearance175 := TAppearanceNode.Create;
 Material176 := TMaterialNode.Create;
 Material176.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -2808,15 +2845,12 @@ HAnimJoint131.AddChildren([HAnimJoint141]);
 HAnimJoint81.AddChildren([HAnimJoint131]);
 HAnimJoint181 := THAnimJointNode.Create;
 HAnimJoint181.NameField := 'l_cuneonavicular_3';
+HAnimJoint181.X3DName := 'hanim_l_cuneonavicular_3';
 HAnimJoint181.Center := Vector3(4.132,1.484,0.8808);
 HAnimSegment182 := THAnimSegmentNode.Create;
 HAnimSegment182.NameField := 'l_cuneiform_3';
+HAnimSegment182.X3DName := 'hanim_l_cuneiform_3';
 Transform183 := TTransformNode.Create;
-end;
-
-procedure InitJinLOA4Part13;
-begin
-
 Transform183.Translation := Vector3(4.132,1.484,0.8808);
 Shape184 := TShapeNode.Create;
 Appearance185 := TAppearanceNode.Create;
@@ -2824,6 +2858,11 @@ Material186 := TMaterialNode.Create;
 Material186.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance185.Material := Material186;
+end;
+
+procedure InitJinLOA4Part14;
+begin
+
 ImageTexture187 := ImageTexture37;
 { .SetTexture }
 Appearance185.Texture := ImageTexture187;
@@ -2851,9 +2890,11 @@ HAnimSegment182.AddChildren([Transform183]);
 HAnimJoint181.AddChildren([HAnimSegment182]);
 HAnimJoint191 := THAnimJointNode.Create;
 HAnimJoint191.NameField := 'l_tarsometatarsal_3';
+HAnimJoint191.X3DName := 'hanim_l_tarsometatarsal_3';
 HAnimJoint191.Center := Vector3(4.204,1.16,1.751);
 HAnimSegment192 := THAnimSegmentNode.Create;
 HAnimSegment192.NameField := 'l_metatarsal_3';
+HAnimSegment192.X3DName := 'hanim_l_metatarsal_3';
 Transform193 := TTransformNode.Create;
 Transform193.Translation := Vector3(4.204,1.16,1.751);
 Shape194 := TShapeNode.Create;
@@ -2869,15 +2910,15 @@ Appearance195.Texture := ImageTexture197;
 Shape194.Appearance := Appearance195;
 IndexedFaceSet198 := TIndexedFaceSetNode.Create;
 IndexedFaceSet198.SetCoordIndex([15,3,13,-1,13,12,15,-1,10,2,0,-1,0,7,10,-1,9,6,14,-1,14,1,9,-1,3,10,7,-1,7,13,3,-1,12,16,5,-1,5,15,12,-1,6,9,17,-1,17,8,6,-1,17,4,11,-1,11,8,17,-1,27,31,28,-1,34,33,32,-1,32,35,34,-1,28,31,30,-1,30,29,28,-1,35,32,31,-1,31,27,35,-1,23,20,24,-1,22,21,20,-1,20,23,22,-1,25,19,18,-1,18,26,25,-1,24,20,19,-1,19,25,24,-1,1,18,19,-1,19,9,1,-1,9,19,20,-1,20,17,9,-1,17,20,21,-1,21,4,17,-1,48,47,46,-1,46,45,48,-1,5,22,23,-1,23,15,5,-1,15,23,24,-1,24,3,15,-1,3,24,25,-1,25,10,3,-1,10,25,26,-1,26,2,10,-1,40,39,38,-1,38,37,40,-1,13,27,28,-1,28,12,13,-1,12,28,29,-1,29,16,12,-1,44,51,50,-1,50,49,44,-1,11,30,31,-1,31,8,11,-1,8,31,32,-1,32,6,8,-1,6,32,33,-1,33,14,6,-1,36,43,42,-1,42,41,36,-1,0,34,35,-1,35,7,0,-1,7,35,27,-1,27,13,7,-1,37,36,41,-1,41,40,37,-1,48,45,44,-1,44,49,48,-1,14,36,37,-1,37,1,14,-1,1,37,38,-1,38,18,1,-1,18,38,39,-1,39,26,18,-1,26,39,40,-1,40,2,26,-1,2,40,41,-1,41,0,2,-1,0,41,42,-1,42,34,0,-1,34,42,43,-1,43,33,34,-1,33,43,36,-1,36,14,33,-1,16,44,45,-1,45,5,16,-1,5,45,46,-1,46,22,5,-1,22,46,47,-1,47,21,22,-1,21,47,48,-1,48,4,21,-1,4,48,49,-1,49,11,4,-1,11,49,50,-1,50,30,11,-1,30,50,51,-1,51,29,30,-1,29,51,44,-1,44,16,29,-1]);
-end;
-
-procedure InitJinLOA4Part14;
-begin
-
 IndexedFaceSet198.CreaseAngle := 3.14159;
 IndexedFaceSet198.SetTexCoordIndex([25,3,16,-1,16,7,25,-1,12,2,0,-1,0,9,12,-1,22,18,20,-1,20,1,22,-1,13,23,19,-1,19,17,13,-1,15,26,5,-1,5,24,15,-1,8,11,28,-1,28,21,8,-1,14,4,6,-1,6,10,14,-1,43,27,45,-1,54,53,51,-1,51,55,54,-1,46,50,48,-1,48,47,46,-1,56,52,49,-1,49,44,56,-1,36,28,38,-1,35,34,33,-1,33,37,35,-1,40,30,29,-1,29,42,40,-1,39,32,31,-1,31,41,39,-1,1,29,30,-1,30,22,1,-1,11,31,32,-1,32,28,11,-1,14,33,34,-1,34,4,14,-1,70,69,68,-1,68,67,70,-1,5,35,37,-1,37,24,5,-1,25,36,38,-1,38,3,25,-1,13,39,41,-1,41,23,13,-1,12,40,42,-1,42,2,12,-1,62,61,60,-1,60,58,62,-1,16,43,45,-1,45,7,16,-1,15,46,47,-1,47,26,15,-1,66,74,73,-1,73,71,66,-1,6,48,50,-1,50,10,6,-1,21,49,52,-1,52,8,21,-1,18,51,53,-1,53,20,18,-1,57,65,64,-1,64,63,57,-1,0,54,55,-1,55,9,0,-1,19,56,44,-1,44,17,19,-1,59,57,63,-1,63,62,59,-1,70,67,66,-1,66,72,70,-1,20,57,59,-1,59,1,20,-1,1,58,60,-1,60,29,1,-1,29,60,61,-1,61,42,29,-1,42,61,62,-1,62,2,42,-1,2,62,63,-1,63,0,2,-1,0,63,64,-1,64,54,0,-1,54,64,65,-1,65,53,54,-1,53,65,57,-1,57,20,53,-1,26,66,67,-1,67,5,26,-1,5,67,68,-1,68,35,5,-1,35,68,69,-1,69,34,35,-1,34,69,70,-1,70,4,34,-1,4,70,72,-1,72,6,4,-1,6,71,73,-1,73,48,6,-1,48,73,74,-1,74,47,48,-1,47,74,66,-1,66,26,47,-1]);
 Coordinate199 := TCoordinateNode.Create;
 Coordinate199.SetPoint([Vector3(0.3514,0.0088,2.189),Vector3(-0.2551,-0.9944,2.297),Vector3(-0.2528,0.0522,2.333),Vector3(-0.2951,0.5141,1.194),Vector3(-0.3459,-1.002,-0.0312),Vector3(-0.2968,1.076,-0.0171),Vector3(0.236,-1.076,1.597),Vector3(0.2984,0.2146,1.686),Vector3(0.2182,-1.032,0.4559),Vector3(-0.3108,-1.076,1.683),Vector3(-0.2642,0.2511,1.783),Vector3(0.1688,-1.016,0.0037),Vector3(0.2567,0.7002,0.5242),Vector3(0.2664,0.4574,1.105),Vector3(0.3555,-0.9951,2.147),Vector3(-0.3045,0.7759,0.6139),Vector3(0.2421,0.9373,0.0114),Vector3(-0.3527,-1.012,0.5419),Vector3(-0.4555,-0.9034,2.208),Vector3(-0.5053,-0.9726,1.685),Vector3(-0.5463,-0.9098,0.5513),Vector3(-0.5402,-0.9013,0.0735),Vector3(-0.4975,0.9256,0.0859),Vector3(-0.5034,0.6915,0.5785),Vector3(-0.495,0.4292,1.16),Vector3(-0.4642,0.1647,1.753),Vector3(-0.4562,-0.0112,2.238),Vector3(0.4671,0.3356,0.9778),Vector3(0.4564,0.5794,0.3947),Vector3(0.4508,0.735,0.0575),Vector3(0.3868,-0.8992,0.0513),Vector3(0.4273,-0.911,0.3814),Vector3(0.4427,-0.9545,1.511),Vector3(0.5425,-0.8904,1.948),Vector3(0.5341,-0.0799,1.982),Vector3(0.4962,0.0926,1.56),Vector3(0.404,-0.8727,2.327),Vector3(-0.1714,-0.8722,2.472),Vector3(-0.2831,-0.8318,2.473),Vector3(-0.2837,-0.1125,2.497),Vector3(-0.1794,-0.0912,2.498),Vector3(0.3948,-0.1313,2.362),Vector3(0.515,-0.1786,2.318),Vector3(0.5218,-0.8172,2.291),Vector3(0.1845,0.8454,-0.2358),Vector3(-0.2895,0.9675,-0.2731),Vector3(-0.4148,0.8711,-0.2009),Vector3(-0.4547,-0.8346,-0.2124),Vector3(-0.3314,-0.8987,-0.2789),Vector3(0.1384,-0.9111,-0.2399),Vector3(0.2817,-0.8344,-0.2087),Vector3(0.3416,0.6936,-0.203)]);
+end;
+
+procedure InitJinLOA4Part15;
+begin
+
 { .SetCoord }
 IndexedFaceSet198.Coord := Coordinate199;
 TextureCoordinate200 := TTextureCoordinateNode.Create;
@@ -2894,9 +2935,11 @@ HAnimSegment192.AddChildren([Transform193]);
 HAnimJoint191.AddChildren([HAnimSegment192]);
 HAnimJoint201 := THAnimJointNode.Create;
 HAnimJoint201.NameField := 'l_metatarsophalangeal_3';
+HAnimJoint201.X3DName := 'hanim_l_metatarsophalangeal_3';
 HAnimJoint201.Center := Vector3(4.288,0.6692,4.241);
 HAnimSegment202 := THAnimSegmentNode.Create;
 HAnimSegment202.NameField := 'l_tarsal_proximal_phalanx_3';
+HAnimSegment202.X3DName := 'hanim_l_tarsal_proximal_phalanx_3';
 Transform203 := TTransformNode.Create;
 Transform203.Translation := Vector3(4.288,0.6692,4.241);
 Shape204 := TShapeNode.Create;
@@ -2928,18 +2971,20 @@ Shape204.Geometry := IndexedFaceSet208;
 Transform203.AddChildren([Shape204]);
 { .AddChildren }
 HAnimSegment202.AddChildren([Transform203]);
-end;
-
-procedure InitJinLOA4Part15;
-begin
-
 { .AddChildren }
 HAnimJoint201.AddChildren([HAnimSegment202]);
 HAnimJoint211 := THAnimJointNode.Create;
+end;
+
+procedure InitJinLOA4Part16;
+begin
+
 HAnimJoint211.NameField := 'l_tarsal_proximal_interphalangeal_3';
+HAnimJoint211.X3DName := 'hanim_l_tarsal_proximal_interphalangeal_3';
 HAnimJoint211.Center := Vector3(4.394,0.5299,4.91);
 HAnimSegment212 := THAnimSegmentNode.Create;
 HAnimSegment212.NameField := 'l_tarsal_middle_phalanx_3';
+HAnimSegment212.X3DName := 'hanim_l_tarsal_middle_phalanx_3';
 Transform213 := TTransformNode.Create;
 Transform213.Translation := Vector3(4.394,0.5299,4.91);
 Shape214 := TShapeNode.Create;
@@ -2975,19 +3020,21 @@ HAnimSegment212.AddChildren([Transform213]);
 HAnimJoint211.AddChildren([HAnimSegment212]);
 HAnimJoint221 := THAnimJointNode.Create;
 HAnimJoint221.NameField := 'l_tarsal_distal_interphalangeal_3';
+HAnimJoint221.X3DName := 'hanim_l_tarsal_distal_interphalangeal_3';
 HAnimJoint221.Center := Vector3(4.463,0.4367,5.32);
 HAnimSegment222 := THAnimSegmentNode.Create;
 HAnimSegment222.NameField := 'l_tarsal_distal_phalanx_3';
+HAnimSegment222.X3DName := 'hanim_l_tarsal_distal_phalanx_3';
 Transform223 := TTransformNode.Create;
 Transform223.Translation := Vector3(4.463,0.4367,5.32);
 Shape224 := TShapeNode.Create;
-Appearance225 := TAppearanceNode.Create;
-Material226 := TMaterialNode.Create;
 end;
 
-procedure InitJinLOA4Part16;
+procedure InitJinLOA4Part17;
 begin
 
+Appearance225 := TAppearanceNode.Create;
+Material226 := TMaterialNode.Create;
 Material226.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance225.Material := Material226;
@@ -3030,15 +3077,22 @@ HAnimJoint81.AddChildren([HAnimJoint181]);
 HAnimJoint71.AddChildren([HAnimJoint81]);
 HAnimJoint231 := THAnimJointNode.Create;
 HAnimJoint231.NameField := 'l_calcaneocuboid';
+HAnimJoint231.X3DName := 'hanim_l_calcaneocuboid';
 HAnimJoint231.Center := Vector3(3.96,2.577,-1.154);
 HAnimSegment232 := THAnimSegmentNode.Create;
 HAnimSegment232.NameField := 'l_calcaneus';
+HAnimSegment232.X3DName := 'hanim_l_calcaneus';
 Transform233 := TTransformNode.Create;
 Transform233.Translation := Vector3(3.96,2.577,-1.154);
 Shape234 := TShapeNode.Create;
 Appearance235 := TAppearanceNode.Create;
 Material236 := TMaterialNode.Create;
 Material236.DiffuseColor := Vector3(0.588,0.588,0.588);
+end;
+
+procedure InitJinLOA4Part18;
+begin
+
 { .SetMaterial }
 Appearance235.Material := Material236;
 ImageTexture237 := ImageTexture37;
@@ -3046,11 +3100,6 @@ ImageTexture237 := ImageTexture37;
 Appearance235.Texture := ImageTexture237;
 { .SetAppearance }
 Shape234.Appearance := Appearance235;
-end;
-
-procedure InitJinLOA4Part17;
-begin
-
 IndexedFaceSet238 := TIndexedFaceSetNode.Create;
 IndexedFaceSet238.SetCoordIndex([1,2,3,-1,3,0,1,-1,4,5,6,-1,6,7,4,-1,4,7,19,-1,19,18,4,-1,0,3,9,-1,9,8,0,-1,10,11,3,-1,3,2,10,-1,12,13,7,-1,7,6,12,-1,13,20,19,-1,19,7,13,-1,25,9,14,-1,14,26,25,-1,3,11,14,-1,14,9,3,-1,15,16,11,-1,11,10,15,-1,13,17,21,-1,21,20,13,-1,11,16,14,-1,4,18,23,-1,23,5,4,-1,14,37,38,-1,34,35,16,-1,16,15,34,-1,17,36,39,-1,39,21,17,-1,17,13,12,-1,35,37,14,-1,14,16,35,-1,5,27,30,-1,30,6,5,-1,18,1,22,-1,22,23,18,-1,2,1,18,-1,18,19,2,-1,10,2,19,-1,19,20,10,-1,15,10,20,-1,20,21,15,-1,34,15,21,-1,21,39,34,-1,22,1,0,-1,0,8,22,-1,25,24,8,-1,8,9,25,-1,14,38,33,-1,33,26,14,-1,23,29,27,-1,27,5,23,-1,22,28,29,-1,29,23,22,-1,8,24,28,-1,28,22,8,-1,30,31,12,-1,12,6,30,-1,32,40,12,-1,12,31,32,-1,40,36,17,-1,17,12,40,-1,44,43,42,-1,42,41,49,-1,44,42,49,-1,49,48,47,-1,44,49,47,-1,45,44,47,-1,46,45,47,-1,55,54,53,-1,53,52,51,-1,55,53,51,-1,50,55,51,-1,55,50,59,-1,59,56,55,-1,56,59,58,-1,58,57,56,-1,34,41,42,-1,42,35,34,-1,35,42,43,-1,43,37,35,-1,37,43,44,-1,44,38,37,-1,38,44,45,-1,45,33,38,-1,33,45,46,-1,46,32,33,-1,32,46,47,-1,47,40,32,-1,40,47,48,-1,48,36,40,-1,36,48,49,-1,49,39,36,-1,39,49,41,-1,41,34,39,-1,25,50,51,-1,51,24,25,-1,24,51,52,-1,52,28,24,-1,28,52,53,-1,53,29,28,-1,29,53,54,-1,54,27,29,-1,27,54,55,-1,55,30,27,-1,30,55,56,-1,56,31,30,-1,31,56,57,-1,57,32,31,-1,32,57,58,-1,58,33,32,-1,33,58,59,-1,59,26,33,-1,26,59,50,-1,50,25,26,-1]);
 IndexedFaceSet238.CreaseAngle := 3.14159;
@@ -3073,9 +3122,11 @@ HAnimSegment232.AddChildren([Transform233]);
 HAnimJoint231.AddChildren([HAnimSegment232]);
 HAnimJoint241 := THAnimJointNode.Create;
 HAnimJoint241.NameField := 'l_transversetarsal';
+HAnimJoint241.X3DName := 'hanim_l_transversetarsal';
 HAnimJoint241.Center := Vector3(4.917,1.568,0.09285);
 HAnimSegment242 := THAnimSegmentNode.Create;
 HAnimSegment242.NameField := 'l_cuboid';
+HAnimSegment242.X3DName := 'hanim_l_cuboid';
 Transform243 := TTransformNode.Create;
 Transform243.Translation := Vector3(4.917,1.568,0.09285);
 Shape244 := TShapeNode.Create;
@@ -3094,6 +3145,11 @@ IndexedFaceSet248.SetCoordIndex([1,0,16,-1,16,17,1,-1,3,0,5,-1,5,8,3,-1,6,1,2,-1
 IndexedFaceSet248.CreaseAngle := 3.14159;
 IndexedFaceSet248.SetTexCoordIndex([1,0,16,-1,16,17,1,-1,2,0,5,-1,5,8,2,-1,6,1,3,-1,3,7,6,-1,3,10,4,-1,18,10,3,-1,4,12,13,-1,13,9,4,-1,11,12,4,-1,4,10,11,-1,6,5,0,-1,0,1,6,-1,9,7,3,-1,3,4,9,-1,8,15,14,-1,14,2,8,-1,2,19,16,-1,16,0,2,-1,14,19,2,-1,1,17,18,-1,18,3,1,-1,27,26,33,-1,33,32,31,-1,27,33,31,-1,30,27,31,-1,21,20,25,-1,25,24,21,-1,35,34,42,-1,36,35,42,-1,42,41,40,-1,36,42,40,-1,39,36,40,-1,22,21,24,-1,24,23,22,-1,11,20,21,-1,21,12,11,-1,12,21,22,-1,22,13,12,-1,39,38,37,-1,37,36,39,-1,15,23,24,-1,24,14,15,-1,14,24,25,-1,25,19,14,-1,30,29,28,-1,28,27,30,-1,10,26,27,-1,27,11,10,-1,11,27,28,-1,28,20,11,-1,20,28,29,-1,29,25,20,-1,25,29,30,-1,30,19,25,-1,19,30,31,-1,31,16,19,-1,16,31,32,-1,32,17,16,-1,17,32,33,-1,33,18,17,-1,18,33,26,-1,26,10,18,-1,5,34,35,-1,35,8,5,-1,8,35,36,-1,36,15,8,-1,15,36,37,-1,37,23,15,-1,23,37,38,-1,38,22,23,-1,22,38,39,-1,39,13,22,-1,13,39,40,-1,40,9,13,-1,9,40,41,-1,41,7,9,-1,7,41,42,-1,42,6,7,-1,6,42,34,-1,34,5,6,-1]);
 Coordinate249 := TCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4Part19;
+begin
+
 Coordinate249.SetPoint([Vector3(0.3927,-1.345,0.6502),Vector3(0.5513,-1.052,0.467),Vector3(0.4205,-0.159,0.5973),Vector3(-0.212,-1.391,0.7994),Vector3(-0.0207,0.5191,0.7402),Vector3(0.62,-1.389,1.36),Vector3(0.7814,-1.064,1.28),Vector3(0.629,-0.2544,1.366),Vector3(0.0531,-1.438,1.517),Vector3(0.0856,0.2092,1.533),Vector3(-0.0741,1.291,0.0195),Vector3(-0.563,1.439,0.3053),Vector3(-0.5395,0.8768,0.8021),Vector3(-0.4707,0.5296,1.67),Vector3(-0.5704,-1.398,0.8063),Vector3(-0.544,-1.423,1.662),Vector3(0.3405,-1.414,-0.124),Vector3(0.4606,-1.058,-0.1434),Vector3(0.4397,-0.1251,-0.1558),Vector3(-0.5467,-1.439,-0.0243),Vector3(-0.9941,0.9843,0.4637),Vector3(-0.9743,0.7175,0.6996),Vector3(-0.9157,0.4028,1.487),Vector3(-0.9807,-1.215,1.481),Vector3(-0.9974,-1.195,0.8178),Vector3(-0.9758,-1.225,0.2106),Vector3(-0.3762,1.179,-0.4448),Vector3(-0.695,1.276,-0.2292),Vector3(-1.005,0.9499,-0.116),Vector3(-0.988,-1.072,-0.3476),Vector3(-0.6823,-1.225,-0.5215),Vector3(0.0476,-1.206,-0.5746),Vector3(0.1183,-0.9956,-0.5875),Vector3(0.0976,-0.1248,-0.6032),Vector3(0.555,-1.35,1.795),Vector3(0.0949,-1.389,1.923),Vector3(-0.4583,-1.376,2.08),Vector3(-0.7563,-1.099,1.955),Vector3(-0.702,0.2537,1.96),Vector3(-0.45,0.166,2.097),Vector3(0.0298,-0.1076,1.961),Vector3(0.5117,-0.5116,1.812),Vector3(0.6379,-1.177,1.735)]);
 { .SetCoord }
 IndexedFaceSet248.Coord := Coordinate249;
@@ -3103,11 +3159,6 @@ TextureCoordinate250.SetPoint([Vector2(0.2528,0.0622),Vector2(0.2585,0.0581),Vec
 IndexedFaceSet248.TexCoord := TextureCoordinate250;
 { .SetGeometry }
 Shape244.Geometry := IndexedFaceSet248;
-end;
-
-procedure InitJinLOA4Part18;
-begin
-
 { .AddChild }
 Transform243.AddChildren([Shape244]);
 { .AddChildren }
@@ -3116,9 +3167,11 @@ HAnimSegment242.AddChildren([Transform243]);
 HAnimJoint241.AddChildren([HAnimSegment242]);
 HAnimJoint251 := THAnimJointNode.Create;
 HAnimJoint251.NameField := 'l_tarsometatarsal_4';
+HAnimJoint251.X3DName := 'hanim_l_tarsometatarsal_4';
 HAnimJoint251.Center := Vector3(4.733,1.091,1.708);
 HAnimSegment252 := THAnimSegmentNode.Create;
 HAnimSegment252.NameField := 'l_metatarsal_4';
+HAnimSegment252.X3DName := 'hanim_l_metatarsal_4';
 Transform253 := TTransformNode.Create;
 Transform253.Translation := Vector3(4.733,1.091,1.708);
 Shape254 := TShapeNode.Create;
@@ -3152,19 +3205,21 @@ Transform253.AddChildren([Shape254]);
 HAnimSegment252.AddChildren([Transform253]);
 { .AddChildren }
 HAnimJoint251.AddChildren([HAnimSegment252]);
+end;
+
+procedure InitJinLOA4Part20;
+begin
+
 HAnimJoint261 := THAnimJointNode.Create;
 HAnimJoint261.NameField := 'l_metatarsophalangeal_4';
+HAnimJoint261.X3DName := 'hanim_l_metatarsophalangeal_4';
 HAnimJoint261.Center := Vector3(4.883,0.6379,4.052);
 HAnimSegment262 := THAnimSegmentNode.Create;
 HAnimSegment262.NameField := 'l_tarsal_proximal_phalanx_4';
+HAnimSegment262.X3DName := 'hanim_l_tarsal_proximal_phalanx_4';
 Transform263 := TTransformNode.Create;
 Transform263.Translation := Vector3(4.883,0.6379,4.052);
 Shape264 := TShapeNode.Create;
-end;
-
-procedure InitJinLOA4Part19;
-begin
-
 Appearance265 := TAppearanceNode.Create;
 Material266 := TMaterialNode.Create;
 Material266.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -3197,11 +3252,18 @@ HAnimSegment262.AddChildren([Transform263]);
 HAnimJoint261.AddChildren([HAnimSegment262]);
 HAnimJoint271 := THAnimJointNode.Create;
 HAnimJoint271.NameField := 'l_tarsal_proximal_interphalangeal_4';
+HAnimJoint271.X3DName := 'hanim_l_tarsal_proximal_interphalangeal_4';
 HAnimJoint271.Center := Vector3(5.074,0.5442,4.725);
 HAnimSegment272 := THAnimSegmentNode.Create;
 HAnimSegment272.NameField := 'l_tarsal_middle_phalanx_4';
+HAnimSegment272.X3DName := 'hanim_l_tarsal_middle_phalanx_4';
 Transform273 := TTransformNode.Create;
 Transform273.Translation := Vector3(5.074,0.5442,4.725);
+end;
+
+procedure InitJinLOA4Part21;
+begin
+
 Shape274 := TShapeNode.Create;
 Appearance275 := TAppearanceNode.Create;
 Material276 := TMaterialNode.Create;
@@ -3217,11 +3279,6 @@ IndexedFaceSet278 := TIndexedFaceSetNode.Create;
 IndexedFaceSet278.SetCoordIndex([0,1,7,-1,7,6,0,-1,2,0,6,-1,6,8,2,-1,9,3,2,-1,2,8,9,-1,4,3,9,-1,9,10,4,-1,11,5,4,-1,4,10,11,-1,7,1,5,-1,5,11,7,-1,12,17,16,-1,16,15,14,-1,12,16,14,-1,13,12,14,-1,7,12,13,-1,13,6,7,-1,6,13,14,-1,14,8,6,-1,8,14,15,-1,15,9,8,-1,9,15,16,-1,16,10,9,-1,10,16,17,-1,17,11,10,-1,11,17,12,-1,12,7,11,-1,18,23,22,-1,22,21,20,-1,18,22,20,-1,19,18,20,-1,0,18,19,-1,19,1,0,-1,1,19,20,-1,20,5,1,-1,5,20,21,-1,21,4,5,-1,4,21,22,-1,22,3,4,-1,3,22,23,-1,23,2,3,-1,2,23,18,-1,18,0,2,-1]);
 IndexedFaceSet278.CreaseAngle := 3.14159;
 IndexedFaceSet278.SetTexCoordIndex([0,1,9,-1,9,8,0,-1,2,0,8,-1,8,10,2,-1,11,3,2,-1,2,10,11,-1,4,3,11,-1,11,12,4,-1,14,6,7,-1,7,13,14,-1,9,1,5,-1,5,15,9,-1,16,21,20,-1,20,19,18,-1,16,20,18,-1,17,16,18,-1,9,16,17,-1,17,8,9,-1,8,17,18,-1,18,10,8,-1,10,18,19,-1,19,11,10,-1,11,19,20,-1,20,12,11,-1,13,20,21,-1,21,14,13,-1,15,21,16,-1,16,9,15,-1,22,27,26,-1,26,25,24,-1,22,26,24,-1,23,22,24,-1,0,22,23,-1,23,1,0,-1,1,23,24,-1,24,5,1,-1,6,24,25,-1,25,7,6,-1,4,25,26,-1,26,3,4,-1,3,26,27,-1,27,2,3,-1,2,27,22,-1,22,0,2,-1]);
-end;
-
-procedure InitJinLOA4Part20;
-begin
-
 Coordinate279 := TCoordinateNode.Create;
 Coordinate279.SetPoint([Vector3(-0.2219,-0.455,0.3874),Vector3(-0.2704,-0.0797,0.4109),Vector3(0.2847,-0.455,0.2749),Vector3(0.3388,-0.0797,0.2793),Vector3(0.3015,0.1733,0.2582),Vector3(-0.2248,0.1994,0.3929),Vector3(-0.243,-0.4122,0.0438),Vector3(-0.3003,-0.0082,0.0541),Vector3(0.1707,-0.4375,-0.0581),Vector3(0.2172,-0.0082,-0.0735),Vector3(0.1805,0.4111,-0.0525),Vector3(-0.2626,0.455,0.0501),Vector3(-0.2483,-0.0038,-0.1702),Vector3(-0.2041,-0.3133,-0.1768),Vector3(0.0337,-0.3279,-0.2359),Vector3(0.0682,-0.0062,-0.2491),Vector3(0.0403,0.318,-0.2307),Vector3(-0.2198,0.3438,-0.1726),Vector3(-0.0622,-0.3044,0.5037),Vector3(-0.0897,-0.0812,0.5234),Vector3(-0.0698,0.0446,0.5123),Vector3(0.208,0.0308,0.465),Vector3(0.2246,-0.0777,0.4585),Vector3(0.1903,-0.3044,0.4486)]);
 { .SetCoord }
@@ -3240,9 +3297,11 @@ HAnimSegment272.AddChildren([Transform273]);
 HAnimJoint271.AddChildren([HAnimSegment272]);
 HAnimJoint281 := THAnimJointNode.Create;
 HAnimJoint281.NameField := 'l_tarsal_distal_interphalangeal_4';
+HAnimJoint281.X3DName := 'hanim_l_tarsal_distal_interphalangeal_4';
 HAnimJoint281.Center := Vector3(5.141,0.4164,5.053);
 HAnimSegment282 := THAnimSegmentNode.Create;
 HAnimSegment282.NameField := 'l_tarsal_distal_phalanx_4';
+HAnimSegment282.X3DName := 'hanim_l_tarsal_distal_phalanx_4';
 Transform283 := TTransformNode.Create;
 Transform283.Translation := Vector3(5.141,0.4164,5.053);
 Shape284 := TShapeNode.Create;
@@ -3257,6 +3316,11 @@ Appearance285.Texture := ImageTexture287;
 { .SetAppearance }
 Shape284.Appearance := Appearance285;
 IndexedFaceSet288 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitJinLOA4Part22;
+begin
+
 IndexedFaceSet288.SetCoordIndex([0,1,2,-1,2,3,0,-1,5,3,2,-1,2,4,5,-1,0,3,7,-1,7,6,0,-1,1,0,6,-1,6,8,1,-1,9,2,1,-1,1,8,9,-1,4,2,9,-1,9,10,4,-1,11,5,4,-1,4,10,11,-1,7,3,5,-1,5,11,7,-1,12,17,16,-1,16,15,14,-1,12,16,14,-1,13,12,14,-1,7,12,13,-1,13,6,7,-1,6,13,14,-1,14,8,6,-1,8,14,15,-1,15,9,8,-1,9,15,16,-1,16,10,9,-1,10,16,17,-1,17,11,10,-1,11,17,12,-1,12,7,11,-1]);
 IndexedFaceSet288.CreaseAngle := 3.14159;
 IndexedFaceSet288.SetTexCoordIndex([0,1,2,-1,2,3,0,-1,5,3,2,-1,2,4,5,-1,0,3,9,-1,9,8,0,-1,1,0,8,-1,8,10,1,-1,11,2,1,-1,1,10,11,-1,4,2,11,-1,11,12,4,-1,14,6,7,-1,7,13,14,-1,9,3,5,-1,5,15,9,-1,16,21,20,-1,20,19,18,-1,16,20,18,-1,17,16,18,-1,9,16,17,-1,17,8,9,-1,8,17,18,-1,18,10,8,-1,10,18,19,-1,19,11,10,-1,11,19,20,-1,20,12,11,-1,13,20,21,-1,21,14,13,-1,15,21,16,-1,16,9,15,-1]);
@@ -3278,11 +3342,6 @@ HAnimSegment282.AddChildren([Transform283]);
 HAnimJoint281.AddChildren([HAnimSegment282]);
 { .AddChildren }
 HAnimJoint271.AddChildren([HAnimJoint281]);
-end;
-
-procedure InitJinLOA4Part21;
-begin
-
 { .AddChildren }
 HAnimJoint261.AddChildren([HAnimJoint271]);
 { .AddChildren }
@@ -3291,9 +3350,11 @@ HAnimJoint251.AddChildren([HAnimJoint261]);
 HAnimJoint241.AddChildren([HAnimJoint251]);
 HAnimJoint291 := THAnimJointNode.Create;
 HAnimJoint291.NameField := 'l_tarsometatarsal_5';
+HAnimJoint291.X3DName := 'hanim_l_tarsometatarsal_5';
 HAnimJoint291.Center := Vector3(5.37,0.9309,1.544);
 HAnimSegment292 := THAnimSegmentNode.Create;
 HAnimSegment292.NameField := 'l_metatarsal_5';
+HAnimSegment292.X3DName := 'hanim_l_metatarsal_5';
 Transform293 := TTransformNode.Create;
 Transform293.Translation := Vector3(5.37,0.9309,1.544);
 Shape294 := TShapeNode.Create;
@@ -3313,6 +3374,11 @@ IndexedFaceSet298.CreaseAngle := 3.14159;
 IndexedFaceSet298.SetTexCoordIndex([0,10,1,-1,2,9,17,-1,17,12,2,-1,6,14,11,-1,11,0,6,-1,2,8,7,-1,7,1,2,-1,3,18,19,-1,19,4,3,-1,13,5,20,-1,20,22,13,-1,5,9,10,-1,10,4,5,-1,6,0,1,-1,1,7,6,-1,8,2,12,-1,12,15,8,-1,9,5,13,-1,13,17,9,-1,0,11,16,-1,16,3,0,-1,9,2,1,-1,1,10,9,-1,3,4,10,-1,10,0,3,-1,16,21,18,-1,18,3,16,-1,19,20,5,-1,5,4,19,-1,35,34,33,-1,36,35,33,-1,32,36,33,-1,27,26,25,-1,25,24,27,-1,41,40,39,-1,41,39,45,-1,44,41,45,-1,28,11,29,-1,28,27,24,-1,24,23,28,-1,29,23,31,-1,31,30,29,-1,11,23,24,-1,24,16,11,-1,16,24,25,-1,25,21,16,-1,32,38,37,-1,37,36,32,-1,22,26,27,-1,27,13,22,-1,13,27,28,-1,28,17,13,-1,17,28,29,-1,29,12,17,-1,12,29,30,-1,30,15,12,-1,44,43,42,-1,42,41,44,-1,14,31,23,-1,23,11,14,-1,21,32,33,-1,33,18,21,-1,18,33,34,-1,34,19,18,-1,19,34,35,-1,35,20,19,-1,20,35,36,-1,36,22,20,-1,22,36,37,-1,37,26,22,-1,26,37,38,-1,38,25,26,-1,25,38,32,-1,32,21,25,-1,7,39,40,-1,40,6,7,-1,6,40,41,-1,41,14,6,-1,14,41,42,-1,42,31,14,-1,31,42,43,-1,43,30,31,-1,30,43,44,-1,44,15,30,-1,15,44,45,-1,45,8,15,-1,8,45,39,-1,39,7,8,-1]);
 Coordinate299 := TCoordinateNode.Create;
 Coordinate299.SetPoint([Vector3(0.3306,-0.8463,1.144),Vector3(0.5928,-0.4351,1.443),Vector3(0.453,0.1964,1.556),Vector3(0.3168,-0.7816,0.375),Vector3(0.4901,-0.4351,0.3998),Vector3(0.3189,0.3175,0.4396),Vector3(0.3613,-0.7553,2.007),Vector3(0.5238,-0.4351,1.966),Vector3(0.4304,0.0633,2.009),Vector3(0.3979,0.2569,1.048),Vector3(0.5415,-0.4351,0.9212),Vector3(-0.2997,-0.8463,1.575),Vector3(-0.2064,0.3634,1.773),Vector3(-0.2954,0.6373,0.5845),Vector3(-0.1931,-0.7247,2.2),Vector3(-0.2255,0.1741,2.243),Vector3(-0.3393,-0.8242,0.5125),Vector3(-0.2342,0.4968,1.18),Vector3(0.1673,-0.7522,-0.0918),Vector3(0.3287,-0.4266,-0.171),Vector3(0.1763,0.3828,-0.0859),Vector3(-0.3996,-0.8013,0.0654),Vector3(-0.3671,0.8463,0.0812),Vector3(-0.5368,-0.6501,1.58),Vector3(-0.5743,-0.6285,0.5402),Vector3(-0.6111,-0.6148,0.2736),Vector3(-0.5885,0.5776,0.2852),Vector3(-0.5498,0.4676,0.5498),Vector3(-0.4891,0.3238,1.161),Vector3(-0.4604,0.1935,1.738),Vector3(-0.4855,0.0596,2.072),Vector3(-0.4467,-0.5603,2.042),Vector3(-0.5171,-0.6818,-0.2412),Vector3(-0.0362,-0.6408,-0.3566),Vector3(0.0783,-0.4046,-0.4223),Vector3(-0.0584,0.3254,-0.3431),Vector3(-0.5171,0.7097,-0.2325),Vector3(-0.6459,0.5317,-0.0795),Vector3(-0.6663,-0.5485,-0.09),Vector3(0.3834,-0.4628,2.152),Vector3(0.275,-0.654,2.178),Vector3(-0.1853,-0.6314,2.365),Vector3(-0.3686,-0.526,2.255),Vector3(-0.3984,-0.1094,2.279),Vector3(-0.2347,-0.0432,2.397),Vector3(0.3129,-0.1268,2.183)]);
+end;
+
+procedure InitJinLOA4Part23;
+begin
+
 { .SetCoord }
 IndexedFaceSet298.Coord := Coordinate299;
 TextureCoordinate300 := TTextureCoordinateNode.Create;
@@ -3329,17 +3395,14 @@ HAnimSegment292.AddChildren([Transform293]);
 HAnimJoint291.AddChildren([HAnimSegment292]);
 HAnimJoint301 := THAnimJointNode.Create;
 HAnimJoint301.NameField := 'l_metatarsophalangeal_5';
+HAnimJoint301.X3DName := 'hanim_l_metatarsophalangeal_5';
 HAnimJoint301.Center := Vector3(5.514,0.6076,3.847);
 HAnimSegment302 := THAnimSegmentNode.Create;
 HAnimSegment302.NameField := 'l_tarsal_proximal_phalanx_5';
+HAnimSegment302.X3DName := 'hanim_l_tarsal_proximal_phalanx_5';
 Transform303 := TTransformNode.Create;
 Transform303.Translation := Vector3(5.514,0.6076,3.847);
 Shape304 := TShapeNode.Create;
-end;
-
-procedure InitJinLOA4Part22;
-begin
-
 Appearance305 := TAppearanceNode.Create;
 Material306 := TMaterialNode.Create;
 Material306.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -3371,10 +3434,17 @@ HAnimSegment302.AddChildren([Transform303]);
 { .AddChildren }
 HAnimJoint301.AddChildren([HAnimSegment302]);
 HAnimJoint311 := THAnimJointNode.Create;
+end;
+
+procedure InitJinLOA4Part24;
+begin
+
 HAnimJoint311.NameField := 'l_tarsal_proximal_interphalangeal_5';
+HAnimJoint311.X3DName := 'hanim_l_tarsal_proximal_interphalangeal_5';
 HAnimJoint311.Center := Vector3(5.617,0.4825,4.184);
 HAnimSegment312 := THAnimSegmentNode.Create;
 HAnimSegment312.NameField := 'l_tarsal_middle_phalanx_5';
+HAnimSegment312.X3DName := 'hanim_l_tarsal_middle_phalanx_5';
 Transform313 := TTransformNode.Create;
 Transform313.Translation := Vector3(5.617,0.4825,4.184);
 Shape314 := TShapeNode.Create;
@@ -3392,11 +3462,6 @@ IndexedFaceSet318 := TIndexedFaceSetNode.Create;
 IndexedFaceSet318.SetCoordIndex([6,7,1,-1,1,0,6,-1,7,8,2,-1,2,1,7,-1,8,9,3,-1,3,2,8,-1,3,9,10,-1,10,4,3,-1,4,10,11,-1,11,5,4,-1,5,11,6,-1,6,0,5,-1,18,23,22,-1,22,21,20,-1,18,22,20,-1,19,18,20,-1,12,17,16,-1,16,15,14,-1,12,16,14,-1,13,12,14,-1,6,12,13,-1,13,7,6,-1,7,13,14,-1,14,8,7,-1,8,14,15,-1,15,9,8,-1,9,15,16,-1,16,10,9,-1,10,16,17,-1,17,11,10,-1,11,17,12,-1,12,6,11,-1,1,18,19,-1,19,0,1,-1,0,19,20,-1,20,5,0,-1,5,20,21,-1,21,4,5,-1,4,21,22,-1,22,3,4,-1,3,22,23,-1,23,2,3,-1,2,23,18,-1,18,1,2,-1]);
 IndexedFaceSet318.CreaseAngle := 3.14159;
 IndexedFaceSet318.SetTexCoordIndex([6,7,0,-1,0,1,6,-1,7,8,2,-1,2,0,7,-1,8,9,3,-1,3,2,8,-1,3,9,10,-1,10,4,3,-1,4,10,11,-1,11,5,4,-1,5,11,6,-1,6,1,5,-1,18,23,22,-1,22,21,20,-1,18,22,20,-1,19,18,20,-1,12,17,16,-1,16,15,14,-1,12,16,14,-1,13,12,14,-1,6,12,13,-1,13,7,6,-1,7,13,14,-1,14,8,7,-1,8,14,15,-1,15,9,8,-1,9,15,16,-1,16,10,9,-1,10,16,17,-1,17,11,10,-1,11,17,12,-1,12,6,11,-1,0,18,19,-1,19,1,0,-1,1,19,20,-1,20,5,1,-1,5,20,21,-1,21,4,5,-1,4,21,22,-1,22,3,4,-1,3,22,23,-1,23,2,3,-1,2,23,18,-1,18,0,2,-1]);
-end;
-
-procedure InitJinLOA4Part23;
-begin
-
 Coordinate319 := TCoordinateNode.Create;
 Coordinate319.SetPoint([Vector3(0.2408,-0.4069,0.2803),Vector3(0.3104,-0.1317,0.2682),Vector3(0.2708,0.1735,0.2787),Vector3(-0.2317,0.2031,0.3777),Vector3(-0.2679,-0.1354,0.3997),Vector3(-0.1895,-0.4021,0.3653),Vector3(0.1525,-0.3723,-0.0403),Vector3(0.2354,-0.0074,-0.0325),Vector3(0.1833,0.3464,-0.0414),Vector3(-0.2758,0.4069,0.0611),Vector3(-0.3045,0.025,0.1088),Vector3(-0.2506,-0.2948,0.058),Vector3(0.0394,-0.2528,-0.1664),Vector3(0.0981,-0.0034,-0.1527),Vector3(0.0588,0.2544,-0.1647),Vector3(-0.223,0.2914,-0.1062),Vector3(-0.2396,0.03,-0.0614),Vector3(-0.202,-0.2065,-0.1082),Vector3(0.193,-0.1236,0.4464),Vector3(0.1591,-0.2569,0.4517),Vector3(-0.0503,-0.2545,0.4894),Vector3(-0.0876,-0.122,0.5141),Vector3(-0.0715,0.0448,0.4955),Vector3(0.173,0.0304,0.4518)]);
 { .SetCoord }
@@ -3415,12 +3480,19 @@ HAnimSegment312.AddChildren([Transform313]);
 HAnimJoint311.AddChildren([HAnimSegment312]);
 HAnimJoint321 := THAnimJointNode.Create;
 HAnimJoint321.NameField := 'l_tarsal_distal_interphalangeal_5';
+HAnimJoint321.X3DName := 'hanim_l_tarsal_distal_interphalangeal_5';
 HAnimJoint321.Center := Vector3(5.657,0.3806,4.528);
 HAnimSegment322 := THAnimSegmentNode.Create;
 HAnimSegment322.NameField := 'l_tarsal_distal_phalanx_5';
+HAnimSegment322.X3DName := 'hanim_l_tarsal_distal_phalanx_5';
 Transform323 := TTransformNode.Create;
 Transform323.Translation := Vector3(5.657,0.3806,4.528);
 Shape324 := TShapeNode.Create;
+end;
+
+procedure InitJinLOA4Part25;
+begin
+
 Appearance325 := TAppearanceNode.Create;
 Material326 := TMaterialNode.Create;
 Material326.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -3453,11 +3525,6 @@ HAnimSegment322.AddChildren([Transform323]);
 HAnimJoint321.AddChildren([HAnimSegment322]);
 { .AddChildren }
 HAnimJoint311.AddChildren([HAnimJoint321]);
-end;
-
-procedure InitJinLOA4Part24;
-begin
-
 { .AddChildren }
 HAnimJoint301.AddChildren([HAnimJoint311]);
 { .AddChildren }
@@ -3476,12 +3543,19 @@ HAnimJoint51.AddChildren([HAnimJoint61]);
 HAnimJoint41.AddChildren([HAnimJoint51]);
 HAnimJoint331 := THAnimJointNode.Create;
 HAnimJoint331.NameField := 'r_hip';
+HAnimJoint331.X3DName := 'hanim_r_hip';
 HAnimJoint331.Center := Vector3(-4.207,36.740002,-0.8155);
 HAnimSegment332 := THAnimSegmentNode.Create;
 HAnimSegment332.NameField := 'r_thigh';
+HAnimSegment332.X3DName := 'hanim_r_thigh';
 Transform333 := TTransformNode.Create;
 Transform333.Translation := Vector3(-4.207,36.740002,-0.8155);
 Shape334 := TShapeNode.Create;
+end;
+
+procedure InitJinLOA4Part26;
+begin
+
 Appearance335 := TAppearanceNode.Create;
 Material336 := TMaterialNode.Create;
 Material336.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -3514,14 +3588,11 @@ HAnimSegment332.AddChildren([Transform333]);
 HAnimJoint331.AddChildren([HAnimSegment332]);
 HAnimJoint341 := THAnimJointNode.Create;
 HAnimJoint341.NameField := 'r_knee';
+HAnimJoint341.X3DName := 'hanim_r_knee';
 HAnimJoint341.Center := Vector3(-4.116,18.17,-0.8639);
-end;
-
-procedure InitJinLOA4Part25;
-begin
-
 HAnimSegment342 := THAnimSegmentNode.Create;
 HAnimSegment342.NameField := 'r_calf';
+HAnimSegment342.X3DName := 'hanim_r_calf';
 Transform343 := TTransformNode.Create;
 Transform343.Translation := Vector3(-4.116,18.17,-0.8639);
 Shape344 := TShapeNode.Create;
@@ -3537,6 +3608,11 @@ Appearance345.Texture := ImageTexture347;
 Shape344.Appearance := Appearance345;
 IndexedFaceSet348 := TIndexedFaceSetNode.Create;
 IndexedFaceSet348.SetCoordIndex([0,1,2,-1,2,3,4,-1,2,4,5,-1,0,2,5,-1,6,0,5,-1,9,10,7,-1,7,8,9,-1,12,9,8,-1,8,11,12,-1,14,12,11,-1,11,13,14,-1,16,14,13,-1,13,15,16,-1,18,16,15,-1,15,17,18,-1,20,18,17,-1,17,19,20,-1,10,20,19,-1,19,7,10,-1,21,22,10,-1,10,9,21,-1,23,21,9,-1,9,12,23,-1,24,23,12,-1,12,14,24,-1,25,24,14,-1,14,16,25,-1,26,25,16,-1,16,18,26,-1,27,26,18,-1,18,20,27,-1,22,27,20,-1,20,10,22,-1,1,0,22,-1,22,21,1,-1,2,1,21,-1,21,23,2,-1,3,2,23,-1,23,24,3,-1,4,3,24,-1,24,25,4,-1,5,4,25,-1,25,26,5,-1,6,5,26,-1,26,27,6,-1,0,6,27,-1,27,22,0,-1,8,7,28,-1,28,29,8,-1,11,8,29,-1,29,30,11,-1,13,11,30,-1,30,31,13,-1,15,13,31,-1,31,32,15,-1,17,15,32,-1,32,33,17,-1,19,17,33,-1,33,34,19,-1,7,19,34,-1,34,28,7,-1,29,28,35,-1,35,36,29,-1,30,29,36,-1,36,37,30,-1,31,30,37,-1,37,38,31,-1,32,31,38,-1,38,39,32,-1,33,32,39,-1,39,40,33,-1,34,33,40,-1,40,41,34,-1,28,34,41,-1,41,35,28,-1]);
+end;
+
+procedure InitJinLOA4Part27;
+begin
+
 IndexedFaceSet348.CreaseAngle := 3.14159;
 IndexedFaceSet348.SetTexCoordIndex([0,1,2,-1,2,3,4,-1,2,4,5,-1,0,2,5,-1,6,0,5,-1,9,10,7,-1,7,8,9,-1,12,9,8,-1,8,11,12,-1,14,12,11,-1,11,13,14,-1,16,14,13,-1,13,15,16,-1,18,16,15,-1,15,17,18,-1,20,18,17,-1,17,19,20,-1,10,20,19,-1,19,7,10,-1,21,22,10,-1,10,9,21,-1,23,21,9,-1,9,12,23,-1,24,23,12,-1,12,14,24,-1,25,24,14,-1,14,16,25,-1,26,25,16,-1,16,18,26,-1,27,26,18,-1,18,20,27,-1,22,27,20,-1,20,10,22,-1,1,0,22,-1,22,21,1,-1,2,1,21,-1,21,23,2,-1,3,2,23,-1,23,24,3,-1,4,3,24,-1,24,25,4,-1,5,4,25,-1,25,26,5,-1,6,5,26,-1,26,27,6,-1,0,6,27,-1,27,22,0,-1,8,7,28,-1,28,29,8,-1,11,8,29,-1,29,30,11,-1,13,11,30,-1,30,31,13,-1,15,13,31,-1,31,32,15,-1,17,15,32,-1,32,33,17,-1,19,17,33,-1,33,34,19,-1,7,19,34,-1,34,28,7,-1,29,28,35,-1,35,36,29,-1,30,29,36,-1,36,37,30,-1,31,30,37,-1,37,38,31,-1,32,31,38,-1,38,39,32,-1,33,32,39,-1,39,40,33,-1,34,33,40,-1,40,41,34,-1,28,34,41,-1,41,35,28,-1]);
 Coordinate349 := TCoordinateNode.Create;
@@ -3557,9 +3633,11 @@ HAnimSegment342.AddChildren([Transform343]);
 HAnimJoint341.AddChildren([HAnimSegment342]);
 HAnimJoint351 := THAnimJointNode.Create;
 HAnimJoint351.NameField := 'r_talocrural';
+HAnimJoint351.X3DName := 'hanim_r_talocrural';
 HAnimJoint351.Center := Vector3(-3.931,4.242,-0.4645);
 HAnimSegment352 := THAnimSegmentNode.Create;
 HAnimSegment352.NameField := 'r_talus';
+HAnimSegment352.X3DName := 'hanim_r_talus';
 Transform353 := TTransformNode.Create;
 Transform353.Translation := Vector3(-3.931,4.242,-0.4645);
 Shape354 := TShapeNode.Create;
@@ -3571,11 +3649,6 @@ Appearance355.Material := Material356;
 ImageTexture357 := ImageTexture37;
 { .SetTexture }
 Appearance355.Texture := ImageTexture357;
-end;
-
-procedure InitJinLOA4Part26;
-begin
-
 { .SetAppearance }
 Shape354.Appearance := Appearance355;
 IndexedFaceSet358 := TIndexedFaceSetNode.Create;
@@ -3592,6 +3665,11 @@ TextureCoordinate360.SetPoint([Vector2(0.227,0.1089),Vector2(0.2217,0.1285),Vect
 IndexedFaceSet358.TexCoord := TextureCoordinate360;
 { .SetGeometry }
 Shape354.Geometry := IndexedFaceSet358;
+end;
+
+procedure InitJinLOA4Part28;
+begin
+
 { .AddChild }
 Transform353.AddChildren([Shape354]);
 { .AddChildren }
@@ -3600,9 +3678,11 @@ HAnimSegment352.AddChildren([Transform353]);
 HAnimJoint351.AddChildren([HAnimSegment352]);
 HAnimJoint361 := THAnimJointNode.Create;
 HAnimJoint361.NameField := 'r_talocalcaneonavicular';
+HAnimJoint361.X3DName := 'hanim_r_talocalcaneonavicular';
 HAnimJoint361.Center := Vector3(-3.464,1.64,0.2162);
 HAnimSegment362 := THAnimSegmentNode.Create;
 HAnimSegment362.NameField := 'r_navicular';
+HAnimSegment362.X3DName := 'hanim_r_navicular';
 Transform363 := TTransformNode.Create;
 Transform363.Translation := Vector3(-3.464,1.64,0.2162);
 Shape364 := TShapeNode.Create;
@@ -3628,11 +3708,6 @@ TextureCoordinate370 := TTextureCoordinateNode.Create;
 TextureCoordinate370.SetPoint([Vector2(0.2314,0.0879),Vector2(0.21,0.1541),Vector2(0.2053,0.1595),Vector2(0.2104,0.1443),Vector2(0.2271,0.0958),Vector2(0.2224,0.1067),Vector2(0.2032,0.149),Vector2(0.2132,0.1285),Vector2(0.2197,0.1123),Vector2(0.2163,0.1174),Vector2(0.227,0.1089),Vector2(0.2165,0.148),Vector2(0.2217,0.1285),Vector2(0.2407,0.0951),Vector2(0.2178,0.1526),Vector2(0.2363,0.0929),Vector2(0.2213,0.1179),Vector2(0.2171,0.1588),Vector2(0.2129,0.1643),Vector2(0.21,0.1541),Vector2(0.2053,0.1595),Vector2(0.2032,0.149),Vector2(0.2132,0.1285),Vector2(0.2224,0.1067),Vector2(0.2314,0.0879),Vector2(0.2271,0.0958),Vector2(0.2197,0.1123),Vector2(0.2163,0.1174),Vector2(0.2104,0.1443),Vector2(0.227,0.1089),Vector2(0.2217,0.1285),Vector2(0.2165,0.148),Vector2(0.2129,0.1643),Vector2(0.2171,0.1588),Vector2(0.2178,0.1526),Vector2(0.2213,0.1179),Vector2(0.2363,0.0929),Vector2(0.2407,0.0951),Vector2(0.2314,0.0879),Vector2(0.2407,0.0951),Vector2(0.2407,0.0951),Vector2(0.2363,0.0929),Vector2(0.2363,0.0929),Vector2(0.2271,0.0958),Vector2(0.2271,0.0958),Vector2(0.2314,0.0879)]);
 { .SetTexCoord }
 IndexedFaceSet368.TexCoord := TextureCoordinate370;
-end;
-
-procedure InitJinLOA4Part27;
-begin
-
 { .SetGeometry }
 Shape364.Geometry := IndexedFaceSet368;
 { .AddChild }
@@ -3643,9 +3718,16 @@ HAnimSegment362.AddChildren([Transform363]);
 HAnimJoint361.AddChildren([HAnimSegment362]);
 HAnimJoint371 := THAnimJointNode.Create;
 HAnimJoint371.NameField := 'r_cuneonavicular_1';
+HAnimJoint371.X3DName := 'hanim_r_cuneonavicular_1';
 HAnimJoint371.Center := Vector3(-2.977,1.427,0.8174);
 HAnimSegment372 := THAnimSegmentNode.Create;
 HAnimSegment372.NameField := 'r_cuneiform_1';
+end;
+
+procedure InitJinLOA4Part29;
+begin
+
+HAnimSegment372.X3DName := 'hanim_r_cuneiform_1';
 Transform373 := TTransformNode.Create;
 Transform373.Translation := Vector3(-2.977,1.427,0.8174);
 Shape374 := TShapeNode.Create;
@@ -3681,16 +3763,13 @@ HAnimSegment372.AddChildren([Transform373]);
 HAnimJoint371.AddChildren([HAnimSegment372]);
 HAnimJoint381 := THAnimJointNode.Create;
 HAnimJoint381.NameField := 'r_tarsometatarsal_1';
+HAnimJoint381.X3DName := 'hanim_r_tarsometatarsal_1';
 HAnimJoint381.Center := Vector3(-2.856,1.033,1.964);
 HAnimSegment382 := THAnimSegmentNode.Create;
 HAnimSegment382.NameField := 'r_metatarsal_1';
+HAnimSegment382.X3DName := 'hanim_r_metatarsal_1';
 Transform383 := TTransformNode.Create;
 Transform383.Translation := Vector3(-2.856,1.033,1.964);
-end;
-
-procedure InitJinLOA4Part28;
-begin
-
 Shape384 := TShapeNode.Create;
 Appearance385 := TAppearanceNode.Create;
 Material386 := TMaterialNode.Create;
@@ -3698,6 +3777,11 @@ Material386.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance385.Material := Material386;
 ImageTexture387 := ImageTexture37;
+end;
+
+procedure InitJinLOA4Part30;
+begin
+
 { .SetTexture }
 Appearance385.Texture := ImageTexture387;
 { .SetAppearance }
@@ -3724,9 +3808,11 @@ HAnimSegment382.AddChildren([Transform383]);
 HAnimJoint381.AddChildren([HAnimSegment382]);
 HAnimJoint391 := THAnimJointNode.Create;
 HAnimJoint391.NameField := 'r_metatarsophalangeal_1';
+HAnimJoint391.X3DName := 'hanim_r_metatarsophalangeal_1';
 HAnimJoint391.Center := Vector3(-2.745,0.6411,4.161);
 HAnimSegment392 := THAnimSegmentNode.Create;
 HAnimSegment392.NameField := 'r_tarsal_proximal_phalanx_1';
+HAnimSegment392.X3DName := 'hanim_r_tarsal_proximal_phalanx_1';
 Transform393 := TTransformNode.Create;
 Transform393.Translation := Vector3(-2.745,0.6411,4.161);
 Shape394 := TShapeNode.Create;
@@ -3743,16 +3829,16 @@ Shape394.Appearance := Appearance395;
 IndexedFaceSet398 := TIndexedFaceSetNode.Create;
 IndexedFaceSet398.SetCoordIndex([9,10,17,-1,17,16,9,-1,11,1,2,-1,2,8,11,-1,7,8,2,-1,2,3,7,-1,7,3,4,-1,4,13,7,-1,12,13,4,-1,4,5,12,-1,5,6,0,-1,0,12,5,-1,0,6,1,-1,1,11,0,-1,14,20,19,-1,19,15,14,-1,14,15,17,-1,17,10,14,-1,9,16,18,-1,18,21,9,-1,7,10,9,-1,9,8,7,-1,8,9,21,-1,21,11,8,-1,12,20,14,-1,14,13,12,-1,13,14,10,-1,10,7,13,-1,11,21,22,-1,0,24,23,-1,23,12,0,-1,11,22,24,-1,24,0,11,-1,23,20,12,-1,39,40,41,-1,41,42,37,-1,39,41,37,-1,38,39,37,-1,33,34,35,-1,32,33,35,-1,31,32,35,-1,28,29,25,-1,25,26,27,-1,28,25,27,-1,35,36,30,-1,30,31,35,-1,17,15,26,-1,26,25,17,-1,15,19,27,-1,27,26,15,-1,19,18,28,-1,28,27,19,-1,18,16,29,-1,29,28,18,-1,16,17,25,-1,25,29,16,-1,19,20,31,-1,31,30,19,-1,20,23,32,-1,32,31,20,-1,23,24,33,-1,33,32,23,-1,24,22,34,-1,34,33,24,-1,22,21,35,-1,35,34,22,-1,21,18,36,-1,36,35,21,-1,18,19,30,-1,30,36,18,-1,2,1,38,-1,38,37,2,-1,1,6,39,-1,39,38,1,-1,6,5,40,-1,40,39,6,-1,5,4,41,-1,41,40,5,-1,4,3,42,-1,42,41,4,-1,3,2,37,-1,37,42,3,-1]);
 IndexedFaceSet398.CreaseAngle := 3.14159;
-end;
-
-procedure InitJinLOA4Part29;
-begin
-
 IndexedFaceSet398.SetTexCoordIndex([2,1,29,-1,29,28,2,-1,11,5,4,-1,4,13,11,-1,10,13,4,-1,4,6,10,-1,10,6,7,-1,7,12,10,-1,14,12,7,-1,7,8,14,-1,8,9,3,-1,3,14,8,-1,3,9,5,-1,5,11,3,-1,0,33,31,-1,31,27,0,-1,0,27,29,-1,29,1,0,-1,2,28,30,-1,30,35,2,-1,15,18,17,-1,17,16,15,-1,16,17,34,-1,34,19,16,-1,20,32,22,-1,22,21,20,-1,21,22,24,-1,24,23,21,-1,19,34,36,-1,25,39,37,-1,37,20,25,-1,19,36,38,-1,38,26,19,-1,37,32,20,-1,54,55,56,-1,56,57,52,-1,54,56,52,-1,53,54,52,-1,48,49,50,-1,47,48,50,-1,46,47,50,-1,43,44,40,-1,40,41,42,-1,43,40,42,-1,50,51,45,-1,45,46,50,-1,29,27,41,-1,41,40,29,-1,27,31,42,-1,42,41,27,-1,31,30,43,-1,43,42,31,-1,30,28,44,-1,44,43,30,-1,28,29,40,-1,40,44,28,-1,31,33,46,-1,46,45,31,-1,32,37,47,-1,47,46,32,-1,37,39,48,-1,48,47,37,-1,38,36,49,-1,49,48,38,-1,36,34,50,-1,50,49,36,-1,35,30,51,-1,51,50,35,-1,30,31,45,-1,45,51,30,-1,4,5,53,-1,53,52,4,-1,5,9,54,-1,54,53,5,-1,9,8,55,-1,55,54,9,-1,8,7,56,-1,56,55,8,-1,7,6,57,-1,57,56,7,-1,6,4,52,-1,52,57,6,-1]);
 Coordinate399 := TCoordinateNode.Create;
 Coordinate399.SetPoint([Vector3(-0.5023,0.0206,0.5225),Vector3(-0.5069,0.3389,0.9722),Vector3(0.5239,0.3546,0.9857),Vector3(0.5823,-0.1222,0.9958),Vector3(0.5025,-0.5579,0.9554),Vector3(-0.5186,-0.5579,0.958),Vector3(-0.5816,-0.1339,0.9847),Vector3(0.5039,-0.0963,0.5275),Vector3(0.4495,0.4588,0.4262),Vector3(0.3875,0.4353,0.2405),Vector3(0.4682,-0.1454,0.2855),Vector3(-0.4437,0.4412,0.4574),Vector3(-0.4398,-0.4616,0.472),Vector3(0.4332,-0.4607,0.456),Vector3(0.3649,-0.4415,0.2162),Vector3(0.4121,-0.4761,-0.0214),Vector3(0.4225,0.4741,0.0111),Vector3(0.5118,-0.1454,0.0829),Vector3(-0.5687,0.5579,-0.0036),Vector3(-0.5704,-0.4763,-0.041),Vector3(-0.5628,-0.4412,0.2556),Vector3(-0.5641,0.4495,0.2541),Vector3(-0.5671,0.3479,0.4508),Vector3(-0.5823,-0.2729,0.4646),Vector3(-0.5691,0.0505,0.5098),Vector3(0.3979,-0.127,-0.1621),Vector3(0.3346,-0.3422,-0.2601),Vector3(-0.4303,-0.3427,-0.2664),Vector3(-0.429,0.4294,-0.2381),Vector3(0.3281,0.3657,-0.237),Vector3(-0.7564,-0.2649,-0.0329),Vector3(-0.752,-0.2445,0.139),Vector3(-0.7633,-0.147,0.2601),Vector3(-0.7556,0.0405,0.2863),Vector3(-0.7545,0.2128,0.2521),Vector3(-0.7527,0.2716,0.1381),Vector3(-0.7554,0.3345,-0.0112),Vector3(0.4054,0.215,1.213),Vector3(-0.3954,0.2028,1.201),Vector3(-0.4497,-0.1402,1.217),Vector3(-0.4063,-0.4314,1.193),Vector3(0.3905,-0.4313,1.189),Vector3(0.4468,-0.1239,1.226)]);
 { .SetCoord }
 IndexedFaceSet398.Coord := Coordinate399;
+end;
+
+procedure InitJinLOA4Part31;
+begin
+
 TextureCoordinate400 := TTextureCoordinateNode.Create;
 TextureCoordinate400.SetPoint([Vector2(0.148,0.1294),Vector2(0.142,0.1322),Vector2(0.1446,0.131),Vector2(0.1613,0.0957),Vector2(0.1341,0.1263),Vector2(0.1554,0.0919),Vector2(0.1317,0.1272),Vector2(0.1363,0.1268),Vector2(0.1571,0.0927),Vector2(0.1559,0.0889),Vector2(0.1392,0.1292),Vector2(0.16,0.0958),Vector2(0.1443,0.128),Vector2(0.1415,0.1284),Vector2(0.1616,0.0962),Vector2(0.1346,0.0953),Vector2(0.1273,0.0961),Vector2(0.126,0.0891),Vector2(0.1339,0.0889),Vector2(0.1175,0.0992),Vector2(0.228,0.0809),Vector2(0.2186,0.0857),Vector2(0.2172,0.0848),Vector2(0.2097,0.0859),Vector2(0.2098,0.0901),Vector2(0.2285,0.0738),Vector2(0.1152,0.1058),Vector2(0.1523,0.1336),Vector2(0.1493,0.1348),Vector2(0.1463,0.1377),Vector2(0.1682,0.1025),Vector2(0.1699,0.1017),Vector2(0.2293,0.0837),Vector2(0.1648,0.0986),Vector2(0.112,0.093),Vector2(0.1632,0.098),Vector2(0.113,0.0993),Vector2(0.2302,0.0796),Vector2(0.1153,0.1053),Vector2(0.2293,0.0736),Vector2(0.1463,0.1377),Vector2(0.1523,0.1336),Vector2(0.1699,0.1017),Vector2(0.1682,0.1025),Vector2(0.1493,0.1348),Vector2(0.1699,0.1017),Vector2(0.1648,0.0986),Vector2(0.2302,0.0796),Vector2(0.2293,0.0736),Vector2(0.113,0.0993),Vector2(0.112,0.093),Vector2(0.1682,0.1025),Vector2(0.1341,0.1263),Vector2(0.1554,0.0919),Vector2(0.1559,0.0889),Vector2(0.1571,0.0927),Vector2(0.1363,0.1268),Vector2(0.1317,0.1272)]);
 { .SetTexCoord }
@@ -3767,9 +3853,11 @@ HAnimSegment392.AddChildren([Transform393]);
 HAnimJoint391.AddChildren([HAnimSegment392]);
 HAnimJoint401 := THAnimJointNode.Create;
 HAnimJoint401.NameField := 'r_tarsal_distal_interphalangeal_1';
+HAnimJoint401.X3DName := 'hanim_r_tarsal_distal_interphalangeal_1';
 HAnimJoint401.Center := Vector3(-2.744,0.5394,5.125);
 HAnimSegment402 := THAnimSegmentNode.Create;
 HAnimSegment402.NameField := 'r_tarsal_distal_phalanx_1';
+HAnimSegment402.X3DName := 'hanim_r_tarsal_distal_phalanx_1';
 Transform403 := TTransformNode.Create;
 Transform403.Translation := Vector3(-2.744,0.5394,5.125);
 Shape404 := TShapeNode.Create;
@@ -3803,24 +3891,26 @@ Transform403.AddChildren([Shape404]);
 HAnimSegment402.AddChildren([Transform403]);
 { .AddChildren }
 HAnimJoint401.AddChildren([HAnimSegment402]);
-end;
-
-procedure InitJinLOA4Part30;
-begin
-
 { .AddChildren }
 HAnimJoint391.AddChildren([HAnimJoint401]);
 { .AddChildren }
 HAnimJoint381.AddChildren([HAnimJoint391]);
+end;
+
+procedure InitJinLOA4Part32;
+begin
+
 { .AddChildren }
 HAnimJoint371.AddChildren([HAnimJoint381]);
 { .AddChildren }
 HAnimJoint361.AddChildren([HAnimJoint371]);
 HAnimJoint411 := THAnimJointNode.Create;
 HAnimJoint411.NameField := 'r_cuneonavicular_2';
+HAnimJoint411.X3DName := 'hanim_r_cuneonavicular_2';
 HAnimJoint411.Center := Vector3(-3.602,1.49,0.9523);
 HAnimSegment412 := THAnimSegmentNode.Create;
 HAnimSegment412.NameField := 'r_cuneiform_2';
+HAnimSegment412.X3DName := 'hanim_r_cuneiform_2';
 Transform413 := TTransformNode.Create;
 Transform413.Translation := Vector3(-3.602,1.49,0.9523);
 Shape414 := TShapeNode.Create;
@@ -3856,16 +3946,18 @@ HAnimSegment412.AddChildren([Transform413]);
 HAnimJoint411.AddChildren([HAnimSegment412]);
 HAnimJoint421 := THAnimJointNode.Create;
 HAnimJoint421.NameField := 'r_tarsometatarsal_2';
+HAnimJoint421.X3DName := 'hanim_r_tarsometatarsal_2';
 HAnimJoint421.Center := Vector3(-3.548,1.16,1.825);
 HAnimSegment422 := THAnimSegmentNode.Create;
 HAnimSegment422.NameField := 'r_metatarsal_2';
-Transform423 := TTransformNode.Create;
-Transform423.Translation := Vector3(-3.548,1.16,1.825);
+HAnimSegment422.X3DName := 'hanim_r_metatarsal_2';
 end;
 
-procedure InitJinLOA4Part31;
+procedure InitJinLOA4Part33;
 begin
 
+Transform423 := TTransformNode.Create;
+Transform423.Translation := Vector3(-3.548,1.16,1.825);
 Shape424 := TShapeNode.Create;
 Appearance425 := TAppearanceNode.Create;
 Material426 := TMaterialNode.Create;
@@ -3899,9 +3991,11 @@ HAnimSegment422.AddChildren([Transform423]);
 HAnimJoint421.AddChildren([HAnimSegment422]);
 HAnimJoint431 := THAnimJointNode.Create;
 HAnimJoint431.NameField := 'r_metatarsophalangeal_2';
+HAnimJoint431.X3DName := 'hanim_r_metatarsophalangeal_2';
 HAnimJoint431.Center := Vector3(-3.651,0.6656,4.348);
 HAnimSegment432 := THAnimSegmentNode.Create;
 HAnimSegment432.NameField := 'r_tarsal_proximal_phalanx_2';
+HAnimSegment432.X3DName := 'hanim_r_tarsal_proximal_phalanx_2';
 Transform433 := TTransformNode.Create;
 Transform433.Translation := Vector3(-3.651,0.6656,4.348);
 Shape434 := TShapeNode.Create;
@@ -3913,16 +4007,16 @@ Appearance435.Material := Material436;
 ImageTexture437 := ImageTexture37;
 { .SetTexture }
 Appearance435.Texture := ImageTexture437;
+end;
+
+procedure InitJinLOA4Part34;
+begin
+
 { .SetAppearance }
 Shape434.Appearance := Appearance435;
 IndexedFaceSet438 := TIndexedFaceSetNode.Create;
 IndexedFaceSet438.SetCoordIndex([8,18,20,-1,20,6,8,-1,14,21,19,-1,19,11,14,-1,6,20,1,-1,19,15,11,-1,0,14,3,-1,3,2,0,-1,12,17,16,-1,16,8,12,-1,15,17,12,-1,12,11,15,-1,6,1,2,-1,2,3,6,-1,0,21,14,-1,16,18,8,-1,3,4,5,-1,5,6,3,-1,6,5,7,-1,7,8,6,-1,10,11,12,-1,12,9,10,-1,14,11,10,-1,10,13,14,-1,13,4,3,-1,3,14,13,-1,8,7,9,-1,9,12,8,-1,19,21,24,-1,24,23,19,-1,22,25,20,-1,20,18,22,-1,36,30,31,-1,35,36,31,-1,34,35,31,-1,13,10,9,-1,9,7,5,-1,13,9,5,-1,4,13,5,-1,29,26,27,-1,27,28,29,-1,37,41,42,-1,42,43,37,-1,31,32,33,-1,33,34,31,-1,39,40,41,-1,38,39,41,-1,37,38,41,-1,25,22,27,-1,27,26,25,-1,22,23,28,-1,28,27,22,-1,23,24,29,-1,29,28,23,-1,24,25,26,-1,26,29,24,-1,15,19,31,-1,31,30,15,-1,19,23,32,-1,32,31,19,-1,23,22,33,-1,33,32,23,-1,22,18,34,-1,34,33,22,-1,18,16,35,-1,35,34,18,-1,16,17,36,-1,36,35,16,-1,17,15,30,-1,30,36,17,-1,21,0,38,-1,38,37,21,-1,0,2,39,-1,39,38,0,-1,2,1,40,-1,40,39,2,-1,1,20,41,-1,41,40,1,-1,20,25,42,-1,42,41,20,-1,25,24,43,-1,43,42,25,-1,24,21,37,-1,37,43,24,-1]);
 IndexedFaceSet438.CreaseAngle := 3.14159;
-end;
-
-procedure InitJinLOA4Part32;
-begin
-
 IndexedFaceSet438.SetTexCoordIndex([1,24,30,-1,30,0,1,-1,3,31,25,-1,25,2,3,-1,0,30,4,-1,25,26,2,-1,9,3,5,-1,5,10,9,-1,7,28,27,-1,27,1,7,-1,26,29,8,-1,8,2,26,-1,0,4,11,-1,11,6,0,-1,9,31,3,-1,27,24,1,-1,12,13,14,-1,14,15,12,-1,15,14,16,-1,16,17,15,-1,19,20,21,-1,21,18,19,-1,23,20,19,-1,19,22,23,-1,22,13,12,-1,12,23,22,-1,17,16,18,-1,18,21,17,-1,35,34,38,-1,38,37,35,-1,36,39,33,-1,33,32,36,-1,50,44,45,-1,49,50,45,-1,48,49,45,-1,22,19,18,-1,18,16,14,-1,22,18,14,-1,13,22,14,-1,43,40,41,-1,41,42,43,-1,51,55,56,-1,56,57,51,-1,45,46,47,-1,47,48,45,-1,53,54,55,-1,52,53,55,-1,51,52,55,-1,39,36,41,-1,41,40,39,-1,36,37,42,-1,42,41,36,-1,37,38,43,-1,43,42,37,-1,38,39,40,-1,40,43,38,-1,26,25,45,-1,45,44,26,-1,35,37,46,-1,46,45,35,-1,37,36,47,-1,47,46,37,-1,36,32,48,-1,48,47,36,-1,24,27,49,-1,49,48,24,-1,27,28,50,-1,50,49,27,-1,29,26,44,-1,44,50,29,-1,31,9,52,-1,52,51,31,-1,9,10,53,-1,53,52,9,-1,11,4,54,-1,54,53,11,-1,4,30,55,-1,55,54,4,-1,33,39,56,-1,56,55,33,-1,39,38,57,-1,57,56,39,-1,38,34,51,-1,51,57,38,-1]);
 Coordinate439 := TCoordinateNode.Create;
 Coordinate439.SetPoint([Vector3(0.3393,0.3234,0.264),Vector3(0.3241,-0.2974,0.2778),Vector3(0.3373,0.026,0.323),Vector3(0.2778,-0.0393,0.3227),Vector3(0.2424,-0.183,0.7679),Vector3(0.1972,-0.5469,0.7512),Vector3(0.2409,-0.4436,0.2718),Vector3(-0.2712,-0.5414,0.6896),Vector3(-0.2313,-0.4503,0.2153),Vector3(-0.3295,-0.1296,0.7058),Vector3(-0.2745,0.3527,0.6921),Vector3(-0.2339,0.4182,0.2093),Vector3(-0.3003,-0.075,0.2531),Vector3(0.204,0.3657,0.7504),Vector3(0.2252,0.4123,0.2599),Vector3(-0.3372,0.3253,0.1752),Vector3(-0.3386,-0.3128,0.1812),Vector3(-0.3436,0.0018,0.2359),Vector3(-0.2944,-0.4678,-0.021),Vector3(-0.3035,0.4187,-0.0402),Vector3(0.3436,-0.4656,0.0689),Vector3(0.3423,0.425,0.0673),Vector3(-0.2817,-0.4996,-0.2995),Vector3(-0.2839,0.5469,-0.2638),Vector3(0.3377,0.5334,-0.1904),Vector3(0.336,-0.5008,-0.2278),Vector3(0.2473,-0.3729,-0.4869),Vector3(-0.1345,-0.3721,-0.5309),Vector3(-0.1362,0.4342,-0.5035),Vector3(0.2486,0.4258,-0.4578),Vector3(-0.5241,0.2491,-0.0133),Vector3(-0.5013,0.3226,-0.1835),Vector3(-0.4932,0.3669,-0.2606),Vector3(-0.4932,-0.3819,-0.2863),Vector3(-0.4923,-0.3672,-0.1575),Vector3(-0.5259,-0.2546,-0.0109),Vector3(-0.5286,-0.0001,0.0336),Vector3(0.554,0.3222,-0.0429),Vector3(0.5543,0.2475,0.1018),Vector3(0.5536,0.0219,0.1466),Vector3(0.5407,-0.2386,0.1101),Vector3(0.5571,-0.3586,-0.0389),Vector3(0.5501,-0.3746,-0.1733),Vector3(0.5517,0.3659,-0.1465)]);
@@ -3942,9 +4036,11 @@ HAnimSegment432.AddChildren([Transform433]);
 HAnimJoint431.AddChildren([HAnimSegment432]);
 HAnimJoint441 := THAnimJointNode.Create;
 HAnimJoint441.NameField := 'r_tarsal_proximal_interphalangeal_2';
+HAnimJoint441.X3DName := 'hanim_r_tarsal_proximal_interphalangeal_2';
 HAnimJoint441.Center := Vector3(-3.73,0.5621,5.067);
 HAnimSegment442 := THAnimSegmentNode.Create;
 HAnimSegment442.NameField := 'r_tarsal_middle_phalanx_2';
+HAnimSegment442.X3DName := 'hanim_r_tarsal_middle_phalanx_2';
 Transform443 := TTransformNode.Create;
 Transform443.Translation := Vector3(-3.73,0.5621,5.067);
 Shape444 := TShapeNode.Create;
@@ -3967,6 +4063,11 @@ Coordinate449.SetPoint([Vector3(0.3183,-0.4691,0.449),Vector3(0.3467,-0.0977,0.4
 { .SetCoord }
 IndexedFaceSet448.Coord := Coordinate449;
 TextureCoordinate450 := TTextureCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4Part35;
+begin
+
 TextureCoordinate450.SetPoint([Vector2(0.1653,0.0654),Vector2(0.1636,0.063),Vector2(0.1795,0.0453),Vector2(0.1792,0.0409),Vector2(0.1786,0.0451),Vector2(0.1293,0.0261),Vector2(0.0949,0.0775),Vector2(0.1651,0.0639),Vector2(0.1709,0.0678),Vector2(0.1706,0.0686),Vector2(0.1824,0.0523),Vector2(0.183,0.0511),Vector2(0.1291,0.0918),Vector2(0.1834,0.0508),Vector2(0.1554,0.0532),Vector2(0.1716,0.0676),Vector2(0.1709,0.0678),Vector2(0.1706,0.0686),Vector2(0.1824,0.0523),Vector2(0.183,0.0511),Vector2(0.1834,0.0508),Vector2(0.1554,0.0532),Vector2(0.1653,0.0654),Vector2(0.1636,0.063),Vector2(0.1651,0.0639),Vector2(0.0949,0.0775),Vector2(0.1792,0.0409),Vector2(0.1795,0.0453)]);
 { .SetTexCoord }
 IndexedFaceSet448.TexCoord := TextureCoordinate450;
@@ -3978,16 +4079,13 @@ Transform443.AddChildren([Shape444]);
 HAnimSegment442.AddChildren([Transform443]);
 { .AddChildren }
 HAnimJoint441.AddChildren([HAnimSegment442]);
-end;
-
-procedure InitJinLOA4Part33;
-begin
-
 HAnimJoint451 := THAnimJointNode.Create;
 HAnimJoint451.NameField := 'r_tarsal_distal_interphalangeal_2';
+HAnimJoint451.X3DName := 'hanim_r_tarsal_distal_interphalangeal_2';
 HAnimJoint451.Center := Vector3(-3.73,0.4367,5.486);
 HAnimSegment452 := THAnimSegmentNode.Create;
 HAnimSegment452.NameField := 'r_tarsal_distal_phalanx_2';
+HAnimSegment452.X3DName := 'hanim_r_tarsal_distal_phalanx_2';
 Transform453 := TTransformNode.Create;
 Transform453.Translation := Vector3(-3.73,0.4367,5.486);
 Shape454 := TShapeNode.Create;
@@ -4027,21 +4125,23 @@ HAnimJoint441.AddChildren([HAnimJoint451]);
 HAnimJoint431.AddChildren([HAnimJoint441]);
 { .AddChildren }
 HAnimJoint421.AddChildren([HAnimJoint431]);
+end;
+
+procedure InitJinLOA4Part36;
+begin
+
 { .AddChildren }
 HAnimJoint411.AddChildren([HAnimJoint421]);
 { .AddChildren }
 HAnimJoint361.AddChildren([HAnimJoint411]);
 HAnimJoint461 := THAnimJointNode.Create;
 HAnimJoint461.NameField := 'r_cuneonavicular_3';
+HAnimJoint461.X3DName := 'hanim_r_cuneonavicular_3';
 HAnimJoint461.Center := Vector3(-4.116,1.484,0.8808);
 HAnimSegment462 := THAnimSegmentNode.Create;
 HAnimSegment462.NameField := 'r_cuneiform_3';
+HAnimSegment462.X3DName := 'hanim_r_cuneiform_3';
 Transform463 := TTransformNode.Create;
-end;
-
-procedure InitJinLOA4Part34;
-begin
-
 Transform463.Translation := Vector3(-4.116,1.484,0.8808);
 Shape464 := TShapeNode.Create;
 Appearance465 := TAppearanceNode.Create;
@@ -4076,9 +4176,16 @@ HAnimSegment462.AddChildren([Transform463]);
 HAnimJoint461.AddChildren([HAnimSegment462]);
 HAnimJoint471 := THAnimJointNode.Create;
 HAnimJoint471.NameField := 'r_tarsometatarsal_3';
+HAnimJoint471.X3DName := 'hanim_r_tarsometatarsal_3';
 HAnimJoint471.Center := Vector3(-4.188,1.16,1.751);
 HAnimSegment472 := THAnimSegmentNode.Create;
 HAnimSegment472.NameField := 'r_metatarsal_3';
+HAnimSegment472.X3DName := 'hanim_r_metatarsal_3';
+end;
+
+procedure InitJinLOA4Part37;
+begin
+
 Transform473 := TTransformNode.Create;
 Transform473.Translation := Vector3(-4.188,1.16,1.751);
 Shape474 := TShapeNode.Create;
@@ -4094,11 +4201,6 @@ Appearance475.Texture := ImageTexture477;
 Shape474.Appearance := Appearance475;
 IndexedFaceSet478 := TIndexedFaceSetNode.Create;
 IndexedFaceSet478.SetCoordIndex([15,12,13,-1,13,3,15,-1,10,7,0,-1,0,2,10,-1,9,1,14,-1,14,6,9,-1,3,13,7,-1,7,10,3,-1,12,15,5,-1,5,16,12,-1,6,8,17,-1,17,9,6,-1,17,8,11,-1,11,4,17,-1,27,28,31,-1,34,35,32,-1,32,33,34,-1,28,29,30,-1,30,31,28,-1,35,27,31,-1,31,32,35,-1,23,24,20,-1,22,23,20,-1,20,21,22,-1,25,26,18,-1,18,19,25,-1,24,25,19,-1,19,20,24,-1,1,9,19,-1,19,18,1,-1,9,17,20,-1,20,19,9,-1,17,4,21,-1,21,20,17,-1,48,45,46,-1,46,47,48,-1,5,15,23,-1,23,22,5,-1,15,3,24,-1,24,23,15,-1,3,10,25,-1,25,24,3,-1,10,2,26,-1,26,25,10,-1,40,37,38,-1,38,39,40,-1,13,12,28,-1,28,27,13,-1,12,16,29,-1,29,28,12,-1,44,49,50,-1,50,51,44,-1,11,8,31,-1,31,30,11,-1,8,6,32,-1,32,31,8,-1,6,14,33,-1,33,32,6,-1,36,41,42,-1,42,43,36,-1,0,7,35,-1,35,34,0,-1,7,13,27,-1,27,35,7,-1,37,40,41,-1,41,36,37,-1,48,49,44,-1,44,45,48,-1,14,1,37,-1,37,36,14,-1,1,18,38,-1,38,37,1,-1,18,26,39,-1,39,38,18,-1,26,2,40,-1,40,39,26,-1,2,0,41,-1,41,40,2,-1,0,34,42,-1,42,41,0,-1,34,33,43,-1,43,42,34,-1,33,14,36,-1,36,43,33,-1,16,5,45,-1,45,44,16,-1,5,22,46,-1,46,45,5,-1,22,21,47,-1,47,46,22,-1,21,4,48,-1,48,47,21,-1,4,11,49,-1,49,48,4,-1,11,30,50,-1,50,49,11,-1,30,29,51,-1,51,50,30,-1,29,16,44,-1,44,51,29,-1]);
-end;
-
-procedure InitJinLOA4Part35;
-begin
-
 IndexedFaceSet478.CreaseAngle := 3.14159;
 IndexedFaceSet478.SetTexCoordIndex([25,7,16,-1,16,3,25,-1,12,9,0,-1,0,2,12,-1,22,1,20,-1,20,18,22,-1,13,17,19,-1,19,23,13,-1,15,24,5,-1,5,26,15,-1,8,21,28,-1,28,11,8,-1,14,10,6,-1,6,4,14,-1,43,45,27,-1,54,55,51,-1,51,53,54,-1,46,47,48,-1,48,50,46,-1,56,44,49,-1,49,52,56,-1,36,38,28,-1,35,37,33,-1,33,34,35,-1,40,42,29,-1,29,30,40,-1,39,41,31,-1,31,32,39,-1,1,22,30,-1,30,29,1,-1,11,28,32,-1,32,31,11,-1,14,4,34,-1,34,33,14,-1,70,67,68,-1,68,69,70,-1,5,24,37,-1,37,35,5,-1,25,3,38,-1,38,36,25,-1,13,23,41,-1,41,39,13,-1,12,2,42,-1,42,40,12,-1,62,58,60,-1,60,61,62,-1,16,7,45,-1,45,43,16,-1,15,26,47,-1,47,46,15,-1,66,71,73,-1,73,74,66,-1,6,10,50,-1,50,48,6,-1,21,8,52,-1,52,49,21,-1,18,20,53,-1,53,51,18,-1,57,63,64,-1,64,65,57,-1,0,9,55,-1,55,54,0,-1,19,17,44,-1,44,56,19,-1,59,62,63,-1,63,57,59,-1,70,72,66,-1,66,67,70,-1,20,1,59,-1,59,57,20,-1,1,29,60,-1,60,58,1,-1,29,42,61,-1,61,60,29,-1,42,2,62,-1,62,61,42,-1,2,0,63,-1,63,62,2,-1,0,54,64,-1,64,63,0,-1,54,53,65,-1,65,64,54,-1,53,20,57,-1,57,65,53,-1,26,5,67,-1,67,66,26,-1,5,35,68,-1,68,67,5,-1,35,34,69,-1,69,68,35,-1,34,4,70,-1,70,69,34,-1,4,6,72,-1,72,70,4,-1,6,48,73,-1,73,71,6,-1,48,47,74,-1,74,73,48,-1,47,26,66,-1,66,74,47,-1]);
 Coordinate479 := TCoordinateNode.Create;
@@ -4119,9 +4221,11 @@ HAnimSegment472.AddChildren([Transform473]);
 HAnimJoint471.AddChildren([HAnimSegment472]);
 HAnimJoint481 := THAnimJointNode.Create;
 HAnimJoint481.NameField := 'r_metatarsophalangeal_3';
+HAnimJoint481.X3DName := 'hanim_r_metatarsophalangeal_3';
 HAnimJoint481.Center := Vector3(-4.271,0.6692,4.241);
 HAnimSegment482 := THAnimSegmentNode.Create;
 HAnimSegment482.NameField := 'r_tarsal_proximal_phalanx_3';
+HAnimSegment482.X3DName := 'hanim_r_tarsal_proximal_phalanx_3';
 Transform483 := TTransformNode.Create;
 Transform483.Translation := Vector3(-4.271,0.6692,4.241);
 Shape484 := TShapeNode.Create;
@@ -4133,6 +4237,11 @@ Appearance485.Material := Material486;
 ImageTexture487 := ImageTexture37;
 { .SetTexture }
 Appearance485.Texture := ImageTexture487;
+end;
+
+procedure InitJinLOA4Part38;
+begin
+
 { .SetAppearance }
 Shape484.Appearance := Appearance485;
 IndexedFaceSet488 := TIndexedFaceSetNode.Create;
@@ -4153,18 +4262,15 @@ Shape484.Geometry := IndexedFaceSet488;
 Transform483.AddChildren([Shape484]);
 { .AddChildren }
 HAnimSegment482.AddChildren([Transform483]);
-end;
-
-procedure InitJinLOA4Part36;
-begin
-
 { .AddChildren }
 HAnimJoint481.AddChildren([HAnimSegment482]);
 HAnimJoint491 := THAnimJointNode.Create;
 HAnimJoint491.NameField := 'r_tarsal_proximal_interphalangeal_3';
+HAnimJoint491.X3DName := 'hanim_r_tarsal_proximal_interphalangeal_3';
 HAnimJoint491.Center := Vector3(-4.378,0.5299,4.91);
 HAnimSegment492 := THAnimSegmentNode.Create;
 HAnimSegment492.NameField := 'r_tarsal_middle_phalanx_3';
+HAnimSegment492.X3DName := 'hanim_r_tarsal_middle_phalanx_3';
 Transform493 := TTransformNode.Create;
 Transform493.Translation := Vector3(-4.378,0.5299,4.91);
 Shape494 := TShapeNode.Create;
@@ -4187,6 +4293,11 @@ Coordinate499.SetPoint([Vector3(0.2639,-0.0654,0.4775),Vector3(0.2294,-0.4369,0.
 { .SetCoord }
 IndexedFaceSet498.Coord := Coordinate499;
 TextureCoordinate500 := TTextureCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4Part39;
+begin
+
 TextureCoordinate500.SetPoint([Vector2(0.1653,0.0654),Vector2(0.1636,0.063),Vector2(0.1795,0.0453),Vector2(0.1792,0.0409),Vector2(0.1786,0.0451),Vector2(0.1651,0.0639),Vector2(0.1293,0.0261),Vector2(0.0949,0.0775),Vector2(0.1709,0.0678),Vector2(0.1706,0.0686),Vector2(0.1824,0.0523),Vector2(0.183,0.0511),Vector2(0.1291,0.0918),Vector2(0.1834,0.0508),Vector2(0.1554,0.0532),Vector2(0.1716,0.0676),Vector2(0.1709,0.0678),Vector2(0.1706,0.0686),Vector2(0.1824,0.0523),Vector2(0.183,0.0511),Vector2(0.1834,0.0508),Vector2(0.1554,0.0532),Vector2(0.1653,0.0654),Vector2(0.1636,0.063),Vector2(0.1651,0.0639),Vector2(0.0949,0.0775),Vector2(0.1792,0.0409),Vector2(0.1795,0.0453)]);
 { .SetTexCoord }
 IndexedFaceSet498.TexCoord := TextureCoordinate500;
@@ -4200,19 +4311,16 @@ HAnimSegment492.AddChildren([Transform493]);
 HAnimJoint491.AddChildren([HAnimSegment492]);
 HAnimJoint501 := THAnimJointNode.Create;
 HAnimJoint501.NameField := 'r_tarsal_distal_interphalangeal_3';
+HAnimJoint501.X3DName := 'hanim_r_tarsal_distal_interphalangeal_3';
 HAnimJoint501.Center := Vector3(-4.446,0.4367,5.32);
 HAnimSegment502 := THAnimSegmentNode.Create;
 HAnimSegment502.NameField := 'r_tarsal_distal_phalanx_3';
+HAnimSegment502.X3DName := 'hanim_r_tarsal_distal_phalanx_3';
 Transform503 := TTransformNode.Create;
 Transform503.Translation := Vector3(-4.446,0.4367,5.32);
 Shape504 := TShapeNode.Create;
 Appearance505 := TAppearanceNode.Create;
 Material506 := TMaterialNode.Create;
-end;
-
-procedure InitJinLOA4Part37;
-begin
-
 Material506.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance505.Material := Material506;
@@ -4247,6 +4355,11 @@ HAnimJoint491.AddChildren([HAnimJoint501]);
 HAnimJoint481.AddChildren([HAnimJoint491]);
 { .AddChildren }
 HAnimJoint471.AddChildren([HAnimJoint481]);
+end;
+
+procedure InitJinLOA4Part40;
+begin
+
 { .AddChildren }
 HAnimJoint461.AddChildren([HAnimJoint471]);
 { .AddChildren }
@@ -4255,9 +4368,11 @@ HAnimJoint361.AddChildren([HAnimJoint461]);
 HAnimJoint351.AddChildren([HAnimJoint361]);
 HAnimJoint511 := THAnimJointNode.Create;
 HAnimJoint511.NameField := 'r_calcaneocuboid';
+HAnimJoint511.X3DName := 'hanim_r_calcaneocuboid';
 HAnimJoint511.Center := Vector3(-3.943,2.577,-1.154);
 HAnimSegment512 := THAnimSegmentNode.Create;
 HAnimSegment512.NameField := 'r_calcaneus';
+HAnimSegment512.X3DName := 'hanim_r_calcaneus';
 Transform513 := TTransformNode.Create;
 Transform513.Translation := Vector3(-3.943,2.577,-1.154);
 Shape514 := TShapeNode.Create;
@@ -4271,11 +4386,6 @@ ImageTexture517 := ImageTexture37;
 Appearance515.Texture := ImageTexture517;
 { .SetAppearance }
 Shape514.Appearance := Appearance515;
-end;
-
-procedure InitJinLOA4Part38;
-begin
-
 IndexedFaceSet518 := TIndexedFaceSetNode.Create;
 IndexedFaceSet518.SetCoordIndex([1,0,3,-1,3,2,1,-1,4,7,6,-1,6,5,4,-1,4,18,19,-1,19,7,4,-1,0,8,9,-1,9,3,0,-1,10,2,3,-1,3,11,10,-1,12,6,7,-1,7,13,12,-1,13,7,19,-1,19,20,13,-1,25,26,14,-1,14,9,25,-1,3,9,14,-1,14,11,3,-1,15,10,11,-1,11,16,15,-1,13,20,21,-1,21,17,13,-1,11,14,16,-1,4,5,23,-1,23,18,4,-1,14,38,37,-1,34,15,16,-1,16,35,34,-1,17,21,39,-1,39,36,17,-1,17,12,13,-1,35,16,14,-1,14,37,35,-1,5,6,30,-1,30,27,5,-1,18,23,22,-1,22,1,18,-1,2,19,18,-1,18,1,2,-1,10,20,19,-1,19,2,10,-1,15,21,20,-1,20,10,15,-1,34,39,21,-1,21,15,34,-1,22,8,0,-1,0,1,22,-1,25,9,8,-1,8,24,25,-1,14,26,33,-1,33,38,14,-1,23,5,27,-1,27,29,23,-1,22,23,29,-1,29,28,22,-1,8,22,28,-1,28,24,8,-1,30,6,12,-1,12,31,30,-1,32,31,12,-1,12,40,32,-1,40,12,17,-1,17,36,40,-1,47,48,49,-1,49,41,42,-1,42,43,44,-1,49,42,44,-1,47,49,44,-1,47,44,45,-1,46,47,45,-1,51,52,53,-1,53,54,55,-1,51,53,55,-1,50,51,55,-1,55,56,59,-1,59,50,55,-1,56,57,58,-1,58,59,56,-1,34,35,42,-1,42,41,34,-1,35,37,43,-1,43,42,35,-1,37,38,44,-1,44,43,37,-1,38,33,45,-1,45,44,38,-1,33,32,46,-1,46,45,33,-1,32,40,47,-1,47,46,32,-1,40,36,48,-1,48,47,40,-1,36,39,49,-1,49,48,36,-1,39,34,41,-1,41,49,39,-1,25,24,51,-1,51,50,25,-1,24,28,52,-1,52,51,24,-1,28,29,53,-1,53,52,28,-1,29,27,54,-1,54,53,29,-1,27,30,55,-1,55,54,27,-1,30,31,56,-1,56,55,30,-1,31,32,57,-1,57,56,31,-1,32,33,58,-1,58,57,32,-1,33,26,59,-1,59,58,33,-1,26,25,50,-1,50,59,26,-1]);
 IndexedFaceSet518.CreaseAngle := 3.14159;
@@ -4298,9 +4408,16 @@ HAnimSegment512.AddChildren([Transform513]);
 HAnimJoint511.AddChildren([HAnimSegment512]);
 HAnimJoint521 := THAnimJointNode.Create;
 HAnimJoint521.NameField := 'r_transversetarsal';
+HAnimJoint521.X3DName := 'hanim_r_transversetarsal';
 HAnimJoint521.Center := Vector3(-4.901,1.568,0.09285);
 HAnimSegment522 := THAnimSegmentNode.Create;
 HAnimSegment522.NameField := 'r_cuboid';
+end;
+
+procedure InitJinLOA4Part41;
+begin
+
+HAnimSegment522.X3DName := 'hanim_r_cuboid';
 Transform523 := TTransformNode.Create;
 Transform523.Translation := Vector3(-4.901,1.568,0.09285);
 Shape524 := TShapeNode.Create;
@@ -4328,11 +4445,6 @@ TextureCoordinate530.SetPoint([Vector2(0.2528,0.0622),Vector2(0.2585,0.0581),Vec
 IndexedFaceSet528.TexCoord := TextureCoordinate530;
 { .SetGeometry }
 Shape524.Geometry := IndexedFaceSet528;
-end;
-
-procedure InitJinLOA4Part39;
-begin
-
 { .AddChild }
 Transform523.AddChildren([Shape524]);
 { .AddChildren }
@@ -4341,9 +4453,11 @@ HAnimSegment522.AddChildren([Transform523]);
 HAnimJoint521.AddChildren([HAnimSegment522]);
 HAnimJoint531 := THAnimJointNode.Create;
 HAnimJoint531.NameField := 'r_tarsometatarsal_4';
+HAnimJoint531.X3DName := 'hanim_r_tarsometatarsal_4';
 HAnimJoint531.Center := Vector3(-4.717,1.091,1.708);
 HAnimSegment532 := THAnimSegmentNode.Create;
 HAnimSegment532.NameField := 'r_metatarsal_4';
+HAnimSegment532.X3DName := 'hanim_r_metatarsal_4';
 Transform533 := TTransformNode.Create;
 Transform533.Translation := Vector3(-4.717,1.091,1.708);
 Shape534 := TShapeNode.Create;
@@ -4353,6 +4467,11 @@ Material536.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance535.Material := Material536;
 ImageTexture537 := ImageTexture37;
+end;
+
+procedure InitJinLOA4Part42;
+begin
+
 { .SetTexture }
 Appearance535.Texture := ImageTexture537;
 { .SetAppearance }
@@ -4379,17 +4498,14 @@ HAnimSegment532.AddChildren([Transform533]);
 HAnimJoint531.AddChildren([HAnimSegment532]);
 HAnimJoint541 := THAnimJointNode.Create;
 HAnimJoint541.NameField := 'r_metatarsophalangeal_4';
+HAnimJoint541.X3DName := 'hanim_r_metatarsophalangeal_4';
 HAnimJoint541.Center := Vector3(-4.867,0.6379,4.052);
 HAnimSegment542 := THAnimSegmentNode.Create;
 HAnimSegment542.NameField := 'r_tarsal_proximal_phalanx_4';
+HAnimSegment542.X3DName := 'hanim_r_tarsal_proximal_phalanx_4';
 Transform543 := TTransformNode.Create;
 Transform543.Translation := Vector3(-4.867,0.6379,4.052);
 Shape544 := TShapeNode.Create;
-end;
-
-procedure InitJinLOA4Part40;
-begin
-
 Appearance545 := TAppearanceNode.Create;
 Material546 := TMaterialNode.Create;
 Material546.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -4408,6 +4524,11 @@ Coordinate549 := TCoordinateNode.Create;
 Coordinate549.SetPoint([Vector3(-0.3278,-0.057,0.1883),Vector3(0.0525,-0.5059,0.7169),Vector3(0.1097,-0.1019,0.7273),Vector3(-0.3613,-0.5312,0.6151),Vector3(-0.4078,-0.1019,0.5996),Vector3(-0.3711,0.3174,0.6207),Vector3(0.072,0.3613,0.7233),Vector3(0.167,0.3917,0.3145),Vector3(-0.2644,-0.4262,0.1511),Vector3(-0.2709,0.3574,0.152),Vector3(0.1661,-0.4211,0.2992),Vector3(0.2641,0.3621,0.329),Vector3(0.2567,0.0215,0.3948),Vector3(0.1987,-0.0648,0.3873),Vector3(0.2979,-0.4388,0.1141),Vector3(0.3087,0.4248,0.0901),Vector3(0.2687,-0.4025,0.3308),Vector3(-0.2935,-0.4317,-0.3075),Vector3(0.3232,-0.4726,-0.1534),Vector3(-0.2611,0.4671,-0.2648),Vector3(0.3273,0.5312,-0.1116),Vector3(-0.3082,0.3589,-0.1241),Vector3(-0.3082,-0.3803,-0.1229),Vector3(-0.3514,0.3217,0.1064),Vector3(-0.3527,-0.414,0.1117),Vector3(-0.3662,-0.0844,0.1549),Vector3(0.2703,-0.3363,-0.4209),Vector3(-0.1122,-0.3109,-0.516),Vector3(-0.0877,0.3691,-0.484),Vector3(0.2733,0.4085,-0.3896),Vector3(-0.5115,-0.288,-0.3108),Vector3(-0.5065,-0.2701,-0.2438),Vector3(-0.5667,-0.2929,-0.0861),Vector3(-0.5748,-0.0815,-0.058),Vector3(-0.5609,0.2313,-0.0969),Vector3(-0.5027,0.2605,-0.2789),Vector3(-0.4848,0.2657,-0.2832),Vector3(0.5105,-0.3286,0.0612),Vector3(0.5235,-0.3455,-0.0729),Vector3(0.526,0.3481,-0.044),Vector3(0.5229,0.3183,0.0128),Vector3(0.4893,0.27,0.1966),Vector3(0.4847,0.0183,0.2454),Vector3(0.4943,-0.306,0.1964)]);
 { .SetCoord }
 IndexedFaceSet548.Coord := Coordinate549;
+end;
+
+procedure InitJinLOA4Part43;
+begin
+
 TextureCoordinate550 := TTextureCoordinateNode.Create;
 TextureCoordinate550.SetPoint([Vector2(0.2033,0.0375),Vector2(0.1866,0.0487),Vector2(0.186,0.0472),Vector2(0.1969,0.0343),Vector2(0.1963,0.0328),Vector2(0.1973,0.0341),Vector2(0.1873,0.048),Vector2(0.1915,0.0602),Vector2(0.1915,0.0578),Vector2(0.1897,0.0535),Vector2(0.1888,0.0569),Vector2(0.2031,0.037),Vector2(0.2012,0.0381),Vector2(0.2444,0.0847),Vector2(0.2208,0.06),Vector2(0.2111,0.0557),Vector2(0.2254,0.054),Vector2(0.2483,0.0809),Vector2(0.2464,0.0799),Vector2(0.2587,0.0865),Vector2(0.225,0.0604),Vector2(0.2239,0.0673),Vector2(0.2238,0.0671),Vector2(0.267,0.0845),Vector2(0.2486,0.0741),Vector2(0.2486,0.074),Vector2(0.2049,0.059),Vector2(0.1896,0.055),Vector2(0.2102,0.0461),Vector2(0.1952,0.0651),Vector2(0.2083,0.0443),Vector2(0.195,0.0629),Vector2(0.2109,0.0476),Vector2(0.2048,0.0404),Vector2(0.2576,0.0911),Vector2(0.2063,0.0414),Vector2(0.2083,0.0537),Vector2(0.2612,0.0869),Vector2(0.2671,0.0842),Vector2(0.2047,0.0593),Vector2(0.1952,0.0651),Vector2(0.2102,0.0461),Vector2(0.2083,0.0443),Vector2(0.195,0.0629),Vector2(0.2102,0.0461),Vector2(0.2063,0.0414),Vector2(0.2612,0.0869),Vector2(0.2671,0.0842),Vector2(0.2083,0.0537),Vector2(0.2109,0.0476),Vector2(0.2083,0.0443),Vector2(0.2444,0.0847),Vector2(0.1952,0.0651),Vector2(0.195,0.0629),Vector2(0.1915,0.0578),Vector2(0.225,0.0604),Vector2(0.2239,0.0673),Vector2(0.2464,0.0799)]);
 { .SetTexCoord }
@@ -4422,9 +4543,11 @@ HAnimSegment542.AddChildren([Transform543]);
 HAnimJoint541.AddChildren([HAnimSegment542]);
 HAnimJoint551 := THAnimJointNode.Create;
 HAnimJoint551.NameField := 'r_tarsal_proximal_interphalangeal_4';
+HAnimJoint551.X3DName := 'hanim_r_tarsal_proximal_interphalangeal_4';
 HAnimJoint551.Center := Vector3(-5.057,0.5442,4.725);
 HAnimSegment552 := THAnimSegmentNode.Create;
 HAnimSegment552.NameField := 'r_tarsal_middle_phalanx_4';
+HAnimSegment552.X3DName := 'hanim_r_tarsal_middle_phalanx_4';
 Transform553 := TTransformNode.Create;
 Transform553.Translation := Vector3(-5.057,0.5442,4.725);
 Shape554 := TShapeNode.Create;
@@ -4442,11 +4565,6 @@ IndexedFaceSet558 := TIndexedFaceSetNode.Create;
 IndexedFaceSet558.SetCoordIndex([0,6,7,-1,7,1,0,-1,2,8,6,-1,6,0,2,-1,9,8,2,-1,2,3,9,-1,4,10,9,-1,9,3,4,-1,11,10,4,-1,4,5,11,-1,7,11,5,-1,5,1,7,-1,14,15,16,-1,16,17,12,-1,14,16,12,-1,13,14,12,-1,7,6,13,-1,13,12,7,-1,6,8,14,-1,14,13,6,-1,8,9,15,-1,15,14,8,-1,9,10,16,-1,16,15,9,-1,10,11,17,-1,17,16,10,-1,11,7,12,-1,12,17,11,-1,20,21,22,-1,22,23,18,-1,20,22,18,-1,19,20,18,-1,0,1,19,-1,19,18,0,-1,1,5,20,-1,20,19,1,-1,5,4,21,-1,21,20,5,-1,4,3,22,-1,22,21,4,-1,3,2,23,-1,23,22,3,-1,2,0,18,-1,18,23,2,-1]);
 IndexedFaceSet558.CreaseAngle := 3.14159;
 IndexedFaceSet558.SetTexCoordIndex([0,8,9,-1,9,1,0,-1,2,10,8,-1,8,0,2,-1,11,10,2,-1,2,3,11,-1,4,12,11,-1,11,3,4,-1,14,13,7,-1,7,6,14,-1,9,15,5,-1,5,1,9,-1,18,19,20,-1,20,21,16,-1,18,20,16,-1,17,18,16,-1,9,8,17,-1,17,16,9,-1,8,10,18,-1,18,17,8,-1,10,11,19,-1,19,18,10,-1,11,12,20,-1,20,19,11,-1,13,14,21,-1,21,20,13,-1,15,9,16,-1,16,21,15,-1,24,25,26,-1,26,27,22,-1,24,26,22,-1,23,24,22,-1,0,1,23,-1,23,22,0,-1,1,5,24,-1,24,23,1,-1,6,7,25,-1,25,24,6,-1,4,3,26,-1,26,25,4,-1,3,2,27,-1,27,26,3,-1,2,0,22,-1,22,27,2,-1]);
-end;
-
-procedure InitJinLOA4Part41;
-begin
-
 Coordinate559 := TCoordinateNode.Create;
 Coordinate559.SetPoint([Vector3(0.2219,-0.455,0.3874),Vector3(0.2704,-0.0797,0.4109),Vector3(-0.2847,-0.455,0.2749),Vector3(-0.3388,-0.0797,0.2793),Vector3(-0.3015,0.1733,0.2582),Vector3(0.2248,0.1994,0.3929),Vector3(0.243,-0.4122,0.0438),Vector3(0.3003,-0.0082,0.0541),Vector3(-0.1707,-0.4375,-0.0581),Vector3(-0.2172,-0.0082,-0.0735),Vector3(-0.1805,0.4111,-0.0525),Vector3(0.2626,0.455,0.0501),Vector3(0.2483,-0.0038,-0.1702),Vector3(0.2041,-0.3133,-0.1768),Vector3(-0.0337,-0.3279,-0.2359),Vector3(-0.0682,-0.0062,-0.2491),Vector3(-0.0403,0.318,-0.2307),Vector3(0.2198,0.3438,-0.1726),Vector3(0.0622,-0.3044,0.5037),Vector3(0.0897,-0.0812,0.5234),Vector3(0.0698,0.0446,0.5123),Vector3(-0.208,0.0308,0.465),Vector3(-0.2246,-0.0777,0.4585),Vector3(-0.1903,-0.3044,0.4486)]);
 { .SetCoord }
@@ -4465,9 +4583,16 @@ HAnimSegment552.AddChildren([Transform553]);
 HAnimJoint551.AddChildren([HAnimSegment552]);
 HAnimJoint561 := THAnimJointNode.Create;
 HAnimJoint561.NameField := 'r_tarsal_distal_interphalangeal_4';
+end;
+
+procedure InitJinLOA4Part44;
+begin
+
+HAnimJoint561.X3DName := 'hanim_r_tarsal_distal_interphalangeal_4';
 HAnimJoint561.Center := Vector3(-5.125,0.4164,5.053);
 HAnimSegment562 := THAnimSegmentNode.Create;
 HAnimSegment562.NameField := 'r_tarsal_distal_phalanx_4';
+HAnimSegment562.X3DName := 'hanim_r_tarsal_distal_phalanx_4';
 Transform563 := TTransformNode.Create;
 Transform563.Translation := Vector3(-5.125,0.4164,5.053);
 Shape564 := TShapeNode.Create;
@@ -4503,11 +4628,6 @@ HAnimSegment562.AddChildren([Transform563]);
 HAnimJoint561.AddChildren([HAnimSegment562]);
 { .AddChildren }
 HAnimJoint551.AddChildren([HAnimJoint561]);
-end;
-
-procedure InitJinLOA4Part42;
-begin
-
 { .AddChildren }
 HAnimJoint541.AddChildren([HAnimJoint551]);
 { .AddChildren }
@@ -4516,9 +4636,16 @@ HAnimJoint531.AddChildren([HAnimJoint541]);
 HAnimJoint521.AddChildren([HAnimJoint531]);
 HAnimJoint571 := THAnimJointNode.Create;
 HAnimJoint571.NameField := 'r_tarsometatarsal_5';
+HAnimJoint571.X3DName := 'hanim_r_tarsometatarsal_5';
 HAnimJoint571.Center := Vector3(-5.353,0.9309,1.544);
 HAnimSegment572 := THAnimSegmentNode.Create;
 HAnimSegment572.NameField := 'r_metatarsal_5';
+HAnimSegment572.X3DName := 'hanim_r_metatarsal_5';
+end;
+
+procedure InitJinLOA4Part45;
+begin
+
 Transform573 := TTransformNode.Create;
 Transform573.Translation := Vector3(-5.353,0.9309,1.544);
 Shape574 := TShapeNode.Create;
@@ -4554,17 +4681,14 @@ HAnimSegment572.AddChildren([Transform573]);
 HAnimJoint571.AddChildren([HAnimSegment572]);
 HAnimJoint581 := THAnimJointNode.Create;
 HAnimJoint581.NameField := 'r_metatarsophalangeal_5';
+HAnimJoint581.X3DName := 'hanim_r_metatarsophalangeal_5';
 HAnimJoint581.Center := Vector3(-5.497,0.6076,3.847);
 HAnimSegment582 := THAnimSegmentNode.Create;
 HAnimSegment582.NameField := 'r_tarsal_proximal_phalanx_5';
+HAnimSegment582.X3DName := 'hanim_r_tarsal_proximal_phalanx_5';
 Transform583 := TTransformNode.Create;
 Transform583.Translation := Vector3(-5.497,0.6076,3.847);
 Shape584 := TShapeNode.Create;
-end;
-
-procedure InitJinLOA4Part43;
-begin
-
 Appearance585 := TAppearanceNode.Create;
 Material586 := TMaterialNode.Create;
 Material586.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -4573,6 +4697,11 @@ Appearance585.Material := Material586;
 ImageTexture587 := ImageTexture37;
 { .SetTexture }
 Appearance585.Texture := ImageTexture587;
+end;
+
+procedure InitJinLOA4Part46;
+begin
+
 { .SetAppearance }
 Shape584.Appearance := Appearance585;
 IndexedFaceSet588 := TIndexedFaceSetNode.Create;
@@ -4597,9 +4726,11 @@ HAnimSegment582.AddChildren([Transform583]);
 HAnimJoint581.AddChildren([HAnimSegment582]);
 HAnimJoint591 := THAnimJointNode.Create;
 HAnimJoint591.NameField := 'r_tarsal_proximal_interphalangeal_5';
+HAnimJoint591.X3DName := 'hanim_r_tarsal_proximal_interphalangeal_5';
 HAnimJoint591.Center := Vector3(-5.6,0.4825,4.184);
 HAnimSegment592 := THAnimSegmentNode.Create;
 HAnimSegment592.NameField := 'r_tarsal_middle_phalanx_5';
+HAnimSegment592.X3DName := 'hanim_r_tarsal_middle_phalanx_5';
 Transform593 := TTransformNode.Create;
 Transform593.Translation := Vector3(-5.6,0.4825,4.184);
 Shape594 := TShapeNode.Create;
@@ -4617,16 +4748,16 @@ IndexedFaceSet598 := TIndexedFaceSetNode.Create;
 IndexedFaceSet598.SetCoordIndex([6,0,1,-1,1,7,6,-1,7,1,2,-1,2,8,7,-1,8,2,3,-1,3,9,8,-1,3,4,10,-1,10,9,3,-1,4,5,11,-1,11,10,4,-1,5,0,6,-1,6,11,5,-1,20,21,22,-1,22,23,18,-1,20,22,18,-1,19,20,18,-1,14,15,16,-1,16,17,12,-1,14,16,12,-1,13,14,12,-1,6,7,13,-1,13,12,6,-1,7,8,14,-1,14,13,7,-1,8,9,15,-1,15,14,8,-1,9,10,16,-1,16,15,9,-1,10,11,17,-1,17,16,10,-1,11,6,12,-1,12,17,11,-1,1,0,19,-1,19,18,1,-1,0,5,20,-1,20,19,0,-1,5,4,21,-1,21,20,5,-1,4,3,22,-1,22,21,4,-1,3,2,23,-1,23,22,3,-1,2,1,18,-1,18,23,2,-1]);
 IndexedFaceSet598.CreaseAngle := 3.14159;
 IndexedFaceSet598.SetTexCoordIndex([6,1,0,-1,0,7,6,-1,7,0,2,-1,2,8,7,-1,8,2,3,-1,3,9,8,-1,3,4,10,-1,10,9,3,-1,4,5,11,-1,11,10,4,-1,5,1,6,-1,6,11,5,-1,20,21,22,-1,22,23,18,-1,20,22,18,-1,19,20,18,-1,14,15,16,-1,16,17,12,-1,14,16,12,-1,13,14,12,-1,6,7,13,-1,13,12,6,-1,7,8,14,-1,14,13,7,-1,8,9,15,-1,15,14,8,-1,9,10,16,-1,16,15,9,-1,10,11,17,-1,17,16,10,-1,11,6,12,-1,12,17,11,-1,0,1,19,-1,19,18,0,-1,1,5,20,-1,20,19,1,-1,5,4,21,-1,21,20,5,-1,4,3,22,-1,22,21,4,-1,3,2,23,-1,23,22,3,-1,2,0,18,-1,18,23,2,-1]);
-end;
-
-procedure InitJinLOA4Part44;
-begin
-
 Coordinate599 := TCoordinateNode.Create;
 Coordinate599.SetPoint([Vector3(-0.2408,-0.4069,0.2803),Vector3(-0.3104,-0.1317,0.2682),Vector3(-0.2708,0.1735,0.2787),Vector3(0.2317,0.2031,0.3777),Vector3(0.2679,-0.1354,0.3997),Vector3(0.1895,-0.4021,0.3653),Vector3(-0.1525,-0.3723,-0.0403),Vector3(-0.2354,-0.0074,-0.0325),Vector3(-0.1833,0.3464,-0.0414),Vector3(0.2758,0.4069,0.0611),Vector3(0.3045,0.025,0.1088),Vector3(0.2506,-0.2948,0.058),Vector3(-0.0394,-0.2528,-0.1664),Vector3(-0.0981,-0.0034,-0.1527),Vector3(-0.0588,0.2544,-0.1647),Vector3(0.223,0.2914,-0.1062),Vector3(0.2396,0.03,-0.0614),Vector3(0.202,-0.2065,-0.1082),Vector3(-0.193,-0.1236,0.4464),Vector3(-0.1591,-0.2569,0.4517),Vector3(0.0503,-0.2545,0.4894),Vector3(0.0876,-0.122,0.5141),Vector3(0.0715,0.0448,0.4955),Vector3(-0.173,0.0304,0.4518)]);
 { .SetCoord }
 IndexedFaceSet598.Coord := Coordinate599;
 TextureCoordinate600 := TTextureCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4Part47;
+begin
+
 TextureCoordinate600.SetPoint([Vector2(0.2109,0.0133),Vector2(0.2102,0.0181),Vector2(0.2093,0.0169),Vector2(0.1959,0.0354),Vector2(0.1986,0.0324),Vector2(0.1989,0.0342),Vector2(0.2114,0.0219),Vector2(0.2132,0.0168),Vector2(0.2123,0.0196),Vector2(0.1999,0.0356),Vector2(0.201,0.0349),Vector2(0.2011,0.0354),Vector2(0.2114,0.0219),Vector2(0.2132,0.0168),Vector2(0.2123,0.0196),Vector2(0.1999,0.0356),Vector2(0.201,0.0349),Vector2(0.2011,0.0354),Vector2(0.2109,0.0133),Vector2(0.2102,0.0181),Vector2(0.1989,0.0342),Vector2(0.1986,0.0324),Vector2(0.1959,0.0354),Vector2(0.2093,0.0169)]);
 { .SetTexCoord }
 IndexedFaceSet598.TexCoord := TextureCoordinate600;
@@ -4640,9 +4771,11 @@ HAnimSegment592.AddChildren([Transform593]);
 HAnimJoint591.AddChildren([HAnimSegment592]);
 HAnimJoint601 := THAnimJointNode.Create;
 HAnimJoint601.NameField := 'r_tarsal_distal_interphalangeal_5';
+HAnimJoint601.X3DName := 'hanim_r_tarsal_distal_interphalangeal_5';
 HAnimJoint601.Center := Vector3(-5.641,0.3806,4.528);
 HAnimSegment602 := THAnimSegmentNode.Create;
 HAnimSegment602.NameField := 'r_tarsal_distal_phalanx_5';
+HAnimSegment602.X3DName := 'hanim_r_tarsal_distal_phalanx_5';
 Transform603 := TTransformNode.Create;
 Transform603.Translation := Vector3(-5.641,0.3806,4.528);
 Shape604 := TShapeNode.Create;
@@ -4678,15 +4811,15 @@ HAnimSegment602.AddChildren([Transform603]);
 HAnimJoint601.AddChildren([HAnimSegment602]);
 { .AddChildren }
 HAnimJoint591.AddChildren([HAnimJoint601]);
-end;
-
-procedure InitJinLOA4Part45;
-begin
-
 { .AddChildren }
 HAnimJoint581.AddChildren([HAnimJoint591]);
 { .AddChildren }
 HAnimJoint571.AddChildren([HAnimJoint581]);
+end;
+
+procedure InitJinLOA4Part48;
+begin
+
 { .AddChildren }
 HAnimJoint521.AddChildren([HAnimJoint571]);
 { .AddChildren }
@@ -4701,9 +4834,11 @@ HAnimJoint331.AddChildren([HAnimJoint341]);
 HAnimJoint41.AddChildren([HAnimJoint331]);
 HAnimJoint611 := THAnimJointNode.Create;
 HAnimJoint611.NameField := 'vl5';
+HAnimJoint611.X3DName := 'hanim_vl5';
 HAnimJoint611.Center := Vector3(0,41.130001,-0.6117);
 HAnimSegment612 := THAnimSegmentNode.Create;
 HAnimSegment612.NameField := 'l5';
+HAnimSegment612.X3DName := 'hanim_l5';
 Transform613 := TTransformNode.Create;
 Transform613.Translation := Vector3(0,41.130001,-0.6117);
 Shape614 := TShapeNode.Create;
@@ -4739,14 +4874,16 @@ HAnimSegment612.AddChildren([Transform613]);
 HAnimJoint611.AddChildren([HAnimSegment612]);
 HAnimJoint621 := THAnimJointNode.Create;
 HAnimJoint621.NameField := 'vl4';
-HAnimJoint621.Center := Vector3(0,42.209999,-0.6117);
+HAnimJoint621.X3DName := 'hanim_vl4';
 end;
 
-procedure InitJinLOA4Part46;
+procedure InitJinLOA4Part49;
 begin
 
+HAnimJoint621.Center := Vector3(0,42.209999,-0.6117);
 HAnimSegment622 := THAnimSegmentNode.Create;
 HAnimSegment622.NameField := 'l4';
+HAnimSegment622.X3DName := 'hanim_l4';
 Transform623 := TTransformNode.Create;
 Transform623.Translation := Vector3(0,42.209999,-0.6117);
 Shape624 := TShapeNode.Create;
@@ -4782,25 +4919,27 @@ HAnimSegment622.AddChildren([Transform623]);
 HAnimJoint621.AddChildren([HAnimSegment622]);
 HAnimJoint631 := THAnimJointNode.Create;
 HAnimJoint631.NameField := 'vl3';
+HAnimJoint631.X3DName := 'hanim_vl3';
 HAnimJoint631.Center := Vector3(0,42.93,-0.6117);
 HAnimSegment632 := THAnimSegmentNode.Create;
 HAnimSegment632.NameField := 'l3';
+HAnimSegment632.X3DName := 'hanim_l3';
 Transform633 := TTransformNode.Create;
 Transform633.Translation := Vector3(0,42.93,-0.6117);
 Shape634 := TShapeNode.Create;
 Appearance635 := TAppearanceNode.Create;
 Material636 := TMaterialNode.Create;
+end;
+
+procedure InitJinLOA4Part50;
+begin
+
 Material636.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance635.Material := Material636;
 ImageTexture637 := ImageTexture37;
 { .SetTexture }
 Appearance635.Texture := ImageTexture637;
-end;
-
-procedure InitJinLOA4Part47;
-begin
-
 { .SetAppearance }
 Shape634.Appearance := Appearance635;
 IndexedFaceSet638 := TIndexedFaceSetNode.Create;
@@ -4825,9 +4964,11 @@ HAnimSegment632.AddChildren([Transform633]);
 HAnimJoint631.AddChildren([HAnimSegment632]);
 HAnimJoint641 := THAnimJointNode.Create;
 HAnimJoint641.NameField := 'vl2';
+HAnimJoint641.X3DName := 'hanim_vl2';
 HAnimJoint641.Center := Vector3(0,43.66,-0.6117);
 HAnimSegment642 := THAnimSegmentNode.Create;
 HAnimSegment642.NameField := 'l2';
+HAnimSegment642.X3DName := 'hanim_l2';
 Transform643 := TTransformNode.Create;
 Transform643.Translation := Vector3(0,43.66,-0.6117);
 Shape644 := TShapeNode.Create;
@@ -4845,17 +4986,17 @@ IndexedFaceSet648 := TIndexedFaceSetNode.Create;
 IndexedFaceSet648.SetCoordIndex([3,7,14,-1,14,15,3,-1,0,5,10,-1,10,6,0,-1,11,2,0,-1,0,6,11,-1,3,4,8,-1,8,7,3,-1,4,1,9,-1,9,8,4,-1,9,1,2,-1,2,11,9,-1,5,26,27,-1,27,10,5,-1,12,15,14,-1,14,13,12,-1,17,16,19,-1,19,18,17,-1,20,16,17,-1,17,21,20,-1,12,13,23,-1,23,22,12,-1,22,23,25,-1,25,24,22,-1,25,20,21,-1,21,24,25,-1,18,19,27,-1,27,26,18,-1,29,30,31,-1,31,32,33,-1,33,34,35,-1,31,33,35,-1,35,36,37,-1,37,38,39,-1,35,37,39,-1,31,35,39,-1,39,40,41,-1,31,39,41,-1,29,31,41,-1,29,41,28,-1,44,45,46,-1,46,47,48,-1,44,46,48,-1,48,49,50,-1,48,50,51,-1,51,52,53,-1,53,54,55,-1,51,53,55,-1,48,51,55,-1,44,48,55,-1,43,44,55,-1,43,55,42,-1,5,0,29,-1,29,28,5,-1,0,2,30,-1,30,29,0,-1,2,1,31,-1,31,30,2,-1,1,4,32,-1,32,31,1,-1,4,3,33,-1,33,32,4,-1,3,15,34,-1,34,33,3,-1,15,12,35,-1,35,34,15,-1,12,22,36,-1,36,35,12,-1,22,24,37,-1,37,36,22,-1,24,21,38,-1,38,37,24,-1,21,17,39,-1,39,38,21,-1,17,18,40,-1,40,39,17,-1,18,26,41,-1,41,40,18,-1,26,5,28,-1,28,41,26,-1,6,10,43,-1,43,42,6,-1,10,27,44,-1,44,43,10,-1,27,19,45,-1,45,44,27,-1,19,16,46,-1,46,45,19,-1,16,20,47,-1,47,46,16,-1,20,25,48,-1,48,47,20,-1,25,23,49,-1,49,48,25,-1,23,13,50,-1,50,49,23,-1,13,14,51,-1,51,50,13,-1,14,7,52,-1,52,51,14,-1,7,8,53,-1,53,52,7,-1,8,9,54,-1,54,53,8,-1,9,11,55,-1,55,54,9,-1,11,6,42,-1,42,55,11,-1]);
 IndexedFaceSet648.CreaseAngle := 3.14159;
 IndexedFaceSet648.SetTexCoordIndex([6,10,16,-1,16,7,6,-1,1,0,14,-1,14,9,1,-1,15,2,1,-1,1,9,15,-1,4,3,12,-1,12,11,4,-1,3,5,13,-1,13,12,3,-1,13,5,2,-1,2,15,13,-1,0,8,17,-1,17,14,0,-1,18,21,20,-1,20,19,18,-1,23,22,25,-1,25,24,23,-1,26,22,23,-1,23,27,26,-1,29,28,31,-1,31,30,29,-1,30,31,33,-1,33,32,30,-1,33,26,27,-1,27,32,33,-1,24,25,35,-1,35,34,24,-1,37,38,39,-1,39,40,41,-1,41,42,43,-1,39,41,43,-1,43,44,45,-1,45,46,47,-1,43,45,47,-1,39,43,47,-1,47,48,49,-1,39,47,49,-1,37,39,49,-1,37,49,36,-1,52,53,54,-1,54,55,56,-1,52,54,56,-1,56,57,58,-1,56,58,59,-1,59,60,61,-1,61,62,63,-1,59,61,63,-1,56,59,63,-1,52,56,63,-1,51,52,63,-1,51,63,50,-1,0,1,37,-1,37,36,0,-1,1,2,38,-1,38,37,1,-1,2,5,39,-1,39,38,2,-1,5,3,40,-1,40,39,5,-1,3,4,41,-1,41,40,3,-1,6,7,42,-1,42,41,6,-1,21,18,43,-1,43,42,21,-1,29,30,44,-1,44,43,29,-1,30,32,45,-1,45,44,30,-1,32,27,46,-1,46,45,32,-1,27,23,47,-1,47,46,27,-1,23,24,48,-1,48,47,23,-1,24,34,49,-1,49,48,24,-1,8,0,36,-1,36,49,8,-1,9,14,51,-1,51,50,9,-1,14,17,52,-1,52,51,14,-1,35,25,53,-1,53,52,35,-1,25,22,54,-1,54,53,25,-1,22,26,55,-1,55,54,22,-1,26,33,56,-1,56,55,26,-1,33,31,57,-1,57,56,33,-1,31,28,58,-1,58,57,31,-1,19,20,59,-1,59,58,19,-1,16,10,60,-1,60,59,16,-1,11,12,61,-1,61,60,11,-1,12,13,62,-1,62,61,12,-1,13,15,63,-1,63,62,13,-1,15,9,50,-1,50,63,15,-1]);
+end;
+
+procedure InitJinLOA4Part51;
+begin
+
 Coordinate649 := TCoordinateNode.Create;
 Coordinate649.SetPoint([Vector3(3.71,0.777,2.648),Vector3(4.818,0.777,-0.5615),Vector3(5.128,0.777,1.321),Vector3(1.293,0.777,-2.595),Vector3(3.593,0.777,-1.696),Vector3(1.281,0.777,3.092),Vector3(3.874,0.0063,3.02),Vector3(1.367,0.0063,-3.028),Vector3(3.71,0.0063,-2.051),Vector3(4.987,0.0063,-0.7054),Vector3(1.404,0.0063,3.517),Vector3(5.353,0.0063,1.475),Vector3(-1.293,0.777,-2.595),Vector3(-1.367,0.0063,-3.028),Vector3(0,0.0063,-3.028),Vector3(0,0.777,-2.595),Vector3(-3.874,0.0063,3.02),Vector3(-3.71,0.777,2.648),Vector3(-1.281,0.777,3.092),Vector3(-1.404,0.0063,3.517),Vector3(-5.353,0.0063,1.475),Vector3(-5.128,0.777,1.321),Vector3(-3.593,0.777,-1.696),Vector3(-3.71,0.0063,-2.051),Vector3(-4.818,0.777,-0.5615),Vector3(-4.987,0.0063,-0.7054),Vector3(0,0.777,3.092),Vector3(0,0.0063,3.517),Vector3(1.261,1.231,2.872),Vector3(3.606,1.231,2.442),Vector3(4.891,1.231,1.241),Vector3(4.612,1.231,-0.451),Vector3(3.473,1.231,-1.506),Vector3(1.251,1.231,-2.375),Vector3(0,1.231,-2.375),Vector3(-1.251,1.231,-2.375),Vector3(-3.473,1.231,-1.506),Vector3(-4.612,1.231,-0.451),Vector3(-4.891,1.231,1.241),Vector3(-3.606,1.231,2.442),Vector3(-1.261,1.231,2.872),Vector3(0,1.231,2.872),Vector3(3.853,-0.3735,2.877),Vector3(1.415,-0.3735,3.367),Vector3(0,-0.3735,3.367),Vector3(-1.415,-0.3735,3.367),Vector3(-3.853,-0.3735,2.877),Vector3(-5.24,-0.3735,1.428),Vector3(-4.895,-0.3735,-0.6254),Vector3(-3.668,-0.3735,-1.919),Vector3(-1.354,-0.3735,-2.884),Vector3(0,-0.3735,-2.884),Vector3(1.354,-0.3735,-2.884),Vector3(3.668,-0.3735,-1.919),Vector3(4.895,-0.3735,-0.6254),Vector3(5.24,-0.3735,1.428)]);
 { .SetCoord }
 IndexedFaceSet648.Coord := Coordinate649;
 TextureCoordinate650 := TTextureCoordinateNode.Create;
 TextureCoordinate650.SetPoint([Vector2(0.0177,0.3051),Vector2(0.0982,0.302),Vector2(0.1487,0.2975),Vector2(0.2175,0.2944),Vector2(0.3621,0.2922),Vector2(0.1849,0.2961),Vector2(0.3633,0.2922),Vector2(0.3627,0.2922),Vector2(0.0177,0.3051),Vector2(0.1055,0.2814),Vector2(0.3697,0.2711),Vector2(0.3605,0.2757),Vector2(0.2204,0.275),Vector2(0.1853,0.2768),Vector2(0.024,0.2813),Vector2(0.1448,0.2785),Vector2(0.3603,0.2745),Vector2(0.0155,0.2778),Vector2(0.3633,0.2922),Vector2(0.3697,0.2711),Vector2(0.3603,0.2745),Vector2(0.3627,0.2922),Vector2(0.1055,0.2814),Vector2(0.0982,0.302),Vector2(0.0177,0.3051),Vector2(0.024,0.2813),Vector2(0.1448,0.2785),Vector2(0.1487,0.2975),Vector2(0.3605,0.2757),Vector2(0.3621,0.2922),Vector2(0.2175,0.2944),Vector2(0.2204,0.275),Vector2(0.1849,0.2961),Vector2(0.1853,0.2768),Vector2(0.0177,0.3051),Vector2(0.0155,0.2778),Vector2(0.0177,0.3051),Vector2(0.0982,0.302),Vector2(0.1487,0.2975),Vector2(0.1849,0.2961),Vector2(0.2175,0.2944),Vector2(0.3621,0.2922),Vector2(0.3627,0.2922),Vector2(0.3633,0.2922),Vector2(0.2175,0.2944),Vector2(0.1849,0.2961),Vector2(0.1487,0.2975),Vector2(0.0982,0.302),Vector2(0.0177,0.3051),Vector2(0.0177,0.3051),Vector2(0.1055,0.2814),Vector2(0.024,0.2813),Vector2(0.0155,0.2778),Vector2(0.024,0.2813),Vector2(0.1055,0.2814),Vector2(0.1448,0.2785),Vector2(0.1853,0.2768),Vector2(0.2204,0.275),Vector2(0.3605,0.2757),Vector2(0.3603,0.2745),Vector2(0.3697,0.2711),Vector2(0.2204,0.275),Vector2(0.1853,0.2768),Vector2(0.1448,0.2785)]);
-end;
-
-procedure InitJinLOA4Part48;
-begin
-
 { .SetTexCoord }
 IndexedFaceSet648.TexCoord := TextureCoordinate650;
 { .SetGeometry }
@@ -4868,9 +5009,11 @@ HAnimSegment642.AddChildren([Transform643]);
 HAnimJoint641.AddChildren([HAnimSegment642]);
 HAnimJoint651 := THAnimJointNode.Create;
 HAnimJoint651.NameField := 'vl1';
+HAnimJoint651.X3DName := 'hanim_vl1';
 HAnimJoint651.Center := Vector3(0,44.43,-0.6117);
 HAnimSegment652 := THAnimSegmentNode.Create;
 HAnimSegment652.NameField := 'l1';
+HAnimSegment652.X3DName := 'hanim_l1';
 Transform653 := TTransformNode.Create;
 Transform653.Translation := Vector3(0,44.43,-0.6117);
 Shape654 := TShapeNode.Create;
@@ -4902,19 +5045,21 @@ Shape654.Geometry := IndexedFaceSet658;
 Transform653.AddChildren([Shape654]);
 { .AddChildren }
 HAnimSegment652.AddChildren([Transform653]);
+end;
+
+procedure InitJinLOA4Part52;
+begin
+
 { .AddChildren }
 HAnimJoint651.AddChildren([HAnimSegment652]);
 HAnimJoint661 := THAnimJointNode.Create;
 HAnimJoint661.NameField := 'vt12';
+HAnimJoint661.X3DName := 'hanim_vt12';
 HAnimJoint661.Center := Vector3(0,45.470001,-0.6117);
 HAnimSegment662 := THAnimSegmentNode.Create;
 HAnimSegment662.NameField := 't12';
+HAnimSegment662.X3DName := 'hanim_t12';
 Transform663 := TTransformNode.Create;
-end;
-
-procedure InitJinLOA4Part49;
-begin
-
 Transform663.Translation := Vector3(0,45.470001,-0.6117);
 Shape664 := TShapeNode.Create;
 Appearance665 := TAppearanceNode.Create;
@@ -4949,10 +5094,17 @@ HAnimSegment662.AddChildren([Transform663]);
 HAnimJoint661.AddChildren([HAnimSegment662]);
 HAnimJoint671 := THAnimJointNode.Create;
 HAnimJoint671.NameField := 'vt11';
+HAnimJoint671.X3DName := 'hanim_vt11';
 HAnimJoint671.Center := Vector3(0,46.52,-0.6117);
 HAnimSegment672 := THAnimSegmentNode.Create;
 HAnimSegment672.NameField := 't11';
+HAnimSegment672.X3DName := 'hanim_t11';
 Transform673 := TTransformNode.Create;
+end;
+
+procedure InitJinLOA4Part53;
+begin
+
 Transform673.Translation := Vector3(0,46.52,-0.6117);
 Shape674 := TShapeNode.Create;
 Appearance675 := TAppearanceNode.Create;
@@ -4967,11 +5119,6 @@ Appearance675.Texture := ImageTexture677;
 Shape674.Appearance := Appearance675;
 IndexedFaceSet678 := TIndexedFaceSetNode.Create;
 IndexedFaceSet678.SetCoordIndex([4,3,10,-1,10,12,4,-1,5,4,12,-1,12,13,5,-1,5,13,9,-1,9,1,5,-1,6,11,14,-1,14,7,6,-1,7,2,0,-1,0,6,7,-1,11,6,0,-1,0,8,11,-1,3,28,29,-1,29,10,3,-1,8,0,1,-1,1,9,8,-1,15,18,17,-1,17,16,15,-1,19,20,18,-1,18,15,19,-1,19,21,22,-1,22,20,19,-1,23,7,14,-1,14,24,23,-1,7,23,25,-1,25,26,7,-1,24,27,25,-1,25,23,24,-1,16,17,29,-1,29,28,16,-1,27,22,21,-1,21,25,27,-1,32,33,34,-1,31,32,34,-1,34,35,36,-1,36,37,38,-1,34,36,38,-1,38,39,40,-1,40,41,42,-1,38,40,42,-1,34,38,42,-1,31,34,42,-1,31,42,43,-1,31,43,30,-1,45,46,47,-1,47,48,49,-1,49,50,51,-1,47,49,51,-1,51,52,53,-1,53,54,55,-1,51,53,55,-1,47,51,55,-1,55,56,57,-1,47,55,57,-1,45,47,57,-1,45,57,44,-1,0,2,31,-1,31,30,0,-1,2,7,32,-1,32,31,2,-1,7,26,33,-1,33,32,7,-1,26,25,34,-1,34,33,26,-1,25,21,35,-1,35,34,25,-1,21,19,36,-1,36,35,21,-1,19,15,37,-1,37,36,19,-1,15,16,38,-1,38,37,15,-1,16,28,39,-1,39,38,16,-1,28,3,40,-1,40,39,28,-1,3,4,41,-1,41,40,3,-1,4,5,42,-1,42,41,4,-1,5,1,43,-1,43,42,5,-1,1,0,30,-1,30,43,1,-1,12,10,45,-1,45,44,12,-1,10,29,46,-1,46,45,10,-1,29,17,47,-1,47,46,29,-1,17,18,48,-1,48,47,17,-1,18,20,49,-1,49,48,18,-1,20,22,50,-1,50,49,20,-1,22,27,51,-1,51,50,22,-1,27,24,52,-1,52,51,27,-1,24,14,53,-1,53,52,24,-1,14,11,54,-1,54,53,14,-1,11,8,55,-1,55,54,11,-1,8,9,56,-1,56,55,8,-1,9,13,57,-1,57,56,9,-1,13,12,44,-1,44,57,13,-1]);
-end;
-
-procedure InitJinLOA4Part50;
-begin
-
 IndexedFaceSet678.CreaseAngle := 3.14159;
 IndexedFaceSet678.SetTexCoordIndex([6,5,14,-1,14,16,6,-1,7,6,16,-1,16,17,7,-1,7,17,12,-1,12,3,7,-1,8,15,18,-1,18,10,8,-1,10,0,1,-1,1,8,10,-1,15,8,2,-1,2,11,15,-1,4,9,19,-1,19,13,4,-1,11,2,3,-1,3,12,11,-1,20,23,22,-1,22,21,20,-1,24,25,23,-1,23,20,24,-1,24,26,27,-1,27,25,24,-1,29,28,31,-1,31,30,29,-1,28,29,32,-1,32,33,28,-1,30,35,34,-1,34,29,30,-1,37,36,39,-1,39,38,37,-1,35,27,26,-1,26,34,35,-1,42,43,44,-1,41,42,44,-1,44,45,46,-1,46,47,48,-1,44,46,48,-1,48,49,50,-1,50,51,52,-1,48,50,52,-1,44,48,52,-1,41,44,52,-1,41,52,53,-1,41,53,40,-1,55,56,57,-1,57,58,59,-1,59,60,61,-1,57,59,61,-1,61,62,63,-1,63,64,65,-1,61,63,65,-1,57,61,65,-1,65,66,67,-1,57,65,67,-1,55,57,67,-1,55,67,54,-1,1,0,41,-1,41,40,1,-1,0,10,42,-1,42,41,0,-1,28,33,43,-1,43,42,28,-1,33,32,44,-1,44,43,33,-1,34,26,45,-1,45,44,34,-1,26,24,46,-1,46,45,26,-1,24,20,47,-1,47,46,24,-1,20,21,48,-1,48,47,20,-1,37,38,49,-1,49,48,37,-1,9,4,50,-1,50,49,9,-1,5,6,51,-1,51,50,5,-1,6,7,52,-1,52,51,6,-1,7,3,53,-1,53,52,7,-1,3,2,40,-1,40,53,3,-1,16,14,55,-1,55,54,16,-1,13,19,56,-1,56,55,13,-1,39,36,57,-1,57,56,39,-1,22,23,58,-1,58,57,22,-1,23,25,59,-1,59,58,23,-1,25,27,60,-1,60,59,25,-1,27,35,61,-1,61,60,27,-1,35,30,62,-1,62,61,35,-1,30,31,63,-1,63,62,30,-1,18,15,64,-1,64,63,18,-1,15,11,65,-1,65,64,15,-1,11,12,66,-1,66,65,11,-1,12,17,67,-1,67,66,12,-1,17,16,54,-1,54,67,17,-1]);
 Coordinate679 := TCoordinateNode.Create;
@@ -4992,9 +5139,11 @@ HAnimSegment672.AddChildren([Transform673]);
 HAnimJoint671.AddChildren([HAnimSegment672]);
 HAnimJoint681 := THAnimJointNode.Create;
 HAnimJoint681.NameField := 'vt10';
+HAnimJoint681.X3DName := 'hanim_vt10';
 HAnimJoint681.Center := Vector3(0,47.279999,-0.6127);
 HAnimSegment682 := THAnimSegmentNode.Create;
 HAnimSegment682.NameField := 't10';
+HAnimSegment682.X3DName := 'hanim_t10';
 Transform683 := TTransformNode.Create;
 Transform683.Translation := Vector3(0,47.279999,-0.6127);
 Shape684 := TShapeNode.Create;
@@ -5008,6 +5157,11 @@ ImageTexture687 := ImageTexture37;
 Appearance685.Texture := ImageTexture687;
 { .SetAppearance }
 Shape684.Appearance := Appearance685;
+end;
+
+procedure InitJinLOA4Part54;
+begin
+
 IndexedFaceSet688 := TIndexedFaceSetNode.Create;
 IndexedFaceSet688.SetCoordIndex([11,7,4,-1,4,2,11,-1,7,8,5,-1,5,4,7,-1,8,10,1,-1,1,5,8,-1,3,6,12,-1,12,23,3,-1,6,3,0,-1,0,9,6,-1,2,26,27,-1,27,11,2,-1,0,1,10,-1,10,9,0,-1,14,13,16,-1,16,15,14,-1,15,16,18,-1,18,17,15,-1,17,18,20,-1,20,19,17,-1,21,23,12,-1,12,22,21,-1,22,25,24,-1,24,21,22,-1,13,14,27,-1,27,26,13,-1,24,25,19,-1,19,20,24,-1,29,30,31,-1,31,32,33,-1,29,31,33,-1,34,35,36,-1,33,34,36,-1,36,37,38,-1,38,39,40,-1,36,38,40,-1,33,36,40,-1,29,33,40,-1,29,40,41,-1,29,41,28,-1,44,45,46,-1,46,47,48,-1,48,49,50,-1,46,48,50,-1,50,51,52,-1,52,53,54,-1,50,52,54,-1,54,55,42,-1,50,54,42,-1,46,50,42,-1,44,46,42,-1,43,44,42,-1,2,4,29,-1,29,28,2,-1,4,5,30,-1,30,29,4,-1,5,1,31,-1,31,30,5,-1,1,0,32,-1,32,31,1,-1,0,3,33,-1,33,32,0,-1,3,23,34,-1,34,33,3,-1,23,21,35,-1,35,34,23,-1,21,24,36,-1,36,35,21,-1,24,20,37,-1,37,36,24,-1,20,18,38,-1,38,37,20,-1,18,16,39,-1,39,38,18,-1,16,13,40,-1,40,39,16,-1,13,26,41,-1,41,40,13,-1,26,2,28,-1,28,41,26,-1,6,9,43,-1,43,42,6,-1,9,10,44,-1,44,43,9,-1,10,8,45,-1,45,44,10,-1,8,7,46,-1,46,45,8,-1,7,11,47,-1,47,46,7,-1,11,27,48,-1,48,47,11,-1,27,14,49,-1,49,48,27,-1,14,15,50,-1,50,49,14,-1,15,17,51,-1,51,50,15,-1,17,19,52,-1,52,51,17,-1,19,25,53,-1,53,52,19,-1,25,22,54,-1,54,53,25,-1,22,12,55,-1,55,54,22,-1,12,6,42,-1,42,55,12,-1]);
 IndexedFaceSet688.CreaseAngle := 3.14159;
@@ -5026,18 +5180,15 @@ Shape684.Geometry := IndexedFaceSet688;
 Transform683.AddChildren([Shape684]);
 { .AddChildren }
 HAnimSegment682.AddChildren([Transform683]);
-end;
-
-procedure InitJinLOA4Part51;
-begin
-
 { .AddChildren }
 HAnimJoint681.AddChildren([HAnimSegment682]);
 HAnimJoint691 := THAnimJointNode.Create;
 HAnimJoint691.NameField := 'vt9';
+HAnimJoint691.X3DName := 'hanim_vt9';
 HAnimJoint691.Center := Vector3(0,47.93,-0.6117);
 HAnimSegment692 := THAnimSegmentNode.Create;
 HAnimSegment692.NameField := 't9';
+HAnimSegment692.X3DName := 'hanim_t9';
 Transform693 := TTransformNode.Create;
 Transform693.Translation := Vector3(0,47.93,-0.6117);
 Shape694 := TShapeNode.Create;
@@ -5061,6 +5212,11 @@ Coordinate699.SetPoint([Vector3(1.418,0.0059,3.362),Vector3(3.892,0.0059,-1.86),
 IndexedFaceSet698.Coord := Coordinate699;
 TextureCoordinate700 := TTextureCoordinateNode.Create;
 TextureCoordinate700.SetPoint([Vector2(0.0245,0.3617),Vector2(0.2207,0.3633),Vector2(0.1922,0.3628),Vector2(0.3616,0.3609),Vector2(0.0859,0.3657),Vector2(0.1489,0.3665),Vector2(0.3589,0.3648),Vector2(0.3617,0.3609),Vector2(0.0254,0.3626),Vector2(0.0258,0.3672),Vector2(0.2227,0.3728),Vector2(0.1969,0.3716),Vector2(0.0826,0.3711),Vector2(0.1469,0.377),Vector2(0.3589,0.3735),Vector2(0.3612,0.3687),Vector2(0.0276,0.3706),Vector2(0.3625,0.3682),Vector2(0.0258,0.3672),Vector2(0.0245,0.3617),Vector2(0.0859,0.3657),Vector2(0.0826,0.3711),Vector2(0.3612,0.3687),Vector2(0.3617,0.3609),Vector2(0.3616,0.3609),Vector2(0.3625,0.3682),Vector2(0.1489,0.3665),Vector2(0.1469,0.377),Vector2(0.3589,0.3648),Vector2(0.3589,0.3735),Vector2(0.2227,0.3728),Vector2(0.2207,0.3633),Vector2(0.1969,0.3716),Vector2(0.1922,0.3628),Vector2(0.0276,0.3706),Vector2(0.0254,0.3626),Vector2(0.0859,0.3657),Vector2(0.0245,0.3617),Vector2(0.0254,0.3626),Vector2(0.0245,0.3617),Vector2(0.0859,0.3657),Vector2(0.1489,0.3665),Vector2(0.1922,0.3628),Vector2(0.2207,0.3633),Vector2(0.3589,0.3648),Vector2(0.3616,0.3609),Vector2(0.3617,0.3609),Vector2(0.2207,0.3633),Vector2(0.1922,0.3628),Vector2(0.1489,0.3665),Vector2(0.2227,0.3728),Vector2(0.3589,0.3735),Vector2(0.3625,0.3682),Vector2(0.3612,0.3687),Vector2(0.2227,0.3728),Vector2(0.1969,0.3716),Vector2(0.1469,0.377),Vector2(0.0826,0.3711),Vector2(0.0258,0.3672),Vector2(0.0276,0.3706),Vector2(0.0258,0.3672),Vector2(0.0826,0.3711),Vector2(0.1469,0.377),Vector2(0.1969,0.3716)]);
+end;
+
+procedure InitJinLOA4Part55;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet698.TexCoord := TextureCoordinate700;
 { .SetGeometry }
@@ -5073,19 +5229,16 @@ HAnimSegment692.AddChildren([Transform693]);
 HAnimJoint691.AddChildren([HAnimSegment692]);
 HAnimJoint701 := THAnimJointNode.Create;
 HAnimJoint701.NameField := 'vt8';
+HAnimJoint701.X3DName := 'hanim_vt8';
 HAnimJoint701.Center := Vector3(0,48.580002,-0.6117);
 HAnimSegment702 := THAnimSegmentNode.Create;
 HAnimSegment702.NameField := 't8';
+HAnimSegment702.X3DName := 'hanim_t8';
 Transform703 := TTransformNode.Create;
 Transform703.Translation := Vector3(0,48.580002,-0.6117);
 Shape704 := TShapeNode.Create;
 Appearance705 := TAppearanceNode.Create;
 Material706 := TMaterialNode.Create;
-end;
-
-procedure InitJinLOA4Part52;
-begin
-
 Material706.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance705.Material := Material706;
@@ -5116,9 +5269,16 @@ HAnimSegment702.AddChildren([Transform703]);
 HAnimJoint701.AddChildren([HAnimSegment702]);
 HAnimJoint711 := THAnimJointNode.Create;
 HAnimJoint711.NameField := 'vt7';
+HAnimJoint711.X3DName := 'hanim_vt7';
 HAnimJoint711.Center := Vector3(0,49.279999,-0.6117);
+end;
+
+procedure InitJinLOA4Part56;
+begin
+
 HAnimSegment712 := THAnimSegmentNode.Create;
 HAnimSegment712.NameField := 't7';
+HAnimSegment712.X3DName := 'hanim_t7';
 Transform713 := TTransformNode.Create;
 Transform713.Translation := Vector3(0,49.279999,-0.6117);
 Shape714 := TShapeNode.Create;
@@ -5138,11 +5298,6 @@ IndexedFaceSet718.CreaseAngle := 3.14159;
 IndexedFaceSet718.SetTexCoordIndex([3,8,9,-1,9,11,3,-1,13,16,6,-1,6,5,13,-1,10,0,7,-1,7,17,10,-1,2,1,14,-1,14,12,2,-1,1,4,15,-1,15,14,1,-1,4,3,11,-1,11,15,4,-1,0,10,9,-1,9,8,0,-1,19,18,21,-1,21,20,19,-1,23,22,25,-1,25,24,23,-1,26,29,28,-1,28,27,26,-1,31,30,33,-1,33,32,31,-1,32,33,35,-1,35,34,32,-1,34,35,18,-1,18,19,34,-1,27,20,21,-1,21,26,27,-1,38,39,40,-1,40,41,42,-1,42,43,44,-1,40,42,44,-1,44,45,46,-1,46,47,48,-1,44,46,48,-1,48,49,36,-1,44,48,36,-1,40,44,36,-1,38,40,36,-1,37,38,36,-1,52,53,54,-1,54,55,56,-1,56,57,58,-1,54,56,58,-1,58,59,60,-1,60,61,62,-1,58,60,62,-1,54,58,62,-1,62,63,50,-1,54,62,50,-1,52,54,50,-1,51,52,50,-1,5,6,37,-1,37,36,5,-1,25,22,38,-1,38,37,25,-1,31,32,39,-1,39,38,31,-1,32,34,40,-1,40,39,32,-1,34,19,41,-1,41,40,34,-1,19,20,42,-1,42,41,19,-1,20,27,43,-1,43,42,20,-1,27,28,44,-1,44,43,27,-1,7,0,45,-1,45,44,7,-1,0,8,46,-1,46,45,0,-1,8,3,47,-1,47,46,8,-1,3,4,48,-1,48,47,3,-1,4,1,49,-1,49,48,4,-1,1,2,36,-1,36,49,1,-1,10,17,51,-1,51,50,10,-1,29,26,52,-1,52,51,29,-1,26,21,53,-1,53,52,26,-1,21,18,54,-1,54,53,21,-1,18,35,55,-1,55,54,18,-1,35,33,56,-1,56,55,35,-1,33,30,57,-1,57,56,33,-1,23,24,58,-1,58,57,23,-1,16,13,59,-1,59,58,16,-1,12,14,60,-1,60,59,12,-1,14,15,61,-1,61,60,14,-1,15,11,62,-1,62,61,15,-1,11,9,63,-1,63,62,11,-1,9,10,50,-1,50,63,9,-1]);
 Coordinate719 := TCoordinateNode.Create;
 Coordinate719.SetPoint([Vector3(6.285,0.5819,1.319),Vector3(2.062,0.5819,-2.618),Vector3(4.101,0.5819,3.729),Vector3(4.29,0.5819,-2.105),Vector3(5.572,0.5819,-0.9516),Vector3(1.585,0.5819,3.822),Vector3(4.234,0.0006,3.898),Vector3(1.538,0.0006,3.713),Vector3(6.114,0.0315,1.306),Vector3(1.987,0.0315,-2.592),Vector3(4.188,0.0315,-2.037),Vector3(5.442,0.0315,-0.9006),Vector3(-6.114,0.0315,1.306),Vector3(-6.285,0.5819,1.319),Vector3(-4.101,0.5819,3.729),Vector3(-4.234,0.0006,3.898),Vector3(-2.062,0.5819,-2.618),Vector3(-1.987,0.0315,-2.592),Vector3(0,0.0315,-2.622),Vector3(0,0.5819,-2.665),Vector3(-1.538,0.0006,3.713),Vector3(-1.585,0.5819,3.822),Vector3(0,0.5819,3.826),Vector3(0,0.0006,3.713),Vector3(-4.29,0.5819,-2.105),Vector3(-4.188,0.0315,-2.037),Vector3(-5.572,0.5819,-0.9516),Vector3(-5.442,0.0315,-0.9006),Vector3(2.035,0.9259,-2.406),Vector3(0,0.9259,-2.453),Vector3(-2.035,0.9259,-2.406),Vector3(-4.189,0.9259,-1.911),Vector3(-5.387,0.9259,-0.8326),Vector3(-6.046,0.9259,1.267),Vector3(-4.004,0.9259,3.52),Vector3(-1.581,0.9259,3.609),Vector3(0,0.9259,3.614),Vector3(1.581,0.9259,3.609),Vector3(4.004,0.9259,3.52),Vector3(6.046,0.9259,1.267),Vector3(5.387,0.9259,-0.8326),Vector3(4.189,0.9259,-1.911),Vector3(1.524,-0.369,3.422),Vector3(0,-0.369,3.422),Vector3(-1.524,-0.369,3.422),Vector3(-4.074,-0.369,3.594),Vector3(-5.798,-0.369,1.248),Vector3(-5.183,-0.369,-0.7464),Vector3(-4.029,-0.369,-1.779),Vector3(-1.931,-0.369,-2.301),Vector3(0,-0.369,-2.33),Vector3(1.931,-0.369,-2.301),Vector3(4.029,-0.369,-1.779),Vector3(5.183,-0.369,-0.7464),Vector3(5.798,-0.369,1.248),Vector3(4.074,-0.369,3.594)]);
-end;
-
-procedure InitJinLOA4Part53;
-begin
-
 { .SetCoord }
 IndexedFaceSet718.Coord := Coordinate719;
 TextureCoordinate720 := TTextureCoordinateNode.Create;
@@ -5159,15 +5314,22 @@ HAnimSegment712.AddChildren([Transform713]);
 HAnimJoint711.AddChildren([HAnimSegment712]);
 HAnimJoint721 := THAnimJointNode.Create;
 HAnimJoint721.NameField := 'vt6';
+HAnimJoint721.X3DName := 'hanim_vt6';
 HAnimJoint721.Center := Vector3(0,49.849998,-0.6117);
 HAnimSegment722 := THAnimSegmentNode.Create;
 HAnimSegment722.NameField := 't6';
+HAnimSegment722.X3DName := 'hanim_t6';
 Transform723 := TTransformNode.Create;
 Transform723.Translation := Vector3(0,49.849998,-0.6117);
 Shape724 := TShapeNode.Create;
 Appearance725 := TAppearanceNode.Create;
 Material726 := TMaterialNode.Create;
 Material726.DiffuseColor := Vector3(0.588,0.588,0.588);
+end;
+
+procedure InitJinLOA4Part57;
+begin
+
 { .SetMaterial }
 Appearance725.Material := Material726;
 ImageTexture727 := ImageTexture37;
@@ -5197,14 +5359,11 @@ HAnimSegment722.AddChildren([Transform723]);
 HAnimJoint721.AddChildren([HAnimSegment722]);
 HAnimJoint731 := THAnimJointNode.Create;
 HAnimJoint731.NameField := 'vt5';
+HAnimJoint731.X3DName := 'hanim_vt5';
 HAnimJoint731.Center := Vector3(0,50.540001,-0.6117);
-end;
-
-procedure InitJinLOA4Part54;
-begin
-
 HAnimSegment732 := THAnimSegmentNode.Create;
 HAnimSegment732.NameField := 't5';
+HAnimSegment732.X3DName := 'hanim_t5';
 Transform733 := TTransformNode.Create;
 Transform733.Translation := Vector3(0,50.540001,-0.6117);
 Shape734 := TShapeNode.Create;
@@ -5223,6 +5382,11 @@ IndexedFaceSet738.SetCoordIndex([0,6,16,-1,16,13,0,-1,17,10,9,-1,9,3,17,-1,12,7,
 IndexedFaceSet738.CreaseAngle := 3.14159;
 IndexedFaceSet738.SetTexCoordIndex([5,10,14,-1,14,2,5,-1,8,15,13,-1,13,7,8,-1,17,11,3,-1,3,6,17,-1,12,16,0,-1,0,4,12,-1,0,16,9,-1,9,1,0,-1,6,7,13,-1,13,17,6,-1,4,3,11,-1,11,12,4,-1,19,18,21,-1,21,20,19,-1,22,25,24,-1,24,23,22,-1,27,26,29,-1,29,28,27,-1,31,30,33,-1,33,32,31,-1,33,35,34,-1,34,32,33,-1,26,27,24,-1,24,25,26,-1,30,31,28,-1,28,29,30,-1,38,39,40,-1,40,41,42,-1,42,43,44,-1,40,42,44,-1,44,45,46,-1,46,47,48,-1,44,46,48,-1,48,49,36,-1,44,48,36,-1,40,44,36,-1,38,40,36,-1,37,38,36,-1,52,53,54,-1,54,55,56,-1,56,57,58,-1,54,56,58,-1,58,59,60,-1,60,61,62,-1,58,60,62,-1,62,63,50,-1,58,62,50,-1,54,58,50,-1,52,54,50,-1,51,52,50,-1,7,6,37,-1,37,36,7,-1,6,3,38,-1,38,37,6,-1,3,4,39,-1,39,38,3,-1,4,0,40,-1,40,39,4,-1,0,1,41,-1,41,40,0,-1,5,2,42,-1,42,41,5,-1,18,19,43,-1,43,42,18,-1,35,33,44,-1,44,43,35,-1,33,30,45,-1,45,44,33,-1,30,29,46,-1,46,45,30,-1,29,26,47,-1,47,46,29,-1,26,25,48,-1,48,47,26,-1,25,22,49,-1,49,48,25,-1,8,7,36,-1,36,49,8,-1,17,13,51,-1,51,50,17,-1,13,15,52,-1,52,51,13,-1,23,24,53,-1,53,52,23,-1,24,27,54,-1,54,53,24,-1,27,28,55,-1,55,54,27,-1,28,31,56,-1,56,55,28,-1,31,32,57,-1,57,56,31,-1,32,34,58,-1,58,57,32,-1,20,21,59,-1,59,58,20,-1,14,10,60,-1,60,59,14,-1,9,16,61,-1,61,60,9,-1,16,12,62,-1,62,61,16,-1,12,11,63,-1,63,62,12,-1,11,17,50,-1,50,63,11,-1]);
 Coordinate739 := TCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4Part58;
+begin
+
 Coordinate739.SetPoint([Vector3(1.811,0.6855,-2.67),Vector3(5.903,0.6856,-0.5713),Vector3(3.788,0.6856,3.331),Vector3(1.646,0.6856,3.637),Vector3(4.256,0.6856,-2.233),Vector3(6.098,0.6856,1.429),Vector3(1.937,0,-2.644),Vector3(6.192,0.0001,1.374),Vector3(5.738,0.0001,-0.7614),Vector3(1.615,0.0001,3.729),Vector3(0,0.0001,3.756),Vector3(4.273,0.0001,-2.169),Vector3(3.945,0.0001,3.53),Vector3(0,0.6855,-2.804),Vector3(-1.811,0.6855,-2.67),Vector3(-1.937,0,-2.644),Vector3(0,0,-2.735),Vector3(0,0.6856,3.687),Vector3(-1.615,0.0001,3.729),Vector3(-1.646,0.6856,3.637),Vector3(-3.788,0.6856,3.331),Vector3(-3.945,0.0001,3.53),Vector3(-6.192,0.0001,1.374),Vector3(-6.098,0.6856,1.429),Vector3(-5.903,0.6856,-0.5713),Vector3(-5.738,0.0001,-0.7614),Vector3(-4.273,0.0001,-2.169),Vector3(-4.256,0.6856,-2.233),Vector3(1.621,1.052,3.355),Vector3(3.67,1.052,3.062),Vector3(5.802,1.052,1.306),Vector3(5.631,1.052,-0.4437),Vector3(4.118,1.052,-1.97),Vector3(1.776,1.052,-2.389),Vector3(0,1.052,-2.52),Vector3(-1.776,1.052,-2.389),Vector3(-4.118,1.052,-1.97),Vector3(-5.631,1.052,-0.4437),Vector3(-5.802,1.052,1.306),Vector3(-3.67,1.052,3.062),Vector3(-1.621,1.052,3.355),Vector3(0,1.052,3.404),Vector3(3.821,-0.3346,3.256),Vector3(1.601,-0.3346,3.447),Vector3(0,-0.3346,3.474),Vector3(-1.601,-0.3346,3.447),Vector3(-3.821,-0.3346,3.256),Vector3(-5.882,-0.3346,1.279),Vector3(-5.479,-0.3346,-0.6177),Vector3(-4.136,-0.3346,-1.908),Vector3(-1.902,-0.3347,-2.363),Vector3(0,-0.3347,-2.451),Vector3(1.902,-0.3347,-2.363),Vector3(4.136,-0.3346,-1.908),Vector3(5.479,-0.3346,-0.6177),Vector3(5.882,-0.3346,1.279)]);
 { .SetCoord }
 IndexedFaceSet738.Coord := Coordinate739;
@@ -5240,9 +5404,11 @@ HAnimSegment732.AddChildren([Transform733]);
 HAnimJoint731.AddChildren([HAnimSegment732]);
 HAnimJoint741 := THAnimJointNode.Create;
 HAnimJoint741.NameField := 'vt4';
+HAnimJoint741.X3DName := 'hanim_vt4';
 HAnimJoint741.Center := Vector3(0,51.220001,-0.6117);
 HAnimSegment742 := THAnimSegmentNode.Create;
 HAnimSegment742.NameField := 't4';
+HAnimSegment742.X3DName := 'hanim_t4';
 Transform743 := TTransformNode.Create;
 Transform743.Translation := Vector3(0,51.220001,-0.6117);
 Shape744 := TShapeNode.Create;
@@ -5254,11 +5420,6 @@ Appearance745.Material := Material746;
 ImageTexture747 := ImageTexture37;
 { .SetTexture }
 Appearance745.Texture := ImageTexture747;
-end;
-
-procedure InitJinLOA4Part55;
-begin
-
 { .SetAppearance }
 Shape744.Appearance := Appearance745;
 IndexedFaceSet748 := TIndexedFaceSetNode.Create;
@@ -5281,11 +5442,18 @@ Transform743.AddChildren([Shape744]);
 HAnimSegment742.AddChildren([Transform743]);
 { .AddChildren }
 HAnimJoint741.AddChildren([HAnimSegment742]);
+end;
+
+procedure InitJinLOA4Part59;
+begin
+
 HAnimJoint751 := THAnimJointNode.Create;
 HAnimJoint751.NameField := 'vt3';
+HAnimJoint751.X3DName := 'hanim_vt3';
 HAnimJoint751.Center := Vector3(0,52.040001,-0.6117);
 HAnimSegment752 := THAnimSegmentNode.Create;
 HAnimSegment752.NameField := 't3';
+HAnimSegment752.X3DName := 'hanim_t3';
 Transform753 := TTransformNode.Create;
 Transform753.Translation := Vector3(0,52.040001,-0.6117);
 Shape754 := TShapeNode.Create;
@@ -5305,11 +5473,6 @@ IndexedFaceSet758.CreaseAngle := 3.14159;
 IndexedFaceSet758.SetTexCoordIndex([2,12,1,-1,1,0,2,-1,1,12,13,-1,4,8,16,-1,16,15,4,-1,11,10,17,-1,17,19,11,-1,21,20,5,-1,5,6,21,-1,14,21,6,-1,6,7,14,-1,16,8,1,-1,1,13,16,-1,20,18,9,-1,9,5,20,-1,3,2,0,-1,0,1,8,-1,4,15,14,-1,14,7,4,-1,6,5,23,-1,23,22,6,-1,5,9,24,-1,24,23,5,-1,10,11,25,-1,25,24,10,-1,0,8,27,-1,27,26,0,-1,8,4,28,-1,28,27,8,-1,4,7,29,-1,29,28,4,-1,7,6,22,-1,22,29,7,-1,15,16,31,-1,31,30,15,-1,16,13,32,-1,32,31,16,-1,13,12,33,-1,33,32,13,-1,19,17,35,-1,35,34,19,-1,18,20,36,-1,36,35,18,-1,20,21,37,-1,37,36,20,-1,21,14,38,-1,38,37,21,-1,14,15,30,-1,30,38,14,-1,42,41,40,-1,40,39,42,-1,40,43,39,-1,45,44,47,-1,47,46,45,-1,49,48,51,-1,51,50,49,-1,53,52,55,-1,55,54,53,-1,57,56,52,-1,52,53,57,-1,47,43,40,-1,40,46,47,-1,54,55,59,-1,59,58,54,-1,60,41,42,-1,41,46,40,-1,45,56,57,-1,57,44,45,-1,52,62,61,-1,61,55,52,-1,55,61,63,-1,63,59,55,-1,50,63,64,-1,64,49,50,-1,41,66,65,-1,65,46,41,-1,46,65,67,-1,67,45,46,-1,45,67,68,-1,68,56,45,-1,56,68,62,-1,62,52,56,-1,44,70,69,-1,69,47,44,-1,47,69,71,-1,71,43,47,-1,43,71,72,-1,72,39,43,-1,48,74,73,-1,73,51,48,-1,58,73,75,-1,75,54,58,-1,54,75,76,-1,76,53,54,-1,53,76,77,-1,77,57,53,-1,57,77,70,-1,70,44,57,-1,31,32,33,-1,33,71,69,-1,69,70,77,-1,33,69,77,-1,77,76,75,-1,75,73,74,-1,77,75,74,-1,74,35,36,-1,36,37,38,-1,74,36,38,-1,77,74,38,-1,33,77,38,-1,31,33,38,-1,31,38,30,-1]);
 Coordinate759 := TCoordinateNode.Create;
 Coordinate759.SetPoint([Vector3(1.713,0.7435,3.428),Vector3(5.378,1.242,1.672),Vector3(4.324,1.242,-1.927),Vector3(5.141,1.242,-1.839),Vector3(5.589,1.242,-1.387),Vector3(3.32,1.242,2.736),Vector3(1.811,1.242,-2.266),Vector3(1.593,1.064,4.098),Vector3(1.681,0.002,3.528),Vector3(5.775,0.029,-0.9043),Vector3(5.825,-0.0306,1.521),Vector3(3.585,0.0822,3.073),Vector3(1.811,0.029,-2.505),Vector3(4.284,0.029,-2.108),Vector3(4.617,0.029,-2.072),Vector3(0,0.002,3.616),Vector3(0,0.3874,4.121),Vector3(0,0.029,-2.639),Vector3(0,1.242,-2.4),Vector3(5.018,1.668,-1.583),Vector3(4.292,1.668,-1.661),Vector3(1.783,1.668,-2),Vector3(1.521,1.668,3.814),Vector3(3.175,1.668,2.51),Vector3(5.121,1.668,1.504),Vector3(5.314,1.668,-1.285),Vector3(5.669,-0.44,1.408),Vector3(3.545,-0.44,2.879),Vector3(1.676,-0.44,3.326),Vector3(0,-0.44,3.413),Vector3(1.817,-0.44,-2.289),Vector3(4.335,-0.44,-1.884),Vector3(4.586,-0.44,-1.857),Vector3(5.623,-0.44,-0.8114),Vector3(-1.713,0.7435,3.428),Vector3(-1.593,1.064,4.098),Vector3(-1.681,0.002,3.528),Vector3(-5.825,-0.0306,1.521),Vector3(-5.378,1.242,1.672),Vector3(-3.32,1.242,2.736),Vector3(-3.585,0.0822,3.073),Vector3(-1.811,1.242,-2.266),Vector3(-1.811,0.029,-2.505),Vector3(-5.141,1.242,-1.839),Vector3(-4.617,0.029,-2.072),Vector3(-4.284,0.029,-2.108),Vector3(-4.324,1.242,-1.927),Vector3(-5.589,1.242,-1.387),Vector3(-5.775,0.029,-0.9043),Vector3(0,1.15,3.82),Vector3(-4.292,1.668,-1.661),Vector3(-5.018,1.668,-1.583),Vector3(-1.783,1.668,-2),Vector3(0,1.668,-2.132),Vector3(-3.175,1.668,2.51),Vector3(-1.521,1.668,3.814),Vector3(-5.121,1.668,1.504),Vector3(-5.314,1.668,-1.285),Vector3(-3.545,-0.44,2.879),Vector3(-5.669,-0.44,1.408),Vector3(-1.676,-0.44,3.326),Vector3(-1.817,-0.44,-2.289),Vector3(0,-0.44,-2.423),Vector3(-4.335,-0.44,-1.884),Vector3(-4.586,-0.44,-1.857),Vector3(-5.623,-0.44,-0.8114)]);
-end;
-
-procedure InitJinLOA4Part56;
-begin
-
 { .SetCoord }
 IndexedFaceSet758.Coord := Coordinate759;
 TextureCoordinate760 := TTextureCoordinateNode.Create;
@@ -5326,11 +5489,18 @@ HAnimSegment752.AddChildren([Transform753]);
 HAnimJoint751.AddChildren([HAnimSegment752]);
 HAnimJoint761 := THAnimJointNode.Create;
 HAnimJoint761.NameField := 'vt2';
+HAnimJoint761.X3DName := 'hanim_vt2';
 HAnimJoint761.Center := Vector3(0,53.139999,-0.6127);
 HAnimSegment762 := THAnimSegmentNode.Create;
 HAnimSegment762.NameField := 't2';
+HAnimSegment762.X3DName := 'hanim_t2';
 Transform763 := TTransformNode.Create;
 Transform763.Translation := Vector3(0,53.139999,-0.6127);
+end;
+
+procedure InitJinLOA4Part60;
+begin
+
 Shape764 := TShapeNode.Create;
 Appearance765 := TAppearanceNode.Create;
 Material766 := TMaterialNode.Create;
@@ -5364,14 +5534,11 @@ HAnimSegment762.AddChildren([Transform763]);
 HAnimJoint761.AddChildren([HAnimSegment762]);
 HAnimJoint771 := THAnimJointNode.Create;
 HAnimJoint771.NameField := 'vt1';
+HAnimJoint771.X3DName := 'hanim_vt1';
 HAnimJoint771.Center := Vector3(0,54.200001,-0.6117);
-end;
-
-procedure InitJinLOA4Part57;
-begin
-
 HAnimSegment772 := THAnimSegmentNode.Create;
 HAnimSegment772.NameField := 't1';
+HAnimSegment772.X3DName := 'hanim_t1';
 Transform773 := TTransformNode.Create;
 Transform773.Translation := Vector3(0,54.200001,-0.6117);
 Shape774 := TShapeNode.Create;
@@ -5386,6 +5553,11 @@ Appearance775.Texture := ImageTexture777;
 { .SetAppearance }
 Shape774.Appearance := Appearance775;
 IndexedFaceSet778 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitJinLOA4Part61;
+begin
+
 IndexedFaceSet778.SetCoordIndex([1,5,3,-1,3,2,1,-1,5,6,3,-1,7,27,3,-1,3,6,7,-1,0,1,2,-1,43,11,10,-1,10,4,43,-1,5,1,12,-1,1,0,12,-1,35,26,12,-1,43,4,12,-1,4,5,12,-1,72,28,9,-1,9,28,27,-1,27,7,9,-1,5,4,10,-1,10,6,5,-1,29,72,8,-1,26,35,14,-1,14,49,26,-1,35,0,15,-1,15,14,35,-1,17,16,18,-1,18,19,17,-1,16,27,28,-1,28,18,16,-1,13,2,16,-1,27,16,2,-1,2,3,27,-1,19,18,29,-1,29,8,19,-1,18,28,72,-1,72,29,18,-1,0,13,15,-1,21,20,23,-1,23,61,21,-1,20,22,24,-1,24,23,20,-1,22,17,19,-1,19,24,22,-1,20,21,49,-1,49,14,20,-1,22,20,14,-1,14,15,22,-1,15,17,22,-1,61,23,30,-1,30,25,61,-1,23,24,33,-1,33,30,23,-1,24,19,8,-1,8,33,24,-1,0,2,13,-1,15,13,17,-1,16,17,13,-1,68,69,32,-1,32,31,68,-1,30,33,32,-1,33,8,34,-1,33,34,31,-1,31,32,33,-1,32,69,25,-1,25,30,32,-1,12,0,35,-1,37,36,58,-1,58,38,37,-1,38,58,39,-1,40,39,58,-1,58,41,40,-1,51,36,37,-1,43,42,44,-1,44,11,43,-1,38,12,37,-1,37,12,51,-1,45,12,26,-1,43,12,42,-1,42,12,38,-1,73,47,56,-1,47,40,41,-1,41,56,47,-1,38,39,44,-1,44,42,38,-1,46,59,73,-1,26,49,48,-1,48,45,26,-1,45,48,50,-1,50,51,45,-1,54,53,52,-1,52,55,54,-1,55,52,56,-1,56,41,55,-1,57,55,36,-1,41,58,36,-1,36,55,41,-1,53,59,46,-1,46,52,53,-1,52,46,73,-1,73,56,52,-1,51,50,57,-1,21,61,60,-1,60,62,21,-1,62,60,63,-1,63,64,62,-1,64,63,53,-1,53,54,64,-1,62,48,49,-1,49,21,62,-1,64,50,48,-1,48,62,64,-1,50,64,54,-1,61,25,65,-1,65,60,61,-1,60,65,66,-1,66,63,60,-1,63,66,59,-1,59,53,63,-1,51,57,36,-1,50,54,57,-1,55,57,54,-1,68,67,70,-1,70,69,68,-1,65,70,66,-1,66,71,59,-1,66,70,67,-1,67,71,66,-1,70,65,25,-1,25,69,70,-1,12,45,51,-1,81,82,83,-1,81,83,84,-1,81,84,85,-1,85,86,87,-1,81,85,87,-1,88,89,90,-1,88,90,91,-1,87,88,91,-1,91,74,75,-1,91,75,76,-1,87,91,76,-1,87,76,77,-1,81,87,77,-1,81,77,78,-1,81,78,79,-1,81,79,80,-1,7,6,75,-1,75,74,7,-1,6,10,76,-1,76,75,6,-1,10,11,77,-1,77,76,10,-1,11,44,78,-1,78,77,11,-1,44,39,79,-1,79,78,44,-1,39,40,80,-1,80,79,39,-1,40,47,81,-1,81,80,40,-1,47,73,82,-1,82,81,47,-1,73,59,83,-1,83,82,73,-1,59,71,84,-1,84,83,59,-1,71,67,85,-1,85,84,71,-1,67,68,86,-1,86,85,67,-1,68,31,87,-1,87,86,68,-1,31,34,88,-1,88,87,31,-1,34,8,89,-1,89,88,34,-1,8,72,90,-1,90,89,8,-1,72,9,91,-1,91,90,72,-1,9,7,74,-1,74,91,9,-1]);
 IndexedFaceSet778.CreaseAngle := 3.14159;
 IndexedFaceSet778.SetTexCoordIndex([14,15,0,-1,0,16,14,-1,15,19,0,-1,21,10,11,-1,11,18,21,-1,5,2,1,-1,6,25,24,-1,24,4,6,-1,3,2,13,-1,2,5,13,-1,66,7,13,-1,6,4,17,-1,4,15,17,-1,20,9,23,-1,23,9,10,-1,10,21,23,-1,15,4,24,-1,24,19,15,-1,12,20,22,-1,48,47,26,-1,26,27,48,-1,47,49,28,-1,28,26,47,-1,31,32,29,-1,29,30,31,-1,32,53,54,-1,54,29,32,-1,33,50,32,-1,53,32,50,-1,50,51,53,-1,30,29,55,-1,55,56,30,-1,29,54,52,-1,52,55,29,-1,49,33,28,-1,36,41,40,-1,40,35,36,-1,37,39,38,-1,38,34,37,-1,39,31,30,-1,30,38,39,-1,42,36,43,-1,43,45,42,-1,39,37,26,-1,26,28,39,-1,28,31,39,-1,35,44,57,-1,57,46,35,-1,34,38,65,-1,65,58,34,-1,38,30,56,-1,56,65,38,-1,49,50,33,-1,28,33,31,-1,32,31,33,-1,62,63,64,-1,64,61,62,-1,57,65,64,-1,65,56,60,-1,65,60,61,-1,61,64,65,-1,64,63,59,-1,59,57,64,-1,13,8,66,-1,69,68,67,-1,67,70,69,-1,70,67,71,-1,74,73,72,-1,72,75,74,-1,76,78,77,-1,80,79,82,-1,82,81,80,-1,83,84,77,-1,77,84,76,-1,85,84,86,-1,80,87,79,-1,79,87,70,-1,132,90,89,-1,90,74,75,-1,75,89,90,-1,70,71,82,-1,82,79,70,-1,88,91,132,-1,94,93,92,-1,92,95,94,-1,95,92,96,-1,96,97,95,-1,100,99,98,-1,98,101,100,-1,101,98,102,-1,102,103,101,-1,104,101,105,-1,103,106,105,-1,105,101,103,-1,99,108,107,-1,107,98,99,-1,98,107,109,-1,109,102,98,-1,97,96,104,-1,112,111,110,-1,110,113,112,-1,116,115,114,-1,114,117,116,-1,117,114,99,-1,99,100,117,-1,120,119,118,-1,118,112,120,-1,117,96,92,-1,92,116,117,-1,96,117,100,-1,111,122,121,-1,121,123,111,-1,115,125,124,-1,124,114,115,-1,114,124,108,-1,108,99,114,-1,97,104,105,-1,96,100,104,-1,101,104,100,-1,127,126,129,-1,129,128,127,-1,121,129,124,-1,124,130,108,-1,124,129,126,-1,126,130,124,-1,129,121,131,-1,131,128,129,-1,84,85,133,-1,141,142,143,-1,141,143,144,-1,141,144,145,-1,145,146,147,-1,141,145,147,-1,148,149,150,-1,148,150,151,-1,147,148,151,-1,151,134,135,-1,151,135,136,-1,147,151,136,-1,147,136,137,-1,141,147,137,-1,141,137,138,-1,141,138,139,-1,141,139,140,-1,21,18,135,-1,135,134,21,-1,19,24,136,-1,136,135,19,-1,24,25,137,-1,137,136,24,-1,81,82,138,-1,138,137,81,-1,82,71,139,-1,139,138,82,-1,73,74,140,-1,140,139,73,-1,74,90,141,-1,141,140,74,-1,90,132,142,-1,142,141,90,-1,132,91,143,-1,143,142,132,-1,108,130,144,-1,144,143,108,-1,130,126,145,-1,145,144,130,-1,126,127,146,-1,146,145,126,-1,62,61,147,-1,147,146,62,-1,61,60,148,-1,148,147,61,-1,60,56,149,-1,149,148,60,-1,22,20,150,-1,150,149,22,-1,20,23,151,-1,151,150,20,-1,23,21,134,-1,134,151,23,-1]);
@@ -5407,15 +5579,12 @@ HAnimSegment772.AddChildren([Transform773]);
 HAnimJoint771.AddChildren([HAnimSegment772]);
 HAnimJoint781 := THAnimJointNode.Create;
 HAnimJoint781.NameField := 'vc7';
+HAnimJoint781.X3DName := 'hanim_vc7';
 HAnimJoint781.Center := Vector3(0,55.349998,-0.6695);
 HAnimSegment782 := THAnimSegmentNode.Create;
 HAnimSegment782.NameField := 'c7';
+HAnimSegment782.X3DName := 'hanim_c7';
 Transform783 := TTransformNode.Create;
-end;
-
-procedure InitJinLOA4Part58;
-begin
-
 Transform783.Translation := Vector3(0,55.349998,-0.6695);
 Shape784 := TShapeNode.Create;
 Appearance785 := TAppearanceNode.Create;
@@ -5430,6 +5599,11 @@ Appearance785.Texture := ImageTexture787;
 Shape784.Appearance := Appearance785;
 IndexedFaceSet788 := TIndexedFaceSetNode.Create;
 IndexedFaceSet788.SetCoordIndex([5,6,33,-1,33,28,5,-1,34,32,1,-1,1,7,34,-1,30,34,7,-1,7,8,30,-1,28,29,11,-1,11,5,28,-1,29,35,10,-1,10,11,29,-1,14,15,16,-1,16,17,18,-1,18,19,20,-1,16,18,20,-1,20,21,22,-1,22,23,12,-1,20,22,12,-1,16,20,12,-1,14,16,12,-1,13,14,12,-1,1,0,13,-1,13,12,1,-1,0,2,14,-1,14,13,0,-1,2,3,15,-1,15,14,2,-1,3,4,16,-1,16,15,3,-1,4,6,17,-1,17,16,4,-1,6,5,18,-1,18,17,6,-1,5,11,19,-1,19,18,5,-1,11,10,20,-1,20,19,11,-1,10,9,21,-1,21,20,10,-1,9,8,22,-1,22,21,9,-1,8,7,23,-1,23,22,8,-1,7,1,12,-1,12,23,7,-1,0,1,32,-1,32,24,0,-1,2,0,24,-1,24,25,2,-1,3,2,25,-1,25,26,3,-1,4,3,26,-1,26,27,4,-1,6,4,27,-1,27,33,6,-1,8,9,31,-1,31,30,8,-1,9,10,35,-1,35,31,9,-1,38,39,40,-1,40,41,42,-1,42,43,44,-1,40,42,44,-1,44,45,46,-1,46,47,36,-1,44,46,36,-1,40,44,36,-1,38,40,36,-1,37,38,36,-1,24,32,37,-1,37,36,24,-1,32,34,38,-1,38,37,32,-1,34,30,39,-1,39,38,34,-1,30,31,40,-1,40,39,30,-1,31,35,41,-1,41,40,31,-1,35,29,42,-1,42,41,35,-1,29,28,43,-1,43,42,29,-1,28,33,44,-1,44,43,28,-1,33,27,45,-1,45,44,33,-1,27,26,46,-1,46,45,27,-1,26,25,47,-1,47,46,26,-1,25,24,36,-1,36,47,25,-1]);
+end;
+
+procedure InitJinLOA4Part62;
+begin
+
 IndexedFaceSet788.CreaseAngle := 3.14159;
 IndexedFaceSet788.SetTexCoordIndex([5,6,33,-1,33,28,5,-1,34,32,1,-1,1,7,34,-1,30,34,7,-1,7,8,30,-1,28,29,11,-1,11,5,28,-1,29,35,10,-1,10,11,29,-1,14,15,16,-1,16,17,18,-1,18,19,20,-1,16,18,20,-1,20,21,22,-1,22,23,12,-1,20,22,12,-1,16,20,12,-1,14,16,12,-1,13,14,12,-1,1,0,13,-1,13,12,1,-1,0,2,14,-1,14,13,0,-1,2,3,15,-1,15,14,2,-1,3,4,16,-1,16,15,3,-1,4,6,17,-1,17,16,4,-1,6,5,18,-1,18,17,6,-1,5,11,19,-1,19,18,5,-1,11,10,20,-1,20,19,11,-1,10,9,21,-1,21,20,10,-1,9,8,22,-1,22,21,9,-1,8,7,23,-1,23,22,8,-1,7,1,12,-1,12,23,7,-1,0,1,32,-1,32,24,0,-1,2,0,24,-1,24,25,2,-1,3,2,25,-1,25,26,3,-1,4,3,26,-1,26,27,4,-1,6,4,27,-1,27,33,6,-1,8,9,31,-1,31,30,8,-1,9,10,35,-1,35,31,9,-1,38,39,40,-1,40,41,42,-1,42,43,44,-1,40,42,44,-1,44,45,46,-1,46,47,36,-1,44,46,36,-1,40,44,36,-1,38,40,36,-1,37,38,36,-1,24,32,37,-1,37,36,24,-1,32,34,38,-1,38,37,32,-1,34,30,39,-1,39,38,34,-1,30,31,40,-1,40,39,30,-1,31,35,41,-1,41,40,31,-1,35,29,42,-1,42,41,35,-1,29,28,43,-1,43,42,29,-1,28,33,44,-1,44,43,28,-1,33,27,45,-1,45,44,33,-1,27,26,46,-1,46,45,27,-1,26,25,47,-1,47,46,26,-1,25,24,36,-1,36,47,25,-1]);
 Coordinate789 := TCoordinateNode.Create;
@@ -5450,9 +5624,11 @@ HAnimSegment782.AddChildren([Transform783]);
 HAnimJoint781.AddChildren([HAnimSegment782]);
 HAnimJoint791 := THAnimJointNode.Create;
 HAnimJoint791.NameField := 'vc6';
+HAnimJoint791.X3DName := 'hanim_vc6';
 HAnimJoint791.Center := Vector3(0,55.889999,-0.6695);
 HAnimSegment792 := THAnimSegmentNode.Create;
 HAnimSegment792.NameField := 'c6';
+HAnimSegment792.X3DName := 'hanim_c6';
 Transform793 := TTransformNode.Create;
 Transform793.Translation := Vector3(0,55.889999,-0.6695);
 Shape794 := TShapeNode.Create;
@@ -5468,11 +5644,6 @@ Appearance795.Texture := ImageTexture797;
 Shape794.Appearance := Appearance795;
 IndexedFaceSet798 := TIndexedFaceSetNode.Create;
 IndexedFaceSet798.SetCoordIndex([12,20,8,-1,8,0,12,-1,13,12,0,-1,0,1,13,-1,14,13,1,-1,1,2,14,-1,15,14,2,-1,2,3,15,-1,21,15,3,-1,3,9,21,-1,18,19,7,-1,7,6,18,-1,19,23,11,-1,11,7,19,-1,16,21,9,-1,9,4,16,-1,20,22,10,-1,10,8,20,-1,22,18,6,-1,6,10,22,-1,17,16,4,-1,4,5,17,-1,23,17,5,-1,5,11,23,-1,26,27,28,-1,28,29,30,-1,30,31,32,-1,28,30,32,-1,32,33,34,-1,34,35,24,-1,32,34,24,-1,28,32,24,-1,26,28,24,-1,25,26,24,-1,38,39,40,-1,40,41,42,-1,42,43,44,-1,40,42,44,-1,44,45,46,-1,46,47,36,-1,44,46,36,-1,40,44,36,-1,38,40,36,-1,37,38,36,-1,0,8,25,-1,25,24,0,-1,8,10,26,-1,26,25,8,-1,10,6,27,-1,27,26,10,-1,6,7,28,-1,28,27,6,-1,7,11,29,-1,29,28,7,-1,11,5,30,-1,30,29,11,-1,5,4,31,-1,31,30,5,-1,4,9,32,-1,32,31,4,-1,9,3,33,-1,33,32,9,-1,3,2,34,-1,34,33,3,-1,2,1,35,-1,35,34,2,-1,1,0,24,-1,24,35,1,-1,20,12,37,-1,37,36,20,-1,12,13,38,-1,38,37,12,-1,13,14,39,-1,39,38,13,-1,14,15,40,-1,40,39,14,-1,15,21,41,-1,41,40,15,-1,21,16,42,-1,42,41,21,-1,16,17,43,-1,43,42,16,-1,17,23,44,-1,44,43,17,-1,23,19,45,-1,45,44,23,-1,19,18,46,-1,46,45,19,-1,18,22,47,-1,47,46,18,-1,22,20,36,-1,36,47,22,-1]);
-end;
-
-procedure InitJinLOA4Part59;
-begin
-
 IndexedFaceSet798.CreaseAngle := 3.14159;
 IndexedFaceSet798.SetTexCoordIndex([12,20,8,-1,8,0,12,-1,13,12,0,-1,0,1,13,-1,14,13,1,-1,1,2,14,-1,15,14,2,-1,2,3,15,-1,21,15,3,-1,3,9,21,-1,18,19,7,-1,7,6,18,-1,19,23,11,-1,11,7,19,-1,16,21,9,-1,9,4,16,-1,20,22,10,-1,10,8,20,-1,22,18,6,-1,6,10,22,-1,17,16,4,-1,4,5,17,-1,23,17,5,-1,5,11,23,-1,26,27,28,-1,28,29,30,-1,30,31,32,-1,28,30,32,-1,32,33,34,-1,34,35,24,-1,32,34,24,-1,28,32,24,-1,26,28,24,-1,25,26,24,-1,38,39,40,-1,40,41,42,-1,42,43,44,-1,40,42,44,-1,44,45,46,-1,46,47,36,-1,44,46,36,-1,40,44,36,-1,38,40,36,-1,37,38,36,-1,0,8,25,-1,25,24,0,-1,8,10,26,-1,26,25,8,-1,10,6,27,-1,27,26,10,-1,6,7,28,-1,28,27,6,-1,7,11,29,-1,29,28,7,-1,11,5,30,-1,30,29,11,-1,5,4,31,-1,31,30,5,-1,4,9,32,-1,32,31,4,-1,9,3,33,-1,33,32,9,-1,3,2,34,-1,34,33,3,-1,2,1,35,-1,35,34,2,-1,1,0,24,-1,24,35,1,-1,20,12,37,-1,37,36,20,-1,12,13,38,-1,38,37,12,-1,13,14,39,-1,39,38,13,-1,14,15,40,-1,40,39,14,-1,15,21,41,-1,41,40,15,-1,21,16,42,-1,42,41,21,-1,16,17,43,-1,43,42,16,-1,17,23,44,-1,44,43,17,-1,23,19,45,-1,45,44,23,-1,19,18,46,-1,46,45,19,-1,18,22,47,-1,47,46,18,-1,22,20,36,-1,36,47,22,-1]);
 Coordinate799 := TCoordinateNode.Create;
@@ -5485,6 +5656,11 @@ TextureCoordinate800.SetPoint([Vector2(0.3995,0.6565),Vector2(0.4094,0.6578),Vec
 IndexedFaceSet798.TexCoord := TextureCoordinate800;
 { .SetGeometry }
 Shape794.Geometry := IndexedFaceSet798;
+end;
+
+procedure InitJinLOA4Part63;
+begin
+
 { .AddChild }
 Transform793.AddChildren([Shape794]);
 { .AddChildren }
@@ -5493,9 +5669,11 @@ HAnimSegment792.AddChildren([Transform793]);
 HAnimJoint791.AddChildren([HAnimSegment792]);
 HAnimJoint801 := THAnimJointNode.Create;
 HAnimJoint801.NameField := 'vc5';
+HAnimJoint801.X3DName := 'hanim_vc5';
 HAnimJoint801.Center := Vector3(0,56.439999,-0.6695);
 HAnimSegment802 := THAnimSegmentNode.Create;
 HAnimSegment802.NameField := 'c5';
+HAnimSegment802.X3DName := 'hanim_c5';
 Transform803 := TTransformNode.Create;
 Transform803.Translation := Vector3(0,56.439999,-0.6695);
 Shape804 := TShapeNode.Create;
@@ -5527,18 +5705,20 @@ Shape804.Geometry := IndexedFaceSet808;
 Transform803.AddChildren([Shape804]);
 { .AddChildren }
 HAnimSegment802.AddChildren([Transform803]);
-end;
-
-procedure InitJinLOA4Part60;
-begin
-
 { .AddChildren }
 HAnimJoint801.AddChildren([HAnimSegment802]);
 HAnimJoint811 := THAnimJointNode.Create;
 HAnimJoint811.NameField := 'vc4';
+HAnimJoint811.X3DName := 'hanim_vc4';
 HAnimJoint811.Center := Vector3(0,56.990002,-0.6695);
 HAnimSegment812 := THAnimSegmentNode.Create;
 HAnimSegment812.NameField := 'c4';
+end;
+
+procedure InitJinLOA4Part64;
+begin
+
+HAnimSegment812.X3DName := 'hanim_c4';
 Transform813 := TTransformNode.Create;
 Transform813.Translation := Vector3(0,56.990002,-0.6695);
 Shape814 := TShapeNode.Create;
@@ -5574,23 +5754,25 @@ HAnimSegment812.AddChildren([Transform813]);
 HAnimJoint811.AddChildren([HAnimSegment812]);
 HAnimJoint821 := THAnimJointNode.Create;
 HAnimJoint821.NameField := 'vc3';
+HAnimJoint821.X3DName := 'hanim_vc3';
 HAnimJoint821.Center := Vector3(0,57.560001,-0.6695);
 HAnimSegment822 := THAnimSegmentNode.Create;
 HAnimSegment822.NameField := 'c3';
+HAnimSegment822.X3DName := 'hanim_c3';
 Transform823 := TTransformNode.Create;
 Transform823.Translation := Vector3(0,57.560001,-0.6695);
 Shape824 := TShapeNode.Create;
 Appearance825 := TAppearanceNode.Create;
 Material826 := TMaterialNode.Create;
-end;
-
-procedure InitJinLOA4Part61;
-begin
-
 Material826.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance825.Material := Material826;
 ImageTexture827 := ImageTexture37;
+end;
+
+procedure InitJinLOA4Part65;
+begin
+
 { .SetTexture }
 Appearance825.Texture := ImageTexture827;
 { .SetAppearance }
@@ -5617,9 +5799,11 @@ HAnimSegment822.AddChildren([Transform823]);
 HAnimJoint821.AddChildren([HAnimSegment822]);
 HAnimJoint831 := THAnimJointNode.Create;
 HAnimJoint831.NameField := 'vc2';
+HAnimJoint831.X3DName := 'hanim_vc2';
 HAnimJoint831.Center := Vector3(0,58.080002,-0.6695);
 HAnimSegment832 := THAnimSegmentNode.Create;
 HAnimSegment832.NameField := 'c2';
+HAnimSegment832.X3DName := 'hanim_c2';
 Transform833 := TTransformNode.Create;
 Transform833.Translation := Vector3(0,58.080002,-0.6695);
 Shape834 := TShapeNode.Create;
@@ -5639,13 +5823,13 @@ IndexedFaceSet838.CreaseAngle := 3.14159;
 IndexedFaceSet838.SetTexCoordIndex([14,15,16,-1,16,17,18,-1,18,19,20,-1,16,18,20,-1,20,21,22,-1,22,23,12,-1,20,22,12,-1,16,20,12,-1,14,16,12,-1,13,14,12,-1,0,1,13,-1,13,12,0,-1,1,7,14,-1,14,13,1,-1,7,8,15,-1,15,14,7,-1,8,9,16,-1,16,15,8,-1,9,10,17,-1,17,16,9,-1,10,11,18,-1,18,17,10,-1,11,6,19,-1,19,18,11,-1,6,5,20,-1,20,19,6,-1,5,4,21,-1,21,20,5,-1,4,3,22,-1,22,21,4,-1,3,2,23,-1,23,22,3,-1,2,0,12,-1,12,23,2,-1,1,0,24,-1,24,32,1,-1,0,2,25,-1,25,24,0,-1,2,3,26,-1,26,25,2,-1,3,4,27,-1,27,26,3,-1,4,5,33,-1,33,27,4,-1,9,8,30,-1,30,31,9,-1,10,9,31,-1,31,35,10,-1,5,6,28,-1,28,33,5,-1,7,1,32,-1,32,34,7,-1,8,7,34,-1,34,30,8,-1,6,11,29,-1,29,28,6,-1,11,10,35,-1,35,29,11,-1,38,39,40,-1,40,41,42,-1,42,43,44,-1,40,42,44,-1,44,45,46,-1,46,47,36,-1,44,46,36,-1,40,44,36,-1,38,40,36,-1,37,38,36,-1,32,24,37,-1,37,36,32,-1,24,25,38,-1,38,37,24,-1,25,26,39,-1,39,38,25,-1,26,27,40,-1,40,39,26,-1,27,33,41,-1,41,40,27,-1,33,28,42,-1,42,41,33,-1,28,29,43,-1,43,42,28,-1,29,35,44,-1,44,43,29,-1,35,31,45,-1,45,44,35,-1,31,30,46,-1,46,45,31,-1,30,34,47,-1,47,46,30,-1,34,32,36,-1,36,47,34,-1]);
 Coordinate839 := TCoordinateNode.Create;
 Coordinate839.SetPoint([Vector3(0.5369,0.5216,-1.124),Vector3(0,0.5216,-1.195),Vector3(1.139,0.5216,-0.8504),Vector3(1.562,0.5216,0.073),Vector3(1.219,0.5216,0.7153),Vector3(0.605,0.5216,1.101),Vector3(0,0.5216,1.195),Vector3(-0.5369,0.5216,-1.124),Vector3(-1.139,0.5216,-0.8504),Vector3(-1.562,0.5216,0.0729),Vector3(-1.219,0.5216,0.7153),Vector3(-0.605,0.5216,1.101),Vector3(0.4798,0.7591,-0.9247),Vector3(0,0.7591,-0.9883),Vector3(-0.4798,0.7591,-0.9247),Vector3(-0.9844,0.7591,-0.6953),Vector3(-1.333,0.7591,0.066),Vector3(-1.064,0.7591,0.5706),Vector3(-0.5317,0.7591,0.9052),Vector3(0,0.7591,0.9877),Vector3(0.5317,0.7591,0.9052),Vector3(1.064,0.7591,0.5706),Vector3(1.333,0.7591,0.066),Vector3(0.9844,0.7591,-0.6953),Vector3(0.5369,0.0018,-1.124),Vector3(1.139,0.0018,-0.8504),Vector3(1.562,0.0018,0.073),Vector3(1.219,0.0018,0.7153),Vector3(0,0.0018,1.195),Vector3(-0.605,0.0018,1.101),Vector3(-1.139,0.0018,-0.8504),Vector3(-1.562,0.0018,0.0729),Vector3(0,0.0018,-1.195),Vector3(0.605,0.0018,1.101),Vector3(-0.5369,0.0018,-1.124),Vector3(-1.219,0.0018,0.7153),Vector3(0,-0.2146,-1),Vector3(0.4947,-0.2146,-0.9348),Vector3(1.008,-0.2146,-0.7016),Vector3(1.361,-0.2146,0.069),Vector3(1.091,-0.2146,0.5735),Vector3(0.5462,-0.2146,0.9162),Vector3(0,-0.2146,1.001),Vector3(-0.5462,-0.2146,0.9162),Vector3(-1.091,-0.2146,0.5735),Vector3(-1.361,-0.2146,0.069),Vector3(-1.008,-0.2146,-0.7016),Vector3(-0.4947,-0.2146,-0.9348)]);
-end;
-
-procedure InitJinLOA4Part62;
-begin
-
 { .SetCoord }
 IndexedFaceSet838.Coord := Coordinate839;
+end;
+
+procedure InitJinLOA4Part66;
+begin
+
 TextureCoordinate840 := TTextureCoordinateNode.Create;
 TextureCoordinate840.SetPoint([Vector2(0.3995,0.6721),Vector2(0.3906,0.6721),Vector2(0.4094,0.6721),Vector2(0.4164,0.6721),Vector2(0.4107,0.6721),Vector2(0.4006,0.6738),Vector2(0.3906,0.6664),Vector2(0.3818,0.6721),Vector2(0.3719,0.6721),Vector2(0.3649,0.6721),Vector2(0.3706,0.6721),Vector2(0.3807,0.6738),Vector2(0.3995,0.6721),Vector2(0.3906,0.6721),Vector2(0.3818,0.6721),Vector2(0.3719,0.6721),Vector2(0.3649,0.6721),Vector2(0.3706,0.6721),Vector2(0.3807,0.6738),Vector2(0.3906,0.6664),Vector2(0.4006,0.6738),Vector2(0.4107,0.6721),Vector2(0.4164,0.6721),Vector2(0.4094,0.6721),Vector2(0.3995,0.669),Vector2(0.4094,0.6692),Vector2(0.4164,0.6692),Vector2(0.4107,0.6689),Vector2(0.3906,0.6632),Vector2(0.3807,0.6702),Vector2(0.3719,0.6692),Vector2(0.3649,0.6692),Vector2(0.3906,0.669),Vector2(0.4006,0.6702),Vector2(0.3818,0.669),Vector2(0.3706,0.6689),Vector2(0.3906,0.669),Vector2(0.3995,0.669),Vector2(0.4094,0.6692),Vector2(0.4164,0.6692),Vector2(0.4107,0.6689),Vector2(0.4006,0.6702),Vector2(0.3906,0.6632),Vector2(0.3807,0.6702),Vector2(0.3706,0.6689),Vector2(0.3649,0.6692),Vector2(0.3719,0.6692),Vector2(0.3818,0.669)]);
 { .SetTexCoord }
@@ -5660,9 +5844,11 @@ HAnimSegment832.AddChildren([Transform833]);
 HAnimJoint831.AddChildren([HAnimSegment832]);
 HAnimJoint841 := THAnimJointNode.Create;
 HAnimJoint841.NameField := 'vc1';
+HAnimJoint841.X3DName := 'hanim_vc1';
 HAnimJoint841.Center := Vector3(0,58.599998,-0.6695);
 HAnimSegment842 := THAnimSegmentNode.Create;
 HAnimSegment842.NameField := 'c1';
+HAnimSegment842.X3DName := 'hanim_c1';
 Transform843 := TTransformNode.Create;
 Transform843.Translation := Vector3(0,58.599998,-0.6695);
 Shape844 := TShapeNode.Create;
@@ -5698,14 +5884,16 @@ HAnimSegment842.AddChildren([Transform843]);
 HAnimJoint841.AddChildren([HAnimSegment842]);
 HAnimJoint851 := THAnimJointNode.Create;
 HAnimJoint851.NameField := 'skullbase';
-HAnimJoint851.Center := Vector3(0,58.34,-0.6863);
 end;
 
-procedure InitJinLOA4Part63;
+procedure InitJinLOA4Part67;
 begin
 
+HAnimJoint851.X3DName := 'hanim_skullbase';
+HAnimJoint851.Center := Vector3(0,58.34,-0.6863);
 HAnimSegment852 := THAnimSegmentNode.Create;
 HAnimSegment852.NameField := 'skull';
+HAnimSegment852.X3DName := 'hanim_skull';
 Transform853 := TTransformNode.Create;
 Transform853.Translation := Vector3(0,58.34,-0.6863);
 Shape854 := TShapeNode.Create;
@@ -5725,7 +5913,7 @@ IndexedFaceSet858.CreaseAngle := 3.14159;
 IndexedFaceSet858.SetTexCoordIndex([0,3,2,-1,2,1,0,-1,1,6,5,-1,5,4,1,-1,7,8,2,-1,2,3,7,-1,9,10,5,-1,5,6,9,-1,11,12,0,-1,0,1,11,-1,13,11,1,-1,1,4,13,-1,14,17,16,-1,16,15,14,-1,18,19,14,-1,14,15,18,-1,22,21,20,-1,23,16,17,-1,16,25,24,-1,27,26,24,-1,29,28,25,-1,16,23,25,-1,29,25,23,-1,31,17,30,-1,29,23,32,-1,33,32,31,-1,33,31,30,-1,27,35,34,-1,34,26,27,-1,37,36,34,-1,39,38,36,-1,26,40,16,-1,16,24,26,-1,36,42,41,-1,41,39,36,-1,43,41,42,-1,43,44,41,-1,41,44,39,-1,20,45,22,-1,45,46,22,-1,44,47,39,-1,20,49,50,-1,48,51,50,-1,51,20,50,-1,20,47,49,-1,49,47,44,-1,28,24,25,-1,53,52,46,-1,52,55,54,-1,52,54,46,-1,52,53,55,-1,7,57,53,-1,53,56,7,-1,58,57,7,-1,7,59,58,-1,57,58,53,-1,8,7,56,-1,56,60,8,-1,9,6,60,-1,10,9,60,-1,60,61,10,-1,0,12,62,-1,62,12,63,-1,64,62,63,-1,53,58,62,-1,62,64,53,-1,62,58,59,-1,59,0,62,-1,64,63,65,-1,63,67,66,-1,66,65,63,-1,53,64,65,-1,65,55,53,-1,65,66,54,-1,54,55,65,-1,67,21,66,-1,38,39,68,-1,22,46,21,-1,54,66,21,-1,46,54,21,-1,21,67,69,-1,68,69,38,-1,20,21,47,-1,47,21,68,-1,47,68,39,-1,69,18,70,-1,70,18,15,-1,40,70,15,-1,15,16,40,-1,69,71,38,-1,71,69,70,-1,38,71,34,-1,34,36,38,-1,26,34,71,-1,68,21,69,-1,2,6,1,-1,8,60,2,-1,60,6,2,-1,74,73,72,-1,77,76,75,-1,74,78,73,-1,74,81,80,-1,80,79,74,-1,82,79,80,-1,74,79,78,-1,82,84,83,-1,83,84,85,-1,82,86,84,-1,87,90,89,-1,89,88,87,-1,92,91,88,-1,80,81,93,-1,88,91,94,-1,86,93,95,-1,72,73,96,-1,83,79,82,-1,73,83,97,-1,100,99,98,-1,103,102,101,-1,99,83,85,-1,104,97,99,-1,97,83,99,-1,105,90,102,-1,105,89,90,-1,107,106,75,-1,107,108,106,-1,109,82,80,-1,109,80,93,-1,112,111,110,-1,93,81,113,-1,93,113,95,-1,114,110,111,-1,115,114,111,-1,87,86,116,-1,86,95,116,-1,18,69,117,-1,118,19,18,-1,18,117,118,-1,117,69,67,-1,67,119,117,-1,119,67,63,-1,63,120,119,-1,117,119,121,-1,121,118,117,-1,120,122,121,-1,121,119,120,-1,11,120,63,-1,63,12,11,-1,13,122,120,-1,120,11,13,-1,125,124,123,-1,127,126,124,-1,126,127,128,-1,131,130,129,-1,131,129,132,-1,131,132,133,-1,133,127,131,-1,127,133,128,-1,135,134,126,-1,130,135,126,-1,135,136,134,-1,124,126,123,-1,123,126,137,-1,138,125,123,-1,123,139,138,-1,140,143,142,-1,142,141,140,-1,126,134,137,-1,127,124,144,-1,144,124,125,-1,144,131,127,-1,145,125,138,-1,146,140,141,-1,147,140,146,-1,148,144,125,-1,137,149,123,-1,150,123,149,-1,153,156,155,-1,155,154,153,-1,153,154,158,-1,158,157,153,-1,158,160,159,-1,159,157,158,-1,157,159,162,-1,162,161,157,-1,139,215,164,-1,164,138,139,-1,163,139,150,-1,150,165,163,-1,139,123,150,-1,168,167,166,-1,166,167,159,-1,169,151,152,-1,166,159,169,-1,161,172,170,-1,170,157,161,-1,170,171,157,-1,167,162,159,-1,173,176,236,-1,236,174,173,-1,172,161,177,-1,177,233,172,-1,241,174,236,-1,236,240,241,-1,168,180,167,-1,181,180,168,-1,183,238,237,-1,237,231,183,-1,167,180,186,-1,187,177,161,-1,161,162,187,-1,188,189,177,-1,177,187,188,-1,167,186,187,-1,187,162,167,-1,188,187,186,-1,186,190,188,-1,189,192,177,-1,234,176,233,-1,231,175,191,-1,190,186,180,-1,180,193,190,-1,191,234,192,-1,146,141,195,-1,193,180,181,-1,181,194,193,-1,195,141,196,-1,196,240,236,-1,171,156,153,-1,153,157,171,-1,197,181,168,-1,198,147,242,-1,198,140,147,-1,199,125,145,-1,148,125,200,-1,200,125,199,-1,159,160,151,-1,151,169,159,-1,130,136,135,-1,242,147,184,-1,147,201,184,-1,147,146,201,-1,195,201,146,-1,144,202,131,-1,144,148,202,-1,155,204,203,-1,203,154,155,-1,154,203,160,-1,160,158,154,-1,205,208,207,-1,207,206,205,-1,209,208,205,-1,205,210,209,-1,213,214,211,-1,211,212,213,-1,191,191,192,-1,192,192,191,-1,191,191,191,-1,191,191,191,-1,191,191,191,-1,191,191,191,-1,192,192,191,-1,191,191,192,-1,189,189,192,-1,192,192,189,-1,188,188,189,-1,189,189,188,-1,190,190,188,-1,188,188,190,-1,193,193,190,-1,190,190,193,-1,194,194,193,-1,193,193,194,-1,194,232,232,-1,232,194,194,-1,139,163,215,-1,222,223,217,-1,217,216,222,-1,223,229,218,-1,218,217,223,-1,228,219,218,-1,218,229,228,-1,218,219,221,-1,217,218,221,-1,217,221,220,-1,224,225,226,-1,226,225,227,-1,227,230,226,-1,238,183,232,-1,232,239,238,-1,175,231,237,-1,239,232,194,-1,194,178,239,-1,175,176,191,-1,191,176,234,-1,192,234,233,-1,233,177,192,-1,176,173,172,-1,172,233,176,-1,178,194,181,-1,184,235,242,-1,196,236,179,-1,195,196,179,-1,179,182,195,-1,201,195,182,-1,182,185,201,-1,184,201,185,-1,196,141,240,-1,240,141,142,-1,142,241,240,-1,245,244,243,-1,243,246,245,-1,244,248,247,-1,247,249,244,-1,250,246,243,-1,243,251,250,-1,252,249,247,-1,247,253,252,-1,254,244,245,-1,245,255,254,-1,256,248,244,-1,244,254,256,-1,259,258,257,-1,257,260,259,-1,261,258,259,-1,259,262,261,-1,263,265,264,-1,266,260,257,-1,257,268,267,-1,269,268,270,-1,271,267,272,-1,257,267,266,-1,271,266,267,-1,273,274,260,-1,271,275,266,-1,276,273,275,-1,276,274,273,-1,269,270,277,-1,277,278,269,-1,279,277,280,-1,281,280,282,-1,270,268,257,-1,257,283,270,-1,280,281,284,-1,284,285,280,-1,286,285,284,-1,286,284,287,-1,284,281,287,-1,265,263,288,-1,288,263,289,-1,287,281,290,-1,265,292,291,-1,293,292,294,-1,294,292,265,-1,265,291,290,-1,291,287,290,-1,272,267,268,-1,295,289,296,-1,296,298,297,-1,296,289,298,-1,296,297,295,-1,250,299,295,-1,295,300,250,-1,302,301,250,-1,250,300,302,-1,300,295,302,-1,251,303,299,-1,299,250,251,-1,252,303,249,-1,253,304,303,-1,303,252,253,-1,245,305,255,-1,305,306,255,-1,307,306,305,-1,295,307,305,-1,305,302,295,-1,305,245,301,-1,301,302,305,-1,307,308,306,-1,306,308,309,-1,309,310,306,-1,295,297,308,-1,308,307,295,-1,308,297,298,-1,298,309,308,-1,310,309,264,-1,282,311,281,-1,263,264,289,-1,298,264,309,-1,289,264,298,-1,264,312,310,-1,311,282,312,-1,265,290,264,-1,290,311,264,-1,290,281,311,-1,312,313,261,-1,313,258,261,-1,283,257,258,-1,258,313,283,-1,312,282,314,-1,314,313,312,-1,282,280,277,-1,277,314,282,-1,270,314,277,-1,311,312,264,-1,243,244,249,-1,251,243,303,-1,303,243,249,-1,315,317,316,-1,318,320,319,-1,315,316,321,-1,315,323,322,-1,322,324,315,-1,325,322,323,-1,315,321,323,-1,325,327,326,-1,327,328,326,-1,325,326,329,-1,332,331,330,-1,330,333,332,-1,334,331,335,-1,322,336,324,-1,331,337,335,-1,329,338,336,-1,317,339,316,-1,327,325,323,-1,316,340,327,-1,341,343,342,-1,344,346,345,-1,342,328,327,-1,347,342,340,-1,340,342,327,-1,348,345,333,-1,348,333,330,-1,349,320,350,-1,349,350,351,-1,352,322,325,-1,352,336,322,-1,353,355,354,-1,336,356,324,-1,336,338,356,-1,357,354,355,-1,358,354,357,-1,332,359,329,-1,329,359,338,-1,261,360,312,-1,361,360,261,-1,261,262,361,-1,360,362,310,-1,310,312,360,-1,362,363,306,-1,306,310,362,-1,360,361,364,-1,364,362,360,-1,363,362,364,-1,364,365,363,-1,254,255,306,-1,306,363,254,-1,256,254,363,-1,363,365,256,-1,366,368,367,-1,369,367,370,-1,370,371,369,-1,372,374,373,-1,372,375,374,-1,372,369,376,-1,376,375,372,-1,369,371,376,-1,377,370,378,-1,373,370,377,-1,377,378,379,-1,367,368,370,-1,368,380,370,-1,382,381,368,-1,368,366,382,-1,385,384,383,-1,383,386,385,-1,370,380,378,-1,369,387,367,-1,387,366,367,-1,387,369,372,-1,388,382,366,-1,389,384,385,-1,390,389,385,-1,391,366,387,-1,380,368,392,-1,393,392,368,-1,396,395,394,-1,394,397,396,-1,396,399,398,-1,398,395,396,-1,398,399,400,-1,400,401,398,-1,399,403,402,-1,402,400,399,-1,381,382,405,-1,405,404,381,-1,406,407,393,-1,393,381,406,-1,381,393,368,-1,408,410,409,-1,410,400,409,-1,411,413,412,-1,410,411,400,-1,403,399,414,-1,414,415,403,-1,414,399,416,-1,409,400,402,-1,419,418,417,-1,417,420,419,-1,415,422,421,-1,421,403,415,-1,423,424,417,-1,417,418,423,-1,408,409,425,-1,426,408,425,-1,427,430,429,-1,429,428,427,-1,409,431,425,-1,432,402,403,-1,403,421,432,-1,433,432,421,-1,421,434,433,-1,409,402,432,-1,432,431,409,-1,433,435,431,-1,431,432,433,-1,434,421,436,-1,437,422,420,-1,430,439,438,-1,435,440,425,-1,425,431,435,-1,439,436,437,-1,389,441,384,-1,440,442,426,-1,426,425,440,-1,441,443,384,-1,443,417,424,-1,416,396,397,-1,396,416,399,-1,444,408,426,-1,445,446,390,-1,445,390,385,-1,447,388,366,-1,391,448,366,-1,448,447,366,-1,400,411,412,-1,412,401,400,-1,373,377,379,-1,446,449,390,-1,390,449,450,-1,390,450,389,-1,441,389,450,-1,387,372,451,-1,387,451,391,-1,394,395,452,-1,452,453,394,-1,395,398,401,-1,401,452,395,-1,456,455,454,-1,454,457,456,-1,459,458,456,-1,456,457,459,-1,462,461,460,-1,460,463,462,-1,439,436,436,-1,436,439,439,-1,439,439,439,-1,439,439,439,-1,439,439,439,-1,439,439,439,-1,436,439,439,-1,439,436,436,-1,434,436,436,-1,436,434,434,-1,433,434,434,-1,434,433,433,-1,435,433,433,-1,433,435,435,-1,440,435,435,-1,435,440,440,-1,442,440,440,-1,440,442,442,-1,442,442,464,-1,464,464,442,-1,381,404,406,-1,465,468,467,-1,467,466,465,-1,466,467,470,-1,470,469,466,-1,471,469,470,-1,470,472,471,-1,467,474,473,-1,473,472,470,-1,467,473,470,-1,475,477,476,-1,477,479,478,-1,478,476,477,-1,428,480,464,-1,464,427,428,-1,438,429,430,-1,480,481,442,-1,442,464,480,-1,438,439,420,-1,439,437,420,-1,436,421,422,-1,422,437,436,-1,420,422,415,-1,415,419,420,-1,481,426,442,-1,449,446,482,-1,443,483,417,-1,441,484,483,-1,483,443,441,-1,450,485,484,-1,484,441,450,-1,449,485,450,-1,443,424,384,-1,424,423,383,-1,383,384,424,-1]);
 end;
 
-procedure InitJinLOA4Part64;
+procedure InitJinLOA4Part68;
 begin
 
 Coordinate859 := TCoordinateNode.Create;
@@ -5736,7 +5924,7 @@ TextureCoordinate860 := TTextureCoordinateNode.Create;
 TextureCoordinate860.SetPoint([Vector2(0.9175,0.8974),Vector2(0.9509,0.8981),Vector2(0.9421,0.8701),Vector2(0.924,0.8702),Vector2(0.9824,0.8971),Vector2(0.9824,0.8682),Vector2(0.9541,0.8718),Vector2(0.9147,0.8129),Vector2(0.9437,0.8153),Vector2(0.9638,0.8095),Vector2(0.9824,0.809),Vector2(0.9461,0.923),Vector2(0.9071,0.9135),Vector2(0.9824,0.9287),Vector2(0.7343,0.9169),Vector2(0.7616,0.9147),Vector2(0.7553,0.8982),Vector2(0.7343,0.8968),Vector2(0.7739,0.9327),Vector2(0.7343,0.9365),Vector2(0.8187,0.8433),Vector2(0.8348,0.9045),Vector2(0.8324,0.8647),Vector2(0.74,0.8745),Vector2(0.761,0.8768),Vector2(0.7497,0.8755),Vector2(0.777,0.8787),Vector2(0.7647,0.8593),Vector2(0.7596,0.8565),Vector2(0.7438,0.8546),Vector2(0.7343,0.8756),Vector2(0.7372,0.8736),Vector2(0.7394,0.8706),Vector2(0.7405,0.8536),Vector2(0.7808,0.8802),Vector2(0.7786,0.8666),Vector2(0.7875,0.8787),Vector2(0.7821,0.8667),Vector2(0.7952,0.9076),Vector2(0.8011,0.8823),Vector2(0.7745,0.9003),Vector2(0.7939,0.8518),Vector2(0.7845,0.8549),Vector2(0.7731,0.8049),Vector2(0.7979,0.8609),Vector2(0.8185,0.8054),Vector2(0.8439,0.8655),Vector2(0.8131,0.8741),Vector2(0.786,0.7876),Vector2(0.8107,0.8538),Vector2(0.8058,0.8252),Vector2(0.8096,0.8166),Vector2(0.8589,0.7975),Vector2(0.8767,0.8622),Vector2(0.8568,0.8668),Vector2(0.8669,0.8674),Vector2(0.9208,0.8549),Vector2(0.8792,0.7991),Vector2(0.8835,0.8633),Vector2(0.9139,0.8636),Vector2(0.9513,0.84),Vector2(0.9824,0.8358),Vector2(0.8845,0.9021),Vector2(0.888,0.931),Vector2(0.8761,0.9036),Vector2(0.8705,0.9018),Vector2(0.8544,0.902),Vector2(0.8538,0.9345),Vector2(0.8173,0.9068),Vector2(0.8156,0.9257),Vector2(0.7753,0.9186),Vector2(0.7832,0.9041),Vector2(0.7338,0.8385),Vector2(0.7279,0.8339),Vector2(0.7208,0.8401),Vector2(0.7397,0.7767),Vector2(0.7338,0.7681),Vector2(0.7338,0.7727),Vector2(0.7192,0.8201),Vector2(0.7171,0.8352),Vector2(0.7139,0.8364),Vector2(0.7127,0.8419),Vector2(0.7175,0.832),Vector2(0.7247,0.8312),Vector2(0.7224,0.8292),Vector2(0.7239,0.8169),Vector2(0.7146,0.8334),Vector2(0.7152,0.8309),Vector2(0.753,0.7762),Vector2(0.7452,0.772),Vector2(0.7409,0.7703),Vector2(0.756,0.7661),Vector2(0.7502,0.7748),Vector2(0.7102,0.837),Vector2(0.7574,0.7798),Vector2(0.7054,0.8378),Vector2(0.7338,0.8253),Vector2(0.7338,0.8299),Vector2(0.7267,0.8275),Vector2(0.7291,0.8283),Vector2(0.7338,0.8254),Vector2(0.7338,0.7682),Vector2(0.7385,0.7711),Vector2(0.7338,0.7628),Vector2(0.7338,0.82),Vector2(0.7437,0.7597),Vector2(0.7429,0.774),Vector2(0.7484,0.7629),Vector2(0.7505,0.778),Vector2(0.7116,0.8233),Vector2(0.7622,0.7806),Vector2(0.7576,0.779),Vector2(0.763,0.7872),Vector2(0.7046,0.8444),Vector2(0.7572,0.7769),Vector2(0.7524,0.7737),Vector2(0.7104,0.8341),Vector2(0.7881,0.9479),Vector2(0.7343,0.9577),Vector2(0.8497,0.9637),Vector2(0.9158,0.9539),Vector2(0.7343,0.9872),Vector2(0.9824,0.9663),Vector2(0.4263,0.6263),Vector2(0.4421,0.6351),Vector2(0.4514,0.6319),Vector2(0.4298,0.637),Vector2(0.4385,0.639),Vector2(0.4385,0.6403),Vector2(0.4369,0.6596),Vector2(0.4321,0.6555),Vector2(0.4385,0.6553),Vector2(0.4451,0.6548),Vector2(0.4452,0.6463),Vector2(0.4227,0.6454),Vector2(0.4263,0.652),Vector2(0.4193,0.6633),Vector2(0.4176,0.6328),Vector2(0.4376,0.6237),Vector2(0.4196,0.6187),Vector2(0.3384,0.9887),Vector2(0.2934,0.905),Vector2(0.2441,0.9417),Vector2(0.2441,0.9723),Vector2(0.4437,0.6405),Vector2(0.4519,0.6235),Vector2(0.3367,0.9059),Vector2(0.4034,0.9073),Vector2(0.4566,0.6329),Vector2(0.4157,0.6257),Vector2(0.4137,0.6192),Vector2(0.2959,0.626),Vector2(0.3051,0.6166),Vector2(0.2511,0.6816),Vector2(0.2548,0.6653),Vector2(0.2441,0.6653),Vector2(0.2441,0.6816),Vector2(0.2661,0.696),Vector2(0.2636,0.664),Vector2(0.3484,0.6888),Vector2(0.3007,0.651),Vector2(0.2881,0.7397),Vector2(0.3623,0.7239),Vector2(0.4151,0.6155),Vector2(0.4295,0.6197),Vector2(0.4116,0.6201),Vector2(0.4088,0.6855),Vector2(0.4123,0.7323),Vector2(0.4518,0.7703),Vector2(0.364,0.6372),Vector2(0.2441,0.7326),Vector2(0.2441,0.7109),Vector2(0.2441,0.7705),Vector2(0.2441,0.816),Vector2(0.2466,0.8272),Vector2(0.2826,0.8198),Vector2(0.263,0.8101),Vector2(0.3011,0.7644),Vector2(0.4294,0.848),Vector2(0.295,0.8569),Vector2(0.4229,0.7906),Vector2(0.445,0.8342),Vector2(0.3273,0.8725),Vector2(0.3401,0.8443),Vector2(0.4194,0.891),Vector2(0.3844,0.8819),Vector2(0.3962,0.7639),Vector2(0.3654,0.758),Vector2(0.3664,0.7923),Vector2(0.3312,0.7931),Vector2(0.3858,0.7947),Vector2(0.2864,0.8094),Vector2(0.3065,0.7969),Vector2(0.4051,0.8004),Vector2(0.4267,0.8291),Vector2(0.3243,0.8795),Vector2(0.293,0.8645),Vector2(0.4715,0.8911),Vector2(0.431,0.9594),Vector2(0.4658,0.6252),Vector2(0.465,0.6281),Vector2(0.3862,0.8876),Vector2(0.4544,0.6426),Vector2(0.2548,0.6553),Vector2(0.2441,0.6553),Vector2(0.4156,0.6279),Vector2(0.3783,0.625),Vector2(0.3984,0.649),Vector2(0.4325,0.6718),Vector2(0.4443,0.6446),Vector2(0.428,0.6022),Vector2(0.4445,0.6357),Vector2(0.4021,0.656),Vector2(0.4052,0.6271),Vector2(0.4253,0.6199),Vector2(0.4215,0.6174),Vector2(0.6418,0.6585),Vector2(0.6441,0.671),Vector2(0.6214,0.6731),Vector2(0.616,0.6731),Vector2(0.6418,0.6585),Vector2(0.623,0.6494),Vector2(0.6418,0.6585),Vector2(0.6441,0.671),Vector2(0.3003,0.6509),Vector2(0.2548,0.6558),Vector2(0.2549,0.6531),Vector2(0.2441,0.6558),Vector2(0.616,0.6731),Vector2(0.6214,0.6731),Vector2(0.2441,0.6529),Vector2(0.314,0.8296),Vector2(0.3898,0.85),Vector2(0.2746,0.7881),Vector2(0.2889,0.7981),Vector2(0.4442,0.8857),Vector2(0.2745,0.8415),Vector2(0.3079,0.8417),Vector2(0.3393,0.8544),Vector2(0.3891,0.8542),Vector2(0.2699,0.8521),Vector2(0.246,0.853),Vector2(0.4715,0.8911),Vector2(0.9421,0.8701),Vector2(0.9509,0.8981),Vector2(0.9175,0.8974),Vector2(0.924,0.8702),Vector2(0.9824,0.8682),Vector2(0.9824,0.8971),Vector2(0.9541,0.8718),Vector2(0.9147,0.8129),Vector2(0.9437,0.8153),Vector2(0.9638,0.8095),Vector2(0.9824,0.809),Vector2(0.9461,0.923),Vector2(0.9071,0.9135),Vector2(0.9824,0.9287),Vector2(0.7553,0.8982),Vector2(0.7616,0.9147),Vector2(0.7343,0.9169),Vector2(0.7343,0.8968),Vector2(0.7739,0.9327),Vector2(0.7343,0.9365),Vector2(0.8324,0.8647),Vector2(0.8348,0.9045),Vector2(0.8187,0.8433),Vector2(0.74,0.8745),Vector2(0.7497,0.8755),Vector2(0.761,0.8768),Vector2(0.7647,0.8593),Vector2(0.777,0.8787),Vector2(0.7438,0.8546),Vector2(0.7596,0.8565),Vector2(0.7372,0.8736),Vector2(0.7343,0.8756),Vector2(0.7394,0.8706),Vector2(0.7405,0.8536),Vector2(0.7808,0.8802),Vector2(0.7786,0.8666),Vector2(0.7821,0.8667),Vector2(0.7875,0.8787),Vector2(0.8011,0.8823),Vector2(0.7952,0.9076),Vector2(0.7745,0.9003),Vector2(0.7939,0.8518),Vector2(0.7845,0.8549),Vector2(0.7731,0.8049),Vector2(0.7979,0.8609),Vector2(0.8185,0.8054),Vector2(0.8439,0.8655),Vector2(0.8131,0.8741),Vector2(0.8107,0.8538),Vector2(0.8058,0.8252),Vector2(0.786,0.7876),Vector2(0.8096,0.8166),Vector2(0.8767,0.8622),Vector2(0.8589,0.7975),Vector2(0.8669,0.8674),Vector2(0.8568,0.8668),Vector2(0.9208,0.8549),Vector2(0.8792,0.7991),Vector2(0.9139,0.8636),Vector2(0.8835,0.8633),Vector2(0.9513,0.84),Vector2(0.9824,0.8358),Vector2(0.8845,0.9021),Vector2(0.888,0.931),Vector2(0.8761,0.9036),Vector2(0.8705,0.9018),Vector2(0.8544,0.902),Vector2(0.8538,0.9345),Vector2(0.8173,0.9068),Vector2(0.8156,0.9257),Vector2(0.7753,0.9186),Vector2(0.7832,0.9041),Vector2(0.7208,0.8401),Vector2(0.7279,0.8339),Vector2(0.7338,0.8385),Vector2(0.7338,0.7727),Vector2(0.7338,0.7681),Vector2(0.7397,0.7767),Vector2(0.7192,0.8201),Vector2(0.7139,0.8364),Vector2(0.7171,0.8352),Vector2(0.7127,0.8419),Vector2(0.7175,0.832),Vector2(0.7224,0.8292),Vector2(0.7247,0.8312),Vector2(0.7239,0.8169),Vector2(0.7146,0.8334),Vector2(0.7452,0.772),Vector2(0.753,0.7762),Vector2(0.7152,0.8309),Vector2(0.7409,0.7703),Vector2(0.7502,0.7748),Vector2(0.756,0.7661),Vector2(0.7102,0.837),Vector2(0.7574,0.7798),Vector2(0.7054,0.8378),Vector2(0.7338,0.8253),Vector2(0.7338,0.8299),Vector2(0.7338,0.8254),Vector2(0.7291,0.8283),Vector2(0.7267,0.8275),Vector2(0.7338,0.7628),Vector2(0.7385,0.7711),Vector2(0.7338,0.7682),Vector2(0.7338,0.82),Vector2(0.7437,0.7597),Vector2(0.7484,0.7629),Vector2(0.7429,0.774),Vector2(0.7505,0.778),Vector2(0.7116,0.8233),Vector2(0.763,0.7872),Vector2(0.7576,0.779),Vector2(0.7622,0.7806),Vector2(0.7046,0.8444),Vector2(0.7572,0.7769),Vector2(0.7524,0.7737),Vector2(0.7104,0.8341),Vector2(0.7881,0.9479),Vector2(0.7343,0.9577),Vector2(0.8497,0.9637),Vector2(0.9158,0.9539),Vector2(0.7343,0.9872),Vector2(0.9824,0.9663),Vector2(0.4514,0.6319),Vector2(0.4421,0.6351),Vector2(0.4263,0.6263),Vector2(0.4385,0.639),Vector2(0.4298,0.637),Vector2(0.4385,0.6403),Vector2(0.4385,0.6553),Vector2(0.4321,0.6555),Vector2(0.4369,0.6596),Vector2(0.4451,0.6548),Vector2(0.4452,0.6463),Vector2(0.4263,0.652),Vector2(0.4227,0.6454),Vector2(0.4193,0.6633),Vector2(0.4176,0.6328),Vector2(0.4196,0.6187),Vector2(0.4376,0.6237),Vector2(0.2441,0.9417),Vector2(0.2934,0.905),Vector2(0.3384,0.9887),Vector2(0.2441,0.9723),Vector2(0.4437,0.6405),Vector2(0.4519,0.6235),Vector2(0.3367,0.9059),Vector2(0.4034,0.9073),Vector2(0.4566,0.6329),Vector2(0.4157,0.6257),Vector2(0.4137,0.6192),Vector2(0.2441,0.6653),Vector2(0.2548,0.6653),Vector2(0.2511,0.6816),Vector2(0.2441,0.6816),Vector2(0.2636,0.664),Vector2(0.2661,0.696),Vector2(0.3484,0.6888),Vector2(0.3007,0.651),Vector2(0.3623,0.7239),Vector2(0.2881,0.7397),Vector2(0.4215,0.6174),Vector2(0.4295,0.6197),Vector2(0.4151,0.6155),Vector2(0.4116,0.6201),Vector2(0.4518,0.7703),Vector2(0.4123,0.7323),Vector2(0.4088,0.6855),Vector2(0.364,0.6372),Vector2(0.2959,0.626),Vector2(0.3051,0.6166),Vector2(0.2441,0.7326),Vector2(0.2441,0.7705),Vector2(0.2441,0.7109),Vector2(0.2745,0.8415),Vector2(0.2466,0.8272),Vector2(0.2441,0.816),Vector2(0.263,0.8101),Vector2(0.3011,0.7644),Vector2(0.2746,0.7881),Vector2(0.246,0.853),Vector2(0.2699,0.8521),Vector2(0.4229,0.7906),Vector2(0.445,0.8342),Vector2(0.3401,0.8443),Vector2(0.3393,0.8544),Vector2(0.3079,0.8417),Vector2(0.314,0.8296),Vector2(0.3962,0.7639),Vector2(0.3654,0.758),Vector2(0.3664,0.7923),Vector2(0.3312,0.7931),Vector2(0.3858,0.7947),Vector2(0.3065,0.7969),Vector2(0.2889,0.7981),Vector2(0.2826,0.8198),Vector2(0.2864,0.8094),Vector2(0.4051,0.8004),Vector2(0.3243,0.8795),Vector2(0.4267,0.8291),Vector2(0.293,0.8645),Vector2(0.4715,0.8911),Vector2(0.431,0.9594),Vector2(0.4715,0.8911),Vector2(0.4658,0.6252),Vector2(0.465,0.6281),Vector2(0.4194,0.891),Vector2(0.3862,0.8876),Vector2(0.4544,0.6426),Vector2(0.2548,0.6553),Vector2(0.2441,0.6553),Vector2(0.3984,0.649),Vector2(0.3783,0.625),Vector2(0.4156,0.6279),Vector2(0.4325,0.6718),Vector2(0.428,0.6022),Vector2(0.4443,0.6446),Vector2(0.4445,0.6357),Vector2(0.4021,0.656),Vector2(0.4052,0.6271),Vector2(0.4253,0.6199),Vector2(0.3898,0.85),Vector2(0.6418,0.6585),Vector2(0.6441,0.671),Vector2(0.6441,0.671),Vector2(0.6418,0.6585),Vector2(0.6214,0.6731),Vector2(0.6214,0.6731),Vector2(0.616,0.6731),Vector2(0.616,0.6731),Vector2(0.623,0.6494),Vector2(0.6418,0.6585),Vector2(0.3003,0.6509),Vector2(0.2548,0.6558),Vector2(0.2549,0.6531),Vector2(0.2441,0.6558),Vector2(0.2441,0.6529),Vector2(0.3891,0.8542),Vector2(0.4294,0.848),Vector2(0.4442,0.8857),Vector2(0.295,0.8569),Vector2(0.3273,0.8725),Vector2(0.3844,0.8819)]);
 end;
 
-procedure InitJinLOA4Part65;
+procedure InitJinLOA4Part69;
 begin
 
 { .SetTexCoord }
@@ -5751,9 +5939,11 @@ HAnimSegment852.AddChildren([Transform853]);
 HAnimJoint851.AddChildren([HAnimSegment852]);
 HAnimJoint861 := THAnimJointNode.Create;
 HAnimJoint861.NameField := 'l_eyelid_joint';
+HAnimJoint861.X3DName := 'hanim_l_eyelid_joint';
 HAnimJoint861.Center := Vector3(2.245,63.299999,1.464);
 HAnimSegment862 := THAnimSegmentNode.Create;
 HAnimSegment862.NameField := 'l_eyelid';
+HAnimSegment862.X3DName := 'hanim_l_eyelid';
 Transform863 := TTransformNode.Create;
 Transform863.Translation := Vector3(2.245,63.299999,1.464);
 Shape864 := TShapeNode.Create;
@@ -5791,14 +5981,16 @@ HAnimJoint861.AddChildren([HAnimSegment862]);
 HAnimJoint851.AddChildren([HAnimJoint861]);
 HAnimJoint871 := THAnimJointNode.Create;
 HAnimJoint871.NameField := 'r_eyelid_joint';
+HAnimJoint871.X3DName := 'hanim_r_eyelid_joint';
+end;
+
+procedure InitJinLOA4Part70;
+begin
+
 HAnimJoint871.Center := Vector3(-2.245,63.299999,1.464);
 HAnimSegment872 := THAnimSegmentNode.Create;
 HAnimSegment872.NameField := 'r_eyelid';
-end;
-
-procedure InitJinLOA4Part66;
-begin
-
+HAnimSegment872.X3DName := 'hanim_r_eyelid';
 Transform873 := TTransformNode.Create;
 Transform873.Translation := Vector3(-2.245,63.299999,1.464);
 Shape874 := TShapeNode.Create;
@@ -5836,13 +6028,20 @@ HAnimJoint871.AddChildren([HAnimSegment872]);
 HAnimJoint851.AddChildren([HAnimJoint871]);
 HAnimJoint881 := THAnimJointNode.Create;
 HAnimJoint881.NameField := 'l_eyeball_joint';
+HAnimJoint881.X3DName := 'hanim_l_eyeball_joint';
 HAnimJoint881.Center := Vector3(2.139,62.439999,3.691);
 HAnimSegment882 := THAnimSegmentNode.Create;
 HAnimSegment882.NameField := 'l_eyeball';
+HAnimSegment882.X3DName := 'hanim_l_eyeball';
 Transform883 := TTransformNode.Create;
 Transform883.Translation := Vector3(2.139,62.439999,3.691);
 Shape884 := TShapeNode.Create;
 Appearance885 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4Part71;
+begin
+
 Material886 := TMaterialNode.Create;
 Material886.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -5852,11 +6051,6 @@ ImageTexture887 := ImageTexture37;
 Appearance885.Texture := ImageTexture887;
 { .SetAppearance }
 Shape884.Appearance := Appearance885;
-end;
-
-procedure InitJinLOA4Part67;
-begin
-
 IndexedFaceSet888 := TIndexedFaceSetNode.Create;
 IndexedFaceSet888.SetCoordIndex([1,6,16,-1,16,11,1,-1,0,1,11,-1,11,10,0,-1,8,9,19,-1,19,18,8,-1,2,8,18,-1,18,12,2,-1,3,0,10,-1,10,13,3,-1,9,4,14,-1,14,19,9,-1,5,2,12,-1,12,15,5,-1,4,3,13,-1,13,14,4,-1,6,7,17,-1,17,16,6,-1,7,5,15,-1,15,17,7,-1,11,16,21,-1,21,20,11,-1,16,17,22,-1,22,21,16,-1,17,15,23,-1,23,22,17,-1,15,12,24,-1,24,23,15,-1,12,18,25,-1,25,24,12,-1,18,19,26,-1,26,25,18,-1,19,14,27,-1,27,26,19,-1,14,13,28,-1,28,27,14,-1,13,10,29,-1,29,28,13,-1,10,11,20,-1,20,29,10,-1,6,1,30,-1,1,0,30,-1,0,3,30,-1,3,4,30,-1,4,9,30,-1,9,8,30,-1,8,2,30,-1,2,5,30,-1,5,7,30,-1,7,6,30,-1]);
 IndexedFaceSet888.CreaseAngle := 3.14159;
@@ -5881,9 +6075,11 @@ HAnimJoint881.AddChildren([HAnimSegment882]);
 HAnimJoint851.AddChildren([HAnimJoint881]);
 HAnimJoint891 := THAnimJointNode.Create;
 HAnimJoint891.NameField := 'r_eyeball_joint';
+HAnimJoint891.X3DName := 'hanim_r_eyeball_joint';
 HAnimJoint891.Center := Vector3(-2.139,62.439999,3.691);
 HAnimSegment892 := THAnimSegmentNode.Create;
 HAnimSegment892.NameField := 'r_eyeball';
+HAnimSegment892.X3DName := 'hanim_r_eyeball';
 Transform893 := TTransformNode.Create;
 Transform893.Translation := Vector3(-2.139,62.439999,3.691);
 Shape894 := TShapeNode.Create;
@@ -5899,6 +6095,11 @@ Appearance895.Texture := ImageTexture897;
 Shape894.Appearance := Appearance895;
 IndexedFaceSet898 := TIndexedFaceSetNode.Create;
 IndexedFaceSet898.SetCoordIndex([1,11,16,-1,16,6,1,-1,0,10,11,-1,11,1,0,-1,8,18,19,-1,19,9,8,-1,2,12,18,-1,18,8,2,-1,3,13,10,-1,10,0,3,-1,9,19,14,-1,14,4,9,-1,5,15,12,-1,12,2,5,-1,4,14,13,-1,13,3,4,-1,6,16,17,-1,17,7,6,-1,7,17,15,-1,15,5,7,-1,11,20,21,-1,21,16,11,-1,16,21,22,-1,22,17,16,-1,17,22,23,-1,23,15,17,-1,15,23,24,-1,24,12,15,-1,12,24,25,-1,25,18,12,-1,18,25,26,-1,26,19,18,-1,19,26,27,-1,27,14,19,-1,14,27,28,-1,28,13,14,-1,13,28,29,-1,29,10,13,-1,10,29,20,-1,20,11,10,-1,6,30,1,-1,1,30,0,-1,0,30,3,-1,3,30,4,-1,4,30,9,-1,9,30,8,-1,8,30,2,-1,2,30,5,-1,5,30,7,-1,7,30,6,-1]);
+end;
+
+procedure InitJinLOA4Part72;
+begin
+
 IndexedFaceSet898.CreaseAngle := 3.14159;
 IndexedFaceSet898.SetTexCoordIndex([4,14,13,-1,13,9,4,-1,3,15,14,-1,14,4,3,-1,11,17,16,-1,16,12,11,-1,5,18,17,-1,17,11,5,-1,6,6,15,-1,15,3,6,-1,12,16,19,-1,19,7,12,-1,8,20,18,-1,18,5,8,-1,7,19,21,-1,21,6,7,-1,9,13,22,-1,22,10,9,-1,10,22,20,-1,20,8,10,-1,14,23,24,-1,24,13,14,-1,13,24,25,-1,25,22,13,-1,22,25,26,-1,26,20,22,-1,20,26,27,-1,27,18,20,-1,18,27,28,-1,28,17,18,-1,17,28,29,-1,29,16,17,-1,16,29,30,-1,30,19,16,-1,19,30,31,-1,31,21,19,-1,6,31,32,-1,32,15,6,-1,15,32,23,-1,23,14,15,-1,36,40,1,-1,1,40,0,-1,0,40,33,-1,33,40,34,-1,34,40,39,-1,39,40,38,-1,38,40,2,-1,2,40,35,-1,35,40,37,-1,37,40,36,-1]);
 Coordinate899 := TCoordinateNode.Create;
@@ -5909,11 +6110,6 @@ TextureCoordinate900 := TTextureCoordinateNode.Create;
 TextureCoordinate900.SetPoint([Vector2(0.3217,0.8278),Vector2(0.3482,0.8386),Vector2(0.3916,0.7984),Vector2(0.3206,0.8292),Vector2(0.3482,0.8386),Vector2(0.3916,0.7984),Vector2(0.2977,0.8092),Vector2(0.309,0.8013),Vector2(0.3985,0.8044),Vector2(0.3868,0.8428),Vector2(0.4182,0.8265),Vector2(0.3778,0.7978),Vector2(0.3319,0.7987),Vector2(0.3868,0.8428),Vector2(0.3482,0.8386),Vector2(0.3206,0.8292),Vector2(0.3319,0.7987),Vector2(0.3778,0.7978),Vector2(0.3916,0.7984),Vector2(0.309,0.8013),Vector2(0.3985,0.8029),Vector2(0.2977,0.8092),Vector2(0.4182,0.8263),Vector2(0.3482,0.8386),Vector2(0.3868,0.8428),Vector2(0.4182,0.8265),Vector2(0.3985,0.8044),Vector2(0.3916,0.7984),Vector2(0.3778,0.7978),Vector2(0.3319,0.7987),Vector2(0.309,0.8013),Vector2(0.2977,0.8092),Vector2(0.3206,0.8292),Vector2(0.2978,0.8092),Vector2(0.309,0.8013),Vector2(0.3985,0.8044),Vector2(0.3868,0.8428),Vector2(0.4182,0.8265),Vector2(0.3778,0.7978),Vector2(0.3319,0.7986),Vector2(0.3567,0.819)]);
 { .SetTexCoord }
 IndexedFaceSet898.TexCoord := TextureCoordinate900;
-end;
-
-procedure InitJinLOA4Part68;
-begin
-
 { .SetGeometry }
 Shape894.Geometry := IndexedFaceSet898;
 { .AddChild }
@@ -5926,9 +6122,11 @@ HAnimJoint891.AddChildren([HAnimSegment892]);
 HAnimJoint851.AddChildren([HAnimJoint891]);
 HAnimJoint901 := THAnimJointNode.Create;
 HAnimJoint901.NameField := 'l_eyebrow_joint';
+HAnimJoint901.X3DName := 'hanim_l_eyebrow_joint';
 HAnimJoint901.Center := Vector3(0.9666,62.84,4.753);
 HAnimSegment902 := THAnimSegmentNode.Create;
 HAnimSegment902.NameField := 'l_eyebrow';
+HAnimSegment902.X3DName := 'hanim_l_eyebrow';
 Transform903 := TTransformNode.Create;
 Transform903.Translation := Vector3(0.9666,62.84,4.753);
 Shape904 := TShapeNode.Create;
@@ -5954,6 +6152,11 @@ TextureCoordinate910 := TTextureCoordinateNode.Create;
 TextureCoordinate910.SetPoint([Vector2(0.344,0.8611),Vector2(0.3991,0.8726),Vector2(0.2757,0.8301),Vector2(0.4299,0.8749),Vector2(0.3424,0.8703),Vector2(0.297,0.8558),Vector2(0.4,0.8788),Vector2(0.3445,0.8554),Vector2(0.397,0.8649),Vector2(0.2794,0.8281),Vector2(0.4294,0.8703),Vector2(0.3456,0.8724),Vector2(0.3008,0.857),Vector2(0.3469,0.8565),Vector2(0.2795,0.829),Vector2(0.4293,0.8745),Vector2(0.3996,0.8793),Vector2(0.3963,0.8659),Vector2(0.2847,0.831),Vector2(0.4284,0.8697),Vector2(0.3046,0.8466),Vector2(0.3082,0.8407),Vector2(0.3105,0.8417)]);
 { .SetTexCoord }
 IndexedFaceSet908.TexCoord := TextureCoordinate910;
+end;
+
+procedure InitJinLOA4Part73;
+begin
+
 { .SetGeometry }
 Shape904.Geometry := IndexedFaceSet908;
 { .AddChild }
@@ -5966,14 +6169,11 @@ HAnimJoint901.AddChildren([HAnimSegment902]);
 HAnimJoint851.AddChildren([HAnimJoint901]);
 HAnimJoint911 := THAnimJointNode.Create;
 HAnimJoint911.NameField := 'r_eyebrow_joint';
+HAnimJoint911.X3DName := 'hanim_r_eyebrow_joint';
 HAnimJoint911.Center := Vector3(-0.9666,62.84,4.753);
 HAnimSegment912 := THAnimSegmentNode.Create;
 HAnimSegment912.NameField := 'r_eyebrow';
-end;
-
-procedure InitJinLOA4Part69;
-begin
-
+HAnimSegment912.X3DName := 'hanim_r_eyebrow';
 Transform913 := TTransformNode.Create;
 Transform913.Translation := Vector3(-0.9666,62.84,4.753);
 Shape914 := TShapeNode.Create;
@@ -6011,9 +6211,16 @@ HAnimJoint911.AddChildren([HAnimSegment912]);
 HAnimJoint851.AddChildren([HAnimJoint911]);
 HAnimJoint921 := THAnimJointNode.Create;
 HAnimJoint921.NameField := 'temporomandibular';
+HAnimJoint921.X3DName := 'hanim_temporomandibular';
+end;
+
+procedure InitJinLOA4Part74;
+begin
+
 HAnimJoint921.Center := Vector3(0,58.349998,0.6835);
 HAnimSegment922 := THAnimSegmentNode.Create;
 HAnimSegment922.NameField := 'jaw';
+HAnimSegment922.X3DName := 'hanim_jaw';
 Transform923 := TTransformNode.Create;
 Transform923.Translation := Vector3(0,58.349998,0.6835);
 Shape924 := TShapeNode.Create;
@@ -6027,11 +6234,6 @@ ImageTexture927 := ImageTexture37;
 Appearance925.Texture := ImageTexture927;
 { .SetAppearance }
 Shape924.Appearance := Appearance925;
-end;
-
-procedure InitJinLOA4Part70;
-begin
-
 IndexedFaceSet928 := TIndexedFaceSetNode.Create;
 IndexedFaceSet928.SetCoordIndex([0,2,12,-1,13,3,15,-1,3,13,4,-1,4,13,12,-1,4,12,2,-1,1,0,18,-1,18,9,1,-1,4,2,10,-1,10,6,8,-1,4,10,8,-1,3,7,24,-1,24,15,3,-1,4,8,7,-1,7,3,4,-1,5,26,24,-1,24,7,5,-1,8,6,5,-1,5,7,8,-1,0,1,2,-1,2,1,9,-1,9,10,2,-1,0,12,11,-1,13,15,14,-1,14,16,13,-1,16,12,13,-1,16,11,12,-1,17,19,18,-1,18,0,17,-1,22,21,20,-1,16,22,20,-1,16,20,11,-1,14,15,24,-1,24,23,14,-1,16,14,23,-1,23,22,16,-1,25,23,24,-1,24,26,25,-1,22,23,25,-1,25,21,22,-1,0,11,17,-1,11,20,19,-1,19,17,11,-1]);
 IndexedFaceSet928.CreaseAngle := 3.14159;
@@ -6072,9 +6274,16 @@ HAnimJoint781.AddChildren([HAnimJoint791]);
 HAnimJoint771.AddChildren([HAnimJoint781]);
 HAnimJoint931 := THAnimJointNode.Create;
 HAnimJoint931.NameField := 'l_sternoclavicular';
+HAnimJoint931.X3DName := 'hanim_l_sternoclavicular';
+end;
+
+procedure InitJinLOA4Part75;
+begin
+
 HAnimJoint931.Center := Vector3(1.71,53.720001,-0.6127);
 HAnimSegment932 := THAnimSegmentNode.Create;
 HAnimSegment932.NameField := 'l_clavicle';
+HAnimSegment932.X3DName := 'hanim_l_clavicle';
 Transform933 := TTransformNode.Create;
 Transform933.Translation := Vector3(1.71,53.720001,-0.6127);
 Shape934 := TShapeNode.Create;
@@ -6090,11 +6299,6 @@ Appearance935.Texture := ImageTexture937;
 Shape934.Appearance := Appearance935;
 IndexedFaceSet938 := TIndexedFaceSetNode.Create;
 IndexedFaceSet938.SetCoordIndex([9,6,1,-1,1,0,9,-1,6,5,2,-1,2,1,6,-1,8,3,2,-1,2,5,8,-1,8,7,4,-1,4,3,8,-1,9,0,4,-1,4,7,9,-1,2,3,4,-1,2,4,0,-1,1,2,0,-1,13,14,10,-1,12,13,10,-1,11,12,10,-1,6,9,11,-1,11,10,6,-1,9,7,12,-1,12,11,9,-1,7,8,13,-1,13,12,7,-1,8,5,14,-1,14,13,8,-1,5,6,10,-1,10,14,5,-1]);
-end;
-
-procedure InitJinLOA4Part71;
-begin
-
 IndexedFaceSet938.CreaseAngle := 3.14159;
 IndexedFaceSet938.SetTexCoordIndex([9,6,1,-1,1,0,9,-1,6,5,2,-1,2,1,6,-1,8,3,2,-1,2,5,8,-1,8,7,4,-1,4,3,8,-1,9,0,4,-1,4,7,9,-1,2,3,4,-1,2,4,0,-1,1,2,0,-1,13,14,10,-1,12,13,10,-1,11,12,10,-1,6,9,11,-1,11,10,6,-1,9,7,12,-1,12,11,9,-1,7,8,13,-1,13,12,7,-1,8,5,14,-1,14,13,8,-1,5,6,10,-1,10,14,5,-1]);
 Coordinate939 := TCoordinateNode.Create;
@@ -6115,14 +6319,21 @@ HAnimSegment932.AddChildren([Transform933]);
 HAnimJoint931.AddChildren([HAnimSegment932]);
 HAnimJoint941 := THAnimJointNode.Create;
 HAnimJoint941.NameField := 'l_acromioclavicular';
+HAnimJoint941.X3DName := 'hanim_l_acromioclavicular';
 HAnimJoint941.Center := Vector3(5.464,52.970001,-0.5732);
 HAnimSegment942 := THAnimSegmentNode.Create;
 HAnimSegment942.NameField := 'l_scapula';
+HAnimSegment942.X3DName := 'hanim_l_scapula';
 Transform943 := TTransformNode.Create;
 Transform943.Translation := Vector3(5.464,52.970001,-0.5732);
 Shape944 := TShapeNode.Create;
 Appearance945 := TAppearanceNode.Create;
 Material946 := TMaterialNode.Create;
+end;
+
+procedure InitJinLOA4Part76;
+begin
+
 Material946.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance945.Material := Material946;
@@ -6149,18 +6360,15 @@ Shape944.Geometry := IndexedFaceSet948;
 Transform943.AddChildren([Shape944]);
 { .AddChildren }
 HAnimSegment942.AddChildren([Transform943]);
-end;
-
-procedure InitJinLOA4Part72;
-begin
-
 { .AddChildren }
 HAnimJoint941.AddChildren([HAnimSegment942]);
 HAnimJoint951 := THAnimJointNode.Create;
 HAnimJoint951.NameField := 'l_shoulder';
+HAnimJoint951.X3DName := 'hanim_l_shoulder';
 HAnimJoint951.Center := Vector3(7.336,52.380001,-0.1452);
 HAnimSegment952 := THAnimSegmentNode.Create;
 HAnimSegment952.NameField := 'l_upperarm';
+HAnimSegment952.X3DName := 'hanim_l_upperarm';
 Transform953 := TTransformNode.Create;
 Transform953.Translation := Vector3(7.336,52.380001,-0.1452);
 Shape954 := TShapeNode.Create;
@@ -6178,6 +6386,11 @@ IndexedFaceSet958 := TIndexedFaceSetNode.Create;
 IndexedFaceSet958.SetCoordIndex([2,1,0,-1,3,2,0,-1,4,3,0,-1,0,1,6,-1,6,5,0,-1,1,2,7,-1,7,6,1,-1,2,3,8,-1,8,7,2,-1,3,4,9,-1,9,8,3,-1,4,0,5,-1,5,9,4,-1,5,6,11,-1,11,10,5,-1,6,7,12,-1,12,11,6,-1,7,8,13,-1,13,12,7,-1,8,9,14,-1,14,13,8,-1,9,5,10,-1,10,14,9,-1,10,11,16,-1,16,15,10,-1,11,12,17,-1,17,16,11,-1,12,13,18,-1,18,17,12,-1,13,14,19,-1,19,18,13,-1,14,10,15,-1,15,19,14,-1,36,37,38,-1,35,36,38,-1,39,35,38,-1,21,20,15,-1,15,16,21,-1,22,21,16,-1,16,17,22,-1,23,22,17,-1,17,18,23,-1,24,23,18,-1,18,19,24,-1,20,24,19,-1,19,15,20,-1,26,25,40,-1,40,41,26,-1,27,26,41,-1,41,42,27,-1,28,27,42,-1,42,43,28,-1,29,28,43,-1,43,44,29,-1,25,29,44,-1,44,40,25,-1,31,30,25,-1,25,26,31,-1,32,31,26,-1,26,27,32,-1,33,32,27,-1,27,28,33,-1,34,33,28,-1,28,29,34,-1,30,34,29,-1,29,25,30,-1,36,35,30,-1,30,31,36,-1,37,36,31,-1,31,32,37,-1,38,37,32,-1,32,33,38,-1,39,38,33,-1,33,34,39,-1,35,39,34,-1,34,30,35,-1]);
 IndexedFaceSet958.CreaseAngle := 3.14159;
 IndexedFaceSet958.SetTexCoordIndex([2,0,1,-1,3,2,1,-1,55,3,1,-1,1,0,5,-1,5,6,1,-1,0,2,7,-1,7,5,0,-1,2,3,8,-1,8,7,2,-1,25,4,9,-1,9,26,25,-1,4,1,6,-1,6,9,4,-1,6,5,10,-1,10,11,6,-1,5,7,12,-1,12,10,5,-1,7,8,13,-1,13,12,7,-1,27,9,14,-1,14,28,27,-1,9,6,11,-1,11,14,9,-1,11,10,15,-1,15,16,11,-1,10,12,17,-1,17,15,10,-1,12,13,18,-1,18,17,12,-1,29,14,19,-1,19,30,29,-1,14,11,16,-1,16,19,14,-1,49,35,36,-1,48,49,36,-1,37,48,36,-1,20,21,16,-1,16,15,20,-1,22,20,15,-1,15,17,22,-1,23,22,17,-1,17,18,23,-1,24,32,31,-1,31,19,24,-1,21,24,19,-1,19,16,21,-1,38,39,56,-1,56,57,38,-1,40,50,58,-1,58,59,40,-1,41,40,59,-1,59,60,41,-1,42,41,60,-1,60,61,42,-1,39,42,61,-1,61,56,39,-1,43,44,39,-1,39,38,43,-1,45,52,51,-1,51,40,45,-1,46,45,40,-1,40,41,46,-1,47,46,41,-1,41,42,47,-1,44,47,42,-1,42,39,44,-1,34,33,44,-1,44,43,34,-1,35,54,53,-1,53,45,35,-1,36,35,45,-1,45,46,36,-1,37,36,46,-1,46,47,37,-1,33,37,47,-1,47,44,33,-1]);
+end;
+
+procedure InitJinLOA4Part77;
+begin
+
 Coordinate959 := TCoordinateNode.Create;
 Coordinate959.SetPoint([Vector3(1.164,1.767,-1.68),Vector3(2.32,1.756,0.0337),Vector3(1.047,1.768,1.663),Vector3(-0.895,1.785,0.9556),Vector3(-0.8229,1.784,-1.11),Vector3(1.382,0.4997,-2.31),Vector3(2.978,0.4855,0.057),Vector3(1.221,0.5011,2.307),Vector3(-1.462,0.525,1.33),Vector3(-1.362,0.5241,-1.523),Vector3(1.36,-2.014,-2.31),Vector3(2.956,-2.028,0.057),Vector3(1.198,-2.012,2.307),Vector3(-1.484,-1.988,1.33),Vector3(-1.384,-1.989,-1.523),Vector3(1.398,-3.089,-2.442),Vector3(3.087,-3.104,0.0619),Vector3(1.228,-3.087,2.442),Vector3(-1.61,-3.062,1.409),Vector3(-1.505,-3.063,-1.61),Vector3(0.8845,-1.238,-1.939),Vector3(2.105,-1.248,-0.4543),Vector3(1.473,-1.243,1.629),Vector3(-0.1375,-1.229,1.432),Vector3(-0.5011,-1.225,-0.7734),Vector3(0.9027,-7.045,-1.569),Vector3(2.17,-7.056,-0.378),Vector3(1.514,-7.051,1.293),Vector3(-0.1588,-7.036,1.135),Vector3(-0.5365,-7.032,-0.634),Vector3(0.9066,-11.1,-1.511),Vector3(2.127,-11.11,-0.3651),Vector3(1.495,-11.1,1.243),Vector3(-0.1154,-11.09,1.091),Vector3(-0.4791,-11.08,-0.6115),Vector3(0.852,-11.65,-0.8985),Vector3(1.567,-11.65,-0.2267),Vector3(1.197,-11.65,0.716),Vector3(0.2531,-11.64,0.6268),Vector3(0.0399,-11.64,-0.3711),Vector3(0.8845,-1.238,-1.939),Vector3(2.105,-1.248,-0.4543),Vector3(1.473,-1.243,1.629),Vector3(-0.1375,-1.229,1.432),Vector3(-0.5011,-1.225,-0.7734)]);
 { .SetCoord }
@@ -6196,19 +6409,16 @@ HAnimSegment952.AddChildren([Transform953]);
 HAnimJoint951.AddChildren([HAnimSegment952]);
 HAnimJoint961 := THAnimJointNode.Create;
 HAnimJoint961.NameField := 'l_elbow';
+HAnimJoint961.X3DName := 'hanim_l_elbow';
 HAnimJoint961.Center := Vector3(8.093,41.279999,-0.2502);
 HAnimSegment962 := THAnimSegmentNode.Create;
 HAnimSegment962.NameField := 'l_forearm';
+HAnimSegment962.X3DName := 'hanim_l_forearm';
 Transform963 := TTransformNode.Create;
 Transform963.Translation := Vector3(8.093,41.279999,-0.2502);
 Shape964 := TShapeNode.Create;
 Appearance965 := TAppearanceNode.Create;
 Material966 := TMaterialNode.Create;
-end;
-
-procedure InitJinLOA4Part73;
-begin
-
 Material966.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance965.Material := Material966;
@@ -6235,13 +6445,20 @@ Shape964.Geometry := IndexedFaceSet968;
 Transform963.AddChildren([Shape964]);
 { .AddChildren }
 HAnimSegment962.AddChildren([Transform963]);
+end;
+
+procedure InitJinLOA4Part78;
+begin
+
 { .AddChildren }
 HAnimJoint961.AddChildren([HAnimSegment962]);
 HAnimJoint971 := THAnimJointNode.Create;
 HAnimJoint971.NameField := 'l_radiocarpal';
+HAnimJoint971.X3DName := 'hanim_l_radiocarpal';
 HAnimJoint971.Center := Vector3(8.086,32.189999,-0.2233);
 HAnimSegment972 := THAnimSegmentNode.Create;
 HAnimSegment972.NameField := 'l_carpal';
+HAnimSegment972.X3DName := 'hanim_l_carpal';
 Transform973 := TTransformNode.Create;
 Transform973.Translation := Vector3(8.086,32.189999,-0.2233);
 Shape974 := TShapeNode.Create;
@@ -6261,11 +6478,6 @@ IndexedFaceSet978.CreaseAngle := 3.14159;
 IndexedFaceSet978.SetTexCoordIndex([2,1,0,-1,0,3,2,-1,1,5,4,-1,4,0,1,-1,5,6,7,-1,7,4,5,-1,10,9,8,-1,8,11,10,-1,12,15,38,-1,38,37,12,-1,17,16,19,-1,19,18,17,-1,17,21,20,-1,20,16,17,-1,21,35,36,-1,36,20,21,-1,19,15,12,-1,12,18,19,-1,7,6,10,-1,10,11,7,-1,9,13,14,-1,14,8,9,-1,2,22,1,-1,1,22,5,-1,5,22,6,-1,6,22,10,-1,10,22,9,-1,9,22,13,-1,37,39,12,-1,12,39,18,-1,18,39,17,-1,17,39,21,-1,21,39,35,-1,11,24,23,-1,23,7,11,-1,7,23,25,-1,25,4,7,-1,4,25,26,-1,26,0,4,-1,0,26,27,-1,27,3,0,-1,36,40,28,-1,28,20,36,-1,20,28,29,-1,29,16,20,-1,16,29,30,-1,30,19,16,-1,19,30,31,-1,31,15,19,-1,15,31,41,-1,41,38,15,-1,14,32,33,-1,33,8,14,-1,8,33,24,-1,24,11,8,-1,24,34,23,-1,23,34,25,-1,25,34,26,-1,26,34,27,-1,40,42,28,-1,28,42,29,-1,29,42,30,-1,30,42,31,-1,31,42,41,-1,32,34,33,-1,33,34,24,-1]);
 Coordinate979 := TCoordinateNode.Create;
 Coordinate979.SetPoint([Vector3(0.0718,0.1105,-1.01),Vector3(0.5108,0.0965,-0.79),Vector3(0.6808,0.1049,-0.212),Vector3(0.5475,0.1209,0.7178),Vector3(0.2978,0.1182,1.102),Vector3(-0.5959,0.1061,0.734),Vector3(-0.6714,0.0918,-0.2167),Vector3(-0.4399,0.0876,-0.7804),Vector3(0.3749,-0.7899,1.333),Vector3(-0.4677,-0.8492,-0.9914),Vector3(0.6527,-0.6995,0.3258),Vector3(0.0476,-0.832,-1.286),Vector3(0.5788,-0.8489,-0.9909),Vector3(0.6835,-0.6804,-0.3282),Vector3(-0.6279,-0.6805,-0.3268),Vector3(-0.6351,-0.6994,0.3349),Vector3(0.5385,-0.8096,0.8587),Vector3(0.6721,0.1026,0.2306),Vector3(-0.6716,0.0989,0.2384),Vector3(-0.5705,-0.8097,0.8599),Vector3(-0.3,0.1135,1.081),Vector3(-0.3211,-0.7905,1.299),Vector3(0.0594,0.3233,-0.0086),Vector3(0.4051,-1.1,0.8323),Vector3(0.5152,-0.9892,0.322),Vector3(0.5452,-0.9698,-0.3815),Vector3(0.4503,-1.137,-1.027),Vector3(0.0399,-1.141,-1.188),Vector3(-0.3455,-1.137,-1.033),Vector3(-0.4906,-0.9699,-0.3741),Vector3(-0.4977,-0.989,0.341),Vector3(-0.4908,-1.1,0.8359),Vector3(-0.2387,-1.082,1.197),Vector3(0.1823,-1.082,1.223),Vector3(-0.0391,-1.269,-0.0735)]);
-end;
-
-procedure InitJinLOA4Part74;
-begin
-
 { .SetCoord }
 IndexedFaceSet978.Coord := Coordinate979;
 TextureCoordinate980 := TTextureCoordinateNode.Create;
@@ -6282,10 +6494,17 @@ HAnimSegment972.AddChildren([Transform973]);
 HAnimJoint971.AddChildren([HAnimSegment972]);
 HAnimJoint981 := THAnimJointNode.Create;
 HAnimJoint981.NameField := 'l_midcarpal_1';
+HAnimJoint981.X3DName := 'hanim_l_midcarpal_1';
 HAnimJoint981.Center := Vector3(8.057,31.379999,0.859);
 HAnimSegment982 := THAnimSegmentNode.Create;
 HAnimSegment982.NameField := 'l_trapezium';
+HAnimSegment982.X3DName := 'hanim_l_trapezium';
 Transform983 := TTransformNode.Create;
+end;
+
+procedure InitJinLOA4Part79;
+begin
+
 Transform983.Translation := Vector3(8.057,31.379999,0.859);
 Shape984 := TShapeNode.Create;
 Appearance985 := TAppearanceNode.Create;
@@ -6320,14 +6539,11 @@ HAnimSegment982.AddChildren([Transform983]);
 HAnimJoint981.AddChildren([HAnimSegment982]);
 HAnimJoint991 := THAnimJointNode.Create;
 HAnimJoint991.NameField := 'l_carpometacarpal_1';
+HAnimJoint991.X3DName := 'hanim_l_carpometacarpal_1';
 HAnimJoint991.Center := Vector3(8.022,30.780001,1.155);
-end;
-
-procedure InitJinLOA4Part75;
-begin
-
 HAnimSegment992 := THAnimSegmentNode.Create;
 HAnimSegment992.NameField := 'l_metacarpal_1';
+HAnimSegment992.X3DName := 'hanim_l_metacarpal_1';
 Transform993 := TTransformNode.Create;
 Transform993.Translation := Vector3(8.022,30.780001,1.155);
 Shape994 := TShapeNode.Create;
@@ -6341,6 +6557,11 @@ ImageTexture997 := ImageTexture37;
 Appearance995.Texture := ImageTexture997;
 { .SetAppearance }
 Shape994.Appearance := Appearance995;
+end;
+
+procedure InitJinLOA4Part80;
+begin
+
 IndexedFaceSet998 := TIndexedFaceSetNode.Create;
 IndexedFaceSet998.SetCoordIndex([1,2,9,-1,9,8,1,-1,8,10,0,-1,0,1,8,-1,2,3,6,-1,6,9,2,-1,0,10,7,-1,7,4,0,-1,5,6,3,-1,22,21,25,-1,22,25,24,-1,23,22,24,-1,19,18,17,-1,17,20,19,-1,13,12,11,-1,11,14,13,-1,14,11,16,-1,16,15,14,-1,3,11,12,-1,12,5,3,-1,5,12,13,-1,13,4,5,-1,4,13,14,-1,14,0,4,-1,0,14,15,-1,15,1,0,-1,1,15,16,-1,16,2,1,-1,2,16,11,-1,11,3,2,-1,7,17,18,-1,18,4,7,-1,4,18,19,-1,19,5,4,-1,5,19,20,-1,20,6,5,-1,6,20,17,-1,17,7,6,-1,10,21,22,-1,22,7,10,-1,7,22,23,-1,23,6,7,-1,6,23,24,-1,24,9,6,-1,9,24,25,-1,25,8,9,-1,8,25,21,-1,21,10,8,-1]);
 IndexedFaceSet998.CreaseAngle := 3.14159;
@@ -6363,9 +6584,11 @@ HAnimSegment992.AddChildren([Transform993]);
 HAnimJoint991.AddChildren([HAnimSegment992]);
 HAnimJoint1001 := THAnimJointNode.Create;
 HAnimJoint1001.NameField := 'l_metacarpophalangeal_1';
+HAnimJoint1001.X3DName := 'hanim_l_metacarpophalangeal_1';
 HAnimJoint1001.Center := Vector3(8.046,29.9,1.59);
 HAnimSegment1002 := THAnimSegmentNode.Create;
 HAnimSegment1002.NameField := 'l_carpal_proximal_phalanx_1';
+HAnimSegment1002.X3DName := 'hanim_l_carpal_proximal_phalanx_1';
 Transform1003 := TTransformNode.Create;
 Transform1003.Translation := Vector3(8.046,29.9,1.59);
 Shape1004 := TShapeNode.Create;
@@ -6377,11 +6600,6 @@ Appearance1005.Material := Material1006;
 ImageTexture1007 := ImageTexture37;
 { .SetTexture }
 Appearance1005.Texture := ImageTexture1007;
-end;
-
-procedure InitJinLOA4Part76;
-begin
-
 { .SetAppearance }
 Shape1004.Appearance := Appearance1005;
 IndexedFaceSet1008 := TIndexedFaceSetNode.Create;
@@ -6394,6 +6612,11 @@ Coordinate1009.SetPoint([Vector3(0.648,-0.1572,-0.1816),Vector3(0.2215,-0.4696,-
 IndexedFaceSet1008.Coord := Coordinate1009;
 TextureCoordinate1010 := TTextureCoordinateNode.Create;
 TextureCoordinate1010.SetPoint([Vector2(0.8786,0.0507),Vector2(0.857,0.0621),Vector2(0.8601,0.0649),Vector2(0.867,0.0598),Vector2(0.8887,0.0786),Vector2(0.8747,0.0865),Vector2(0.8533,0.0697),Vector2(0.876,0.0783),Vector2(0.893,0.0688),Vector2(0.8992,0.0702),Vector2(0.8819,0.0483),Vector2(0.8561,0.0728),Vector2(0.8736,0.0851),Vector2(0.8532,0.0697),Vector2(0.8503,0.0646),Vector2(0.8986,0.0785),Vector2(0.897,0.0809),Vector2(0.8914,0.0813),Vector2(0.8802,0.0861),Vector2(0.8841,0.0856),Vector2(0.8821,0.0883),Vector2(0.8487,0.0595),Vector2(0.8509,0.0581),Vector2(0.8683,0.0489),Vector2(0.868,0.0507),Vector2(0.8608,0.0544),Vector2(0.8505,0.0603),Vector2(0.8455,0.0706),Vector2(0.8468,0.073),Vector2(0.8455,0.0707),Vector2(0.8437,0.0676),Vector2(0.8416,0.0639),Vector2(0.8422,0.0648),Vector2(0.8729,0.2464),Vector2(0.8482,0.2317),Vector2(0.8612,0.2211),Vector2(0.8847,0.2342),Vector2(0.8433,0.2381),Vector2(0.8632,0.2548),Vector2(0.8814,0.2316),Vector2(0.8625,0.2222),Vector2(0.8799,0.2506),Vector2(0.8891,0.243),Vector2(0.8922,0.232),Vector2(0.8964,0.2371)]);
+end;
+
+procedure InitJinLOA4Part81;
+begin
+
 { .SetTexCoord }
 IndexedFaceSet1008.TexCoord := TextureCoordinate1010;
 { .SetGeometry }
@@ -6406,9 +6629,11 @@ HAnimSegment1002.AddChildren([Transform1003]);
 HAnimJoint1001.AddChildren([HAnimSegment1002]);
 HAnimJoint1011 := THAnimJointNode.Create;
 HAnimJoint1011.NameField := 'l_carpal_interphalangeal_1';
+HAnimJoint1011.X3DName := 'hanim_l_carpal_interphalangeal_1';
 HAnimJoint1011.Center := Vector3(8.118,29.07,2.207);
 HAnimSegment1012 := THAnimSegmentNode.Create;
 HAnimSegment1012.NameField := 'l_carpal_distal_phalanx_1';
+HAnimSegment1012.X3DName := 'hanim_l_carpal_distal_phalanx_1';
 Transform1013 := TTransformNode.Create;
 Transform1013.Translation := Vector3(8.118,29.07,2.207);
 Shape1014 := TShapeNode.Create;
@@ -6434,11 +6659,6 @@ TextureCoordinate1020 := TTextureCoordinateNode.Create;
 TextureCoordinate1020.SetPoint([Vector2(0.8747,0.0865),Vector2(0.8887,0.0786),Vector2(0.8299,0.2203),Vector2(0.8424,0.2111),Vector2(0.8736,0.0851),Vector2(0.8939,0.0989),Vector2(0.8978,0.0975),Vector2(0.8834,0.0852),Vector2(0.8992,0.0766),Vector2(0.9092,0.0888),Vector2(0.8992,0.0702),Vector2(0.9115,0.0859),Vector2(0.876,0.0783),Vector2(0.893,0.0688),Vector2(0.9109,0.102),Vector2(0.9135,0.0996),Vector2(0.9144,0.0973),Vector2(0.9172,0.0962),Vector2(0.8241,0.2146),Vector2(0.8338,0.2074),Vector2(0.8247,0.2116),Vector2(0.8291,0.2083),Vector2(0.9028,0.1054),Vector2(0.9046,0.1032),Vector2(0.9153,0.1012),Vector2(0.9125,0.1038),Vector2(0.9081,0.1033),Vector2(0.9082,0.1057),Vector2(0.8266,0.2097),Vector2(0.8885,0.0681),Vector2(0.8723,0.0776),Vector2(0.8843,0.0701),Vector2(0.8696,0.0781),Vector2(0.8612,0.2211),Vector2(0.8482,0.2317),Vector2(0.8625,0.2222),Vector2(0.8417,0.2109),Vector2(0.8433,0.2381),Vector2(0.8245,0.2237),Vector2(0.8192,0.2167),Vector2(0.8322,0.2071),Vector2(0.8195,0.2131),Vector2(0.8224,0.2103),Vector2(0.8256,0.2083)]);
 { .SetTexCoord }
 IndexedFaceSet1018.TexCoord := TextureCoordinate1020;
-end;
-
-procedure InitJinLOA4Part77;
-begin
-
 { .SetGeometry }
 Shape1014.Geometry := IndexedFaceSet1018;
 { .AddChild }
@@ -6455,11 +6675,18 @@ HAnimJoint991.AddChildren([HAnimJoint1001]);
 HAnimJoint981.AddChildren([HAnimJoint991]);
 { .AddChildren }
 HAnimJoint971.AddChildren([HAnimJoint981]);
+end;
+
+procedure InitJinLOA4Part82;
+begin
+
 HAnimJoint1021 := THAnimJointNode.Create;
 HAnimJoint1021.NameField := 'l_midcarpal_2';
+HAnimJoint1021.X3DName := 'hanim_l_midcarpal_2';
 HAnimJoint1021.Center := Vector3(8.057,31.42,0.3741);
 HAnimSegment1022 := THAnimSegmentNode.Create;
 HAnimSegment1022.NameField := 'l_trapezoid';
+HAnimSegment1022.X3DName := 'hanim_l_trapezoid';
 Transform1023 := TTransformNode.Create;
 Transform1023.Translation := Vector3(8.057,31.42,0.3741);
 Shape1024 := TShapeNode.Create;
@@ -6495,16 +6722,18 @@ HAnimSegment1022.AddChildren([Transform1023]);
 HAnimJoint1021.AddChildren([HAnimSegment1022]);
 HAnimJoint1031 := THAnimJointNode.Create;
 HAnimJoint1031.NameField := 'l_carpometacarpal_2';
+HAnimJoint1031.X3DName := 'hanim_l_carpometacarpal_2';
 HAnimJoint1031.Center := Vector3(8.057,30.559999,0.4324);
-end;
-
-procedure InitJinLOA4Part78;
-begin
-
 HAnimSegment1032 := THAnimSegmentNode.Create;
 HAnimSegment1032.NameField := 'l_metacarpal_2';
+HAnimSegment1032.X3DName := 'hanim_l_metacarpal_2';
 Transform1033 := TTransformNode.Create;
 Transform1033.Translation := Vector3(8.057,30.559999,0.4324);
+end;
+
+procedure InitJinLOA4Part83;
+begin
+
 Shape1034 := TShapeNode.Create;
 Appearance1035 := TAppearanceNode.Create;
 Material1036 := TMaterialNode.Create;
@@ -6538,9 +6767,11 @@ HAnimSegment1032.AddChildren([Transform1033]);
 HAnimJoint1031.AddChildren([HAnimSegment1032]);
 HAnimJoint1041 := THAnimJointNode.Create;
 HAnimJoint1041.NameField := 'l_metacarpophalangeal_2';
+HAnimJoint1041.X3DName := 'hanim_l_metacarpophalangeal_2';
 HAnimJoint1041.Center := Vector3(8.166,28.32,0.67);
 HAnimSegment1042 := THAnimSegmentNode.Create;
 HAnimSegment1042.NameField := 'l_carpal_proximal_phalanx_2';
+HAnimSegment1042.X3DName := 'hanim_l_carpal_proximal_phalanx_2';
 Transform1043 := TTransformNode.Create;
 Transform1043.Translation := Vector3(8.166,28.32,0.67);
 Shape1044 := TShapeNode.Create;
@@ -6552,14 +6783,14 @@ Appearance1045.Material := Material1046;
 ImageTexture1047 := ImageTexture37;
 { .SetTexture }
 Appearance1045.Texture := ImageTexture1047;
-end;
-
-procedure InitJinLOA4Part79;
-begin
-
 { .SetAppearance }
 Shape1044.Appearance := Appearance1045;
 IndexedFaceSet1048 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitJinLOA4Part84;
+begin
+
 IndexedFaceSet1048.SetCoordIndex([4,5,18,-1,18,19,4,-1,5,6,21,-1,21,18,5,-1,7,8,20,-1,20,25,7,-1,8,4,19,-1,19,20,8,-1,6,22,21,-1,1,10,8,-1,8,7,1,-1,6,5,11,-1,11,2,6,-1,5,4,0,-1,0,11,5,-1,4,8,10,-1,10,0,4,-1,1,7,9,-1,9,3,1,-1,9,6,2,-1,2,3,9,-1,9,7,23,-1,23,24,9,-1,6,9,24,-1,24,22,6,-1,23,7,25,-1,0,17,15,-1,15,11,0,-1,1,12,14,-1,14,10,1,-1,11,15,13,-1,13,2,11,-1,3,16,12,-1,12,1,3,-1,2,13,16,-1,16,3,2,-1,10,14,17,-1,17,0,10,-1,14,12,16,-1,16,17,14,-1,15,17,16,-1,16,13,15,-1,28,27,26,-1,29,28,26,-1,30,29,26,-1,18,26,27,-1,27,19,18,-1,19,27,28,-1,28,20,19,-1,20,28,29,-1,29,25,20,-1,36,35,34,-1,36,34,33,-1,33,32,31,-1,33,31,37,-1,36,33,37,-1,21,30,26,-1,26,18,21,-1,24,31,32,-1,32,22,24,-1,22,32,33,-1,33,21,22,-1,21,33,34,-1,34,30,21,-1,30,34,35,-1,35,29,30,-1,29,35,36,-1,36,25,29,-1,25,36,37,-1,37,23,25,-1,23,37,31,-1,31,24,23,-1]);
 IndexedFaceSet1048.CreaseAngle := 3.14159;
 IndexedFaceSet1048.SetTexCoordIndex([0,3,2,-1,2,1,0,-1,3,5,4,-1,4,2,3,-1,6,9,41,-1,41,40,6,-1,9,38,39,-1,39,41,9,-1,5,10,4,-1,11,12,9,-1,9,6,11,-1,5,3,14,-1,14,13,5,-1,3,0,15,-1,15,14,3,-1,38,9,12,-1,12,42,38,-1,11,6,44,-1,44,43,11,-1,17,5,13,-1,13,16,17,-1,44,6,46,-1,46,45,44,-1,5,17,18,-1,18,10,5,-1,46,6,40,-1,15,21,20,-1,20,14,15,-1,11,23,22,-1,22,12,11,-1,14,20,24,-1,24,13,14,-1,43,48,23,-1,23,11,43,-1,13,24,25,-1,25,16,13,-1,12,22,47,-1,47,42,12,-1,22,23,48,-1,48,47,22,-1,20,21,25,-1,25,24,20,-1,29,28,27,-1,30,29,27,-1,26,30,27,-1,2,27,28,-1,28,1,2,-1,1,28,29,-1,29,8,1,-1,8,29,30,-1,30,7,8,-1,31,37,36,-1,31,36,35,-1,35,34,33,-1,35,33,32,-1,31,35,32,-1,4,26,27,-1,27,2,4,-1,18,33,34,-1,34,10,18,-1,10,34,35,-1,35,4,10,-1,4,35,36,-1,36,26,4,-1,26,36,37,-1,37,30,26,-1,30,37,31,-1,31,7,30,-1,7,31,32,-1,32,19,7,-1,19,32,33,-1,33,18,19,-1]);
@@ -6581,9 +6812,11 @@ HAnimSegment1042.AddChildren([Transform1043]);
 HAnimJoint1041.AddChildren([HAnimSegment1042]);
 HAnimJoint1051 := THAnimJointNode.Create;
 HAnimJoint1051.NameField := 'l_carpal_proximal_interphalangeal_2';
+HAnimJoint1051.X3DName := 'hanim_l_carpal_proximal_interphalangeal_2';
 HAnimJoint1051.Center := Vector3(8.076,26.969999,0.6304);
 HAnimSegment1052 := THAnimSegmentNode.Create;
 HAnimSegment1052.NameField := 'l_carpal_middle_phalanx_2';
+HAnimSegment1052.X3DName := 'hanim_l_carpal_middle_phalanx_2';
 Transform1053 := TTransformNode.Create;
 Transform1053.Translation := Vector3(8.076,26.969999,0.6304);
 Shape1054 := TShapeNode.Create;
@@ -6611,7 +6844,7 @@ TextureCoordinate1060.SetPoint([Vector2(0.8782,0.1769),Vector2(0.8543,0.1273),Ve
 IndexedFaceSet1058.TexCoord := TextureCoordinate1060;
 end;
 
-procedure InitJinLOA4Part80;
+procedure InitJinLOA4Part85;
 begin
 
 { .SetGeometry }
@@ -6624,9 +6857,11 @@ HAnimSegment1052.AddChildren([Transform1053]);
 HAnimJoint1051.AddChildren([HAnimSegment1052]);
 HAnimJoint1061 := THAnimJointNode.Create;
 HAnimJoint1061.NameField := 'l_carpal_distal_interphalangeal_2';
+HAnimJoint1061.X3DName := 'hanim_l_carpal_distal_interphalangeal_2';
 HAnimJoint1061.Center := Vector3(8.03,25.85,0.5949);
 HAnimSegment1062 := THAnimSegmentNode.Create;
 HAnimSegment1062.NameField := 'l_carpal_distal_phalanx_2';
+HAnimSegment1062.X3DName := 'hanim_l_carpal_distal_phalanx_2';
 Transform1063 := TTransformNode.Create;
 Transform1063.Translation := Vector3(8.03,25.85,0.5949);
 Shape1064 := TShapeNode.Create;
@@ -6670,16 +6905,18 @@ HAnimJoint1031.AddChildren([HAnimJoint1041]);
 HAnimJoint1021.AddChildren([HAnimJoint1031]);
 { .AddChildren }
 HAnimJoint971.AddChildren([HAnimJoint1021]);
-HAnimJoint1071 := THAnimJointNode.Create;
-HAnimJoint1071.NameField := 'l_midcarpal_3';
 end;
 
-procedure InitJinLOA4Part81;
+procedure InitJinLOA4Part86;
 begin
 
+HAnimJoint1071 := THAnimJointNode.Create;
+HAnimJoint1071.NameField := 'l_midcarpal_3';
+HAnimJoint1071.X3DName := 'hanim_l_midcarpal_3';
 HAnimJoint1071.Center := Vector3(8.048,31.49,-0.2132);
 HAnimSegment1072 := THAnimSegmentNode.Create;
 HAnimSegment1072.NameField := 'l_capitate';
+HAnimSegment1072.X3DName := 'hanim_l_capitate';
 Transform1073 := TTransformNode.Create;
 Transform1073.Translation := Vector3(8.048,31.49,-0.2132);
 Shape1074 := TShapeNode.Create;
@@ -6715,11 +6952,18 @@ HAnimSegment1072.AddChildren([Transform1073]);
 HAnimJoint1071.AddChildren([HAnimSegment1072]);
 HAnimJoint1081 := THAnimJointNode.Create;
 HAnimJoint1081.NameField := 'l_carpometacarpal_3';
+HAnimJoint1081.X3DName := 'hanim_l_carpometacarpal_3';
 HAnimJoint1081.Center := Vector3(8.048,30.48,-0.2779);
 HAnimSegment1082 := THAnimSegmentNode.Create;
 HAnimSegment1082.NameField := 'l_metacarpal_3';
+HAnimSegment1082.X3DName := 'hanim_l_metacarpal_3';
 Transform1083 := TTransformNode.Create;
 Transform1083.Translation := Vector3(8.048,30.48,-0.2779);
+end;
+
+procedure InitJinLOA4Part87;
+begin
+
 Shape1084 := TShapeNode.Create;
 Appearance1085 := TAppearanceNode.Create;
 Material1086 := TMaterialNode.Create;
@@ -6727,11 +6971,6 @@ Material1086.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance1085.Material := Material1086;
 ImageTexture1087 := ImageTexture37;
-end;
-
-procedure InitJinLOA4Part82;
-begin
-
 { .SetTexture }
 Appearance1085.Texture := ImageTexture1087;
 { .SetAppearance }
@@ -6758,9 +6997,11 @@ HAnimSegment1082.AddChildren([Transform1083]);
 HAnimJoint1081.AddChildren([HAnimSegment1082]);
 HAnimJoint1091 := THAnimJointNode.Create;
 HAnimJoint1091.NameField := 'l_metacarpophalangeal_3';
+HAnimJoint1091.X3DName := 'hanim_l_metacarpophalangeal_3';
 HAnimJoint1091.Center := Vector3(8.164,28.219999,-0.1741);
 HAnimSegment1092 := THAnimSegmentNode.Create;
 HAnimSegment1092.NameField := 'l_carpal_proximal_phalanx_3';
+HAnimSegment1092.X3DName := 'hanim_l_carpal_proximal_phalanx_3';
 Transform1093 := TTransformNode.Create;
 Transform1093.Translation := Vector3(8.164,28.219999,-0.1741);
 Shape1094 := TShapeNode.Create;
@@ -6775,6 +7016,11 @@ Appearance1095.Texture := ImageTexture1097;
 { .SetAppearance }
 Shape1094.Appearance := Appearance1095;
 IndexedFaceSet1098 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitJinLOA4Part88;
+begin
+
 IndexedFaceSet1098.SetCoordIndex([3,4,26,-1,26,21,3,-1,5,6,27,-1,27,25,5,-1,4,23,26,-1,0,14,6,-1,6,5,0,-1,4,3,17,-1,17,1,4,-1,0,5,7,-1,7,2,0,-1,7,4,1,-1,1,2,7,-1,7,5,24,-1,24,22,7,-1,4,7,22,-1,22,23,4,-1,24,5,25,-1,15,13,11,-1,11,17,15,-1,0,8,10,-1,10,14,0,-1,17,11,9,-1,9,1,17,-1,2,12,8,-1,8,0,2,-1,1,9,12,-1,12,2,1,-1,14,10,13,-1,13,15,14,-1,10,8,12,-1,12,13,10,-1,11,13,12,-1,12,9,11,-1,3,21,18,-1,14,15,16,-1,16,6,14,-1,16,15,17,-1,17,3,16,-1,16,20,19,-1,19,6,16,-1,3,18,20,-1,20,16,3,-1,19,27,6,-1,31,30,29,-1,29,28,31,-1,26,28,29,-1,29,21,26,-1,38,37,36,-1,38,36,35,-1,35,34,33,-1,35,33,32,-1,38,35,32,-1,27,30,31,-1,31,25,27,-1,44,43,42,-1,44,42,41,-1,41,40,39,-1,44,41,39,-1,44,39,45,-1,18,32,33,-1,33,20,18,-1,20,33,34,-1,34,19,20,-1,19,34,35,-1,35,27,19,-1,27,35,36,-1,36,30,27,-1,30,36,37,-1,37,29,30,-1,29,37,38,-1,38,21,29,-1,21,38,32,-1,32,18,21,-1,22,39,40,-1,40,23,22,-1,23,40,41,-1,41,26,23,-1,26,41,42,-1,42,28,26,-1,28,42,43,-1,43,31,28,-1,31,43,44,-1,44,25,31,-1,25,44,45,-1,45,24,25,-1,24,45,39,-1,39,22,24,-1]);
 IndexedFaceSet1098.CreaseAngle := 3.14159;
 IndexedFaceSet1098.SetTexCoordIndex([0,3,2,-1,2,1,0,-1,4,7,47,-1,47,46,4,-1,3,8,2,-1,9,10,7,-1,7,4,9,-1,3,0,12,-1,12,11,3,-1,9,4,49,-1,49,48,9,-1,14,3,11,-1,11,13,14,-1,49,4,51,-1,51,50,49,-1,3,14,15,-1,15,8,3,-1,51,4,46,-1,17,19,18,-1,18,12,17,-1,9,21,20,-1,20,10,9,-1,12,18,22,-1,22,11,12,-1,48,54,21,-1,21,9,48,-1,11,22,23,-1,23,13,11,-1,10,20,53,-1,53,52,10,-1,20,21,54,-1,54,53,20,-1,18,19,23,-1,23,22,18,-1,0,1,24,-1,10,52,55,-1,55,7,10,-1,25,17,12,-1,12,0,25,-1,55,57,56,-1,56,7,55,-1,0,24,27,-1,27,25,0,-1,56,47,7,-1,31,30,29,-1,29,28,31,-1,2,28,29,-1,29,1,2,-1,32,38,37,-1,32,37,36,-1,36,35,34,-1,36,34,33,-1,32,36,33,-1,6,30,31,-1,31,5,6,-1,39,45,44,-1,39,44,43,-1,43,42,41,-1,39,43,41,-1,39,41,40,-1,24,33,34,-1,34,27,24,-1,27,34,35,-1,35,26,27,-1,26,35,36,-1,36,6,26,-1,6,36,37,-1,37,30,6,-1,30,37,38,-1,38,29,30,-1,29,38,32,-1,32,1,29,-1,1,32,33,-1,33,24,1,-1,15,41,42,-1,42,8,15,-1,8,42,43,-1,43,2,8,-1,2,43,44,-1,44,28,2,-1,28,44,45,-1,45,31,28,-1,31,45,39,-1,39,5,31,-1,5,39,40,-1,40,16,5,-1,16,40,41,-1,41,15,16,-1]);
@@ -6784,11 +7030,6 @@ Coordinate1099.SetPoint([Vector3(-0.5139,-1.411,-0.2221),Vector3(0.332,-1.294,-0
 IndexedFaceSet1098.Coord := Coordinate1099;
 TextureCoordinate1100 := TTextureCoordinateNode.Create;
 TextureCoordinate1100.SetPoint([Vector2(0.8168,0.105),Vector2(0.8225,0.0994),Vector2(0.7939,0.1016),Vector2(0.7996,0.1065),Vector2(0.9311,0.1887),Vector2(0.7939,0.1016),Vector2(0.8225,0.0994),Vector2(0.9145,0.1932),Vector2(0.794,0.107),Vector2(0.9232,0.1611),Vector2(0.908,0.1649),Vector2(0.8025,0.1324),Vector2(0.818,0.1313),Vector2(0.7986,0.1359),Vector2(0.7957,0.11),Vector2(0.7939,0.1101),Vector2(0.794,0.107),Vector2(0.8228,0.1342),Vector2(0.8186,0.1401),Vector2(0.819,0.1409),Vector2(0.9081,0.1606),Vector2(0.921,0.1574),Vector2(0.8033,0.1412),Vector2(0.8033,0.142),Vector2(0.8231,0.1042),Vector2(0.8212,0.1078),Vector2(0.8231,0.1042),Vector2(0.8236,0.1075),Vector2(0.7948,0.0956),Vector2(0.8206,0.0932),Vector2(0.8206,0.0932),Vector2(0.7948,0.0956),Vector2(0.8249,0.0987),Vector2(0.8253,0.1032),Vector2(0.8258,0.1063),Vector2(0.8253,0.1032),Vector2(0.8249,0.0987),Vector2(0.823,0.0929),Vector2(0.823,0.0929),Vector2(0.7917,0.1017),Vector2(0.7916,0.1064),Vector2(0.7918,0.1091),Vector2(0.7916,0.1063),Vector2(0.7917,0.1017),Vector2(0.7927,0.0957),Vector2(0.7927,0.0957),Vector2(0.9376,0.1925),Vector2(0.9098,0.1997),Vector2(0.927,0.1595),Vector2(0.9344,0.1846),Vector2(0.9361,0.1842),Vector2(0.9366,0.1872),Vector2(0.9035,0.1654),Vector2(0.9061,0.1582),Vector2(0.9213,0.1544),Vector2(0.9096,0.1911),Vector2(0.9084,0.195),Vector2(0.9074,0.1918)]);
-end;
-
-procedure InitJinLOA4Part83;
-begin
-
 { .SetTexCoord }
 IndexedFaceSet1098.TexCoord := TextureCoordinate1100;
 { .SetGeometry }
@@ -6801,9 +7042,11 @@ HAnimSegment1092.AddChildren([Transform1093]);
 HAnimJoint1091.AddChildren([HAnimSegment1092]);
 HAnimJoint1101 := THAnimJointNode.Create;
 HAnimJoint1101.NameField := 'l_carpal_proximal_interphalangeal_3';
+HAnimJoint1101.X3DName := 'hanim_l_carpal_proximal_interphalangeal_3';
 HAnimJoint1101.Center := Vector3(8.076,26.809999,-0.1572);
 HAnimSegment1102 := THAnimSegmentNode.Create;
 HAnimSegment1102.NameField := 'l_carpal_middle_phalanx_3';
+HAnimSegment1102.X3DName := 'hanim_l_carpal_middle_phalanx_3';
 Transform1103 := TTransformNode.Create;
 Transform1103.Translation := Vector3(8.076,26.809999,-0.1572);
 Shape1104 := TShapeNode.Create;
@@ -6829,6 +7072,11 @@ TextureCoordinate1110 := TTextureCoordinateNode.Create;
 TextureCoordinate1110.SetPoint([Vector2(0.908,0.1649),Vector2(0.8228,0.1342),Vector2(0.8238,0.1612),Vector2(0.9018,0.1387),Vector2(0.818,0.1313),Vector2(0.8186,0.139),Vector2(0.9163,0.135),Vector2(0.9232,0.1611),Vector2(0.8031,0.1401),Vector2(0.8044,0.1596),Vector2(0.8199,0.1584),Vector2(0.8025,0.1324),Vector2(0.7986,0.1359),Vector2(0.8014,0.1628),Vector2(0.8179,0.1294),Vector2(0.8023,0.1305),Vector2(0.8179,0.1291),Vector2(0.8023,0.1302),Vector2(0.8199,0.1671),Vector2(0.8202,0.1672),Vector2(0.902,0.1343),Vector2(0.914,0.1313),Vector2(0.8058,0.1681),Vector2(0.8058,0.1689),Vector2(0.9035,0.1654),Vector2(0.8978,0.139),Vector2(0.927,0.1595),Vector2(0.9196,0.1336),Vector2(0.9092,0.1696),Vector2(0.9243,0.1658),Vector2(0.9003,0.1324),Vector2(0.9142,0.1283)]);
 { .SetTexCoord }
 IndexedFaceSet1108.TexCoord := TextureCoordinate1110;
+end;
+
+procedure InitJinLOA4Part89;
+begin
+
 { .SetGeometry }
 Shape1104.Geometry := IndexedFaceSet1108;
 { .AddChild }
@@ -6839,15 +7087,12 @@ HAnimSegment1102.AddChildren([Transform1103]);
 HAnimJoint1101.AddChildren([HAnimSegment1102]);
 HAnimJoint1111 := THAnimJointNode.Create;
 HAnimJoint1111.NameField := 'l_carpal_distal_interphalangeal_3';
+HAnimJoint1111.X3DName := 'hanim_l_carpal_distal_interphalangeal_3';
 HAnimJoint1111.Center := Vector3(8.03,25.57,-0.1671);
 HAnimSegment1112 := THAnimSegmentNode.Create;
 HAnimSegment1112.NameField := 'l_carpal_distal_phalanx_3';
+HAnimSegment1112.X3DName := 'hanim_l_carpal_distal_phalanx_3';
 Transform1113 := TTransformNode.Create;
-end;
-
-procedure InitJinLOA4Part84;
-begin
-
 Transform1113.Translation := Vector3(8.03,25.57,-0.1671);
 Shape1114 := TShapeNode.Create;
 Appearance1115 := TAppearanceNode.Create;
@@ -6890,11 +7135,18 @@ HAnimJoint1081.AddChildren([HAnimJoint1091]);
 HAnimJoint1071.AddChildren([HAnimJoint1081]);
 { .AddChildren }
 HAnimJoint971.AddChildren([HAnimJoint1071]);
+end;
+
+procedure InitJinLOA4Part90;
+begin
+
 HAnimJoint1121 := THAnimJointNode.Create;
 HAnimJoint1121.NameField := 'l_midcarpal_4_5';
+HAnimJoint1121.X3DName := 'hanim_l_midcarpal_4_5';
 HAnimJoint1121.Center := Vector3(8.048,31.370001,-1.144);
 HAnimSegment1122 := THAnimSegmentNode.Create;
 HAnimSegment1122.NameField := 'l_hamate';
+HAnimSegment1122.X3DName := 'hanim_l_hamate';
 Transform1123 := TTransformNode.Create;
 Transform1123.Translation := Vector3(8.048,31.370001,-1.144);
 Shape1124 := TShapeNode.Create;
@@ -6903,11 +7155,6 @@ Material1126 := TMaterialNode.Create;
 Material1126.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance1125.Material := Material1126;
-end;
-
-procedure InitJinLOA4Part85;
-begin
-
 ImageTexture1127 := ImageTexture37;
 { .SetTexture }
 Appearance1125.Texture := ImageTexture1127;
@@ -6935,11 +7182,18 @@ HAnimSegment1122.AddChildren([Transform1123]);
 HAnimJoint1121.AddChildren([HAnimSegment1122]);
 HAnimJoint1131 := THAnimJointNode.Create;
 HAnimJoint1131.NameField := 'l_carpometacarpal_4';
+HAnimJoint1131.X3DName := 'hanim_l_carpometacarpal_4';
 HAnimJoint1131.Center := Vector3(8.048,30.5,-0.8853);
 HAnimSegment1132 := THAnimSegmentNode.Create;
 HAnimSegment1132.NameField := 'l_metacarpal_4';
+HAnimSegment1132.X3DName := 'hanim_l_metacarpal_4';
 Transform1133 := TTransformNode.Create;
 Transform1133.Translation := Vector3(8.048,30.5,-0.8853);
+end;
+
+procedure InitJinLOA4Part91;
+begin
+
 Shape1134 := TShapeNode.Create;
 Appearance1135 := TAppearanceNode.Create;
 Material1136 := TMaterialNode.Create;
@@ -6960,11 +7214,6 @@ Coordinate1139.SetPoint([Vector3(0.6701,-1.109,-0.381),Vector3(-0.5002,-1.109,-0
 { .SetCoord }
 IndexedFaceSet1138.Coord := Coordinate1139;
 TextureCoordinate1140 := TTextureCoordinateNode.Create;
-end;
-
-procedure InitJinLOA4Part86;
-begin
-
 TextureCoordinate1140.SetPoint([Vector2(0.7939,0.1016),Vector2(0.7938,0.0824),Vector2(0.7694,0.0827),Vector2(0.766,0.1014),Vector2(0.7924,0.0508),Vector2(0.7734,0.0512),Vector2(0.7938,0.0824),Vector2(0.7939,0.1016),Vector2(0.766,0.1015),Vector2(0.965,0.2069),Vector2(0.7734,0.0512),Vector2(0.7924,0.0507),Vector2(0.7909,0.1057),Vector2(0.7677,0.1056),Vector2(0.7677,0.1057),Vector2(0.7909,0.1057),Vector2(0.9517,0.2441),Vector2(0.7765,0.0488),Vector2(0.7765,0.0488),Vector2(0.789,0.0484),Vector2(0.7643,0.0825),Vector2(0.7643,0.0824),Vector2(0.7614,0.1009),Vector2(0.7614,0.1009),Vector2(0.7991,0.0823),Vector2(0.7971,0.0505),Vector2(0.7971,0.0505),Vector2(0.7991,0.0824),Vector2(0.7688,0.0511),Vector2(0.7688,0.0511),Vector2(0.7994,0.1003),Vector2(0.7994,0.1003),Vector2(0.7625,0.1038),Vector2(0.7625,0.1038),Vector2(0.7972,0.1034),Vector2(0.7972,0.1034),Vector2(0.9479,0.2423),Vector2(0.9665,0.2385),Vector2(0.941,0.2114),Vector2(0.9376,0.1925),Vector2(0.9651,0.1878),Vector2(0.9665,0.2386),Vector2(0.9479,0.2423),Vector2(0.9639,0.2415),Vector2(0.9639,0.2415),Vector2(0.9517,0.244),Vector2(0.9701,0.2063),Vector2(0.9698,0.1875),Vector2(0.9358,0.2124),Vector2(0.9433,0.2434),Vector2(0.9433,0.2434),Vector2(0.9358,0.2123),Vector2(0.9711,0.2379),Vector2(0.9711,0.2379)]);
 { .SetTexCoord }
 IndexedFaceSet1138.TexCoord := TextureCoordinate1140;
@@ -6978,9 +7227,11 @@ HAnimSegment1132.AddChildren([Transform1133]);
 HAnimJoint1131.AddChildren([HAnimSegment1132]);
 HAnimJoint1141 := THAnimJointNode.Create;
 HAnimJoint1141.NameField := 'l_metacarpophalangeal_4';
+HAnimJoint1141.X3DName := 'hanim_l_metacarpophalangeal_4';
 HAnimJoint1141.Center := Vector3(8.164,28.18,-0.9529);
 HAnimSegment1142 := THAnimSegmentNode.Create;
 HAnimSegment1142.NameField := 'l_carpal_proximal_phalanx_4';
+HAnimSegment1142.X3DName := 'hanim_l_carpal_proximal_phalanx_4';
 Transform1143 := TTransformNode.Create;
 Transform1143.Translation := Vector3(8.164,28.18,-0.9529);
 Shape1144 := TShapeNode.Create;
@@ -6995,6 +7246,11 @@ Appearance1145.Texture := ImageTexture1147;
 { .SetAppearance }
 Shape1144.Appearance := Appearance1145;
 IndexedFaceSet1148 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitJinLOA4Part92;
+begin
+
 IndexedFaceSet1148.SetCoordIndex([3,4,22,-1,22,23,3,-1,5,6,31,-1,31,32,5,-1,4,44,22,-1,0,14,6,-1,6,5,0,-1,4,3,17,-1,17,1,4,-1,0,5,7,-1,7,2,0,-1,7,4,1,-1,1,2,7,-1,7,5,45,-1,45,43,7,-1,4,7,43,-1,43,44,4,-1,45,5,32,-1,15,13,11,-1,11,17,15,-1,0,8,10,-1,10,14,0,-1,17,11,9,-1,9,1,17,-1,2,12,8,-1,8,0,2,-1,1,9,12,-1,12,2,1,-1,14,10,13,-1,13,15,14,-1,10,8,12,-1,12,13,10,-1,11,13,12,-1,12,9,11,-1,3,23,40,-1,14,15,16,-1,16,6,14,-1,16,15,17,-1,17,3,16,-1,16,41,42,-1,42,6,16,-1,3,40,41,-1,41,16,3,-1,42,31,6,-1,21,20,19,-1,19,18,21,-1,22,18,19,-1,19,23,22,-1,24,30,29,-1,24,29,28,-1,28,27,26,-1,28,26,25,-1,24,28,25,-1,31,20,21,-1,21,32,31,-1,33,39,38,-1,33,38,37,-1,37,36,35,-1,33,37,35,-1,33,35,34,-1,40,25,26,-1,26,41,40,-1,41,26,27,-1,27,42,41,-1,42,27,28,-1,28,31,42,-1,31,28,29,-1,29,20,31,-1,20,29,30,-1,30,19,20,-1,19,30,24,-1,24,23,19,-1,23,24,25,-1,25,40,23,-1,43,35,36,-1,36,44,43,-1,44,36,37,-1,37,22,44,-1,22,37,38,-1,38,18,22,-1,18,38,39,-1,39,21,18,-1,21,39,33,-1,33,32,21,-1,32,33,34,-1,34,45,32,-1,45,34,35,-1,35,43,45,-1]);
 IndexedFaceSet1148.CreaseAngle := 3.14159;
 IndexedFaceSet1148.SetTexCoordIndex([0,3,2,-1,2,1,0,-1,4,7,47,-1,47,46,4,-1,3,8,2,-1,9,10,7,-1,7,4,9,-1,3,0,12,-1,12,11,3,-1,9,4,49,-1,49,48,9,-1,14,3,11,-1,11,13,14,-1,49,4,51,-1,51,50,49,-1,3,14,15,-1,15,8,3,-1,51,4,46,-1,17,19,18,-1,18,12,17,-1,9,21,20,-1,20,10,9,-1,12,18,22,-1,22,11,12,-1,48,54,21,-1,21,9,48,-1,11,22,23,-1,23,13,11,-1,10,20,53,-1,53,52,10,-1,20,21,54,-1,54,53,20,-1,18,19,23,-1,23,22,18,-1,0,1,24,-1,10,52,55,-1,55,7,10,-1,25,17,12,-1,12,0,25,-1,55,57,56,-1,56,7,55,-1,0,24,27,-1,27,25,0,-1,56,47,7,-1,31,30,29,-1,29,28,31,-1,2,28,29,-1,29,1,2,-1,32,38,37,-1,32,37,36,-1,36,35,34,-1,36,34,33,-1,32,36,33,-1,6,30,31,-1,31,5,6,-1,39,45,44,-1,39,44,43,-1,43,42,41,-1,39,43,41,-1,39,41,40,-1,24,33,34,-1,34,27,24,-1,27,34,35,-1,35,26,27,-1,26,35,36,-1,36,6,26,-1,6,36,37,-1,37,30,6,-1,30,37,38,-1,38,29,30,-1,29,38,32,-1,32,1,29,-1,1,32,33,-1,33,24,1,-1,15,41,42,-1,42,8,15,-1,8,42,43,-1,43,2,8,-1,2,43,44,-1,44,28,2,-1,28,44,45,-1,45,31,28,-1,31,45,39,-1,39,5,31,-1,5,39,40,-1,40,16,5,-1,16,40,41,-1,41,15,16,-1]);
@@ -7016,14 +7272,11 @@ HAnimSegment1142.AddChildren([Transform1143]);
 HAnimJoint1141.AddChildren([HAnimSegment1142]);
 HAnimJoint1151 := THAnimJointNode.Create;
 HAnimJoint1151.NameField := 'l_carpal_proximal_interphalangeal_4';
+HAnimJoint1151.X3DName := 'hanim_l_carpal_proximal_interphalangeal_4';
 HAnimJoint1151.Center := Vector3(8.076,26.959999,-0.9176);
 HAnimSegment1152 := THAnimSegmentNode.Create;
 HAnimSegment1152.NameField := 'l_carpal_middle_phalanx_4';
-end;
-
-procedure InitJinLOA4Part87;
-begin
-
+HAnimSegment1152.X3DName := 'hanim_l_carpal_middle_phalanx_4';
 Transform1153 := TTransformNode.Create;
 Transform1153.Translation := Vector3(8.076,26.959999,-0.9176);
 Shape1154 := TShapeNode.Create;
@@ -7049,6 +7302,11 @@ TextureCoordinate1160 := TTextureCoordinateNode.Create;
 TextureCoordinate1160.SetPoint([Vector2(0.9398,0.1599),Vector2(0.7904,0.1338),Vector2(0.7888,0.1598),Vector2(0.9363,0.1341),Vector2(0.7861,0.131),Vector2(0.7859,0.138),Vector2(0.9502,0.1313),Vector2(0.9545,0.1568),Vector2(0.7712,0.1385),Vector2(0.7707,0.1575),Vector2(0.7854,0.1571),Vector2(0.771,0.1315),Vector2(0.767,0.1345),Vector2(0.7676,0.1604),Vector2(0.786,0.1292),Vector2(0.7713,0.1297),Vector2(0.786,0.129),Vector2(0.7713,0.1294),Vector2(0.7847,0.165),Vector2(0.7849,0.1652),Vector2(0.9369,0.1301),Vector2(0.9483,0.1278),Vector2(0.7712,0.1654),Vector2(0.7712,0.1661),Vector2(0.9354,0.1602),Vector2(0.9325,0.1343),Vector2(0.9583,0.1554),Vector2(0.9533,0.1301),Vector2(0.9406,0.1642),Vector2(0.9551,0.1612),Vector2(0.9355,0.1283),Vector2(0.9488,0.1251)]);
 { .SetTexCoord }
 IndexedFaceSet1158.TexCoord := TextureCoordinate1160;
+end;
+
+procedure InitJinLOA4Part93;
+begin
+
 { .SetGeometry }
 Shape1154.Geometry := IndexedFaceSet1158;
 { .AddChild }
@@ -7059,9 +7317,11 @@ HAnimSegment1152.AddChildren([Transform1153]);
 HAnimJoint1151.AddChildren([HAnimSegment1152]);
 HAnimJoint1161 := THAnimJointNode.Create;
 HAnimJoint1161.NameField := 'l_carpal_distal_interphalangeal_4';
+HAnimJoint1161.X3DName := 'hanim_l_carpal_distal_interphalangeal_4';
 HAnimJoint1161.Center := Vector3(8.03,25.809999,-0.879);
 HAnimSegment1162 := THAnimSegmentNode.Create;
 HAnimSegment1162.NameField := 'l_carpal_distal_phalanx_4';
+HAnimSegment1162.X3DName := 'hanim_l_carpal_distal_phalanx_4';
 Transform1163 := TTransformNode.Create;
 Transform1163.Translation := Vector3(8.03,25.809999,-0.879);
 Shape1164 := TShapeNode.Create;
@@ -7076,11 +7336,6 @@ Appearance1165.Texture := ImageTexture1167;
 { .SetAppearance }
 Shape1164.Appearance := Appearance1165;
 IndexedFaceSet1168 := TIndexedFaceSetNode.Create;
-end;
-
-procedure InitJinLOA4Part88;
-begin
-
 IndexedFaceSet1168.SetCoordIndex([0,25,31,-1,24,1,32,-1,1,0,2,-1,2,3,1,-1,31,23,4,-1,4,5,31,-1,0,31,5,-1,5,2,0,-1,23,29,6,-1,6,4,23,-1,32,1,3,-1,3,7,32,-1,29,32,7,-1,7,6,29,-1,2,8,17,-1,17,14,2,-1,5,4,10,-1,10,11,5,-1,2,5,11,-1,11,8,2,-1,10,12,18,-1,18,21,10,-1,7,3,9,-1,9,13,7,-1,6,7,13,-1,13,12,6,-1,8,11,19,-1,19,17,8,-1,19,11,10,-1,10,21,19,-1,25,0,1,-1,1,24,25,-1,14,16,22,-1,22,20,14,-1,15,18,22,-1,22,16,15,-1,3,14,20,-1,20,9,3,-1,14,3,2,-1,4,6,12,-1,12,10,4,-1,21,18,15,-1,14,17,19,-1,19,16,14,-1,19,21,15,-1,15,16,19,-1,9,20,22,-1,22,13,9,-1,22,18,12,-1,12,13,22,-1,25,24,27,-1,27,26,25,-1,23,28,30,-1,30,29,23,-1,28,26,27,-1,27,30,28,-1,25,26,28,-1,28,31,25,-1,32,30,27,-1,27,24,32,-1,30,32,29,-1,23,31,28,-1]);
 IndexedFaceSet1168.CreaseAngle := 3.14159;
 IndexedFaceSet1168.SetTexCoordIndex([0,2,1,-1,3,5,4,-1,5,0,7,-1,7,6,5,-1,33,10,9,-1,9,35,33,-1,0,1,8,-1,8,7,0,-1,10,12,11,-1,11,9,10,-1,4,5,6,-1,6,13,4,-1,12,34,36,-1,36,11,12,-1,7,16,15,-1,15,14,7,-1,35,9,18,-1,18,37,35,-1,7,8,17,-1,17,16,7,-1,18,19,21,-1,21,20,18,-1,13,6,23,-1,23,22,13,-1,11,36,38,-1,38,19,11,-1,16,17,24,-1,24,15,16,-1,39,37,18,-1,18,20,39,-1,2,0,5,-1,5,3,2,-1,14,25,27,-1,27,26,14,-1,28,21,41,-1,41,40,28,-1,6,14,26,-1,26,23,6,-1,14,6,7,-1,9,11,19,-1,19,18,9,-1,20,21,28,-1,14,15,24,-1,24,25,14,-1,39,20,28,-1,28,40,39,-1,23,26,27,-1,27,22,23,-1,41,21,19,-1,19,38,41,-1,2,3,30,-1,30,29,2,-1,10,42,43,-1,43,12,10,-1,31,29,30,-1,30,32,31,-1,2,29,31,-1,31,1,2,-1,4,32,30,-1,30,3,4,-1,43,34,12,-1,10,33,42,-1]);
@@ -7110,11 +7365,18 @@ HAnimJoint1131.AddChildren([HAnimJoint1141]);
 HAnimJoint1121.AddChildren([HAnimJoint1131]);
 { .AddChildren }
 HAnimJoint971.AddChildren([HAnimJoint1121]);
+end;
+
+procedure InitJinLOA4Part94;
+begin
+
 HAnimJoint1171 := THAnimJointNode.Create;
 HAnimJoint1171.NameField := 'l_carpometacarpal_5';
+HAnimJoint1171.X3DName := 'hanim_l_carpometacarpal_5';
 HAnimJoint1171.Center := Vector3(8.073,30.59,-1.457);
 HAnimSegment1172 := THAnimSegmentNode.Create;
 HAnimSegment1172.NameField := 'l_metacarpal_5';
+HAnimSegment1172.X3DName := 'hanim_l_metacarpal_5';
 Transform1173 := TTransformNode.Create;
 Transform1173.Translation := Vector3(8.073,30.59,-1.457);
 Shape1174 := TShapeNode.Create;
@@ -7136,11 +7398,6 @@ Coordinate1179 := TCoordinateNode.Create;
 Coordinate1179.SetPoint([Vector3(0.5437,-1.115,-0.3876),Vector3(-0.4574,-1.115,-0.3875),Vector3(0.0391,-1.055,-0.5375),Vector3(0.5003,-2.035,-0.4225),Vector3(-0.3976,-2.035,-0.4225),Vector3(0.0194,-2.01,-0.5522),Vector3(-0.4806,0.0289,-0.2234),Vector3(0.0559,0.0724,-0.359),Vector3(0.5551,0.0256,-0.2224),Vector3(0.6458,-1.204,0.1909),Vector3(-0.5245,-1.204,0.1909),Vector3(0.5611,-2.149,0.1899),Vector3(-0.4095,-2.15,0.19),Vector3(0.733,-0.0582,0.2295),Vector3(-0.6302,-0.0576,0.2292),Vector3(0.4048,-2.339,0.1195),Vector3(0.3316,-2.225,-0.3174),Vector3(0.0208,-2.205,-0.4092),Vector3(-0.2611,-2.224,-0.3218),Vector3(-0.2696,-2.34,0.1198),Vector3(0.5486,-1.22,0.3281),Vector3(0.4658,-2.148,0.2836),Vector3(0.3509,-2.289,0.2567),Vector3(-0.2127,-2.29,0.257),Vector3(-0.3146,-2.15,0.283),Vector3(-0.4279,-1.216,0.3283),Vector3(-0.5199,-0.0723,0.3338),Vector3(0.6304,-0.0728,0.334),Vector3(-0.4381,0.0771,0.139),Vector3(-0.358,0.1199,-0.1192),Vector3(0.0563,0.1597,-0.2281),Vector3(0.4414,0.1179,-0.1236),Vector3(0.5384,0.0772,0.1392)]);
 { .SetCoord }
 IndexedFaceSet1178.Coord := Coordinate1179;
-end;
-
-procedure InitJinLOA4Part89;
-begin
-
 TextureCoordinate1180 := TTextureCoordinateNode.Create;
 TextureCoordinate1180.SetPoint([Vector2(0.766,0.1014),Vector2(0.7694,0.0827),Vector2(0.748,0.0813),Vector2(0.7455,0.0995),Vector2(0.7415,0.0989),Vector2(0.7435,0.0798),Vector2(0.9864,0.2045),Vector2(0.7455,0.0995),Vector2(0.7734,0.0512),Vector2(0.7571,0.0508),Vector2(0.7525,0.0502),Vector2(0.9827,0.2362),Vector2(0.9665,0.2386),Vector2(0.7694,0.0827),Vector2(0.766,0.1015),Vector2(0.774,0.0829),Vector2(0.9619,0.2395),Vector2(0.7782,0.0512),Vector2(0.774,0.083),Vector2(0.7619,0.1052),Vector2(0.7474,0.1039),Vector2(0.7446,0.1034),Vector2(0.7473,0.1038),Vector2(0.7619,0.1052),Vector2(0.9712,0.2404),Vector2(0.9799,0.239),Vector2(0.7566,0.0479),Vector2(0.7602,0.0485),Vector2(0.7691,0.0486),Vector2(0.771,0.1015),Vector2(0.771,0.1014),Vector2(0.768,0.1042),Vector2(0.768,0.1042),Vector2(0.9897,0.1861),Vector2(0.991,0.2053),Vector2(0.9856,0.1862),Vector2(0.9665,0.2385),Vector2(0.9874,0.236),Vector2(0.965,0.2069),Vector2(0.9651,0.1878),Vector2(0.9604,0.2075),Vector2(0.9619,0.2395),Vector2(0.9604,0.2074),Vector2(0.9836,0.239),Vector2(0.98,0.239),Vector2(0.9712,0.2404)]);
 { .SetTexCoord }
@@ -7155,11 +7412,18 @@ HAnimSegment1172.AddChildren([Transform1173]);
 HAnimJoint1171.AddChildren([HAnimSegment1172]);
 HAnimJoint1181 := THAnimJointNode.Create;
 HAnimJoint1181.NameField := 'l_metacarpophalangeal_5';
+HAnimJoint1181.X3DName := 'hanim_l_metacarpophalangeal_5';
 HAnimJoint1181.Center := Vector3(8.148,28.360001,-1.647);
 HAnimSegment1182 := THAnimSegmentNode.Create;
 HAnimSegment1182.NameField := 'l_carpal_proximal_phalanx_5';
+HAnimSegment1182.X3DName := 'hanim_l_carpal_proximal_phalanx_5';
 Transform1183 := TTransformNode.Create;
 Transform1183.Translation := Vector3(8.148,28.360001,-1.647);
+end;
+
+procedure InitJinLOA4Part95;
+begin
+
 Shape1184 := TShapeNode.Create;
 Appearance1185 := TAppearanceNode.Create;
 Material1186 := TMaterialNode.Create;
@@ -7193,14 +7457,11 @@ HAnimSegment1182.AddChildren([Transform1183]);
 HAnimJoint1181.AddChildren([HAnimSegment1182]);
 HAnimJoint1191 := THAnimJointNode.Create;
 HAnimJoint1191.NameField := 'l_carpal_proximal_interphalangeal_5';
+HAnimJoint1191.X3DName := 'hanim_l_carpal_proximal_interphalangeal_5';
 HAnimJoint1191.Center := Vector3(8.074,27.6,-1.651);
 HAnimSegment1192 := THAnimSegmentNode.Create;
-end;
-
-procedure InitJinLOA4Part90;
-begin
-
 HAnimSegment1192.NameField := 'l_carpal_middle_phalanx_5';
+HAnimSegment1192.X3DName := 'hanim_l_carpal_middle_phalanx_5';
 Transform1193 := TTransformNode.Create;
 Transform1193.Translation := Vector3(8.074,27.6,-1.651);
 Shape1194 := TShapeNode.Create;
@@ -7215,6 +7476,11 @@ Appearance1195.Texture := ImageTexture1197;
 { .SetAppearance }
 Shape1194.Appearance := Appearance1195;
 IndexedFaceSet1198 := TIndexedFaceSetNode.Create;
+end;
+
+procedure InitJinLOA4Part96;
+begin
+
 IndexedFaceSet1198.SetCoordIndex([1,15,14,-1,14,7,1,-1,8,14,3,-1,1,7,5,-1,5,18,1,-1,3,2,21,-1,21,4,3,-1,6,8,3,-1,3,4,6,-1,6,4,13,-1,0,18,5,-1,5,13,0,-1,13,4,21,-1,21,0,13,-1,2,3,14,-1,14,15,2,-1,8,6,12,-1,12,11,8,-1,7,10,9,-1,9,5,7,-1,10,11,12,-1,12,9,10,-1,8,11,10,-1,10,14,8,-1,13,9,12,-1,12,6,13,-1,9,13,5,-1,7,14,10,-1,15,17,16,-1,16,2,15,-1,18,20,19,-1,19,1,18,-1,2,16,22,-1,22,21,2,-1,0,23,20,-1,20,18,0,-1,21,22,23,-1,23,0,21,-1,1,19,17,-1,17,15,1,-1,19,20,23,-1,23,17,19,-1,16,17,23,-1,23,22,16,-1]);
 IndexedFaceSet1198.CreaseAngle := 3.14159;
 IndexedFaceSet1198.SetTexCoordIndex([3,25,24,-1,24,0,3,-1,4,1,5,-1,3,0,7,-1,7,6,3,-1,5,10,9,-1,9,8,5,-1,11,4,5,-1,5,8,11,-1,11,8,12,-1,27,6,7,-1,7,26,27,-1,12,8,9,-1,9,13,12,-1,10,5,1,-1,1,2,10,-1,4,11,15,-1,15,14,4,-1,0,28,29,-1,29,7,0,-1,16,14,15,-1,15,17,16,-1,4,14,16,-1,16,1,4,-1,12,17,15,-1,15,11,12,-1,29,26,7,-1,0,24,28,-1,2,19,18,-1,18,10,2,-1,6,21,20,-1,20,3,6,-1,10,18,22,-1,22,9,10,-1,27,31,21,-1,21,6,27,-1,9,22,23,-1,23,13,9,-1,3,20,30,-1,30,25,3,-1,20,21,31,-1,31,30,20,-1,18,19,23,-1,23,22,18,-1]);
@@ -7236,9 +7502,11 @@ HAnimSegment1192.AddChildren([Transform1193]);
 HAnimJoint1191.AddChildren([HAnimSegment1192]);
 HAnimJoint1201 := THAnimJointNode.Create;
 HAnimJoint1201.NameField := 'l_carpal_distal_interphalangeal_5';
+HAnimJoint1201.X3DName := 'hanim_l_carpal_distal_interphalangeal_5';
 HAnimJoint1201.Center := Vector3(8.036,26.77,-1.643);
 HAnimSegment1202 := THAnimSegmentNode.Create;
 HAnimSegment1202.NameField := 'l_carpal_distal_phalanx_5';
+HAnimSegment1202.X3DName := 'hanim_l_carpal_distal_phalanx_5';
 Transform1203 := TTransformNode.Create;
 Transform1203.Translation := Vector3(8.036,26.77,-1.643);
 Shape1204 := TShapeNode.Create;
@@ -7252,11 +7520,6 @@ ImageTexture1207 := ImageTexture37;
 Appearance1205.Texture := ImageTexture1207;
 { .SetAppearance }
 Shape1204.Appearance := Appearance1205;
-end;
-
-procedure InitJinLOA4Part91;
-begin
-
 IndexedFaceSet1208 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1208.SetCoordIndex([0,25,31,-1,24,1,32,-1,1,0,2,-1,2,3,1,-1,31,23,4,-1,4,5,31,-1,0,31,5,-1,5,2,0,-1,23,29,6,-1,6,4,23,-1,32,1,3,-1,3,7,32,-1,29,32,7,-1,7,6,29,-1,2,8,17,-1,17,14,2,-1,5,4,10,-1,10,11,5,-1,2,5,11,-1,11,8,2,-1,10,12,18,-1,18,21,10,-1,7,3,9,-1,9,13,7,-1,6,7,13,-1,13,12,6,-1,8,11,19,-1,19,17,8,-1,19,11,10,-1,10,21,19,-1,25,0,1,-1,1,24,25,-1,14,16,22,-1,22,20,14,-1,15,18,22,-1,22,16,15,-1,3,14,20,-1,20,9,3,-1,14,3,2,-1,4,6,12,-1,12,10,4,-1,21,18,15,-1,14,17,19,-1,19,16,14,-1,19,21,15,-1,15,16,19,-1,9,20,22,-1,22,13,9,-1,22,18,12,-1,12,13,22,-1,25,24,27,-1,27,26,25,-1,23,28,30,-1,30,29,23,-1,28,26,27,-1,27,30,28,-1,25,26,28,-1,28,31,25,-1,32,30,27,-1,27,24,32,-1,30,32,29,-1,23,31,28,-1]);
 IndexedFaceSet1208.CreaseAngle := 3.14159;
@@ -7269,6 +7532,11 @@ TextureCoordinate1210 := TTextureCoordinateNode.Create;
 TextureCoordinate1210.SetPoint([Vector2(0.7505,0.1465),Vector2(0.7541,0.1444),Vector2(0.7513,0.1418),Vector2(0.7384,0.1404),Vector2(0.7355,0.1424),Vector2(0.7377,0.1451),Vector2(0.7372,0.1554),Vector2(0.7483,0.1563),Vector2(0.7507,0.1564),Vector2(0.9726,0.1318),Vector2(0.9727,0.1441),Vector2(0.9847,0.1302),Vector2(0.9851,0.1424),Vector2(0.7347,0.1548),Vector2(0.7409,0.1641),Vector2(0.7434,0.1641),Vector2(0.7455,0.1632),Vector2(0.7469,0.164),Vector2(0.9746,0.124),Vector2(0.9828,0.1229),Vector2(0.9766,0.1225),Vector2(0.9807,0.1219),Vector2(0.7351,0.1625),Vector2(0.7369,0.1626),Vector2(0.7443,0.165),Vector2(0.7408,0.1649),Vector2(0.7387,0.1637),Vector2(0.7379,0.1643),Vector2(0.9788,0.1219),Vector2(0.7512,0.1402),Vector2(0.7392,0.1389),Vector2(0.7512,0.14),Vector2(0.7393,0.1388),Vector2(0.9694,0.1441),Vector2(0.988,0.1416),Vector2(0.9705,0.1317),Vector2(0.9868,0.1295),Vector2(0.9727,0.1237),Vector2(0.9848,0.1221),Vector2(0.9756,0.1218),Vector2(0.9787,0.1209),Vector2(0.9817,0.1209),Vector2(0.973,0.1475),Vector2(0.9849,0.146)]);
 { .SetTexCoord }
 IndexedFaceSet1208.TexCoord := TextureCoordinate1210;
+end;
+
+procedure InitJinLOA4Part97;
+begin
+
 { .SetGeometry }
 Shape1204.Geometry := IndexedFaceSet1208;
 { .AddChild }
@@ -7297,9 +7565,11 @@ HAnimJoint931.AddChildren([HAnimJoint941]);
 HAnimJoint771.AddChildren([HAnimJoint931]);
 HAnimJoint1211 := THAnimJointNode.Create;
 HAnimJoint1211.NameField := 'r_sternoclavicular';
+HAnimJoint1211.X3DName := 'hanim_r_sternoclavicular';
 HAnimJoint1211.Center := Vector3(-1.71,53.720001,-0.6127);
 HAnimSegment1212 := THAnimSegmentNode.Create;
 HAnimSegment1212.NameField := 'r_clavicle';
+HAnimSegment1212.X3DName := 'hanim_r_clavicle';
 Transform1213 := TTransformNode.Create;
 Transform1213.Translation := Vector3(-1.71,53.720001,-0.6127);
 Shape1214 := TShapeNode.Create;
@@ -7315,11 +7585,6 @@ Appearance1215.Texture := ImageTexture1217;
 Shape1214.Appearance := Appearance1215;
 IndexedFaceSet1218 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1218.SetCoordIndex([9,0,1,-1,1,6,9,-1,6,1,2,-1,2,5,6,-1,8,5,2,-1,2,3,8,-1,8,3,4,-1,4,7,8,-1,9,7,4,-1,4,0,9,-1,4,3,2,-1,0,4,2,-1,1,0,2,-1,10,14,13,-1,10,13,12,-1,11,10,12,-1,6,10,11,-1,11,9,6,-1,9,11,12,-1,12,7,9,-1,7,12,13,-1,13,8,7,-1,8,13,14,-1,14,5,8,-1,5,14,10,-1,10,6,5,-1]);
-end;
-
-procedure InitJinLOA4Part92;
-begin
-
 IndexedFaceSet1218.CreaseAngle := 3.14159;
 IndexedFaceSet1218.SetTexCoordIndex([9,0,1,-1,1,6,9,-1,6,1,2,-1,2,5,6,-1,8,5,2,-1,2,3,8,-1,8,3,4,-1,4,7,8,-1,9,7,4,-1,4,0,9,-1,4,3,2,-1,0,4,2,-1,1,0,2,-1,10,14,13,-1,10,13,12,-1,11,10,12,-1,6,10,11,-1,11,9,6,-1,9,11,12,-1,12,7,9,-1,7,12,13,-1,13,8,7,-1,8,13,14,-1,14,5,8,-1,5,14,10,-1,10,6,5,-1]);
 Coordinate1219 := TCoordinateNode.Create;
@@ -7330,6 +7595,11 @@ TextureCoordinate1220 := TTextureCoordinateNode.Create;
 TextureCoordinate1220.SetPoint([Vector2(0.1911,0.4797),Vector2(0.171,0.4832),Vector2(0.1497,0.4806),Vector2(0.1519,0.4334),Vector2(0.1831,0.4416),Vector2(0.1474,0.4856),Vector2(0.1708,0.4854),Vector2(0.1784,0.4249),Vector2(0.1538,0.4251),Vector2(0.1963,0.4863),Vector2(0.19,0.5091),Vector2(0.1847,0.499),Vector2(0.172,0.4382),Vector2(0.1568,0.4457),Vector2(0.1409,0.4926)]);
 { .SetTexCoord }
 IndexedFaceSet1218.TexCoord := TextureCoordinate1220;
+end;
+
+procedure InitJinLOA4Part98;
+begin
+
 { .SetGeometry }
 Shape1214.Geometry := IndexedFaceSet1218;
 { .AddChild }
@@ -7340,9 +7610,11 @@ HAnimSegment1212.AddChildren([Transform1213]);
 HAnimJoint1211.AddChildren([HAnimSegment1212]);
 HAnimJoint1221 := THAnimJointNode.Create;
 HAnimJoint1221.NameField := 'r_acromioclavicular';
+HAnimJoint1221.X3DName := 'hanim_r_acromioclavicular';
 HAnimJoint1221.Center := Vector3(-5.464,52.970001,-0.5732);
 HAnimSegment1222 := THAnimSegmentNode.Create;
 HAnimSegment1222.NameField := 'r_scapula';
+HAnimSegment1222.X3DName := 'hanim_r_scapula';
 Transform1223 := TTransformNode.Create;
 Transform1223.Translation := Vector3(-5.464,52.970001,-0.5732);
 Shape1224 := TShapeNode.Create;
@@ -7374,18 +7646,20 @@ Shape1224.Geometry := IndexedFaceSet1228;
 Transform1223.AddChildren([Shape1224]);
 { .AddChildren }
 HAnimSegment1222.AddChildren([Transform1223]);
-end;
-
-procedure InitJinLOA4Part93;
-begin
-
 { .AddChildren }
 HAnimJoint1221.AddChildren([HAnimSegment1222]);
 HAnimJoint1231 := THAnimJointNode.Create;
 HAnimJoint1231.NameField := 'r_shoulder';
+HAnimJoint1231.X3DName := 'hanim_r_shoulder';
 HAnimJoint1231.Center := Vector3(-7.32,52.380001,-0.1452);
 HAnimSegment1232 := THAnimSegmentNode.Create;
+end;
+
+procedure InitJinLOA4Part99;
+begin
+
 HAnimSegment1232.NameField := 'r_upperarm';
+HAnimSegment1232.X3DName := 'hanim_r_upperarm';
 Transform1233 := TTransformNode.Create;
 Transform1233.Translation := Vector3(-7.32,52.380001,-0.1452);
 Shape1234 := TShapeNode.Create;
@@ -7421,22 +7695,24 @@ HAnimSegment1232.AddChildren([Transform1233]);
 HAnimJoint1231.AddChildren([HAnimSegment1232]);
 HAnimJoint1241 := THAnimJointNode.Create;
 HAnimJoint1241.NameField := 'r_elbow';
+HAnimJoint1241.X3DName := 'hanim_r_elbow';
 HAnimJoint1241.Center := Vector3(-8.077,41.279999,-0.2502);
 HAnimSegment1242 := THAnimSegmentNode.Create;
 HAnimSegment1242.NameField := 'r_forearm';
+HAnimSegment1242.X3DName := 'hanim_r_forearm';
 Transform1243 := TTransformNode.Create;
 Transform1243.Translation := Vector3(-8.077,41.279999,-0.2502);
 Shape1244 := TShapeNode.Create;
 Appearance1245 := TAppearanceNode.Create;
 Material1246 := TMaterialNode.Create;
-end;
-
-procedure InitJinLOA4Part94;
-begin
-
 Material1246.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance1245.Material := Material1246;
+end;
+
+procedure InitJinLOA4Part100;
+begin
+
 ImageTexture1247 := ImageTexture37;
 { .SetTexture }
 Appearance1245.Texture := ImageTexture1247;
@@ -7464,9 +7740,11 @@ HAnimSegment1242.AddChildren([Transform1243]);
 HAnimJoint1241.AddChildren([HAnimSegment1242]);
 HAnimJoint1251 := THAnimJointNode.Create;
 HAnimJoint1251.NameField := 'r_radiocarpal';
+HAnimJoint1251.X3DName := 'hanim_r_radiocarpal';
 HAnimJoint1251.Center := Vector3(-8.07,32.189999,-0.2232);
 HAnimSegment1252 := THAnimSegmentNode.Create;
 HAnimSegment1252.NameField := 'r_carpal';
+HAnimSegment1252.X3DName := 'hanim_r_carpal';
 Transform1253 := TTransformNode.Create;
 Transform1253.Translation := Vector3(-8.07,32.189999,-0.2232);
 Shape1254 := TShapeNode.Create;
@@ -7488,7 +7766,7 @@ Coordinate1259 := TCoordinateNode.Create;
 Coordinate1259.SetPoint([Vector3(-0.0718,0.1105,-1.01),Vector3(-0.5108,0.0965,-0.79),Vector3(-0.6808,0.1049,-0.212),Vector3(-0.5475,0.1209,0.7178),Vector3(-0.2978,0.1182,1.102),Vector3(0.5959,0.1061,0.734),Vector3(0.6714,0.0918,-0.2167),Vector3(0.4399,0.0876,-0.7804),Vector3(-0.3749,-0.7899,1.333),Vector3(0.4677,-0.8492,-0.9914),Vector3(-0.6527,-0.6995,0.3258),Vector3(-0.0476,-0.832,-1.286),Vector3(-0.5788,-0.8489,-0.9909),Vector3(-0.6835,-0.6804,-0.3282),Vector3(0.6279,-0.6805,-0.3268),Vector3(0.6351,-0.6994,0.3349),Vector3(-0.5385,-0.8096,0.8587),Vector3(-0.6721,0.1026,0.2306),Vector3(0.6716,0.0989,0.2384),Vector3(0.5705,-0.8097,0.8599),Vector3(0.3,0.1135,1.081),Vector3(0.3211,-0.7905,1.299),Vector3(-0.0594,0.3233,-0.0086),Vector3(-0.4051,-1.1,0.8323),Vector3(-0.5152,-0.9892,0.322),Vector3(-0.5452,-0.9698,-0.3815),Vector3(-0.4503,-1.137,-1.027),Vector3(-0.0399,-1.141,-1.188),Vector3(0.3455,-1.137,-1.033),Vector3(0.4906,-0.9699,-0.3741),Vector3(0.4977,-0.989,0.341),Vector3(0.4908,-1.1,0.8359),Vector3(0.2387,-1.082,1.197),Vector3(-0.1823,-1.082,1.223),Vector3(0.0391,-1.269,-0.0735)]);
 end;
 
-procedure InitJinLOA4Part95;
+procedure InitJinLOA4Part101;
 begin
 
 { .SetCoord }
@@ -7507,9 +7785,11 @@ HAnimSegment1252.AddChildren([Transform1253]);
 HAnimJoint1251.AddChildren([HAnimSegment1252]);
 HAnimJoint1261 := THAnimJointNode.Create;
 HAnimJoint1261.NameField := 'r_midcarpal_1';
+HAnimJoint1261.X3DName := 'hanim_r_midcarpal_1';
 HAnimJoint1261.Center := Vector3(-8.043,31.379999,0.859);
 HAnimSegment1262 := THAnimSegmentNode.Create;
 HAnimSegment1262.NameField := 'r_trapezium';
+HAnimSegment1262.X3DName := 'hanim_r_trapezium';
 Transform1263 := TTransformNode.Create;
 Transform1263.Translation := Vector3(-8.043,31.379999,0.859);
 Shape1264 := TShapeNode.Create;
@@ -7544,15 +7824,17 @@ HAnimSegment1262.AddChildren([Transform1263]);
 { .AddChildren }
 HAnimJoint1261.AddChildren([HAnimSegment1262]);
 HAnimJoint1271 := THAnimJointNode.Create;
-HAnimJoint1271.NameField := 'r_carpometacarpal_1';
-HAnimJoint1271.Center := Vector3(-8.006,30.780001,1.155);
 end;
 
-procedure InitJinLOA4Part96;
+procedure InitJinLOA4Part102;
 begin
 
+HAnimJoint1271.NameField := 'r_carpometacarpal_1';
+HAnimJoint1271.X3DName := 'hanim_r_carpometacarpal_1';
+HAnimJoint1271.Center := Vector3(-8.006,30.780001,1.155);
 HAnimSegment1272 := THAnimSegmentNode.Create;
 HAnimSegment1272.NameField := 'r_metacarpal_1';
+HAnimSegment1272.X3DName := 'hanim_r_metacarpal_1';
 Transform1273 := TTransformNode.Create;
 Transform1273.Translation := Vector3(-8.006,30.780001,1.155);
 Shape1274 := TShapeNode.Create;
@@ -7588,12 +7870,19 @@ HAnimSegment1272.AddChildren([Transform1273]);
 HAnimJoint1271.AddChildren([HAnimSegment1272]);
 HAnimJoint1281 := THAnimJointNode.Create;
 HAnimJoint1281.NameField := 'r_metacarpophalangeal_1';
+HAnimJoint1281.X3DName := 'hanim_r_metacarpophalangeal_1';
 HAnimJoint1281.Center := Vector3(-8.029,29.9,1.59);
 HAnimSegment1282 := THAnimSegmentNode.Create;
 HAnimSegment1282.NameField := 'r_carpal_proximal_phalanx_1';
+HAnimSegment1282.X3DName := 'hanim_r_carpal_proximal_phalanx_1';
 Transform1283 := TTransformNode.Create;
 Transform1283.Translation := Vector3(-8.029,29.9,1.59);
 Shape1284 := TShapeNode.Create;
+end;
+
+procedure InitJinLOA4Part103;
+begin
+
 Appearance1285 := TAppearanceNode.Create;
 Material1286 := TMaterialNode.Create;
 Material1286.DiffuseColor := Vector3(0.588,0.588,0.588);
@@ -7602,11 +7891,6 @@ Appearance1285.Material := Material1286;
 ImageTexture1287 := ImageTexture37;
 { .SetTexture }
 Appearance1285.Texture := ImageTexture1287;
-end;
-
-procedure InitJinLOA4Part97;
-begin
-
 { .SetAppearance }
 Shape1284.Appearance := Appearance1285;
 IndexedFaceSet1288 := TIndexedFaceSetNode.Create;
@@ -7631,9 +7915,11 @@ HAnimSegment1282.AddChildren([Transform1283]);
 HAnimJoint1281.AddChildren([HAnimSegment1282]);
 HAnimJoint1291 := THAnimJointNode.Create;
 HAnimJoint1291.NameField := 'r_carpal_interphalangeal_1';
+HAnimJoint1291.X3DName := 'hanim_r_carpal_interphalangeal_1';
 HAnimJoint1291.Center := Vector3(-8.101,29.07,2.207);
 HAnimSegment1292 := THAnimSegmentNode.Create;
 HAnimSegment1292.NameField := 'r_carpal_distal_phalanx_1';
+HAnimSegment1292.X3DName := 'hanim_r_carpal_distal_phalanx_1';
 Transform1293 := TTransformNode.Create;
 Transform1293.Translation := Vector3(-8.101,29.07,2.207);
 Shape1294 := TShapeNode.Create;
@@ -7649,6 +7935,11 @@ Appearance1295.Texture := ImageTexture1297;
 Shape1294.Appearance := Appearance1295;
 IndexedFaceSet1298 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1298.SetCoordIndex([0,29,28,-1,28,11,0,-1,32,2,17,-1,17,1,32,-1,4,3,1,-1,1,17,4,-1,11,28,31,-1,31,5,11,-1,29,0,2,-1,2,32,29,-1,4,5,31,-1,31,3,4,-1,23,32,1,-1,24,3,31,-1,24,23,1,-1,1,3,24,-1,4,6,7,-1,7,8,4,-1,5,9,10,-1,10,11,5,-1,4,8,9,-1,9,5,4,-1,10,13,14,-1,14,12,10,-1,2,15,16,-1,16,17,2,-1,0,12,15,-1,15,2,0,-1,8,7,18,-1,18,9,8,-1,18,13,10,-1,10,9,18,-1,6,20,21,-1,21,19,6,-1,22,19,21,-1,21,14,22,-1,17,16,20,-1,20,6,17,-1,6,4,17,-1,11,10,12,-1,12,0,11,-1,13,22,14,-1,6,19,18,-1,18,7,6,-1,18,19,22,-1,22,13,18,-1,16,15,21,-1,21,20,16,-1,21,15,12,-1,12,14,21,-1,24,25,26,-1,26,23,24,-1,28,29,30,-1,30,27,28,-1,27,30,26,-1,26,25,27,-1,24,31,27,-1,27,25,24,-1,32,23,26,-1,26,30,32,-1,30,29,32,-1,28,27,31,-1]);
+end;
+
+procedure InitJinLOA4Part104;
+begin
+
 IndexedFaceSet1298.CreaseAngle := 3.14159;
 IndexedFaceSet1298.SetTexCoordIndex([3,33,34,-1,34,2,3,-1,4,5,6,-1,6,7,4,-1,9,8,7,-1,7,6,9,-1,2,34,37,-1,37,38,2,-1,33,3,36,-1,36,35,33,-1,9,11,10,-1,10,8,9,-1,12,4,7,-1,13,8,10,-1,13,12,7,-1,7,8,13,-1,9,14,15,-1,15,16,9,-1,38,39,18,-1,18,2,38,-1,9,16,17,-1,17,11,9,-1,18,20,21,-1,21,19,18,-1,5,22,23,-1,23,6,5,-1,3,19,40,-1,40,36,3,-1,16,15,24,-1,24,17,16,-1,41,20,18,-1,18,39,41,-1,14,26,27,-1,27,25,14,-1,28,42,43,-1,43,21,28,-1,6,23,26,-1,26,14,6,-1,14,9,6,-1,2,18,19,-1,19,3,2,-1,20,28,21,-1,14,25,24,-1,24,15,14,-1,41,42,28,-1,28,20,41,-1,23,22,27,-1,27,26,23,-1,43,40,19,-1,19,21,43,-1,13,29,30,-1,30,12,13,-1,1,0,32,-1,32,31,1,-1,31,32,30,-1,30,29,31,-1,13,10,31,-1,31,29,13,-1,4,12,30,-1,30,32,4,-1,32,0,4,-1,1,31,10,-1]);
 Coordinate1299 := TCoordinateNode.Create;
@@ -7659,11 +7950,6 @@ TextureCoordinate1300 := TTextureCoordinateNode.Create;
 TextureCoordinate1300.SetPoint([Vector2(0.8747,0.0865),Vector2(0.8887,0.0786),Vector2(0.8299,0.2203),Vector2(0.8424,0.2111),Vector2(0.8736,0.0851),Vector2(0.8939,0.0989),Vector2(0.8978,0.0975),Vector2(0.8834,0.0852),Vector2(0.8992,0.0766),Vector2(0.9092,0.0888),Vector2(0.8992,0.0702),Vector2(0.9115,0.0859),Vector2(0.876,0.0783),Vector2(0.893,0.0688),Vector2(0.9109,0.102),Vector2(0.9135,0.0996),Vector2(0.9144,0.0973),Vector2(0.9172,0.0962),Vector2(0.8241,0.2146),Vector2(0.8338,0.2074),Vector2(0.8247,0.2116),Vector2(0.8291,0.2083),Vector2(0.9028,0.1054),Vector2(0.9046,0.1032),Vector2(0.9153,0.1012),Vector2(0.9125,0.1038),Vector2(0.9081,0.1033),Vector2(0.9082,0.1057),Vector2(0.8266,0.2097),Vector2(0.8885,0.0681),Vector2(0.8723,0.0776),Vector2(0.8843,0.0701),Vector2(0.8696,0.0781),Vector2(0.8612,0.2211),Vector2(0.8482,0.2317),Vector2(0.8625,0.2222),Vector2(0.8417,0.2109),Vector2(0.8433,0.2381),Vector2(0.8245,0.2237),Vector2(0.8192,0.2167),Vector2(0.8322,0.2071),Vector2(0.8195,0.2131),Vector2(0.8224,0.2103),Vector2(0.8256,0.2083)]);
 { .SetTexCoord }
 IndexedFaceSet1298.TexCoord := TextureCoordinate1300;
-end;
-
-procedure InitJinLOA4Part98;
-begin
-
 { .SetGeometry }
 Shape1294.Geometry := IndexedFaceSet1298;
 { .AddChild }
@@ -7682,9 +7968,11 @@ HAnimJoint1261.AddChildren([HAnimJoint1271]);
 HAnimJoint1251.AddChildren([HAnimJoint1261]);
 HAnimJoint1301 := THAnimJointNode.Create;
 HAnimJoint1301.NameField := 'r_midcarpal_2';
+HAnimJoint1301.X3DName := 'hanim_r_midcarpal_2';
 HAnimJoint1301.Center := Vector3(-8.043,31.42,0.3741);
 HAnimSegment1302 := THAnimSegmentNode.Create;
 HAnimSegment1302.NameField := 'r_trapezoid';
+HAnimSegment1302.X3DName := 'hanim_r_trapezoid';
 Transform1303 := TTransformNode.Create;
 Transform1303.Translation := Vector3(-8.043,31.42,0.3741);
 Shape1304 := TShapeNode.Create;
@@ -7706,6 +7994,11 @@ Coordinate1309 := TCoordinateNode.Create;
 Coordinate1309.SetPoint([Vector3(0.6358,-0.9379,-0.2307),Vector3(-0.7821,-0.9379,-0.2307),Vector3(-0.6822,0.0629,-0.2716),Vector3(0.6057,0.0629,-0.2624),Vector3(0.5204,-1.104,-0.2257),Vector3(-0.6304,-1.104,-0.2257),Vector3(-0.5127,0.3713,-0.2927),Vector3(0.4578,0.3716,-0.2865),Vector3(0.5269,-0.0048,-0.3422),Vector3(0.5894,-0.8616,-0.3044),Vector3(-0.6897,-0.8616,-0.3038),Vector3(-0.6041,-0.0048,-0.3509),Vector3(-0.7053,-0.8216,0.3852),Vector3(0.6389,-0.8216,0.3852),Vector3(-0.568,-0.0472,0.2614),Vector3(0.5411,-0.0473,0.2625),Vector3(0.4859,-0.9962,0.4385),Vector3(-0.567,-1.009,0.4169),Vector3(-0.4266,0.2577,0.2079),Vector3(0.4523,0.2557,0.2115),Vector3(-0.6134,-0.7544,0.4412),Vector3(-0.4945,-0.0839,0.334),Vector3(-0.3721,0.1802,0.2877),Vector3(0.3891,0.1785,0.2907),Vector3(0.4659,-0.0839,0.335),Vector3(0.5506,-0.7544,0.4412),Vector3(0.4182,-0.9056,0.4873),Vector3(-0.4937,-0.9167,0.4687)]);
 { .SetCoord }
 IndexedFaceSet1308.Coord := Coordinate1309;
+end;
+
+procedure InitJinLOA4Part105;
+begin
+
 TextureCoordinate1310 := TTextureCoordinateNode.Create;
 TextureCoordinate1310.SetPoint([Vector2(0.813,0.0266),Vector2(0.8136,0.0488),Vector2(0.8136,0.0488),Vector2(0.8133,0.0266),Vector2(0.8111,0.0474),Vector2(0.8105,0.0283),Vector2(0.8108,0.0283),Vector2(0.8111,0.0474),Vector2(0.8141,0.0525),Vector2(0.8141,0.0525),Vector2(0.8123,0.0198),Vector2(0.8125,0.0198),Vector2(0.9273,0.2479),Vector2(0.9315,0.2698),Vector2(0.9337,0.2676),Vector2(0.9301,0.2489),Vector2(0.9262,0.2444),Vector2(0.9337,0.2762),Vector2(0.9335,0.2763),Vector2(0.8381,0.0441),Vector2(0.904,0.2568),Vector2(0.8327,0.0273),Vector2(0.9122,0.2724),Vector2(0.8401,0.0478),Vector2(0.9014,0.2535),Vector2(0.8395,0.0482),Vector2(0.9142,0.2789),Vector2(0.8319,0.0206),Vector2(0.9141,0.2788),Vector2(0.8381,0.0441),Vector2(0.8327,0.0273),Vector2(0.8319,0.0206),Vector2(0.9141,0.2788),Vector2(0.9122,0.2724),Vector2(0.904,0.2568),Vector2(0.9014,0.2535),Vector2(0.8395,0.0482)]);
 { .SetTexCoord }
@@ -7720,14 +8013,11 @@ HAnimSegment1302.AddChildren([Transform1303]);
 HAnimJoint1301.AddChildren([HAnimSegment1302]);
 HAnimJoint1311 := THAnimJointNode.Create;
 HAnimJoint1311.NameField := 'r_carpometacarpal_2';
+HAnimJoint1311.X3DName := 'hanim_r_carpometacarpal_2';
 HAnimJoint1311.Center := Vector3(-8.04,30.559999,0.4324);
-end;
-
-procedure InitJinLOA4Part99;
-begin
-
 HAnimSegment1312 := THAnimSegmentNode.Create;
 HAnimSegment1312.NameField := 'r_metacarpal_2';
+HAnimSegment1312.X3DName := 'hanim_r_metacarpal_2';
 Transform1313 := TTransformNode.Create;
 Transform1313.Translation := Vector3(-8.04,30.559999,0.4324);
 Shape1314 := TShapeNode.Create;
@@ -7763,9 +8053,16 @@ HAnimSegment1312.AddChildren([Transform1313]);
 HAnimJoint1311.AddChildren([HAnimSegment1312]);
 HAnimJoint1321 := THAnimJointNode.Create;
 HAnimJoint1321.NameField := 'r_metacarpophalangeal_2';
+end;
+
+procedure InitJinLOA4Part106;
+begin
+
+HAnimJoint1321.X3DName := 'hanim_r_metacarpophalangeal_2';
 HAnimJoint1321.Center := Vector3(-8.149,28.32,0.67);
 HAnimSegment1322 := THAnimSegmentNode.Create;
 HAnimSegment1322.NameField := 'r_carpal_proximal_phalanx_2';
+HAnimSegment1322.X3DName := 'hanim_r_carpal_proximal_phalanx_2';
 Transform1323 := TTransformNode.Create;
 Transform1323.Translation := Vector3(-8.149,28.32,0.67);
 Shape1324 := TShapeNode.Create;
@@ -7777,11 +8074,6 @@ Appearance1325.Material := Material1326;
 ImageTexture1327 := ImageTexture37;
 { .SetTexture }
 Appearance1325.Texture := ImageTexture1327;
-end;
-
-procedure InitJinLOA4Part100;
-begin
-
 { .SetAppearance }
 Shape1324.Appearance := Appearance1325;
 IndexedFaceSet1328 := TIndexedFaceSetNode.Create;
@@ -7806,13 +8098,20 @@ HAnimSegment1322.AddChildren([Transform1323]);
 HAnimJoint1321.AddChildren([HAnimSegment1322]);
 HAnimJoint1331 := THAnimJointNode.Create;
 HAnimJoint1331.NameField := 'r_carpal_proximal_interphalangeal_2';
+HAnimJoint1331.X3DName := 'hanim_r_carpal_proximal_interphalangeal_2';
 HAnimJoint1331.Center := Vector3(-8.059,26.969999,0.6304);
 HAnimSegment1332 := THAnimSegmentNode.Create;
 HAnimSegment1332.NameField := 'r_carpal_middle_phalanx_2';
+HAnimSegment1332.X3DName := 'hanim_r_carpal_middle_phalanx_2';
 Transform1333 := TTransformNode.Create;
 Transform1333.Translation := Vector3(-8.059,26.969999,0.6304);
 Shape1334 := TShapeNode.Create;
 Appearance1335 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4Part107;
+begin
+
 Material1336 := TMaterialNode.Create;
 Material1336.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -7834,11 +8133,6 @@ TextureCoordinate1340 := TTextureCoordinateNode.Create;
 TextureCoordinate1340.SetPoint([Vector2(0.8782,0.1769),Vector2(0.8543,0.1273),Vector2(0.8574,0.1518),Vector2(0.8703,0.1535),Vector2(0.8493,0.125),Vector2(0.8504,0.1318),Vector2(0.8846,0.1491),Vector2(0.8931,0.1724),Vector2(0.8349,0.1336),Vector2(0.8379,0.1515),Vector2(0.8533,0.1496),Vector2(0.8338,0.1268),Vector2(0.8302,0.1302),Vector2(0.8351,0.1545),Vector2(0.849,0.1233),Vector2(0.8336,0.1251),Vector2(0.849,0.123),Vector2(0.8335,0.1249),Vector2(0.8539,0.1573),Vector2(0.8543,0.1579),Vector2(0.8703,0.1496),Vector2(0.8822,0.146),Vector2(0.8398,0.159),Vector2(0.8399,0.1597),Vector2(0.8737,0.1777),Vector2(0.8664,0.1541),Vector2(0.8969,0.1707),Vector2(0.8878,0.1476),Vector2(0.8796,0.181),Vector2(0.8945,0.1764),Vector2(0.8684,0.1475),Vector2(0.8822,0.1433)]);
 { .SetTexCoord }
 IndexedFaceSet1338.TexCoord := TextureCoordinate1340;
-end;
-
-procedure InitJinLOA4Part101;
-begin
-
 { .SetGeometry }
 Shape1334.Geometry := IndexedFaceSet1338;
 { .AddChild }
@@ -7849,9 +8143,11 @@ HAnimSegment1332.AddChildren([Transform1333]);
 HAnimJoint1331.AddChildren([HAnimSegment1332]);
 HAnimJoint1341 := THAnimJointNode.Create;
 HAnimJoint1341.NameField := 'r_carpal_distal_interphalangeal_2';
+HAnimJoint1341.X3DName := 'hanim_r_carpal_distal_interphalangeal_2';
 HAnimJoint1341.Center := Vector3(-8.013,25.85,0.5949);
 HAnimSegment1342 := THAnimSegmentNode.Create;
 HAnimSegment1342.NameField := 'r_carpal_distal_phalanx_2';
+HAnimSegment1342.X3DName := 'hanim_r_carpal_distal_phalanx_2';
 Transform1343 := TTransformNode.Create;
 Transform1343.Translation := Vector3(-8.013,25.85,0.5949);
 Shape1344 := TShapeNode.Create;
@@ -7868,6 +8164,11 @@ Shape1344.Appearance := Appearance1345;
 IndexedFaceSet1348 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1348.SetCoordIndex([0,31,25,-1,24,32,1,-1,1,3,2,-1,2,0,1,-1,31,5,4,-1,4,23,31,-1,0,2,5,-1,5,31,0,-1,23,4,6,-1,6,29,23,-1,32,7,3,-1,3,1,32,-1,29,6,7,-1,7,32,29,-1,2,14,17,-1,17,8,2,-1,5,11,10,-1,10,4,5,-1,2,8,11,-1,11,5,2,-1,10,21,18,-1,18,12,10,-1,7,13,9,-1,9,3,7,-1,6,12,13,-1,13,7,6,-1,8,17,19,-1,19,11,8,-1,19,21,10,-1,10,11,19,-1,25,24,1,-1,1,0,25,-1,14,20,22,-1,22,16,14,-1,15,16,22,-1,22,18,15,-1,3,9,20,-1,20,14,3,-1,14,2,3,-1,4,10,12,-1,12,6,4,-1,21,15,18,-1,14,16,19,-1,19,17,14,-1,19,16,15,-1,15,21,19,-1,9,13,22,-1,22,20,9,-1,22,13,12,-1,12,18,22,-1,25,26,27,-1,27,24,25,-1,23,29,30,-1,30,28,23,-1,28,30,27,-1,27,26,28,-1,25,31,28,-1,28,26,25,-1,32,24,27,-1,27,30,32,-1,30,29,32,-1,23,28,31,-1]);
 IndexedFaceSet1348.CreaseAngle := 3.14159;
+end;
+
+procedure InitJinLOA4Part108;
+begin
+
 IndexedFaceSet1348.SetTexCoordIndex([0,1,2,-1,3,4,5,-1,5,6,7,-1,7,0,5,-1,33,35,9,-1,9,10,33,-1,0,7,8,-1,8,1,0,-1,10,9,11,-1,11,12,10,-1,4,13,6,-1,6,5,4,-1,12,11,36,-1,36,34,12,-1,7,14,15,-1,15,16,7,-1,35,37,18,-1,18,9,35,-1,7,16,17,-1,17,8,7,-1,18,20,21,-1,21,19,18,-1,13,22,23,-1,23,6,13,-1,11,19,38,-1,38,36,11,-1,16,15,24,-1,24,17,16,-1,39,20,18,-1,18,37,39,-1,2,3,5,-1,5,0,2,-1,14,26,27,-1,27,25,14,-1,28,40,41,-1,41,21,28,-1,6,23,26,-1,26,14,6,-1,14,7,6,-1,9,18,19,-1,19,11,9,-1,20,28,21,-1,14,25,24,-1,24,15,14,-1,39,40,28,-1,28,20,39,-1,23,22,27,-1,27,26,23,-1,41,38,19,-1,19,21,41,-1,2,29,30,-1,30,3,2,-1,10,12,43,-1,43,42,10,-1,31,32,30,-1,30,29,31,-1,2,1,31,-1,31,29,2,-1,4,3,30,-1,30,32,4,-1,43,12,34,-1,10,42,33,-1]);
 Coordinate1349 := TCoordinateNode.Create;
 Coordinate1349.SetPoint([Vector3(-0.3152,-0.145,0.2433),Vector3(-0.315,-0.1398,-0.2298),Vector3(-0.2422,-0.5055,0.2184),Vector3(-0.242,-0.5007,-0.2162),Vector3(0.3547,-0.4741,0.238),Vector3(0.0817,-0.4944,0.3202),Vector3(0.3549,-0.4688,-0.2341),Vector3(0.082,-0.4873,-0.3192),Vector3(-0.1332,-0.7789,0.1945),Vector3(-0.1331,-0.7746,-0.1993),Vector3(0.3575,-0.7605,0.19),Vector3(0.1196,-0.7912,0.2759),Vector3(0.3577,-0.7563,-0.187),Vector3(0.1199,-0.785,-0.2787),Vector3(-0.1657,-0.8631,-0.0043),Vector3(0.3212,-0.8627,-0.0041),Vector3(0.1205,-0.9246,-0.0048),Vector3(-0.1615,-0.846,0.1047),Vector3(0.3253,-0.8401,-0.0952),Vector3(0.1076,-0.8953,0.1399),Vector3(-0.1615,-0.845,-0.1068),Vector3(0.3253,-0.8413,0.0926),Vector3(0.1075,-0.8974,-0.1391),Vector3(0.3791,0.003,0.2365),Vector3(-0.339,0.1201,-0.2271),Vector3(-0.3392,0.1148,0.2459),Vector3(-0.1312,0.198,0.2297),Vector3(-0.131,0.2029,-0.2085),Vector3(0.2273,0.2003,0.2299),Vector3(0.3793,0.008,-0.2188),Vector3(0.2274,0.2051,-0.2084),Vector3(0.0363,-0.0157,0.3561),Vector3(0.0366,-0.0081,-0.3256)]);
@@ -7897,14 +8198,11 @@ HAnimJoint1301.AddChildren([HAnimJoint1311]);
 HAnimJoint1251.AddChildren([HAnimJoint1301]);
 HAnimJoint1351 := THAnimJointNode.Create;
 HAnimJoint1351.NameField := 'r_midcarpal_3';
-end;
-
-procedure InitJinLOA4Part102;
-begin
-
+HAnimJoint1351.X3DName := 'hanim_r_midcarpal_3';
 HAnimJoint1351.Center := Vector3(-8.032,31.49,-0.2132);
 HAnimSegment1352 := THAnimSegmentNode.Create;
 HAnimSegment1352.NameField := 'r_capitate';
+HAnimSegment1352.X3DName := 'hanim_r_capitate';
 Transform1353 := TTransformNode.Create;
 Transform1353.Translation := Vector3(-8.032,31.49,-0.2132);
 Shape1354 := TShapeNode.Create;
@@ -7926,6 +8224,11 @@ Coordinate1359 := TCoordinateNode.Create;
 Coordinate1359.SetPoint([Vector3(-0.7943,-1.006,-0.3306),Vector3(0.648,-1.004,-0.3307),Vector3(-0.6905,-0.0005,0.3157),Vector3(-0.7213,0.0186,-0.3382),Vector3(0.5902,0.0185,-0.3369),Vector3(0.6274,-1.001,0.3565),Vector3(0.5973,-0.0004,0.3249),Vector3(-0.7905,-1.001,0.3565),Vector3(0.5435,-1.162,-0.3389),Vector3(0.5303,-1.172,0.3664),Vector3(-0.6431,-1.172,0.3664),Vector3(-0.6456,-1.164,-0.3388),Vector3(0.4499,0.3085,0.3015),Vector3(0.4451,0.3167,-0.2743),Vector3(-0.5697,0.3168,-0.2752),Vector3(-0.5495,0.3084,0.2952),Vector3(0.5852,-0.9387,0.4693),Vector3(0.5221,-0.0739,0.4318),Vector3(-0.6176,-0.0739,0.4231),Vector3(-0.704,-0.9387,0.4698),Vector3(-0.7043,-0.9311,-0.4245),Vector3(-0.6416,-0.0507,-0.4488),Vector3(0.5127,-0.0508,-0.4475),Vector3(0.5993,-0.929,-0.4247)]);
 { .SetCoord }
 IndexedFaceSet1358.Coord := Coordinate1359;
+end;
+
+procedure InitJinLOA4Part109;
+begin
+
 TextureCoordinate1360 := TTextureCoordinateNode.Create;
 TextureCoordinate1360.SetPoint([Vector2(0.9315,0.2698),Vector2(0.8136,0.0488),Vector2(0.7924,0.0507),Vector2(0.7911,0.0281),Vector2(0.8136,0.0488),Vector2(0.813,0.0266),Vector2(0.791,0.0281),Vector2(0.7924,0.0508),Vector2(0.7924,0.0543),Vector2(0.8143,0.0526),Vector2(0.8143,0.0526),Vector2(0.7924,0.0543),Vector2(0.9335,0.2763),Vector2(0.7903,0.0215),Vector2(0.7903,0.0215),Vector2(0.8123,0.0198),Vector2(0.7875,0.03),Vector2(0.7875,0.03),Vector2(0.7887,0.0494),Vector2(0.7887,0.0495),Vector2(0.9277,0.2691),Vector2(0.8167,0.0279),Vector2(0.8173,0.0471),Vector2(0.8173,0.0471),Vector2(0.9273,0.2479),Vector2(0.9479,0.2423),Vector2(0.9531,0.2644),Vector2(0.9318,0.2697),Vector2(0.9473,0.2389),Vector2(0.926,0.2443),Vector2(0.955,0.2707),Vector2(0.9551,0.2707),Vector2(0.9337,0.2763),Vector2(0.9563,0.262),Vector2(0.9518,0.243),Vector2(0.928,0.269),Vector2(0.924,0.2502),Vector2(0.9241,0.2502)]);
 { .SetTexCoord }
@@ -7940,9 +8243,11 @@ HAnimSegment1352.AddChildren([Transform1353]);
 HAnimJoint1351.AddChildren([HAnimSegment1352]);
 HAnimJoint1361 := THAnimJointNode.Create;
 HAnimJoint1361.NameField := 'r_carpometacarpal_3';
+HAnimJoint1361.X3DName := 'hanim_r_carpometacarpal_3';
 HAnimJoint1361.Center := Vector3(-8.032,30.48,-0.2779);
 HAnimSegment1362 := THAnimSegmentNode.Create;
 HAnimSegment1362.NameField := 'r_metacarpal_3';
+HAnimSegment1362.X3DName := 'hanim_r_metacarpal_3';
 Transform1363 := TTransformNode.Create;
 Transform1363.Translation := Vector3(-8.032,30.48,-0.2779);
 Shape1364 := TShapeNode.Create;
@@ -7952,11 +8257,6 @@ Material1366.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance1365.Material := Material1366;
 ImageTexture1367 := ImageTexture37;
-end;
-
-procedure InitJinLOA4Part103;
-begin
-
 { .SetTexture }
 Appearance1365.Texture := ImageTexture1367;
 { .SetAppearance }
@@ -7983,9 +8283,16 @@ HAnimSegment1362.AddChildren([Transform1363]);
 HAnimJoint1361.AddChildren([HAnimSegment1362]);
 HAnimJoint1371 := THAnimJointNode.Create;
 HAnimJoint1371.NameField := 'r_metacarpophalangeal_3';
+end;
+
+procedure InitJinLOA4Part110;
+begin
+
+HAnimJoint1371.X3DName := 'hanim_r_metacarpophalangeal_3';
 HAnimJoint1371.Center := Vector3(-8.147,28.219999,-0.1741);
 HAnimSegment1372 := THAnimSegmentNode.Create;
 HAnimSegment1372.NameField := 'r_carpal_proximal_phalanx_3';
+HAnimSegment1372.X3DName := 'hanim_r_carpal_proximal_phalanx_3';
 Transform1373 := TTransformNode.Create;
 Transform1373.Translation := Vector3(-8.147,28.219999,-0.1741);
 Shape1374 := TShapeNode.Create;
@@ -8009,11 +8316,6 @@ Coordinate1379.SetPoint([Vector3(0.5139,-1.411,-0.2221),Vector3(-0.332,-1.294,-0
 IndexedFaceSet1378.Coord := Coordinate1379;
 TextureCoordinate1380 := TTextureCoordinateNode.Create;
 TextureCoordinate1380.SetPoint([Vector2(0.8168,0.105),Vector2(0.8225,0.0994),Vector2(0.7939,0.1016),Vector2(0.7996,0.1065),Vector2(0.9311,0.1887),Vector2(0.7939,0.1016),Vector2(0.8225,0.0994),Vector2(0.9145,0.1932),Vector2(0.794,0.107),Vector2(0.9232,0.1611),Vector2(0.908,0.1649),Vector2(0.8025,0.1324),Vector2(0.818,0.1313),Vector2(0.7986,0.1359),Vector2(0.7957,0.11),Vector2(0.7939,0.1101),Vector2(0.794,0.107),Vector2(0.8228,0.1342),Vector2(0.8186,0.1401),Vector2(0.819,0.1409),Vector2(0.9081,0.1606),Vector2(0.921,0.1574),Vector2(0.8033,0.1412),Vector2(0.8033,0.142),Vector2(0.8231,0.1042),Vector2(0.8212,0.1078),Vector2(0.8231,0.1042),Vector2(0.8236,0.1075),Vector2(0.7948,0.0956),Vector2(0.8206,0.0932),Vector2(0.8206,0.0932),Vector2(0.7948,0.0956),Vector2(0.8249,0.0987),Vector2(0.8253,0.1032),Vector2(0.8258,0.1063),Vector2(0.8253,0.1032),Vector2(0.8249,0.0987),Vector2(0.823,0.0929),Vector2(0.823,0.0929),Vector2(0.7917,0.1017),Vector2(0.7916,0.1064),Vector2(0.7918,0.1091),Vector2(0.7916,0.1063),Vector2(0.7917,0.1017),Vector2(0.7927,0.0957),Vector2(0.7927,0.0957),Vector2(0.9376,0.1925),Vector2(0.9098,0.1997),Vector2(0.927,0.1595),Vector2(0.9344,0.1846),Vector2(0.9361,0.1842),Vector2(0.9366,0.1872),Vector2(0.9035,0.1654),Vector2(0.9061,0.1582),Vector2(0.9213,0.1544),Vector2(0.9096,0.1911),Vector2(0.9084,0.195),Vector2(0.9074,0.1918)]);
-end;
-
-procedure InitJinLOA4Part104;
-begin
-
 { .SetTexCoord }
 IndexedFaceSet1378.TexCoord := TextureCoordinate1380;
 { .SetGeometry }
@@ -8026,13 +8328,20 @@ HAnimSegment1372.AddChildren([Transform1373]);
 HAnimJoint1371.AddChildren([HAnimSegment1372]);
 HAnimJoint1381 := THAnimJointNode.Create;
 HAnimJoint1381.NameField := 'r_carpal_proximal_interphalangeal_3';
+HAnimJoint1381.X3DName := 'hanim_r_carpal_proximal_interphalangeal_3';
 HAnimJoint1381.Center := Vector3(-8.059,26.809999,-0.1572);
 HAnimSegment1382 := THAnimSegmentNode.Create;
 HAnimSegment1382.NameField := 'r_carpal_middle_phalanx_3';
+HAnimSegment1382.X3DName := 'hanim_r_carpal_middle_phalanx_3';
 Transform1383 := TTransformNode.Create;
 Transform1383.Translation := Vector3(-8.059,26.809999,-0.1572);
 Shape1384 := TShapeNode.Create;
 Appearance1385 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4Part111;
+begin
+
 Material1386 := TMaterialNode.Create;
 Material1386.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -8064,15 +8373,12 @@ HAnimSegment1382.AddChildren([Transform1383]);
 HAnimJoint1381.AddChildren([HAnimSegment1382]);
 HAnimJoint1391 := THAnimJointNode.Create;
 HAnimJoint1391.NameField := 'r_carpal_distal_interphalangeal_3';
+HAnimJoint1391.X3DName := 'hanim_r_carpal_distal_interphalangeal_3';
 HAnimJoint1391.Center := Vector3(-8.013,25.57,-0.1671);
 HAnimSegment1392 := THAnimSegmentNode.Create;
 HAnimSegment1392.NameField := 'r_carpal_distal_phalanx_3';
+HAnimSegment1392.X3DName := 'hanim_r_carpal_distal_phalanx_3';
 Transform1393 := TTransformNode.Create;
-end;
-
-procedure InitJinLOA4Part105;
-begin
-
 Transform1393.Translation := Vector3(-8.013,25.57,-0.1671);
 Shape1394 := TShapeNode.Create;
 Appearance1395 := TAppearanceNode.Create;
@@ -8088,6 +8394,11 @@ Shape1394.Appearance := Appearance1395;
 IndexedFaceSet1398 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1398.SetCoordIndex([0,31,25,-1,24,32,1,-1,1,3,2,-1,2,0,1,-1,31,5,4,-1,4,23,31,-1,0,2,5,-1,5,31,0,-1,23,4,6,-1,6,29,23,-1,32,7,3,-1,3,1,32,-1,29,6,7,-1,7,32,29,-1,2,14,17,-1,17,8,2,-1,5,11,10,-1,10,4,5,-1,2,8,11,-1,11,5,2,-1,10,21,18,-1,18,12,10,-1,7,13,9,-1,9,3,7,-1,6,12,13,-1,13,7,6,-1,8,17,19,-1,19,11,8,-1,19,21,10,-1,10,11,19,-1,25,24,1,-1,1,0,25,-1,14,20,22,-1,22,16,14,-1,15,16,22,-1,22,18,15,-1,3,9,20,-1,20,14,3,-1,14,2,3,-1,4,10,12,-1,12,6,4,-1,21,15,18,-1,14,16,19,-1,19,17,14,-1,19,16,15,-1,15,21,19,-1,9,13,22,-1,22,20,9,-1,22,13,12,-1,12,18,22,-1,25,26,27,-1,27,24,25,-1,23,29,30,-1,30,28,23,-1,28,30,27,-1,27,26,28,-1,25,31,28,-1,28,26,25,-1,32,24,27,-1,27,30,32,-1,30,29,32,-1,23,28,31,-1]);
 IndexedFaceSet1398.CreaseAngle := 3.14159;
+end;
+
+procedure InitJinLOA4Part112;
+begin
+
 IndexedFaceSet1398.SetTexCoordIndex([0,1,2,-1,3,4,5,-1,5,6,7,-1,7,0,5,-1,33,35,9,-1,9,10,33,-1,0,7,8,-1,8,1,0,-1,10,9,11,-1,11,12,10,-1,4,13,6,-1,6,5,4,-1,12,11,36,-1,36,34,12,-1,7,14,15,-1,15,16,7,-1,35,37,18,-1,18,9,35,-1,7,16,17,-1,17,8,7,-1,18,20,21,-1,21,19,18,-1,13,22,23,-1,23,6,13,-1,11,19,38,-1,38,36,11,-1,16,15,24,-1,24,17,16,-1,39,20,18,-1,18,37,39,-1,2,3,5,-1,5,0,2,-1,14,26,27,-1,27,25,14,-1,28,40,41,-1,41,21,28,-1,6,23,26,-1,26,14,6,-1,14,7,6,-1,9,18,19,-1,19,11,9,-1,20,28,21,-1,14,25,24,-1,24,15,14,-1,39,40,28,-1,28,20,39,-1,23,22,27,-1,27,26,23,-1,41,38,19,-1,19,21,41,-1,2,29,30,-1,30,3,2,-1,10,12,43,-1,43,42,10,-1,31,32,30,-1,30,29,31,-1,2,1,31,-1,31,29,2,-1,4,3,30,-1,30,32,4,-1,43,12,34,-1,10,42,33,-1]);
 Coordinate1399 := TCoordinateNode.Create;
 Coordinate1399.SetPoint([Vector3(-0.3088,-0.1396,0.2568),Vector3(-0.309,-0.146,-0.2166),Vector3(-0.2521,-0.4949,0.2523),Vector3(-0.2525,-0.5053,-0.1929),Vector3(0.3444,-0.4714,0.2712),Vector3(0.0718,-0.4844,0.3472),Vector3(0.344,-0.4826,-0.2124),Vector3(0.0712,-0.4992,-0.2979),Vector3(-0.1267,-0.8325,0.2296),Vector3(-0.1271,-0.8423,-0.17),Vector3(0.3449,-0.8222,0.2244),Vector3(0.1082,-0.8209,0.3006),Vector3(0.3446,-0.8316,-0.1582),Vector3(0.1077,-0.8339,-0.24),Vector3(-0.1586,-0.9,0.0299),Vector3(0.3093,-0.9026,0.0297),Vector3(0.1093,-0.9463,0.0305),Vector3(-0.1544,-0.884,0.14),Vector3(0.3132,-0.8892,-0.0631),Vector3(0.0963,-0.9202,0.1766),Vector3(-0.1546,-0.8902,-0.0746),Vector3(0.3134,-0.8839,0.1274),Vector3(0.0959,-0.9309,-0.1063),Vector3(0.3697,0.028,0.2435),Vector3(-0.3484,0.1453,-0.2241),Vector3(-0.3482,0.1516,0.2492),Vector3(-0.1398,0.245,0.2295),Vector3(-0.14,0.2392,-0.2089),Vector3(0.2187,0.2486,0.2292),Vector3(0.3695,0.022,-0.212),Vector3(0.2185,0.2427,-0.2093),Vector3(0.0269,0.0093,0.3642),Vector3(0.0266,0.0001,-0.3179)]);
@@ -8117,9 +8428,11 @@ HAnimJoint1351.AddChildren([HAnimJoint1361]);
 HAnimJoint1251.AddChildren([HAnimJoint1351]);
 HAnimJoint1401 := THAnimJointNode.Create;
 HAnimJoint1401.NameField := 'r_midcarpal_4_5';
+HAnimJoint1401.X3DName := 'hanim_r_midcarpal_4_5';
 HAnimJoint1401.Center := Vector3(-8.032,31.370001,-1.144);
 HAnimSegment1402 := THAnimSegmentNode.Create;
 HAnimSegment1402.NameField := 'r_hamate';
+HAnimSegment1402.X3DName := 'hanim_r_hamate';
 Transform1403 := TTransformNode.Create;
 Transform1403.Translation := Vector3(-8.032,31.370001,-1.144);
 Shape1404 := TShapeNode.Create;
@@ -8128,11 +8441,6 @@ Material1406 := TMaterialNode.Create;
 Material1406.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
 Appearance1405.Material := Material1406;
-end;
-
-procedure InitJinLOA4Part106;
-begin
-
 ImageTexture1407 := ImageTexture37;
 { .SetTexture }
 Appearance1405.Texture := ImageTexture1407;
@@ -8146,6 +8454,11 @@ Coordinate1409 := TCoordinateNode.Create;
 Coordinate1409.SetPoint([Vector3(-0.7573,-0.8348,-0.0837),Vector3(0.4564,-0.7476,-0.5366),Vector3(0.6059,-0.8342,-0.0839),Vector3(-0.0802,-0.7042,-0.6722),Vector3(-0.5794,-0.751,-0.5355),Vector3(0.4299,-0.0336,-0.0706),Vector3(-0.0854,-0.0164,-0.3649),Vector3(-0.6165,-0.0333,-0.0701),Vector3(-0.7213,0.1352,0.5926),Vector3(-0.7943,-0.8895,0.6002),Vector3(0.648,-0.8871,0.6001),Vector3(0.5902,0.1351,0.5939),Vector3(-0.6385,-1.05,0.5965),Vector3(-0.6101,-1.017,-0.0884),Vector3(-0.4568,-0.9463,-0.4747),Vector3(-0.0724,-0.9059,-0.5792),Vector3(0.3357,-0.9442,-0.4714),Vector3(0.4637,-1.017,-0.0877),Vector3(0.5294,-1.048,0.5964),Vector3(0.4096,0.4323,0.6564),Vector3(0.2986,0.2698,-0.012),Vector3(-0.0779,0.2847,-0.2247),Vector3(-0.4802,0.269,-0.0066),Vector3(-0.5535,0.4329,0.6554),Vector3(-0.6285,0.0491,0.6714),Vector3(-0.6895,-0.8073,0.6712),Vector3(0.5838,-0.8052,0.6711),Vector3(0.4997,0.049,0.6726)]);
 { .SetCoord }
 IndexedFaceSet1408.Coord := Coordinate1409;
+end;
+
+procedure InitJinLOA4Part113;
+begin
+
 TextureCoordinate1410 := TTextureCoordinateNode.Create;
 TextureCoordinate1410.SetPoint([Vector2(0.7624,0.0345),Vector2(0.7525,0.0502),Vector2(0.7571,0.0508),Vector2(0.7729,0.0334),Vector2(0.7734,0.0512),Vector2(0.7924,0.0508),Vector2(0.791,0.0281),Vector2(0.9531,0.2644),Vector2(0.9665,0.2386),Vector2(0.9827,0.2362),Vector2(0.9706,0.2558),Vector2(0.9479,0.2423),Vector2(0.7736,0.0553),Vector2(0.7595,0.0549),Vector2(0.7559,0.0544),Vector2(0.7596,0.0549),Vector2(0.7736,0.0553),Vector2(0.7721,0.0268),Vector2(0.7644,0.0276),Vector2(0.7723,0.0268),Vector2(0.7938,0.0298),Vector2(0.795,0.0487),Vector2(0.9457,0.2448),Vector2(0.9501,0.2632),Vector2(0.7926,0.0543),Vector2(0.7926,0.0544),Vector2(0.7903,0.0215),Vector2(0.7903,0.0215),Vector2(0.9803,0.2531),Vector2(0.9874,0.236),Vector2(0.9479,0.2423),Vector2(0.9532,0.2644),Vector2(0.9832,0.2324),Vector2(0.9795,0.2325),Vector2(0.9656,0.2346),Vector2(0.9721,0.2624),Vector2(0.9795,0.2602),Vector2(0.9719,0.2625),Vector2(0.9502,0.2632),Vector2(0.9457,0.2447),Vector2(0.9471,0.2389),Vector2(0.9471,0.2388),Vector2(0.9551,0.2707),Vector2(0.955,0.2707)]);
 { .SetTexCoord }
@@ -8160,9 +8473,11 @@ HAnimSegment1402.AddChildren([Transform1403]);
 HAnimJoint1401.AddChildren([HAnimSegment1402]);
 HAnimJoint1411 := THAnimJointNode.Create;
 HAnimJoint1411.NameField := 'r_carpometacarpal_4';
+HAnimJoint1411.X3DName := 'hanim_r_carpometacarpal_4';
 HAnimJoint1411.Center := Vector3(-8.032,30.5,-0.8853);
 HAnimSegment1412 := THAnimSegmentNode.Create;
 HAnimSegment1412.NameField := 'r_metacarpal_4';
+HAnimSegment1412.X3DName := 'hanim_r_metacarpal_4';
 Transform1413 := TTransformNode.Create;
 Transform1413.Translation := Vector3(-8.032,30.5,-0.8853);
 Shape1414 := TShapeNode.Create;
@@ -8185,11 +8500,6 @@ Coordinate1419.SetPoint([Vector3(-0.6701,-1.109,-0.381),Vector3(0.5002,-1.109,-0
 { .SetCoord }
 IndexedFaceSet1418.Coord := Coordinate1419;
 TextureCoordinate1420 := TTextureCoordinateNode.Create;
-end;
-
-procedure InitJinLOA4Part107;
-begin
-
 TextureCoordinate1420.SetPoint([Vector2(0.7939,0.1016),Vector2(0.7938,0.0824),Vector2(0.7694,0.0827),Vector2(0.766,0.1014),Vector2(0.7924,0.0508),Vector2(0.7734,0.0512),Vector2(0.7938,0.0824),Vector2(0.7939,0.1016),Vector2(0.766,0.1015),Vector2(0.965,0.2069),Vector2(0.7734,0.0512),Vector2(0.7924,0.0507),Vector2(0.7909,0.1057),Vector2(0.7677,0.1056),Vector2(0.7677,0.1057),Vector2(0.7909,0.1057),Vector2(0.9517,0.2441),Vector2(0.7765,0.0488),Vector2(0.7765,0.0488),Vector2(0.789,0.0484),Vector2(0.7643,0.0825),Vector2(0.7643,0.0824),Vector2(0.7614,0.1009),Vector2(0.7614,0.1009),Vector2(0.7991,0.0823),Vector2(0.7971,0.0505),Vector2(0.7971,0.0505),Vector2(0.7991,0.0824),Vector2(0.7688,0.0511),Vector2(0.7688,0.0511),Vector2(0.7994,0.1003),Vector2(0.7994,0.1003),Vector2(0.7625,0.1038),Vector2(0.7625,0.1038),Vector2(0.7972,0.1034),Vector2(0.7972,0.1034),Vector2(0.9479,0.2423),Vector2(0.9665,0.2385),Vector2(0.941,0.2114),Vector2(0.9376,0.1925),Vector2(0.9651,0.1878),Vector2(0.9665,0.2386),Vector2(0.9479,0.2423),Vector2(0.9639,0.2415),Vector2(0.9639,0.2415),Vector2(0.9517,0.244),Vector2(0.9701,0.2063),Vector2(0.9698,0.1875),Vector2(0.9358,0.2124),Vector2(0.9433,0.2434),Vector2(0.9433,0.2434),Vector2(0.9358,0.2123),Vector2(0.9711,0.2379),Vector2(0.9711,0.2379)]);
 { .SetTexCoord }
 IndexedFaceSet1418.TexCoord := TextureCoordinate1420;
@@ -8203,9 +8513,16 @@ HAnimSegment1412.AddChildren([Transform1413]);
 HAnimJoint1411.AddChildren([HAnimSegment1412]);
 HAnimJoint1421 := THAnimJointNode.Create;
 HAnimJoint1421.NameField := 'r_metacarpophalangeal_4';
+end;
+
+procedure InitJinLOA4Part114;
+begin
+
+HAnimJoint1421.X3DName := 'hanim_r_metacarpophalangeal_4';
 HAnimJoint1421.Center := Vector3(-8.147,28.18,-0.9529);
 HAnimSegment1422 := THAnimSegmentNode.Create;
 HAnimSegment1422.NameField := 'r_carpal_proximal_phalanx_4';
+HAnimSegment1422.X3DName := 'hanim_r_carpal_proximal_phalanx_4';
 Transform1423 := TTransformNode.Create;
 Transform1423.Translation := Vector3(-8.147,28.18,-0.9529);
 Shape1424 := TShapeNode.Create;
@@ -8241,18 +8558,20 @@ HAnimSegment1422.AddChildren([Transform1423]);
 HAnimJoint1421.AddChildren([HAnimSegment1422]);
 HAnimJoint1431 := THAnimJointNode.Create;
 HAnimJoint1431.NameField := 'r_carpal_proximal_interphalangeal_4';
+HAnimJoint1431.X3DName := 'hanim_r_carpal_proximal_interphalangeal_4';
 HAnimJoint1431.Center := Vector3(-8.059,26.959999,-0.9176);
 HAnimSegment1432 := THAnimSegmentNode.Create;
 HAnimSegment1432.NameField := 'r_carpal_middle_phalanx_4';
-end;
-
-procedure InitJinLOA4Part108;
-begin
-
+HAnimSegment1432.X3DName := 'hanim_r_carpal_middle_phalanx_4';
 Transform1433 := TTransformNode.Create;
 Transform1433.Translation := Vector3(-8.059,26.959999,-0.9176);
 Shape1434 := TShapeNode.Create;
 Appearance1435 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4Part115;
+begin
+
 Material1436 := TMaterialNode.Create;
 Material1436.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -8284,9 +8603,11 @@ HAnimSegment1432.AddChildren([Transform1433]);
 HAnimJoint1431.AddChildren([HAnimSegment1432]);
 HAnimJoint1441 := THAnimJointNode.Create;
 HAnimJoint1441.NameField := 'r_carpal_distal_interphalangeal_4';
+HAnimJoint1441.X3DName := 'hanim_r_carpal_distal_interphalangeal_4';
 HAnimJoint1441.Center := Vector3(-8.013,25.809999,-0.879);
 HAnimSegment1442 := THAnimSegmentNode.Create;
 HAnimSegment1442.NameField := 'r_carpal_distal_phalanx_4';
+HAnimSegment1442.X3DName := 'hanim_r_carpal_distal_phalanx_4';
 Transform1443 := TTransformNode.Create;
 Transform1443.Translation := Vector3(-8.013,25.809999,-0.879);
 Shape1444 := TShapeNode.Create;
@@ -8301,13 +8622,13 @@ Appearance1445.Texture := ImageTexture1447;
 { .SetAppearance }
 Shape1444.Appearance := Appearance1445;
 IndexedFaceSet1448 := TIndexedFaceSetNode.Create;
-end;
-
-procedure InitJinLOA4Part109;
-begin
-
 IndexedFaceSet1448.SetCoordIndex([0,31,25,-1,24,32,1,-1,1,3,2,-1,2,0,1,-1,31,5,4,-1,4,23,31,-1,0,2,5,-1,5,31,0,-1,23,4,6,-1,6,29,23,-1,32,7,3,-1,3,1,32,-1,29,6,7,-1,7,32,29,-1,2,14,17,-1,17,8,2,-1,5,11,10,-1,10,4,5,-1,2,8,11,-1,11,5,2,-1,10,21,18,-1,18,12,10,-1,7,13,9,-1,9,3,7,-1,6,12,13,-1,13,7,6,-1,8,17,19,-1,19,11,8,-1,19,21,10,-1,10,11,19,-1,25,24,1,-1,1,0,25,-1,14,20,22,-1,22,16,14,-1,15,16,22,-1,22,18,15,-1,3,9,20,-1,20,14,3,-1,14,2,3,-1,4,10,12,-1,12,6,4,-1,21,15,18,-1,14,16,19,-1,19,17,14,-1,19,16,15,-1,15,21,19,-1,9,13,22,-1,22,20,9,-1,22,13,12,-1,12,18,22,-1,25,26,27,-1,27,24,25,-1,23,29,30,-1,30,28,23,-1,28,30,27,-1,27,26,28,-1,25,31,28,-1,28,26,25,-1,32,24,27,-1,27,30,32,-1,30,29,32,-1,23,28,31,-1]);
 IndexedFaceSet1448.CreaseAngle := 3.14159;
+end;
+
+procedure InitJinLOA4Part116;
+begin
+
 IndexedFaceSet1448.SetTexCoordIndex([0,1,2,-1,3,4,5,-1,5,6,7,-1,7,0,5,-1,33,35,9,-1,9,10,33,-1,0,7,8,-1,8,1,0,-1,10,9,11,-1,11,12,10,-1,4,13,6,-1,6,5,4,-1,12,11,36,-1,36,34,12,-1,7,14,15,-1,15,16,7,-1,35,37,18,-1,18,9,35,-1,7,16,17,-1,17,8,7,-1,18,20,21,-1,21,19,18,-1,13,22,23,-1,23,6,13,-1,11,19,38,-1,38,36,11,-1,16,15,24,-1,24,17,16,-1,39,20,18,-1,18,37,39,-1,2,3,5,-1,5,0,2,-1,14,26,27,-1,27,25,14,-1,28,40,41,-1,41,21,28,-1,6,23,26,-1,26,14,6,-1,14,7,6,-1,9,18,19,-1,19,11,9,-1,20,28,21,-1,14,25,24,-1,24,15,14,-1,39,40,28,-1,28,20,39,-1,23,22,27,-1,27,26,23,-1,41,38,19,-1,19,21,41,-1,2,29,30,-1,30,3,2,-1,10,12,43,-1,43,42,10,-1,31,32,30,-1,30,29,31,-1,2,1,31,-1,31,29,2,-1,4,3,30,-1,30,32,4,-1,43,12,34,-1,10,42,33,-1]);
 Coordinate1449 := TCoordinateNode.Create;
 Coordinate1449.SetPoint([Vector3(-0.3166,-0.1433,0.2079),Vector3(-0.3169,-0.1519,-0.2403),Vector3(-0.2442,-0.5193,0.1944),Vector3(-0.2444,-0.5269,-0.2171),Vector3(0.3527,-0.4861,0.211),Vector3(0.0799,-0.5048,0.29),Vector3(0.3524,-0.4944,-0.236),Vector3(0.0795,-0.516,-0.3155),Vector3(-0.1361,-0.8158,0.1702),Vector3(-0.1363,-0.8223,-0.1824),Vector3(0.3546,-0.7984,0.165),Vector3(0.1169,-0.8256,0.2434),Vector3(0.3544,-0.8046,-0.1727),Vector3(0.1165,-0.8348,-0.2533),Vector3(-0.1687,-0.903,-0.0042),Vector3(0.3182,-0.9029,-0.0045),Vector3(0.1176,-0.9628,-0.0024),Vector3(-0.1644,-0.8834,0.0927),Vector3(0.3222,-0.8834,-0.0869),Vector3(0.1048,-0.9305,0.1259),Vector3(-0.1646,-0.8882,-0.0967),Vector3(0.3224,-0.8794,0.0812),Vector3(0.1044,-0.9401,-0.1237),Vector3(0.3778,0.0076,0.1944),Vector3(-0.3408,0.113,-0.2488),Vector3(-0.3405,0.1215,0.1993),Vector3(-0.1324,0.2059,0.1802),Vector3(-0.1327,0.198,-0.2349),Vector3(0.2261,0.2084,0.1799),Vector3(0.3775,-0.0006,-0.2368),Vector3(0.2258,0.2005,-0.2353),Vector3(0.0351,-0.0081,0.3088),Vector3(0.0347,-0.0204,-0.3369)]);
@@ -8337,9 +8658,11 @@ HAnimJoint1401.AddChildren([HAnimJoint1411]);
 HAnimJoint1251.AddChildren([HAnimJoint1401]);
 HAnimJoint1451 := THAnimJointNode.Create;
 HAnimJoint1451.NameField := 'r_carpometacarpal_5';
+HAnimJoint1451.X3DName := 'hanim_r_carpometacarpal_5';
 HAnimJoint1451.Center := Vector3(-8.056,30.59,-1.457);
 HAnimSegment1452 := THAnimSegmentNode.Create;
 HAnimSegment1452.NameField := 'r_metacarpal_5';
+HAnimSegment1452.X3DName := 'hanim_r_metacarpal_5';
 Transform1453 := TTransformNode.Create;
 Transform1453.Translation := Vector3(-8.056,30.59,-1.457);
 Shape1454 := TShapeNode.Create;
@@ -8363,7 +8686,7 @@ Coordinate1459.SetPoint([Vector3(-0.5437,-1.115,-0.3876),Vector3(0.4574,-1.115,-
 IndexedFaceSet1458.Coord := Coordinate1459;
 end;
 
-procedure InitJinLOA4Part110;
+procedure InitJinLOA4Part117;
 begin
 
 TextureCoordinate1460 := TTextureCoordinateNode.Create;
@@ -8380,9 +8703,11 @@ HAnimSegment1452.AddChildren([Transform1453]);
 HAnimJoint1451.AddChildren([HAnimSegment1452]);
 HAnimJoint1461 := THAnimJointNode.Create;
 HAnimJoint1461.NameField := 'r_metacarpophalangeal_5';
+HAnimJoint1461.X3DName := 'hanim_r_metacarpophalangeal_5';
 HAnimJoint1461.Center := Vector3(-8.132,28.360001,-1.647);
 HAnimSegment1462 := THAnimSegmentNode.Create;
 HAnimSegment1462.NameField := 'r_carpal_proximal_phalanx_5';
+HAnimSegment1462.X3DName := 'hanim_r_carpal_proximal_phalanx_5';
 Transform1463 := TTransformNode.Create;
 Transform1463.Translation := Vector3(-8.132,28.360001,-1.647);
 Shape1464 := TShapeNode.Create;
@@ -8418,14 +8743,16 @@ HAnimSegment1462.AddChildren([Transform1463]);
 HAnimJoint1461.AddChildren([HAnimSegment1462]);
 HAnimJoint1471 := THAnimJointNode.Create;
 HAnimJoint1471.NameField := 'r_carpal_proximal_interphalangeal_5';
-HAnimJoint1471.Center := Vector3(-8.058,27.6,-1.651);
-HAnimSegment1472 := THAnimSegmentNode.Create;
 end;
 
-procedure InitJinLOA4Part111;
+procedure InitJinLOA4Part118;
 begin
 
+HAnimJoint1471.X3DName := 'hanim_r_carpal_proximal_interphalangeal_5';
+HAnimJoint1471.Center := Vector3(-8.058,27.6,-1.651);
+HAnimSegment1472 := THAnimSegmentNode.Create;
 HAnimSegment1472.NameField := 'r_carpal_middle_phalanx_5';
+HAnimSegment1472.X3DName := 'hanim_r_carpal_middle_phalanx_5';
 Transform1473 := TTransformNode.Create;
 Transform1473.Translation := Vector3(-8.058,27.6,-1.651);
 Shape1474 := TShapeNode.Create;
@@ -8461,13 +8788,20 @@ HAnimSegment1472.AddChildren([Transform1473]);
 HAnimJoint1471.AddChildren([HAnimSegment1472]);
 HAnimJoint1481 := THAnimJointNode.Create;
 HAnimJoint1481.NameField := 'r_carpal_distal_interphalangeal_5';
+HAnimJoint1481.X3DName := 'hanim_r_carpal_distal_interphalangeal_5';
 HAnimJoint1481.Center := Vector3(-8.02,26.77,-1.643);
 HAnimSegment1482 := THAnimSegmentNode.Create;
 HAnimSegment1482.NameField := 'r_carpal_distal_phalanx_5';
+HAnimSegment1482.X3DName := 'hanim_r_carpal_distal_phalanx_5';
 Transform1483 := TTransformNode.Create;
 Transform1483.Translation := Vector3(-8.02,26.77,-1.643);
 Shape1484 := TShapeNode.Create;
 Appearance1485 := TAppearanceNode.Create;
+end;
+
+procedure InitJinLOA4Part119;
+begin
+
 Material1486 := TMaterialNode.Create;
 Material1486.DiffuseColor := Vector3(0.588,0.588,0.588);
 { .SetMaterial }
@@ -8477,11 +8811,6 @@ ImageTexture1487 := ImageTexture37;
 Appearance1485.Texture := ImageTexture1487;
 { .SetAppearance }
 Shape1484.Appearance := Appearance1485;
-end;
-
-procedure InitJinLOA4Part112;
-begin
-
 IndexedFaceSet1488 := TIndexedFaceSetNode.Create;
 IndexedFaceSet1488.SetCoordIndex([0,31,25,-1,24,32,1,-1,1,3,2,-1,2,0,1,-1,31,5,4,-1,4,23,31,-1,0,2,5,-1,5,31,0,-1,23,4,6,-1,6,29,23,-1,32,7,3,-1,3,1,32,-1,29,6,7,-1,7,32,29,-1,2,14,17,-1,17,8,2,-1,5,11,10,-1,10,4,5,-1,2,8,11,-1,11,5,2,-1,10,21,18,-1,18,12,10,-1,7,13,9,-1,9,3,7,-1,6,12,13,-1,13,7,6,-1,8,17,19,-1,19,11,8,-1,19,21,10,-1,10,11,19,-1,25,24,1,-1,1,0,25,-1,14,20,22,-1,22,16,14,-1,15,16,22,-1,22,18,15,-1,3,9,20,-1,20,14,3,-1,14,2,3,-1,4,10,12,-1,12,6,4,-1,21,15,18,-1,14,16,19,-1,19,17,14,-1,19,16,15,-1,15,21,19,-1,9,13,22,-1,22,20,9,-1,22,13,12,-1,12,18,22,-1,25,26,27,-1,27,24,25,-1,23,29,30,-1,30,28,23,-1,28,30,27,-1,27,26,28,-1,25,31,28,-1,28,26,25,-1,32,24,27,-1,27,30,32,-1,30,29,32,-1,23,28,31,-1]);
 IndexedFaceSet1488.CreaseAngle := 3.14159;
@@ -8542,6 +8871,11 @@ HAnimJoint681.AddChildren([HAnimJoint691]);
 HAnimJoint671.AddChildren([HAnimJoint681]);
 { .AddChildren }
 HAnimJoint661.AddChildren([HAnimJoint671]);
+end;
+
+procedure InitJinLOA4Part120;
+begin
+
 { .AddChildren }
 HAnimJoint651.AddChildren([HAnimJoint661]);
 { .AddChildren }
@@ -8554,11 +8888,6 @@ HAnimJoint621.AddChildren([HAnimJoint631]);
 HAnimJoint611.AddChildren([HAnimJoint621]);
 { .AddChildren }
 HAnimJoint41.AddChildren([HAnimJoint611]);
-end;
-
-procedure InitJinLOA4Part113;
-begin
-
 { .AddChildren }
 HAnimJoint31.AddChildren([HAnimJoint41]);
 { .AddSkeleton }
@@ -8611,6 +8940,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1505);
 HAnimJoint1506 := HAnimJoint741;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1506);
+end;
+
+procedure InitJinLOA4Part121;
+begin
+
 HAnimJoint1507 := HAnimJoint751;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1507);
@@ -8620,11 +8954,6 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1508);
 HAnimJoint1509 := HAnimJoint771;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1509);
-end;
-
-procedure InitJinLOA4Part114;
-begin
-
 HAnimJoint1510 := HAnimJoint781;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1510);
@@ -8676,6 +9005,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1525);
 HAnimJoint1526 := HAnimJoint1391;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1526);
+end;
+
+procedure InitJinLOA4Part122;
+begin
+
 HAnimJoint1527 := HAnimJoint1161;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1527);
@@ -8685,11 +9019,6 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1528);
 HAnimJoint1529 := HAnimJoint1201;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1529);
-end;
-
-procedure InitJinLOA4Part115;
-begin
-
 HAnimJoint1530 := HAnimJoint1481;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1530);
@@ -8741,6 +9070,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1545);
 HAnimJoint1546 := HAnimJoint1361;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1546);
+end;
+
+procedure InitJinLOA4Part123;
+begin
+
 HAnimJoint1547 := HAnimJoint1131;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1547);
@@ -8750,11 +9084,6 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1548);
 HAnimJoint1549 := HAnimJoint1171;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1549);
-end;
-
-procedure InitJinLOA4Part116;
-begin
-
 HAnimJoint1550 := HAnimJoint1451;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1550);
@@ -8806,6 +9135,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1565);
 HAnimJoint1566 := HAnimJoint331;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1566);
+end;
+
+procedure InitJinLOA4Part124;
+begin
+
 HAnimJoint1567 := HAnimJoint61;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1567);
@@ -8815,11 +9149,6 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1568);
 HAnimJoint1569 := HAnimJoint1001;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1569);
-end;
-
-procedure InitJinLOA4Part117;
-begin
-
 HAnimJoint1570 := HAnimJoint1281;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1570);
@@ -8871,6 +9200,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1585);
 HAnimJoint1586 := HAnimJoint541;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1586);
+end;
+
+procedure InitJinLOA4Part125;
+begin
+
 HAnimJoint1587 := HAnimJoint301;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1587);
@@ -8880,11 +9214,6 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1588);
 HAnimJoint1589 := HAnimJoint981;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1589);
-end;
-
-procedure InitJinLOA4Part118;
-begin
-
 HAnimJoint1590 := HAnimJoint1261;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1590);
@@ -8936,6 +9265,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1605);
 HAnimJoint1606 := HAnimJoint351;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1606);
+end;
+
+procedure InitJinLOA4Part126;
+begin
+
 HAnimJoint1607 := HAnimJoint121;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1607);
@@ -8945,11 +9279,6 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1608);
 HAnimJoint1609 := HAnimJoint171;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1609);
-end;
-
-procedure InitJinLOA4Part119;
-begin
-
 HAnimJoint1610 := HAnimJoint451;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1610);
@@ -9001,6 +9330,11 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1625);
 HAnimJoint1626 := HAnimJoint381;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1626);
+end;
+
+procedure InitJinLOA4Part127;
+begin
+
 HAnimJoint1627 := HAnimJoint141;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1627);
@@ -9010,11 +9344,6 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1628);
 HAnimJoint1629 := HAnimJoint191;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1629);
-end;
-
-procedure InitJinLOA4Part120;
-begin
-
 HAnimJoint1630 := HAnimJoint471;
 { .FdJoints.Add }
 HAnimHumanoid23.FdJoints.Add(HAnimJoint1630);
@@ -9039,494 +9368,594 @@ HAnimHumanoid23.FdJoints.Add(HAnimJoint1636);
 { .AddChildren }
 Group19.AddChildren([HAnimHumanoid23]);
 Group1637 := TGroupNode.Create;
+Group1637.X3DName := 'StopAnimation';
 TimeSensor1638 := TTimeSensorNode.Create;
+TimeSensor1638.X3DName := 'StopTimer';
 TimeSensor1638.CycleInterval := 5.73;
 TimeSensor1638.Loop := True;
 { .AddChildren }
 Group1637.AddChildren([TimeSensor1638]);
 PositionInterpolator1639 := TPositionInterpolatorNode.Create;
+PositionInterpolator1639.X3DName := 'Stop_humanoid_root_TranslationInterpolator';
 PositionInterpolator1639.SetKey([0,0.5,1]);
 PositionInterpolator1639.SetKeyValue([Vector3(0,0,0),Vector3(0,0,0),Vector3(0,0,0)]);
 { .AddChildren }
 Group1637.AddChildren([PositionInterpolator1639]);
 OrientationInterpolator1640 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1640.X3DName := 'Stop_humanoid_root_RotationInterpolator';
 OrientationInterpolator1640.SetKey([0,0.5,1]);
 OrientationInterpolator1640.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1640]);
 OrientationInterpolator1641 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1641.X3DName := 'Stop_sacroiliac_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part128;
+begin
+
 OrientationInterpolator1641.SetKey([0,0.5,1]);
 OrientationInterpolator1641.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1641]);
 OrientationInterpolator1642 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1642.X3DName := 'Stop_l_hip_RotationInterpolator';
 OrientationInterpolator1642.SetKey([0,0.5,1]);
 OrientationInterpolator1642.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1642]);
 OrientationInterpolator1643 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1643.X3DName := 'Stop_l_knee_RotationInterpolator';
 OrientationInterpolator1643.SetKey([0,0.5,1]);
 OrientationInterpolator1643.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1643]);
-end;
-
-procedure InitJinLOA4Part121;
-begin
-
 OrientationInterpolator1644 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1644.X3DName := 'Stop_l_talocrural_RotationInterpolator';
 OrientationInterpolator1644.SetKey([0,0.5,1]);
 OrientationInterpolator1644.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1644]);
 OrientationInterpolator1645 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1645.X3DName := 'Stop_l_subtalar_RotationInterpolator';
 OrientationInterpolator1645.SetKey([0,0.5,1]);
 OrientationInterpolator1645.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1645]);
 { <OrientationInterpolator DEF='Stop_l_midtarsal_RotationInterpolator' key='0 0.5 1' keyValue=' 0 0 1 0 0 0 1 0 0 0 1 0'/> }
 OrientationInterpolator1646 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1646.X3DName := 'Stop_l_metatarsal_RotationInterpolator';
 OrientationInterpolator1646.SetKey([0,0.5,1]);
 OrientationInterpolator1646.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1646]);
 OrientationInterpolator1647 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1647.X3DName := 'Stop_r_hip_RotationInterpolator';
 OrientationInterpolator1647.SetKey([0,0.5,1]);
 OrientationInterpolator1647.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1647]);
 OrientationInterpolator1648 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1648.X3DName := 'Stop_r_knee_RotationInterpolator';
 OrientationInterpolator1648.SetKey([0,0.5,1]);
 OrientationInterpolator1648.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1648]);
 OrientationInterpolator1649 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1649.X3DName := 'Stop_r_talocrural_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part129;
+begin
+
 OrientationInterpolator1649.SetKey([0,0.5,1]);
 OrientationInterpolator1649.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1649]);
 OrientationInterpolator1650 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1650.X3DName := 'Stop_r_subtalar_RotationInterpolator';
 OrientationInterpolator1650.SetKey([0,0.5,1]);
 OrientationInterpolator1650.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1650]);
 { <OrientationInterpolator DEF='Stop_r_midtarsal_RotationInterpolator' key='0 0.5 1' keyValue=' 0 0 1 0 0 0 1 0 0 0 1 0'/> }
 OrientationInterpolator1651 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1651.X3DName := 'Stop_r_metatarsal_RotationInterpolator';
 OrientationInterpolator1651.SetKey([0,0.5,1]);
 OrientationInterpolator1651.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1651]);
 OrientationInterpolator1652 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1652.X3DName := 'Stop_vl5_RotationInterpolator';
 OrientationInterpolator1652.SetKey([0,0.5,1]);
 OrientationInterpolator1652.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1652]);
 OrientationInterpolator1653 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1653.X3DName := 'Stop_vl4_RotationInterpolator';
 OrientationInterpolator1653.SetKey([0,0.5,1]);
 OrientationInterpolator1653.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1653]);
-end;
-
-procedure InitJinLOA4Part122;
-begin
-
 OrientationInterpolator1654 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1654.X3DName := 'Stop_vl3_RotationInterpolator';
 OrientationInterpolator1654.SetKey([0,0.5,1]);
 OrientationInterpolator1654.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1654]);
 OrientationInterpolator1655 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1655.X3DName := 'Stop_vl2_RotationInterpolator';
 OrientationInterpolator1655.SetKey([0,0.5,1]);
 OrientationInterpolator1655.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1655]);
 OrientationInterpolator1656 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1656.X3DName := 'Stop_vl1_RotationInterpolator';
 OrientationInterpolator1656.SetKey([0,0.5,1]);
 OrientationInterpolator1656.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1656]);
 OrientationInterpolator1657 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1657.X3DName := 'Stop_vt12_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part130;
+begin
+
 OrientationInterpolator1657.SetKey([0,0.5,1]);
 OrientationInterpolator1657.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1657]);
 OrientationInterpolator1658 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1658.X3DName := 'Stop_vt11_RotationInterpolator';
 OrientationInterpolator1658.SetKey([0,0.5,1]);
 OrientationInterpolator1658.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1658]);
 OrientationInterpolator1659 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1659.X3DName := 'Stop_vt10_RotationInterpolator';
 OrientationInterpolator1659.SetKey([0,0.5,1]);
 OrientationInterpolator1659.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1659]);
 OrientationInterpolator1660 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1660.X3DName := 'Stop_vt9_RotationInterpolator';
 OrientationInterpolator1660.SetKey([0,0.5,1]);
 OrientationInterpolator1660.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1660]);
 OrientationInterpolator1661 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1661.X3DName := 'Stop_vt8_RotationInterpolator';
 OrientationInterpolator1661.SetKey([0,0.5,1]);
 OrientationInterpolator1661.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1661]);
 OrientationInterpolator1662 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1662.X3DName := 'Stop_vt7_RotationInterpolator';
 OrientationInterpolator1662.SetKey([0,0.5,1]);
 OrientationInterpolator1662.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1662]);
 OrientationInterpolator1663 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1663.X3DName := 'Stop_vt6_RotationInterpolator';
 OrientationInterpolator1663.SetKey([0,0.5,1]);
 OrientationInterpolator1663.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1663]);
-end;
-
-procedure InitJinLOA4Part123;
-begin
-
 OrientationInterpolator1664 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1664.X3DName := 'Stop_vt5_RotationInterpolator';
 OrientationInterpolator1664.SetKey([0,0.5,1]);
 OrientationInterpolator1664.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1664]);
 OrientationInterpolator1665 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1665.X3DName := 'Stop_vt4_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part131;
+begin
+
 OrientationInterpolator1665.SetKey([0,0.5,1]);
 OrientationInterpolator1665.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1665]);
 OrientationInterpolator1666 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1666.X3DName := 'Stop_vt3_RotationInterpolator';
 OrientationInterpolator1666.SetKey([0,0.5,1]);
 OrientationInterpolator1666.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1666]);
 OrientationInterpolator1667 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1667.X3DName := 'Stop_vt2_RotationInterpolator';
 OrientationInterpolator1667.SetKey([0,0.5,1]);
 OrientationInterpolator1667.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1667]);
 OrientationInterpolator1668 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1668.X3DName := 'Stop_vt1_RotationInterpolator';
 OrientationInterpolator1668.SetKey([0,0.5,1]);
 OrientationInterpolator1668.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1668]);
 OrientationInterpolator1669 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1669.X3DName := 'Stop_vc7_RotationInterpolator';
 OrientationInterpolator1669.SetKey([0,0.5,1]);
 OrientationInterpolator1669.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1669]);
 OrientationInterpolator1670 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1670.X3DName := 'Stop_vc6_RotationInterpolator';
 OrientationInterpolator1670.SetKey([0,0.5,1]);
 OrientationInterpolator1670.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1670]);
 OrientationInterpolator1671 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1671.X3DName := 'Stop_vc5_RotationInterpolator';
 OrientationInterpolator1671.SetKey([0,0.5,1]);
 OrientationInterpolator1671.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1671]);
 OrientationInterpolator1672 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1672.X3DName := 'Stop_vc4_RotationInterpolator';
 OrientationInterpolator1672.SetKey([0,0.5,1]);
 OrientationInterpolator1672.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1672]);
 OrientationInterpolator1673 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1673.X3DName := 'Stop_vc3_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part132;
+begin
+
 OrientationInterpolator1673.SetKey([0,0.5,1]);
 OrientationInterpolator1673.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1673]);
-end;
-
-procedure InitJinLOA4Part124;
-begin
-
 OrientationInterpolator1674 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1674.X3DName := 'Stop_vc2_RotationInterpolator';
 OrientationInterpolator1674.SetKey([0,0.5,1]);
 OrientationInterpolator1674.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1674]);
 OrientationInterpolator1675 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1675.X3DName := 'Stop_vc1_RotationInterpolator';
 OrientationInterpolator1675.SetKey([0,0.5,1]);
 OrientationInterpolator1675.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1675]);
 OrientationInterpolator1676 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1676.X3DName := 'Stop_skullbase_RotationInterpolator';
 OrientationInterpolator1676.SetKey([0,0.5,1]);
 OrientationInterpolator1676.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1676]);
 OrientationInterpolator1677 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1677.X3DName := 'Stop_l_eyeball_joint_RotationInterpolator';
 OrientationInterpolator1677.SetKey([0,0.5,1]);
 OrientationInterpolator1677.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1677]);
 OrientationInterpolator1678 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1678.X3DName := 'Stop_r_eyeball_joint_RotationInterpolator';
 OrientationInterpolator1678.SetKey([0,0.5,1]);
 OrientationInterpolator1678.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1678]);
 OrientationInterpolator1679 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1679.X3DName := 'Stop_l_sternoclavicular_RotationInterpolator';
 OrientationInterpolator1679.SetKey([0,0.5,1]);
 OrientationInterpolator1679.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1679]);
 OrientationInterpolator1680 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1680.X3DName := 'Stop_l_acromioclavicular_RotationInterpolator';
 OrientationInterpolator1680.SetKey([0,0.5,1]);
 OrientationInterpolator1680.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1680]);
 OrientationInterpolator1681 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1681.X3DName := 'Stop_l_shoulder_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part133;
+begin
+
 OrientationInterpolator1681.SetKey([0,0.5,1]);
 OrientationInterpolator1681.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1681]);
 OrientationInterpolator1682 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1682.X3DName := 'Stop_l_elbow_RotationInterpolator';
 OrientationInterpolator1682.SetKey([0,0.5,1]);
 OrientationInterpolator1682.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1682]);
 OrientationInterpolator1683 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1683.X3DName := 'Stop_l_radiocarpal_RotationInterpolator';
 OrientationInterpolator1683.SetKey([0,0.5,1]);
 OrientationInterpolator1683.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1683]);
-end;
-
-procedure InitJinLOA4Part125;
-begin
-
 OrientationInterpolator1684 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1684.X3DName := 'Stop_l_thumb1_RotationInterpolator';
 OrientationInterpolator1684.SetKey([0,0.5,1]);
 OrientationInterpolator1684.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1684]);
 OrientationInterpolator1685 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1685.X3DName := 'Stop_l_thumb2_RotationInterpolator';
 OrientationInterpolator1685.SetKey([0,0.5,1]);
 OrientationInterpolator1685.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1685]);
 OrientationInterpolator1686 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1686.X3DName := 'Stop_l_thumb3_RotationInterpolator';
 OrientationInterpolator1686.SetKey([0,0.5,1]);
 OrientationInterpolator1686.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1686]);
 OrientationInterpolator1687 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1687.X3DName := 'Stop_l_index0_RotationInterpolator';
 OrientationInterpolator1687.SetKey([0,0.5,1]);
 OrientationInterpolator1687.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1687]);
 OrientationInterpolator1688 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1688.X3DName := 'Stop_l_index1_RotationInterpolator';
 OrientationInterpolator1688.SetKey([0,0.5,1]);
 OrientationInterpolator1688.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1688]);
 OrientationInterpolator1689 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1689.X3DName := 'Stop_l_index2_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part134;
+begin
+
 OrientationInterpolator1689.SetKey([0,0.5,1]);
 OrientationInterpolator1689.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1689]);
 OrientationInterpolator1690 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1690.X3DName := 'Stop_l_index3_RotationInterpolator';
 OrientationInterpolator1690.SetKey([0,0.5,1]);
 OrientationInterpolator1690.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1690]);
 OrientationInterpolator1691 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1691.X3DName := 'Stop_l_middle0_RotationInterpolator';
 OrientationInterpolator1691.SetKey([0,0.5,1]);
 OrientationInterpolator1691.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1691]);
 OrientationInterpolator1692 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1692.X3DName := 'Stop_l_middle1_RotationInterpolator';
 OrientationInterpolator1692.SetKey([0,0.5,1]);
 OrientationInterpolator1692.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1692]);
 OrientationInterpolator1693 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1693.X3DName := 'Stop_l_middle2_RotationInterpolator';
 OrientationInterpolator1693.SetKey([0,0.5,1]);
 OrientationInterpolator1693.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1693]);
-end;
-
-procedure InitJinLOA4Part126;
-begin
-
 OrientationInterpolator1694 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1694.X3DName := 'Stop_l_middle3_RotationInterpolator';
 OrientationInterpolator1694.SetKey([0,0.5,1]);
 OrientationInterpolator1694.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1694]);
 OrientationInterpolator1695 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1695.X3DName := 'Stop_l_ring0_RotationInterpolator';
 OrientationInterpolator1695.SetKey([0,0.5,1]);
 OrientationInterpolator1695.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1695]);
 OrientationInterpolator1696 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1696.X3DName := 'Stop_l_ring1_RotationInterpolator';
 OrientationInterpolator1696.SetKey([0,0.5,1]);
 OrientationInterpolator1696.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1696]);
 OrientationInterpolator1697 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1697.X3DName := 'Stop_l_ring2_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part135;
+begin
+
 OrientationInterpolator1697.SetKey([0,0.5,1]);
 OrientationInterpolator1697.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1697]);
 OrientationInterpolator1698 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1698.X3DName := 'Stop_l_ring3_RotationInterpolator';
 OrientationInterpolator1698.SetKey([0,0.5,1]);
 OrientationInterpolator1698.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1698]);
 OrientationInterpolator1699 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1699.X3DName := 'Stop_l_pinky0_RotationInterpolator';
 OrientationInterpolator1699.SetKey([0,0.5,1]);
 OrientationInterpolator1699.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1699]);
 OrientationInterpolator1700 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1700.X3DName := 'Stop_l_pinky1_RotationInterpolator';
 OrientationInterpolator1700.SetKey([0,0.5,1]);
 OrientationInterpolator1700.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1700]);
 OrientationInterpolator1701 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1701.X3DName := 'Stop_l_pinky2_RotationInterpolator';
 OrientationInterpolator1701.SetKey([0,0.5,1]);
 OrientationInterpolator1701.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1701]);
 OrientationInterpolator1702 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1702.X3DName := 'Stop_l_pinky3_RotationInterpolator';
 OrientationInterpolator1702.SetKey([0,0.5,1]);
 OrientationInterpolator1702.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1702]);
 OrientationInterpolator1703 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1703.X3DName := 'Stop_r_sternoclavicular_RotationInterpolator';
 OrientationInterpolator1703.SetKey([0,0.5,1]);
 OrientationInterpolator1703.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1703]);
-end;
-
-procedure InitJinLOA4Part127;
-begin
-
 OrientationInterpolator1704 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1704.X3DName := 'Stop_r_acromioclavicular_RotationInterpolator';
 OrientationInterpolator1704.SetKey([0,0.5,1]);
 OrientationInterpolator1704.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1704]);
 OrientationInterpolator1705 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1705.X3DName := 'Stop_r_shoulder_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part136;
+begin
+
 OrientationInterpolator1705.SetKey([0,0.5,1]);
 OrientationInterpolator1705.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1705]);
 OrientationInterpolator1706 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1706.X3DName := 'Stop_r_elbow_RotationInterpolator';
 OrientationInterpolator1706.SetKey([0,0.5,1]);
 OrientationInterpolator1706.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1706]);
 OrientationInterpolator1707 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1707.X3DName := 'Stop_r_radiocarpal_RotationInterpolator';
 OrientationInterpolator1707.SetKey([0,0.5,1]);
 OrientationInterpolator1707.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1707]);
 OrientationInterpolator1708 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1708.X3DName := 'Stop_r_thumb1_RotationInterpolator';
 OrientationInterpolator1708.SetKey([0,0.5,1]);
 OrientationInterpolator1708.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1708]);
 OrientationInterpolator1709 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1709.X3DName := 'Stop_r_thumb2_RotationInterpolator';
 OrientationInterpolator1709.SetKey([0,0.5,1]);
 OrientationInterpolator1709.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1709]);
 OrientationInterpolator1710 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1710.X3DName := 'Stop_r_thumb3_RotationInterpolator';
 OrientationInterpolator1710.SetKey([0,0.5,1]);
 OrientationInterpolator1710.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1710]);
 OrientationInterpolator1711 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1711.X3DName := 'Stop_r_index0_RotationInterpolator';
 OrientationInterpolator1711.SetKey([0,0.5,1]);
 OrientationInterpolator1711.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1711]);
 OrientationInterpolator1712 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1712.X3DName := 'Stop_r_index1_RotationInterpolator';
 OrientationInterpolator1712.SetKey([0,0.5,1]);
 OrientationInterpolator1712.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1712]);
 OrientationInterpolator1713 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1713.X3DName := 'Stop_r_index2_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part137;
+begin
+
 OrientationInterpolator1713.SetKey([0,0.5,1]);
 OrientationInterpolator1713.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1713]);
-end;
-
-procedure InitJinLOA4Part128;
-begin
-
 OrientationInterpolator1714 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1714.X3DName := 'Stop_r_index3_RotationInterpolator';
 OrientationInterpolator1714.SetKey([0,0.5,1]);
 OrientationInterpolator1714.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1714]);
 OrientationInterpolator1715 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1715.X3DName := 'Stop_r_middle0_RotationInterpolator';
 OrientationInterpolator1715.SetKey([0,0.5,1]);
 OrientationInterpolator1715.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1715]);
 OrientationInterpolator1716 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1716.X3DName := 'Stop_r_middle1_RotationInterpolator';
 OrientationInterpolator1716.SetKey([0,0.5,1]);
 OrientationInterpolator1716.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1716]);
 OrientationInterpolator1717 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1717.X3DName := 'Stop_r_middle2_RotationInterpolator';
 OrientationInterpolator1717.SetKey([0,0.5,1]);
 OrientationInterpolator1717.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1717]);
 OrientationInterpolator1718 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1718.X3DName := 'Stop_r_middle3_RotationInterpolator';
 OrientationInterpolator1718.SetKey([0,0.5,1]);
 OrientationInterpolator1718.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1718]);
 OrientationInterpolator1719 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1719.X3DName := 'Stop_r_ring0_RotationInterpolator';
 OrientationInterpolator1719.SetKey([0,0.5,1]);
 OrientationInterpolator1719.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1719]);
 OrientationInterpolator1720 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1720.X3DName := 'Stop_r_ring1_RotationInterpolator';
 OrientationInterpolator1720.SetKey([0,0.5,1]);
 OrientationInterpolator1720.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1720]);
 OrientationInterpolator1721 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1721.X3DName := 'Stop_r_ring2_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part138;
+begin
+
 OrientationInterpolator1721.SetKey([0,0.5,1]);
 OrientationInterpolator1721.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1721]);
 OrientationInterpolator1722 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1722.X3DName := 'Stop_r_ring3_RotationInterpolator';
 OrientationInterpolator1722.SetKey([0,0.5,1]);
 OrientationInterpolator1722.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1722]);
 OrientationInterpolator1723 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1723.X3DName := 'Stop_r_pinky0_RotationInterpolator';
 OrientationInterpolator1723.SetKey([0,0.5,1]);
 OrientationInterpolator1723.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1723]);
-end;
-
-procedure InitJinLOA4Part129;
-begin
-
 OrientationInterpolator1724 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1724.X3DName := 'Stop_r_pinky1_RotationInterpolator';
 OrientationInterpolator1724.SetKey([0,0.5,1]);
 OrientationInterpolator1724.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1724]);
 OrientationInterpolator1725 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1725.X3DName := 'Stop_r_pinky2_RotationInterpolator';
 OrientationInterpolator1725.SetKey([0,0.5,1]);
 OrientationInterpolator1725.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1637.AddChildren([OrientationInterpolator1725]);
 OrientationInterpolator1726 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1726.X3DName := 'Stop_r_pinky3_RotationInterpolator';
 OrientationInterpolator1726.SetKey([0,0.5,1]);
 OrientationInterpolator1726.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -9534,350 +9963,425 @@ Group1637.AddChildren([OrientationInterpolator1726]);
 { .AddChildren }
 Group19.AddChildren([Group1637]);
 Group1727 := TGroupNode.Create;
+Group1727.X3DName := 'StandAnimation';
 TimeSensor1728 := TTimeSensorNode.Create;
+TimeSensor1728.X3DName := 'StandTimer';
 TimeSensor1728.CycleInterval := 5.73;
 TimeSensor1728.Loop := True;
 { .AddChildren }
 Group1727.AddChildren([TimeSensor1728]);
 OrientationInterpolator1729 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1729.X3DName := 'Stand_r_metatarsal_PitchInterpolator';
 OrientationInterpolator1729.SetKey([0,0.2,0.4,0.6,0.7,1]);
 OrientationInterpolator1729.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.015),Vector4(1,0,0,0.17),Vector4(-1,0,0,0.025),Vector4(1,0,0,0.01),Vector4(1,0,0,0)]);
+end;
+
+procedure InitJinLOA4Part139;
+begin
+
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1729]);
 OrientationInterpolator1730 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1730.X3DName := 'Stand_r_talocrural_RotationInterpolator';
 OrientationInterpolator1730.SetKey([0,0.5,1]);
 OrientationInterpolator1730.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1730]);
 OrientationInterpolator1731 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1731.X3DName := 'Stand_r_knee_RotationInterpolator';
 OrientationInterpolator1731.SetKey([0,0.5,1]);
 OrientationInterpolator1731.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1731]);
 OrientationInterpolator1732 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1732.X3DName := 'Stand_r_hip_RotationInterpolator';
 OrientationInterpolator1732.SetKey([0,0.5,1]);
 OrientationInterpolator1732.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1732]);
 OrientationInterpolator1733 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1733.X3DName := 'Stand_l_talocrural_RotationInterpolator';
 OrientationInterpolator1733.SetKey([0,0.5,1]);
 OrientationInterpolator1733.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1733]);
 OrientationInterpolator1734 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1734.X3DName := 'Stand_l_knee_RotationInterpolator';
 OrientationInterpolator1734.SetKey([0,0.5,1]);
-end;
-
-procedure InitJinLOA4Part130;
-begin
-
 OrientationInterpolator1734.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1734]);
 OrientationInterpolator1735 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1735.X3DName := 'Stand_l_hip_RotationInterpolator';
 OrientationInterpolator1735.SetKey([0,0.5,1]);
 OrientationInterpolator1735.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1735]);
 OrientationInterpolator1736 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1736.X3DName := 'Stand_r_radiocarpal_RotationInterpolator';
 OrientationInterpolator1736.SetKey([0,0.5,1]);
 OrientationInterpolator1736.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,-1,0.25),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1736]);
 OrientationInterpolator1737 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1737.X3DName := 'Stand_r_elbow_RotationInterpolator';
 OrientationInterpolator1737.SetKey([0,0.5,1]);
 OrientationInterpolator1737.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
+end;
+
+procedure InitJinLOA4Part140;
+begin
+
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1737]);
 OrientationInterpolator1738 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1738.X3DName := 'Stand_r_shoulder_RotationInterpolator';
 OrientationInterpolator1738.SetKey([0,0.5,1]);
 OrientationInterpolator1738.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1738]);
 OrientationInterpolator1739 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1739.X3DName := 'Stand_l_radiocarpal_RotationInterpolator';
 OrientationInterpolator1739.SetKey([0,0.5,1]);
 OrientationInterpolator1739.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1739]);
 OrientationInterpolator1740 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1740.X3DName := 'Stand_l_elbow_RotationInterpolator';
 OrientationInterpolator1740.SetKey([0,0.5,1]);
 OrientationInterpolator1740.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1740]);
 OrientationInterpolator1741 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1741.X3DName := 'Stand_l_shoulder_RotationInterpolator';
 OrientationInterpolator1741.SetKey([0,0.5,1]);
 OrientationInterpolator1741.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1741]);
 OrientationInterpolator1742 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1742.X3DName := 'Stand_head_RotationInterpolator';
 OrientationInterpolator1742.SetKey([0,0.5,1]);
 OrientationInterpolator1742.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1742]);
 OrientationInterpolator1743 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1743.X3DName := 'Stand_neck_RotationInterpolator';
 OrientationInterpolator1743.SetKey([0,0.5,1]);
 OrientationInterpolator1743.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1743]);
 OrientationInterpolator1744 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1744.X3DName := 'Stand_l_eyeball_RotationInterpolator';
 OrientationInterpolator1744.SetKey([0,0.4,0.7,1]);
-end;
-
-procedure InitJinLOA4Part131;
-begin
-
 OrientationInterpolator1744.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.5),Vector4(1,0,0,0.45),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1744]);
 OrientationInterpolator1745 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1745.X3DName := 'Stand_r_eyeball_RotationInterpolator';
 OrientationInterpolator1745.SetKey([0,0.4,0.7,1]);
 OrientationInterpolator1745.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.5),Vector4(1,0,0,0.45),Vector4(0,0,1,0)]);
+end;
+
+procedure InitJinLOA4Part141;
+begin
+
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1745]);
 OrientationInterpolator1746 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1746.X3DName := 'Stand_lower_body_RotationInterpolator';
 OrientationInterpolator1746.SetKey([0,0.5,1]);
 OrientationInterpolator1746.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1746]);
 OrientationInterpolator1747 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1747.X3DName := 'Stand_upper_body_RotationInterpolator';
 OrientationInterpolator1747.SetKey([0,0.5,1]);
 OrientationInterpolator1747.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1747]);
 OrientationInterpolator1748 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1748.X3DName := 'Stand_whole_body_RotationInterpolator';
 OrientationInterpolator1748.SetKey([0,0.5,1]);
 OrientationInterpolator1748.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1748]);
 PositionInterpolator1749 := TPositionInterpolatorNode.Create;
+PositionInterpolator1749.X3DName := 'Stand_whole_body_TranslationInterpolator';
 PositionInterpolator1749.SetKey([0,0.5,1]);
 PositionInterpolator1749.SetKeyValue([Vector3(0,0,0),Vector3(0,0,0),Vector3(0,0,0)]);
 { .AddChildren }
 Group1727.AddChildren([PositionInterpolator1749]);
 OrientationInterpolator1750 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1750.X3DName := 'Stand_l_sternoclavicular_RollInterpolator';
 OrientationInterpolator1750.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1750.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1750]);
 OrientationInterpolator1751 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1751.X3DName := 'Stand_l_acromioclavicular_RollInterpolator';
 OrientationInterpolator1751.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1751.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1751]);
 OrientationInterpolator1752 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1752.X3DName := 'Stand_r_sternoclavicular_RollInterpolator';
 OrientationInterpolator1752.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1752.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1752]);
 OrientationInterpolator1753 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1753.X3DName := 'Stand_r_acromioclavicular_RollInterpolator';
 OrientationInterpolator1753.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1753.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
+end;
+
+procedure InitJinLOA4Part142;
+begin
+
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1753]);
 OrientationInterpolator1754 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1754.X3DName := 'Stand_sacroiliac_YawInterpolator';
 OrientationInterpolator1754.SetKey([0,0.2,0.4,0.6,0.8,1]);
-end;
-
-procedure InitJinLOA4Part132;
-begin
-
 OrientationInterpolator1754.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1754]);
 OrientationInterpolator1755 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1755.X3DName := 'Stand_vl5_YawInterpolator';
 OrientationInterpolator1755.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1755.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1755]);
 OrientationInterpolator1756 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1756.X3DName := 'Stand_vc6_YawInterpolator';
 OrientationInterpolator1756.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1756.SetKeyValue([Vector4(0,1,0,0),Vector4(0,1,0,0),Vector4(0,1,0,0),Vector4(0,1,0,0),Vector4(-1,0,0,0),Vector4(0,-1,0,0),Vector4(0,1,0,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1756]);
 OrientationInterpolator1757 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1757.X3DName := 'Stand_l_thumb1_PitchInterpolator';
 OrientationInterpolator1757.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1757.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1757]);
 OrientationInterpolator1758 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1758.X3DName := 'Stand_r_thumb1_PitchInterpolator';
 OrientationInterpolator1758.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1758.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.5),Vector4(1,0,0,0.1),Vector4(1,0,0,0.27),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1758]);
 OrientationInterpolator1759 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1759.X3DName := 'Stand_r_index1_RollInterpolator';
 OrientationInterpolator1759.SetKey([0,0.2,0.4,0.5,0.8,1]);
 OrientationInterpolator1759.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0.1),Vector4(0,0,1,0.2),Vector4(0,0,1,0.3),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1759]);
 OrientationInterpolator1760 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1760.X3DName := 'Stand_r_index2_RollInterpolator';
 OrientationInterpolator1760.SetKey([0,0.2,0.4,0.5,0.8,1]);
 OrientationInterpolator1760.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0.4),Vector4(0,0,1,0.32),Vector4(0,0,1,0.25),Vector4(0,0,1,0.2),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1760]);
 OrientationInterpolator1761 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1761.X3DName := 'Stand_r_index3_RollInterpolator';
 OrientationInterpolator1761.SetKey([0,0.2,0.4,0.5,0.8,1]);
 OrientationInterpolator1761.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0.2),Vector4(0,0,1,0.3),Vector4(0,0,1,0.35),Vector4(0,0,1,0.2),Vector4(0,0,1,0)]);
+end;
+
+procedure InitJinLOA4Part143;
+begin
+
 { .AddChildren }
 Group1727.AddChildren([OrientationInterpolator1761]);
 { .AddChildren }
 Group19.AddChildren([Group1727]);
 Group1762 := TGroupNode.Create;
+Group1762.X3DName := 'PitchesAnimation';
 TimeSensor1763 := TTimeSensorNode.Create;
+TimeSensor1763.X3DName := 'PitchTimer';
 TimeSensor1763.CycleInterval := 5.73;
 TimeSensor1763.Loop := True;
 { .AddChildren }
 Group1762.AddChildren([TimeSensor1763]);
 OrientationInterpolator1764 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1764.X3DName := 'Pitch_r_metatarsal_PitchInterpolator';
 OrientationInterpolator1764.SetKey([0,0.2,0.4,0.6,0.7,1]);
 OrientationInterpolator1764.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.5),Vector4(-1,0,0,0.7),Vector4(1,0,0,0.75),Vector4(-1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1764]);
-end;
-
-procedure InitJinLOA4Part133;
-begin
-
 OrientationInterpolator1765 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1765.X3DName := 'Pitches_r_talocrural_RotationInterpolator';
 OrientationInterpolator1765.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1765.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,1.5),Vector4(0,0,1,0),Vector4(-1,0,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1765]);
 OrientationInterpolator1766 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1766.X3DName := 'Pitches_r_knee_RotationInterpolator';
 OrientationInterpolator1766.SetKey([0,0.5,1]);
 OrientationInterpolator1766.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1766]);
 OrientationInterpolator1767 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1767.X3DName := 'Pitches_r_hip_RotationInterpolator';
 OrientationInterpolator1767.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1767.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,1.5),Vector4(0,0,1,0),Vector4(1,0,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1767]);
 OrientationInterpolator1768 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1768.X3DName := 'Pitches_l_talocrural_RotationInterpolator';
 OrientationInterpolator1768.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1768.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,1.5),Vector4(0,0,1,0),Vector4(1,0,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1768]);
 OrientationInterpolator1769 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1769.X3DName := 'Pitches_l_knee_RotationInterpolator';
 OrientationInterpolator1769.SetKey([0,0.5,1]);
 OrientationInterpolator1769.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1769]);
 OrientationInterpolator1770 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJinLOA4Part144;
+begin
+
+OrientationInterpolator1770.X3DName := 'Pitches_l_hip_RotationInterpolator';
 OrientationInterpolator1770.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1770.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,1.5),Vector4(0,0,1,0),Vector4(-1,0,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1770]);
 OrientationInterpolator1771 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1771.X3DName := 'Pitches_r_radiocarpal_RotationInterpolator';
 OrientationInterpolator1771.SetKey([0,0.5,1]);
 OrientationInterpolator1771.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1771]);
 OrientationInterpolator1772 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1772.X3DName := 'Pitches_r_elbow_RotationInterpolator';
 OrientationInterpolator1772.SetKey([0,0.5,1]);
 OrientationInterpolator1772.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1772]);
 OrientationInterpolator1773 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1773.X3DName := 'Pitches_r_shoulder_RotationInterpolator';
 OrientationInterpolator1773.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1773.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,1.5),Vector4(0,0,1,0),Vector4(-1,0,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1773]);
 OrientationInterpolator1774 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1774.X3DName := 'Pitches_l_radiocarpal_RotationInterpolator';
 OrientationInterpolator1774.SetKey([0,0.5,1]);
 OrientationInterpolator1774.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1774]);
-end;
-
-procedure InitJinLOA4Part134;
-begin
-
 OrientationInterpolator1775 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1775.X3DName := 'Pitches_l_elbow_RotationInterpolator';
 OrientationInterpolator1775.SetKey([0,0.5,1]);
 OrientationInterpolator1775.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1775]);
 OrientationInterpolator1776 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1776.X3DName := 'Pitches_l_shoulder_RotationInterpolator';
 OrientationInterpolator1776.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1776.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,1.5),Vector4(0,0,1,0),Vector4(1,0,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1776]);
 OrientationInterpolator1777 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1777.X3DName := 'Pitches_head_RotationInterpolator';
 OrientationInterpolator1777.SetKey([0,0.5,1]);
 OrientationInterpolator1777.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1777]);
 OrientationInterpolator1778 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJinLOA4Part145;
+begin
+
+OrientationInterpolator1778.X3DName := 'Pitches_neck_RotationInterpolator';
 OrientationInterpolator1778.SetKey([0,0.25,0.55,1]);
 OrientationInterpolator1778.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,0.55),Vector4(-1,0,0,1.05),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1778]);
 OrientationInterpolator1779 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1779.X3DName := 'Pitches_lower_body_RotationInterpolator';
 OrientationInterpolator1779.SetKey([0,0.5,1]);
 OrientationInterpolator1779.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1779]);
 OrientationInterpolator1780 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1780.X3DName := 'Pitches_upper_body_RotationInterpolator';
 OrientationInterpolator1780.SetKey([0,0.5,1]);
 OrientationInterpolator1780.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1780]);
 OrientationInterpolator1781 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1781.X3DName := 'Pitches_whole_body_RotationInterpolator';
 OrientationInterpolator1781.SetKey([0,0.5,1]);
 OrientationInterpolator1781.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1781]);
 PositionInterpolator1782 := TPositionInterpolatorNode.Create;
+PositionInterpolator1782.X3DName := 'Pitches_whole_body_TranslationInterpolator';
 PositionInterpolator1782.SetKey([0,0.125,0.25,0.375,0.5,0.625,0.75,0.875,1]);
 PositionInterpolator1782.SetKeyValue([Vector3(0,0,0),Vector3(0,-0.15,0),Vector3(0,-0.7,0),Vector3(0,-0.15,0),Vector3(0,0,0),Vector3(0,-0.15,0),Vector3(0,-0.7,0),Vector3(0,-0.15,0),Vector3(0,0,0)]);
 { .AddChildren }
 Group1762.AddChildren([PositionInterpolator1782]);
 OrientationInterpolator1783 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1783.X3DName := 'Pitch_l_sternoclavicular_RollInterpolator';
 OrientationInterpolator1783.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1783.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1783]);
 OrientationInterpolator1784 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1784.X3DName := 'Pitch_l_acromioclavicular_RollInterpolator';
 OrientationInterpolator1784.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1784.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1784]);
-end;
-
-procedure InitJinLOA4Part135;
-begin
-
 OrientationInterpolator1785 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1785.X3DName := 'Pitch_r_sternoclavicular_RollInterpolator';
 OrientationInterpolator1785.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1785.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1785]);
 OrientationInterpolator1786 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJinLOA4Part146;
+begin
+
+OrientationInterpolator1786.X3DName := 'Pitch_r_acromioclavicular_RollInterpolator';
 OrientationInterpolator1786.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1786.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1786]);
 OrientationInterpolator1787 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1787.X3DName := 'Pitch_sacroiliac_YawInterpolator';
 OrientationInterpolator1787.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1787.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1787]);
 OrientationInterpolator1788 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1788.X3DName := 'Pitch_vl5_YawInterpolator';
 OrientationInterpolator1788.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1788.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1788]);
 OrientationInterpolator1789 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1789.X3DName := 'Pitch_vc6_YawInterpolator';
 OrientationInterpolator1789.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1789.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1789]);
 OrientationInterpolator1790 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1790.X3DName := 'Pitch_l_thumb1_PitchInterpolator';
 OrientationInterpolator1790.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1790.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.25),Vector4(1,0,0,0.3),Vector4(1,0,0,0.27),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1762.AddChildren([OrientationInterpolator1790]);
 OrientationInterpolator1791 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1791.X3DName := 'Pitch_r_thumb1_PitchInterpolator';
 OrientationInterpolator1791.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1791.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.25),Vector4(1,0,0,0.3),Vector4(1,0,0,0.27),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
@@ -9885,162 +10389,197 @@ Group1762.AddChildren([OrientationInterpolator1791]);
 { .AddChildren }
 Group19.AddChildren([Group1762]);
 Group1792 := TGroupNode.Create;
+Group1792.X3DName := 'YawsAnimation';
 TimeSensor1793 := TTimeSensorNode.Create;
+TimeSensor1793.X3DName := 'YawTimer';
 TimeSensor1793.CycleInterval := 5.73;
 TimeSensor1793.Loop := True;
 { .AddChildren }
 Group1792.AddChildren([TimeSensor1793]);
 OrientationInterpolator1794 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1794.X3DName := 'Yaw_r_metatarsal_PitchInterpolator';
 OrientationInterpolator1794.SetKey([0,0.2,0.4,0.6,0.7,1]);
+end;
+
+procedure InitJinLOA4Part147;
+begin
+
 OrientationInterpolator1794.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1794]);
 OrientationInterpolator1795 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1795.X3DName := 'Yaws_r_talocrural_RotationInterpolator';
 OrientationInterpolator1795.SetKey([0,0.25,0.5,0.75,1]);
-end;
-
-procedure InitJinLOA4Part136;
-begin
-
 OrientationInterpolator1795.SetKeyValue([Vector4(0,0,1,0),Vector4(0,-1,0,1.5),Vector4(0,0,1,0),Vector4(0,1,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1795]);
 OrientationInterpolator1796 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1796.X3DName := 'Yaws_r_knee_RotationInterpolator';
 OrientationInterpolator1796.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1796.SetKeyValue([Vector4(0,0,1,0),Vector4(0,1,0,1.5),Vector4(0,0,1,0),Vector4(0,-1,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1796]);
 OrientationInterpolator1797 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1797.X3DName := 'Yaws_r_hip_RotationInterpolator';
 OrientationInterpolator1797.SetKey([0,0.5,1]);
 OrientationInterpolator1797.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1797]);
 OrientationInterpolator1798 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1798.X3DName := 'Yaws_l_talocrural_RotationInterpolator';
 OrientationInterpolator1798.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1798.SetKeyValue([Vector4(0,0,1,0),Vector4(0,1,0,1.5),Vector4(0,0,1,0),Vector4(0,-1,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1798]);
 OrientationInterpolator1799 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1799.X3DName := 'Yaws_l_knee_RotationInterpolator';
 OrientationInterpolator1799.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1799.SetKeyValue([Vector4(0,0,1,0),Vector4(0,-1,0,1.5),Vector4(0,0,1,0),Vector4(0,1,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1799]);
 OrientationInterpolator1800 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1800.X3DName := 'Yaws_l_hip_RotationInterpolator';
 OrientationInterpolator1800.SetKey([0,0.5,1]);
 OrientationInterpolator1800.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1800]);
 OrientationInterpolator1801 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1801.X3DName := 'Yaws_r_radiocarpal_RotationInterpolator';
 OrientationInterpolator1801.SetKey([0,0.5,1]);
 OrientationInterpolator1801.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1801]);
 OrientationInterpolator1802 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1802.X3DName := 'Yaws_r_elbow_RotationInterpolator';
 OrientationInterpolator1802.SetKey([0,0.5,1]);
+end;
+
+procedure InitJinLOA4Part148;
+begin
+
 OrientationInterpolator1802.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1802]);
 OrientationInterpolator1803 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1803.X3DName := 'Yaws_r_shoulder_RotationInterpolator';
 OrientationInterpolator1803.SetKey([0,0.5,1]);
 OrientationInterpolator1803.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1803]);
 OrientationInterpolator1804 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1804.X3DName := 'Yaws_l_radiocarpal_RotationInterpolator';
 OrientationInterpolator1804.SetKey([0,0.5,1]);
 OrientationInterpolator1804.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1804]);
 OrientationInterpolator1805 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1805.X3DName := 'Yaws_l_elbow_RotationInterpolator';
 OrientationInterpolator1805.SetKey([0,0.5,1]);
-end;
-
-procedure InitJinLOA4Part137;
-begin
-
 OrientationInterpolator1805.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1805]);
 OrientationInterpolator1806 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1806.X3DName := 'Yaws_l_shoulder_RotationInterpolator';
 OrientationInterpolator1806.SetKey([0,0.5,1]);
 OrientationInterpolator1806.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1806]);
 OrientationInterpolator1807 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1807.X3DName := 'Yaws_head_RotationInterpolator';
 OrientationInterpolator1807.SetKey([0,0.5,1]);
 OrientationInterpolator1807.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1807]);
 OrientationInterpolator1808 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1808.X3DName := 'Yaws_neck_RotationInterpolator';
 OrientationInterpolator1808.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1808.SetKeyValue([Vector4(0,0,1,0),Vector4(0,1,0,1.5),Vector4(0,0,1,0),Vector4(0,-1,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1808]);
 OrientationInterpolator1809 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1809.X3DName := 'Yaws_upper_body_RotationInterpolator';
 OrientationInterpolator1809.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1809.SetKeyValue([Vector4(0,0,1,0),Vector4(0,-1,0,1.5),Vector4(0,0,1,0),Vector4(0,1,0,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1809]);
 OrientationInterpolator1810 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1810.X3DName := 'Yaws_lower_body_RotationInterpolator';
 OrientationInterpolator1810.SetKey([0,0.5,1]);
+end;
+
+procedure InitJinLOA4Part149;
+begin
+
 OrientationInterpolator1810.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1810]);
 OrientationInterpolator1811 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1811.X3DName := 'Yaws_whole_body_RotationInterpolator';
 OrientationInterpolator1811.SetKey([0,0.5,1]);
 OrientationInterpolator1811.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1811]);
 PositionInterpolator1812 := TPositionInterpolatorNode.Create;
+PositionInterpolator1812.X3DName := 'Yaws_whole_body_TranslationInterpolator';
 PositionInterpolator1812.SetKey([0,0.5,1]);
 PositionInterpolator1812.SetKeyValue([Vector3(0,0,0),Vector3(0,0,0),Vector3(0,0,0)]);
 { .AddChildren }
 Group1792.AddChildren([PositionInterpolator1812]);
 OrientationInterpolator1813 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1813.X3DName := 'Yaw_l_sternoclavicular_RollInterpolator';
 OrientationInterpolator1813.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1813.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1813]);
 OrientationInterpolator1814 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1814.X3DName := 'Yaw_l_acromioclavicular_RollInterpolator';
 OrientationInterpolator1814.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1814.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1814]);
 OrientationInterpolator1815 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1815.X3DName := 'Yaw_r_sternoclavicular_RollInterpolator';
 OrientationInterpolator1815.SetKey([0,0.2,0.4,0.6,0.8,1]);
-end;
-
-procedure InitJinLOA4Part138;
-begin
-
 OrientationInterpolator1815.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1815]);
 OrientationInterpolator1816 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1816.X3DName := 'Yaw_r_acromioclavicular_RollInterpolator';
 OrientationInterpolator1816.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1816.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1816]);
 OrientationInterpolator1817 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1817.X3DName := 'Yaw_sacroiliac_YawInterpolator';
 OrientationInterpolator1817.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1817.SetKeyValue([Vector4(0,1,0,0),Vector4(0,-1,0,0.1),Vector4(0,1,0,0),Vector4(0,1,0,0.24),Vector4(0,-1,0,0.4),Vector4(0,1,0,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1817]);
 OrientationInterpolator1818 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1818.X3DName := 'Yaw_vl5_YawInterpolator';
 OrientationInterpolator1818.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
+end;
+
+procedure InitJinLOA4Part150;
+begin
+
 OrientationInterpolator1818.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1818]);
 OrientationInterpolator1819 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1819.X3DName := 'Yaw_vc6_YawInterpolator';
 OrientationInterpolator1819.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1819.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1819]);
 OrientationInterpolator1820 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1820.X3DName := 'Yaw_l_thumb1_PitchInterpolator';
 OrientationInterpolator1820.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1820.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1792.AddChildren([OrientationInterpolator1820]);
 OrientationInterpolator1821 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1821.X3DName := 'Yaw_r_thumb1_PitchInterpolator';
 OrientationInterpolator1821.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1821.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -10048,162 +10587,197 @@ Group1792.AddChildren([OrientationInterpolator1821]);
 { .AddChildren }
 Group19.AddChildren([Group1792]);
 Group1822 := TGroupNode.Create;
+Group1822.X3DName := 'RollsAnimation';
 TimeSensor1823 := TTimeSensorNode.Create;
+TimeSensor1823.X3DName := 'RollTimer';
 TimeSensor1823.CycleInterval := 5.73;
 TimeSensor1823.Loop := True;
 { .AddChildren }
 Group1822.AddChildren([TimeSensor1823]);
 OrientationInterpolator1824 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1824.X3DName := 'Roll_r_metatarsal_PitchInterpolator';
 OrientationInterpolator1824.SetKey([0,0.2,0.4,0.6,0.7,1]);
 OrientationInterpolator1824.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1824]);
 OrientationInterpolator1825 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1825.X3DName := 'Rolls_r_talocrural_RotationInterpolator';
 OrientationInterpolator1825.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1825.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,1.5),Vector4(0,0,1,0),Vector4(0,0,1,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1825]);
-end;
-
-procedure InitJinLOA4Part139;
-begin
-
 OrientationInterpolator1826 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1826.X3DName := 'Rolls_r_knee_RotationInterpolator';
 OrientationInterpolator1826.SetKey([0,0.5,1]);
 OrientationInterpolator1826.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1826]);
+end;
+
+procedure InitJinLOA4Part151;
+begin
+
 OrientationInterpolator1827 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1827.X3DName := 'Rolls_r_hip_RotationInterpolator';
 OrientationInterpolator1827.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1827.SetKeyValue([Vector4(0,0,-1,0),Vector4(0,0,-1,1.5),Vector4(0,0,1,0),Vector4(0,0,-1,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1827]);
 OrientationInterpolator1828 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1828.X3DName := 'Rolls_l_talocrural_RotationInterpolator';
 OrientationInterpolator1828.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1828.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,-1,1.5),Vector4(0,0,1,0),Vector4(0,0,-1,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1828]);
 OrientationInterpolator1829 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1829.X3DName := 'Rolls_l_knee_RotationInterpolator';
 OrientationInterpolator1829.SetKey([0,0.5,1]);
 OrientationInterpolator1829.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1829]);
 OrientationInterpolator1830 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1830.X3DName := 'Rolls_l_hip_RotationInterpolator';
 OrientationInterpolator1830.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1830.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,1.5),Vector4(0,0,1,0),Vector4(0,0,1,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1830]);
 OrientationInterpolator1831 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1831.X3DName := 'Rolls_r_radiocarpal_RotationInterpolator';
 OrientationInterpolator1831.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1831.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,-1,1.5),Vector4(0,0,1,0),Vector4(0,0,1,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1831]);
 OrientationInterpolator1832 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1832.X3DName := 'Rolls_r_elbow_RotationInterpolator';
 OrientationInterpolator1832.SetKey([0,0.5,1]);
 OrientationInterpolator1832.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1832]);
 OrientationInterpolator1833 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1833.X3DName := 'Rolls_r_shoulder_RotationInterpolator';
 OrientationInterpolator1833.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1833.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,-1,1.5),Vector4(0,0,-1,3),Vector4(0,0,-1,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1833]);
 OrientationInterpolator1834 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1834.X3DName := 'Rolls_l_radiocarpal_RotationInterpolator';
 OrientationInterpolator1834.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1834.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,1.5),Vector4(0,0,1,0),Vector4(0,0,-1,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1834]);
+end;
+
+procedure InitJinLOA4Part152;
+begin
+
 OrientationInterpolator1835 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1835.X3DName := 'Rolls_l_elbow_RotationInterpolator';
 OrientationInterpolator1835.SetKey([0,0.5,1]);
 OrientationInterpolator1835.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1835]);
-end;
-
-procedure InitJinLOA4Part140;
-begin
-
 OrientationInterpolator1836 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1836.X3DName := 'Rolls_l_shoulder_RotationInterpolator';
 OrientationInterpolator1836.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1836.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,1.5),Vector4(0,0,1,3),Vector4(0,0,1,1.5),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1836]);
 OrientationInterpolator1837 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1837.X3DName := 'Rolls_head_RotationInterpolator';
 OrientationInterpolator1837.SetKey([0,0.5,1]);
 OrientationInterpolator1837.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1837]);
 OrientationInterpolator1838 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1838.X3DName := 'Rolls_neck_RotationInterpolator';
 OrientationInterpolator1838.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1838.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,1.25),Vector4(0,0,1,0),Vector4(0,0,-1,1.25),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1838]);
 OrientationInterpolator1839 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1839.X3DName := 'Rolls_lower_body_RotationInterpolator';
 OrientationInterpolator1839.SetKey([0,0.5,1]);
 OrientationInterpolator1839.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1839]);
 OrientationInterpolator1840 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1840.X3DName := 'Rolls_upper_body_RotationInterpolator';
 OrientationInterpolator1840.SetKey([0,0.5,1]);
 OrientationInterpolator1840.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1840]);
 OrientationInterpolator1841 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1841.X3DName := 'Rolls_whole_body_RotationInterpolator';
 OrientationInterpolator1841.SetKey([0,0.5,1]);
 OrientationInterpolator1841.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1841]);
 PositionInterpolator1842 := TPositionInterpolatorNode.Create;
+PositionInterpolator1842.X3DName := 'Rolls_whole_body_TranslationInterpolator';
 PositionInterpolator1842.SetKey([0,0.125,0.25,0.375,0.5,0.625,0.75,0.875,1]);
 PositionInterpolator1842.SetKeyValue([Vector3(0,0,0),Vector3(0,-0.25,0),Vector3(0,-0.8,0),Vector3(0,-0.25,0),Vector3(0,0,0),Vector3(0,-0.25,0),Vector3(0,-0.8,0),Vector3(0,-0.25,0),Vector3(0,0,0)]);
 { .AddChildren }
 Group1822.AddChildren([PositionInterpolator1842]);
+end;
+
+procedure InitJinLOA4Part153;
+begin
+
 OrientationInterpolator1843 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1843.X3DName := 'Roll_l_sternoclavicular_RollInterpolator';
 OrientationInterpolator1843.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1843.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0.2),Vector4(0,0,1,0.22),Vector4(0,0,1,0.2),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1843]);
 OrientationInterpolator1844 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1844.X3DName := 'Roll_l_acromioclavicular_RollInterpolator';
 OrientationInterpolator1844.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1844.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0.05),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1844]);
 OrientationInterpolator1845 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1845.X3DName := 'Roll_r_sternoclavicular_RollInterpolator';
 OrientationInterpolator1845.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1845.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,-0.2),Vector4(0,0,1,-0.22),Vector4(0,0,1,-0.2),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1845]);
-end;
-
-procedure InitJinLOA4Part141;
-begin
-
 OrientationInterpolator1846 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1846.X3DName := 'Roll_r_acromioclavicular_RollInterpolator';
 OrientationInterpolator1846.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1846.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,-0.05),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1846]);
 OrientationInterpolator1847 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1847.X3DName := 'Roll_sacroiliac_YawInterpolator';
 OrientationInterpolator1847.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1847.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1847]);
 OrientationInterpolator1848 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1848.X3DName := 'Roll_vl5_YawInterpolator';
 OrientationInterpolator1848.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1848.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1848]);
 OrientationInterpolator1849 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1849.X3DName := 'Roll_vc6_YawInterpolator';
 OrientationInterpolator1849.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1849.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1849]);
 OrientationInterpolator1850 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1850.X3DName := 'Roll_l_thumb1_PitchInterpolator';
 OrientationInterpolator1850.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1850.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1822.AddChildren([OrientationInterpolator1850]);
+end;
+
+procedure InitJinLOA4Part154;
+begin
+
 OrientationInterpolator1851 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1851.X3DName := 'Roll_r_thumb1_PitchInterpolator';
 OrientationInterpolator1851.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1851.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -10211,162 +10785,192 @@ Group1822.AddChildren([OrientationInterpolator1851]);
 { .AddChildren }
 Group19.AddChildren([Group1822]);
 Group1852 := TGroupNode.Create;
+Group1852.X3DName := 'WalkAnimation';
 TimeSensor1853 := TTimeSensorNode.Create;
+TimeSensor1853.X3DName := 'WalkTimer';
 TimeSensor1853.CycleInterval := 1.73;
 TimeSensor1853.Loop := True;
 { .AddChildren }
 Group1852.AddChildren([TimeSensor1853]);
 OrientationInterpolator1854 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1854.X3DName := 'Walk_r_metatarsal_PitchInterpolator';
 OrientationInterpolator1854.SetKey([0,0.2,0.4,0.6,0.7,1]);
 OrientationInterpolator1854.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1854]);
 OrientationInterpolator1855 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1855.X3DName := 'Walk_r_talocrural_RotationInterpolator';
 OrientationInterpolator1855.SetKey([0,0.125,0.2083,0.375,0.4583,0.5,0.6667,0.75,0.7917,0.9167,1]);
 OrientationInterpolator1855.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.3533),Vector4(-1,0,0,0.1072),Vector4(1,0,0,0.2612),Vector4(1,0,0,0.1268),Vector4(-1,0,0,0.01793),Vector4(-1,0,0,0.05824),Vector4(-1,0,0,0.2398),Vector4(-1,0,0,0.35),Vector4(-1,0,0,0.3322),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1855]);
 OrientationInterpolator1856 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1856.X3DName := 'Walk_r_knee_RotationInterpolator';
 OrientationInterpolator1856.SetKey([0,0.125,0.2083,0.2917,0.375,0.5,0.6667,0.7917,0.9167,1]);
-end;
-
-procedure InitJinLOA4Part142;
-begin
-
 OrientationInterpolator1856.SetKeyValue([Vector4(1,0,0,0.8573),Vector4(1,0,0,0.8926),Vector4(1,0,0,0.5351),Vector4(1,0,0,0.1756),Vector4(1,0,0,0.1194),Vector4(1,0,0,0.3153),Vector4(1,0,0,0.09354),Vector4(1,0,0,0.08558),Vector4(1,0,0,0.2475),Vector4(1,0,0,0.8573)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1856]);
 OrientationInterpolator1857 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1857.X3DName := 'Walk_r_hip_RotationInterpolator';
 OrientationInterpolator1857.SetKey([0,0.125,0.2083,0.2917,0.375,0.5,0.6667,0.7917,0.9167,1]);
 OrientationInterpolator1857.SetKeyValue([Vector4(-0.5831,0.03511,0.8116,0.1481),Vector4(-0.995,0.02296,0.09674,0.4683),Vector4(-1,0.00192,0.007964,0.4732),Vector4(-0.998,-0.0158,-0.06102,0.5079),Vector4(-0.9911,-0.03541,-0.1286,0.5419),Vector4(-0.9131,-0.06243,-0.403,0.3361),Vector4(-0.4306,-0.07962,-0.899,0.07038),Vector4(1,0,0,0.2571),Vector4(0.9891,-0.02805,0.1444,0.3879),Vector4(-0.5831,0.03511,0.8116,0.1481)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1857]);
 OrientationInterpolator1858 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1858.X3DName := 'Walk_l_talocrural_RotationInterpolator';
 OrientationInterpolator1858.SetKey([0,0.125,0.2083,0.375,0.6667,0.9167,1]);
 OrientationInterpolator1858.SetKeyValue([Vector4(-1,0,0,0.06714),Vector4(-1,0,0,0.2152),Vector4(-1,0,0,0.3184),Vector4(-1,0,0,0.4717),Vector4(-1,0,0,0.2912),Vector4(1,0,0,0.1222),Vector4(-1,0,0,0.06714)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1858]);
 OrientationInterpolator1859 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1859.X3DName := 'Walk_l_knee_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part155;
+begin
+
 OrientationInterpolator1859.SetKey([0,0.2083,0.375,0.5,0.6667,0.7917,0.9167,1]);
 OrientationInterpolator1859.SetKeyValue([Vector4(1,0,0,0.3226),Vector4(1,0,0,0.1556),Vector4(1,0,0,0.08678),Vector4(1,0,0,0.8751),Vector4(1,0,0,1.131),Vector4(1,0,0,0.09961),Vector4(1,0,0,0.3942),Vector4(1,0,0,0.3226)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1859]);
 OrientationInterpolator1860 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1860.X3DName := 'Walk_l_hip_RotationInterpolator';
 OrientationInterpolator1860.SetKey([0,0.25,0.375,0.5,0.6667,0.7917,0.9167,1]);
 OrientationInterpolator1860.SetKeyValue([Vector4(-0.873,0.06094,0.484,0.2865),Vector4(0.9963,-0.01057,0.08481,0.2488),Vector4(0.9965,0.01591,-0.08222,0.3836),Vector4(-0.7018,-0.03223,-0.7117,0.1289),Vector4(-1,0,0,0.5518),Vector4(-0.9964,0.02231,0.0817,0.5351),Vector4(-0.9809,0.04912,0.1881,0.5204),Vector4(-0.873,0.06094,0.484,0.2865)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1860]);
 OrientationInterpolator1861 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1861.X3DName := 'Walk_lower_body_RotationInterpolator';
 OrientationInterpolator1861.SetKey([0,0.5,1]);
 OrientationInterpolator1861.SetKeyValue([Vector4(0,0,-1,0.1056),Vector4(0,0,1,0.09018),Vector4(0,0,-1,0.1056)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1861]);
 OrientationInterpolator1862 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1862.X3DName := 'Walk_r_radiocarpal_RotationInterpolator';
 OrientationInterpolator1862.SetKey([0,0.375,0.9167,1]);
 OrientationInterpolator1862.SetKeyValue([Vector4(-0.8129,0.4759,-0.3357,0.1346),Vector4(0.1533,-0.9878,0.02582,0.3902),Vector4(-0.5701,0.7604,-0.311,0.366),Vector4(-0.8129,0.4759,-0.3357,0.1346)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1862]);
 OrientationInterpolator1863 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1863.X3DName := 'Walk_r_elbow_RotationInterpolator';
 OrientationInterpolator1863.SetKey([0,0.375,0.9167,1]);
 OrientationInterpolator1863.SetKeyValue([Vector4(-1,0,0,0.411508),Vector4(-1,0,0,0.0925011),Vector4(-1,0,0,0.572568),Vector4(-1,0,0,0.411508)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1863]);
 OrientationInterpolator1864 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1864.X3DName := 'Walk_r_shoulder_RotationInterpolator';
 OrientationInterpolator1864.SetKey([0,0.375,0.9167,1]);
 OrientationInterpolator1864.SetKeyValue([Vector4(-1,0,0,0.09346),Vector4(1,0,0,0.3197),Vector4(-1,0,0,0.1564),Vector4(-1,0,0,0.09346)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1864]);
 OrientationInterpolator1865 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1865.X3DName := 'Walk_l_radiocarpal_RotationInterpolator';
 OrientationInterpolator1865.SetKey([0,0.375,0.9167,1]);
 OrientationInterpolator1865.SetKeyValue([Vector4(0,-1,0,0.461076),Vector4(-0.330195,-0.927451,0.175516,0.538852),Vector4(0.0327774,-0.999314,-0.0172185,0.492033),Vector4(0,-1,0,0.461076)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1865]);
 OrientationInterpolator1866 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1866.X3DName := 'Walk_l_elbow_RotationInterpolator';
 OrientationInterpolator1866.SetKey([0,0.375,0.9167,1]);
-end;
-
-procedure InitJinLOA4Part143;
-begin
-
 OrientationInterpolator1866.SetKeyValue([Vector4(-1,0,0,0.0659878),Vector4(-1,0,0,0.488383),Vector4(-1,0,0,0.0177536),Vector4(-1,0,0,0.0659878)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1866]);
 OrientationInterpolator1867 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1867.X3DName := 'Walk_l_shoulder_RotationInterpolator';
+end;
+
+procedure InitJinLOA4Part156;
+begin
+
 OrientationInterpolator1867.SetKey([0,0.375,0.9167,1]);
 OrientationInterpolator1867.SetKeyValue([Vector4(1,0,0,0.1189),Vector4(-1,0,0,0.1861),Vector4(1,0,0,0.3357),Vector4(1,0,0,0.1189)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1867]);
 OrientationInterpolator1868 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1868.X3DName := 'Walk_head_RotationInterpolator';
 OrientationInterpolator1868.SetKey([0,0.375,0.4167,0.5,0.5833,0.6667,0.75,0.8333,0.9167,1]);
 OrientationInterpolator1868.SetKeyValue([Vector4(0,-1,0,0.08642),Vector4(0,1,0,0.1825),Vector4(0,1,0,0.1505),Vector4(0,1,0,0.1053),Vector4(0,1,0,0.04391),Vector4(0,-1,0,0.03119),Vector4(0,-1,0,0.07936),Vector4(0,-1,0,0.1616),Vector4(0,-1,0,0.155),Vector4(0,-1,0,0.08642)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1868]);
 OrientationInterpolator1869 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1869.X3DName := 'Walk_neck_RotationInterpolator';
 OrientationInterpolator1869.SetKey([0,1]);
 OrientationInterpolator1869.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1869]);
 OrientationInterpolator1870 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1870.X3DName := 'Walk_upper_body_RotationInterpolator';
 OrientationInterpolator1870.SetKey([0,0.2083,0.375,0.75,0.8333,1]);
 OrientationInterpolator1870.SetKeyValue([Vector4(0,1,0,0.0826),Vector4(-0.01972,-0.5974,0.8017,0.08231),Vector4(0.009296,-0.9648,0.2627,0.1734),Vector4(-0.01238,0.9549,-0.2968,0.08732),Vector4(-0.008125,0.9691,-0.2463,0.158),Vector4(0,1,0,0.0826)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1870]);
 OrientationInterpolator1871 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1871.X3DName := 'Walk_whole_body_RotationInterpolator';
 OrientationInterpolator1871.SetKey([0,1]);
 OrientationInterpolator1871.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1871]);
 PositionInterpolator1872 := TPositionInterpolatorNode.Create;
+PositionInterpolator1872.X3DName := 'Walk_whole_body_TranslationInterpolator';
 PositionInterpolator1872.SetKey([0,0.04167,0.125,0.1667,0.2083,0.25,0.2917,0.375,0.4583,0.5,0.5417,0.5833,0.625,0.7083,0.75,0.7917,0.875,0.9167,1]);
 PositionInterpolator1872.SetKeyValue([Vector3(0,-0.00928,0),Vector3(0,-0.003858,0),Vector3(0,-0.008847,0),Vector3(0,-0.01486,0),Vector3(0,-0.02641,0),Vector3(0,-0.03934,0),Vector3(0,-0.0502,0),Vector3(0,-0.07469,0),Vector3(0,-0.02732,0),Vector3(0,-0.01608,0),Vector3(0,-0.01129,0),Vector3(0,-0.005819,0),Vector3(0,-0.002004,0),Vector3(0,-0.002579,0),Vector3(0,-0.0143,0),Vector3(0,-0.03799,0),Vector3(0,-0.05648,0),Vector3(0,-0.045,0),Vector3(0,-0.00928,0)]);
 { .AddChildren }
 Group1852.AddChildren([PositionInterpolator1872]);
 OrientationInterpolator1873 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1873.X3DName := 'Walk_l_sternoclavicular_RollInterpolator';
 OrientationInterpolator1873.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1873.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1873]);
 OrientationInterpolator1874 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1874.X3DName := 'Walk_l_acromioclavicular_RollInterpolator';
 OrientationInterpolator1874.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1874.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1874]);
 OrientationInterpolator1875 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1875.X3DName := 'Walk_r_sternoclavicular_RollInterpolator';
+end;
+
+procedure InitJinLOA4Part157;
+begin
+
 OrientationInterpolator1875.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1875.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1875]);
 OrientationInterpolator1876 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1876.X3DName := 'Walk_r_acromioclavicular_RollInterpolator';
 OrientationInterpolator1876.SetKey([0,0.2,0.4,0.6,0.8,1]);
-end;
-
-procedure InitJinLOA4Part144;
-begin
-
 OrientationInterpolator1876.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1876]);
 OrientationInterpolator1877 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1877.X3DName := 'Walk_sacroiliac_YawInterpolator';
 OrientationInterpolator1877.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1877.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1877]);
 OrientationInterpolator1878 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1878.X3DName := 'Walk_vl5_YawInterpolator';
 OrientationInterpolator1878.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1878.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1878]);
 OrientationInterpolator1879 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1879.X3DName := 'Walk_vc6_YawInterpolator';
 OrientationInterpolator1879.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1879.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1879]);
 OrientationInterpolator1880 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1880.X3DName := 'Walk_l_thumb1_PitchInterpolator';
 OrientationInterpolator1880.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1880.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.25),Vector4(1,0,0,0.5),Vector4(1,0,0,0.7),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1852.AddChildren([OrientationInterpolator1880]);
 OrientationInterpolator1881 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1881.X3DName := 'Walk_r_thumb1_PitchInterpolator';
 OrientationInterpolator1881.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1881.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.25),Vector4(1,0,0,0.5),Vector4(1,0,0,0.7),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
@@ -10374,162 +10978,197 @@ Group1852.AddChildren([OrientationInterpolator1881]);
 { .AddChildren }
 Group19.AddChildren([Group1852]);
 Group1882 := TGroupNode.Create;
+Group1882.X3DName := 'RunAnimation';
 TimeSensor1883 := TTimeSensorNode.Create;
+TimeSensor1883.X3DName := 'RunTimer';
 TimeSensor1883.CycleInterval := 0.9;
 TimeSensor1883.Loop := True;
+end;
+
+procedure InitJinLOA4Part158;
+begin
+
 { .AddChildren }
 Group1882.AddChildren([TimeSensor1883]);
 OrientationInterpolator1884 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1884.X3DName := 'Run_r_metatarsal_PitchInterpolator';
 OrientationInterpolator1884.SetKey([0,0.2,0.4,0.6,0.7,1]);
 OrientationInterpolator1884.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1884]);
 OrientationInterpolator1885 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1885.X3DName := 'Run_l_hip_RotationInterpolator_Run';
 OrientationInterpolator1885.SetKey([0,0.2182,0.4909,0.7455,1]);
 OrientationInterpolator1885.SetKeyValue([Vector4(-0.99,0.033,0.04,1.42),Vector4(-0.99,0.1328,0.067,0.42),Vector4(0.99,0.014,0.009,0.9),Vector4(-0.99,0.0703,0.05,0.7),Vector4(-0.99,0.033,0.04,1.42)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1885]);
 OrientationInterpolator1886 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1886.X3DName := 'Run_l_knee_RotationInterpolator_Run';
 OrientationInterpolator1886.SetKey([0,0.2182,0.4909,0.7455,1]);
 OrientationInterpolator1886.SetKeyValue([Vector4(1,0,0,1.01),Vector4(1,0,0,0.426),Vector4(1,0,0,0.705),Vector4(1,0,0,2.179),Vector4(1,0,0,1.01)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1886]);
-end;
-
-procedure InitJinLOA4Part145;
-begin
-
 OrientationInterpolator1887 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1887.X3DName := 'Run_l_talocrural_RotationInterpolator_Run';
 OrientationInterpolator1887.SetKey([0,0.22,0.3,0.4,1]);
 OrientationInterpolator1887.SetKeyValue([Vector4(1,0,0,0.0374),Vector4(-1,0,0,0.1037),Vector4(-1,0,0,0.4328),Vector4(1,0,0,0.1929),Vector4(1,0,0,0.03574)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1887]);
 OrientationInterpolator1888 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1888.X3DName := 'Run_r_hip_RotationInterpolator_Run';
 OrientationInterpolator1888.SetKey([0,0.2545,0.4909,0.7091,1]);
 OrientationInterpolator1888.SetKeyValue([Vector4(0.99,-0.014,0.009,0.9),Vector4(-0.99,-0.0703,-0.05,0.7),Vector4(-0.99,-0.033,0.04,1.42),Vector4(-0.99,-0.1328,-0.067,0.42),Vector4(0.99,-0.014,0.009,0.9)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1888]);
 OrientationInterpolator1889 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1889.X3DName := 'Run_r_knee_RotationInterpolator_Run';
 OrientationInterpolator1889.SetKey([0,0.2545,0.4909,0.7091,1]);
 OrientationInterpolator1889.SetKeyValue([Vector4(1,0,0,0.705),Vector4(1,0,0,2.179),Vector4(1,0,0,1.01),Vector4(1,0,0,0.426),Vector4(1,0,0,0.705)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1889]);
 OrientationInterpolator1890 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1890.X3DName := 'Run_r_talocrural_RotationInterpolator_Run';
 OrientationInterpolator1890.SetKey([0,0.4,0.71,0.8,0.82,1]);
 OrientationInterpolator1890.SetKeyValue([Vector4(1,0,0,0.2323),Vector4(-1,0,0,0.07843),Vector4(-1,0,0,0.32),Vector4(-1,0,0,0.374),Vector4(-1,0,0,0.3478),Vector4(1,0,0,0.2323)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1890]);
 OrientationInterpolator1891 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1891.X3DName := 'Run_l_shoulder_RotationInterpolator_Run';
 OrientationInterpolator1891.SetKey([0,0.2182,0.4909,0.7455,1]);
 OrientationInterpolator1891.SetKeyValue([Vector4(0.99,-0.074,0.25,1.5),Vector4(0.99,-0.092,0.44,0.3),Vector4(-0.99,0.136,0.25,0.85),Vector4(0.99,-0.081,0.38,0.4),Vector4(0.99,-0.074,0.25,1.5)]);
+end;
+
+procedure InitJinLOA4Part159;
+begin
+
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1891]);
 OrientationInterpolator1892 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1892.X3DName := 'Run_l_elbow_RotationInterpolator_Run';
 OrientationInterpolator1892.SetKey([0,0.2182,0.4909,0.7455,1]);
 OrientationInterpolator1892.SetKeyValue([Vector4(-1,0,0,1.85),Vector4(-0.99,-0.19,0.18,1.35),Vector4(-1,0,0,0.975),Vector4(-0.99,-0.09,-0.02,1.55),Vector4(-1,0,0,1.85)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1892]);
 OrientationInterpolator1893 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1893.X3DName := 'Run_l_radiocarpal_RotationInterpolator_Run';
 OrientationInterpolator1893.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1893.SetKeyValue([Vector4(-0.25,-1,0.08,0.14),Vector4(0.25,1,0.08,0.14),Vector4(0,0,1,0),Vector4(-0.25,1,0.08,-0.14),Vector4(-0.25,1,0.08,0.14)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1893]);
 OrientationInterpolator1894 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1894.X3DName := 'Run_r_shoulder_RotationInterpolator_Run';
 OrientationInterpolator1894.SetKey([0,0.2545,0.4909,0.7091,1]);
 OrientationInterpolator1894.SetKeyValue([Vector4(-0.99,-0.136,-0.25,0.85),Vector4(0.99,0.081,-0.38,0.4),Vector4(0.99,0.074,-0.25,1.5),Vector4(0.99,0.081,-0.38,0.4),Vector4(-0.99,-0.136,-0.25,0.85)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1894]);
 OrientationInterpolator1895 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1895.X3DName := 'Run_r_elbow_RotationInterpolator_Run';
 OrientationInterpolator1895.SetKey([0,0.2545,0.4909,0.7091,1]);
 OrientationInterpolator1895.SetKeyValue([Vector4(-1,0,0,0.975),Vector4(-0.99,0.09,0.02,1.55),Vector4(-1,0,0,1.85),Vector4(-0.99,0.19,-0.18,1.35),Vector4(-1,0,0,0.975)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1895]);
 OrientationInterpolator1896 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1896.X3DName := 'Run_r_radiocarpal_RotationInterpolator_Run';
 OrientationInterpolator1896.SetKey([0,1]);
 OrientationInterpolator1896.SetKeyValue([Vector4(-0.917742,-0.237244,-0.318536,0.214273),Vector4(-0.917742,-0.237244,-0.318536,0.214273)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1896]);
-end;
-
-procedure InitJinLOA4Part146;
-begin
-
 OrientationInterpolator1897 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1897.X3DName := 'Run_lower_body_RotationInterpolator_Run';
 OrientationInterpolator1897.SetKey([0,0.2182,0.4909,0.7455,1]);
 OrientationInterpolator1897.SetKeyValue([Vector4(0,-1,0,0.125),Vector4(0,0,1,0),Vector4(0,1,0,0.125),Vector4(0,0,1,0),Vector4(0,-1,0,0.125)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1897]);
 OrientationInterpolator1898 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1898.X3DName := 'Run_head_RotationInterpolator_Run';
 OrientationInterpolator1898.SetKey([0,0.2545,0.4909,0.7091,1]);
 OrientationInterpolator1898.SetKeyValue([Vector4(1,0,0,0.08),Vector4(1,0,0,0.12),Vector4(1,0,0,0.3),Vector4(1,0,0,0.3),Vector4(1,0,0,0.08)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1898]);
 OrientationInterpolator1899 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1899.X3DName := 'Run_neck_RotationInterpolator_Run';
 OrientationInterpolator1899.SetKey([0,0.2545,0.4909,0.7091,1]);
 OrientationInterpolator1899.SetKeyValue([Vector4(0.7,0,0,0.4),Vector4(-0.7,-0.7,0,0.4),Vector4(0,0,0,0.4),Vector4(-0.7,0.7,0,0.4),Vector4(0.7,0,0,0.4)]);
+end;
+
+procedure InitJinLOA4Part160;
+begin
+
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1899]);
 OrientationInterpolator1900 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1900.X3DName := 'Run_upper_body_RotationInterpolator_Run';
 OrientationInterpolator1900.SetKey([0,0.2545,0.4909,0.7636,1]);
 OrientationInterpolator1900.SetKeyValue([Vector4(0.97,0.65,0.086,0.5),Vector4(0.9,0.003,-0.02,0.38),Vector4(0.95,-0.68,-0.086,0.5),Vector4(0.9,0.004,-0.025,0.4),Vector4(0.97,0.65,0.086,0.5)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1900]);
 OrientationInterpolator1901 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1901.X3DName := 'Run_whole_body_RotationInterpolator_Run';
 OrientationInterpolator1901.SetKey([0,0.25,0.5,0.75,1]);
 OrientationInterpolator1901.SetKeyValue([Vector4(1,0,0,0.06),Vector4(1,0,0,0.167),Vector4(1,0,0,0.06),Vector4(1,0,0,0.168),Vector4(1,0,0,0.06)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1901]);
 PositionInterpolator1902 := TPositionInterpolatorNode.Create;
+PositionInterpolator1902.X3DName := 'Run_whole_body_TranslationInterpolator_Run';
 PositionInterpolator1902.SetKey([0,0.22,0.3,0.31,0.5,0.69,0.7,0.78,1]);
 PositionInterpolator1902.SetKeyValue([Vector3(0,-0.01,0),Vector3(0,-0.037,0),Vector3(0,-0.049,0),Vector3(0,-0.037,0),Vector3(0,-0.01,0),Vector3(0,-0.037,0),Vector3(0,-0.049,0),Vector3(0,-0.037,0),Vector3(0,-0.01,0)]);
 { .AddChildren }
 Group1882.AddChildren([PositionInterpolator1902]);
 OrientationInterpolator1903 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1903.X3DName := 'Run_l_sternoclavicular_RollInterpolator';
 OrientationInterpolator1903.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1903.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1903]);
 OrientationInterpolator1904 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1904.X3DName := 'Run_l_acromioclavicular_RollInterpolator';
 OrientationInterpolator1904.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1904.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1904]);
 OrientationInterpolator1905 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1905.X3DName := 'Run_r_sternoclavicular_RollInterpolator';
 OrientationInterpolator1905.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1905.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1905]);
 OrientationInterpolator1906 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1906.X3DName := 'Run_r_acromioclavicular_RollInterpolator';
 OrientationInterpolator1906.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1906.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1906]);
-end;
-
-procedure InitJinLOA4Part147;
-begin
-
 OrientationInterpolator1907 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1907.X3DName := 'Run_sacroiliac_YawInterpolator';
 OrientationInterpolator1907.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1907.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
+end;
+
+procedure InitJinLOA4Part161;
+begin
+
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1907]);
 OrientationInterpolator1908 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1908.X3DName := 'Run_vl5_YawInterpolator';
 OrientationInterpolator1908.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1908.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1908]);
 OrientationInterpolator1909 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1909.X3DName := 'Run_vc6_YawInterpolator';
 OrientationInterpolator1909.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1909.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1909]);
 OrientationInterpolator1910 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1910.X3DName := 'Run_l_thumb1_PitchInterpolator';
 OrientationInterpolator1910.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1910.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.25),Vector4(1,0,0,0.7),Vector4(1,0,0,0.27),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1882.AddChildren([OrientationInterpolator1910]);
 OrientationInterpolator1911 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1911.X3DName := 'Run_r_thumb1_PitchInterpolator';
 OrientationInterpolator1911.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1911.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.25),Vector4(1,0,0,0.7),Vector4(1,0,0,0.27),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
@@ -10537,162 +11176,197 @@ Group1882.AddChildren([OrientationInterpolator1911]);
 { .AddChildren }
 Group19.AddChildren([Group1882]);
 Group1912 := TGroupNode.Create;
+Group1912.X3DName := 'JumpAnimation';
 TimeSensor1913 := TTimeSensorNode.Create;
+TimeSensor1913.X3DName := 'JumpTimer';
 TimeSensor1913.CycleInterval := 3.73;
 TimeSensor1913.Loop := True;
 { .AddChildren }
 Group1912.AddChildren([TimeSensor1913]);
 OrientationInterpolator1914 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1914.X3DName := 'Jump_r_metatarsal_PitchInterpolator';
 OrientationInterpolator1914.SetKey([0,0.2,0.4,0.6,0.7,1]);
 OrientationInterpolator1914.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1914]);
 OrientationInterpolator1915 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1915.X3DName := 'Jump_r_talocrural_RotationInterpolator';
 OrientationInterpolator1915.SetKey([0,0.1,0.15,0.25,0.28,0.32,0.35,0.64,0.76,0.84,0.88,0.92,0.96,1]);
 OrientationInterpolator1915.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.6735),Vector4(-1,0,0,0.6735),Vector4(-1,0,0,0.3527),Vector4(-1,0,0,0.3038),Vector4(-1,0,0,0.07964),Vector4(1,0,0,1.3),Vector4(1,0,0,0.6509),Vector4(1,0,0,0.3001),Vector4(-1,0,0,0.2087),Vector4(-1,0,0,0.3756),Vector4(-1,0,0,0.3279),Vector4(-1,0,0,0.1193),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1915]);
 OrientationInterpolator1916 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJinLOA4Part162;
+begin
+
+OrientationInterpolator1916.X3DName := 'Jump_r_knee_RotationInterpolator';
 OrientationInterpolator1916.SetKey([0,0.2,0.25,0.3,0.64,0.76,0.88,1]);
 OrientationInterpolator1916.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,2.5),Vector4(1,0,0,1.7),Vector4(0,0,1,0),Vector4(1,0,0,0.9507),Vector4(1,0,0,0.5845),Vector4(1,0,0,0.9054),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1916]);
 OrientationInterpolator1917 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1917.X3DName := 'Jump_r_hip_RotationInterpolator';
 OrientationInterpolator1917.SetKey([0,0.18,0.24,0.26,0.28,0.32,0.48,0.64,0.76,0.88,1]);
-end;
-
-procedure InitJinLOA4Part148;
-begin
-
 OrientationInterpolator1917.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,1.63),Vector4(-1,0,0,1.7),Vector4(-1,0,0,1.55),Vector4(-1,0,0,0.8943),Vector4(-1,0,0,0.3698),Vector4(0,0,1,0),Vector4(-1,0,0,0.4963),Vector4(-1,0,0,0.3829),Vector4(-1,0,0,0.5169),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1917]);
 OrientationInterpolator1918 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1918.X3DName := 'Jump_l_talocrural_RotationInterpolator';
 OrientationInterpolator1918.SetKey([0,0.28,0.32,0.36,0.4,0.44,0.48,0.64,0.76,0.84,0.88,0.92,0.96,1]);
 OrientationInterpolator1918.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.625),Vector4(-1,0,0,0.625),Vector4(-1,0,0,0.3364),Vector4(-1,0,0,0.2742),Vector4(-1,0,0,0.05078),Vector4(1,0,0,0.2833),Vector4(1,0,0,0.6667),Vector4(1,0,0,0.2833),Vector4(-1,0,0,0.2108),Vector4(-1,0,0,0.375),Vector4(-1,0,0,0.3146),Vector4(-1,0,0,0.1174),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1918]);
 OrientationInterpolator1919 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1919.X3DName := 'Jump_l_knee_RotationInterpolator';
 OrientationInterpolator1919.SetKey([0,0.28,0.32,0.48,0.64,0.76,0.88,1]);
 OrientationInterpolator1919.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,2.047),Vector4(1,0,0,2.047),Vector4(0,0,1,0),Vector4(1,0,0,1.566),Vector4(1,0,0,0.5913),Vector4(1,0,0,0.9235),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1919]);
 OrientationInterpolator1920 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1920.X3DName := 'Jump_l_hip_RotationInterpolator';
 OrientationInterpolator1920.SetKey([0,0.28,0.32,0.36,0.4,0.44,0.48,0.64,0.76,0.88,1]);
 OrientationInterpolator1920.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,4.349),Vector4(1,0,0,4.349),Vector4(1,0,0,4.615),Vector4(-1,0,0,0.9136),Vector4(-1,0,0,0.3614),Vector4(0,0,1,0),Vector4(-1,0,0,0.7869),Vector4(-1,0,0,0.3918),Vector4(-1,0,0,0.5433),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1920]);
 OrientationInterpolator1921 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1921.X3DName := 'Jump_lower_body_RotationInterpolator';
 OrientationInterpolator1921.SetKey([0,0.28,0.32,0.48,0.76,1]);
 OrientationInterpolator1921.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,0.1892),Vector4(1,0,0,0.1892),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1921]);
 OrientationInterpolator1922 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1922.X3DName := 'Jump_r_radiocarpal_RotationInterpolator';
 OrientationInterpolator1922.SetKey([0,0.28,0.32,0.64,0.76,1]);
 OrientationInterpolator1922.SetKeyValue([Vector4(0,0,1,0),Vector4(-0.0585279,0.983903,-0.168849,1.85956),Vector4(-0.0585279,0.983903,-0.168849,1.85956),Vector4(-0.00222418,0.99801,-0.0630095,1.46072),Vector4(0,1,0,0.497349),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1922]);
 OrientationInterpolator1923 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1923.X3DName := 'Jump_r_elbow_RotationInterpolator';
 OrientationInterpolator1923.SetKey([0,0.28,0.32,0.64,0.76,1]);
 OrientationInterpolator1923.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.04151),Vector4(-1,0,0,0.04151),Vector4(-1,0,0,0.5855),Vector4(-1,0,0,0.5852),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1923]);
 OrientationInterpolator1924 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJinLOA4Part163;
+begin
+
+OrientationInterpolator1924.X3DName := 'Jump_r_shoulder_RotationInterpolator';
 OrientationInterpolator1924.SetKey([0,0.28,0.32,0.64,0.76,0.88,1]);
 OrientationInterpolator1924.SetKeyValue([Vector4(0,0,1,0),Vector4(0.9992,0.02042,0.03558,4.688),Vector4(0.9992,0.02042,0.03558,4.688),Vector4(0.9989,-0.04623,0.005159,4.079),Vector4(-0.8687,-0.2525,-0.4261,1.501),Vector4(-0.941,-0.2893,-0.1754,0.4788),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1924]);
 OrientationInterpolator1925 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1925.X3DName := 'Jump_l_radiocarpal_RotationInterpolator';
 OrientationInterpolator1925.SetKey([0,0.48,0.52,0.64,0.76,0.88,1]);
 OrientationInterpolator1925.SetKeyValue([Vector4(0,0,1,0),Vector4(0.0672928,0.989475,-0.128107,4.15574),Vector4(0.0672928,0.989475,-0.128107,4.15574),Vector4(0.00364942,0.999901,0.0135896,4.5822),Vector4(0,-1,0,0.655922),Vector4(-0.00050618,-0.999999,0.0012782,1.28397),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1925]);
 OrientationInterpolator1926 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1926.X3DName := 'Jump_l_elbow_RotationInterpolator';
 OrientationInterpolator1926.SetKey([0,0.28,0.32,0.58,0.72,1]);
 OrientationInterpolator1926.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,1.13),Vector4(-1,0,0,1.7),Vector4(-1,0,0,1.7),Vector4(-1,0,0,0.4),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1926]);
 OrientationInterpolator1927 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1927.X3DName := 'Jump_l_shoulder_RotationInterpolator';
 OrientationInterpolator1927.SetKey([0,0.28,0.32,0.64,0.76,0.88,1]);
-end;
-
-procedure InitJinLOA4Part149;
-begin
-
 OrientationInterpolator1927.SetKeyValue([Vector4(0,0,1,0),Vector4(-0.9987,0.02554,0.04498,1.57),Vector4(-0.9987,0.02554,0.04498,1.57),Vector4(1,0.0004113,0.003055,4.114),Vector4(-0.8413,0.3238,0.4329,1.453),Vector4(-0.877,0.4198,0.2337,0.6009),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1927]);
 OrientationInterpolator1928 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1928.X3DName := 'Jump_head_RotationInterpolator';
 OrientationInterpolator1928.SetKey([0,0.28,0.32,0.48,0.76,1]);
 OrientationInterpolator1928.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.5989),Vector4(-1,0,0,0.5989),Vector4(-1,0,0,0.3216),Vector4(1,0,0,0.06503),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1928]);
 OrientationInterpolator1929 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1929.X3DName := 'Jump_neck_RotationInterpolator';
 OrientationInterpolator1929.SetKey([0,0.28,0.32,0.48,0.76,1]);
 OrientationInterpolator1929.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.1942),Vector4(-1,0,0,0.1942),Vector4(0,0,1,0),Vector4(1,0,0,0.2284),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1929]);
 OrientationInterpolator1930 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1930.X3DName := 'Jump_upper_body_RotationInterpolator';
 OrientationInterpolator1930.SetKey([0,0.22,0.28,0.34,0.71,0.88,1]);
 OrientationInterpolator1930.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,1.05),Vector4(1,0,0,1.051),Vector4(-1,0,0,0.257),Vector4(1,0,0,0.2171),Vector4(1,0,0,0.3465),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1930]);
 OrientationInterpolator1931 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1931.X3DName := 'Jump_whole_body_RotationInterpolator';
 OrientationInterpolator1931.SetKey([0,0.28,0.32,0.48,0.64,0.76,1]);
 OrientationInterpolator1931.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,0.3273),Vector4(1,0,0,0.3273),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1931]);
 PositionInterpolator1932 := TPositionInterpolatorNode.Create;
+end;
+
+procedure InitJinLOA4Part164;
+begin
+
+PositionInterpolator1932.X3DName := 'Jump_whole_body_TranslationInterpolator';
 PositionInterpolator1932.SetKey([0,0.04,0.07,0.11,0.15,0.19,0.22,0.25,0.27,0.31,0.33,0.35,0.38,0.53,0.544,0.76,0.8,0.84,0.88,0.92,0.96,1]);
 PositionInterpolator1932.SetKeyValue([Vector3(0,0,0),Vector3(0,-0.01264,-0.01289),Vector3(0,-0.04712,-0.03738),Vector3(-0.0003345,-0.1049,-0.05353),Vector3(-0.0005712,-0.1892,-0.06561),Vector3(-0.0008233,-0.286,-0.06276),Vector3(-0.0009591,-0.3795,-0.05148),Vector3(-0.00106,-0.4484,-0.03656),Vector3(-0.00106,-0.4484,-0.03656),Vector3(-0.001122,-0.25,-0.1499),Vector3(-0.0008616,-0.05,-0.06358),Vector3(-0.0005128,0.15,-0.05488),Vector3(0.0004779,0.55,0.02732),Vector3(0.0001728,1.385,0.006873),Vector3(0.00017,1.395,0.0069),Vector3(0,0.35,0.02148),Vector3(0,-0.01299,-0.01057),Vector3(0,-0.06932,-0.01064),Vector3(0.0001365,-0.1037,-0.005059),Vector3(0.0001279,-0.07198,-0.007596),Vector3(0.000141,-0.01626,-0.004935),Vector3(0,0,0)]);
 { .AddChildren }
 Group1912.AddChildren([PositionInterpolator1932]);
 OrientationInterpolator1933 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1933.X3DName := 'Jump_l_sternoclavicular_RollInterpolator';
 OrientationInterpolator1933.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1933.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0.2),Vector4(0,0,1,0.22),Vector4(0,0,1,0.2),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1933]);
 OrientationInterpolator1934 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1934.X3DName := 'Jump_l_acromioclavicular_RollInterpolator';
 OrientationInterpolator1934.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1934.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0.05),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1934]);
 OrientationInterpolator1935 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1935.X3DName := 'Jump_r_sternoclavicular_RollInterpolator';
 OrientationInterpolator1935.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1935.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,-0.2),Vector4(0,0,1,-0.22),Vector4(0,0,1,-0.2),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1935]);
 OrientationInterpolator1936 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1936.X3DName := 'Jump_r_acromioclavicular_RollInterpolator';
 OrientationInterpolator1936.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1936.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,-0.05),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1936]);
 OrientationInterpolator1937 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1937.X3DName := 'Jump_sacroiliac_YawInterpolator';
 OrientationInterpolator1937.SetKey([0,0.2,0.4,0.6,0.8,1]);
-end;
-
-procedure InitJinLOA4Part150;
-begin
-
 OrientationInterpolator1937.SetKeyValue([Vector4(0,1,0,0),Vector4(0,-1,0,0.1),Vector4(0,1,0,0),Vector4(0,1,-1,0.24),Vector4(0,-1,0,0.4),Vector4(0,1,0,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1937]);
 OrientationInterpolator1938 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1938.X3DName := 'Jump_vl5_YawInterpolator';
 OrientationInterpolator1938.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1938.SetKeyValue([Vector4(0,1,0,0),Vector4(0,1,0,-0.1),Vector4(0,1,0,0),Vector4(0,1,0,0),Vector4(1,0,0,0.6),Vector4(0,1,0,0.1),Vector4(0,1,0,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1938]);
 OrientationInterpolator1939 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1939.X3DName := 'Jump_vc6_YawInterpolator';
 OrientationInterpolator1939.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1939.SetKeyValue([Vector4(0,1,0,0),Vector4(0,1,0,0.8),Vector4(0,1,0,0),Vector4(0,1,0,0),Vector4(-1,0,0,0.6),Vector4(0,-1,0,0.8),Vector4(0,1,0,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1939]);
 OrientationInterpolator1940 := TOrientationInterpolatorNode.Create;
+end;
+
+procedure InitJinLOA4Part165;
+begin
+
+OrientationInterpolator1940.X3DName := 'Jump_l_thumb1_PitchInterpolator';
 OrientationInterpolator1940.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1940.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.5),Vector4(1,0,0,1.1),Vector4(1,0,0,0.7),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1912.AddChildren([OrientationInterpolator1940]);
 OrientationInterpolator1941 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1941.X3DName := 'Jump_r_thumb1_PitchInterpolator';
 OrientationInterpolator1941.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1941.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.5),Vector4(1,0,0,1.1),Vector4(1,0,0,0.7),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
@@ -10700,152 +11374,180 @@ Group1912.AddChildren([OrientationInterpolator1941]);
 { .AddChildren }
 Group19.AddChildren([Group1912]);
 Group1942 := TGroupNode.Create;
+Group1942.X3DName := 'KickAnimation';
 TimeSensor1943 := TTimeSensorNode.Create;
+TimeSensor1943.X3DName := 'KickTimer';
 TimeSensor1943.CycleInterval := 3.73;
 TimeSensor1943.Loop := True;
 { .AddChildren }
 Group1942.AddChildren([TimeSensor1943]);
 OrientationInterpolator1944 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1944.X3DName := 'Kick_l_sternoclavicular_RollInterpolator';
 OrientationInterpolator1944.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1944.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0.2),Vector4(0,0,1,0.22),Vector4(0,0,1,0.2),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1944]);
 OrientationInterpolator1945 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1945.X3DName := 'Kick_l_acromioclavicular_RollInterpolator';
 OrientationInterpolator1945.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1945.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0.05),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1945]);
 OrientationInterpolator1946 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1946.X3DName := 'Kick_l_shoulder_RollInterpolator';
 OrientationInterpolator1946.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1946.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,1.76),Vector4(-0.25,0,1,1.76),Vector4(0,0,1,1.256),Vector4(0,0,1,0.05),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1946]);
 OrientationInterpolator1947 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1947.X3DName := 'Kick_l_ForeArm_PitchInterpolator';
 OrientationInterpolator1947.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1947.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,-0.55),Vector4(-1,0.25,0,2.55),Vector4(1,0,0,0),Vector4(1,0,0,0),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1947]);
+OrientationInterpolator1948 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1948.X3DName := 'Kick_l_radiocarpal_RollInterpolator';
+OrientationInterpolator1948.SetKey([0,0.2,0.4,0.6,0.8,1]);
 end;
 
-procedure InitJinLOA4Part151;
+procedure InitJinLOA4Part166;
 begin
 
-OrientationInterpolator1948 := TOrientationInterpolatorNode.Create;
-OrientationInterpolator1948.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1948.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,1,0,0.55),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1948]);
 OrientationInterpolator1949 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1949.X3DName := 'Kick_l_thumb1_PitchInterpolator';
 OrientationInterpolator1949.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1949.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.5),Vector4(1,0,0,1.1),Vector4(1,0,0,0.7),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1949]);
 OrientationInterpolator1950 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1950.X3DName := 'Kick_r_sternoclavicular_RollInterpolator';
 OrientationInterpolator1950.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1950.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,-0.2),Vector4(0,0,1,-0.22),Vector4(0,0,1,-0.2),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1950]);
 OrientationInterpolator1951 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1951.X3DName := 'Kick_r_acromioclavicular_RollInterpolator';
 OrientationInterpolator1951.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1951.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,-0.05),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1951]);
 OrientationInterpolator1952 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1952.X3DName := 'Kick_r_shoulder_RollInterpolator';
 OrientationInterpolator1952.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1952.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,-1.76),Vector4(0.25,0,1,-1.76),Vector4(0,0,1,-1.256),Vector4(0,0,1,-0.05),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1952]);
 OrientationInterpolator1953 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1953.X3DName := 'Kick_r_ForeArm_PitchInterpolator';
 OrientationInterpolator1953.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1953.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,-0.55),Vector4(1,0.25,0,-2.55),Vector4(1,0,0,0),Vector4(1,0,0,0),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1953]);
 OrientationInterpolator1954 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1954.X3DName := 'Kick_r_radiocarpal_RollInterpolator';
 OrientationInterpolator1954.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1954.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,1,0,-0.55),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1954]);
 OrientationInterpolator1955 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1955.X3DName := 'Kick_r_thumb1_PitchInterpolator';
 OrientationInterpolator1955.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1955.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.5),Vector4(1,0,0,1.1),Vector4(1,0,0,0.7),Vector4(1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1955]);
 OrientationInterpolator1956 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1956.X3DName := 'Kick_r_hip_PitchInterpolator';
 OrientationInterpolator1956.SetKey([0,0.2,0.3,0.5,0.6,0.9,1]);
+end;
+
+procedure InitJinLOA4Part167;
+begin
+
 OrientationInterpolator1956.SetKeyValue([Vector4(1,0,0,0),Vector4(1,0,0,0.9),Vector4(-1,0,0,1.75),Vector4(-1,0,0,2.25),Vector4(-1,0,0,2),Vector4(1,0,0,0),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1956]);
 OrientationInterpolator1957 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1957.X3DName := 'Kick_r_knee_PitchInterpolator';
 OrientationInterpolator1957.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1957.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,1.95),Vector4(1,0,0,1.75),Vector4(-1,0,0,0.28),Vector4(1,0,0,0),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1957]);
-end;
-
-procedure InitJinLOA4Part152;
-begin
-
 OrientationInterpolator1958 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1958.X3DName := 'Kick_l_hip_PitchInterpolator';
 OrientationInterpolator1958.SetKey([0,0.2,0.3,0.5,0.6,0.9,1]);
 OrientationInterpolator1958.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1958]);
 OrientationInterpolator1959 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1959.X3DName := 'Kick_l_knee_PitchInterpolator';
 OrientationInterpolator1959.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1959.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1959]);
 OrientationInterpolator1960 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1960.X3DName := 'Kick_r_talocrural_PitchInterpolator';
 OrientationInterpolator1960.SetKey([0,0.2,0.4,0.6,0.7,1]);
 OrientationInterpolator1960.SetKeyValue([Vector4(0,0,1,0),Vector4(-1,0,0,0.9),Vector4(-1,0,0,0.95),Vector4(1,0,0,0.75),Vector4(-1,0,0,0.05),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1960]);
 OrientationInterpolator1961 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1961.X3DName := 'Kick_r_metatarsal_PitchInterpolator';
 OrientationInterpolator1961.SetKey([0,0.2,0.4,0.6,0.7,1]);
 OrientationInterpolator1961.SetKeyValue([Vector4(1,0,0,0),Vector4(-1,0,0,0.5),Vector4(-1,0,0,0.7),Vector4(1,0,0,0.75),Vector4(-1,0,0,0.2),Vector4(1,0,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1961]);
 OrientationInterpolator1962 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1962.X3DName := 'Kick_sacroiliac_YawInterpolator';
 OrientationInterpolator1962.SetKey([0,0.2,0.4,0.6,0.8,1]);
 OrientationInterpolator1962.SetKeyValue([Vector4(0,1,0,0),Vector4(0,-1,0,0.1),Vector4(0,1,0,0),Vector4(0,1,-1,0.24),Vector4(0,-1,0,0.4),Vector4(0,1,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1962]);
 OrientationInterpolator1963 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1963.X3DName := 'Kick_vl5_YawInterpolator';
 OrientationInterpolator1963.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
 OrientationInterpolator1963.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1963]);
 OrientationInterpolator1964 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1964.X3DName := 'Kick_vc6_YawInterpolator';
 OrientationInterpolator1964.SetKey([0,0.2,0.4,0.5,0.6,0.8,1]);
+end;
+
+procedure InitJinLOA4Part168;
+begin
+
 OrientationInterpolator1964.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1964]);
 OrientationInterpolator1965 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1965.X3DName := 'Kick_lower_body_RotationInterpolator';
 OrientationInterpolator1965.SetKey([0,0.5,1]);
 OrientationInterpolator1965.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1965]);
 OrientationInterpolator1966 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1966.X3DName := 'Kick_upper_body_RotationInterpolator';
 OrientationInterpolator1966.SetKey([0,0.5,1]);
 OrientationInterpolator1966.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1966]);
 OrientationInterpolator1967 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1967.X3DName := 'Kick_whole_body_RotationInterpolator';
 OrientationInterpolator1967.SetKey([0,0.5,1]);
 OrientationInterpolator1967.SetKeyValue([Vector4(0,0,1,0),Vector4(0,0,1,0),Vector4(0,0,1,0)]);
 { .AddChildren }
 Group1942.AddChildren([OrientationInterpolator1967]);
-end;
-
-procedure InitJinLOA4Part153;
-begin
-
 PositionInterpolator1968 := TPositionInterpolatorNode.Create;
+PositionInterpolator1968.X3DName := 'Kick_whole_body_TranslationInterpolator';
 PositionInterpolator1968.SetKey([0,0.5,1]);
 PositionInterpolator1968.SetKeyValue([Vector3(0,0,0),Vector3(0,0,0),Vector3(0,0,0)]);
 { .AddChildren }
 Group1942.AddChildren([PositionInterpolator1968]);
 OrientationInterpolator1969 := TOrientationInterpolatorNode.Create;
+OrientationInterpolator1969.X3DName := 'Kick_neck_RotationInterpolator';
 OrientationInterpolator1969.SetKey([0,0.25,0.55,1]);
 OrientationInterpolator1969.SetKeyValue([Vector4(0,0,1,0),Vector4(1,0,0,0.7),Vector4(1,0,0,0.5),Vector4(0,0,1,0)]);
 { .AddChildren }
@@ -10853,14 +11555,22 @@ Group1942.AddChildren([OrientationInterpolator1969]);
 { .AddChildren }
 Group19.AddChildren([Group1942]);
 Group1970 := TGroupNode.Create;
+Group1970.X3DName := 'Interface';
 Transform1971 := TTransformNode.Create;
+Transform1971.X3DName := 'CoordinateSystemFloor';
 Transform1971.Scale := Vector3(0.1,0.1,0.1);
 Shape1972 := TShapeNode.Create;
+Shape1972.X3DName := 'AxisLinesShape';
 IndexedLineSet1973 := TIndexedLineSetNode.Create;
 IndexedLineSet1973.SetColorIndex([0,1,2]);
 IndexedLineSet1973.ColorPerVertex := False;
 IndexedLineSet1973.SetCoordIndex([0,1,-1,0,2,-1,0,3,-1]);
 Coordinate1974 := TCoordinateNode.Create;
+end;
+
+procedure InitJinLOA4Part169;
+begin
+
 Coordinate1974.SetPoint([Vector3(0,0,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(0,0,1)]);
 { .SetCoord }
 IndexedLineSet1973.Coord := Coordinate1974;
@@ -10875,28 +11585,29 @@ Transform1971.AddChildren([Shape1972]);
 { .AddChildren }
 Group1970.AddChildren([Transform1971]);
 ProximitySensor1976 := TProximitySensorNode.Create;
+ProximitySensor1976.X3DName := 'HudProx';
 ProximitySensor1976.Size := Vector3(50,50,50);
 { .AddChildren }
 Group1970.AddChildren([ProximitySensor1976]);
 Transform1977 := TTransformNode.Create;
+Transform1977.X3DName := 'HudXform';
 Transform1977.Rotation := Vector4(0,1,0,0.78);
 Transform1977.Translation := Vector3(2,1,2);
 Transform1978 := TTransformNode.Create;
 Transform1978.Scale := Vector3(0.02,0.02,0.02);
 Transform1978.Translation := Vector3(-0.4,-0.01,-0.75);
 Transform1979 := TTransformNode.Create;
+Transform1979.X3DName := 'Stand_Text';
 Transform1979.Translation := Vector3(0,-0.9,0);
 TouchSensor1980 := TTouchSensorNode.Create;
+TouchSensor1980.X3DName := 'Stand_Touch';
 { .AddChildren }
 Transform1979.AddChildren([TouchSensor1980]);
 Shape1981 := TShapeNode.Create;
-end;
-
-procedure InitJinLOA4Part154;
-begin
-
+Shape1981.X3DName := 'StandText';
 Appearance1982 := TAppearanceNode.Create;
 Material1983 := TMaterialNode.Create;
+Material1983.X3DName := 'text_color';
 Material1983.AmbientIntensity := 1;
 Material1983.DiffuseColor := Vector3(0.819,0.521,0.169);
 Material1983.EmissiveColor := Vector3(0.819,0.521,0.169);
@@ -10909,6 +11620,11 @@ Text1984 := TTextNode.Create;
 Text1984.SetText(['Stand']);
 FontStyle1985 := TFontStyleNode.Create;
 FontStyle1985.Family := ffSans;
+end;
+
+procedure InitJinLOA4Part170;
+begin
+
 { .SetFontStyle }
 Text1984.FontStyle := FontStyle1985;
 { .SetGeometry }
@@ -10916,8 +11632,10 @@ Shape1981.Geometry := Text1984;
 { .AddChild }
 Transform1979.AddChildren([Shape1981]);
 Shape1986 := TShapeNode.Create;
+Shape1986.X3DName := 'Stand_Back';
 Appearance1987 := TAppearanceNode.Create;
 Material1988 := TMaterialNode.Create;
+Material1988.X3DName := 'Clear';
 Material1988.AmbientIntensity := 1;
 Material1988.DiffuseColor := Vector3(0,0.5,0);
 Material1988.EmissiveColor := Vector3(0,0.5,0);
@@ -10927,6 +11645,7 @@ Appearance1987.Material := Material1988;
 { .SetAppearance }
 Shape1986.Appearance := Appearance1987;
 IndexedFaceSet1989 := TIndexedFaceSetNode.Create;
+IndexedFaceSet1989.X3DName := 'Backing';
 IndexedFaceSet1989.SetCoordIndex([0,1,2,3,-1]);
 Coordinate1990 := TCoordinateNode.Create;
 Coordinate1990.SetPoint([Vector3(-0.2,-0.25,-0.01),Vector3(3,-0.25,-0.01),Vector3(3,1,-0.01),Vector3(-0.2,1,-0.01)]);
@@ -10939,20 +11658,18 @@ Transform1979.AddChildren([Shape1986]);
 { .AddChildren }
 Transform1978.AddChildren([Transform1979]);
 Transform1991 := TTransformNode.Create;
+Transform1991.X3DName := 'Pitch_Text';
 Transform1991.Translation := Vector3(0,-2.4,0);
 TouchSensor1992 := TTouchSensorNode.Create;
+TouchSensor1992.X3DName := 'Pitch_Touch';
 { .AddChildren }
 Transform1991.AddChildren([TouchSensor1992]);
 Shape1993 := TShapeNode.Create;
+Shape1993.X3DName := 'PitchText';
 Appearance1994 := TAppearanceNode.Create;
 Material1995 := Material1983;
 { .SetMaterial }
 Appearance1994.Material := Material1995;
-end;
-
-procedure InitJinLOA4Part155;
-begin
-
 { .SetAppearance }
 Shape1993.Appearance := Appearance1994;
 Text1996 := TTextNode.Create;
@@ -10961,11 +11678,17 @@ FontStyle1997 := TFontStyleNode.Create;
 FontStyle1997.Family := ffSans;
 { .SetFontStyle }
 Text1996.FontStyle := FontStyle1997;
+end;
+
+procedure InitJinLOA4Part171;
+begin
+
 { .SetGeometry }
 Shape1993.Geometry := Text1996;
 { .AddChild }
 Transform1991.AddChildren([Shape1993]);
 Shape1998 := TShapeNode.Create;
+Shape1998.X3DName := 'Pitch_Back';
 Appearance1999 := TAppearanceNode.Create;
 Material2000 := Material1988;
 { .SetMaterial }
@@ -10980,11 +11703,14 @@ Transform1991.AddChildren([Shape1998]);
 { .AddChildren }
 Transform1978.AddChildren([Transform1991]);
 Transform2002 := TTransformNode.Create;
+Transform2002.X3DName := 'Yaw_Text';
 Transform2002.Translation := Vector3(0,-3.8,0);
 TouchSensor2003 := TTouchSensorNode.Create;
+TouchSensor2003.X3DName := 'Yaw_Touch';
 { .AddChildren }
 Transform2002.AddChildren([TouchSensor2003]);
 Shape2004 := TShapeNode.Create;
+Shape2004.X3DName := 'YawText';
 Appearance2005 := TAppearanceNode.Create;
 Material2006 := Material1983;
 { .SetMaterial }
@@ -11002,6 +11728,7 @@ Shape2004.Geometry := Text2007;
 { .AddChild }
 Transform2002.AddChildren([Shape2004]);
 Shape2009 := TShapeNode.Create;
+Shape2009.X3DName := 'Yaw_Back';
 Appearance2010 := TAppearanceNode.Create;
 Material2011 := Material1988;
 { .SetMaterial }
@@ -11011,21 +11738,24 @@ Shape2009.Appearance := Appearance2010;
 IndexedFaceSet2012 := IndexedFaceSet1989;
 { .SetGeometry }
 Shape2009.Geometry := IndexedFaceSet2012;
-end;
-
-procedure InitJinLOA4Part156;
-begin
-
 { .AddChild }
 Transform2002.AddChildren([Shape2009]);
+end;
+
+procedure InitJinLOA4Part172;
+begin
+
 { .AddChildren }
 Transform1978.AddChildren([Transform2002]);
 Transform2013 := TTransformNode.Create;
+Transform2013.X3DName := 'Roll_Text';
 Transform2013.Translation := Vector3(0,-5.2,0);
 TouchSensor2014 := TTouchSensorNode.Create;
+TouchSensor2014.X3DName := 'Roll_Touch';
 { .AddChildren }
 Transform2013.AddChildren([TouchSensor2014]);
 Shape2015 := TShapeNode.Create;
+Shape2015.X3DName := 'RollText';
 Appearance2016 := TAppearanceNode.Create;
 Material2017 := Material1983;
 { .SetMaterial }
@@ -11043,6 +11773,7 @@ Shape2015.Geometry := Text2018;
 { .AddChild }
 Transform2013.AddChildren([Shape2015]);
 Shape2020 := TShapeNode.Create;
+Shape2020.X3DName := 'Roll_Back';
 Appearance2021 := TAppearanceNode.Create;
 Material2022 := Material1988;
 { .SetMaterial }
@@ -11057,13 +11788,21 @@ Transform2013.AddChildren([Shape2020]);
 { .AddChildren }
 Transform1978.AddChildren([Transform2013]);
 Transform2024 := TTransformNode.Create;
+Transform2024.X3DName := 'Walk_Text';
 Transform2024.Translation := Vector3(0,-6.6,0);
 TouchSensor2025 := TTouchSensorNode.Create;
+TouchSensor2025.X3DName := 'Walk_Touch';
 { .AddChildren }
 Transform2024.AddChildren([TouchSensor2025]);
 Shape2026 := TShapeNode.Create;
+Shape2026.X3DName := 'WalkText';
 Appearance2027 := TAppearanceNode.Create;
 Material2028 := Material1983;
+end;
+
+procedure InitJinLOA4Part173;
+begin
+
 { .SetMaterial }
 Appearance2027.Material := Material2028;
 { .SetAppearance }
@@ -11072,11 +11811,6 @@ Text2029 := TTextNode.Create;
 Text2029.SetText(['Walk']);
 FontStyle2030 := TFontStyleNode.Create;
 FontStyle2030.Family := ffSans;
-end;
-
-procedure InitJinLOA4Part157;
-begin
-
 { .SetFontStyle }
 Text2029.FontStyle := FontStyle2030;
 { .SetGeometry }
@@ -11084,6 +11818,7 @@ Shape2026.Geometry := Text2029;
 { .AddChild }
 Transform2024.AddChildren([Shape2026]);
 Shape2031 := TShapeNode.Create;
+Shape2031.X3DName := 'Walk_Back';
 Appearance2032 := TAppearanceNode.Create;
 Material2033 := Material1988;
 { .SetMaterial }
@@ -11098,11 +11833,14 @@ Transform2024.AddChildren([Shape2031]);
 { .AddChildren }
 Transform1978.AddChildren([Transform2024]);
 Transform2035 := TTransformNode.Create;
+Transform2035.X3DName := 'Run_Text';
 Transform2035.Translation := Vector3(0,-8,0);
 TouchSensor2036 := TTouchSensorNode.Create;
+TouchSensor2036.X3DName := 'Run_Touch';
 { .AddChildren }
 Transform2035.AddChildren([TouchSensor2036]);
 Shape2037 := TShapeNode.Create;
+Shape2037.X3DName := 'RunText';
 Appearance2038 := TAppearanceNode.Create;
 Material2039 := Material1983;
 { .SetMaterial }
@@ -11120,6 +11858,12 @@ Shape2037.Geometry := Text2040;
 { .AddChild }
 Transform2035.AddChildren([Shape2037]);
 Shape2042 := TShapeNode.Create;
+Shape2042.X3DName := 'Run_Back';
+end;
+
+procedure InitJinLOA4Part174;
+begin
+
 Appearance2043 := TAppearanceNode.Create;
 Material2044 := Material1988;
 { .SetMaterial }
@@ -11134,16 +11878,14 @@ Transform2035.AddChildren([Shape2042]);
 { .AddChildren }
 Transform1978.AddChildren([Transform2035]);
 Transform2046 := TTransformNode.Create;
+Transform2046.X3DName := 'Jump_Text';
 Transform2046.Translation := Vector3(0,-9.4,0);
 TouchSensor2047 := TTouchSensorNode.Create;
-end;
-
-procedure InitJinLOA4Part158;
-begin
-
+TouchSensor2047.X3DName := 'Jump_Touch';
 { .AddChildren }
 Transform2046.AddChildren([TouchSensor2047]);
 Shape2048 := TShapeNode.Create;
+Shape2048.X3DName := 'JumpText';
 Appearance2049 := TAppearanceNode.Create;
 Material2050 := Material1983;
 { .SetMaterial }
@@ -11161,6 +11903,7 @@ Shape2048.Geometry := Text2051;
 { .AddChild }
 Transform2046.AddChildren([Shape2048]);
 Shape2053 := TShapeNode.Create;
+Shape2053.X3DName := 'Jump_Back';
 Appearance2054 := TAppearanceNode.Create;
 Material2055 := Material1988;
 { .SetMaterial }
@@ -11175,11 +11918,19 @@ Transform2046.AddChildren([Shape2053]);
 { .AddChildren }
 Transform1978.AddChildren([Transform2046]);
 Transform2057 := TTransformNode.Create;
+Transform2057.X3DName := 'Kick_Text';
 Transform2057.Translation := Vector3(0,-10.8,0);
+end;
+
+procedure InitJinLOA4Part175;
+begin
+
 TouchSensor2058 := TTouchSensorNode.Create;
+TouchSensor2058.X3DName := 'Kick_Touch';
 { .AddChildren }
 Transform2057.AddChildren([TouchSensor2058]);
 Shape2059 := TShapeNode.Create;
+Shape2059.X3DName := 'KickText';
 Appearance2060 := TAppearanceNode.Create;
 Material2061 := Material1983;
 { .SetMaterial }
@@ -11197,12 +11948,8 @@ Shape2059.Geometry := Text2062;
 { .AddChild }
 Transform2057.AddChildren([Shape2059]);
 Shape2064 := TShapeNode.Create;
+Shape2064.X3DName := 'Kick_Back';
 Appearance2065 := TAppearanceNode.Create;
-end;
-
-procedure InitJinLOA4Part159;
-begin
-
 Material2066 := Material1988;
 { .SetMaterial }
 Appearance2065.Material := Material2066;
@@ -11216,11 +11963,14 @@ Transform2057.AddChildren([Shape2064]);
 { .AddChildren }
 Transform1978.AddChildren([Transform2057]);
 Transform2068 := TTransformNode.Create;
+Transform2068.X3DName := 'Stop_Text';
 Transform2068.Translation := Vector3(0,0.4,0);
 TouchSensor2069 := TTouchSensorNode.Create;
+TouchSensor2069.X3DName := 'Stop_Touch';
 { .AddChildren }
 Transform2068.AddChildren([TouchSensor2069]);
 Shape2070 := TShapeNode.Create;
+Shape2070.X3DName := 'StopText';
 Appearance2071 := TAppearanceNode.Create;
 Material2072 := Material1983;
 { .SetMaterial }
@@ -11229,6 +11979,11 @@ Appearance2071.Material := Material2072;
 Shape2070.Appearance := Appearance2071;
 Text2073 := TTextNode.Create;
 Text2073.SetText(['Default']);
+end;
+
+procedure InitJinLOA4Part176;
+begin
+
 FontStyle2074 := TFontStyleNode.Create;
 FontStyle2074.Family := ffSans;
 { .SetFontStyle }
@@ -11238,6 +11993,7 @@ Shape2070.Geometry := Text2073;
 { .AddChild }
 Transform2068.AddChildren([Shape2070]);
 Shape2075 := TShapeNode.Create;
+Shape2075.X3DName := 'Stop_Back';
 Appearance2076 := TAppearanceNode.Create;
 Material2077 := Material1988;
 { .SetMaterial }
@@ -11252,8 +12008,10 @@ Transform2068.AddChildren([Shape2075]);
 { .AddChildren }
 Transform1978.AddChildren([Transform2068]);
 Transform2079 := TTransformNode.Create;
+Transform2079.X3DName := 'SceneLabel';
 Transform2079.Translation := Vector3(1.3,3,0);
 Shape2080 := TShapeNode.Create;
+Shape2080.X3DName := 'SceneLabelText';
 Appearance2081 := TAppearanceNode.Create;
 Material2082 := Material1983;
 { .SetMaterial }
@@ -11261,11 +12019,6 @@ Appearance2081.Material := Material2082;
 { .SetAppearance }
 Shape2080.Appearance := Appearance2081;
 Text2083 := TTextNode.Create;
-end;
-
-procedure InitJinLOA4Part160;
-begin
-
 Text2083.SetText(['JinLOA4','Animation']);
 FontStyle2084 := TFontStyleNode.Create;
 FontStyle2084.Family := ffSans;
@@ -11290,6 +12043,11 @@ Group19.AddRoute(TimeSensor1638.EventFraction_changed, PositionInterpolator1639.
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1640.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1641.EventSet_fraction);
+end;
+
+procedure InitJinLOA4Part177;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1642.EventSet_fraction);
 { .AddX3DRoute }
@@ -11342,11 +12100,6 @@ Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator16
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1665.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1666.EventSet_fraction);
-end;
-
-procedure InitJinLOA4Part161;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1667.EventSet_fraction);
 { .AddX3DRoute }
@@ -11377,6 +12130,11 @@ Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator16
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1680.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1681.EventSet_fraction);
+end;
+
+procedure InitJinLOA4Part178;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1682.EventSet_fraction);
 { .AddX3DRoute }
@@ -11427,11 +12185,6 @@ Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator17
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1705.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1706.EventSet_fraction);
-end;
-
-procedure InitJinLOA4Part162;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1707.EventSet_fraction);
 { .AddX3DRoute }
@@ -11462,6 +12215,11 @@ Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator17
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1720.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1721.EventSet_fraction);
+end;
+
+procedure InitJinLOA4Part179;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1638.EventFraction_changed, OrientationInterpolator1722.EventSet_fraction);
 { .AddX3DRoute }
@@ -11514,11 +12272,6 @@ Group19.AddRoute(TimeSensor1728.EventFraction_changed, OrientationInterpolator17
 Group19.AddRoute(TimeSensor1728.EventFraction_changed, OrientationInterpolator1732.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1728.EventFraction_changed, OrientationInterpolator1733.EventSet_fraction);
-end;
-
-procedure InitJinLOA4Part163;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1728.EventFraction_changed, OrientationInterpolator1734.EventSet_fraction);
 { .AddX3DRoute }
@@ -11549,6 +12302,11 @@ Group19.AddRoute(TimeSensor1728.EventFraction_changed, OrientationInterpolator17
 Group19.AddRoute(TimeSensor1728.EventFraction_changed, OrientationInterpolator1747.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1728.EventFraction_changed, OrientationInterpolator1748.EventSet_fraction);
+end;
+
+procedure InitJinLOA4Part180;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1728.EventFraction_changed, PositionInterpolator1749.EventSet_fraction);
 { .AddX3DRoute }
@@ -11599,11 +12357,6 @@ Group19.AddRoute(OrientationInterpolator1738.EventValue_changed, HAnimJoint1231.
 Group19.AddRoute(OrientationInterpolator1739.EventValue_changed, HAnimJoint971.FdRotation);
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1740.EventValue_changed, HAnimJoint961.FdRotation);
-end;
-
-procedure InitJinLOA4Part164;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1741.EventValue_changed, HAnimJoint951.FdRotation);
 { .AddX3DRoute }
@@ -11634,6 +12387,11 @@ Group19.AddRoute(TimeSensor1763.EventFraction_changed, OrientationInterpolator17
 Group19.AddRoute(TimeSensor1763.EventFraction_changed, OrientationInterpolator1772.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1763.EventFraction_changed, OrientationInterpolator1773.EventSet_fraction);
+end;
+
+procedure InitJinLOA4Part181;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1763.EventFraction_changed, OrientationInterpolator1774.EventSet_fraction);
 { .AddX3DRoute }
@@ -11684,11 +12442,6 @@ Group19.AddRoute(OrientationInterpolator1769.EventValue_changed, HAnimJoint61.Fd
 Group19.AddRoute(OrientationInterpolator1770.EventValue_changed, HAnimJoint51.FdRotation);
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1771.EventValue_changed, HAnimJoint1251.FdRotation);
-end;
-
-procedure InitJinLOA4Part165;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1772.EventValue_changed, HAnimJoint1241.FdRotation);
 { .AddX3DRoute }
@@ -11719,6 +12472,11 @@ Group19.AddRoute(TimeSensor1793.EventFraction_changed, OrientationInterpolator17
 Group19.AddRoute(TimeSensor1793.EventFraction_changed, OrientationInterpolator1799.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1793.EventFraction_changed, OrientationInterpolator1800.EventSet_fraction);
+end;
+
+procedure InitJinLOA4Part182;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1793.EventFraction_changed, OrientationInterpolator1810.EventSet_fraction);
 { .AddX3DRoute }
@@ -11769,11 +12527,6 @@ Group19.AddRoute(OrientationInterpolator1795.EventValue_changed, HAnimJoint351.F
 Group19.AddRoute(OrientationInterpolator1796.EventValue_changed, HAnimJoint341.FdRotation);
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1797.EventValue_changed, HAnimJoint331.FdRotation);
-end;
-
-procedure InitJinLOA4Part166;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1798.EventValue_changed, HAnimJoint71.FdRotation);
 { .AddX3DRoute }
@@ -11804,6 +12557,11 @@ Group19.AddRoute(OrientationInterpolator1818.EventValue_changed, HAnimJoint611.F
 Group19.AddRoute(TimeSensor1823.EventFraction_changed, OrientationInterpolator1825.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1823.EventFraction_changed, OrientationInterpolator1826.EventSet_fraction);
+end;
+
+procedure InitJinLOA4Part183;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1823.EventFraction_changed, OrientationInterpolator1827.EventSet_fraction);
 { .AddX3DRoute }
@@ -11854,11 +12612,6 @@ Group19.AddRoute(TimeSensor1823.EventFraction_changed, OrientationInterpolator18
 Group19.AddRoute(TimeSensor1823.EventFraction_changed, OrientationInterpolator1849.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1823.EventFraction_changed, OrientationInterpolator1850.EventSet_fraction);
-end;
-
-procedure InitJinLOA4Part167;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1823.EventFraction_changed, OrientationInterpolator1851.EventSet_fraction);
 { .AddX3DRoute }
@@ -11889,6 +12642,11 @@ Group19.AddRoute(OrientationInterpolator1836.EventValue_changed, HAnimJoint951.F
 Group19.AddRoute(OrientationInterpolator1837.EventValue_changed, HAnimJoint851.FdRotation);
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1841.EventValue_changed, HAnimJoint31.FdRotation);
+end;
+
+procedure InitJinLOA4Part184;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(PositionInterpolator1842.EventValue_changed, HAnimJoint31.FdTranslation);
 { .AddX3DRoute }
@@ -11939,11 +12697,6 @@ Group19.AddRoute(TimeSensor1853.EventFraction_changed, OrientationInterpolator18
 Group19.AddRoute(TimeSensor1853.EventFraction_changed, OrientationInterpolator1876.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1853.EventFraction_changed, OrientationInterpolator1854.EventSet_fraction);
-end;
-
-procedure InitJinLOA4Part168;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1853.EventFraction_changed, OrientationInterpolator1877.EventSet_fraction);
 { .AddX3DRoute }
@@ -11974,6 +12727,11 @@ Group19.AddRoute(OrientationInterpolator1863.EventValue_changed, HAnimJoint1241.
 Group19.AddRoute(OrientationInterpolator1864.EventValue_changed, HAnimJoint1231.FdRotation);
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1865.EventValue_changed, HAnimJoint971.FdRotation);
+end;
+
+procedure InitJinLOA4Part185;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1866.EventValue_changed, HAnimJoint961.FdRotation);
 { .AddX3DRoute }
@@ -12024,11 +12782,6 @@ Group19.AddRoute(TimeSensor1883.EventFraction_changed, OrientationInterpolator19
 Group19.AddRoute(TimeSensor1883.EventFraction_changed, PositionInterpolator1902.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1883.EventFraction_changed, OrientationInterpolator1903.EventSet_fraction);
-end;
-
-procedure InitJinLOA4Part169;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1883.EventFraction_changed, OrientationInterpolator1904.EventSet_fraction);
 { .AddX3DRoute }
@@ -12059,6 +12812,11 @@ Group19.AddRoute(OrientationInterpolator1887.EventValue_changed, HAnimJoint71.Fd
 Group19.AddRoute(OrientationInterpolator1886.EventValue_changed, HAnimJoint61.FdRotation);
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1885.EventValue_changed, HAnimJoint51.FdRotation);
+end;
+
+procedure InitJinLOA4Part186;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1896.EventValue_changed, HAnimJoint1251.FdRotation);
 { .AddX3DRoute }
@@ -12109,11 +12867,6 @@ Group19.AddRoute(TimeSensor1913.EventFraction_changed, OrientationInterpolator19
 Group19.AddRoute(TimeSensor1913.EventFraction_changed, OrientationInterpolator1928.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1913.EventFraction_changed, OrientationInterpolator1929.EventSet_fraction);
-end;
-
-procedure InitJinLOA4Part170;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1913.EventFraction_changed, OrientationInterpolator1930.EventSet_fraction);
 { .AddX3DRoute }
@@ -12144,6 +12897,11 @@ Group19.AddRoute(TimeSensor1913.EventFraction_changed, OrientationInterpolator19
 Group19.AddRoute(OrientationInterpolator1915.EventValue_changed, HAnimJoint351.FdRotation);
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1916.EventValue_changed, HAnimJoint341.FdRotation);
+end;
+
+procedure InitJinLOA4Part187;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1917.EventValue_changed, HAnimJoint331.FdRotation);
 { .AddX3DRoute }
@@ -12194,11 +12952,6 @@ Group19.AddRoute(TimeSensor1943.EventFraction_changed, OrientationInterpolator19
 Group19.AddRoute(TimeSensor1943.EventFraction_changed, OrientationInterpolator1953.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1943.EventFraction_changed, OrientationInterpolator1954.EventSet_fraction);
-end;
-
-procedure InitJinLOA4Part171;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1943.EventFraction_changed, OrientationInterpolator1955.EventSet_fraction);
 { .AddX3DRoute }
@@ -12229,6 +12982,11 @@ Group19.AddRoute(TimeSensor1943.EventFraction_changed, OrientationInterpolator19
 Group19.AddRoute(TimeSensor1943.EventFraction_changed, PositionInterpolator1968.EventSet_fraction);
 { .AddX3DRoute }
 Group19.AddRoute(TimeSensor1943.EventFraction_changed, OrientationInterpolator1969.EventSet_fraction);
+end;
+
+procedure InitJinLOA4Part188;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(OrientationInterpolator1946.EventValue_changed, HAnimJoint951.FdRotation);
 { .AddX3DRoute }
@@ -12279,11 +13037,6 @@ Group19.AddRoute(TouchSensor1980.EventTouchtime, TimeSensor1913.FdStoptime);
 Group19.AddRoute(TouchSensor1980.EventTouchtime, TimeSensor1943.FdStoptime);
 { .AddX3DRoute }
 Group19.AddRoute(TouchSensor1980.EventTouchtime, TimeSensor1638.FdStoptime);
-end;
-
-procedure InitJinLOA4Part172;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TouchSensor1980.EventTouchtime, TimeSensor1728.FdStarttime);
 { .AddX3DRoute }
@@ -12314,6 +13067,11 @@ Group19.AddRoute(TouchSensor2003.EventTouchtime, TimeSensor1823.FdStoptime);
 Group19.AddRoute(TouchSensor2003.EventTouchtime, TimeSensor1853.FdStoptime);
 { .AddX3DRoute }
 Group19.AddRoute(TouchSensor2003.EventTouchtime, TimeSensor1883.FdStoptime);
+end;
+
+procedure InitJinLOA4Part189;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(TouchSensor2003.EventTouchtime, TimeSensor1913.FdStoptime);
 { .AddX3DRoute }
@@ -12364,11 +13122,6 @@ Group19.AddRoute(TouchSensor2036.EventTouchtime, TimeSensor1728.FdStoptime);
 Group19.AddRoute(TouchSensor2036.EventTouchtime, TimeSensor1763.FdStoptime);
 { .AddX3DRoute }
 Group19.AddRoute(TouchSensor2036.EventTouchtime, TimeSensor1793.FdStoptime);
-end;
-
-procedure InitJinLOA4Part173;
-begin
-
 { .AddX3DRoute }
 Group19.AddRoute(TouchSensor2036.EventTouchtime, TimeSensor1823.FdStoptime);
 { .AddX3DRoute }
@@ -12399,6 +13152,11 @@ Group19.AddRoute(TouchSensor2047.EventTouchtime, TimeSensor1943.FdStoptime);
 Group19.AddRoute(TouchSensor2047.EventTouchtime, TimeSensor1638.FdStoptime);
 { .AddX3DRoute }
 Group19.AddRoute(TouchSensor2047.EventTouchtime, TimeSensor1913.FdStarttime);
+end;
+
+procedure InitJinLOA4Part190;
+begin
+
 { .AddX3DRoute }
 Group19.AddRoute(TouchSensor2058.EventTouchtime, TimeSensor1728.FdStoptime);
 { .AddX3DRoute }
@@ -12616,6 +13374,23 @@ InitJinLOA4Part170;
 InitJinLOA4Part171;
 InitJinLOA4Part172;
 InitJinLOA4Part173;
+InitJinLOA4Part174;
+InitJinLOA4Part175;
+InitJinLOA4Part176;
+InitJinLOA4Part177;
+InitJinLOA4Part178;
+InitJinLOA4Part179;
+InitJinLOA4Part180;
+InitJinLOA4Part181;
+InitJinLOA4Part182;
+InitJinLOA4Part183;
+InitJinLOA4Part184;
+InitJinLOA4Part185;
+InitJinLOA4Part186;
+InitJinLOA4Part187;
+InitJinLOA4Part188;
+InitJinLOA4Part189;
+InitJinLOA4Part190;
 Result := X3D0;
 end;
 
