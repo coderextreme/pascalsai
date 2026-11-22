@@ -2,7 +2,7 @@ unit browser;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, CastleInternalNodesUnsupported, X3DFields;
 
 function Createbrowser: TX3DRootNode;
 
@@ -23,10 +23,16 @@ X3D0.Profile := 'Immersive';
 X3D0.ForceVersion.Major := 4;
 X3D0.ForceVersion.Minor := 0;
 X3D0.Meta['title'] := 'browser.x3d';
+{ METHOD .Meta }
 X3D0.Meta['creator'] := 'John Carlson';
+{ METHOD .Meta }
 X3D0.Meta['generator'] := 'manual';
+{ METHOD .Meta }
 X3D0.Meta['identifier'] := 'https://coderextreme.net/X3DJSONLD/src/main/data/browser.x3d';
+{ METHOD .Meta }
 X3D0.Meta['description'] := 'a script test with embedded \\n between single quotes, a double backslash \\\\ a backslash \\ and a closing quote \"';
+{ METHOD .Meta }
+{ METHOD .Head }
 Group7 := TGroupNode.Create;
 Script8 := TScriptNode.Create;
 
@@ -34,8 +40,8 @@ Script8.SetSourceCode('''ecmascript:\n"+
 "                function initialize() {\n"+
 "		    Browser.print('DUDES\\n'+'\"DUDETTES');\n"+
 "                }''');
-{ .AddChildren }
-Group7.AddChildren([Script8]);
+{ METHOD .FdChildren.Add }
+Group7.FdChildren.Add(Script8);
 Script9 := TScriptNode.Create;
 
 Script9.SetSourceCode('''ecmascript:\n"+
@@ -46,9 +52,9 @@ Script9.SetSourceCode('''ecmascript:\n"+
 "var xxx = ' '+' '+\\n'	Transform		\\n'+\\n'    ' + '               	\\n';\n"+
 "\n"+
 "}''');
-{ .AddChildren }
-Group7.AddChildren([Script9]);
-{ .AddGroup }
+{ METHOD .FdChildren.Add }
+Group7.FdChildren.Add(Script9);
+{ METHOD .AddGroup }
 X3D0.AddChildren([Group7]);
 end;
 

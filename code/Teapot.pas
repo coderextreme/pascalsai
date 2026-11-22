@@ -2,7 +2,7 @@ unit Teapot;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, CastleInternalNodesUnsupported, X3DFields;
 
 function CreateTeapot: TX3DRootNode;
 
@@ -33,36 +33,53 @@ X3D0.Profile := 'Interchange';
 X3D0.ForceVersion.Major := 4;
 X3D0.ForceVersion.Minor := 0;
 X3D0.Meta['title'] := 'Teapot.x3d';
+{ METHOD .Meta }
 X3D0.Meta['description'] := 'A watertight (solid) Utah Teapot Model converted from obj format.';
+{ METHOD .Meta }
 X3D0.Meta['created'] := '20 March 2016';
+{ METHOD .Meta }
 X3D0.Meta['modified'] := '20 October 2019';
+{ METHOD .Meta }
 X3D0.Meta['creator'] := 'Pyarelal Knowles';
+{ METHOD .Meta }
 X3D0.Meta['translator'] := 'Don Brutzman';
+{ METHOD .Meta }
 X3D0.Meta['reference'] := 'wt_teapot.obj';
+{ METHOD .Meta }
 X3D0.Meta['reference'] := 'teapot.ply';
+{ METHOD .Meta }
 X3D0.Meta['reference'] := 'http://goanna.cs.rmit.edu.au/~pknowles/models.html';
+{ METHOD .Meta }
 X3D0.Meta['reference'] := 'https://en.wikipedia.org/wiki/Utah_teapot';
+{ METHOD .Meta }
 X3D0.Meta['reference'] := 'https://en.wikipedia.org/wiki/List_of_common_3D_test_models';
+{ METHOD .Meta }
 X3D0.Meta['reference'] := 'http://www.realtimerendering.com/udacity/?load=demo/unit1-teapot-demo.js';
+{ METHOD .Meta }
 X3D0.Meta['identifier'] := 'https://x3dgraphics.com/examples/X3dForAdvancedModeling/GeometricShapes/Teapot.x3d';
+{ METHOD .Meta }
 X3D0.Meta['generator'] := 'Meshlab X3D Exported, http://meshlab.sourceforge.net';
+{ METHOD .Meta }
 X3D0.Meta['generator'] := 'X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit';
+{ METHOD .Meta }
 X3D0.Meta['license'] := '../license.html';
+{ METHOD .Meta }
+{ METHOD .Head }
 Group18 := TGroupNode.Create;
 WorldInfo19 := TWorldInfoNode.Create;
 WorldInfo19.Title := 'Teapot.x3d';
-{ .AddChildren }
-Group18.AddChildren([WorldInfo19]);
+{ METHOD .FdChildren.Add }
+Group18.FdChildren.Add(WorldInfo19);
 Background20 := TBackgroundNode.Create;
 Background20.SetSkyColor([Vector3(0.2,0.4,0.6)]);
-{ .AddChildren }
-Group18.AddChildren([Background20]);
+{ METHOD .FdChildren.Add }
+Group18.FdChildren.Add(Background20);
 Viewpoint21 := TViewpointNode.Create;
 Viewpoint21.CenterOfRotation := Vector3(0,0.5,0);
 Viewpoint21.Description := 'Newell Teapot';
 Viewpoint21.Position := Vector3(0,0.5,4);
-{ .AddChildren }
-Group18.AddChildren([Viewpoint21]);
+{ METHOD .FdChildren.Add }
+Group18.FdChildren.Add(Viewpoint21);
 Shape22 := TShapeNode.Create;
 IndexedFaceSet23 := TIndexedFaceSetNode.Create;
 IndexedFaceSet23.Ccw := False;
@@ -83,19 +100,19 @@ end;
 procedure InitTeapotPart2;
 begin
 
-{ .SetCoord }
+{ METHOD .Coord }
 IndexedFaceSet23.Coord := Coordinate24;
-{ .SetGeometry }
+{ METHOD .Geometry }
 Shape22.Geometry := IndexedFaceSet23;
 Appearance25 := TAppearanceNode.Create;
 Material26 := TMaterialNode.Create;
 Material26.Transparency := 0.5;
-{ .SetMaterial }
+{ METHOD .SetMaterial }
 Appearance25.Material := Material26;
-{ .SetAppearance }
+{ METHOD .Appearance }
 Shape22.Appearance := Appearance25;
-{ .AddChildren }
-Group18.AddChildren([Shape22]);
+{ METHOD .FdChildren.Add }
+Group18.FdChildren.Add(Shape22);
 Shape27 := TShapeNode.Create;
 { RGB lines showing XYZ axes }
 IndexedLineSet28 := TIndexedLineSetNode.Create;
@@ -104,17 +121,17 @@ IndexedLineSet28.ColorPerVertex := False;
 IndexedLineSet28.SetCoordIndex([0,1,-1,0,2,-1,0,3,-1]);
 Coordinate29 := TCoordinateNode.Create;
 Coordinate29.SetPoint([Vector3(0,0,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(0,0,1)]);
-{ .SetCoord }
+{ METHOD .Coord }
 IndexedLineSet28.Coord := Coordinate29;
 Color30 := TColorNode.Create;
 Color30.SetColor([Vector3(1,0,0),Vector3(0,0.6,0),Vector3(0,0,1)]);
-{ .SetColor }
+{ METHOD .Color }
 IndexedLineSet28.Color := Color30;
-{ .SetGeometry }
+{ METHOD .Geometry }
 Shape27.Geometry := IndexedLineSet28;
-{ .AddChildren }
-Group18.AddChildren([Shape27]);
-{ .AddGroup }
+{ METHOD .FdChildren.Add }
+Group18.FdChildren.Add(Shape27);
+{ METHOD .AddGroup }
 X3D0.AddChildren([Group18]);
 end;
 

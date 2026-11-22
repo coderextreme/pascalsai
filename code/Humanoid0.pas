@@ -2,7 +2,7 @@ unit Humanoid0;
 
 interface
 
-uses X3DNodes;
+uses X3DNodes, CastleInternalNodesUnsupported, X3DFields;
 
 function CreateHumanoid0: TX3DRootNode;
 
@@ -58,14 +58,24 @@ X3D0.Profile := 'Immersive';
 X3D0.ForceVersion.Major := 4;
 X3D0.ForceVersion.Minor := 0;
 X3D0.Components['HAnim'] := 1;
+{ METHOD .Component }
 X3D0.Meta['title'] := 'Humanoid0.x3d';
+{ METHOD .Meta }
 X3D0.Meta['identifier'] := 'https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Humanoid0.x3d';
+{ METHOD .Meta }
 X3D0.Meta['description'] := 'An attempt at a standard LOA-4 skeleton';
+{ METHOD .Meta }
 X3D0.Meta['generator'] := 'h2.pl';
+{ METHOD .Meta }
 X3D0.Meta['modified'] := '14 Jan 2023';
+{ METHOD .Meta }
 X3D0.Meta['creator'] := 'John Carlson';
+{ METHOD .Meta }
 X3D0.Meta['created'] := '9 November 2020';
+{ METHOD .Meta }
 X3D0.Meta['license'] := '../license.html';
+{ METHOD .Meta }
+{ METHOD .Head }
 Group11 := TGroupNode.Create;
 Transform12 := TTransformNode.Create;
 { DEF for markerfor XYZ axes }
@@ -77,18 +87,18 @@ IndexedLineSet14.ColorPerVertex := False;
 IndexedLineSet14.SetCoordIndex([0,1,-1,0,2,-1,0,3,-1]);
 Coordinate15 := TCoordinateNode.Create;
 Coordinate15.SetPoint([Vector3(0,0,0),Vector3(0.1,0,0),Vector3(0,0.1,0),Vector3(0,0,0.1)]);
-{ .SetCoord }
+{ METHOD .Coord }
 IndexedLineSet14.Coord := Coordinate15;
 Color16 := TColorNode.Create;
 Color16.SetColor([Vector3(1,0,0),Vector3(0,0.6,0),Vector3(0,0,1)]);
-{ .SetColor }
+{ METHOD .Color }
 IndexedLineSet14.Color := Color16;
-{ .SetGeometry }
+{ METHOD .Geometry }
 Shape13.Geometry := IndexedLineSet14;
-{ .AddChild }
-Transform12.AddChildren([Shape13]);
-{ .AddChildren }
-Group11.AddChildren([Transform12]);
+{ METHOD .FdChildren.Add }
+Transform12.FdChildren.Add(Shape13);
+{ METHOD .FdChildren.Add }
+Group11.FdChildren.Add(Transform12);
 Group17 := TGroupNode.Create;
 { DEFS for markers of skeleton joints, segments, and sites }
 Transform18 := TTransformNode.Create;
@@ -97,7 +107,7 @@ Transform19.Translation := Vector3(0,2.1,0);
 Shape20 := TShapeNode.Create;
 Sphere21 := TSphereNode.Create;
 Sphere21.Radius := 0.02;
-{ .SetGeometry }
+{ METHOD .Geometry }
 Shape20.Geometry := Sphere21;
 Appearance22 := TAppearanceNode.Create;
 Material23 := TMaterialNode.Create;
@@ -107,14 +117,14 @@ end;
 procedure InitHumanoid0Part1;
 begin
 
-{ .SetMaterial }
+{ METHOD .SetMaterial }
 Appearance22.Material := Material23;
-{ .SetAppearance }
+{ METHOD .Appearance }
 Shape20.Appearance := Appearance22;
-{ .AddChild }
-Transform19.AddChildren([Shape20]);
-{ .AddChildren }
-Transform18.AddChildren([Transform19]);
+{ METHOD .FdChildren.Add }
+Transform19.FdChildren.Add(Shape20);
+{ METHOD .FdChildren.Add }
+Transform18.FdChildren.Add(Transform19);
 Transform24 := TTransformNode.Create;
 Transform24.Translation := Vector3(0,2.05,0);
 Shape25 := TShapeNode.Create;
@@ -122,18 +132,18 @@ LineSet26 := TLineSetNode.Create;
 LineSet26.SetVertexCount([2]);
 ColorRGBA27 := TColorRGBANode.Create;
 ColorRGBA27.SetColor([Vector4(1,1,0,0),Vector4(1,1,0,0)]);
-{ .SetColor }
+{ METHOD .Color }
 LineSet26.Color := ColorRGBA27;
 Coordinate28 := TCoordinateNode.Create;
 Coordinate28.SetPoint([Vector3(-0.05,0,0),Vector3(0.05,0,0)]);
-{ .SetCoord }
+{ METHOD .Coord }
 LineSet26.Coord := Coordinate28;
-{ .SetGeometry }
+{ METHOD .Geometry }
 Shape25.Geometry := LineSet26;
-{ .AddChild }
-Transform24.AddChildren([Shape25]);
-{ .AddChildren }
-Transform18.AddChildren([Transform24]);
+{ METHOD .FdChildren.Add }
+Transform24.FdChildren.Add(Shape25);
+{ METHOD .FdChildren.Add }
+Transform18.FdChildren.Add(Transform24);
 Transform29 := TTransformNode.Create;
 Transform29.Translation := Vector3(0,2.1,0);
 Shape30 := TShapeNode.Create;
@@ -143,47 +153,46 @@ IndexedFaceSet31.Solid := False;
 IndexedFaceSet31.SetCoordIndex([0,1,2,-1,0,2,3,-1,0,3,4,-1,0,4,1,-1,5,2,1,-1,5,3,2,-1,5,4,3,-1,5,1,4,-1]);
 ColorRGBA32 := TColorRGBANode.Create;
 ColorRGBA32.SetColor([Vector4(1,1,0,1),Vector4(1,1,0,0.1),Vector4(1,1,0,1),Vector4(1,1,0,0.1),Vector4(1,1,0,1),Vector4(1,1,0,0.1)]);
-{ .SetColor }
+{ METHOD .Color }
 IndexedFaceSet31.Color := ColorRGBA32;
 Coordinate33 := TCoordinateNode.Create;
 Coordinate33.SetPoint([Vector3(0,0.01,0),Vector3(-0.01,0,0),Vector3(0,0,0.01),Vector3(0.01,0,0),Vector3(0,0,-0.01),Vector3(0,-0.01,0)]);
-{ .SetCoord }
+{ METHOD .Coord }
 IndexedFaceSet31.Coord := Coordinate33;
-{ .SetGeometry }
+{ METHOD .Geometry }
 Shape30.Geometry := IndexedFaceSet31;
 Appearance34 := TAppearanceNode.Create;
 Material35 := TMaterialNode.Create;
 Material35.DiffuseColor := Vector3(1,1,1);
 Material35.Transparency := 1;
-{ .SetMaterial }
+{ METHOD .SetMaterial }
 Appearance34.Material := Material35;
-{ .SetAppearance }
+{ METHOD .Appearance }
 Shape30.Appearance := Appearance34;
-{ .AddChild }
-Transform29.AddChildren([Shape30]);
-{ .AddChildren }
-Transform18.AddChildren([Transform29]);
+{ METHOD .FdChildren.Add }
+Transform29.FdChildren.Add(Shape30);
+{ METHOD .FdChildren.Add }
+Transform18.FdChildren.Add(Transform29);
 end;
 
 procedure InitHumanoid0Part2;
 begin
 
-{ .AddChildren }
-Group17.AddChildren([Transform18]);
-{ .AddChildren }
-Group11.AddChildren([Group17]);
+{ METHOD .FdChildren.Add }
+Group17.FdChildren.Add(Transform18);
+{ METHOD .FdChildren.Add }
+Group11.FdChildren.Add(Group17);
 NavigationInfo36 := TNavigationInfoNode.Create;
 NavigationInfo36.Speed := 1.5;
-{ .AddChildren }
-Group11.AddChildren([NavigationInfo36]);
+{ METHOD .FdChildren.Add }
+Group11.FdChildren.Add(NavigationInfo36);
 Viewpoint37 := TViewpointNode.Create;
 Viewpoint37.Position := Vector3(0,1,3);
 Viewpoint37.CenterOfRotation := Vector3(0,1,0);
 Viewpoint37.Description := 'default';
-{ .AddChildren }
-Group11.AddChildren([Viewpoint37]);
+{ METHOD .FdChildren.Add }
+Group11.FdChildren.Add(Viewpoint37);
 HAnimHumanoid38 := THAnimHumanoidNode.Create;
-HAnimHumanoid38.NameField := 'HAnim';
 HAnimHumanoid38.SetInfo(['humanoidVersion=2.0']);
 HAnimHumanoid38.Version := '2.0';
 { <LOD containerField='skin'> (Switch whichChoice='0' and LOD parents each already work in view3dscene) }
@@ -199,44 +208,41 @@ end;
 procedure InitHumanoid0Part3;
 begin
 
-{ .SetCoord }
+{ METHOD .Coord }
 IndexedFaceSet40.Coord := Coordinate41;
 Color42 := TColorNode.Create;
 Color42.SetColor([Vector3(1,0,0),Vector3(0,1,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(0,1,1),Vector3(0,1,1),Vector3(1,1,0),Vector3(1,1,0),Vector3(1,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,0,1),Vector3(1,0,0),Vector3(1,0,0),Vector3(1,1,0),Vector3(1,1,0),Vector3(1,1,1),Vector3(1,0,0),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,1,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,0,1),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,0,1),Vector3(1,0,1),Vector3(1,0,1),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(1,0,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(1,0,1),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(1,0,1),Vector3(1,0,1),Vector3(1,0,1),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(1,0,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(0,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,1),Vector3(1,0,0),Vector3(1,0,1),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,0,0),Vector3(1,0,1),Vector3(0,0,1),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(1,1,0),Vector3(0,1,0),Vector3(0,0,1),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,0,1),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(0,1,0),Vector3(1,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(0,1,0),Vector3(1,0,1),Vector3(1,1,1)]);
-{ .SetColor }
+{ METHOD .Color }
 IndexedFaceSet40.Color := Color42;
-{ .SetGeometry }
+{ METHOD .Geometry }
 Shape39.Geometry := IndexedFaceSet40;
 Appearance43 := TAppearanceNode.Create;
 ImageTexture44 := TImageTextureNode.Create;
 ImageTexture44.Description := 'Blue Spiral Pattern';
 ImageTexture44.SetUrl(['../data/zBlueSpiralBkg2.gif','zBlueSpiralBkg2.gif','https://www.web3d.org/x3d/content/examples/HumanoidAnimation/Skin/zBlueSpiralBkg2.gif']);
-{ .SetTexture }
+{ METHOD .Texture }
 Appearance43.Texture := ImageTexture44;
 Material45 := TMaterialNode.Create;
 Material45.AmbientIntensity := 0.6;
 Material45.DiffuseColor := Vector3(1,1,1);
 Material45.Shininess := 0.6;
 Material45.Transparency := 1;
-{ .SetMaterial }
+{ METHOD .SetMaterial }
 Appearance43.Material := Material45;
-{ .SetAppearance }
+{ METHOD .Appearance }
 Shape39.Appearance := Appearance43;
-{ .SetSkin }
-HAnimHumanoid38.SetSkin([Shape39]);
-Coordinate46 := Coordinate41;
-{ .FdSkinCoord.Set }
-HAnimHumanoid38.FdSkinCoord.Set(Coordinate46);
+{ METHOD .SetSkin }
+HAnimHumanoid38.Skin := Shape39;
+{ METHOD .FdSkinCoord.Set }
+HAnimHumanoid38.FdSkinCoord.Set(Coordinate41);
 HAnimJoint47 := THAnimJointNode.Create;
-HAnimJoint47.NameField := 'humanoid_root';
-{ .AddSkeleton }
-HAnimHumanoid38.SetSkeleton([HAnimJoint47]);
-HAnimJoint48 := HAnimJoint47;
-{ .FdJoints.Add }
-HAnimHumanoid38.FdJoints.Add(HAnimJoint48);
-{ .AddChildren }
-Group11.AddChildren([HAnimHumanoid38]);
-{ .AddGroup }
+{ METHOD .FdSkeleton.Add }
+HAnimHumanoid38.FdSkeleton.Add(HAnimJoint47);
+{ METHOD .FdJoints.Add }
+HAnimHumanoid38.FdJoints.Add(HAnimJoint47);
+{ METHOD .FdChildren.Add }
+Group11.FdChildren.Add(HAnimHumanoid38);
+{ METHOD .AddGroup }
 X3D0.AddChildren([Group11]);
 end;
 

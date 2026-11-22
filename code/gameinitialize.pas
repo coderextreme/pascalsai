@@ -15,13 +15,13 @@ uses SysUtils,
   CastleCameras, CastleVectors, CastleColors,
   X3DNodes,
 
-  { asphere, }
-  {JinScaledV2L1LOA4OnlyMarkers11g,}
-  { JinLOA4Animated, }
-  { StandardHumanoid, }
-  { ifscubeworks, }
+  asphere,
+  JinScaledV2L1LOA4OnlyMarkers11g,
+  JinLOA4Animated,
+  StandardHumanoid,
+  ifscubeworks,
   HAnimGimbalJointController22,
-  { BoxPrototype, }
+  BoxPrototype,
   {$region 'Castle Initialization Uses'}
   // The content here may be automatically updated by CGE editor.
   GameViewPSAI
@@ -32,7 +32,7 @@ var
   Viewport: TCastleViewport;
   Light: TCastleDirectionalLight;
   Ground: TCastleBox;
-  { BoxProto: TBoxProto; }
+  BoxProto: TBoxProto;
   Root: TX3DRootNode;
 
 const
@@ -68,15 +68,15 @@ begin
     Navigation is now simply a child of the viewport. }
   Viewport.InsertFront(TCastleExamineNavigation.Create(Application));
 
-  { Root := TX3DRootNode.Create; }
-  { BoxProto := TBoxProto.Create; }
-  { AddScene(Application,Viewport,BoxProto.CreateBoxes(Root)); }
-  { AddScene(Application,Viewport,CreateIfscubeworks); }
-  { AddScene(Application,Viewport,CreateAsphere); }
-  { AddScene(Application,Viewport,CreateJinScaledV2L1LOA4OnlyMarkers11g); }
-  { AddScene(Application,Viewport,CreateJinLOA4Animated); }
-  { AddScene(Application,Viewport,CreateStandardHumanoid); }
-  Root := AddScene(Application,Viewport,CreateHAnimGimbalJointController22);
+  Root := TX3DRootNode.Create;
+  BoxProto := TBoxProto.Create;
+  AddScene(Application,Viewport,BoxProto.CreateBoxes(Root));
+  AddScene(Application,Viewport,CreateIfscubeworks);
+  AddScene(Application,Viewport,CreateAsphere);
+  AddScene(Application,Viewport,CreateJinScaledV2L1LOA4OnlyMarkers11g);
+  AddScene(Application,Viewport,CreateJinLOA4Animated);
+  AddScene(Application,Viewport,CreateStandardHumanoid);
+  AddScene(Application,Viewport,CreateHAnimGimbalJointController22);
 
   { Frame the camera on the cubes (done before adding the large ground, so the
     ground does not push the camera far away), and log what the scene holds
@@ -92,7 +92,7 @@ begin
   Ground.Size := Vector3(20, 0.2, 20);
   Ground.Translation := Vector3(0, -0.6, 0);
   Ground.Color := Vector4(0.7, 0.7, 0.7, 1);
-  Viewport.Items.Add(Ground);
+  { Viewport.Items.Add(Ground); }
 
   { Directional light shining down and slightly sideways.
     Shadows := true uses shadow volumes (needs a stencil buffer, which the
