@@ -2,10 +2,11 @@ unit bumpyx_itesliders;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbumpyx_itesliders: TX3DRootNode;
 procedure Registerbumpyx_iteslidersScripts(const Scene: TCastleSceneCore);
+procedure Detachbumpyx_iteslidersScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -77,6 +78,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_coordinates: TMFVec3f; const AEvent_coordIndexes: TX3DEvent; const AField_a: TSFFloat; const AField_b: TSFFloat; const AField_c: TSFFloat; const AField_d: TSFFloat; const AField_pdelta: TSFFloat; const AField_tdelta: TSFFloat);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript84Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -300,6 +302,10 @@ begin
   FreeAndNil(FBack_pdelta);
   FreeAndNil(FBack_tdelta);
   inherited Destroy;
+end;
+
+procedure TScript84Script.Detach;
+begin
 end;
 
 procedure TScript84Script.FlushOutputs(const Time: TX3DTime);
@@ -1076,6 +1082,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript84List[_i].Initialized) then
       CompiledScript84List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure Detachbumpyx_iteslidersScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript84List) do
+  begin
+    CompiledScript84List[_i].Detach;
+    FreeAndNil(CompiledScript84List[_i]);
+  end;
+  SetLength(CompiledScript84List, 0);
 end;
 
 finalization

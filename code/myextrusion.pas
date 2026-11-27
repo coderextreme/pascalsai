@@ -2,10 +2,11 @@ unit myextrusion;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createmyextrusion: TX3DRootNode;
 procedure RegistermyextrusionScripts(const Scene: TCastleSceneCore);
+procedure DetachmyextrusionScripts;
 
 implementation
 
@@ -25,6 +26,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_spine: TMFVec3f);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript16Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_cycle(Value: TX3DField; const Time: TX3DTime);
@@ -85,6 +87,10 @@ destructor TScript16Script.Destroy;
 begin
   FreeAndNil(FBack_spine);
   inherited Destroy;
+end;
+
+procedure TScript16Script.Detach;
+begin
 end;
 
 procedure TScript16Script.FlushOutputs(const Time: TX3DTime);
@@ -259,6 +265,18 @@ begin
   begin
     CompiledScript16List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachmyextrusionScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript16List) do
+  begin
+    CompiledScript16List[_i].Detach;
+    FreeAndNil(CompiledScript16List[_i]);
+  end;
+  SetLength(CompiledScript16List, 0);
 end;
 
 finalization

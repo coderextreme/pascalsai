@@ -2,7 +2,7 @@ unit PoseCollection;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreatePoseCollection: TX3DRootNode;
 

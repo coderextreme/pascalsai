@@ -2,7 +2,7 @@ unit GridXZ_20x20Fixed;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateGridXZ_20x20Fixed: TX3DRootNode;
 

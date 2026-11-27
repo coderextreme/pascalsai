@@ -2,10 +2,11 @@ unit flowers2;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflowers2: TX3DRootNode;
 procedure Registerflowers2Scripts(const Scene: TCastleSceneCore);
+procedure Detachflowers2Scripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -73,6 +74,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_coordinates: TMFVec3f; const AField_coordIndexes: TMFInt32; const AField_e: TSFFloat; const AField_f: TSFFloat; const AField_g: TSFFloat; const AField_h: TSFFloat; const AField_resolution: TSFInt32);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript32Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -199,6 +201,10 @@ begin
   FreeAndNil(FBack_h);
   FreeAndNil(FBack_resolution);
   inherited Destroy;
+end;
+
+procedure TScript32Script.Detach;
+begin
 end;
 
 procedure TScript32Script.FlushOutputs(const Time: TX3DTime);
@@ -633,6 +639,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript32List[_i].Initialized) then
       CompiledScript32List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure Detachflowers2Scripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript32List) do
+  begin
+    CompiledScript32List[_i].Detach;
+    FreeAndNil(CompiledScript32List[_i]);
+  end;
+  SetLength(CompiledScript32List, 0);
 end;
 
 finalization

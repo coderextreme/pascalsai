@@ -2,7 +2,7 @@ unit bumpyx_ite;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Createbumpyx_ite: TX3DRootNode;
 

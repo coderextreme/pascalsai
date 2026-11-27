@@ -2,10 +2,11 @@ unit Trebuchet;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateTrebuchet: TX3DRootNode;
 procedure RegisterTrebuchetScripts(const Scene: TCastleSceneCore);
+procedure DetachTrebuchetScripts;
 
 implementation
 
@@ -29,6 +30,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_whichchoice: TX3DEvent; const AEvent_CounterWeight: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript333Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -52,6 +54,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_whichchoice: TX3DEvent; const AEvent_ProjectileWeight: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript337Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_boolean(Value: TX3DField; const Time: TX3DTime);
@@ -70,6 +73,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_whichchoice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript341Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_boolean(Value: TX3DField; const Time: TX3DTime);
@@ -94,6 +98,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_MassCounterWeight: TSFFloat; const AField_MassProjectileWeight: TSFFloat; const AEvent_transparent: TX3DEvent; const AEvent_value_changed: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript344Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -420,6 +425,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript333Script.Detach;
+begin
+end;
+
 procedure TScript333Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_whichchoice then
@@ -518,6 +527,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript337Script.Detach;
+begin
+end;
+
 procedure TScript337Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_whichchoice then
@@ -596,6 +609,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript341Script.Detach;
+begin
+end;
+
 procedure TScript341Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_whichchoice then
@@ -659,6 +676,10 @@ begin
   FreeAndNil(FBack_transparent);
   FreeAndNil(FBack_value_changed);
   inherited Destroy;
+end;
+
+procedure TScript344Script.Detach;
+begin
 end;
 
 procedure TScript344Script.FlushOutputs(const Time: TX3DTime);
@@ -2040,6 +2061,36 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript344List[_i].Initialized) then
       CompiledScript344List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachTrebuchetScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript333List) do
+  begin
+    CompiledScript333List[_i].Detach;
+    FreeAndNil(CompiledScript333List[_i]);
+  end;
+  SetLength(CompiledScript333List, 0);
+  for _i := 0 to High(CompiledScript337List) do
+  begin
+    CompiledScript337List[_i].Detach;
+    FreeAndNil(CompiledScript337List[_i]);
+  end;
+  SetLength(CompiledScript337List, 0);
+  for _i := 0 to High(CompiledScript341List) do
+  begin
+    CompiledScript341List[_i].Detach;
+    FreeAndNil(CompiledScript341List[_i]);
+  end;
+  SetLength(CompiledScript341List, 0);
+  for _i := 0 to High(CompiledScript344List) do
+  begin
+    CompiledScript344List[_i].Detach;
+    FreeAndNil(CompiledScript344List[_i]);
+  end;
+  SetLength(CompiledScript344List, 0);
 end;
 
 finalization

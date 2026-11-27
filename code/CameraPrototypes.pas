@@ -2,10 +2,11 @@ unit CameraPrototypes;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateCameraPrototypes: TX3DRootNode;
 procedure RegisterCameraPrototypesScripts(const Scene: TCastleSceneCore);
+procedure DetachCameraPrototypesScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -150,6 +151,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_description: TSFString; const AField_position: TSFVec3f; const AField_orientation: TSFRotation; const AField_fieldOfView: TSFFloat; const AField_nearClipPlane: TSFFloat; const AField_farClipPlane: TSFFloat; const AField_shots: TMFNode; const AField_filterColor: TSFColor; const AField_filterTransparency: TSFFloat; const AField_upVector: TSFVec3f; const AField_fStop: TSFFloat; const AField_focusDistance: TSFFloat; const AEvent_isActive: TX3DEvent; const AEvent_totalDuration: TX3DEvent; const AField_offlineRender: TSFNode; const AField_ViewpointNode: TSFNode; const AField_NavInfoNode: TSFNode; const AField_CameraPI: TSFNode; const AField_CameraOI: TSFNode; const AField_key: TMFFloat; const AField_keyValuePosition: TMFVec3f; const AField_keyValueOrientation: TMFRotation; const AField_animated: TSFBool; const AField_initialized: TSFBool; const AField_shotCount: TSFInt32; const AField_movesCount: TSFInt32; const AField_frameCount: TSFFloat; const AField_startTime: TSFTime; const AField_priorTraceTime: TSFTime; const AField_traceEnabled: TSFBool);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript50Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -273,6 +275,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_description: TSFString; const AField_enabled: TSFBool; const AField_moves: TMFNode; const AField_initialPosition: TSFVec3f; const AField_initialOrientation: TSFRotation; const AField_initialAimPoint: TSFVec3f; const AField_initialFieldOfView: TSFFloat; const AField_initialFStop: TSFFloat; const AField_initialFocusDistance: TSFFloat; const AEvent_shotDuration: TX3DEvent; const AEvent_isActive: TX3DEvent; const AField_traceEnabled: TSFBool; const AField_key: TMFFloat; const AField_keyValuePosition: TMFVec3f; const AField_keyValueOrientation: TMFRotation);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript107Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -368,6 +371,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_description: TSFString; const AField_enabled: TSFBool; const AField_duration: TSFFloat; const AField_goalPosition: TSFVec3f; const AField_goalOrientation: TSFRotation; const AField_tracking: TSFBool; const AField_goalAimPoint: TSFVec3f; const AField_goalFieldOfView: TSFFloat; const AField_goalFStop: TSFFloat; const AField_goalFocusDistance: TSFFloat; const AEvent_isActive: TX3DEvent; const AField_traceEnabled: TSFBool);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript138Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -440,6 +444,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_description: TSFString; const AField_enabled: TSFBool; const AField_frameRate: TSFFloat; const AField_frameSize: TSFVec2f; const AField_pixelAspectRatio: TSFFloat; const AEvent_progress: TX3DEvent; const AEvent_renderCompleteTime: TX3DEvent; const AField_movieFormat: TMFString; const AField_imageFormat: TMFString; const AField_traceEnabled: TSFBool);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript165Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -899,40 +904,6 @@ end;
 
 destructor TScript50Script.Destroy;
 begin
-  if FField_animated <> nil then
-    FField_animated.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_animated);
-  if FField_keyValueOrientation <> nil then
-    FField_keyValueOrientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_keyValueOrientation);
-  if FField_keyValuePosition <> nil then
-    FField_keyValuePosition.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_keyValuePosition);
-  if FField_key <> nil then
-    FField_key.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_key);
-  if FField_offlineRender <> nil then
-    FField_offlineRender.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_offlineRender);
-  if FField_focusDistance <> nil then
-    FField_focusDistance.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_focusDistance);
-  if FField_fStop <> nil then
-    FField_fStop.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_fStop);
-  if FField_upVector <> nil then
-    FField_upVector.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_upVector);
-  if FField_filterTransparency <> nil then
-    FField_filterTransparency.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_filterTransparency);
-  if FField_filterColor <> nil then
-    FField_filterColor.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_filterColor);
-  if FField_shots <> nil then
-    FField_shots.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_shots);
-  if FField_farClipPlane <> nil then
-    FField_farClipPlane.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_farClipPlane);
-  if FField_nearClipPlane <> nil then
-    FField_nearClipPlane.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_nearClipPlane);
-  if FField_fieldOfView <> nil then
-    FField_fieldOfView.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_fieldOfView);
-  if FField_orientation <> nil then
-    FField_orientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_orientation);
-  if FField_position <> nil then
-    FField_position.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_position);
-  if FField_description <> nil then
-    FField_description.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_description);
   FreeAndNil(FBack_description);
   FreeAndNil(FBack_position);
   FreeAndNil(FBack_orientation);
@@ -953,6 +924,95 @@ begin
   FreeAndNil(FBack_keyValueOrientation);
   FreeAndNil(FBack_animated);
   inherited Destroy;
+end;
+
+procedure TScript50Script.Detach;
+begin
+  if FField_description <> nil then
+  begin
+    FField_description.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_description);
+    FField_description := nil;
+  end;
+  if FField_position <> nil then
+  begin
+    FField_position.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_position);
+    FField_position := nil;
+  end;
+  if FField_orientation <> nil then
+  begin
+    FField_orientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_orientation);
+    FField_orientation := nil;
+  end;
+  if FField_fieldOfView <> nil then
+  begin
+    FField_fieldOfView.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_fieldOfView);
+    FField_fieldOfView := nil;
+  end;
+  if FField_nearClipPlane <> nil then
+  begin
+    FField_nearClipPlane.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_nearClipPlane);
+    FField_nearClipPlane := nil;
+  end;
+  if FField_farClipPlane <> nil then
+  begin
+    FField_farClipPlane.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_farClipPlane);
+    FField_farClipPlane := nil;
+  end;
+  if FField_shots <> nil then
+  begin
+    FField_shots.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_shots);
+    FField_shots := nil;
+  end;
+  if FField_filterColor <> nil then
+  begin
+    FField_filterColor.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_filterColor);
+    FField_filterColor := nil;
+  end;
+  if FField_filterTransparency <> nil then
+  begin
+    FField_filterTransparency.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_filterTransparency);
+    FField_filterTransparency := nil;
+  end;
+  if FField_upVector <> nil then
+  begin
+    FField_upVector.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_upVector);
+    FField_upVector := nil;
+  end;
+  if FField_fStop <> nil then
+  begin
+    FField_fStop.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_fStop);
+    FField_fStop := nil;
+  end;
+  if FField_focusDistance <> nil then
+  begin
+    FField_focusDistance.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_focusDistance);
+    FField_focusDistance := nil;
+  end;
+  if FField_offlineRender <> nil then
+  begin
+    FField_offlineRender.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_offlineRender);
+    FField_offlineRender := nil;
+  end;
+  if FField_key <> nil then
+  begin
+    FField_key.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_key);
+    FField_key := nil;
+  end;
+  if FField_keyValuePosition <> nil then
+  begin
+    FField_keyValuePosition.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_keyValuePosition);
+    FField_keyValuePosition := nil;
+  end;
+  if FField_keyValueOrientation <> nil then
+  begin
+    FField_keyValueOrientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_keyValueOrientation);
+    FField_keyValueOrientation := nil;
+  end;
+  if FField_animated <> nil then
+  begin
+    FField_animated.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_animated);
+    FField_animated := nil;
+  end;
 end;
 
 procedure TScript50Script.FlushOutputs(const Time: TX3DTime);
@@ -1931,30 +1991,6 @@ end;
 
 destructor TScript107Script.Destroy;
 begin
-  if FField_keyValueOrientation <> nil then
-    FField_keyValueOrientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_keyValueOrientation);
-  if FField_keyValuePosition <> nil then
-    FField_keyValuePosition.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_keyValuePosition);
-  if FField_key <> nil then
-    FField_key.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_key);
-  if FField_initialFocusDistance <> nil then
-    FField_initialFocusDistance.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialFocusDistance);
-  if FField_initialFStop <> nil then
-    FField_initialFStop.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialFStop);
-  if FField_initialFieldOfView <> nil then
-    FField_initialFieldOfView.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialFieldOfView);
-  if FField_initialAimPoint <> nil then
-    FField_initialAimPoint.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialAimPoint);
-  if FField_initialOrientation <> nil then
-    FField_initialOrientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialOrientation);
-  if FField_initialPosition <> nil then
-    FField_initialPosition.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialPosition);
-  if FField_moves <> nil then
-    FField_moves.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_moves);
-  if FField_enabled <> nil then
-    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
-  if FField_description <> nil then
-    FField_description.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_description);
   FreeAndNil(FBack_description);
   FreeAndNil(FBack_enabled);
   FreeAndNil(FBack_moves);
@@ -1970,6 +2006,70 @@ begin
   FreeAndNil(FBack_keyValuePosition);
   FreeAndNil(FBack_keyValueOrientation);
   inherited Destroy;
+end;
+
+procedure TScript107Script.Detach;
+begin
+  if FField_description <> nil then
+  begin
+    FField_description.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_description);
+    FField_description := nil;
+  end;
+  if FField_enabled <> nil then
+  begin
+    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
+    FField_enabled := nil;
+  end;
+  if FField_moves <> nil then
+  begin
+    FField_moves.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_moves);
+    FField_moves := nil;
+  end;
+  if FField_initialPosition <> nil then
+  begin
+    FField_initialPosition.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialPosition);
+    FField_initialPosition := nil;
+  end;
+  if FField_initialOrientation <> nil then
+  begin
+    FField_initialOrientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialOrientation);
+    FField_initialOrientation := nil;
+  end;
+  if FField_initialAimPoint <> nil then
+  begin
+    FField_initialAimPoint.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialAimPoint);
+    FField_initialAimPoint := nil;
+  end;
+  if FField_initialFieldOfView <> nil then
+  begin
+    FField_initialFieldOfView.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialFieldOfView);
+    FField_initialFieldOfView := nil;
+  end;
+  if FField_initialFStop <> nil then
+  begin
+    FField_initialFStop.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialFStop);
+    FField_initialFStop := nil;
+  end;
+  if FField_initialFocusDistance <> nil then
+  begin
+    FField_initialFocusDistance.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_initialFocusDistance);
+    FField_initialFocusDistance := nil;
+  end;
+  if FField_key <> nil then
+  begin
+    FField_key.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_key);
+    FField_key := nil;
+  end;
+  if FField_keyValuePosition <> nil then
+  begin
+    FField_keyValuePosition.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_keyValuePosition);
+    FField_keyValuePosition := nil;
+  end;
+  if FField_keyValueOrientation <> nil then
+  begin
+    FField_keyValueOrientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_keyValueOrientation);
+    FField_keyValueOrientation := nil;
+  end;
 end;
 
 procedure TScript107Script.FlushOutputs(const Time: TX3DTime);
@@ -2513,26 +2613,6 @@ end;
 
 destructor TScript138Script.Destroy;
 begin
-  if FField_goalFocusDistance <> nil then
-    FField_goalFocusDistance.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalFocusDistance);
-  if FField_goalFStop <> nil then
-    FField_goalFStop.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalFStop);
-  if FField_goalFieldOfView <> nil then
-    FField_goalFieldOfView.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalFieldOfView);
-  if FField_tracking <> nil then
-    FField_tracking.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_tracking);
-  if FField_goalOrientation <> nil then
-    FField_goalOrientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalOrientation);
-  if FField_goalPosition <> nil then
-    FField_goalPosition.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalPosition);
-  if FField_duration <> nil then
-    FField_duration.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_duration);
-  if FField_enabled <> nil then
-    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
-  if FField_description <> nil then
-    FField_description.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_description);
-  if FField_goalAimPoint <> nil then
-    FField_goalAimPoint.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalAimPoint);
   FreeAndNil(FBack_description);
   FreeAndNil(FBack_enabled);
   FreeAndNil(FBack_duration);
@@ -2545,6 +2625,60 @@ begin
   FreeAndNil(FBack_goalFocusDistance);
   FreeAndNil(FBack_isActive);
   inherited Destroy;
+end;
+
+procedure TScript138Script.Detach;
+begin
+  if FField_goalAimPoint <> nil then
+  begin
+    FField_goalAimPoint.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalAimPoint);
+    FField_goalAimPoint := nil;
+  end;
+  if FField_description <> nil then
+  begin
+    FField_description.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_description);
+    FField_description := nil;
+  end;
+  if FField_enabled <> nil then
+  begin
+    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
+    FField_enabled := nil;
+  end;
+  if FField_duration <> nil then
+  begin
+    FField_duration.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_duration);
+    FField_duration := nil;
+  end;
+  if FField_goalPosition <> nil then
+  begin
+    FField_goalPosition.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalPosition);
+    FField_goalPosition := nil;
+  end;
+  if FField_goalOrientation <> nil then
+  begin
+    FField_goalOrientation.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalOrientation);
+    FField_goalOrientation := nil;
+  end;
+  if FField_tracking <> nil then
+  begin
+    FField_tracking.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_tracking);
+    FField_tracking := nil;
+  end;
+  if FField_goalFieldOfView <> nil then
+  begin
+    FField_goalFieldOfView.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalFieldOfView);
+    FField_goalFieldOfView := nil;
+  end;
+  if FField_goalFStop <> nil then
+  begin
+    FField_goalFStop.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalFStop);
+    FField_goalFStop := nil;
+  end;
+  if FField_goalFocusDistance <> nil then
+  begin
+    FField_goalFocusDistance.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_goalFocusDistance);
+    FField_goalFocusDistance := nil;
+  end;
 end;
 
 procedure TScript138Script.FlushOutputs(const Time: TX3DTime);
@@ -2979,16 +3113,6 @@ end;
 
 destructor TScript165Script.Destroy;
 begin
-  if FField_pixelAspectRatio <> nil then
-    FField_pixelAspectRatio.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_pixelAspectRatio);
-  if FField_frameSize <> nil then
-    FField_frameSize.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_frameSize);
-  if FField_frameRate <> nil then
-    FField_frameRate.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_frameRate);
-  if FField_enabled <> nil then
-    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
-  if FField_description <> nil then
-    FField_description.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_description);
   FreeAndNil(FBack_description);
   FreeAndNil(FBack_enabled);
   FreeAndNil(FBack_frameRate);
@@ -2997,6 +3121,35 @@ begin
   FreeAndNil(FBack_progress);
   FreeAndNil(FBack_renderCompleteTime);
   inherited Destroy;
+end;
+
+procedure TScript165Script.Detach;
+begin
+  if FField_description <> nil then
+  begin
+    FField_description.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_description);
+    FField_description := nil;
+  end;
+  if FField_enabled <> nil then
+  begin
+    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
+    FField_enabled := nil;
+  end;
+  if FField_frameRate <> nil then
+  begin
+    FField_frameRate.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_frameRate);
+    FField_frameRate := nil;
+  end;
+  if FField_frameSize <> nil then
+  begin
+    FField_frameSize.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_frameSize);
+    FField_frameSize := nil;
+  end;
+  if FField_pixelAspectRatio <> nil then
+  begin
+    FField_pixelAspectRatio.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_pixelAspectRatio);
+    FField_pixelAspectRatio := nil;
+  end;
 end;
 
 procedure TScript165Script.FlushOutputs(const Time: TX3DTime);
@@ -4211,6 +4364,36 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript165List[_i].Initialized) then
       CompiledScript165List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachCameraPrototypesScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript50List) do
+  begin
+    CompiledScript50List[_i].Detach;
+    FreeAndNil(CompiledScript50List[_i]);
+  end;
+  SetLength(CompiledScript50List, 0);
+  for _i := 0 to High(CompiledScript107List) do
+  begin
+    CompiledScript107List[_i].Detach;
+    FreeAndNil(CompiledScript107List[_i]);
+  end;
+  SetLength(CompiledScript107List, 0);
+  for _i := 0 to High(CompiledScript138List) do
+  begin
+    CompiledScript138List[_i].Detach;
+    FreeAndNil(CompiledScript138List[_i]);
+  end;
+  SetLength(CompiledScript138List, 0);
+  for _i := 0 to High(CompiledScript165List) do
+  begin
+    CompiledScript165List[_i].Detach;
+    FreeAndNil(CompiledScript165List[_i]);
+  end;
+  SetLength(CompiledScript165List, 0);
 end;
 
 finalization

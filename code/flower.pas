@@ -2,10 +2,11 @@ unit flower;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflower: TX3DRootNode;
 procedure RegisterflowerScripts(const Scene: TCastleSceneCore);
+procedure DetachflowerScripts;
 
 implementation
 
@@ -29,6 +30,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_coordinates: TX3DEvent; const AEvent_coordIndexes: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript18Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -88,6 +90,10 @@ begin
   FreeAndNil(FBack_coordinates);
   FreeAndNil(FBack_coordIndexes);
   inherited Destroy;
+end;
+
+procedure TScript18Script.Detach;
+begin
 end;
 
 procedure TScript18Script.FlushOutputs(const Time: TX3DTime);
@@ -373,6 +379,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript18List[_i].Initialized) then
       CompiledScript18List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachflowerScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript18List) do
+  begin
+    CompiledScript18List[_i].Detach;
+    FreeAndNil(CompiledScript18List[_i]);
+  end;
+  SetLength(CompiledScript18List, 0);
 end;
 
 finalization

@@ -2,7 +2,7 @@ unit Tufani5Final;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateTufani5Final: TX3DRootNode;
 

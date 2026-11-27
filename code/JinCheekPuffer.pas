@@ -2,7 +2,7 @@ unit JinCheekPuffer;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJinCheekPuffer: TX3DRootNode;
 

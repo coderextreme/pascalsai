@@ -2,7 +2,7 @@ unit InlineSoundSource;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateInlineSoundSource: TX3DRootNode;
 

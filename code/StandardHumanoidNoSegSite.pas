@@ -2,7 +2,7 @@ unit StandardHumanoidNoSegSite;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateStandardHumanoidNoSegSite: TX3DRootNode;
 

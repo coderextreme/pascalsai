@@ -2,10 +2,11 @@ unit SmokeTestProgramOutputCanonical;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateSmokeTestProgramOutputCanonical: TX3DRootNode;
 procedure RegisterSmokeTestProgramOutputCanonicalScripts(const Scene: TCastleSceneCore);
+procedure DetachSmokeTestProgramOutputCanonicalScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -49,6 +50,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_colorsOutput: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript70Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure ColorInput(Value: TX3DField; const Time: TX3DTime);
@@ -76,6 +78,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_enabled: TSFBool; const AField_diffuseColor: TSFColor; const AEvent_newColor: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript115Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -235,6 +238,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript70Script.Detach;
+begin
+end;
+
 procedure TScript70Script.FlushOutputs(const Time: TX3DTime);
 var
   _i: Integer;
@@ -298,12 +305,19 @@ end;
 
 destructor TScript115Script.Destroy;
 begin
-  if FField_enabled <> nil then
-    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
   FreeAndNil(FBack_enabled);
   FreeAndNil(FBack_diffuseColor);
   FreeAndNil(FBack_newColor);
   inherited Destroy;
+end;
+
+procedure TScript115Script.Detach;
+begin
+  if FField_enabled <> nil then
+  begin
+    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
+    FField_enabled := nil;
+  end;
 end;
 
 procedure TScript115Script.FlushOutputs(const Time: TX3DTime);
@@ -1027,6 +1041,24 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript115List[_i].Initialized) then
       CompiledScript115List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachSmokeTestProgramOutputCanonicalScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript70List) do
+  begin
+    CompiledScript70List[_i].Detach;
+    FreeAndNil(CompiledScript70List[_i]);
+  end;
+  SetLength(CompiledScript70List, 0);
+  for _i := 0 to High(CompiledScript115List) do
+  begin
+    CompiledScript115List[_i].Detach;
+    FreeAndNil(CompiledScript115List[_i]);
+  end;
+  SetLength(CompiledScript115List, 0);
 end;
 
 finalization

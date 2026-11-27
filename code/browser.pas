@@ -2,10 +2,11 @@ unit browser;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbrowser: TX3DRootNode;
 procedure RegisterbrowserScripts(const Scene: TCastleSceneCore);
+procedure DetachbrowserScripts;
 
 implementation
 
@@ -21,6 +22,7 @@ type
     constructor Create(const AHandlerPrefix: String);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript8Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -35,6 +37,7 @@ type
     constructor Create(const AHandlerPrefix: String);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript9Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Cumulustranslation(const Time: TX3DTime);
@@ -70,6 +73,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript8Script.Detach;
+begin
+end;
+
 procedure TScript8Script.FlushOutputs(const Time: TX3DTime);
 begin
 end;
@@ -100,6 +107,10 @@ end;
 destructor TScript9Script.Destroy;
 begin
   inherited Destroy;
+end;
+
+procedure TScript9Script.Detach;
+begin
 end;
 
 procedure TScript9Script.FlushOutputs(const Time: TX3DTime);
@@ -199,6 +210,24 @@ begin
   begin
     CompiledScript9List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachbrowserScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript8List) do
+  begin
+    CompiledScript8List[_i].Detach;
+    FreeAndNil(CompiledScript8List[_i]);
+  end;
+  SetLength(CompiledScript8List, 0);
+  for _i := 0 to High(CompiledScript9List) do
+  begin
+    CompiledScript9List[_i].Detach;
+    FreeAndNil(CompiledScript9List[_i]);
+  end;
+  SetLength(CompiledScript9List, 0);
 end;
 
 finalization

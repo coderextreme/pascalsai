@@ -2,7 +2,7 @@ unit JohnJoint2;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJohnJoint2: TX3DRootNode;
 

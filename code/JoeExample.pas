@@ -2,10 +2,11 @@ unit JoeExample;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateJoeExample: TX3DRootNode;
 procedure RegisterJoeExampleScripts(const Scene: TCastleSceneCore);
+procedure DetachJoeExampleScripts;
 
 implementation
 
@@ -26,6 +27,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_vaultUnlocked: TX3DEvent; const AField_unlocked: TSFBool);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript4Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure CombinationEntered(Value: TX3DField; const Time: TX3DTime);
@@ -77,6 +79,10 @@ destructor TScript4Script.Destroy;
 begin
   FreeAndNil(FBack_vaultUnlocked);
   inherited Destroy;
+end;
+
+procedure TScript4Script.Detach;
+begin
 end;
 
 procedure TScript4Script.FlushOutputs(const Time: TX3DTime);
@@ -221,6 +227,18 @@ begin
   begin
     CompiledScript4List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachJoeExampleScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript4List) do
+  begin
+    CompiledScript4List[_i].Detach;
+    FreeAndNil(CompiledScript4List[_i]);
+  end;
+  SetLength(CompiledScript4List, 0);
 end;
 
 finalization

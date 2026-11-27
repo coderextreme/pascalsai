@@ -1,0 +1,37 @@
+uses
+  SysUtils, X3DNodes, X3DFields;
+
+procedure CreatePrototypeWithMFNode(const RootNode: TX3DRootNode);
+var
+  Proto: TX3DPrototype;
+  Decl: TX3DInterfaceDeclaration;
+  MFNodeField: TMFNode;
+  ProtoInstance: TX3DPrototypeNode;
+  ChildShape: TShapeNode;
+begin
+  // 1. Create the prototype definition and register it on the root node
+  Proto := TX3DPrototype.Create;
+  Proto.X3DName := 'MyContainerProto';
+  RootNode.AddPrototype(Proto);
+
+  // 2. Create a TMFNode interface field (e.g., an exposedField / inputOutput)
+  Decl := TX3DInterfaceDeclaration.Create(Proto);
+  Decl.AccessType := atInputOutput;
+  
+  // ParentNode is nil for interface declarations; provide field name and allowed node classes
+  MFNodeField := TMFNode.Create(nil, 'children', [TAbstractChildNode]);
+  Decl.FieldOrEvent := MFNodeField;
+  
+  Proto.InterfaceDeclarations.Add(Decl);
+
+  // 3. Instantiate the prototype into a TX3DPrototypeNode
+  ProtoInstance := Proto.Instantiate as TX3DPrototypeNode;
+
+  // 4. Add X3D nodes to the TMFNode field on the prototype instance
+  ChildShape := TShapeNode.Create;
+  (ProtoInstance.Field('children') as TMFNode).Add(ChildShape);
+
+  // Add the prototype instance to the scene graph
+  RootNode.AddChildren([ProtoInstance]);
+end;
+

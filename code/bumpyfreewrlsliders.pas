@@ -2,10 +2,11 @@ unit bumpyfreewrlsliders;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbumpyfreewrlsliders: TX3DRootNode;
 procedure RegisterbumpyfreewrlslidersScripts(const Scene: TCastleSceneCore);
+procedure DetachbumpyfreewrlslidersScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -69,6 +70,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_protoScale: TSFFloat; const AField_shader: TSFNode; const AField_newTranslation: TSFVec3f; const AField_protoValue_changed: TSFFloat; const AField_protoNumber_changed: TMFString; const AField_protoParameterName: TSFString);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript134Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
   end;
@@ -275,6 +277,10 @@ begin
   FreeAndNil(FBack_protoNumber_changed);
   FreeAndNil(FBack_protoParameterName);
   inherited Destroy;
+end;
+
+procedure TScript134Script.Detach;
+begin
 end;
 
 procedure TScript134Script.FlushOutputs(const Time: TX3DTime);
@@ -1009,6 +1015,18 @@ begin
   begin
     CompiledScript134List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachbumpyfreewrlslidersScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript134List) do
+  begin
+    CompiledScript134List[_i].Detach;
+    FreeAndNil(CompiledScript134List[_i]);
+  end;
+  SetLength(CompiledScript134List, 0);
 end;
 
 finalization

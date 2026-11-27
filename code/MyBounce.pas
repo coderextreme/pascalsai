@@ -2,10 +2,11 @@ unit MyBounce;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateMyBounce: TX3DRootNode;
 procedure RegisterMyBounceScripts(const Scene: TCastleSceneCore);
+procedure DetachMyBounceScripts;
 
 implementation
 
@@ -33,6 +34,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_translation_changed: TX3DEvent; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript14Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure NewBubble(const Time: TX3DTime);
@@ -98,6 +100,10 @@ begin
   FreeAndNil(FBack_translation);
   FreeAndNil(FBack_velocity);
   inherited Destroy;
+end;
+
+procedure TScript14Script.Detach;
+begin
 end;
 
 procedure TScript14Script.FlushOutputs(const Time: TX3DTime);
@@ -295,6 +301,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript14List[_i].Initialized) then
       CompiledScript14List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachMyBounceScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript14List) do
+  begin
+    CompiledScript14List[_i].Detach;
+    FreeAndNil(CompiledScript14List[_i]);
+  end;
+  SetLength(CompiledScript14List, 0);
 end;
 
 finalization

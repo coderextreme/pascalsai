@@ -2,10 +2,11 @@ unit CanonicalFacialAnimationComparisonScripts;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateCanonicalFacialAnimationComparisonScripts: TX3DRootNode;
 procedure RegisterCanonicalFacialAnimationComparisonScriptsScripts(const Scene: TCastleSceneCore);
+procedure DetachCanonicalFacialAnimationComparisonScriptsScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -62,6 +63,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool; const AField_adapter: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript1037Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
@@ -792,6 +794,10 @@ begin
   FreeAndNil(FBack_checked);
   FreeAndNil(FBack_adapter);
   inherited Destroy;
+end;
+
+procedure TScript1037Script.Detach;
+begin
 end;
 
 procedure TScript1037Script.FlushOutputs(const Time: TX3DTime);
@@ -5689,6 +5695,18 @@ begin
   begin
     CompiledScript1037List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachCanonicalFacialAnimationComparisonScriptsScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript1037List) do
+  begin
+    CompiledScript1037List[_i].Detach;
+    FreeAndNil(CompiledScript1037List[_i]);
+  end;
+  SetLength(CompiledScript1037List, 0);
 end;
 
 finalization

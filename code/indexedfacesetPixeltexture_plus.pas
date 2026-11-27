@@ -2,7 +2,7 @@ unit indexedfacesetPixeltexture_plus;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateindexedfacesetPixeltexture_plus: TX3DRootNode;
 

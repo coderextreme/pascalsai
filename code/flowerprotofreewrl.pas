@@ -2,10 +2,11 @@ unit flowerprotofreewrl;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflowerprotofreewrl: TX3DRootNode;
 procedure RegisterflowerprotofreewrlScripts(const Scene: TCastleSceneCore);
+procedure DetachflowerprotofreewrlScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -82,6 +83,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f; const AField_set_fraction: TSFFloat; const AField_a: TSFFloat; const AField_b: TSFFloat; const AField_c: TSFFloat; const AField_d: TSFFloat; const AField_tdelta: TSFFloat; const AField_pdelta: TSFFloat);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript51Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -103,9 +105,9 @@ var
   Background19: TBackgroundNode;
   ProtoDeclare20: TX3DPrototype;
   FieldDecl22: TX3DInterfaceDeclaration;
-  FieldVal22: TX3DEvent;
+  FieldVal22: TMFString;
   FieldDecl23: TX3DInterfaceDeclaration;
-  FieldVal23: TX3DEvent;
+  FieldVal23: TMFString;
   Transform25: TTransformNode;
   Shape26: TShapeNode;
   Appearance27: TAppearanceNode;
@@ -217,8 +219,6 @@ end;
 
 destructor TScript51Script.Destroy;
 begin
-  if FField_set_fraction <> nil then
-    FField_set_fraction.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_fraction);
   FreeAndNil(FBack_translation);
   FreeAndNil(FBack_velocity);
   FreeAndNil(FBack_set_fraction);
@@ -229,6 +229,15 @@ begin
   FreeAndNil(FBack_tdelta);
   FreeAndNil(FBack_pdelta);
   inherited Destroy;
+end;
+
+procedure TScript51Script.Detach;
+begin
+  if FField_set_fraction <> nil then
+  begin
+    FField_set_fraction.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_fraction);
+    FField_set_fraction := nil;
+  end;
 end;
 
 procedure TScript51Script.FlushOutputs(const Time: TX3DTime);
@@ -533,7 +542,7 @@ Background19.SetTopUrl(['../resources/images/all_probes/stpeters_cross/stpeters_
 Group16.FdChildren.Add(Background19);
 ProtoDeclare20 := CreateEmptyPrototype('FlowerProto');
 ProtoDeclare20.X3DName := 'FlowerProto';
-FieldVal22 := TMFString.CreateEvent(nil, 'vertex', True);
+FieldVal22 := TMFString.Create(nil, True, 'vertex', ['../shaders/freewrl_flowers_chromatic.vs', 'https://coderextreme.net/X3DJSONLD/src/main/shaders/freewrl_flowers_chromatic.vs']);
 FieldDecl22 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl22.FieldOrEvent := FieldVal22;
 FieldVal22.ParentInterfaceDeclaration := FieldDecl22;
@@ -542,7 +551,7 @@ end;
 
 procedure InitflowerprotofreewrlPart1;
 begin
-FieldVal23 := TMFString.CreateEvent(nil, 'fragment', True);
+FieldVal23 := TMFString.Create(nil, True, 'fragment', ['../shaders/freewrl.fs', 'https://coderextreme.net/X3DJSONLD/src/main/shaders/freewrl.fs']);
 FieldDecl23 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl23.FieldOrEvent := FieldVal23;
 FieldVal23.ParentInterfaceDeclaration := FieldDecl23;
@@ -719,6 +728,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript51List[_i].Initialized) then
       CompiledScript51List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachflowerprotofreewrlScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript51List) do
+  begin
+    CompiledScript51List[_i].Detach;
+    FreeAndNil(CompiledScript51List[_i]);
+  end;
+  SetLength(CompiledScript51List, 0);
 end;
 
 finalization

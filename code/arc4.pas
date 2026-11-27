@@ -2,10 +2,11 @@ unit arc4;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createarc4: TX3DRootNode;
 procedure Registerarc4Scripts(const Scene: TCastleSceneCore);
+procedure Detacharc4Scripts;
 
 implementation
 
@@ -33,6 +34,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_old: TSFVec3f; const AField_keyValue: TMFVec3f);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript16Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_location(Value: TX3DField; const Time: TX3DTime);
@@ -59,6 +61,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_old: TSFVec3f; const AField_keyValue: TMFVec3f);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript32Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_location(Value: TX3DField; const Time: TX3DTime);
@@ -84,6 +87,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_startnode: TSFNode; const AField_endnode: TSFNode; const AField_position: TSFNode; const AField_rotscale: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript49Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Recompute(const startpoint: Single; const endpoint: Single; const Time: TX3DTime);
@@ -188,6 +192,10 @@ begin
   FreeAndNil(FBack_old);
   FreeAndNil(FBack_keyValue);
   inherited Destroy;
+end;
+
+procedure TScript16Script.Detach;
+begin
 end;
 
 procedure TScript16Script.FlushOutputs(const Time: TX3DTime);
@@ -301,6 +309,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript32Script.Detach;
+begin
+end;
+
 procedure TScript32Script.FlushOutputs(const Time: TX3DTime);
 var
   _i: Integer;
@@ -400,6 +412,10 @@ begin
   FreeAndNil(FBack_position);
   FreeAndNil(FBack_rotscale);
   inherited Destroy;
+end;
+
+procedure TScript49Script.Detach;
+begin
 end;
 
 procedure TScript49Script.FlushOutputs(const Time: TX3DTime);
@@ -796,6 +812,30 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript49List[_i].Initialized) then
       CompiledScript49List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure Detacharc4Scripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript16List) do
+  begin
+    CompiledScript16List[_i].Detach;
+    FreeAndNil(CompiledScript16List[_i]);
+  end;
+  SetLength(CompiledScript16List, 0);
+  for _i := 0 to High(CompiledScript32List) do
+  begin
+    CompiledScript32List[_i].Detach;
+    FreeAndNil(CompiledScript32List[_i]);
+  end;
+  SetLength(CompiledScript32List, 0);
+  for _i := 0 to High(CompiledScript49List) do
+  begin
+    CompiledScript49List[_i].Detach;
+    FreeAndNil(CompiledScript49List[_i]);
+  end;
+  SetLength(CompiledScript49List, 0);
 end;
 
 finalization

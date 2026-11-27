@@ -2,7 +2,7 @@ unit Lily5Final;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateLily5Final: TX3DRootNode;
 

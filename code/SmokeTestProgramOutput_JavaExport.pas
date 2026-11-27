@@ -2,10 +2,11 @@ unit SmokeTestProgramOutput_JavaExport;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateSmokeTestProgramOutput_JavaExport: TX3DRootNode;
 procedure RegisterSmokeTestProgramOutput_JavaExportScripts(const Scene: TCastleSceneCore);
+procedure DetachSmokeTestProgramOutput_JavaExportScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -49,6 +50,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_colorsOutput: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript76Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure ColorInput(Value: TX3DField; const Time: TX3DTime);
@@ -76,6 +78,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_enabled: TSFBool; const AField_diffuseColor: TSFColor; const AEvent_newColor: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript120Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -93,6 +96,7 @@ type
     constructor Create(const AHandlerPrefix: String);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript189Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
   end;
@@ -280,6 +284,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript76Script.Detach;
+begin
+end;
+
 procedure TScript76Script.FlushOutputs(const Time: TX3DTime);
 var
   _i: Integer;
@@ -343,12 +351,19 @@ end;
 
 destructor TScript120Script.Destroy;
 begin
-  if FField_enabled <> nil then
-    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
   FreeAndNil(FBack_enabled);
   FreeAndNil(FBack_diffuseColor);
   FreeAndNil(FBack_newColor);
   inherited Destroy;
+end;
+
+procedure TScript120Script.Detach;
+begin
+  if FField_enabled <> nil then
+  begin
+    FField_enabled.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_enabled);
+    FField_enabled := nil;
+  end;
 end;
 
 procedure TScript120Script.FlushOutputs(const Time: TX3DTime);
@@ -451,6 +466,10 @@ end;
 destructor TScript189Script.Destroy;
 begin
   inherited Destroy;
+end;
+
+procedure TScript189Script.Detach;
+begin
 end;
 
 procedure TScript189Script.FlushOutputs(const Time: TX3DTime);
@@ -1191,6 +1210,30 @@ begin
   begin
     CompiledScript189List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachSmokeTestProgramOutput_JavaExportScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript76List) do
+  begin
+    CompiledScript76List[_i].Detach;
+    FreeAndNil(CompiledScript76List[_i]);
+  end;
+  SetLength(CompiledScript76List, 0);
+  for _i := 0 to High(CompiledScript120List) do
+  begin
+    CompiledScript120List[_i].Detach;
+    FreeAndNil(CompiledScript120List[_i]);
+  end;
+  SetLength(CompiledScript120List, 0);
+  for _i := 0 to High(CompiledScript189List) do
+  begin
+    CompiledScript189List[_i].Detach;
+    FreeAndNil(CompiledScript189List[_i]);
+  end;
+  SetLength(CompiledScript189List, 0);
 end;
 
 finalization

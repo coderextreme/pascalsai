@@ -2,7 +2,7 @@ unit JinLOA4_6;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJinLOA4_6: TX3DRootNode;
 

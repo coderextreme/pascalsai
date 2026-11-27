@@ -2,7 +2,7 @@ unit JinSkeletonAndOneMeshToBeScaled4;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJinSkeletonAndOneMeshToBeScaled4: TX3DRootNode;
 

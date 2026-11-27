@@ -2,10 +2,11 @@ unit bumpyfreewrljsonverse;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbumpyfreewrljsonverse: TX3DRootNode;
 procedure RegisterbumpyfreewrljsonverseScripts(const Scene: TCastleSceneCore);
+procedure DetachbumpyfreewrljsonverseScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -77,6 +78,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_coordinates: TMFVec3f; const AEvent_coordIndexes: TX3DEvent; const AField_a: TSFFloat; const AField_b: TSFFloat; const AField_c: TSFFloat; const AField_d: TSFFloat; const AField_pdelta: TSFFloat; const AField_tdelta: TSFFloat);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript97Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -111,6 +113,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_protoScale: TSFFloat; const AField_protoParameterName: TSFString; const AField_shader: TSFNode; const AEvent_protoValue_changed: TX3DEvent; const AEvent_protoText_changed: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript152Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
   end;
@@ -333,6 +336,10 @@ begin
   FreeAndNil(FBack_pdelta);
   FreeAndNil(FBack_tdelta);
   inherited Destroy;
+end;
+
+procedure TScript97Script.Detach;
+begin
 end;
 
 procedure TScript97Script.FlushOutputs(const Time: TX3DTime);
@@ -562,6 +569,10 @@ begin
   FreeAndNil(FBack_protoValue_changed);
   FreeAndNil(FBack_protoText_changed);
   inherited Destroy;
+end;
+
+procedure TScript152Script.Detach;
+begin
 end;
 
 procedure TScript152Script.FlushOutputs(const Time: TX3DTime);
@@ -1273,6 +1284,24 @@ begin
   begin
     CompiledScript152List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachbumpyfreewrljsonverseScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript97List) do
+  begin
+    CompiledScript97List[_i].Detach;
+    FreeAndNil(CompiledScript97List[_i]);
+  end;
+  SetLength(CompiledScript97List, 0);
+  for _i := 0 to High(CompiledScript152List) do
+  begin
+    CompiledScript152List[_i].Detach;
+    FreeAndNil(CompiledScript152List[_i]);
+  end;
+  SetLength(CompiledScript152List, 0);
 end;
 
 finalization

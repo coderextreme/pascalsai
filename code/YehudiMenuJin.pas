@@ -2,10 +2,11 @@ unit YehudiMenuJin;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateYehudiMenuJin: TX3DRootNode;
 procedure RegisterYehudiMenuJinScripts(const Scene: TCastleSceneCore);
+procedure DetachYehudiMenuJinScripts;
 
 implementation
 
@@ -25,6 +26,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13430Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -44,6 +46,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13447Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -63,6 +66,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13464Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -82,6 +86,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13481Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -101,6 +106,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13498Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -120,6 +126,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13515Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -139,6 +146,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13532Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -158,6 +166,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13549Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -177,6 +186,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13566Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -196,6 +206,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13583Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -215,6 +226,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13600Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -234,6 +246,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13617Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -253,6 +266,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13634Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -272,6 +286,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13651Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -291,6 +306,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13668Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -310,6 +326,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13685Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -329,6 +346,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13702Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -348,6 +366,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13719Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -367,6 +386,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13736Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -386,6 +406,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13753Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -405,6 +426,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13770Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -424,6 +446,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13787Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -443,6 +466,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13804Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -462,6 +486,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13821Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -481,6 +506,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13838Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -500,6 +526,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13855Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -519,6 +546,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13872Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -538,6 +566,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13889Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -557,6 +586,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13906Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -576,6 +606,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript13923Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -10584,6 +10615,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13430Script.Detach;
+begin
+end;
+
 procedure TScript13430Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -10636,6 +10671,10 @@ destructor TScript13447Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13447Script.Detach;
+begin
 end;
 
 procedure TScript13447Script.FlushOutputs(const Time: TX3DTime);
@@ -10692,6 +10731,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13464Script.Detach;
+begin
+end;
+
 procedure TScript13464Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -10744,6 +10787,10 @@ destructor TScript13481Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13481Script.Detach;
+begin
 end;
 
 procedure TScript13481Script.FlushOutputs(const Time: TX3DTime);
@@ -10800,6 +10847,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13498Script.Detach;
+begin
+end;
+
 procedure TScript13498Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -10852,6 +10903,10 @@ destructor TScript13515Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13515Script.Detach;
+begin
 end;
 
 procedure TScript13515Script.FlushOutputs(const Time: TX3DTime);
@@ -10908,6 +10963,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13532Script.Detach;
+begin
+end;
+
 procedure TScript13532Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -10960,6 +11019,10 @@ destructor TScript13549Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13549Script.Detach;
+begin
 end;
 
 procedure TScript13549Script.FlushOutputs(const Time: TX3DTime);
@@ -11016,6 +11079,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13566Script.Detach;
+begin
+end;
+
 procedure TScript13566Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -11068,6 +11135,10 @@ destructor TScript13583Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13583Script.Detach;
+begin
 end;
 
 procedure TScript13583Script.FlushOutputs(const Time: TX3DTime);
@@ -11124,6 +11195,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13600Script.Detach;
+begin
+end;
+
 procedure TScript13600Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -11176,6 +11251,10 @@ destructor TScript13617Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13617Script.Detach;
+begin
 end;
 
 procedure TScript13617Script.FlushOutputs(const Time: TX3DTime);
@@ -11232,6 +11311,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13634Script.Detach;
+begin
+end;
+
 procedure TScript13634Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -11284,6 +11367,10 @@ destructor TScript13651Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13651Script.Detach;
+begin
 end;
 
 procedure TScript13651Script.FlushOutputs(const Time: TX3DTime);
@@ -11340,6 +11427,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13668Script.Detach;
+begin
+end;
+
 procedure TScript13668Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -11392,6 +11483,10 @@ destructor TScript13685Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13685Script.Detach;
+begin
 end;
 
 procedure TScript13685Script.FlushOutputs(const Time: TX3DTime);
@@ -11448,6 +11543,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13702Script.Detach;
+begin
+end;
+
 procedure TScript13702Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -11500,6 +11599,10 @@ destructor TScript13719Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13719Script.Detach;
+begin
 end;
 
 procedure TScript13719Script.FlushOutputs(const Time: TX3DTime);
@@ -11556,6 +11659,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13736Script.Detach;
+begin
+end;
+
 procedure TScript13736Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -11608,6 +11715,10 @@ destructor TScript13753Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13753Script.Detach;
+begin
 end;
 
 procedure TScript13753Script.FlushOutputs(const Time: TX3DTime);
@@ -11664,6 +11775,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13770Script.Detach;
+begin
+end;
+
 procedure TScript13770Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -11716,6 +11831,10 @@ destructor TScript13787Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13787Script.Detach;
+begin
 end;
 
 procedure TScript13787Script.FlushOutputs(const Time: TX3DTime);
@@ -11772,6 +11891,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13804Script.Detach;
+begin
+end;
+
 procedure TScript13804Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -11824,6 +11947,10 @@ destructor TScript13821Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13821Script.Detach;
+begin
 end;
 
 procedure TScript13821Script.FlushOutputs(const Time: TX3DTime);
@@ -11880,6 +12007,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13838Script.Detach;
+begin
+end;
+
 procedure TScript13838Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -11932,6 +12063,10 @@ destructor TScript13855Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13855Script.Detach;
+begin
 end;
 
 procedure TScript13855Script.FlushOutputs(const Time: TX3DTime);
@@ -11988,6 +12123,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13872Script.Detach;
+begin
+end;
+
 procedure TScript13872Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -12040,6 +12179,10 @@ destructor TScript13889Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13889Script.Detach;
+begin
 end;
 
 procedure TScript13889Script.FlushOutputs(const Time: TX3DTime);
@@ -12096,6 +12239,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript13906Script.Detach;
+begin
+end;
+
 procedure TScript13906Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_choice then
@@ -12148,6 +12295,10 @@ destructor TScript13923Script.Destroy;
 begin
   FreeAndNil(FBack_choice);
   inherited Destroy;
+end;
+
+procedure TScript13923Script.Detach;
+begin
 end;
 
 procedure TScript13923Script.FlushOutputs(const Time: TX3DTime);
@@ -67808,6 +67959,192 @@ begin
   begin
     CompiledScript13923List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachYehudiMenuJinScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript13430List) do
+  begin
+    CompiledScript13430List[_i].Detach;
+    FreeAndNil(CompiledScript13430List[_i]);
+  end;
+  SetLength(CompiledScript13430List, 0);
+  for _i := 0 to High(CompiledScript13447List) do
+  begin
+    CompiledScript13447List[_i].Detach;
+    FreeAndNil(CompiledScript13447List[_i]);
+  end;
+  SetLength(CompiledScript13447List, 0);
+  for _i := 0 to High(CompiledScript13464List) do
+  begin
+    CompiledScript13464List[_i].Detach;
+    FreeAndNil(CompiledScript13464List[_i]);
+  end;
+  SetLength(CompiledScript13464List, 0);
+  for _i := 0 to High(CompiledScript13481List) do
+  begin
+    CompiledScript13481List[_i].Detach;
+    FreeAndNil(CompiledScript13481List[_i]);
+  end;
+  SetLength(CompiledScript13481List, 0);
+  for _i := 0 to High(CompiledScript13498List) do
+  begin
+    CompiledScript13498List[_i].Detach;
+    FreeAndNil(CompiledScript13498List[_i]);
+  end;
+  SetLength(CompiledScript13498List, 0);
+  for _i := 0 to High(CompiledScript13515List) do
+  begin
+    CompiledScript13515List[_i].Detach;
+    FreeAndNil(CompiledScript13515List[_i]);
+  end;
+  SetLength(CompiledScript13515List, 0);
+  for _i := 0 to High(CompiledScript13532List) do
+  begin
+    CompiledScript13532List[_i].Detach;
+    FreeAndNil(CompiledScript13532List[_i]);
+  end;
+  SetLength(CompiledScript13532List, 0);
+  for _i := 0 to High(CompiledScript13549List) do
+  begin
+    CompiledScript13549List[_i].Detach;
+    FreeAndNil(CompiledScript13549List[_i]);
+  end;
+  SetLength(CompiledScript13549List, 0);
+  for _i := 0 to High(CompiledScript13566List) do
+  begin
+    CompiledScript13566List[_i].Detach;
+    FreeAndNil(CompiledScript13566List[_i]);
+  end;
+  SetLength(CompiledScript13566List, 0);
+  for _i := 0 to High(CompiledScript13583List) do
+  begin
+    CompiledScript13583List[_i].Detach;
+    FreeAndNil(CompiledScript13583List[_i]);
+  end;
+  SetLength(CompiledScript13583List, 0);
+  for _i := 0 to High(CompiledScript13600List) do
+  begin
+    CompiledScript13600List[_i].Detach;
+    FreeAndNil(CompiledScript13600List[_i]);
+  end;
+  SetLength(CompiledScript13600List, 0);
+  for _i := 0 to High(CompiledScript13617List) do
+  begin
+    CompiledScript13617List[_i].Detach;
+    FreeAndNil(CompiledScript13617List[_i]);
+  end;
+  SetLength(CompiledScript13617List, 0);
+  for _i := 0 to High(CompiledScript13634List) do
+  begin
+    CompiledScript13634List[_i].Detach;
+    FreeAndNil(CompiledScript13634List[_i]);
+  end;
+  SetLength(CompiledScript13634List, 0);
+  for _i := 0 to High(CompiledScript13651List) do
+  begin
+    CompiledScript13651List[_i].Detach;
+    FreeAndNil(CompiledScript13651List[_i]);
+  end;
+  SetLength(CompiledScript13651List, 0);
+  for _i := 0 to High(CompiledScript13668List) do
+  begin
+    CompiledScript13668List[_i].Detach;
+    FreeAndNil(CompiledScript13668List[_i]);
+  end;
+  SetLength(CompiledScript13668List, 0);
+  for _i := 0 to High(CompiledScript13685List) do
+  begin
+    CompiledScript13685List[_i].Detach;
+    FreeAndNil(CompiledScript13685List[_i]);
+  end;
+  SetLength(CompiledScript13685List, 0);
+  for _i := 0 to High(CompiledScript13702List) do
+  begin
+    CompiledScript13702List[_i].Detach;
+    FreeAndNil(CompiledScript13702List[_i]);
+  end;
+  SetLength(CompiledScript13702List, 0);
+  for _i := 0 to High(CompiledScript13719List) do
+  begin
+    CompiledScript13719List[_i].Detach;
+    FreeAndNil(CompiledScript13719List[_i]);
+  end;
+  SetLength(CompiledScript13719List, 0);
+  for _i := 0 to High(CompiledScript13736List) do
+  begin
+    CompiledScript13736List[_i].Detach;
+    FreeAndNil(CompiledScript13736List[_i]);
+  end;
+  SetLength(CompiledScript13736List, 0);
+  for _i := 0 to High(CompiledScript13753List) do
+  begin
+    CompiledScript13753List[_i].Detach;
+    FreeAndNil(CompiledScript13753List[_i]);
+  end;
+  SetLength(CompiledScript13753List, 0);
+  for _i := 0 to High(CompiledScript13770List) do
+  begin
+    CompiledScript13770List[_i].Detach;
+    FreeAndNil(CompiledScript13770List[_i]);
+  end;
+  SetLength(CompiledScript13770List, 0);
+  for _i := 0 to High(CompiledScript13787List) do
+  begin
+    CompiledScript13787List[_i].Detach;
+    FreeAndNil(CompiledScript13787List[_i]);
+  end;
+  SetLength(CompiledScript13787List, 0);
+  for _i := 0 to High(CompiledScript13804List) do
+  begin
+    CompiledScript13804List[_i].Detach;
+    FreeAndNil(CompiledScript13804List[_i]);
+  end;
+  SetLength(CompiledScript13804List, 0);
+  for _i := 0 to High(CompiledScript13821List) do
+  begin
+    CompiledScript13821List[_i].Detach;
+    FreeAndNil(CompiledScript13821List[_i]);
+  end;
+  SetLength(CompiledScript13821List, 0);
+  for _i := 0 to High(CompiledScript13838List) do
+  begin
+    CompiledScript13838List[_i].Detach;
+    FreeAndNil(CompiledScript13838List[_i]);
+  end;
+  SetLength(CompiledScript13838List, 0);
+  for _i := 0 to High(CompiledScript13855List) do
+  begin
+    CompiledScript13855List[_i].Detach;
+    FreeAndNil(CompiledScript13855List[_i]);
+  end;
+  SetLength(CompiledScript13855List, 0);
+  for _i := 0 to High(CompiledScript13872List) do
+  begin
+    CompiledScript13872List[_i].Detach;
+    FreeAndNil(CompiledScript13872List[_i]);
+  end;
+  SetLength(CompiledScript13872List, 0);
+  for _i := 0 to High(CompiledScript13889List) do
+  begin
+    CompiledScript13889List[_i].Detach;
+    FreeAndNil(CompiledScript13889List[_i]);
+  end;
+  SetLength(CompiledScript13889List, 0);
+  for _i := 0 to High(CompiledScript13906List) do
+  begin
+    CompiledScript13906List[_i].Detach;
+    FreeAndNil(CompiledScript13906List[_i]);
+  end;
+  SetLength(CompiledScript13906List, 0);
+  for _i := 0 to High(CompiledScript13923List) do
+  begin
+    CompiledScript13923List[_i].Detach;
+    FreeAndNil(CompiledScript13923List[_i]);
+  end;
+  SetLength(CompiledScript13923List, 0);
 end;
 
 finalization

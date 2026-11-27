@@ -2,7 +2,7 @@ unit KoreanCharacterMotionAnnexB01Jin;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateKoreanCharacterMotionAnnexB01Jin: TX3DRootNode;
 

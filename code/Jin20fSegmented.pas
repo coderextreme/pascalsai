@@ -2,7 +2,7 @@ unit Jin20fSegmented;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJin20fSegmented: TX3DRootNode;
 

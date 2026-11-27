@@ -2,10 +2,11 @@ unit MultiFacialAnimationMenu;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateMultiFacialAnimationMenu: TX3DRootNode;
 procedure RegisterMultiFacialAnimationMenuScripts(const Scene: TCastleSceneCore);
+procedure DetachMultiFacialAnimationMenuScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -64,6 +65,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool; const AField_adapters: TMFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript3011Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
@@ -1802,6 +1804,10 @@ begin
   FreeAndNil(FBack_checked);
   FreeAndNil(FBack_adapters);
   inherited Destroy;
+end;
+
+procedure TScript3011Script.Detach;
+begin
 end;
 
 procedure TScript3011Script.FlushOutputs(const Time: TX3DTime);
@@ -13684,6 +13690,18 @@ begin
   begin
     CompiledScript3011List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachMultiFacialAnimationMenuScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript3011List) do
+  begin
+    CompiledScript3011List[_i].Detach;
+    FreeAndNil(CompiledScript3011List[_i]);
+  end;
+  SetLength(CompiledScript3011List, 0);
 end;
 
 finalization

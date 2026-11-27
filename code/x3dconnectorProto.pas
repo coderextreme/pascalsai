@@ -2,10 +2,11 @@ unit x3dconnectorProto;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createx3dconnectorProto: TX3DRootNode;
 procedure Registerx3dconnectorProtoScripts(const Scene: TCastleSceneCore);
+procedure Detachx3dconnectorProtoScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -50,6 +51,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_startnode: TSFNode; const AField_endnode: TSFNode; const AField_transnode: TSFNode; const AField_rotscalenode: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript69Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Recompute(const startpoint: Single; const endpoint: Single; const Time: TX3DTime);
@@ -160,6 +162,10 @@ end;
 destructor TScript69Script.Destroy;
 begin
   inherited Destroy;
+end;
+
+procedure TScript69Script.Detach;
+begin
 end;
 
 procedure TScript69Script.FlushOutputs(const Time: TX3DTime);
@@ -591,6 +597,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript69List[_i].Initialized) then
       CompiledScript69List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure Detachx3dconnectorProtoScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript69List) do
+  begin
+    CompiledScript69List[_i].Detach;
+    FreeAndNil(CompiledScript69List[_i]);
+  end;
+  SetLength(CompiledScript69List, 0);
 end;
 
 finalization

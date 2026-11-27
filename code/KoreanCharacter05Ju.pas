@@ -2,7 +2,7 @@ unit KoreanCharacter05Ju;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateKoreanCharacter05Ju: TX3DRootNode;
 

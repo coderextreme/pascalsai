@@ -2,7 +2,7 @@ unit HAnimModelHandRight;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateHAnimModelHandRight: TX3DRootNode;
 

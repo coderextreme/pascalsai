@@ -2,10 +2,11 @@ unit geobubbles;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Creategeobubbles: TX3DRootNode;
 procedure RegistergeobubblesScripts(const Scene: TCastleSceneCore);
+procedure DetachgeobubblesScripts;
 
 implementation
 
@@ -33,6 +34,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_val: TSFFloat; const AField_positions: TMFVec3d; const AField_position: TMFVec3d);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript18Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_cycle(Value: TX3DField; const Time: TX3DTime);
@@ -110,6 +112,10 @@ begin
   FreeAndNil(FBack_positions);
   FreeAndNil(FBack_position);
   inherited Destroy;
+end;
+
+procedure TScript18Script.Detach;
+begin
 end;
 
 procedure TScript18Script.FlushOutputs(const Time: TX3DTime);
@@ -327,6 +333,18 @@ begin
   begin
     CompiledScript18List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachgeobubblesScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript18List) do
+  begin
+    CompiledScript18List[_i].Detach;
+    FreeAndNil(CompiledScript18List[_i]);
+  end;
+  SetLength(CompiledScript18List, 0);
 end;
 
 finalization

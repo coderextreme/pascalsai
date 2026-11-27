@@ -2,10 +2,11 @@ unit bubs;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbubs: TX3DRootNode;
 procedure RegisterbubsScripts(const Scene: TCastleSceneCore);
+procedure DetachbubsScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -61,6 +62,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_scale: TSFVec3f; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f; const AField_scalvel: TSFVec3f);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript19Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -140,6 +142,10 @@ begin
   FreeAndNil(FBack_velocity);
   FreeAndNil(FBack_scalvel);
   inherited Destroy;
+end;
+
+procedure TScript19Script.Detach;
+begin
 end;
 
 procedure TScript19Script.FlushOutputs(const Time: TX3DTime);
@@ -414,6 +420,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript19List[_i].Initialized) then
       CompiledScript19List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachbubsScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript19List) do
+  begin
+    CompiledScript19List[_i].Detach;
+    FreeAndNil(CompiledScript19List[_i]);
+  end;
+  SetLength(CompiledScript19List, 0);
 end;
 
 finalization

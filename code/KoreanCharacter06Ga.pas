@@ -2,7 +2,7 @@ unit KoreanCharacter06Ga;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateKoreanCharacter06Ga: TX3DRootNode;
 

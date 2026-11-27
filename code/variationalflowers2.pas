@@ -2,10 +2,11 @@ unit variationalflowers2;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createvariationalflowers2: TX3DRootNode;
 procedure Registervariationalflowers2Scripts(const Scene: TCastleSceneCore);
+procedure Detachvariationalflowers2Scripts;
 
 implementation
 
@@ -37,6 +38,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_values: TMFFloat; const AField_variations: TMFFloat; const AField_lastframe: TSFFloat; const AField_updaterate: TSFFloat);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript43Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
@@ -141,6 +143,10 @@ begin
   FreeAndNil(FBack_lastframe);
   FreeAndNil(FBack_updaterate);
   inherited Destroy;
+end;
+
+procedure TScript43Script.Detach;
+begin
 end;
 
 procedure TScript43Script.FlushOutputs(const Time: TX3DTime);
@@ -431,6 +437,18 @@ begin
   begin
     CompiledScript43List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure Detachvariationalflowers2Scripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript43List) do
+  begin
+    CompiledScript43List[_i].Detach;
+    FreeAndNil(CompiledScript43List[_i]);
+  end;
+  SetLength(CompiledScript43List, 0);
 end;
 
 finalization

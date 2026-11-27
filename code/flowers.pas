@@ -2,10 +2,11 @@ unit flowers;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflowers: TX3DRootNode;
 procedure RegisterflowersScripts(const Scene: TCastleSceneCore);
+procedure DetachflowersScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -77,6 +78,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f; const AField_a: TSFFloat; const AField_b: TSFFloat; const AField_c: TSFFloat; const AField_d: TSFFloat; const AField_tdelta: TSFFloat; const AField_pdelta: TSFFloat);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript48Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -208,6 +210,10 @@ begin
   FreeAndNil(FBack_tdelta);
   FreeAndNil(FBack_pdelta);
   inherited Destroy;
+end;
+
+procedure TScript48Script.Detach;
+begin
 end;
 
 procedure TScript48Script.FlushOutputs(const Time: TX3DTime);
@@ -684,6 +690,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript48List[_i].Initialized) then
       CompiledScript48List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachflowersScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript48List) do
+  begin
+    CompiledScript48List[_i].Detach;
+    FreeAndNil(CompiledScript48List[_i]);
+  end;
+  SetLength(CompiledScript48List, 0);
 end;
 
 finalization

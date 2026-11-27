@@ -2,7 +2,7 @@ unit Humanoid2;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateHumanoid2: TX3DRootNode;
 

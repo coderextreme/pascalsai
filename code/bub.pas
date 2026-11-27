@@ -2,10 +2,11 @@ unit bub;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbub: TX3DRootNode;
 procedure RegisterbubScripts(const Scene: TCastleSceneCore);
+procedure DetachbubScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -53,6 +54,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript50Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -138,6 +140,10 @@ begin
   FreeAndNil(FBack_translation);
   FreeAndNil(FBack_velocity);
   inherited Destroy;
+end;
+
+procedure TScript50Script.Detach;
+begin
 end;
 
 procedure TScript50Script.FlushOutputs(const Time: TX3DTime);
@@ -460,6 +466,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript50List[_i].Initialized) then
       CompiledScript50List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachbubScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript50List) do
+  begin
+    CompiledScript50List[_i].Detach;
+    FreeAndNil(CompiledScript50List[_i]);
+  end;
+  SetLength(CompiledScript50List, 0);
 end;
 
 finalization

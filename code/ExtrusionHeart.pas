@@ -2,7 +2,7 @@ unit ExtrusionHeart;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateExtrusionHeart: TX3DRootNode;
 

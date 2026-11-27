@@ -2,7 +2,7 @@ unit IcosahedronSubdivisionLevel5;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateIcosahedronSubdivisionLevel5: TX3DRootNode;
 

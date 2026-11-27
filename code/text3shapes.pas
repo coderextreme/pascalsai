@@ -2,10 +2,11 @@ unit text3shapes;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createtext3shapes: TX3DRootNode;
 procedure Registertext3shapesScripts(const Scene: TCastleSceneCore);
+procedure Detachtext3shapesScripts;
 
 implementation
 
@@ -22,6 +23,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_frontUrls: TMFString);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript25Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
   end;
@@ -78,6 +80,10 @@ end;
 destructor TScript25Script.Destroy;
 begin
   inherited Destroy;
+end;
+
+procedure TScript25Script.Detach;
+begin
 end;
 
 procedure TScript25Script.FlushOutputs(const Time: TX3DTime);
@@ -188,6 +194,18 @@ begin
   begin
     CompiledScript25List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure Detachtext3shapesScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript25List) do
+  begin
+    CompiledScript25List[_i].Detach;
+    FreeAndNil(CompiledScript25List[_i]);
+  end;
+  SetLength(CompiledScript25List, 0);
 end;
 
 finalization

@@ -2,10 +2,11 @@ unit sliders;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createsliders: TX3DRootNode;
 procedure RegisterslidersScripts(const Scene: TCastleSceneCore);
+procedure DetachslidersScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -88,6 +89,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_coordinates: TMFVec3f; const AField_coordIndexes: TMFInt32; const AField_a: TSFFloat; const AField_b: TSFFloat; const AField_c: TSFFloat; const AField_d: TSFFloat; const AField_pdelta: TSFFloat; const AField_tdelta: TSFFloat; const AField_resolution: TSFInt32);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript60Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -142,6 +144,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_protoScale: TSFFloat; const AField_protoParameterName: TSFString; const AField_protoScript: TSFNode; const AField_protoValue: TSFFloat; const AField_protoText: TMFString);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript107Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_protoScale(Value: TX3DField; const Time: TX3DTime);
@@ -369,20 +372,6 @@ end;
 
 destructor TScript60Script.Destroy;
 begin
-  if FField_resolution <> nil then
-    FField_resolution.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_resolution);
-  if FField_tdelta <> nil then
-    FField_tdelta.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_tdelta);
-  if FField_pdelta <> nil then
-    FField_pdelta.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_pdelta);
-  if FField_d <> nil then
-    FField_d.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_d);
-  if FField_c <> nil then
-    FField_c.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_c);
-  if FField_b <> nil then
-    FField_b.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_b);
-  if FField_a <> nil then
-    FField_a.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_a);
   FreeAndNil(FBack_coordinates);
   FreeAndNil(FBack_coordIndexes);
   FreeAndNil(FBack_a);
@@ -393,6 +382,45 @@ begin
   FreeAndNil(FBack_tdelta);
   FreeAndNil(FBack_resolution);
   inherited Destroy;
+end;
+
+procedure TScript60Script.Detach;
+begin
+  if FField_a <> nil then
+  begin
+    FField_a.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_a);
+    FField_a := nil;
+  end;
+  if FField_b <> nil then
+  begin
+    FField_b.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_b);
+    FField_b := nil;
+  end;
+  if FField_c <> nil then
+  begin
+    FField_c.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_c);
+    FField_c := nil;
+  end;
+  if FField_d <> nil then
+  begin
+    FField_d.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_d);
+    FField_d := nil;
+  end;
+  if FField_pdelta <> nil then
+  begin
+    FField_pdelta.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_pdelta);
+    FField_pdelta := nil;
+  end;
+  if FField_tdelta <> nil then
+  begin
+    FField_tdelta.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_tdelta);
+    FField_tdelta := nil;
+  end;
+  if FField_resolution <> nil then
+  begin
+    FField_resolution.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_resolution);
+    FField_resolution := nil;
+  end;
 end;
 
 procedure TScript60Script.FlushOutputs(const Time: TX3DTime);
@@ -785,22 +813,41 @@ end;
 
 destructor TScript107Script.Destroy;
 begin
-  if FField_protoText <> nil then
-    FField_protoText.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoText);
-  if FField_protoValue <> nil then
-    FField_protoValue.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoValue);
-  if FField_protoScript <> nil then
-    FField_protoScript.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoScript);
-  if FField_protoParameterName <> nil then
-    FField_protoParameterName.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoParameterName);
-  if FField_protoScale <> nil then
-    FField_protoScale.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoScale);
   FreeAndNil(FBack_protoScale);
   FreeAndNil(FBack_protoParameterName);
   FreeAndNil(FBack_protoScript);
   FreeAndNil(FBack_protoValue);
   FreeAndNil(FBack_protoText);
   inherited Destroy;
+end;
+
+procedure TScript107Script.Detach;
+begin
+  if FField_protoScale <> nil then
+  begin
+    FField_protoScale.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoScale);
+    FField_protoScale := nil;
+  end;
+  if FField_protoParameterName <> nil then
+  begin
+    FField_protoParameterName.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoParameterName);
+    FField_protoParameterName := nil;
+  end;
+  if FField_protoScript <> nil then
+  begin
+    FField_protoScript.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoScript);
+    FField_protoScript := nil;
+  end;
+  if FField_protoValue <> nil then
+  begin
+    FField_protoValue.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoValue);
+    FField_protoValue := nil;
+  end;
+  if FField_protoText <> nil then
+  begin
+    FField_protoText.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_protoText);
+    FField_protoText := nil;
+  end;
 end;
 
 procedure TScript107Script.FlushOutputs(const Time: TX3DTime);
@@ -1512,6 +1559,24 @@ begin
   begin
     CompiledScript107List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachslidersScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript60List) do
+  begin
+    CompiledScript60List[_i].Detach;
+    FreeAndNil(CompiledScript60List[_i]);
+  end;
+  SetLength(CompiledScript60List, 0);
+  for _i := 0 to High(CompiledScript107List) do
+  begin
+    CompiledScript107List[_i].Detach;
+    FreeAndNil(CompiledScript107List[_i]);
+  end;
+  SetLength(CompiledScript107List, 0);
 end;
 
 finalization

@@ -2,7 +2,7 @@ unit JinNoseWrinkler;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJinNoseWrinkler: TX3DRootNode;
 

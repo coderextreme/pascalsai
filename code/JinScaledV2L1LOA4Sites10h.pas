@@ -2,7 +2,7 @@ unit JinScaledV2L1LOA4Sites10h;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJinScaledV2L1LOA4Sites10h: TX3DRootNode;
 

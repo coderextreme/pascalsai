@@ -2,7 +2,7 @@ unit SquawLOD023;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateSquawLOD023: TX3DRootNode;
 

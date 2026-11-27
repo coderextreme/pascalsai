@@ -2,7 +2,7 @@ unit JinScaledV2L1LOA4OnlyMarkers11g;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJinScaledV2L1LOA4OnlyMarkers11g: TX3DRootNode;
 

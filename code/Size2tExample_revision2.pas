@@ -2,7 +2,7 @@ unit Size2tExample_revision2;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateSize2tExample_revision2: TX3DRootNode;
 

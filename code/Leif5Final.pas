@@ -2,7 +2,7 @@ unit Leif5Final;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateLeif5Final: TX3DRootNode;
 

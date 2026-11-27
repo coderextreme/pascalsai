@@ -2,10 +2,11 @@ unit flowers4;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflowers4: TX3DRootNode;
 procedure Registerflowers4Scripts(const Scene: TCastleSceneCore);
+procedure Detachflowers4Scripts;
 
 implementation
 
@@ -45,6 +46,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_coordinates: TMFVec3f; const AEvent_coordIndexes: TX3DEvent; const AField_e: TSFFloat; const AField_f: TSFFloat; const AField_g: TSFFloat; const AField_h: TSFFloat);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript40Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -157,6 +159,10 @@ begin
   FreeAndNil(FBack_g);
   FreeAndNil(FBack_h);
   inherited Destroy;
+end;
+
+procedure TScript40Script.Detach;
+begin
 end;
 
 procedure TScript40Script.FlushOutputs(const Time: TX3DTime);
@@ -563,6 +569,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript40List[_i].Initialized) then
       CompiledScript40List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure Detachflowers4Scripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript40List) do
+  begin
+    CompiledScript40List[_i].Detach;
+    FreeAndNil(CompiledScript40List[_i]);
+  end;
+  SetLength(CompiledScript40List, 0);
 end;
 
 finalization

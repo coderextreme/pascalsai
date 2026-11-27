@@ -2,10 +2,11 @@ unit flowers7;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflowers7: TX3DRootNode;
 procedure Registerflowers7Scripts(const Scene: TCastleSceneCore);
+procedure Detachflowers7Scripts;
 
 implementation
 
@@ -55,6 +56,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_frontUrls: TMFString; const AField_backUrls: TMFString; const AField_leftUrls: TMFString; const AField_rightUrls: TMFString; const AField_topUrls: TMFString; const AField_bottomUrls: TMFString; const AField_front: TMFString; const AField_back: TMFString; const AField_left: TMFString; const AField_right: TMFString; const AField_top: TMFString; const AField_bottom: TMFString; const AField_old: TSFInt32);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript62Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
@@ -93,6 +95,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_a: TSFFloat; const AField_b: TSFFloat; const AField_c: TSFFloat; const AField_d: TSFFloat; const AField_tdelta: TSFFloat; const AField_pdelta: TSFFloat);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript77Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
@@ -314,6 +317,10 @@ begin
   FreeAndNil(FBack_bottom);
   FreeAndNil(FBack_old);
   inherited Destroy;
+end;
+
+procedure TScript62Script.Detach;
+begin
 end;
 
 procedure TScript62Script.FlushOutputs(const Time: TX3DTime);
@@ -540,6 +547,10 @@ begin
   FreeAndNil(FBack_tdelta);
   FreeAndNil(FBack_pdelta);
   inherited Destroy;
+end;
+
+procedure TScript77Script.Detach;
+begin
 end;
 
 procedure TScript77Script.FlushOutputs(const Time: TX3DTime);
@@ -1019,6 +1030,24 @@ begin
   begin
     CompiledScript77List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure Detachflowers7Scripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript62List) do
+  begin
+    CompiledScript62List[_i].Detach;
+    FreeAndNil(CompiledScript62List[_i]);
+  end;
+  SetLength(CompiledScript62List, 0);
+  for _i := 0 to High(CompiledScript77List) do
+  begin
+    CompiledScript77List[_i].Detach;
+    FreeAndNil(CompiledScript77List[_i]);
+  end;
+  SetLength(CompiledScript77List, 0);
 end;
 
 finalization

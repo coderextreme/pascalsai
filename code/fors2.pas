@@ -2,10 +2,11 @@ unit fors2;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createfors2: TX3DRootNode;
 procedure Registerfors2Scripts(const Scene: TCastleSceneCore);
+procedure Detachfors2Scripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -57,6 +58,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_old: TSFVec3f; const AEvent_keyValue: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript22Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_cycle(Value: TX3DField; const Time: TX3DTime);
@@ -85,6 +87,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_spine: TMFVec3f; const AField_endA: TSFVec3f; const AField_endB: TSFVec3f);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript42Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_endA(Value: TX3DField; const Time: TX3DTime);
@@ -180,6 +183,10 @@ begin
   FreeAndNil(FBack_old);
   FreeAndNil(FBack_keyValue);
   inherited Destroy;
+end;
+
+procedure TScript22Script.Detach;
+begin
 end;
 
 procedure TScript22Script.FlushOutputs(const Time: TX3DTime);
@@ -286,14 +293,24 @@ end;
 
 destructor TScript42Script.Destroy;
 begin
-  if FField_endB <> nil then
-    FField_endB.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_endB);
-  if FField_endA <> nil then
-    FField_endA.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_endA);
   FreeAndNil(FBack_spine);
   FreeAndNil(FBack_endA);
   FreeAndNil(FBack_endB);
   inherited Destroy;
+end;
+
+procedure TScript42Script.Detach;
+begin
+  if FField_endA <> nil then
+  begin
+    FField_endA.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_endA);
+    FField_endA := nil;
+  end;
+  if FField_endB <> nil then
+  begin
+    FField_endB.EventIn.RemoveNotification({$ifdef FPC}@{$endif}OnNotif_set_endB);
+    FField_endB := nil;
+  end;
 end;
 
 procedure TScript42Script.FlushOutputs(const Time: TX3DTime);
@@ -628,6 +645,24 @@ begin
   begin
     CompiledScript42List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure Detachfors2Scripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript22List) do
+  begin
+    CompiledScript22List[_i].Detach;
+    FreeAndNil(CompiledScript22List[_i]);
+  end;
+  SetLength(CompiledScript22List, 0);
+  for _i := 0 to High(CompiledScript42List) do
+  begin
+    CompiledScript42List[_i].Detach;
+    FreeAndNil(CompiledScript42List[_i]);
+  end;
+  SetLength(CompiledScript42List, 0);
 end;
 
 finalization

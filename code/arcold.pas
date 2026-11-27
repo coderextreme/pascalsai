@@ -2,10 +2,11 @@ unit arcold;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createarcold: TX3DRootNode;
 procedure RegisterarcoldScripts(const Scene: TCastleSceneCore);
+procedure DetacharcoldScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -57,6 +58,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_old: TSFVec3f; const AEvent_keyValue: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript38Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_location(Value: TX3DField; const Time: TX3DTime);
@@ -88,6 +90,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_startnode: TSFNode; const AField_endnode: TSFNode; const AField_transnode: TSFNode; const AField_rotscalenode: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript57Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Recompute(const startpoint: Single; const endpoint: Single; const Time: TX3DTime);
@@ -207,6 +210,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript38Script.Detach;
+begin
+end;
+
 procedure TScript38Script.FlushOutputs(const Time: TX3DTime);
 var
   _i: Integer;
@@ -309,6 +316,10 @@ begin
   FreeAndNil(FBack_transnode);
   FreeAndNil(FBack_rotscalenode);
   inherited Destroy;
+end;
+
+procedure TScript57Script.Detach;
+begin
 end;
 
 procedure TScript57Script.FlushOutputs(const Time: TX3DTime);
@@ -787,6 +798,24 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript57List[_i].Initialized) then
       CompiledScript57List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetacharcoldScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript38List) do
+  begin
+    CompiledScript38List[_i].Detach;
+    FreeAndNil(CompiledScript38List[_i]);
+  end;
+  SetLength(CompiledScript38List, 0);
+  for _i := 0 to High(CompiledScript57List) do
+  begin
+    CompiledScript57List[_i].Detach;
+    FreeAndNil(CompiledScript57List[_i]);
+  end;
+  SetLength(CompiledScript57List, 0);
 end;
 
 finalization

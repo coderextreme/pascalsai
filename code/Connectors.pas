@@ -2,10 +2,11 @@ unit Connectors;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateConnectors: TX3DRootNode;
 procedure RegisterConnectorsScripts(const Scene: TCastleSceneCore);
+procedure DetachConnectorsScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -50,6 +51,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_cornerDimension: TSFFloat; const AField_cornerRadius: TSFFloat; const AField_size: TSFVec2f; const AField_geometry: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript18Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -71,6 +73,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_sensor: TSFNode; const AField_transform: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript62Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -90,6 +93,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_routeDimension: TSFInt32; const AField_output: TSFNode; const AField_input: TSFNode; const AField_geometry: TSFNode; const AField_self: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript82Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -227,6 +231,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript18Script.Detach;
+begin
+end;
+
 procedure TScript18Script.FlushOutputs(const Time: TX3DTime);
 begin
 end;
@@ -349,6 +357,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript62Script.Detach;
+begin
+end;
+
 procedure TScript62Script.FlushOutputs(const Time: TX3DTime);
 begin
   if FDirty_translation then
@@ -422,6 +434,10 @@ end;
 destructor TScript82Script.Destroy;
 begin
   inherited Destroy;
+end;
+
+procedure TScript82Script.Detach;
+begin
 end;
 
 procedure TScript82Script.FlushOutputs(const Time: TX3DTime);
@@ -911,6 +927,30 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript82List[_i].Initialized) then
       CompiledScript82List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachConnectorsScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript18List) do
+  begin
+    CompiledScript18List[_i].Detach;
+    FreeAndNil(CompiledScript18List[_i]);
+  end;
+  SetLength(CompiledScript18List, 0);
+  for _i := 0 to High(CompiledScript62List) do
+  begin
+    CompiledScript62List[_i].Detach;
+    FreeAndNil(CompiledScript62List[_i]);
+  end;
+  SetLength(CompiledScript62List, 0);
+  for _i := 0 to High(CompiledScript82List) do
+  begin
+    CompiledScript82List[_i].Detach;
+    FreeAndNil(CompiledScript82List[_i]);
+  end;
+  SetLength(CompiledScript82List, 0);
 end;
 
 finalization

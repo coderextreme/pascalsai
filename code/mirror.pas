@@ -2,10 +2,11 @@ unit mirror;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createmirror: TX3DRootNode;
 procedure RegistermirrorScripts(const Scene: TCastleSceneCore);
+procedure DetachmirrorScripts;
 
 implementation
 
@@ -55,6 +56,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_frontUrls: TMFString; const AField_backUrls: TMFString; const AField_leftUrls: TMFString; const AField_rightUrls: TMFString; const AField_topUrls: TMFString; const AField_bottomUrls: TMFString; const AEvent_front_changed: TX3DEvent; const AEvent_back_changed: TX3DEvent; const AEvent_left_changed: TX3DEvent; const AEvent_right_changed: TX3DEvent; const AEvent_top_changed: TX3DEvent; const AEvent_bottom_changed: TX3DEvent; const AField_old: TSFInt32);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript52Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
@@ -224,6 +226,10 @@ begin
   FreeAndNil(FBack_bottom_changed);
   FreeAndNil(FBack_old);
   inherited Destroy;
+end;
+
+procedure TScript52Script.Detach;
+begin
 end;
 
 procedure TScript52Script.FlushOutputs(const Time: TX3DTime);
@@ -623,6 +629,18 @@ begin
   begin
     CompiledScript52List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachmirrorScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript52List) do
+  begin
+    CompiledScript52List[_i].Detach;
+    FreeAndNil(CompiledScript52List[_i]);
+  end;
+  SetLength(CompiledScript52List, 0);
 end;
 
 finalization

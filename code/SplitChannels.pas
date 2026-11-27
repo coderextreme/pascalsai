@@ -2,7 +2,7 @@ unit SplitChannels;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateSplitChannels: TX3DRootNode;
 

@@ -2,10 +2,11 @@ unit bobblespheres;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbobblespheres: TX3DRootNode;
 procedure RegisterbobblespheresScripts(const Scene: TCastleSceneCore);
+procedure DetachbobblespheresScripts;
 
 implementation
 
@@ -22,6 +23,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_targetMaterial: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript41Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -39,6 +41,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_targetMaterial: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript60Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -142,6 +145,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript41Script.Detach;
+begin
+end;
+
 procedure TScript41Script.FlushOutputs(const Time: TX3DTime);
 begin
 end;
@@ -192,6 +199,10 @@ end;
 destructor TScript60Script.Destroy;
 begin
   inherited Destroy;
+end;
+
+procedure TScript60Script.Detach;
+begin
 end;
 
 procedure TScript60Script.FlushOutputs(const Time: TX3DTime);
@@ -617,6 +628,24 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript60List[_i].Initialized) then
       CompiledScript60List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachbobblespheresScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript41List) do
+  begin
+    CompiledScript41List[_i].Detach;
+    FreeAndNil(CompiledScript41List[_i]);
+  end;
+  SetLength(CompiledScript41List, 0);
+  for _i := 0 to High(CompiledScript60List) do
+  begin
+    CompiledScript60List[_i].Detach;
+    FreeAndNil(CompiledScript60List[_i]);
+  end;
+  SetLength(CompiledScript60List, 0);
 end;
 
 finalization

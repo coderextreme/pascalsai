@@ -2,10 +2,11 @@ unit pp3;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createpp3: TX3DRootNode;
 procedure Registerpp3Scripts(const Scene: TCastleSceneCore);
+procedure Detachpp3Scripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -49,6 +50,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_rightlines: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript60Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -68,6 +70,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_uplines: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript63Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -87,6 +90,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AEvent_centerlines: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript66Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -191,6 +195,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript60Script.Detach;
+begin
+end;
+
 procedure TScript60Script.FlushOutputs(const Time: TX3DTime);
 var
   _i: Integer;
@@ -252,6 +260,10 @@ begin
   inherited Destroy;
 end;
 
+procedure TScript63Script.Detach;
+begin
+end;
+
 procedure TScript63Script.FlushOutputs(const Time: TX3DTime);
 var
   _i: Integer;
@@ -311,6 +323,10 @@ destructor TScript66Script.Destroy;
 begin
   FreeAndNil(FBack_centerlines);
   inherited Destroy;
+end;
+
+procedure TScript66Script.Detach;
+begin
 end;
 
 procedure TScript66Script.FlushOutputs(const Time: TX3DTime);
@@ -704,6 +720,30 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript66List[_i].Initialized) then
       CompiledScript66List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure Detachpp3Scripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript60List) do
+  begin
+    CompiledScript60List[_i].Detach;
+    FreeAndNil(CompiledScript60List[_i]);
+  end;
+  SetLength(CompiledScript60List, 0);
+  for _i := 0 to High(CompiledScript63List) do
+  begin
+    CompiledScript63List[_i].Detach;
+    FreeAndNil(CompiledScript63List[_i]);
+  end;
+  SetLength(CompiledScript63List, 0);
+  for _i := 0 to High(CompiledScript66List) do
+  begin
+    CompiledScript66List[_i].Detach;
+    FreeAndNil(CompiledScript66List[_i]);
+  end;
+  SetLength(CompiledScript66List, 0);
 end;
 
 finalization

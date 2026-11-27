@@ -2,7 +2,7 @@ unit CleatClamp_MeshLab;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateCleatClamp_MeshLab: TX3DRootNode;
 

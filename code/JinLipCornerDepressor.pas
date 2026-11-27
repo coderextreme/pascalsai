@@ -2,7 +2,7 @@ unit JinLipCornerDepressor;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJinLipCornerDepressor: TX3DRootNode;
 

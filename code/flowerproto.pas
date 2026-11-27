@@ -2,10 +2,11 @@ unit flowerproto;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflowerproto: TX3DRootNode;
 procedure RegisterflowerprotoScripts(const Scene: TCastleSceneCore);
+procedure DetachflowerprotoScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -77,6 +78,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AEvent_velocity: TX3DEvent; const AEvent_a: TX3DEvent; const AEvent_b: TX3DEvent; const AEvent_c: TX3DEvent; const AEvent_d: TX3DEvent; const AEvent_tdelta: TX3DEvent; const AEvent_pdelta: TX3DEvent);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript49Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -94,9 +96,9 @@ var
   Group16: TGroupNode;
   ProtoDeclare17: TX3DPrototype;
   FieldDecl19: TX3DInterfaceDeclaration;
-  FieldVal19: TX3DEvent;
+  FieldVal19: TMFString;
   FieldDecl20: TX3DInterfaceDeclaration;
-  FieldVal20: TX3DEvent;
+  FieldVal20: TMFString;
   Transform22: TTransformNode;
   Shape23: TShapeNode;
   Appearance24: TAppearanceNode;
@@ -200,6 +202,10 @@ begin
   FreeAndNil(FBack_tdelta);
   FreeAndNil(FBack_pdelta);
   inherited Destroy;
+end;
+
+procedure TScript49Script.Detach;
+begin
 end;
 
 procedure TScript49Script.FlushOutputs(const Time: TX3DTime);
@@ -440,12 +446,12 @@ X3D0.Meta['identifier'] := 'https://coderextreme.net/X3DJSONLD/src/main/data/flo
 Group16 := TGroupNode.Create;
 ProtoDeclare17 := CreateEmptyPrototype('FlowerProto');
 ProtoDeclare17.X3DName := 'FlowerProto';
-FieldVal19 := TMFString.CreateEvent(nil, 'vertex', True);
+FieldVal19 := TMFString.Create(nil, True, 'vertex', ['../shaders/gl_flowers_chromatic.vs', 'https://coderextreme.net/X3DJSONLD/src/main/shaders/gl_flowers_chromatic.vs']);
 FieldDecl19 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl19.FieldOrEvent := FieldVal19;
 FieldVal19.ParentInterfaceDeclaration := FieldDecl19;
 ProtoDeclare17.InterfaceDeclarations.Add(FieldDecl19);
-FieldVal20 := TMFString.CreateEvent(nil, 'fragment', True);
+FieldVal20 := TMFString.Create(nil, True, 'fragment', ['../shaders/pc_flowers.fs', 'https://coderextreme.net/X3DJSONLD/src/main/shaders/pc_flowers.fs']);
 FieldDecl20 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl20.FieldOrEvent := FieldVal20;
 FieldVal20.ParentInterfaceDeclaration := FieldDecl20;
@@ -614,6 +620,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript49List[_i].Initialized) then
       CompiledScript49List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachflowerprotoScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript49List) do
+  begin
+    CompiledScript49List[_i].Detach;
+    FreeAndNil(CompiledScript49List[_i]);
+  end;
+  SetLength(CompiledScript49List, 0);
 end;
 
 finalization

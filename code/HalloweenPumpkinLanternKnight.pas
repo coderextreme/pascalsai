@@ -2,7 +2,7 @@ unit HalloweenPumpkinLanternKnight;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateHalloweenPumpkinLanternKnight: TX3DRootNode;
 

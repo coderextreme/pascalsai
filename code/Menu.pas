@@ -2,10 +2,11 @@ unit Menu;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateMenu: TX3DRootNode;
 procedure RegisterMenuScripts(const Scene: TCastleSceneCore);
+procedure DetachMenuScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -54,6 +55,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_menuItems: TMFString; const AEvent_selection: TX3DEvent; const AField_spacing: TSFFloat; const AField_size: TSFFloat; const AField_menuCenterY: TSFFloat; const AField_itemHeight: TSFFloat);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript55Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -165,6 +167,10 @@ destructor TScript55Script.Destroy;
 begin
   FreeAndNil(FBack_selection);
   inherited Destroy;
+end;
+
+procedure TScript55Script.Detach;
+begin
 end;
 
 procedure TScript55Script.FlushOutputs(const Time: TX3DTime);
@@ -513,6 +519,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript55List[_i].Initialized) then
       CompiledScript55List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachMenuScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript55List) do
+  begin
+    CompiledScript55List[_i].Detach;
+    FreeAndNil(CompiledScript55List[_i]);
+  end;
+  SetLength(CompiledScript55List, 0);
 end;
 
 finalization

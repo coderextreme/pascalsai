@@ -2,10 +2,11 @@ unit bubble;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbubble: TX3DRootNode;
 procedure RegisterbubbleScripts(const Scene: TCastleSceneCore);
+procedure DetachbubbleScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -61,6 +62,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_scale: TSFVec3f; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f; const AField_scalvel: TSFVec3f);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript17Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -136,6 +138,10 @@ begin
   FreeAndNil(FBack_velocity);
   FreeAndNil(FBack_scalvel);
   inherited Destroy;
+end;
+
+procedure TScript17Script.Detach;
+begin
 end;
 
 procedure TScript17Script.FlushOutputs(const Time: TX3DTime);
@@ -387,6 +393,18 @@ begin
     if (Scene.RootNode <> nil) and Scene.ProcessEvents and (not CompiledScript17List[_i].Initialized) then
       CompiledScript17List[_i].Initialize(nil, Scene.NextEventTime);
   end;
+end;
+
+procedure DetachbubbleScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript17List) do
+  begin
+    CompiledScript17List[_i].Detach;
+    FreeAndNil(CompiledScript17List[_i]);
+  end;
+  SetLength(CompiledScript17List, 0);
 end;
 
 finalization

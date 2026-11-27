@@ -2,7 +2,7 @@ unit CaliforniaCampuses;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateCaliforniaCampuses: TX3DRootNode;
 

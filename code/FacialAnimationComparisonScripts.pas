@@ -2,10 +2,11 @@ unit FacialAnimationComparisonScripts;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateFacialAnimationComparisonScripts: TX3DRootNode;
 procedure RegisterFacialAnimationComparisonScriptsScripts(const Scene: TCastleSceneCore);
+procedure DetachFacialAnimationComparisonScriptsScripts;
 
 implementation
 
@@ -17,7 +18,7 @@ var
   TempRoot: TX3DRootNode;
   CopyState: TX3DNodeDeepCopyState;
 begin
-  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROTO ' + AName + ' [] {}');
+  Stream := TStringStream.Create('#X3D V4.0 utf8' + LineEnding + 'PROFILE Full' + LineEnding + 'PROTO ' + AName + ' [] {}');
   try
     TempRoot := LoadNode(Stream, '', 'model/x3d+vrml');
     try
@@ -62,6 +63,7 @@ type
     constructor Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool; const AField_adapter: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript1043Script;
     destructor Destroy; override;
+    procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
     property Initialized: Boolean read FInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
@@ -898,6 +900,10 @@ begin
   FreeAndNil(FBack_checked);
   FreeAndNil(FBack_adapter);
   inherited Destroy;
+end;
+
+procedure TScript1043Script.Detach;
+begin
 end;
 
 procedure TScript1043Script.FlushOutputs(const Time: TX3DTime);
@@ -6610,6 +6616,18 @@ begin
   begin
     CompiledScript1043List[_i].RegisterHandlers(Scene);
   end;
+end;
+
+procedure DetachFacialAnimationComparisonScriptsScripts;
+var
+  _i: Integer;
+begin
+  for _i := 0 to High(CompiledScript1043List) do
+  begin
+    CompiledScript1043List[_i].Detach;
+    FreeAndNil(CompiledScript1043List[_i]);
+  end;
+  SetLength(CompiledScript1043List, 0);
 end;
 
 finalization
