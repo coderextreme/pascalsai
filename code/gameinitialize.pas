@@ -21,7 +21,6 @@ AllenDutton,
 allflowers,
 app,
 {
-app,
 arc1,
 arc2,
 arc3,
@@ -374,10 +373,10 @@ x3domflowers,
 }
 YehudiMenuJin,
 
-BoxPrototype,
+BoxPrototype
   {$region 'Castle Initialization Uses'}
   // The content here may be automatically updated by CGE editor.
-  GameViewPSAI
+  ,GameViewPSAI
   {$endregion 'Castle Initialization Uses'};
 
 const
@@ -389,11 +388,14 @@ const
 type
   TCreateRootFunc = function: TX3DRootNode;
   TRegisterScriptsProc = procedure(const Scene: TCastleSceneCore);
+  { Unhooks script notifications; MUST run while the scene is still alive. }
+  TDetachScriptsProc = procedure;
 
   TSceneEntry = record
     Name: String;
     CreateRoot: TCreateRootFunc;
     RegisterScripts: TRegisterScriptsProc;
+    DetachScripts: TDetachScriptsProc;
   end;
 
   TSceneSlideshow = class(TCastleUserInterface)
@@ -403,10 +405,12 @@ type
     FElapsed: Single;
     FPaused: Boolean;
     FCurrentScene: TCastleScene;
+    FCurrentDetach: TDetachScriptsProc;
     FViewport: TCastleViewport;
     FLabel: TCastleLabel;
     procedure AddEntry(const AName: String; const ACreate: TCreateRootFunc;
-      const ARegister: TRegisterScriptsProc = nil);
+      const ARegister: TRegisterScriptsProc = nil;
+      const ADetach: TDetachScriptsProc = nil);
     procedure BuildPlaylist;
     procedure ShowIndex(const Index: Integer);
     procedure UpdateLabel;
@@ -441,11 +445,13 @@ begin
   FElapsed := 0.0;
   FPaused := False;
   FCurrentScene := nil;
+  FCurrentDetach := nil;
   BuildPlaylist;
 end;
 
 procedure TSceneSlideshow.AddEntry(const AName: String;
-  const ACreate: TCreateRootFunc; const ARegister: TRegisterScriptsProc);
+  const ACreate: TCreateRootFunc; const ARegister: TRegisterScriptsProc;
+  const ADetach: TDetachScriptsProc);
 var
   Idx: Integer;
 begin
@@ -454,6 +460,7 @@ begin
   FEntries[Idx].Name := AName;
   FEntries[Idx].CreateRoot := ACreate;
   FEntries[Idx].RegisterScripts := ARegister;
+  FEntries[Idx].DetachScripts := ADetach;
 end;
 
 procedure TSceneSlideshow.BuildPlaylist;
@@ -461,7 +468,7 @@ begin
   AddEntry('abox', @Createabox);
   AddEntry('AllenBox', @CreateAllenBox);
   AddEntry('AllenDutton', @CreateAllenDutton);
-  AddEntry('allflowers', @Createallflowers, @RegisterallflowersScripts);
+  AddEntry('allflowers', @Createallflowers, @RegisterallflowersScripts, @DetachallflowersScripts);
   AddEntry('app', @Createapp);
   AddEntry('ArchHalf', @CreateArchHalf);
   AddEntry('asmallbox', @Createasmallbox);
@@ -471,42 +478,42 @@ begin
   AddEntry('ballcge', @Createballcge);
   AddEntry('BoxEm', @CreateBoxEm);
   AddEntry('BoxEm2', @CreateBoxEm2);
-  AddEntry('browser', @Createbrowser, @RegisterbrowserScripts);
-  AddEntry('bub', @Createbub, @RegisterbubScripts);
-  AddEntry('bubble', @Createbubble, @RegisterbubbleScripts);
+  AddEntry('browser', @Createbrowser, @RegisterbrowserScripts, @DetachbrowserScripts);
+  AddEntry('bub', @Createbub, @RegisterbubScripts, @DetachbubScripts);
+  AddEntry('bubble', @Createbubble, @RegisterbubbleScripts, @DetachbubbleScripts);
   AddEntry('Bubbles', @CreateBubbles);
-  AddEntry('bubs', @Createbubs, @RegisterbubsScripts);
-  AddEntry('bubs3', @Createbubs3, @Registerbubs3Scripts);
+  AddEntry('bubs', @Createbubs, @RegisterbubsScripts, @DetachbubsScripts);
+  AddEntry('bubs3', @Createbubs3, @Registerbubs3Scripts, @Detachbubs3Scripts);
   AddEntry('Bushes', @CreateBushes);
   AddEntry('CADPartChildNoTransformation', @CreateCADPartChildNoTransformation);
   AddEntry('CameraShape', @CreateCameraShape);
   AddEntry('Cane', @CreateCane);
-  AddEntry('CanonicalFacialAnimationComparisonScripts', @CreateCanonicalFacialAnimationComparisonScripts, @RegisterCanonicalFacialAnimationComparisonScriptsScripts);
+  AddEntry('CanonicalFacialAnimationComparisonScripts', @CreateCanonicalFacialAnimationComparisonScripts, @RegisterCanonicalFacialAnimationComparisonScriptsScripts, @DetachCanonicalFacialAnimationComparisonScriptsScripts);
   AddEntry('cgeflowers', @Createcgeflowers);
-  AddEntry('cgeparticleflowers', @Createcgeparticleflowers, @RegistercgeparticleflowersScripts);
-  AddEntry('CleanedMultiFacialAnimationMenu', @CreateCleanedMultiFacialAnimationMenu, @RegisterCleanedMultiFacialAnimationMenuScripts);
+  AddEntry('cgeparticleflowers', @Createcgeparticleflowers, @RegistercgeparticleflowersScripts, @DetachcgeparticleflowersScripts);
+  AddEntry('CleanedMultiFacialAnimationMenu', @CreateCleanedMultiFacialAnimationMenu, @RegisterCleanedMultiFacialAnimationMenuScripts, @DetachCleanedMultiFacialAnimationMenuScripts);
   AddEntry('CleanedWink', @CreateCleanedWink);
   AddEntry('CleanedYouClocks', @CreateCleanedYouClocks);
   AddEntry('CleatClamp', @CreateCleatClamp);
   AddEntry('CleatClamp_MeshLab', @CreateCleatClamp_MeshLab);
   AddEntry('CleatClamp_MeshLabLauncherTidy', @CreateCleatClamp_MeshLabLauncherTidy);
   {
-  AddEntry('Connectors', @CreateConnectors, @RegisterConnectorsScripts);
+  AddEntry('Connectors', @CreateConnectors, @RegisterConnectorsScripts, @DetachConnectorsScripts);
   }
   AddEntry('CoordinateAxes', @CreateCoordinateAxes);
   AddEntry('ExtrusionHeart', @CreateExtrusionHeart);
-  AddEntry('FacialAnimationComparisonScripts', @CreateFacialAnimationComparisonScripts, @RegisterFacialAnimationComparisonScriptsScripts);
+  AddEntry('FacialAnimationComparisonScripts', @CreateFacialAnimationComparisonScripts, @RegisterFacialAnimationComparisonScriptsScripts, @DetachFacialAnimationComparisonScriptsScripts);
   AddEntry('Filters', @CreateFilters);
   AddEntry('flipp', @Createflipp);
-  AddEntry('flowerproto', @Createflowerproto, @RegisterflowerprotoScripts);
-  AddEntry('flowerprotofreewrl', @Createflowerprotofreewrl, @RegisterflowerprotofreewrlScripts);
-  AddEntry('flowers', @Createflowers, @RegisterflowersScripts);
-  AddEntry('flowers2', @Createflowers2, @Registerflowers2Scripts);
-  AddEntry('flowers4', @Createflowers4, @Registerflowers4Scripts);
-  AddEntry('flowers7', @Createflowers7, @Registerflowers7Scripts);
-  AddEntry('force', @Createforce, @RegisterforceScripts);
-  AddEntry('fors', @Createfors, @RegisterforsScripts);
-  AddEntry('fors2', @Createfors2, @Registerfors2Scripts);
+  AddEntry('flowerproto', @Createflowerproto, @RegisterflowerprotoScripts, @DetachflowerprotoScripts);
+  AddEntry('flowerprotofreewrl', @Createflowerprotofreewrl, @RegisterflowerprotofreewrlScripts, @DetachflowerprotofreewrlScripts);
+  AddEntry('flowers', @Createflowers, @RegisterflowersScripts, @DetachflowersScripts);
+  AddEntry('flowers2', @Createflowers2, @Registerflowers2Scripts, @Detachflowers2Scripts);
+  AddEntry('flowers4', @Createflowers4, @Registerflowers4Scripts, @Detachflowers4Scripts);
+  AddEntry('flowers7', @Createflowers7, @Registerflowers7Scripts, @Detachflowers7Scripts);
+  AddEntry('force', @Createforce, @RegisterforceScripts, @DetachforceScripts);
+  AddEntry('fors', @Createfors, @RegisterforsScripts, @DetachforsScripts);
+  AddEntry('fors2', @Createfors2, @Registerfors2Scripts, @Detachfors2Scripts);
   AddEntry('gears', @Creategears);
   AddEntry('geo', @Creategeo);
   AddEntry('gridBack', @CreategridBack);
@@ -574,7 +581,7 @@ begin
   AddEntry('JinWink', @CreateJinWink);
   AddEntry('JoeDemo5JoeSkin5_Final', @CreateJoeDemo5JoeSkin5_Final);
   AddEntry('JoeDemo5JoeSkin5a', @CreateJoeDemo5JoeSkin5a);
-  AddEntry('JoeExample', @CreateJoeExample, @RegisterJoeExampleScripts);
+  AddEntry('JoeExample', @CreateJoeExample, @RegisterJoeExampleScripts, @DetachJoeExampleScripts);
   AddEntry('JoeHAnimKick1a_Final', @CreateJoeHAnimKick1a_Final);
   AddEntry('JoeKick', @CreateJoeKick);
   AddEntry('JoeKickAnimation', @CreateJoeKickAnimation);
@@ -611,32 +618,32 @@ begin
   AddEntry('ManyClocks', @CreateManyClocks);
   AddEntry('Marine', @CreateMarine);
   AddEntry('MaskAndSnorkel', @CreateMaskAndSnorkel);
-  AddEntry('Menu', @CreateMenu, @RegisterMenuScripts);
-  AddEntry('MenuJin', @CreateMenuJin, @RegisterMenuJinScripts);
-  AddEntry('mirror2', @Createmirror2, @Registermirror2Scripts);
+  AddEntry('Menu', @CreateMenu, @RegisterMenuScripts, @DetachMenuScripts);
+  AddEntry('MenuJin', @CreateMenuJin, @RegisterMenuJinScripts, @DetachMenuJinScripts);
+  AddEntry('mirror2', @Createmirror2, @Registermirror2Scripts, @Detachmirror2Scripts);
   AddEntry('mobius', @Createmobius);
   AddEntry('mobiusCarlson', @CreatemobiusCarlson);
   AddEntry('mobiusDon', @CreatemobiusDon);
-  AddEntry('MultiFacialAnimationMenu', @CreateMultiFacialAnimationMenu, @RegisterMultiFacialAnimationMenuScripts);
-  AddEntry('MyBounce', @CreateMyBounce, @RegisterMyBounceScripts);
-  AddEntry('myextrusion', @Createmyextrusion, @RegistermyextrusionScripts);
-  AddEntry('noweb3d', @Createnoweb3d, @Registernoweb3dScripts);
+  AddEntry('MultiFacialAnimationMenu', @CreateMultiFacialAnimationMenu, @RegisterMultiFacialAnimationMenuScripts, @DetachMultiFacialAnimationMenuScripts);
+  AddEntry('MyBounce', @CreateMyBounce, @RegisterMyBounceScripts, @DetachMyBounceScripts);
+  AddEntry('myextrusion', @Createmyextrusion, @RegistermyextrusionScripts, @DetachmyextrusionScripts);
+  AddEntry('noweb3d', @Createnoweb3d, @Registernoweb3dScripts, @Detachnoweb3dScripts);
   AddEntry('ObliqueStrategies', @CreateObliqueStrategies);
   AddEntry('OrientationInterpolator', @CreateOrientationInterpolator);
   AddEntry('particleballs', @Createparticleballs);
   AddEntry('Pathway', @CreatePathway);
   AddEntry('personal', @Createpersonal);
-  AddEntry('pp3', @Createpp3, @Registerpp3Scripts);
+  AddEntry('pp3', @Createpp3, @Registerpp3Scripts, @Detachpp3Scripts);
   AddEntry('qq3', @Createqq3);
   AddEntry('RotationTests', @CreateRotationTests);
-  AddEntry('RouteJin', @CreateRouteJin, @RegisterRouteJinScripts);
+  AddEntry('RouteJin', @CreateRouteJin, @RegisterRouteJinScripts, @DetachRouteJinScripts);
   AddEntry('rubik', @Createrubik);
   AddEntry('rubikFurnace', @CreaterubikFurnace);
   AddEntry('rubikOnFire', @CreaterubikOnFire);
   AddEntry('rubikPly', @CreaterubikPly);
   AddEntry('ScubaTank', @CreateScubaTank);
   AddEntry('SimpleShader', @CreateSimpleShader);
-  AddEntry('SingleMenuJin', @CreateSingleMenuJin, @RegisterSingleMenuJinScripts);
+  AddEntry('SingleMenuJin', @CreateSingleMenuJin, @RegisterSingleMenuJinScripts, @DetachSingleMenuJinScripts);
   AddEntry('SmokeTestProgramOutput_MeshLabImport', @CreateSmokeTestProgramOutput_MeshLabImport);
   AddEntry('SpatialAudioCameraAnimation', @CreateSpatialAudioCameraAnimation);
   AddEntry('StandardHumanoid', @CreateStandardHumanoid);
@@ -646,8 +653,8 @@ begin
   AddEntry('ThreeDTexture', @CreateThreeDTexture);
   AddEntry('ThreeInARow', @CreateThreeInARow);
   AddEntry('TransformKids', @CreateTransformKids);
-  AddEntry('variationalflowers', @Createvariationalflowers, @RegistervariationalflowersScripts);
-  AddEntry('YehudiMenuJin', @CreateYehudiMenuJin, @RegisterYehudiMenuJinScripts);
+  AddEntry('variationalflowers', @Createvariationalflowers, @RegistervariationalflowersScripts, @DetachvariationalflowersScripts);
+  AddEntry('YehudiMenuJin', @CreateYehudiMenuJin, @RegisterYehudiMenuJinScripts, @DetachYehudiMenuJinScripts);
 end;
 
 procedure TSceneSlideshow.ShowIndex(const Index: Integer);
@@ -663,6 +670,9 @@ begin
 
   if FCurrentScene <> nil then
   begin
+    { Unhook script notifications BEFORE the scene (and its Script nodes) die. }
+    if Assigned(FCurrentDetach) then FCurrentDetach();
+    FCurrentDetach := nil;
     FViewport.Items.Remove(FCurrentScene);
     FreeAndNil(FCurrentScene);
   end;
@@ -674,6 +684,7 @@ begin
   { FCurrentScene.AutoAnimation := 'idle'; // which animation to run }
   if Assigned(FEntries[FCurrentIndex].RegisterScripts) then
     FEntries[FCurrentIndex].RegisterScripts(FCurrentScene);
+  FCurrentDetach := FEntries[FCurrentIndex].DetachScripts;
   FCurrentScene.ProcessEvents := True;
 
   { Fallback view if a scene has no Viewpoint and an empty bounding box,
