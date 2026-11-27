@@ -2,7 +2,7 @@ unit SmokeTestProgramOutputCanonical;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function CreateSmokeTestProgramOutputCanonical: TX3DRootNode;
 procedure RegisterSmokeTestProgramOutputCanonicalScripts(const Scene: TCastleSceneCore);

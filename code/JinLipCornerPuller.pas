@@ -2,7 +2,7 @@ unit JinLipCornerPuller;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateJinLipCornerPuller: TX3DRootNode;
 

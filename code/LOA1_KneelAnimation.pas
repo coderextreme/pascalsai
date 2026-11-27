@@ -2,7 +2,7 @@ unit LOA1_KneelAnimation;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateLOA1_KneelAnimation: TX3DRootNode;
 

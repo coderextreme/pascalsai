@@ -2,7 +2,7 @@ unit LOA1_RunAnimation;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateLOA1_RunAnimation: TX3DRootNode;
 

@@ -2,7 +2,7 @@ unit noweb3d;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createnoweb3d: TX3DRootNode;
 procedure Registernoweb3dScripts(const Scene: TCastleSceneCore);

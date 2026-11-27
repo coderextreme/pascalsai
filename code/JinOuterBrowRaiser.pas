@@ -2,7 +2,7 @@ unit JinOuterBrowRaiser;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateJinOuterBrowRaiser: TX3DRootNode;
 

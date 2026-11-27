@@ -2,7 +2,7 @@ unit HAnimModelFootRight;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateHAnimModelFootRight: TX3DRootNode;
 

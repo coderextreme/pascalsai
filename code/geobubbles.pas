@@ -2,7 +2,7 @@ unit geobubbles;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Creategeobubbles: TX3DRootNode;
 procedure RegistergeobubblesScripts(const Scene: TCastleSceneCore);

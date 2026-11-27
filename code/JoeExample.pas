@@ -2,7 +2,7 @@ unit JoeExample;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function CreateJoeExample: TX3DRootNode;
 procedure RegisterJoeExampleScripts(const Scene: TCastleSceneCore);

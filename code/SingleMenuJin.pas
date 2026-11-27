@@ -2,7 +2,7 @@ unit SingleMenuJin;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function CreateSingleMenuJin: TX3DRootNode;
 procedure RegisterSingleMenuJinScripts(const Scene: TCastleSceneCore);

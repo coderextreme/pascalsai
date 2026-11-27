@@ -2,7 +2,7 @@ unit KoreanCharacter12Sun;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateKoreanCharacter12Sun: TX3DRootNode;
 

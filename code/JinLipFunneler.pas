@@ -2,7 +2,7 @@ unit JinLipFunneler;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateJinLipFunneler: TX3DRootNode;
 

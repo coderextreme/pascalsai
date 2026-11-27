@@ -12,7 +12,7 @@ uses Classes, X3DNodes,
   CastleVectorsInternalDouble,
   CastleVectorsInternalSingle,
   CastleUIControls, CastleControls, CastleKeysMouse,
-  CastleInternalNodesUnsupported,
+  HAnimDisplacerSupport,
   CastleImages,
   CastleScene, CastleColors, CastleSceneCore, X3DFields;
 

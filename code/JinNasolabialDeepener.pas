@@ -2,7 +2,7 @@ unit JinNasolabialDeepener;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateJinNasolabialDeepener: TX3DRootNode;
 

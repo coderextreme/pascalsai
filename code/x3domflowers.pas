@@ -2,7 +2,7 @@ unit x3domflowers;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function Createx3domflowers: TX3DRootNode;
 

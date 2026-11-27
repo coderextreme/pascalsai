@@ -2,7 +2,7 @@ unit text3shapes;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createtext3shapes: TX3DRootNode;
 procedure Registertext3shapesScripts(const Scene: TCastleSceneCore);

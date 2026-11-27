@@ -2,7 +2,7 @@ unit Connectors;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function CreateConnectors: TX3DRootNode;
 procedure RegisterConnectorsScripts(const Scene: TCastleSceneCore);

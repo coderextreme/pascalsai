@@ -2,7 +2,7 @@ unit fors2;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createfors2: TX3DRootNode;
 procedure Registerfors2Scripts(const Scene: TCastleSceneCore);

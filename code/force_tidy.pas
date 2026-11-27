@@ -2,7 +2,7 @@ unit force_tidy;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createforce_tidy: TX3DRootNode;
 procedure Registerforce_tidyScripts(const Scene: TCastleSceneCore);

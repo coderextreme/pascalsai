@@ -2,7 +2,7 @@ unit ballx3dom;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function Createballx3dom: TX3DRootNode;
 

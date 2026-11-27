@@ -2,7 +2,7 @@ unit HAnimPosePrototype;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateHAnimPosePrototype: TX3DRootNode;
 

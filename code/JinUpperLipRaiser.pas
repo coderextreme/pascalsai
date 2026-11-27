@@ -2,7 +2,7 @@ unit JinUpperLipRaiser;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateJinUpperLipRaiser: TX3DRootNode;
 

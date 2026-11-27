@@ -2,7 +2,7 @@ unit KoreanCharacter10Mi;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateKoreanCharacter10Mi: TX3DRootNode;
 

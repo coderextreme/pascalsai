@@ -2,7 +2,7 @@ unit CoordinateAxes;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateCoordinateAxes: TX3DRootNode;
 

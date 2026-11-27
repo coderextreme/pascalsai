@@ -2,7 +2,7 @@ unit FacialAnimationComparisonScripts;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function CreateFacialAnimationComparisonScripts: TX3DRootNode;
 procedure RegisterFacialAnimationComparisonScriptsScripts(const Scene: TCastleSceneCore);

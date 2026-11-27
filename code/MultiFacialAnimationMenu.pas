@@ -2,7 +2,7 @@ unit MultiFacialAnimationMenu;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function CreateMultiFacialAnimationMenu: TX3DRootNode;
 procedure RegisterMultiFacialAnimationMenuScripts(const Scene: TCastleSceneCore);

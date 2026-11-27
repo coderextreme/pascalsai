@@ -2,7 +2,7 @@ unit arc3;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createarc3: TX3DRootNode;
 procedure Registerarc3Scripts(const Scene: TCastleSceneCore);

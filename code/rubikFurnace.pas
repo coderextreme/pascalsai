@@ -2,7 +2,7 @@ unit rubikFurnace;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreaterubikFurnace: TX3DRootNode;
 

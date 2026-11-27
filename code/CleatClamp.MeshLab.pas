@@ -2,7 +2,7 @@ unit CleatClamp;
 
 interface
 
-uses X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateCleatClamp: TX3DRootNode;
 

@@ -2,7 +2,7 @@ unit browser;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createbrowser: TX3DRootNode;
 procedure RegisterbrowserScripts(const Scene: TCastleSceneCore);

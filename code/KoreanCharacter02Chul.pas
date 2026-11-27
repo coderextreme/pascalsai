@@ -2,7 +2,7 @@ unit KoreanCharacter02Chul;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateKoreanCharacter02Chul: TX3DRootNode;
 

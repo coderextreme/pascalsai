@@ -2,7 +2,7 @@ unit KoreanCharacter03Hyun;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateKoreanCharacter03Hyun: TX3DRootNode;
 

@@ -2,7 +2,7 @@ unit flowers7;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createflowers7: TX3DRootNode;
 procedure Registerflowers7Scripts(const Scene: TCastleSceneCore);

@@ -2,7 +2,7 @@ unit bubs2;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createbubs2: TX3DRootNode;
 procedure Registerbubs2Scripts(const Scene: TCastleSceneCore);

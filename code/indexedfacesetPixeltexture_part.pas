@@ -2,7 +2,7 @@ unit indexedfacesetPixeltexture_part;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateindexedfacesetPixeltexture_part: TX3DRootNode;
 

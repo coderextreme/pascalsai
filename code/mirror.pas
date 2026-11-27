@@ -2,7 +2,7 @@ unit mirror;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createmirror: TX3DRootNode;
 procedure RegistermirrorScripts(const Scene: TCastleSceneCore);

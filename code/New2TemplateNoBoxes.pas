@@ -2,7 +2,7 @@ unit New2TemplateNoBoxes;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function CreateNew2TemplateNoBoxes: TX3DRootNode;
 

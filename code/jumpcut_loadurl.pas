@@ -2,7 +2,7 @@ unit jumpcut_loadurl;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
 
 function Createjumpcut_loadurl: TX3DRootNode;
 

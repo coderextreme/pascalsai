@@ -383,7 +383,7 @@ const
   { Shadow volumes are finicky; set false to check plain lighting first. }
   UseShadows = false;
   { Seconds each scene stays on screen before advancing. }
-  SceneViewDuration = 0.0;
+  SceneViewDuration = 5.0;
 
 type
   TCreateRootFunc = function: TX3DRootNode;
@@ -465,6 +465,7 @@ end;
 
 procedure TSceneSlideshow.BuildPlaylist;
 begin
+  AddEntry('ballcge', @Createballcge);
   AddEntry('abox', @Createabox);
   AddEntry('AllenBox', @CreateAllenBox);
   AddEntry('AllenDutton', @CreateAllenDutton);
@@ -475,7 +476,6 @@ begin
   AddEntry('asphere', @Createasphere);
   AddEntry('asteroids', @Createasteroids);
   AddEntry('ball', @Createball);
-  AddEntry('ballcge', @Createballcge);
   AddEntry('BoxEm', @CreateBoxEm);
   AddEntry('BoxEm2', @CreateBoxEm2);
   AddEntry('browser', @Createbrowser, @RegisterbrowserScripts, @DetachbrowserScripts);
@@ -681,6 +681,7 @@ begin
   FCurrentScene := TCastleScene.Create(Application);
   FCurrentScene.Load(RootNode, true); // Scene takes ownership of RootNode
   FViewport.Items.Add(FCurrentScene);
+  FViewport.Items.MainScene := FCurrentScene;
   { FCurrentScene.AutoAnimation := 'idle'; // which animation to run }
   if Assigned(FEntries[FCurrentIndex].RegisterScripts) then
     FEntries[FCurrentIndex].RegisterScripts(FCurrentScene);
@@ -691,7 +692,8 @@ begin
     then let AssignDefaultCamera frame the loaded scene. }
   FViewport.Camera.SetWorldView(
     Vector3(0, 5, 9), Vector3(0, -0.45, -1), Vector3(0, 1, 0));
-  if not FCurrentScene.BoundingBox.IsEmptyOrZero then
+  // if not FCurrentScene.BoundingBox.IsEmptyOrZero then
+  if AutoFrameScene then
     FViewport.AssignDefaultCamera;
 
   WritelnLog('Slideshow', Format('[%d/%d] %s | BBox: %s', [

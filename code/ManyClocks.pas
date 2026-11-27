@@ -2,7 +2,7 @@ unit ManyClocks;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleInternalNodesUnsupported;
 
 function CreateManyClocks: TX3DRootNode;
 

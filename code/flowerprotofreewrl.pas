@@ -2,7 +2,7 @@ unit flowerprotofreewrl;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createflowerprotofreewrl: TX3DRootNode;
 procedure RegisterflowerprotofreewrlScripts(const Scene: TCastleSceneCore);

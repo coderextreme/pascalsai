@@ -2,7 +2,7 @@ unit fwparticleflowers;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
 
 function Createfwparticleflowers: TX3DRootNode;
 procedure RegisterfwparticleflowersScripts(const Scene: TCastleSceneCore);
