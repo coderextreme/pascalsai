@@ -2,7 +2,7 @@ unit flower3;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflower3: TX3DRootNode;
 procedure Registerflower3Scripts(const Scene: TCastleSceneCore);
@@ -13,15 +13,17 @@ implementation
 uses SysUtils, CastleVectors, Math, X3DTime;
 
 type
+  TScript18Script_MFVec3Array = array of TVector3;
+  TScript18Script_MFInt32Array = array of Int32;
   TScript18Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fcoordinates: array of TVector3;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fcoordinates: TScript18Script_MFVec3Array;
     FEvent_coordinates: TX3DEvent;
     FBack_coordinates: TMFVec3f;
     FDirty_coordinates: Boolean;
-    FcoordIndexes: array of Int32;
+    FcoordIndexes: TScript18Script_MFInt32Array;
     FEvent_coordIndexes: TX3DEvent;
     FBack_coordIndexes: TMFInt32;
     FDirty_coordIndexes: Boolean;
@@ -32,7 +34,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure GenerateCoordinates(const resolution: Integer; const Time: TX3DTime);
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
@@ -66,8 +68,8 @@ var
 constructor TScript18Script.Create(const AHandlerPrefix: String; const AEvent_coordinates: TX3DEvent; const AEvent_coordIndexes: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fcoordinates := nil;
   FEvent_coordinates := nil;
   FBack_coordinates := TMFVec3f.CreateUndefined(nil, False, 'coordinates');
@@ -126,18 +128,18 @@ end;
 
 procedure TScript18Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
 end;
 
 procedure TScript18Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 var
-  localci: array of Int32;
+  localci: TScript18Script_MFInt32Array;
   arrIndex: Integer;
   i: Integer;
   j: Integer;
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   GenerateCoordinates(resolution, Time);
   localci := [];
   arrIndex := 0;
@@ -172,7 +174,7 @@ var
   theta: Single;
   phi: Single;
   delta: Single;
-  localc: array of TVector3;
+  localc: TScript18Script_MFVec3Array;
   arrIndex: Integer;
   i: Integer;
   j: Integer;
@@ -202,6 +204,9 @@ end;
 procedure TScript18Script.Set_fraction(Value: TX3DField; const Time: TX3DTime);
 var
   choice: Integer;
+  f: Integer;
+  g: Integer;
+  h: Integer;
 begin
   t := t + (0.5);
   p := p + (0.5);

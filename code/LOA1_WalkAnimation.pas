@@ -2,7 +2,7 @@ unit LOA1_WalkAnimation;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateLOA1_WalkAnimation: TX3DRootNode;
 

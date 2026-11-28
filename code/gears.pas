@@ -2,7 +2,7 @@ unit gears;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Creategears: TX3DRootNode;
 

@@ -2,7 +2,7 @@ unit fors2;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createfors2: TX3DRootNode;
 procedure Registerfors2Scripts(const Scene: TCastleSceneCore);
@@ -37,10 +37,11 @@ begin
 end;
 
 type
+  TScript22Script_MFVec3Array = array of TVector3;
   TScript22Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ftranslation: TVector3;
     FField_translation: TSFVec3f;
     FBack_translation: TSFVec3f;
@@ -49,7 +50,7 @@ type
     FField_old: TSFVec3f;
     FBack_old: TSFVec3f;
     FDirty_old: Boolean;
-    FkeyValue: array of TVector3;
+    FkeyValue: TScript22Script_MFVec3Array;
     FEvent_keyValue: TX3DEvent;
     FBack_keyValue: TMFVec3f;
     FDirty_keyValue: Boolean;
@@ -60,15 +61,16 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_cycle(Value: TX3DField; const Time: TX3DTime);
   end;
 
+  TScript42Script_MFVec3Array = array of TVector3;
   TScript42Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fspine: array of TVector3;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fspine: TScript42Script_MFVec3Array;
     FField_spine: TMFVec3f;
     FBack_spine: TMFVec3f;
     FDirty_spine: Boolean;
@@ -89,7 +91,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_endA(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_endA(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
     procedure Set_endB(Value: TX3DField; const Time: TX3DTime);
@@ -151,8 +153,8 @@ var
 constructor TScript22Script.Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_old: TSFVec3f; const AEvent_keyValue: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ftranslation := Vector3(0, 0, 0);
   FField_translation := nil;
   FBack_translation := TSFVec3f.Create(nil, False, 'translation', Vector3(0, 0, 0));
@@ -234,7 +236,7 @@ end;
 
 procedure TScript22Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_cycle', {$ifdef FPC}@{$endif}Set_cycle);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_cycle', {$ifdef FPC}@{$endif}Set_cycle);
 end;
 
 procedure TScript22Script.Set_cycle(Value: TX3DField; const Time: TX3DTime);
@@ -253,8 +255,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fspine := nil;
   FField_spine := nil;
   FBack_spine := TMFVec3f.CreateUndefined(nil, False, 'spine');
@@ -365,10 +367,10 @@ end;
 
 procedure TScript42Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_endA', {$ifdef FPC}@{$endif}Set_endA);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'endA', {$ifdef FPC}@{$endif}Set_endA);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_endB', {$ifdef FPC}@{$endif}Set_endB);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'endB', {$ifdef FPC}@{$endif}Set_endB);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_endA', {$ifdef FPC}@{$endif}Set_endA);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'endA', {$ifdef FPC}@{$endif}Set_endA);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_endB', {$ifdef FPC}@{$endif}Set_endB);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'endB', {$ifdef FPC}@{$endif}Set_endB);
 end;
 
 procedure TScript42Script.OnNotif_set_endA(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);

@@ -2,7 +2,7 @@ unit ArchPrototype;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateArchPrototype: TX3DRootNode;
 
@@ -111,7 +111,6 @@ X3D0.Meta['license'] := '../license.html';
 Group13 := TGroupNode.Create;
 ProtoDeclare14 := CreateEmptyPrototype('ArchPrototype');
 ProtoDeclare14.X3DName := 'ArchPrototype';
-ProtoDeclare14.Appinfo := 'Create an arch. Can modify general parameters: clearSpanWidth, riseHeight, depth, topAbutmentHeight, pierWidth, pierHeight. - Possibility to create shapes related to an arch: ArchHalf; IntradosOnly; ArchFilled; ArchHalfFilled; Lintel. See the reference file ArchModelingDiagrams.pdf to find further information. See also ArchPrototypeScript_more_readable.js.js.';
 FieldVal16 := TSFColor.Create(nil, True, 'diffuseColor', Vector3(0.2, 0.8, 0.8));
 FieldDecl16 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl16.FieldOrEvent := FieldVal16;
@@ -133,11 +132,11 @@ FieldDecl19.FieldOrEvent := FieldVal19;
 FieldVal19.ParentInterfaceDeclaration := FieldDecl19;
 ProtoDeclare14.InterfaceDeclarations.Add(FieldDecl19);
 FieldVal20 := TSFFloat.Create(nil, False, 'depth', 3);
+FieldDecl20 := TX3DInterfaceDeclaration.Create(nil);
 end;
 
 procedure InitArchPrototypePart1;
 begin
-FieldDecl20 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl20.FieldOrEvent := FieldVal20;
 FieldVal20.ParentInterfaceDeclaration := FieldDecl20;
 ProtoDeclare14.InterfaceDeclarations.Add(FieldDecl20);
@@ -177,11 +176,11 @@ FieldDecl27.FieldOrEvent := FieldVal27;
 FieldVal27.ParentInterfaceDeclaration := FieldDecl27;
 ProtoDeclare14.InterfaceDeclarations.Add(FieldDecl27);
 FieldVal28 := TSFBool.Create(nil, False, 'archHalfFilled', False);
+FieldDecl28 := TX3DInterfaceDeclaration.Create(nil);
 end;
 
 procedure InitArchPrototypePart2;
 begin
-FieldDecl28 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl28.FieldOrEvent := FieldVal28;
 FieldVal28.ParentInterfaceDeclaration := FieldDecl28;
 ProtoDeclare14.InterfaceDeclarations.Add(FieldDecl28);
@@ -221,11 +220,11 @@ Script37.X3DName := 'ArchPrototypeScript';
 Script37.SetUrl(['../node/ArchPrototypeScript.js', 'https://coderextreme.net/X3DJSONLD/src/main/node/ArchPrototypeScript.js']);
 { INPUT PARAMETERS }
 { General parameters }
+{ Parameters to create to create shapes related to arch: put true to apply }
 end;
 
 procedure InitArchPrototypePart3;
 begin
-{ Parameters to create to create shapes related to arch: put true to apply }
 { OUTPUT PARAMETERS }
 FieldVal38 := TSFFloat.CreateUndefined(Script37, False, 'clearSpanWidth');
 Script37.AddCustomFieldOrEvent(FieldVal38);
@@ -265,11 +264,11 @@ Script37.FieldOrEvent('topAbutmentHeight', True).IsClauseNamesAdd('topAbutmentHe
 Script37.FieldOrEvent('pierHeight', True).IsClauseNamesAdd('pierHeight');
 Script37.FieldOrEvent('archHalf', True).IsClauseNamesAdd('archHalf');
 Script37.FieldOrEvent('archHalfExtensionWidth', True).IsClauseNamesAdd('archHalfExtensionWidth');
+Script37.FieldOrEvent('onlyIntrados', True).IsClauseNamesAdd('onlyIntrados');
 end;
 
 procedure InitArchPrototypePart4;
 begin
-Script37.FieldOrEvent('onlyIntrados', True).IsClauseNamesAdd('onlyIntrados');
 Script37.FieldOrEvent('archFilled', True).IsClauseNamesAdd('archFilled');
 Script37.FieldOrEvent('archHalfFilled', True).IsClauseNamesAdd('archHalfFilled');
 Script37.FieldOrEvent('lintel', True).IsClauseNamesAdd('lintel');

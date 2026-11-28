@@ -2,7 +2,7 @@ unit HAnimBehaviorPrototypes;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateHAnimBehaviorPrototypes: TX3DRootNode;
 
@@ -1463,8 +1463,6 @@ WorldInfo19.Title := 'HAnimBehaviorPrototypes.x3d';
 Group18.FdChildren.Add(WorldInfo19);
 ProtoDeclare20 := CreateEmptyPrototype('HAnimBehavior');
 ProtoDeclare20.X3DName := 'HAnimBehavior';
-ProtoDeclare20.Appinfo := 'The HAnimBehavior node models a single humanoid behavior either for an entire body or simply parts of a body. It collects a TimeSensor clock with a single PositionInterpolator and multiple OrientationInterpolator nodes to provide a single humanoid behavior.';
-ProtoDeclare20.Documentation := 'https://www.web3d.org/files/specifications/19774/V1.0/';
 FieldVal22 := TSFInt32.Create(nil, True, 'supportedLOA', -1);
 FieldDecl22 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl22.FieldOrEvent := FieldVal22;
@@ -1477,12 +1475,12 @@ FieldVal23.ParentInterfaceDeclaration := FieldDecl23;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl23);
 FieldVal24 := TSFTime.Create(nil, True, 'cycleInterval', 1);
 FieldDecl24 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl24.FieldOrEvent := FieldVal24;
+FieldVal24.ParentInterfaceDeclaration := FieldDecl24;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart1;
 begin
-FieldDecl24.FieldOrEvent := FieldVal24;
-FieldVal24.ParentInterfaceDeclaration := FieldDecl24;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl24);
 FieldVal25 := TSFBool.Create(nil, True, 'loop', False);
 FieldDecl25 := TX3DInterfaceDeclaration.Create(nil);
@@ -1521,12 +1519,12 @@ FieldVal31.ParentInterfaceDeclaration := FieldDecl31;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl31);
 FieldVal32 := TSFBool.CreateEvent(nil, 'isPaused', False);
 FieldDecl32 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl32.FieldOrEvent := FieldVal32;
+FieldVal32.ParentInterfaceDeclaration := FieldDecl32;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart2;
 begin
-FieldDecl32.FieldOrEvent := FieldVal32;
-FieldVal32.ParentInterfaceDeclaration := FieldDecl32;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl32);
 FieldVal33 := TSFBool.CreateEvent(nil, 'elapsedTime', False);
 FieldDecl33 := TX3DInterfaceDeclaration.Create(nil);
@@ -1565,12 +1563,12 @@ FieldVal39.ParentInterfaceDeclaration := FieldDecl39;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl39);
 FieldVal40 := TMFRotation.CreateUndefined(nil, True, 'HumanoidRoot_rotation_keyValue');
 FieldDecl40 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl40.FieldOrEvent := FieldVal40;
+FieldVal40.ParentInterfaceDeclaration := FieldDecl40;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart3;
 begin
-FieldDecl40.FieldOrEvent := FieldVal40;
-FieldVal40.ParentInterfaceDeclaration := FieldDecl40;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl40);
 FieldVal41 := TSFRotation.CreateEvent(nil, 'HumanoidRoot_rotation_changed', False);
 FieldDecl41 := TX3DInterfaceDeclaration.Create(nil);
@@ -1609,12 +1607,12 @@ FieldVal47.ParentInterfaceDeclaration := FieldDecl47;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl47);
 FieldVal48 := TMFFloat.CreateUndefined(nil, True, 'c3_key');
 FieldDecl48 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl48.FieldOrEvent := FieldVal48;
+FieldVal48.ParentInterfaceDeclaration := FieldDecl48;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart4;
 begin
-FieldDecl48.FieldOrEvent := FieldVal48;
-FieldVal48.ParentInterfaceDeclaration := FieldDecl48;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl48);
 FieldVal49 := TMFRotation.CreateUndefined(nil, True, 'c3_keyValue');
 FieldDecl49 := TX3DInterfaceDeclaration.Create(nil);
@@ -1653,12 +1651,12 @@ FieldVal55.ParentInterfaceDeclaration := FieldDecl55;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl55);
 FieldVal56 := TSFRotation.CreateEvent(nil, 'c5_changed', False);
 FieldDecl56 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl56.FieldOrEvent := FieldVal56;
+FieldVal56.ParentInterfaceDeclaration := FieldDecl56;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart5;
 begin
-FieldDecl56.FieldOrEvent := FieldVal56;
-FieldVal56.ParentInterfaceDeclaration := FieldDecl56;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl56);
 FieldVal57 := TMFFloat.CreateUndefined(nil, True, 'c6_key');
 FieldDecl57 := TX3DInterfaceDeclaration.Create(nil);
@@ -1697,12 +1695,12 @@ FieldVal63.ParentInterfaceDeclaration := FieldDecl63;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl63);
 FieldVal64 := TMFRotation.CreateUndefined(nil, True, 'jaw_keyValue');
 FieldDecl64 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl64.FieldOrEvent := FieldVal64;
+FieldVal64.ParentInterfaceDeclaration := FieldDecl64;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart6;
 begin
-FieldDecl64.FieldOrEvent := FieldVal64;
-FieldVal64.ParentInterfaceDeclaration := FieldDecl64;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl64);
 FieldVal65 := TSFRotation.CreateEvent(nil, 'jaw_changed', False);
 FieldDecl65 := TX3DInterfaceDeclaration.Create(nil);
@@ -1741,12 +1739,12 @@ FieldVal71.ParentInterfaceDeclaration := FieldDecl71;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl71);
 FieldVal72 := TMFFloat.CreateUndefined(nil, True, 'l3_key');
 FieldDecl72 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl72.FieldOrEvent := FieldVal72;
+FieldVal72.ParentInterfaceDeclaration := FieldDecl72;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart7;
 begin
-FieldDecl72.FieldOrEvent := FieldVal72;
-FieldVal72.ParentInterfaceDeclaration := FieldDecl72;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl72);
 FieldVal73 := TMFRotation.CreateUndefined(nil, True, 'l3_keyValue');
 FieldDecl73 := TX3DInterfaceDeclaration.Create(nil);
@@ -1785,12 +1783,12 @@ FieldVal79.ParentInterfaceDeclaration := FieldDecl79;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl79);
 FieldVal80 := TSFRotation.CreateEvent(nil, 'l5_changed', False);
 FieldDecl80 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl80.FieldOrEvent := FieldVal80;
+FieldVal80.ParentInterfaceDeclaration := FieldDecl80;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart8;
 begin
-FieldDecl80.FieldOrEvent := FieldVal80;
-FieldVal80.ParentInterfaceDeclaration := FieldDecl80;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl80);
 FieldVal81 := TMFFloat.CreateUndefined(nil, True, 'l_acromioclavicular_key');
 FieldDecl81 := TX3DInterfaceDeclaration.Create(nil);
@@ -1829,12 +1827,12 @@ FieldVal87.ParentInterfaceDeclaration := FieldDecl87;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl87);
 FieldVal88 := TMFRotation.CreateUndefined(nil, True, 'l_calf_keyValue');
 FieldDecl88 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl88.FieldOrEvent := FieldVal88;
+FieldVal88.ParentInterfaceDeclaration := FieldDecl88;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart9;
 begin
-FieldDecl88.FieldOrEvent := FieldVal88;
-FieldVal88.ParentInterfaceDeclaration := FieldDecl88;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl88);
 FieldVal89 := TSFRotation.CreateEvent(nil, 'l_calf_changed', False);
 FieldDecl89 := TX3DInterfaceDeclaration.Create(nil);
@@ -1873,12 +1871,12 @@ FieldVal95.ParentInterfaceDeclaration := FieldDecl95;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl95);
 FieldVal96 := TMFFloat.CreateUndefined(nil, True, 'l_eyeball_key');
 FieldDecl96 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl96.FieldOrEvent := FieldVal96;
+FieldVal96.ParentInterfaceDeclaration := FieldDecl96;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart10;
 begin
-FieldDecl96.FieldOrEvent := FieldVal96;
-FieldVal96.ParentInterfaceDeclaration := FieldDecl96;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl96);
 FieldVal97 := TMFRotation.CreateUndefined(nil, True, 'l_eyeball_keyValue');
 FieldDecl97 := TX3DInterfaceDeclaration.Create(nil);
@@ -1917,12 +1915,12 @@ FieldVal103.ParentInterfaceDeclaration := FieldDecl103;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl103);
 FieldVal104 := TSFRotation.CreateEvent(nil, 'l_eyebrow_changed', False);
 FieldDecl104 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl104.FieldOrEvent := FieldVal104;
+FieldVal104.ParentInterfaceDeclaration := FieldDecl104;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart11;
 begin
-FieldDecl104.FieldOrEvent := FieldVal104;
-FieldVal104.ParentInterfaceDeclaration := FieldDecl104;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl104);
 FieldVal105 := TMFFloat.CreateUndefined(nil, True, 'l_eyebrow_joint_key');
 FieldDecl105 := TX3DInterfaceDeclaration.Create(nil);
@@ -1961,12 +1959,12 @@ FieldVal111.ParentInterfaceDeclaration := FieldDecl111;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl111);
 FieldVal112 := TMFRotation.CreateUndefined(nil, True, 'l_eyelid_joint_keyValue');
 FieldDecl112 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl112.FieldOrEvent := FieldVal112;
+FieldVal112.ParentInterfaceDeclaration := FieldDecl112;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart12;
 begin
-FieldDecl112.FieldOrEvent := FieldVal112;
-FieldVal112.ParentInterfaceDeclaration := FieldDecl112;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl112);
 FieldVal113 := TSFRotation.CreateEvent(nil, 'l_eyelid_joint_changed', False);
 FieldDecl113 := TX3DInterfaceDeclaration.Create(nil);
@@ -2005,12 +2003,12 @@ FieldVal119.ParentInterfaceDeclaration := FieldDecl119;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl119);
 FieldVal120 := TMFFloat.CreateUndefined(nil, True, 'l_hand_key');
 FieldDecl120 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl120.FieldOrEvent := FieldVal120;
+FieldVal120.ParentInterfaceDeclaration := FieldDecl120;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart13;
 begin
-FieldDecl120.FieldOrEvent := FieldVal120;
-FieldVal120.ParentInterfaceDeclaration := FieldDecl120;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl120);
 FieldVal121 := TMFRotation.CreateUndefined(nil, True, 'l_hand_keyValue');
 FieldDecl121 := TX3DInterfaceDeclaration.Create(nil);
@@ -2049,12 +2047,12 @@ FieldVal127.ParentInterfaceDeclaration := FieldDecl127;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl127);
 FieldVal128 := TSFRotation.CreateEvent(nil, 'l_hip_changed', False);
 FieldDecl128 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl128.FieldOrEvent := FieldVal128;
+FieldVal128.ParentInterfaceDeclaration := FieldDecl128;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart14;
 begin
-FieldDecl128.FieldOrEvent := FieldVal128;
-FieldVal128.ParentInterfaceDeclaration := FieldDecl128;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl128);
 FieldVal129 := TMFFloat.CreateUndefined(nil, True, 'l_index0_key');
 FieldDecl129 := TX3DInterfaceDeclaration.Create(nil);
@@ -2093,12 +2091,12 @@ FieldVal135.ParentInterfaceDeclaration := FieldDecl135;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl135);
 FieldVal136 := TMFRotation.CreateUndefined(nil, True, 'l_index2_keyValue');
 FieldDecl136 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl136.FieldOrEvent := FieldVal136;
+FieldVal136.ParentInterfaceDeclaration := FieldDecl136;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart15;
 begin
-FieldDecl136.FieldOrEvent := FieldVal136;
-FieldVal136.ParentInterfaceDeclaration := FieldDecl136;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl136);
 FieldVal137 := TSFRotation.CreateEvent(nil, 'l_index2_changed', False);
 FieldDecl137 := TX3DInterfaceDeclaration.Create(nil);
@@ -2137,12 +2135,12 @@ FieldVal143.ParentInterfaceDeclaration := FieldDecl143;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl143);
 FieldVal144 := TMFFloat.CreateUndefined(nil, True, 'l_index_metacarpal_key');
 FieldDecl144 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl144.FieldOrEvent := FieldVal144;
+FieldVal144.ParentInterfaceDeclaration := FieldDecl144;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart16;
 begin
-FieldDecl144.FieldOrEvent := FieldVal144;
-FieldVal144.ParentInterfaceDeclaration := FieldDecl144;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl144);
 FieldVal145 := TMFRotation.CreateUndefined(nil, True, 'l_index_metacarpal_keyValue');
 FieldDecl145 := TX3DInterfaceDeclaration.Create(nil);
@@ -2181,12 +2179,12 @@ FieldVal151.ParentInterfaceDeclaration := FieldDecl151;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl151);
 FieldVal152 := TSFRotation.CreateEvent(nil, 'l_index_proximal_changed', False);
 FieldDecl152 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl152.FieldOrEvent := FieldVal152;
+FieldVal152.ParentInterfaceDeclaration := FieldDecl152;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart17;
 begin
-FieldDecl152.FieldOrEvent := FieldVal152;
-FieldVal152.ParentInterfaceDeclaration := FieldDecl152;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl152);
 FieldVal153 := TMFFloat.CreateUndefined(nil, True, 'l_knee_key');
 FieldDecl153 := TX3DInterfaceDeclaration.Create(nil);
@@ -2225,12 +2223,12 @@ FieldVal159.ParentInterfaceDeclaration := FieldDecl159;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl159);
 FieldVal160 := TMFRotation.CreateUndefined(nil, True, 'l_middistal_keyValue');
 FieldDecl160 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl160.FieldOrEvent := FieldVal160;
+FieldVal160.ParentInterfaceDeclaration := FieldDecl160;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart18;
 begin
-FieldDecl160.FieldOrEvent := FieldVal160;
-FieldVal160.ParentInterfaceDeclaration := FieldDecl160;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl160);
 FieldVal161 := TSFRotation.CreateEvent(nil, 'l_middistal_changed', False);
 FieldDecl161 := TX3DInterfaceDeclaration.Create(nil);
@@ -2269,12 +2267,12 @@ FieldVal167.ParentInterfaceDeclaration := FieldDecl167;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl167);
 FieldVal168 := TMFFloat.CreateUndefined(nil, True, 'l_middle2_key');
 FieldDecl168 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl168.FieldOrEvent := FieldVal168;
+FieldVal168.ParentInterfaceDeclaration := FieldDecl168;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart19;
 begin
-FieldDecl168.FieldOrEvent := FieldVal168;
-FieldVal168.ParentInterfaceDeclaration := FieldDecl168;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl168);
 FieldVal169 := TMFRotation.CreateUndefined(nil, True, 'l_middle2_keyValue');
 FieldDecl169 := TX3DInterfaceDeclaration.Create(nil);
@@ -2313,12 +2311,12 @@ FieldVal175.ParentInterfaceDeclaration := FieldDecl175;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl175);
 FieldVal176 := TSFRotation.CreateEvent(nil, 'l_middle_distal_changed', False);
 FieldDecl176 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl176.FieldOrEvent := FieldVal176;
+FieldVal176.ParentInterfaceDeclaration := FieldDecl176;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart20;
 begin
-FieldDecl176.FieldOrEvent := FieldVal176;
-FieldVal176.ParentInterfaceDeclaration := FieldDecl176;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl176);
 FieldVal177 := TMFFloat.CreateUndefined(nil, True, 'l_middle_metacarpal_key');
 FieldDecl177 := TX3DInterfaceDeclaration.Create(nil);
@@ -2357,12 +2355,12 @@ FieldVal183.ParentInterfaceDeclaration := FieldDecl183;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl183);
 FieldVal184 := TMFRotation.CreateUndefined(nil, True, 'l_middle_proximal_keyValue');
 FieldDecl184 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl184.FieldOrEvent := FieldVal184;
+FieldVal184.ParentInterfaceDeclaration := FieldDecl184;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart21;
 begin
-FieldDecl184.FieldOrEvent := FieldVal184;
-FieldVal184.ParentInterfaceDeclaration := FieldDecl184;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl184);
 FieldVal185 := TSFRotation.CreateEvent(nil, 'l_middle_proximal_changed', False);
 FieldDecl185 := TX3DInterfaceDeclaration.Create(nil);
@@ -2401,12 +2399,12 @@ FieldVal191.ParentInterfaceDeclaration := FieldDecl191;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl191);
 FieldVal192 := TMFFloat.CreateUndefined(nil, True, 'l_pinky0_key');
 FieldDecl192 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl192.FieldOrEvent := FieldVal192;
+FieldVal192.ParentInterfaceDeclaration := FieldDecl192;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart22;
 begin
-FieldDecl192.FieldOrEvent := FieldVal192;
-FieldVal192.ParentInterfaceDeclaration := FieldDecl192;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl192);
 FieldVal193 := TMFRotation.CreateUndefined(nil, True, 'l_pinky0_keyValue');
 FieldDecl193 := TX3DInterfaceDeclaration.Create(nil);
@@ -2445,12 +2443,12 @@ FieldVal199.ParentInterfaceDeclaration := FieldDecl199;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl199);
 FieldVal200 := TSFRotation.CreateEvent(nil, 'l_pinky2_changed', False);
 FieldDecl200 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl200.FieldOrEvent := FieldVal200;
+FieldVal200.ParentInterfaceDeclaration := FieldDecl200;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart23;
 begin
-FieldDecl200.FieldOrEvent := FieldVal200;
-FieldVal200.ParentInterfaceDeclaration := FieldDecl200;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl200);
 FieldVal201 := TMFFloat.CreateUndefined(nil, True, 'l_pinky3_key');
 FieldDecl201 := TX3DInterfaceDeclaration.Create(nil);
@@ -2489,12 +2487,12 @@ FieldVal207.ParentInterfaceDeclaration := FieldDecl207;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl207);
 FieldVal208 := TMFRotation.CreateUndefined(nil, True, 'l_pinky_metacarpal_keyValue');
 FieldDecl208 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl208.FieldOrEvent := FieldVal208;
+FieldVal208.ParentInterfaceDeclaration := FieldDecl208;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart24;
 begin
-FieldDecl208.FieldOrEvent := FieldVal208;
-FieldVal208.ParentInterfaceDeclaration := FieldDecl208;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl208);
 FieldVal209 := TSFRotation.CreateEvent(nil, 'l_pinky_metacarpal_changed', False);
 FieldDecl209 := TX3DInterfaceDeclaration.Create(nil);
@@ -2533,12 +2531,12 @@ FieldVal215.ParentInterfaceDeclaration := FieldDecl215;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl215);
 FieldVal216 := TMFFloat.CreateUndefined(nil, True, 'l_ring0_key');
 FieldDecl216 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl216.FieldOrEvent := FieldVal216;
+FieldVal216.ParentInterfaceDeclaration := FieldDecl216;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart25;
 begin
-FieldDecl216.FieldOrEvent := FieldVal216;
-FieldVal216.ParentInterfaceDeclaration := FieldDecl216;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl216);
 FieldVal217 := TMFRotation.CreateUndefined(nil, True, 'l_ring0_keyValue');
 FieldDecl217 := TX3DInterfaceDeclaration.Create(nil);
@@ -2577,12 +2575,12 @@ FieldVal223.ParentInterfaceDeclaration := FieldDecl223;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl223);
 FieldVal224 := TSFRotation.CreateEvent(nil, 'l_ring2_changed', False);
 FieldDecl224 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl224.FieldOrEvent := FieldVal224;
+FieldVal224.ParentInterfaceDeclaration := FieldDecl224;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart26;
 begin
-FieldDecl224.FieldOrEvent := FieldVal224;
-FieldVal224.ParentInterfaceDeclaration := FieldDecl224;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl224);
 FieldVal225 := TMFFloat.CreateUndefined(nil, True, 'l_ring3_key');
 FieldDecl225 := TX3DInterfaceDeclaration.Create(nil);
@@ -2621,12 +2619,12 @@ FieldVal231.ParentInterfaceDeclaration := FieldDecl231;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl231);
 FieldVal232 := TMFRotation.CreateUndefined(nil, True, 'l_ring_metacarpal_keyValue');
 FieldDecl232 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl232.FieldOrEvent := FieldVal232;
+FieldVal232.ParentInterfaceDeclaration := FieldDecl232;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart27;
 begin
-FieldDecl232.FieldOrEvent := FieldVal232;
-FieldVal232.ParentInterfaceDeclaration := FieldDecl232;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl232);
 FieldVal233 := TSFRotation.CreateEvent(nil, 'l_ring_metacarpal_changed', False);
 FieldDecl233 := TX3DInterfaceDeclaration.Create(nil);
@@ -2665,12 +2663,12 @@ FieldVal239.ParentInterfaceDeclaration := FieldDecl239;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl239);
 FieldVal240 := TMFFloat.CreateUndefined(nil, True, 'l_scapula_key');
 FieldDecl240 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl240.FieldOrEvent := FieldVal240;
+FieldVal240.ParentInterfaceDeclaration := FieldDecl240;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart28;
 begin
-FieldDecl240.FieldOrEvent := FieldVal240;
-FieldVal240.ParentInterfaceDeclaration := FieldDecl240;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl240);
 FieldVal241 := TMFRotation.CreateUndefined(nil, True, 'l_scapula_keyValue');
 FieldDecl241 := TX3DInterfaceDeclaration.Create(nil);
@@ -2709,12 +2707,12 @@ FieldVal247.ParentInterfaceDeclaration := FieldDecl247;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl247);
 FieldVal248 := TSFRotation.CreateEvent(nil, 'l_sternoclavicular_changed', False);
 FieldDecl248 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl248.FieldOrEvent := FieldVal248;
+FieldVal248.ParentInterfaceDeclaration := FieldDecl248;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart29;
 begin
-FieldDecl248.FieldOrEvent := FieldVal248;
-FieldVal248.ParentInterfaceDeclaration := FieldDecl248;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl248);
 FieldVal249 := TMFFloat.CreateUndefined(nil, True, 'l_subtalar_key');
 FieldDecl249 := TX3DInterfaceDeclaration.Create(nil);
@@ -2753,12 +2751,12 @@ FieldVal255.ParentInterfaceDeclaration := FieldDecl255;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl255);
 FieldVal256 := TMFRotation.CreateUndefined(nil, True, 'l_thumb1_keyValue');
 FieldDecl256 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl256.FieldOrEvent := FieldVal256;
+FieldVal256.ParentInterfaceDeclaration := FieldDecl256;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart30;
 begin
-FieldDecl256.FieldOrEvent := FieldVal256;
-FieldVal256.ParentInterfaceDeclaration := FieldDecl256;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl256);
 FieldVal257 := TSFRotation.CreateEvent(nil, 'l_thumb1_changed', False);
 FieldDecl257 := TX3DInterfaceDeclaration.Create(nil);
@@ -2797,12 +2795,12 @@ FieldVal263.ParentInterfaceDeclaration := FieldDecl263;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl263);
 FieldVal264 := TMFFloat.CreateUndefined(nil, True, 'l_thumb_distal_key');
 FieldDecl264 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl264.FieldOrEvent := FieldVal264;
+FieldVal264.ParentInterfaceDeclaration := FieldDecl264;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart31;
 begin
-FieldDecl264.FieldOrEvent := FieldVal264;
-FieldVal264.ParentInterfaceDeclaration := FieldDecl264;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl264);
 FieldVal265 := TMFRotation.CreateUndefined(nil, True, 'l_thumb_distal_keyValue');
 FieldDecl265 := TX3DInterfaceDeclaration.Create(nil);
@@ -2841,12 +2839,12 @@ FieldVal271.ParentInterfaceDeclaration := FieldDecl271;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl271);
 FieldVal272 := TSFRotation.CreateEvent(nil, 'l_thumb_proximal_changed', False);
 FieldDecl272 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl272.FieldOrEvent := FieldVal272;
+FieldVal272.ParentInterfaceDeclaration := FieldDecl272;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart32;
 begin
-FieldDecl272.FieldOrEvent := FieldVal272;
-FieldVal272.ParentInterfaceDeclaration := FieldDecl272;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl272);
 FieldVal273 := TMFFloat.CreateUndefined(nil, True, 'l_upperarm_key');
 FieldDecl273 := TX3DInterfaceDeclaration.Create(nil);
@@ -2885,12 +2883,12 @@ FieldVal279.ParentInterfaceDeclaration := FieldDecl279;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl279);
 FieldVal280 := TMFRotation.CreateUndefined(nil, True, 'pelvis_keyValue');
 FieldDecl280 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl280.FieldOrEvent := FieldVal280;
+FieldVal280.ParentInterfaceDeclaration := FieldDecl280;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart33;
 begin
-FieldDecl280.FieldOrEvent := FieldVal280;
-FieldVal280.ParentInterfaceDeclaration := FieldDecl280;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl280);
 FieldVal281 := TSFRotation.CreateEvent(nil, 'pelvis_changed', False);
 FieldDecl281 := TX3DInterfaceDeclaration.Create(nil);
@@ -2929,12 +2927,12 @@ FieldVal287.ParentInterfaceDeclaration := FieldDecl287;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl287);
 FieldVal288 := TMFFloat.CreateUndefined(nil, True, 'r_calf_key');
 FieldDecl288 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl288.FieldOrEvent := FieldVal288;
+FieldVal288.ParentInterfaceDeclaration := FieldDecl288;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart34;
 begin
-FieldDecl288.FieldOrEvent := FieldVal288;
-FieldVal288.ParentInterfaceDeclaration := FieldDecl288;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl288);
 FieldVal289 := TMFRotation.CreateUndefined(nil, True, 'r_calf_keyValue');
 FieldDecl289 := TX3DInterfaceDeclaration.Create(nil);
@@ -2973,12 +2971,12 @@ FieldVal295.ParentInterfaceDeclaration := FieldDecl295;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl295);
 FieldVal296 := TSFRotation.CreateEvent(nil, 'r_elbow_changed', False);
 FieldDecl296 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl296.FieldOrEvent := FieldVal296;
+FieldVal296.ParentInterfaceDeclaration := FieldDecl296;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart35;
 begin
-FieldDecl296.FieldOrEvent := FieldVal296;
-FieldVal296.ParentInterfaceDeclaration := FieldDecl296;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl296);
 FieldVal297 := TMFFloat.CreateUndefined(nil, True, 'r_eyeball_key');
 FieldDecl297 := TX3DInterfaceDeclaration.Create(nil);
@@ -3017,12 +3015,12 @@ FieldVal303.ParentInterfaceDeclaration := FieldDecl303;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl303);
 FieldVal304 := TMFRotation.CreateUndefined(nil, True, 'r_eyebrow_keyValue');
 FieldDecl304 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl304.FieldOrEvent := FieldVal304;
+FieldVal304.ParentInterfaceDeclaration := FieldDecl304;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart36;
 begin
-FieldDecl304.FieldOrEvent := FieldVal304;
-FieldVal304.ParentInterfaceDeclaration := FieldDecl304;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl304);
 FieldVal305 := TSFRotation.CreateEvent(nil, 'r_eyebrow_changed', False);
 FieldDecl305 := TX3DInterfaceDeclaration.Create(nil);
@@ -3061,12 +3059,12 @@ FieldVal311.ParentInterfaceDeclaration := FieldDecl311;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl311);
 FieldVal312 := TMFFloat.CreateUndefined(nil, True, 'r_eyelid_joint_key');
 FieldDecl312 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl312.FieldOrEvent := FieldVal312;
+FieldVal312.ParentInterfaceDeclaration := FieldDecl312;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart37;
 begin
-FieldDecl312.FieldOrEvent := FieldVal312;
-FieldVal312.ParentInterfaceDeclaration := FieldDecl312;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl312);
 FieldVal313 := TMFRotation.CreateUndefined(nil, True, 'r_eyelid_joint_keyValue');
 FieldDecl313 := TX3DInterfaceDeclaration.Create(nil);
@@ -3105,12 +3103,12 @@ FieldVal319.ParentInterfaceDeclaration := FieldDecl319;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl319);
 FieldVal320 := TSFRotation.CreateEvent(nil, 'r_forefoot_changed', False);
 FieldDecl320 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl320.FieldOrEvent := FieldVal320;
+FieldVal320.ParentInterfaceDeclaration := FieldDecl320;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart38;
 begin
-FieldDecl320.FieldOrEvent := FieldVal320;
-FieldVal320.ParentInterfaceDeclaration := FieldDecl320;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl320);
 FieldVal321 := TMFFloat.CreateUndefined(nil, True, 'r_hand_key');
 FieldDecl321 := TX3DInterfaceDeclaration.Create(nil);
@@ -3149,12 +3147,12 @@ FieldVal327.ParentInterfaceDeclaration := FieldDecl327;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl327);
 FieldVal328 := TMFRotation.CreateUndefined(nil, True, 'r_hip_keyValue');
 FieldDecl328 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl328.FieldOrEvent := FieldVal328;
+FieldVal328.ParentInterfaceDeclaration := FieldDecl328;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart39;
 begin
-FieldDecl328.FieldOrEvent := FieldVal328;
-FieldVal328.ParentInterfaceDeclaration := FieldDecl328;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl328);
 FieldVal329 := TSFRotation.CreateEvent(nil, 'r_hip_changed', False);
 FieldDecl329 := TX3DInterfaceDeclaration.Create(nil);
@@ -3193,12 +3191,12 @@ FieldVal335.ParentInterfaceDeclaration := FieldDecl335;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl335);
 FieldVal336 := TMFFloat.CreateUndefined(nil, True, 'r_index2_key');
 FieldDecl336 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl336.FieldOrEvent := FieldVal336;
+FieldVal336.ParentInterfaceDeclaration := FieldDecl336;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart40;
 begin
-FieldDecl336.FieldOrEvent := FieldVal336;
-FieldVal336.ParentInterfaceDeclaration := FieldDecl336;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl336);
 FieldVal337 := TMFRotation.CreateUndefined(nil, True, 'r_index2_keyValue');
 FieldDecl337 := TX3DInterfaceDeclaration.Create(nil);
@@ -3237,12 +3235,12 @@ FieldVal343.ParentInterfaceDeclaration := FieldDecl343;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl343);
 FieldVal344 := TSFRotation.CreateEvent(nil, 'r_index_distal_changed', False);
 FieldDecl344 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl344.FieldOrEvent := FieldVal344;
+FieldVal344.ParentInterfaceDeclaration := FieldDecl344;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart41;
 begin
-FieldDecl344.FieldOrEvent := FieldVal344;
-FieldVal344.ParentInterfaceDeclaration := FieldDecl344;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl344);
 FieldVal345 := TMFFloat.CreateUndefined(nil, True, 'r_index_metacarpal_key');
 FieldDecl345 := TX3DInterfaceDeclaration.Create(nil);
@@ -3281,12 +3279,12 @@ FieldVal351.ParentInterfaceDeclaration := FieldDecl351;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl351);
 FieldVal352 := TMFRotation.CreateUndefined(nil, True, 'r_index_proximal_keyValue');
 FieldDecl352 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl352.FieldOrEvent := FieldVal352;
+FieldVal352.ParentInterfaceDeclaration := FieldDecl352;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart42;
 begin
-FieldDecl352.FieldOrEvent := FieldVal352;
-FieldVal352.ParentInterfaceDeclaration := FieldDecl352;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl352);
 FieldVal353 := TSFRotation.CreateEvent(nil, 'r_index_proximal_changed', False);
 FieldDecl353 := TX3DInterfaceDeclaration.Create(nil);
@@ -3325,12 +3323,12 @@ FieldVal359.ParentInterfaceDeclaration := FieldDecl359;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl359);
 FieldVal360 := TMFFloat.CreateUndefined(nil, True, 'r_middistal_key');
 FieldDecl360 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl360.FieldOrEvent := FieldVal360;
+FieldVal360.ParentInterfaceDeclaration := FieldDecl360;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart43;
 begin
-FieldDecl360.FieldOrEvent := FieldVal360;
-FieldVal360.ParentInterfaceDeclaration := FieldDecl360;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl360);
 FieldVal361 := TMFRotation.CreateUndefined(nil, True, 'r_middistal_keyValue');
 FieldDecl361 := TX3DInterfaceDeclaration.Create(nil);
@@ -3369,12 +3367,12 @@ FieldVal367.ParentInterfaceDeclaration := FieldDecl367;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl367);
 FieldVal368 := TSFRotation.CreateEvent(nil, 'r_middle1_changed', False);
 FieldDecl368 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl368.FieldOrEvent := FieldVal368;
+FieldVal368.ParentInterfaceDeclaration := FieldDecl368;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart44;
 begin
-FieldDecl368.FieldOrEvent := FieldVal368;
-FieldVal368.ParentInterfaceDeclaration := FieldDecl368;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl368);
 FieldVal369 := TMFFloat.CreateUndefined(nil, True, 'r_middle2_key');
 FieldDecl369 := TX3DInterfaceDeclaration.Create(nil);
@@ -3413,12 +3411,12 @@ FieldVal375.ParentInterfaceDeclaration := FieldDecl375;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl375);
 FieldVal376 := TMFRotation.CreateUndefined(nil, True, 'r_middle_distal_keyValue');
 FieldDecl376 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl376.FieldOrEvent := FieldVal376;
+FieldVal376.ParentInterfaceDeclaration := FieldDecl376;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart45;
 begin
-FieldDecl376.FieldOrEvent := FieldVal376;
-FieldVal376.ParentInterfaceDeclaration := FieldDecl376;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl376);
 FieldVal377 := TSFRotation.CreateEvent(nil, 'r_middle_distal_changed', False);
 FieldDecl377 := TX3DInterfaceDeclaration.Create(nil);
@@ -3457,12 +3455,12 @@ FieldVal383.ParentInterfaceDeclaration := FieldDecl383;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl383);
 FieldVal384 := TMFFloat.CreateUndefined(nil, True, 'r_middle_proximal_key');
 FieldDecl384 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl384.FieldOrEvent := FieldVal384;
+FieldVal384.ParentInterfaceDeclaration := FieldDecl384;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart46;
 begin
-FieldDecl384.FieldOrEvent := FieldVal384;
-FieldVal384.ParentInterfaceDeclaration := FieldDecl384;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl384);
 FieldVal385 := TMFRotation.CreateUndefined(nil, True, 'r_middle_proximal_keyValue');
 FieldDecl385 := TX3DInterfaceDeclaration.Create(nil);
@@ -3501,12 +3499,12 @@ FieldVal391.ParentInterfaceDeclaration := FieldDecl391;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl391);
 FieldVal392 := TSFRotation.CreateEvent(nil, 'r_midtarsal_changed', False);
 FieldDecl392 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl392.FieldOrEvent := FieldVal392;
+FieldVal392.ParentInterfaceDeclaration := FieldDecl392;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart47;
 begin
-FieldDecl392.FieldOrEvent := FieldVal392;
-FieldVal392.ParentInterfaceDeclaration := FieldDecl392;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl392);
 FieldVal393 := TMFFloat.CreateUndefined(nil, True, 'r_pinky0_key');
 FieldDecl393 := TX3DInterfaceDeclaration.Create(nil);
@@ -3545,12 +3543,12 @@ FieldVal399.ParentInterfaceDeclaration := FieldDecl399;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl399);
 FieldVal400 := TMFRotation.CreateUndefined(nil, True, 'r_pinky2_keyValue');
 FieldDecl400 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl400.FieldOrEvent := FieldVal400;
+FieldVal400.ParentInterfaceDeclaration := FieldDecl400;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart48;
 begin
-FieldDecl400.FieldOrEvent := FieldVal400;
-FieldVal400.ParentInterfaceDeclaration := FieldDecl400;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl400);
 FieldVal401 := TSFRotation.CreateEvent(nil, 'r_pinky2_changed', False);
 FieldDecl401 := TX3DInterfaceDeclaration.Create(nil);
@@ -3589,12 +3587,12 @@ FieldVal407.ParentInterfaceDeclaration := FieldDecl407;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl407);
 FieldVal408 := TMFFloat.CreateUndefined(nil, True, 'r_pinky_metacarpal_key');
 FieldDecl408 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl408.FieldOrEvent := FieldVal408;
+FieldVal408.ParentInterfaceDeclaration := FieldDecl408;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart49;
 begin
-FieldDecl408.FieldOrEvent := FieldVal408;
-FieldVal408.ParentInterfaceDeclaration := FieldDecl408;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl408);
 FieldVal409 := TMFRotation.CreateUndefined(nil, True, 'r_pinky_metacarpal_keyValue');
 FieldDecl409 := TX3DInterfaceDeclaration.Create(nil);
@@ -3633,12 +3631,12 @@ FieldVal415.ParentInterfaceDeclaration := FieldDecl415;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl415);
 FieldVal416 := TSFRotation.CreateEvent(nil, 'r_pinky_proximal_changed', False);
 FieldDecl416 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl416.FieldOrEvent := FieldVal416;
+FieldVal416.ParentInterfaceDeclaration := FieldDecl416;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart50;
 begin
-FieldDecl416.FieldOrEvent := FieldVal416;
-FieldVal416.ParentInterfaceDeclaration := FieldDecl416;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl416);
 FieldVal417 := TMFFloat.CreateUndefined(nil, True, 'r_ring0_key');
 FieldDecl417 := TX3DInterfaceDeclaration.Create(nil);
@@ -3677,12 +3675,12 @@ FieldVal423.ParentInterfaceDeclaration := FieldDecl423;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl423);
 FieldVal424 := TMFRotation.CreateUndefined(nil, True, 'r_ring2_keyValue');
 FieldDecl424 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl424.FieldOrEvent := FieldVal424;
+FieldVal424.ParentInterfaceDeclaration := FieldDecl424;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart51;
 begin
-FieldDecl424.FieldOrEvent := FieldVal424;
-FieldVal424.ParentInterfaceDeclaration := FieldDecl424;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl424);
 FieldVal425 := TSFRotation.CreateEvent(nil, 'r_ring2_changed', False);
 FieldDecl425 := TX3DInterfaceDeclaration.Create(nil);
@@ -3721,12 +3719,12 @@ FieldVal431.ParentInterfaceDeclaration := FieldDecl431;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl431);
 FieldVal432 := TMFFloat.CreateUndefined(nil, True, 'r_ring_metacarpal_key');
 FieldDecl432 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl432.FieldOrEvent := FieldVal432;
+FieldVal432.ParentInterfaceDeclaration := FieldDecl432;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart52;
 begin
-FieldDecl432.FieldOrEvent := FieldVal432;
-FieldVal432.ParentInterfaceDeclaration := FieldDecl432;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl432);
 FieldVal433 := TMFRotation.CreateUndefined(nil, True, 'r_ring_metacarpal_keyValue');
 FieldDecl433 := TX3DInterfaceDeclaration.Create(nil);
@@ -3765,12 +3763,12 @@ FieldVal439.ParentInterfaceDeclaration := FieldDecl439;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl439);
 FieldVal440 := TSFRotation.CreateEvent(nil, 'r_ring_proximal_changed', False);
 FieldDecl440 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl440.FieldOrEvent := FieldVal440;
+FieldVal440.ParentInterfaceDeclaration := FieldDecl440;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart53;
 begin
-FieldDecl440.FieldOrEvent := FieldVal440;
-FieldVal440.ParentInterfaceDeclaration := FieldDecl440;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl440);
 FieldVal441 := TMFFloat.CreateUndefined(nil, True, 'r_scapula_key');
 FieldDecl441 := TX3DInterfaceDeclaration.Create(nil);
@@ -3809,12 +3807,12 @@ FieldVal447.ParentInterfaceDeclaration := FieldDecl447;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl447);
 FieldVal448 := TMFRotation.CreateUndefined(nil, True, 'r_sternoclavicular_keyValue');
 FieldDecl448 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl448.FieldOrEvent := FieldVal448;
+FieldVal448.ParentInterfaceDeclaration := FieldDecl448;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart54;
 begin
-FieldDecl448.FieldOrEvent := FieldVal448;
-FieldVal448.ParentInterfaceDeclaration := FieldDecl448;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl448);
 FieldVal449 := TSFRotation.CreateEvent(nil, 'r_sternoclavicular_changed', False);
 FieldDecl449 := TX3DInterfaceDeclaration.Create(nil);
@@ -3853,12 +3851,12 @@ FieldVal455.ParentInterfaceDeclaration := FieldDecl455;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl455);
 FieldVal456 := TMFFloat.CreateUndefined(nil, True, 'r_thumb1_key');
 FieldDecl456 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl456.FieldOrEvent := FieldVal456;
+FieldVal456.ParentInterfaceDeclaration := FieldDecl456;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart55;
 begin
-FieldDecl456.FieldOrEvent := FieldVal456;
-FieldVal456.ParentInterfaceDeclaration := FieldDecl456;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl456);
 FieldVal457 := TMFRotation.CreateUndefined(nil, True, 'r_thumb1_keyValue');
 FieldDecl457 := TX3DInterfaceDeclaration.Create(nil);
@@ -3897,12 +3895,12 @@ FieldVal463.ParentInterfaceDeclaration := FieldDecl463;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl463);
 FieldVal464 := TSFRotation.CreateEvent(nil, 'r_thumb3_changed', False);
 FieldDecl464 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl464.FieldOrEvent := FieldVal464;
+FieldVal464.ParentInterfaceDeclaration := FieldDecl464;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart56;
 begin
-FieldDecl464.FieldOrEvent := FieldVal464;
-FieldVal464.ParentInterfaceDeclaration := FieldDecl464;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl464);
 FieldVal465 := TMFFloat.CreateUndefined(nil, True, 'r_thumb_distal_key');
 FieldDecl465 := TX3DInterfaceDeclaration.Create(nil);
@@ -3941,12 +3939,12 @@ FieldVal471.ParentInterfaceDeclaration := FieldDecl471;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl471);
 FieldVal472 := TMFRotation.CreateUndefined(nil, True, 'r_thumb_proximal_keyValue');
 FieldDecl472 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl472.FieldOrEvent := FieldVal472;
+FieldVal472.ParentInterfaceDeclaration := FieldDecl472;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart57;
 begin
-FieldDecl472.FieldOrEvent := FieldVal472;
-FieldVal472.ParentInterfaceDeclaration := FieldDecl472;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl472);
 FieldVal473 := TSFRotation.CreateEvent(nil, 'r_thumb_proximal_changed', False);
 FieldDecl473 := TX3DInterfaceDeclaration.Create(nil);
@@ -3985,12 +3983,12 @@ FieldVal479.ParentInterfaceDeclaration := FieldDecl479;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl479);
 FieldVal480 := TMFFloat.CreateUndefined(nil, True, 'sacroiliac_key');
 FieldDecl480 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl480.FieldOrEvent := FieldVal480;
+FieldVal480.ParentInterfaceDeclaration := FieldDecl480;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart58;
 begin
-FieldDecl480.FieldOrEvent := FieldVal480;
-FieldVal480.ParentInterfaceDeclaration := FieldDecl480;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl480);
 FieldVal481 := TMFRotation.CreateUndefined(nil, True, 'sacroiliac_keyValue');
 FieldDecl481 := TX3DInterfaceDeclaration.Create(nil);
@@ -4029,12 +4027,12 @@ FieldVal487.ParentInterfaceDeclaration := FieldDecl487;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl487);
 FieldVal488 := TSFRotation.CreateEvent(nil, 'skull_changed', False);
 FieldDecl488 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl488.FieldOrEvent := FieldVal488;
+FieldVal488.ParentInterfaceDeclaration := FieldDecl488;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart59;
 begin
-FieldDecl488.FieldOrEvent := FieldVal488;
-FieldVal488.ParentInterfaceDeclaration := FieldDecl488;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl488);
 FieldVal489 := TMFFloat.CreateUndefined(nil, True, 'skullbase_key');
 FieldDecl489 := TX3DInterfaceDeclaration.Create(nil);
@@ -4073,12 +4071,12 @@ FieldVal495.ParentInterfaceDeclaration := FieldDecl495;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl495);
 FieldVal496 := TMFRotation.CreateUndefined(nil, True, 't11_keyValue');
 FieldDecl496 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl496.FieldOrEvent := FieldVal496;
+FieldVal496.ParentInterfaceDeclaration := FieldDecl496;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart60;
 begin
-FieldDecl496.FieldOrEvent := FieldVal496;
-FieldVal496.ParentInterfaceDeclaration := FieldDecl496;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl496);
 FieldVal497 := TSFRotation.CreateEvent(nil, 't11_changed', False);
 FieldDecl497 := TX3DInterfaceDeclaration.Create(nil);
@@ -4117,12 +4115,12 @@ FieldVal503.ParentInterfaceDeclaration := FieldDecl503;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl503);
 FieldVal504 := TMFFloat.CreateUndefined(nil, True, 't2_key');
 FieldDecl504 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl504.FieldOrEvent := FieldVal504;
+FieldVal504.ParentInterfaceDeclaration := FieldDecl504;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart61;
 begin
-FieldDecl504.FieldOrEvent := FieldVal504;
-FieldVal504.ParentInterfaceDeclaration := FieldDecl504;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl504);
 FieldVal505 := TMFRotation.CreateUndefined(nil, True, 't2_keyValue');
 FieldDecl505 := TX3DInterfaceDeclaration.Create(nil);
@@ -4161,12 +4159,12 @@ FieldVal511.ParentInterfaceDeclaration := FieldDecl511;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl511);
 FieldVal512 := TSFRotation.CreateEvent(nil, 't4_changed', False);
 FieldDecl512 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl512.FieldOrEvent := FieldVal512;
+FieldVal512.ParentInterfaceDeclaration := FieldDecl512;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart62;
 begin
-FieldDecl512.FieldOrEvent := FieldVal512;
-FieldVal512.ParentInterfaceDeclaration := FieldDecl512;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl512);
 FieldVal513 := TMFFloat.CreateUndefined(nil, True, 't5_key');
 FieldDecl513 := TX3DInterfaceDeclaration.Create(nil);
@@ -4205,12 +4203,12 @@ FieldVal519.ParentInterfaceDeclaration := FieldDecl519;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl519);
 FieldVal520 := TMFRotation.CreateUndefined(nil, True, 't7_keyValue');
 FieldDecl520 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl520.FieldOrEvent := FieldVal520;
+FieldVal520.ParentInterfaceDeclaration := FieldDecl520;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart63;
 begin
-FieldDecl520.FieldOrEvent := FieldVal520;
-FieldVal520.ParentInterfaceDeclaration := FieldDecl520;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl520);
 FieldVal521 := TSFRotation.CreateEvent(nil, 't7_changed', False);
 FieldDecl521 := TX3DInterfaceDeclaration.Create(nil);
@@ -4249,12 +4247,12 @@ FieldVal527.ParentInterfaceDeclaration := FieldDecl527;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl527);
 FieldVal528 := TMFFloat.CreateUndefined(nil, True, 'temporomandibular_key');
 FieldDecl528 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl528.FieldOrEvent := FieldVal528;
+FieldVal528.ParentInterfaceDeclaration := FieldDecl528;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart64;
 begin
-FieldDecl528.FieldOrEvent := FieldVal528;
-FieldVal528.ParentInterfaceDeclaration := FieldDecl528;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl528);
 FieldVal529 := TMFRotation.CreateUndefined(nil, True, 'temporomandibular_keyValue');
 FieldDecl529 := TX3DInterfaceDeclaration.Create(nil);
@@ -4293,12 +4291,12 @@ FieldVal535.ParentInterfaceDeclaration := FieldDecl535;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl535);
 FieldVal536 := TSFRotation.CreateEvent(nil, 'vc2_changed', False);
 FieldDecl536 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl536.FieldOrEvent := FieldVal536;
+FieldVal536.ParentInterfaceDeclaration := FieldDecl536;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart65;
 begin
-FieldDecl536.FieldOrEvent := FieldVal536;
-FieldVal536.ParentInterfaceDeclaration := FieldDecl536;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl536);
 FieldVal537 := TMFFloat.CreateUndefined(nil, True, 'vc3_key');
 FieldDecl537 := TX3DInterfaceDeclaration.Create(nil);
@@ -4337,12 +4335,12 @@ FieldVal543.ParentInterfaceDeclaration := FieldDecl543;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl543);
 FieldVal544 := TMFRotation.CreateUndefined(nil, True, 'vc5_keyValue');
 FieldDecl544 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl544.FieldOrEvent := FieldVal544;
+FieldVal544.ParentInterfaceDeclaration := FieldDecl544;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart66;
 begin
-FieldDecl544.FieldOrEvent := FieldVal544;
-FieldVal544.ParentInterfaceDeclaration := FieldDecl544;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl544);
 FieldVal545 := TSFRotation.CreateEvent(nil, 'vc5_changed', False);
 FieldDecl545 := TX3DInterfaceDeclaration.Create(nil);
@@ -4381,12 +4379,12 @@ FieldVal551.ParentInterfaceDeclaration := FieldDecl551;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl551);
 FieldVal552 := TMFFloat.CreateUndefined(nil, True, 'vl1_key');
 FieldDecl552 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl552.FieldOrEvent := FieldVal552;
+FieldVal552.ParentInterfaceDeclaration := FieldDecl552;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart67;
 begin
-FieldDecl552.FieldOrEvent := FieldVal552;
-FieldVal552.ParentInterfaceDeclaration := FieldDecl552;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl552);
 FieldVal553 := TMFRotation.CreateUndefined(nil, True, 'vl1_keyValue');
 FieldDecl553 := TX3DInterfaceDeclaration.Create(nil);
@@ -4425,12 +4423,12 @@ FieldVal559.ParentInterfaceDeclaration := FieldDecl559;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl559);
 FieldVal560 := TSFRotation.CreateEvent(nil, 'vl3_changed', False);
 FieldDecl560 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl560.FieldOrEvent := FieldVal560;
+FieldVal560.ParentInterfaceDeclaration := FieldDecl560;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart68;
 begin
-FieldDecl560.FieldOrEvent := FieldVal560;
-FieldVal560.ParentInterfaceDeclaration := FieldDecl560;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl560);
 FieldVal561 := TMFFloat.CreateUndefined(nil, True, 'vl4_key');
 FieldDecl561 := TX3DInterfaceDeclaration.Create(nil);
@@ -4469,12 +4467,12 @@ FieldVal567.ParentInterfaceDeclaration := FieldDecl567;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl567);
 FieldVal568 := TMFRotation.CreateUndefined(nil, True, 'vt10_keyValue');
 FieldDecl568 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl568.FieldOrEvent := FieldVal568;
+FieldVal568.ParentInterfaceDeclaration := FieldDecl568;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart69;
 begin
-FieldDecl568.FieldOrEvent := FieldVal568;
-FieldVal568.ParentInterfaceDeclaration := FieldDecl568;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl568);
 FieldVal569 := TSFRotation.CreateEvent(nil, 'vt10_changed', False);
 FieldDecl569 := TX3DInterfaceDeclaration.Create(nil);
@@ -4513,12 +4511,12 @@ FieldVal575.ParentInterfaceDeclaration := FieldDecl575;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl575);
 FieldVal576 := TMFFloat.CreateUndefined(nil, True, 'vt1_key');
 FieldDecl576 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl576.FieldOrEvent := FieldVal576;
+FieldVal576.ParentInterfaceDeclaration := FieldDecl576;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart70;
 begin
-FieldDecl576.FieldOrEvent := FieldVal576;
-FieldVal576.ParentInterfaceDeclaration := FieldDecl576;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl576);
 FieldVal577 := TMFRotation.CreateUndefined(nil, True, 'vt1_keyValue');
 FieldDecl577 := TX3DInterfaceDeclaration.Create(nil);
@@ -4557,12 +4555,12 @@ FieldVal583.ParentInterfaceDeclaration := FieldDecl583;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl583);
 FieldVal584 := TSFRotation.CreateEvent(nil, 'vt3_changed', False);
 FieldDecl584 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl584.FieldOrEvent := FieldVal584;
+FieldVal584.ParentInterfaceDeclaration := FieldDecl584;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart71;
 begin
-FieldDecl584.FieldOrEvent := FieldVal584;
-FieldVal584.ParentInterfaceDeclaration := FieldDecl584;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl584);
 FieldVal585 := TMFFloat.CreateUndefined(nil, True, 'vt4_key');
 FieldDecl585 := TX3DInterfaceDeclaration.Create(nil);
@@ -4601,12 +4599,12 @@ FieldVal591.ParentInterfaceDeclaration := FieldDecl591;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl591);
 FieldVal592 := TMFRotation.CreateUndefined(nil, True, 'vt6_keyValue');
 FieldDecl592 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl592.FieldOrEvent := FieldVal592;
+FieldVal592.ParentInterfaceDeclaration := FieldDecl592;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart72;
 begin
-FieldDecl592.FieldOrEvent := FieldVal592;
-FieldVal592.ParentInterfaceDeclaration := FieldDecl592;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl592);
 FieldVal593 := TSFRotation.CreateEvent(nil, 'vt6_changed', False);
 FieldDecl593 := TX3DInterfaceDeclaration.Create(nil);
@@ -4645,12 +4643,12 @@ FieldVal599.ParentInterfaceDeclaration := FieldDecl599;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl599);
 FieldVal600 := TMFFloat.CreateUndefined(nil, True, 'vt9_key');
 FieldDecl600 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl600.FieldOrEvent := FieldVal600;
+FieldVal600.ParentInterfaceDeclaration := FieldDecl600;
 end;
 
 procedure InitHAnimBehaviorPrototypesPart73;
 begin
-FieldDecl600.FieldOrEvent := FieldVal600;
-FieldVal600.ParentInterfaceDeclaration := FieldDecl600;
 ProtoDeclare20.InterfaceDeclarations.Add(FieldDecl600);
 FieldVal601 := TMFRotation.CreateUndefined(nil, True, 'vt9_keyValue');
 FieldDecl601 := TX3DInterfaceDeclaration.Create(nil);
@@ -4689,12 +4687,12 @@ PositionInterpolator606 := TPositionInterpolatorNode.Create;
 PositionInterpolator606.X3DName := 'HumanoidRootPI';
 PositionInterpolator606.FieldOrEvent('key', True).IsClauseNamesAdd('HumanoidRoot_translation_key');
 PositionInterpolator606.FieldOrEvent('keyValue', True).IsClauseNamesAdd('HumanoidRoot_translation_keyValue');
+PositionInterpolator606.FieldOrEvent('value_changed', True).IsClauseNamesAdd('HumanoidRoot_translation_changed');
+ProtoDeclare20.Node.AddChildren([PositionInterpolator606]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart74;
 begin
-PositionInterpolator606.FieldOrEvent('value_changed', True).IsClauseNamesAdd('HumanoidRoot_translation_changed');
-ProtoDeclare20.Node.AddChildren([PositionInterpolator606]);
 { ROUTE BehaviorClock.fraction_changed TO HumanoidRootPI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, PositionInterpolator606.EventSet_fraction);
 OrientationInterpolator608 := TOrientationInterpolatorNode.Create;
@@ -4733,12 +4731,12 @@ OrientationInterpolator616 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator616.X3DName := 'c4_OI';
 OrientationInterpolator616.FieldOrEvent('key', True).IsClauseNamesAdd('c4_key');
 OrientationInterpolator616.FieldOrEvent('keyValue', True).IsClauseNamesAdd('c4_keyValue');
+OrientationInterpolator616.FieldOrEvent('value_changed', True).IsClauseNamesAdd('c4_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator616]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart75;
 begin
-OrientationInterpolator616.FieldOrEvent('value_changed', True).IsClauseNamesAdd('c4_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator616]);
 { ROUTE BehaviorClock.fraction_changed TO c4_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator616.EventSet_fraction);
 OrientationInterpolator618 := TOrientationInterpolatorNode.Create;
@@ -4777,12 +4775,12 @@ OrientationInterpolator626 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator626.X3DName := 'l1_OI';
 OrientationInterpolator626.FieldOrEvent('key', True).IsClauseNamesAdd('l1_key');
 OrientationInterpolator626.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l1_keyValue');
+OrientationInterpolator626.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l1_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator626]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart76;
 begin
-OrientationInterpolator626.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l1_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator626]);
 { ROUTE BehaviorClock.fraction_changed TO l1_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator626.EventSet_fraction);
 OrientationInterpolator628 := TOrientationInterpolatorNode.Create;
@@ -4821,12 +4819,12 @@ OrientationInterpolator636 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator636.X3DName := 'l_acromioclavicular_OI';
 OrientationInterpolator636.FieldOrEvent('key', True).IsClauseNamesAdd('l_acromioclavicular_key');
 OrientationInterpolator636.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_acromioclavicular_keyValue');
+OrientationInterpolator636.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_acromioclavicular_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator636]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart77;
 begin
-OrientationInterpolator636.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_acromioclavicular_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator636]);
 { ROUTE BehaviorClock.fraction_changed TO l_acromioclavicular_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator636.EventSet_fraction);
 OrientationInterpolator638 := TOrientationInterpolatorNode.Create;
@@ -4865,12 +4863,12 @@ OrientationInterpolator646 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator646.X3DName := 'l_eyeball_OI';
 OrientationInterpolator646.FieldOrEvent('key', True).IsClauseNamesAdd('l_eyeball_key');
 OrientationInterpolator646.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_eyeball_keyValue');
+OrientationInterpolator646.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_eyeball_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator646]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart78;
 begin
-OrientationInterpolator646.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_eyeball_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator646]);
 { ROUTE BehaviorClock.fraction_changed TO l_eyeball_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator646.EventSet_fraction);
 OrientationInterpolator648 := TOrientationInterpolatorNode.Create;
@@ -4909,12 +4907,12 @@ OrientationInterpolator656 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator656.X3DName := 'l_eyelid_joint_OI';
 OrientationInterpolator656.FieldOrEvent('key', True).IsClauseNamesAdd('l_eyelid_joint_key');
 OrientationInterpolator656.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_eyelid_joint_keyValue');
+OrientationInterpolator656.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_eyelid_joint_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator656]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart79;
 begin
-OrientationInterpolator656.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_eyelid_joint_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator656]);
 { ROUTE BehaviorClock.fraction_changed TO l_eyelid_joint_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator656.EventSet_fraction);
 OrientationInterpolator658 := TOrientationInterpolatorNode.Create;
@@ -4953,12 +4951,12 @@ OrientationInterpolator666 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator666.X3DName := 'l_hip_OI';
 OrientationInterpolator666.FieldOrEvent('key', True).IsClauseNamesAdd('l_hip_key');
 OrientationInterpolator666.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_hip_keyValue');
+OrientationInterpolator666.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_hip_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator666]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart80;
 begin
-OrientationInterpolator666.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_hip_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator666]);
 { ROUTE BehaviorClock.fraction_changed TO l_hip_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator666.EventSet_fraction);
 OrientationInterpolator668 := TOrientationInterpolatorNode.Create;
@@ -4997,12 +4995,12 @@ OrientationInterpolator676 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator676.X3DName := 'l_index_distal_OI';
 OrientationInterpolator676.FieldOrEvent('key', True).IsClauseNamesAdd('l_index_distal_key');
 OrientationInterpolator676.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_index_distal_keyValue');
+OrientationInterpolator676.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_index_distal_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator676]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart81;
 begin
-OrientationInterpolator676.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_index_distal_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator676]);
 { ROUTE BehaviorClock.fraction_changed TO l_index_distal_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator676.EventSet_fraction);
 OrientationInterpolator678 := TOrientationInterpolatorNode.Create;
@@ -5041,12 +5039,12 @@ OrientationInterpolator686 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator686.X3DName := 'l_metatarsal_OI';
 OrientationInterpolator686.FieldOrEvent('key', True).IsClauseNamesAdd('l_metatarsal_key');
 OrientationInterpolator686.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_metatarsal_keyValue');
+OrientationInterpolator686.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_metatarsal_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator686]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart82;
 begin
-OrientationInterpolator686.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_metatarsal_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator686]);
 { ROUTE BehaviorClock.fraction_changed TO l_metatarsal_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator686.EventSet_fraction);
 OrientationInterpolator688 := TOrientationInterpolatorNode.Create;
@@ -5085,12 +5083,12 @@ OrientationInterpolator696 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator696.X3DName := 'l_middle3_OI';
 OrientationInterpolator696.FieldOrEvent('key', True).IsClauseNamesAdd('l_middle3_key');
 OrientationInterpolator696.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_middle3_keyValue');
+OrientationInterpolator696.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_middle3_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator696]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart83;
 begin
-OrientationInterpolator696.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_middle3_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator696]);
 { ROUTE BehaviorClock.fraction_changed TO l_middle3_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator696.EventSet_fraction);
 OrientationInterpolator698 := TOrientationInterpolatorNode.Create;
@@ -5129,12 +5127,12 @@ OrientationInterpolator706 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator706.X3DName := 'l_midproximal_OI';
 OrientationInterpolator706.FieldOrEvent('key', True).IsClauseNamesAdd('l_midproximal_key');
 OrientationInterpolator706.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_midproximal_keyValue');
+OrientationInterpolator706.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_midproximal_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator706]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart84;
 begin
-OrientationInterpolator706.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_midproximal_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator706]);
 { ROUTE BehaviorClock.fraction_changed TO l_midproximal_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator706.EventSet_fraction);
 OrientationInterpolator708 := TOrientationInterpolatorNode.Create;
@@ -5173,12 +5171,12 @@ OrientationInterpolator716 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator716.X3DName := 'l_pinky3_OI';
 OrientationInterpolator716.FieldOrEvent('key', True).IsClauseNamesAdd('l_pinky3_key');
 OrientationInterpolator716.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_pinky3_keyValue');
+OrientationInterpolator716.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_pinky3_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator716]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart85;
 begin
-OrientationInterpolator716.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_pinky3_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator716]);
 { ROUTE BehaviorClock.fraction_changed TO l_pinky3_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator716.EventSet_fraction);
 OrientationInterpolator718 := TOrientationInterpolatorNode.Create;
@@ -5217,12 +5215,12 @@ OrientationInterpolator726 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator726.X3DName := 'l_ring0_OI';
 OrientationInterpolator726.FieldOrEvent('key', True).IsClauseNamesAdd('l_ring0_key');
 OrientationInterpolator726.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_ring0_keyValue');
+OrientationInterpolator726.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_ring0_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator726]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart86;
 begin
-OrientationInterpolator726.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_ring0_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator726]);
 { ROUTE BehaviorClock.fraction_changed TO l_ring0_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator726.EventSet_fraction);
 OrientationInterpolator728 := TOrientationInterpolatorNode.Create;
@@ -5261,12 +5259,12 @@ OrientationInterpolator736 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator736.X3DName := 'l_ring_metacarpal_OI';
 OrientationInterpolator736.FieldOrEvent('key', True).IsClauseNamesAdd('l_ring_metacarpal_key');
 OrientationInterpolator736.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_ring_metacarpal_keyValue');
+OrientationInterpolator736.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_ring_metacarpal_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator736]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart87;
 begin
-OrientationInterpolator736.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_ring_metacarpal_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator736]);
 { ROUTE BehaviorClock.fraction_changed TO l_ring_metacarpal_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator736.EventSet_fraction);
 OrientationInterpolator738 := TOrientationInterpolatorNode.Create;
@@ -5305,12 +5303,12 @@ OrientationInterpolator746 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator746.X3DName := 'l_sternoclavicular_OI';
 OrientationInterpolator746.FieldOrEvent('key', True).IsClauseNamesAdd('l_sternoclavicular_key');
 OrientationInterpolator746.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_sternoclavicular_keyValue');
+OrientationInterpolator746.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_sternoclavicular_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator746]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart88;
 begin
-OrientationInterpolator746.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_sternoclavicular_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator746]);
 { ROUTE BehaviorClock.fraction_changed TO l_sternoclavicular_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator746.EventSet_fraction);
 OrientationInterpolator748 := TOrientationInterpolatorNode.Create;
@@ -5349,12 +5347,12 @@ OrientationInterpolator756 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator756.X3DName := 'l_thumb3_OI';
 OrientationInterpolator756.FieldOrEvent('key', True).IsClauseNamesAdd('l_thumb3_key');
 OrientationInterpolator756.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_thumb3_keyValue');
+OrientationInterpolator756.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_thumb3_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator756]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart89;
 begin
-OrientationInterpolator756.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_thumb3_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator756]);
 { ROUTE BehaviorClock.fraction_changed TO l_thumb3_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator756.EventSet_fraction);
 OrientationInterpolator758 := TOrientationInterpolatorNode.Create;
@@ -5393,12 +5391,12 @@ OrientationInterpolator766 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator766.X3DName := 'l_wrist_OI';
 OrientationInterpolator766.FieldOrEvent('key', True).IsClauseNamesAdd('l_wrist_key');
 OrientationInterpolator766.FieldOrEvent('keyValue', True).IsClauseNamesAdd('l_wrist_keyValue');
+OrientationInterpolator766.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_wrist_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator766]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart90;
 begin
-OrientationInterpolator766.FieldOrEvent('value_changed', True).IsClauseNamesAdd('l_wrist_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator766]);
 { ROUTE BehaviorClock.fraction_changed TO l_wrist_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator766.EventSet_fraction);
 OrientationInterpolator768 := TOrientationInterpolatorNode.Create;
@@ -5437,12 +5435,12 @@ OrientationInterpolator776 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator776.X3DName := 'r_clavicle_OI';
 OrientationInterpolator776.FieldOrEvent('key', True).IsClauseNamesAdd('r_clavicle_key');
 OrientationInterpolator776.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_clavicle_keyValue');
+OrientationInterpolator776.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_clavicle_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator776]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart91;
 begin
-OrientationInterpolator776.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_clavicle_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator776]);
 { ROUTE BehaviorClock.fraction_changed TO r_clavicle_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator776.EventSet_fraction);
 OrientationInterpolator778 := TOrientationInterpolatorNode.Create;
@@ -5481,12 +5479,12 @@ OrientationInterpolator786 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator786.X3DName := 'r_eyebrow_joint_OI';
 OrientationInterpolator786.FieldOrEvent('key', True).IsClauseNamesAdd('r_eyebrow_joint_key');
 OrientationInterpolator786.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_eyebrow_joint_keyValue');
+OrientationInterpolator786.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_eyebrow_joint_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator786]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart92;
 begin
-OrientationInterpolator786.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_eyebrow_joint_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator786]);
 { ROUTE BehaviorClock.fraction_changed TO r_eyebrow_joint_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator786.EventSet_fraction);
 OrientationInterpolator788 := TOrientationInterpolatorNode.Create;
@@ -5525,12 +5523,12 @@ OrientationInterpolator796 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator796.X3DName := 'r_hand_OI';
 OrientationInterpolator796.FieldOrEvent('key', True).IsClauseNamesAdd('r_hand_key');
 OrientationInterpolator796.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_hand_keyValue');
+OrientationInterpolator796.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_hand_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator796]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart93;
 begin
-OrientationInterpolator796.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_hand_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator796]);
 { ROUTE BehaviorClock.fraction_changed TO r_hand_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator796.EventSet_fraction);
 OrientationInterpolator798 := TOrientationInterpolatorNode.Create;
@@ -5569,12 +5567,12 @@ OrientationInterpolator806 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator806.X3DName := 'r_index2_OI';
 OrientationInterpolator806.FieldOrEvent('key', True).IsClauseNamesAdd('r_index2_key');
 OrientationInterpolator806.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_index2_keyValue');
+OrientationInterpolator806.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_index2_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator806]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart94;
 begin
-OrientationInterpolator806.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_index2_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator806]);
 { ROUTE BehaviorClock.fraction_changed TO r_index2_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator806.EventSet_fraction);
 OrientationInterpolator808 := TOrientationInterpolatorNode.Create;
@@ -5613,12 +5611,12 @@ OrientationInterpolator816 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator816.X3DName := 'r_index_proximal_OI';
 OrientationInterpolator816.FieldOrEvent('key', True).IsClauseNamesAdd('r_index_proximal_key');
 OrientationInterpolator816.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_index_proximal_keyValue');
+OrientationInterpolator816.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_index_proximal_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator816]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart95;
 begin
-OrientationInterpolator816.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_index_proximal_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator816]);
 { ROUTE BehaviorClock.fraction_changed TO r_index_proximal_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator816.EventSet_fraction);
 OrientationInterpolator818 := TOrientationInterpolatorNode.Create;
@@ -5657,12 +5655,12 @@ OrientationInterpolator826 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator826.X3DName := 'r_middle1_OI';
 OrientationInterpolator826.FieldOrEvent('key', True).IsClauseNamesAdd('r_middle1_key');
 OrientationInterpolator826.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_middle1_keyValue');
+OrientationInterpolator826.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_middle1_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator826]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart96;
 begin
-OrientationInterpolator826.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_middle1_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator826]);
 { ROUTE BehaviorClock.fraction_changed TO r_middle1_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator826.EventSet_fraction);
 OrientationInterpolator828 := TOrientationInterpolatorNode.Create;
@@ -5701,12 +5699,12 @@ OrientationInterpolator836 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator836.X3DName := 'r_middle_middle_OI';
 OrientationInterpolator836.FieldOrEvent('key', True).IsClauseNamesAdd('r_middle_middle_key');
 OrientationInterpolator836.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_middle_middle_keyValue');
+OrientationInterpolator836.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_middle_middle_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator836]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart97;
 begin
-OrientationInterpolator836.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_middle_middle_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator836]);
 { ROUTE BehaviorClock.fraction_changed TO r_middle_middle_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator836.EventSet_fraction);
 OrientationInterpolator838 := TOrientationInterpolatorNode.Create;
@@ -5745,12 +5743,12 @@ OrientationInterpolator846 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator846.X3DName := 'r_pinky1_OI';
 OrientationInterpolator846.FieldOrEvent('key', True).IsClauseNamesAdd('r_pinky1_key');
 OrientationInterpolator846.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_pinky1_keyValue');
+OrientationInterpolator846.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_pinky1_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator846]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart98;
 begin
-OrientationInterpolator846.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_pinky1_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator846]);
 { ROUTE BehaviorClock.fraction_changed TO r_pinky1_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator846.EventSet_fraction);
 OrientationInterpolator848 := TOrientationInterpolatorNode.Create;
@@ -5789,12 +5787,12 @@ OrientationInterpolator856 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator856.X3DName := 'r_pinky_middle_OI';
 OrientationInterpolator856.FieldOrEvent('key', True).IsClauseNamesAdd('r_pinky_middle_key');
 OrientationInterpolator856.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_pinky_middle_keyValue');
+OrientationInterpolator856.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_pinky_middle_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator856]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart99;
 begin
-OrientationInterpolator856.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_pinky_middle_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator856]);
 { ROUTE BehaviorClock.fraction_changed TO r_pinky_middle_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator856.EventSet_fraction);
 OrientationInterpolator858 := TOrientationInterpolatorNode.Create;
@@ -5833,12 +5831,12 @@ OrientationInterpolator866 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator866.X3DName := 'r_ring3_OI';
 OrientationInterpolator866.FieldOrEvent('key', True).IsClauseNamesAdd('r_ring3_key');
 OrientationInterpolator866.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_ring3_keyValue');
+OrientationInterpolator866.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_ring3_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator866]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart100;
 begin
-OrientationInterpolator866.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_ring3_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator866]);
 { ROUTE BehaviorClock.fraction_changed TO r_ring3_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator866.EventSet_fraction);
 OrientationInterpolator868 := TOrientationInterpolatorNode.Create;
@@ -5877,12 +5875,12 @@ OrientationInterpolator876 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator876.X3DName := 'r_scapula_OI';
 OrientationInterpolator876.FieldOrEvent('key', True).IsClauseNamesAdd('r_scapula_key');
 OrientationInterpolator876.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_scapula_keyValue');
+OrientationInterpolator876.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_scapula_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator876]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart101;
 begin
-OrientationInterpolator876.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_scapula_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator876]);
 { ROUTE BehaviorClock.fraction_changed TO r_scapula_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator876.EventSet_fraction);
 OrientationInterpolator878 := TOrientationInterpolatorNode.Create;
@@ -5921,12 +5919,12 @@ OrientationInterpolator886 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator886.X3DName := 'r_thumb1_OI';
 OrientationInterpolator886.FieldOrEvent('key', True).IsClauseNamesAdd('r_thumb1_key');
 OrientationInterpolator886.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_thumb1_keyValue');
+OrientationInterpolator886.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_thumb1_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator886]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart102;
 begin
-OrientationInterpolator886.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_thumb1_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator886]);
 { ROUTE BehaviorClock.fraction_changed TO r_thumb1_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator886.EventSet_fraction);
 OrientationInterpolator888 := TOrientationInterpolatorNode.Create;
@@ -5965,12 +5963,12 @@ OrientationInterpolator896 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator896.X3DName := 'r_thumb_proximal_OI';
 OrientationInterpolator896.FieldOrEvent('key', True).IsClauseNamesAdd('r_thumb_proximal_key');
 OrientationInterpolator896.FieldOrEvent('keyValue', True).IsClauseNamesAdd('r_thumb_proximal_keyValue');
+OrientationInterpolator896.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_thumb_proximal_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator896]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart103;
 begin
-OrientationInterpolator896.FieldOrEvent('value_changed', True).IsClauseNamesAdd('r_thumb_proximal_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator896]);
 { ROUTE BehaviorClock.fraction_changed TO r_thumb_proximal_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator896.EventSet_fraction);
 OrientationInterpolator898 := TOrientationInterpolatorNode.Create;
@@ -6009,12 +6007,12 @@ OrientationInterpolator906 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator906.X3DName := 'skull_OI';
 OrientationInterpolator906.FieldOrEvent('key', True).IsClauseNamesAdd('skull_key');
 OrientationInterpolator906.FieldOrEvent('keyValue', True).IsClauseNamesAdd('skull_keyValue');
+OrientationInterpolator906.FieldOrEvent('value_changed', True).IsClauseNamesAdd('skull_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator906]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart104;
 begin
-OrientationInterpolator906.FieldOrEvent('value_changed', True).IsClauseNamesAdd('skull_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator906]);
 { ROUTE BehaviorClock.fraction_changed TO skull_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator906.EventSet_fraction);
 OrientationInterpolator908 := TOrientationInterpolatorNode.Create;
@@ -6053,12 +6051,12 @@ OrientationInterpolator916 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator916.X3DName := 't4_OI';
 OrientationInterpolator916.FieldOrEvent('key', True).IsClauseNamesAdd('t4_key');
 OrientationInterpolator916.FieldOrEvent('keyValue', True).IsClauseNamesAdd('t4_keyValue');
+OrientationInterpolator916.FieldOrEvent('value_changed', True).IsClauseNamesAdd('t4_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator916]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart105;
 begin
-OrientationInterpolator916.FieldOrEvent('value_changed', True).IsClauseNamesAdd('t4_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator916]);
 { ROUTE BehaviorClock.fraction_changed TO t4_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator916.EventSet_fraction);
 OrientationInterpolator918 := TOrientationInterpolatorNode.Create;
@@ -6097,12 +6095,12 @@ OrientationInterpolator926 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator926.X3DName := 't9_OI';
 OrientationInterpolator926.FieldOrEvent('key', True).IsClauseNamesAdd('t9_key');
 OrientationInterpolator926.FieldOrEvent('keyValue', True).IsClauseNamesAdd('t9_keyValue');
+OrientationInterpolator926.FieldOrEvent('value_changed', True).IsClauseNamesAdd('t9_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator926]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart106;
 begin
-OrientationInterpolator926.FieldOrEvent('value_changed', True).IsClauseNamesAdd('t9_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator926]);
 { ROUTE BehaviorClock.fraction_changed TO t9_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator926.EventSet_fraction);
 OrientationInterpolator928 := TOrientationInterpolatorNode.Create;
@@ -6141,12 +6139,12 @@ OrientationInterpolator936 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator936.X3DName := 'vc1_OI';
 OrientationInterpolator936.FieldOrEvent('key', True).IsClauseNamesAdd('vc1_key');
 OrientationInterpolator936.FieldOrEvent('keyValue', True).IsClauseNamesAdd('vc1_keyValue');
+OrientationInterpolator936.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vc1_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator936]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart107;
 begin
-OrientationInterpolator936.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vc1_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator936]);
 { ROUTE BehaviorClock.fraction_changed TO vc1_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator936.EventSet_fraction);
 OrientationInterpolator938 := TOrientationInterpolatorNode.Create;
@@ -6185,12 +6183,12 @@ OrientationInterpolator946 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator946.X3DName := 'vc6_OI';
 OrientationInterpolator946.FieldOrEvent('key', True).IsClauseNamesAdd('vc6_key');
 OrientationInterpolator946.FieldOrEvent('keyValue', True).IsClauseNamesAdd('vc6_keyValue');
+OrientationInterpolator946.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vc6_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator946]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart108;
 begin
-OrientationInterpolator946.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vc6_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator946]);
 { ROUTE BehaviorClock.fraction_changed TO vc6_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator946.EventSet_fraction);
 OrientationInterpolator948 := TOrientationInterpolatorNode.Create;
@@ -6229,12 +6227,12 @@ OrientationInterpolator956 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator956.X3DName := 'vl4_OI';
 OrientationInterpolator956.FieldOrEvent('key', True).IsClauseNamesAdd('vl4_key');
 OrientationInterpolator956.FieldOrEvent('keyValue', True).IsClauseNamesAdd('vl4_keyValue');
+OrientationInterpolator956.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vl4_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator956]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart109;
 begin
-OrientationInterpolator956.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vl4_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator956]);
 { ROUTE BehaviorClock.fraction_changed TO vl4_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator956.EventSet_fraction);
 OrientationInterpolator958 := TOrientationInterpolatorNode.Create;
@@ -6273,12 +6271,12 @@ OrientationInterpolator966 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator966.X3DName := 'vt4_OI';
 OrientationInterpolator966.FieldOrEvent('key', True).IsClauseNamesAdd('vt4_key');
 OrientationInterpolator966.FieldOrEvent('keyValue', True).IsClauseNamesAdd('vt4_keyValue');
+OrientationInterpolator966.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vt4_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator966]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart110;
 begin
-OrientationInterpolator966.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vt4_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator966]);
 { ROUTE BehaviorClock.fraction_changed TO vt4_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator966.EventSet_fraction);
 OrientationInterpolator968 := TOrientationInterpolatorNode.Create;
@@ -6317,12 +6315,12 @@ OrientationInterpolator976 := TOrientationInterpolatorNode.Create;
 OrientationInterpolator976.X3DName := 'vt9_OI';
 OrientationInterpolator976.FieldOrEvent('key', True).IsClauseNamesAdd('vt9_key');
 OrientationInterpolator976.FieldOrEvent('keyValue', True).IsClauseNamesAdd('vt9_keyValue');
+OrientationInterpolator976.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vt9_changed');
+ProtoDeclare20.Node.AddChildren([OrientationInterpolator976]);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart111;
 begin
-OrientationInterpolator976.FieldOrEvent('value_changed', True).IsClauseNamesAdd('vt9_changed');
-ProtoDeclare20.Node.AddChildren([OrientationInterpolator976]);
 { ROUTE BehaviorClock.fraction_changed TO vt9_OI.set_fraction }
 ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInterpolator976.EventSet_fraction);
 OrientationInterpolator978 := TOrientationInterpolatorNode.Create;
@@ -6352,7 +6350,6 @@ ProtoDeclare20.Node.AddRoute(TimeSensor604.EventFraction_changed, OrientationInt
 X3D0.AddPrototype(ProtoDeclare20);
 ProtoDeclare984 := CreateEmptyPrototype('HAnimBodyBehaviorChooser');
 ProtoDeclare984.X3DName := 'HAnimBodyBehaviorChooser';
-ProtoDeclare984.Appinfo := 'The HAnimBodyBehaviorChooser node allows an author to select one of several HAnimHumanoid bodies and simultaneously apply multiple HAnimBehavior animations to the active body. Individual behaviors may be enabled or disabled at any time.';
 FieldVal986 := TSFInt32.Create(nil, True, 'supportedLOA', -1);
 FieldDecl986 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl986.FieldOrEvent := FieldVal986;
@@ -6361,13 +6358,13 @@ ProtoDeclare984.InterfaceDeclarations.Add(FieldDecl986);
 FieldVal987 := TMFNode.CreateUndefined(nil, False, 'HumanoidArray');
 FieldDecl987 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl987.FieldOrEvent := FieldVal987;
+FieldVal987.ParentInterfaceDeclaration := FieldDecl987;
+ProtoDeclare984.InterfaceDeclarations.Add(FieldDecl987);
+FieldVal988 := TSFInt32.Create(nil, False, 'whichBody', -1);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart112;
 begin
-FieldVal987.ParentInterfaceDeclaration := FieldDecl987;
-ProtoDeclare984.InterfaceDeclarations.Add(FieldDecl987);
-FieldVal988 := TSFInt32.Create(nil, False, 'whichBody', -1);
 FieldDecl988 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl988.FieldOrEvent := FieldVal988;
 FieldVal988.ParentInterfaceDeclaration := FieldDecl988;
@@ -6405,13 +6402,13 @@ ProtoDeclare984.InterfaceDeclarations.Add(FieldDecl994);
 FieldVal995 := TSFTime.Create(nil, True, 'startTime', 0);
 FieldDecl995 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl995.FieldOrEvent := FieldVal995;
+FieldVal995.ParentInterfaceDeclaration := FieldDecl995;
+ProtoDeclare984.InterfaceDeclarations.Add(FieldDecl995);
+FieldVal996 := TSFTime.Create(nil, True, 'stopTime', 0);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart113;
 begin
-FieldVal995.ParentInterfaceDeclaration := FieldDecl995;
-ProtoDeclare984.InterfaceDeclarations.Add(FieldDecl995);
-FieldVal996 := TSFTime.Create(nil, True, 'stopTime', 0);
 FieldDecl996 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl996.FieldOrEvent := FieldVal996;
 FieldVal996.ParentInterfaceDeclaration := FieldDecl996;
@@ -6449,13 +6446,13 @@ FieldVal1005 := TSFInt32.CreateEvent(Script1002, 'set_whichBody', True);
 Script1002.AddCustomFieldOrEvent(FieldVal1005);
 FieldVal1006 := TSFInt32.CreateEvent(Script1002, 'whichBody_changed', False);
 Script1002.AddCustomFieldOrEvent(FieldVal1006);
+FieldVal1007 := TMFNode.CreateUndefined(Script1002, False, 'hAnimBehaviorNodes');
+Script1002.AddCustomFieldOrEvent(FieldVal1007);
+FieldVal1008 := TMFBool.CreateUndefined(Script1002, False, 'enabledBehaviorsArray');
 end;
 
 procedure InitHAnimBehaviorPrototypesPart114;
 begin
-FieldVal1007 := TMFNode.CreateUndefined(Script1002, False, 'hAnimBehaviorNodes');
-Script1002.AddCustomFieldOrEvent(FieldVal1007);
-FieldVal1008 := TMFBool.CreateUndefined(Script1002, False, 'enabledBehaviorsArray');
 Script1002.AddCustomFieldOrEvent(FieldVal1008);
 FieldVal1009 := TSFInt32.CreateEvent(Script1002, 'enableBehavior', True);
 Script1002.AddCustomFieldOrEvent(FieldVal1009);
@@ -6493,13 +6490,13 @@ ProtoInstance1020.X3DName := 'ChooserTest';
 HAnimHumanoid1022 := THAnimHumanoidNode.Create;
 HAnimHumanoid1022.X3DName := 'DiamondManLOA-1';
 HAnimHumanoid1022.X3DName := 'hanim_DiamondManLOA-1';
+HAnimHumanoid1022.Version := '2.0';
+(ProtoInstance1020.Field('HumanoidArray') as TMFNode).Clear;
+(ProtoInstance1020.Field('HumanoidArray') as TMFNode).Add(HAnimHumanoid1022);
 end;
 
 procedure InitHAnimBehaviorPrototypesPart115;
 begin
-HAnimHumanoid1022.Version := '2.0';
-(ProtoInstance1020.Field('HumanoidArray') as TMFNode).Clear;
-(ProtoInstance1020.Field('HumanoidArray') as TMFNode).Add(HAnimHumanoid1022);
 (ProtoInstance1020.Field('whichBody') as TSFInt32).Value := 0;
 (ProtoInstance1020.Field('hAnimBehaviorNodes') as TMFNode).Clear;
 (ProtoInstance1020.Field('hAnimBehaviorNodes') as TMFNode).Add(ProtoInstance1015);

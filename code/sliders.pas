@@ -2,7 +2,7 @@ unit sliders;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createsliders: TX3DRootNode;
 procedure RegisterslidersScripts(const Scene: TCastleSceneCore);
@@ -37,15 +37,17 @@ begin
 end;
 
 type
+  TScript60Script_MFVec3Array = array of TVector3;
+  TScript60Script_MFInt32Array = array of Int32;
   TScript60Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fcoordinates: array of TVector3;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fcoordinates: TScript60Script_MFVec3Array;
     FField_coordinates: TMFVec3f;
     FBack_coordinates: TMFVec3f;
     FDirty_coordinates: Boolean;
-    FcoordIndexes: array of Int32;
+    FcoordIndexes: TScript60Script_MFInt32Array;
     FField_coordIndexes: TMFInt32;
     FBack_coordIndexes: TMFInt32;
     FDirty_coordIndexes: Boolean;
@@ -91,7 +93,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_a(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_a(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
@@ -110,10 +112,11 @@ type
     procedure GenerateCoordinates(const Time: TX3DTime);
   end;
 
+  TScript107Script_MFStringArray = array of String;
   TScript107Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FprotoScale: Single;
     FField_protoScale: TSFFloat;
     FBack_protoScale: TSFFloat;
@@ -130,7 +133,7 @@ type
     FField_protoValue: TSFFloat;
     FBack_protoValue: TSFFloat;
     FDirty_protoValue: Boolean;
-    FprotoText: array of String;
+    FprotoText: TScript107Script_MFStringArray;
     FField_protoText: TMFString;
     FBack_protoText: TMFString;
     FDirty_protoText: Boolean;
@@ -140,13 +143,14 @@ type
     FLastTime_set_protoValue: TX3DTime;
     FLastTime_set_protoText: TX3DTime;
     procedure FlushOutputs(const Time: TX3DTime);
+    function FieldToMFString(const Field: TX3DField): TScript107Script_MFStringArray;
   public
     constructor Create(const AHandlerPrefix: String; const AField_protoScale: TSFFloat; const AField_protoParameterName: TSFString; const AField_protoScript: TSFNode; const AField_protoValue: TSFFloat; const AField_protoText: TMFString);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript107Script;
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_protoScale(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_protoScale(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
     procedure Set_protoParameterName(Value: TX3DField; const Time: TX3DTime);
@@ -276,8 +280,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fcoordinates := nil;
   FField_coordinates := nil;
   FBack_coordinates := TMFVec3f.CreateUndefined(nil, False, 'coordinates');
@@ -558,21 +562,21 @@ end;
 
 procedure TScript60Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_a', {$ifdef FPC}@{$endif}Set_a);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'a', {$ifdef FPC}@{$endif}Set_a);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_b', {$ifdef FPC}@{$endif}Set_b);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'b', {$ifdef FPC}@{$endif}Set_b);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_c', {$ifdef FPC}@{$endif}Set_c);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'c', {$ifdef FPC}@{$endif}Set_c);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_d', {$ifdef FPC}@{$endif}Set_d);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'd', {$ifdef FPC}@{$endif}Set_d);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_pdelta', {$ifdef FPC}@{$endif}Set_pdelta);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'pdelta', {$ifdef FPC}@{$endif}Set_pdelta);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_tdelta', {$ifdef FPC}@{$endif}Set_tdelta);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'tdelta', {$ifdef FPC}@{$endif}Set_tdelta);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'resolution', {$ifdef FPC}@{$endif}Resolution);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_resolution', {$ifdef FPC}@{$endif}Resolution);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_a', {$ifdef FPC}@{$endif}Set_a);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'a', {$ifdef FPC}@{$endif}Set_a);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_b', {$ifdef FPC}@{$endif}Set_b);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'b', {$ifdef FPC}@{$endif}Set_b);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_c', {$ifdef FPC}@{$endif}Set_c);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'c', {$ifdef FPC}@{$endif}Set_c);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_d', {$ifdef FPC}@{$endif}Set_d);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'd', {$ifdef FPC}@{$endif}Set_d);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_pdelta', {$ifdef FPC}@{$endif}Set_pdelta);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'pdelta', {$ifdef FPC}@{$endif}Set_pdelta);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_tdelta', {$ifdef FPC}@{$endif}Set_tdelta);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'tdelta', {$ifdef FPC}@{$endif}Set_tdelta);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'resolution', {$ifdef FPC}@{$endif}Resolution);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_resolution', {$ifdef FPC}@{$endif}Resolution);
 end;
 
 procedure TScript60Script.Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -581,7 +585,7 @@ var
   i: Integer;
   j: Integer;
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   GenerateCoordinates(Time);
   arrIndex := 0;
   for i := 0 to (Fresolution - 1) - 1 do
@@ -752,8 +756,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FprotoScale := 0.0;
   FField_protoScale := nil;
   FBack_protoScale := TSFFloat.Create(nil, False, 'protoScale', 0.0);
@@ -926,19 +930,32 @@ begin
   end;
 end;
 
+function TScript107Script.FieldToMFString(const Field: TX3DField): TScript107Script_MFStringArray;
+var
+  _i: Integer;
+begin
+  Result := nil;
+  if Field is TMFString then
+  begin
+    SetLength(Result, TMFString(Field).Items.Count);
+    for _i := 0 to TMFString(Field).Items.Count - 1 do
+      Result[_i] := TMFString(Field).Items[_i];
+  end;
+end;
+
 procedure TScript107Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_protoScale', {$ifdef FPC}@{$endif}Set_protoScale);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'protoScale', {$ifdef FPC}@{$endif}Set_protoScale);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_protoParameterName', {$ifdef FPC}@{$endif}Set_protoParameterName);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'protoParameterName', {$ifdef FPC}@{$endif}Set_protoParameterName);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_protoScript', {$ifdef FPC}@{$endif}Set_protoScript);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'protoScript', {$ifdef FPC}@{$endif}Set_protoScript);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_protoValue', {$ifdef FPC}@{$endif}Set_protoValue);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'protoValue', {$ifdef FPC}@{$endif}Set_protoValue);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_protoText', {$ifdef FPC}@{$endif}Set_protoText);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'protoText', {$ifdef FPC}@{$endif}Set_protoText);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'newTranslation', {$ifdef FPC}@{$endif}NewTranslation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_protoScale', {$ifdef FPC}@{$endif}Set_protoScale);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'protoScale', {$ifdef FPC}@{$endif}Set_protoScale);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_protoParameterName', {$ifdef FPC}@{$endif}Set_protoParameterName);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'protoParameterName', {$ifdef FPC}@{$endif}Set_protoParameterName);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_protoScript', {$ifdef FPC}@{$endif}Set_protoScript);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'protoScript', {$ifdef FPC}@{$endif}Set_protoScript);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_protoValue', {$ifdef FPC}@{$endif}Set_protoValue);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'protoValue', {$ifdef FPC}@{$endif}Set_protoValue);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_protoText', {$ifdef FPC}@{$endif}Set_protoText);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'protoText', {$ifdef FPC}@{$endif}Set_protoText);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'newTranslation', {$ifdef FPC}@{$endif}NewTranslation);
 end;
 
 procedure TScript107Script.OnNotif_set_protoScale(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
@@ -1003,10 +1020,13 @@ begin
 end;
 
 procedure TScript107Script.Set_protoText(Value: TX3DField; const Time: TX3DTime);
+var
+  _arg_value: TScript107Script_MFStringArray;
 begin
   if (Time.Seconds = FLastTime_set_protoText.Seconds) and (Time.PlusTicks = FLastTime_set_protoText.PlusTicks) then Exit;
   FLastTime_set_protoText := Time;
-  FprotoText := value;
+  _arg_value := FieldToMFString(Value);
+  FprotoText := _arg_value;
   FDirty_protoText := True;
   FlushOutputs(Time);
 end;

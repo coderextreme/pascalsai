@@ -2,7 +2,7 @@ unit mobiusCarlson;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreatemobiusCarlson: TX3DRootNode;
 

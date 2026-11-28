@@ -2,7 +2,7 @@ unit MyBounce;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateMyBounce: TX3DRootNode;
 procedure RegisterMyBounceScripts(const Scene: TCastleSceneCore);
@@ -15,8 +15,8 @@ uses SysUtils, CastleVectors, Math, X3DTime;
 type
   TScript14Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ftranslation_changed: TVector3;
     FEvent_translation_changed: TX3DEvent;
     FBack_translation_changed: TSFVec3f;
@@ -36,7 +36,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure NewBubble(const Time: TX3DTime);
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -68,8 +68,8 @@ var
 constructor TScript14Script.Create(const AHandlerPrefix: String; const AEvent_translation_changed: TX3DEvent; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ftranslation_changed := Vector3(0, 0, 0);
   FEvent_translation_changed := nil;
   FBack_translation_changed := TSFVec3f.Create(nil, False, 'translation_changed', Vector3(0, 0, 0));
@@ -147,8 +147,8 @@ end;
 
 procedure TScript14Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
 end;
 
 procedure TScript14Script.NewBubble(const Time: TX3DTime);
@@ -185,7 +185,7 @@ end;
 
 procedure TScript14Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   NewBubble(Time);
   FlushOutputs(Time);
 end;

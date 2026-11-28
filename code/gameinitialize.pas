@@ -36,15 +36,13 @@ ArtDecoPrototypes,
 asmallbox,
 asphere,
 asteroids,
-{
 BackToCoordinate,
-}
 ball,
 ballcge,
-{
 ballx3dom,
 ballx_ite,
 blenderSkeleton,
+{
 bobblespheres,
 }
 BoxEm,
@@ -54,9 +52,7 @@ bub,
 bubble,
 Bubbles,
 bubs,
-{
 bubs2,
-}
 bubs3,
 {
 bumpyfreewrljsonverse,
@@ -67,16 +63,12 @@ bumpyx_itesliders,
 }
 Bushes,
 CADPartChildNoTransformation,
-{
 CaliforniaCampuses,
 CameraPrototypes,
-}
 CameraShape,
 Cane,
 CanonicalFacialAnimationComparisonScripts,
-{
 CatByMuru,
-}
 cgeflowers,
 cgeparticleflowers,
 CleanedMultiFacialAnimationMenu,
@@ -466,6 +458,7 @@ end;
 procedure TSceneSlideshow.BuildPlaylist;
 begin
   AddEntry('ballcge', @Createballcge);
+  AddEntry('bubs2', @Createbubs2, @Registerbubs2Scripts, @Detachbubs2Scripts);
   AddEntry('abox', @Createabox);
   AddEntry('AllenBox', @CreateAllenBox);
   AddEntry('AllenDutton', @CreateAllenDutton);
@@ -692,8 +685,7 @@ begin
     then let AssignDefaultCamera frame the loaded scene. }
   FViewport.Camera.SetWorldView(
     Vector3(0, 5, 9), Vector3(0, -0.45, -1), Vector3(0, 1, 0));
-  // if not FCurrentScene.BoundingBox.IsEmptyOrZero then
-  if AutoFrameScene then
+  if FCurrentScene.BoundingBox.IsEmptyOrZero then
     FViewport.AssignDefaultCamera;
 
   WritelnLog('Slideshow', Format('[%d/%d] %s | BBox: %s', [

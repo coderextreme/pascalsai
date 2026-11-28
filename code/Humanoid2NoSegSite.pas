@@ -2,7 +2,7 @@ unit Humanoid2NoSegSite;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateHumanoid2NoSegSite: TX3DRootNode;
 

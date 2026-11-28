@@ -2,7 +2,7 @@ unit MultiFacialAnimationMenu;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateMultiFacialAnimationMenu: TX3DRootNode;
 procedure RegisterMultiFacialAnimationMenuScripts(const Scene: TCastleSceneCore);
@@ -37,10 +37,11 @@ begin
 end;
 
 type
+  TScript3011Script_MFNodeArray = array of TX3DNode;
   TScript3011Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -53,7 +54,7 @@ type
     FField_checked: TSFBool;
     FBack_checked: TSFBool;
     FDirty_checked: Boolean;
-    Fadapters: array of TX3DNode;
+    Fadapters: TScript3011Script_MFNodeArray;
     FField_adapters: TMFNode;
     FBack_adapters: TMFNode;
     FDirty_adapters: Boolean;
@@ -67,7 +68,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
@@ -1759,8 +1760,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -1919,7 +1920,7 @@ end;
 
 procedure TScript3011Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3011Script.InTime(Value: TX3DField; const Time: TX3DTime);

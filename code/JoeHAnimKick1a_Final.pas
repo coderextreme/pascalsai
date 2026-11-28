@@ -2,7 +2,7 @@ unit JoeHAnimKick1a_Final;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJoeHAnimKick1a_Final: TX3DRootNode;
 

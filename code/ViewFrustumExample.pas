@@ -2,7 +2,7 @@ unit ViewFrustumExample;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateViewFrustumExample: TX3DRootNode;
 
@@ -20,13 +20,21 @@ var
   Viewpoint22: TViewpointNode;
   NavigationInfo23: TNavigationInfoNode;
   X3DExternalPrototype24: TX3DExternalPrototype;
+  FieldDecl25: TX3DInterfaceDeclaration;
   FieldVal25: TSFNode;
+  FieldDecl26: TX3DInterfaceDeclaration;
   FieldVal26: TSFNode;
+  FieldDecl27: TX3DInterfaceDeclaration;
   FieldVal27: TSFBool;
+  FieldDecl28: TX3DInterfaceDeclaration;
   FieldVal28: TSFColor;
+  FieldDecl29: TX3DInterfaceDeclaration;
   FieldVal29: TSFColor;
+  FieldDecl30: TX3DInterfaceDeclaration;
   FieldVal30: TSFFloat;
+  FieldDecl31: TX3DInterfaceDeclaration;
   FieldVal31: TSFFloat;
+  FieldDecl32: TX3DInterfaceDeclaration;
   FieldVal32: TSFBool;
   ProtoInstance33: TX3DPrototypeNode;
   Viewpoint35: TViewpointNode;
@@ -86,25 +94,52 @@ NavigationInfo23.SetType(['EXAMINE', 'FLY', 'ANY']);
 Group17.FdChildren.Add(NavigationInfo23);
 X3DExternalPrototype24 := TX3DExternalPrototype.Create;
 X3DExternalPrototype24.X3DName := 'ViewFrustum';
-X3DExternalPrototype24.Appinfo := 'Display view frustum associated with a given pair of Viewpoint NavigationInfo nodes';
-X3DExternalPrototype24.Url := '"ViewFrustumPrototype.x3d#ViewFrustum"';
-FieldVal25 := TSFNode.CreateUndefined(X3DExternalPrototype24, False, 'ViewpointNode');
-X3DExternalPrototype24.AddCustomFieldOrEvent(FieldVal25);
-FieldVal26 := TSFNode.CreateUndefined(X3DExternalPrototype24, False, 'NavigationInfoNode');
-X3DExternalPrototype24.AddCustomFieldOrEvent(FieldVal26);
-FieldVal27 := TSFBool.CreateUndefined(X3DExternalPrototype24, True, 'visible');
-X3DExternalPrototype24.AddCustomFieldOrEvent(FieldVal27);
-FieldVal28 := TSFColor.CreateUndefined(X3DExternalPrototype24, True, 'lineColor');
-X3DExternalPrototype24.AddCustomFieldOrEvent(FieldVal28);
-FieldVal29 := TSFColor.CreateUndefined(X3DExternalPrototype24, True, 'frustumColor');
-X3DExternalPrototype24.AddCustomFieldOrEvent(FieldVal29);
-FieldVal30 := TSFFloat.CreateUndefined(X3DExternalPrototype24, True, 'transparency');
-X3DExternalPrototype24.AddCustomFieldOrEvent(FieldVal30);
-FieldVal31 := TSFFloat.CreateUndefined(X3DExternalPrototype24, True, 'aspectRatio');
-X3DExternalPrototype24.AddCustomFieldOrEvent(FieldVal31);
-FieldVal32 := TSFBool.CreateUndefined(X3DExternalPrototype24, False, 'trace');
-X3DExternalPrototype24.AddCustomFieldOrEvent(FieldVal32);
-Group17.AddX3DExternalPrototype([X3DExternalPrototype24]);
+X3DExternalPrototype24.UrlList.Send(['ViewFrustumPrototype.x3d#ViewFrustum']);
+FieldVal25 := TSFNode.CreateUndefined(nil, False, 'ViewpointNode');
+FieldDecl25 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl25.FieldOrEvent := FieldVal25;
+FieldVal25.ParentInterfaceDeclaration := FieldDecl25;
+X3DExternalPrototype24.InterfaceDeclarations.Add(FieldDecl25);
+FieldVal26 := TSFNode.CreateUndefined(nil, False, 'NavigationInfoNode');
+FieldDecl26 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl26.FieldOrEvent := FieldVal26;
+FieldVal26.ParentInterfaceDeclaration := FieldDecl26;
+X3DExternalPrototype24.InterfaceDeclarations.Add(FieldDecl26);
+FieldVal27 := TSFBool.CreateUndefined(nil, True, 'visible');
+FieldDecl27 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl27.FieldOrEvent := FieldVal27;
+FieldVal27.ParentInterfaceDeclaration := FieldDecl27;
+X3DExternalPrototype24.InterfaceDeclarations.Add(FieldDecl27);
+FieldVal28 := TSFColor.CreateUndefined(nil, True, 'lineColor');
+FieldDecl28 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl28.FieldOrEvent := FieldVal28;
+FieldVal28.ParentInterfaceDeclaration := FieldDecl28;
+X3DExternalPrototype24.InterfaceDeclarations.Add(FieldDecl28);
+FieldVal29 := TSFColor.CreateUndefined(nil, True, 'frustumColor');
+FieldDecl29 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl29.FieldOrEvent := FieldVal29;
+FieldVal29.ParentInterfaceDeclaration := FieldDecl29;
+X3DExternalPrototype24.InterfaceDeclarations.Add(FieldDecl29);
+FieldVal30 := TSFFloat.CreateUndefined(nil, True, 'transparency');
+FieldDecl30 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl30.FieldOrEvent := FieldVal30;
+FieldVal30.ParentInterfaceDeclaration := FieldDecl30;
+X3DExternalPrototype24.InterfaceDeclarations.Add(FieldDecl30);
+FieldVal31 := TSFFloat.CreateUndefined(nil, True, 'aspectRatio');
+FieldDecl31 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl31.FieldOrEvent := FieldVal31;
+FieldVal31.ParentInterfaceDeclaration := FieldDecl31;
+end;
+
+procedure InitViewFrustumExamplePart2;
+begin
+X3DExternalPrototype24.InterfaceDeclarations.Add(FieldDecl31);
+FieldVal32 := TSFBool.CreateUndefined(nil, False, 'trace');
+FieldDecl32 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl32.FieldOrEvent := FieldVal32;
+FieldVal32.ParentInterfaceDeclaration := FieldDecl32;
+X3DExternalPrototype24.InterfaceDeclarations.Add(FieldDecl32);
+X3D0.AddPrototype(X3DExternalPrototype24);
 { Example use }
 ProtoInstance33 := TX3DPrototypeNode.CreatePrototypeNode('', '', X3DExternalPrototype24);
 Viewpoint35 := TViewpointNode.Create;
@@ -121,10 +156,6 @@ NavigationInfo37.VisibilityLimit := 15;
 Group17.FdChildren.Add(ProtoInstance33.Instantiate);
 { Visualization assists }
 Inline43 := TInlineNode.Create;
-end;
-
-procedure InitViewFrustumExamplePart2;
-begin
 Inline43.X3DName := 'GridXZ';
 Inline43.SetUrl(['GridXZ_20x20Fixed.x3d']);
 Group17.FdChildren.Add(Inline43);

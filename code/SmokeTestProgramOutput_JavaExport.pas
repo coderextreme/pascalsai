@@ -2,7 +2,7 @@ unit SmokeTestProgramOutput_JavaExport;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateSmokeTestProgramOutput_JavaExport: TX3DRootNode;
 procedure RegisterSmokeTestProgramOutput_JavaExportScripts(const Scene: TCastleSceneCore);
@@ -37,11 +37,12 @@ begin
 end;
 
 type
+  TScript76Script_MFVec3Array = array of TVector3;
   TScript76Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    FcolorsOutput: array of TVector3;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    FcolorsOutput: TScript76Script_MFVec3Array;
     FEvent_colorsOutput: TX3DEvent;
     FBack_colorsOutput: TMFColor;
     FDirty_colorsOutput: Boolean;
@@ -52,14 +53,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure ColorInput(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript120Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fenabled: Boolean;
     FField_enabled: TSFBool;
     FBack_enabled: TSFBool;
@@ -80,7 +81,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_enabled(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_enabled(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
@@ -89,8 +90,8 @@ type
 
   TScript189Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     procedure FlushOutputs(const Time: TX3DTime);
   public
     constructor Create(const AHandlerPrefix: String);
@@ -98,7 +99,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
   end;
 
   TSmokeTestProgramOutput_JavaExportScriptBinder = class
@@ -159,6 +160,7 @@ var
   Material89: TMaterialNode;
   TouchSensor90: TTouchSensorNode;
   X3DExternalPrototype91: TX3DExternalPrototype;
+  FieldDecl92: TX3DInterfaceDeclaration;
   FieldVal92: TSFString;
   Shape93: TShapeNode;
   Appearance94: TAppearanceNode;
@@ -264,8 +266,8 @@ var
 constructor TScript76Script.Create(const AHandlerPrefix: String; const AEvent_colorsOutput: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FcolorsOutput := nil;
   FEvent_colorsOutput := nil;
   FBack_colorsOutput := TMFColor.CreateUndefined(nil, False, 'colorsOutput');
@@ -307,7 +309,7 @@ end;
 
 procedure TScript76Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'colorInput', {$ifdef FPC}@{$endif}ColorInput);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'colorInput', {$ifdef FPC}@{$endif}ColorInput);
 end;
 
 procedure TScript76Script.ColorInput(Value: TX3DField; const Time: TX3DTime);
@@ -320,8 +322,8 @@ end;
 constructor TScript120Script.Create(const AHandlerPrefix: String; const AField_enabled: TSFBool; const AField_diffuseColor: TSFColor; const AEvent_newColor: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fenabled := False;
   FField_enabled := nil;
   FBack_enabled := TSFBool.Create(nil, False, 'enabled', False);
@@ -407,15 +409,15 @@ end;
 
 procedure TScript120Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_enabled', {$ifdef FPC}@{$endif}Set_enabled);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'enabled', {$ifdef FPC}@{$endif}Set_enabled);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'clockTrigger', {$ifdef FPC}@{$endif}ClockTrigger);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'clockTrigger', {$ifdef FPC}@{$endif}ClockTrigger);
 end;
 
 procedure TScript120Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   FnewColor := FdiffuseColor;
   FDirty_newColor := True;
   FlushOutputs(Time);
@@ -436,6 +438,10 @@ begin
 end;
 
 procedure TScript120Script.ClockTrigger(Value: TX3DField; const Time: TX3DTime);
+var
+  red: Single;
+  green: Single;
+  blue: Single;
 begin
   if not (Fenabled) then
     Exit;
@@ -446,7 +452,7 @@ begin
   FDirty_newColor := True;
   if Fenabled then
   begin
-    WriteLn('diffuseColor=(' + FloatToStr(red) + ',' + FloatToStr(green) + ',' + FloatToStr(blue) + ') newColor=' + FloatToStr(FnewColor.toString()) + #10);
+    WriteLn('diffuseColor=(' + FloatToStr(red) + ',' + FloatToStr(green) + ',' + FloatToStr(blue) + ') newColor=' + FnewColor.ToString + #10);
   end;
   FlushOutputs(Time);
 end;
@@ -454,8 +460,8 @@ end;
 constructor TScript189Script.Create(const AHandlerPrefix: String);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
 end;
 
 class function TScript189Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript189Script;
@@ -751,7 +757,6 @@ Group74.AddRoute(TimeSensor80.EventFraction_changed, ColorInterpolator79.EventSe
 Group32.FdChildren.Add(Group74);
 ProtoDeclare84 := CreateEmptyPrototype('ArtDeco01');
 ProtoDeclare84.X3DName := 'ArtDeco01';
-ProtoDeclare84.Appinfo := 'tooltip: ArtDeco01Material prototype is a Material node';
 FieldVal86 := TSFString.Create(nil, True, 'description', 'ArtDeco01Material prototype is a Material node');
 FieldDecl86 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl86.FieldOrEvent := FieldVal86;
@@ -777,18 +782,20 @@ TouchSensor90.FieldOrEvent('description', True).IsClauseNamesAdd('description');
 TouchSensor90.FieldOrEvent('enabled', True).IsClauseNamesAdd('enabled');
 ProtoDeclare84.Node.AddChildren([TouchSensor90]);
 X3D0.AddPrototype(ProtoDeclare84);
+X3DExternalPrototype91 := TX3DExternalPrototype.Create;
 end;
 
 procedure InitSmokeTestProgramOutput_JavaExportPart6;
 begin
-X3DExternalPrototype91 := TX3DExternalPrototype.Create;
 X3DExternalPrototype91.X3DName := 'ArtDeco02';
-X3DExternalPrototype91.Appinfo := 'this is a different Material node';
-X3DExternalPrototype91.Url := '"https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/ArtDecoPrototypesExcerpt.x3d#ArtDeco02" "https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/ArtDecoPrototypesExcerpt.x3dv#ArtDeco02"';
+X3DExternalPrototype91.UrlList.Send(['https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/ArtDecoPrototypesExcerpt.x3d#ArtDeco02', 'https://www.web3d.org/x3d/content/examples/X3dForWebAuthors/Chapter14Prototypes/ArtDecoPrototypesExcerpt.x3dv#ArtDeco02']);
 { [SmokeTestProgram diagnostic] artDeco02ExternProtoDeclare.getNodeType()="ERROR_UNKNOWN_EXTERNPROTODECLARE_NODE_TYPE: ExternProtoDeclare name='ArtDeco02' type cannot be remotely accessed at run time. TODO X3DJSAIL needs to add further capability that retrieves the ExternProtoDeclare file." }
-FieldVal92 := TSFString.CreateUndefined(X3DExternalPrototype91, True, 'description');
-X3DExternalPrototype91.AddCustomFieldOrEvent(FieldVal92);
-Group32.AddX3DExternalPrototype([X3DExternalPrototype91]);
+FieldVal92 := TSFString.CreateUndefined(nil, True, 'description');
+FieldDecl92 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl92.FieldOrEvent := FieldVal92;
+FieldVal92.ParentInterfaceDeclaration := FieldDecl92;
+X3DExternalPrototype91.InterfaceDeclarations.Add(FieldDecl92);
+X3D0.AddPrototype(X3DExternalPrototype91);
 { Tested ArtDeco01ProtoInstance, ArtDeco02ProtoInstance for improper node type when ProtoInstance is added in wrong place }
 Shape93 := TShapeNode.Create;
 Shape93.X3DName := 'TestShape1';
@@ -820,11 +827,11 @@ Cone101.Height := 0.001;
 Shape98.Geometry := Cone101;
 Group32.FdChildren.Add(Shape98);
 Shape102 := TShapeNode.Create;
-Shape102.X3DName := 'TestShape3';
 end;
 
 procedure InitSmokeTestProgramOutput_JavaExportPart7;
 begin
+Shape102.X3DName := 'TestShape3';
 Appearance103 := TAppearanceNode.Create;
 Appearance103.X3DName := 'TestAppearance3';
 { ArtDeco02Material ProtoInstance USE goes here. Note that name field is REQUIRED as part of ProtoInstance USE. }
@@ -847,8 +854,6 @@ X3D0.AddImport(Import107);
 X3D0.ExportNode(WorldInfo38, 'WorldInfoDEF3');
 ProtoDeclare109 := CreateEmptyPrototype('MaterialModulator');
 ProtoDeclare109.X3DName := 'MaterialModulator';
-ProtoDeclare109.Appinfo := 'mimic a Material node and modulate fields as an animation effect';
-ProtoDeclare109.Documentation := 'https://x3dgraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/MaterialModulatorIndex.html';
 FieldVal111 := TSFBool.Create(nil, True, 'enabled', True);
 FieldDecl111 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl111.FieldOrEvent := FieldVal111;
@@ -865,11 +870,11 @@ FieldDecl113.FieldOrEvent := FieldVal113;
 FieldVal113.ParentInterfaceDeclaration := FieldDecl113;
 ProtoDeclare109.InterfaceDeclarations.Add(FieldDecl113);
 FieldVal114 := TSFColor.Create(nil, True, 'specularColor', Vector3(0, 0, 0));
+FieldDecl114 := TX3DInterfaceDeclaration.Create(nil);
 end;
 
 procedure InitSmokeTestProgramOutput_JavaExportPart8;
 begin
-FieldDecl114 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl114.FieldOrEvent := FieldVal114;
 FieldVal114.ParentInterfaceDeclaration := FieldDecl114;
 ProtoDeclare109.InterfaceDeclarations.Add(FieldDecl114);
@@ -909,11 +914,11 @@ Script120.AddCustomFieldOrEvent(FieldVal123);
 FieldVal124 := TSFTime.CreateEvent(Script120, 'clockTrigger', True);
 Script120.AddCustomFieldOrEvent(FieldVal124);
 Script120.FieldOrEvent('enabled', True).IsClauseNamesAdd('enabled');
+Script120.FieldOrEvent('diffuseColor', True).IsClauseNamesAdd('diffuseColor');
 end;
 
 procedure InitSmokeTestProgramOutput_JavaExportPart9;
 begin
-Script120.FieldOrEvent('diffuseColor', True).IsClauseNamesAdd('diffuseColor');
 Script120.SetUrl(['compiled:' + LineEnding +
   'initialize=Script120_initialize' + LineEnding +
   'set_enabled=Script120_set_enabled' + LineEnding +
@@ -957,11 +962,11 @@ Group131.X3DName := 'TestFieldObjectsGroup';
 { SFBool default=false, true=true, false=false, negate()=true }
 { MFBool default=, initial=true false true, negate()=false true false }
 { SFFloat default=0.0, initial=1, setValue(2)=2, setValue(3.0f)=3, setValue(4.0)=4 }
+{ MFFloat default=, initial=1 2 3, append(5)=1 2 3 5, inserts(3,4)(0,0)=0 1 2 3 4 5, append(6)=0 1 2 3 4 5 6, size()=7 }
 end;
 
 procedure InitSmokeTestProgramOutput_JavaExportPart10;
 begin
-{ MFFloat default=, initial=1 2 3, append(5)=1 2 3 5, inserts(3,4)(0,0)=0 1 2 3 4 5, append(6)=0 1 2 3 4 5 6, size()=7 }
 { ... get1Value[3]=3.0, remove[1]=0 2 3 4 5 6, set1Value(0,10)=10 2 3 4 5 6, multiply(2)=20 4 6 8 10 12, clear= }
 { SFVec3f default=0 0 0, initial=1 2 3, setValue=4 5 6, multiply(2)=8 10 12, normalize()=0.4558 0.5698 0.6838, regex matches()=true }
 { regex test SFVec3f().matches("1 2 3")=true, regex test SFVec3f().matches("1 2 3 4")=false, regex test (SFRotation.matches("0 0 0 0")=true, failure detecting illegal (zero axis) rotation value }
@@ -1001,11 +1006,11 @@ Material138 := TMaterialNode.Create;
 Material138.Transparency := 1;
 Appearance137.Material := Material138;
 Shape136.Appearance := Appearance137;
+Extrusion139 := TExtrusionNode.Create;
 end;
 
 procedure InitSmokeTestProgramOutput_JavaExportPart11;
 begin
-Extrusion139 := TExtrusionNode.Create;
 Extrusion139.X3DName := 'ExampleExtrusion';
 Shape136.Geometry := Extrusion139;
 Group32.FdChildren.Add(Shape136);
@@ -1045,11 +1050,11 @@ ProtoDeclare151.Node.AddChildren([ProgramShader153]);
 X3D0.AddPrototype(ProtoDeclare151);
 Shape154 := TShapeNode.Create;
 Appearance155 := TAppearanceNode.Create;
+{ Test MFNode shaders array as an ordered list consisting of comments, ProtoInstance and nodes }
 end;
 
 procedure InitSmokeTestProgramOutput_JavaExportPart12;
 begin
-{ Test MFNode shaders array as an ordered list consisting of comments, ProtoInstance and nodes }
 { Test satisfactorily creates MFNode shaders array as an ordered list with mixed content }
 ProgramShader156 := TProgramShaderNode.Create;
 ProgramShader156.X3DName := 'TestShader1';
@@ -1089,11 +1094,11 @@ TransmitterPdu169 := TTransmitterPduNode.Create;
 Transform161.FdChildren.Add(TransmitterPdu169);
 DISEntityManager170 := TDISEntityManagerNode.Create;
 DISEntityTypeMapping171 := TDISEntityTypeMappingNode.Create;
+DISEntityManager170.FdChildren.Add(DISEntityTypeMapping171);
 end;
 
 procedure InitSmokeTestProgramOutput_JavaExportPart13;
 begin
-DISEntityManager170.FdChildren.Add(DISEntityTypeMapping171);
 Transform161.FdChildren.Add(DISEntityManager170);
 Group32.FdChildren.Add(Transform161);
 EspduTransform172 := TEspduTransformNode.Create;
@@ -1134,11 +1139,11 @@ Script189.X3DName := 'DummyScript';
 Script189.SetUrl(['compiled:' + LineEnding +
   '']);
 LoadSensor179.FdChildren.Add(Script189);
+PackagedShader190 := TPackagedShaderNode.Create;
 end;
 
 procedure InitSmokeTestProgramOutput_JavaExportPart14;
 begin
-PackagedShader190 := TPackagedShaderNode.Create;
 LoadSensor179.FdChildren.Add(PackagedShader190);
 ShaderPart191 := TShaderPartNode.Create;
 ShaderPart191.ShaderType := stVertex;

@@ -2,7 +2,7 @@ unit CanonicalFacialAnimationComparisonScripts;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateCanonicalFacialAnimationComparisonScripts: TX3DRootNode;
 procedure RegisterCanonicalFacialAnimationComparisonScriptsScripts(const Scene: TCastleSceneCore);
@@ -39,8 +39,8 @@ end;
 type
   TScript1037Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -65,7 +65,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
@@ -754,8 +754,8 @@ var
 constructor TScript1037Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool; const AField_adapter: TSFNode);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -883,7 +883,7 @@ end;
 
 procedure TScript1037Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript1037Script.InTime(Value: TX3DField; const Time: TX3DTime);

@@ -2,7 +2,7 @@ unit Trebuchet;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateTrebuchet: TX3DRootNode;
 procedure RegisterTrebuchetScripts(const Scene: TCastleSceneCore);
@@ -15,8 +15,8 @@ uses SysUtils, CastleVectors, Math, X3DTime;
 type
   TScript333Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fwhichchoice: Int32;
     FEvent_whichchoice: TX3DEvent;
     FBack_whichchoice: TSFInt32;
@@ -32,15 +32,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_boolean(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript337Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fwhichchoice: Int32;
     FEvent_whichchoice: TX3DEvent;
     FBack_whichchoice: TSFInt32;
@@ -56,14 +56,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_boolean(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript341Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fwhichchoice: Int32;
     FEvent_whichchoice: TX3DEvent;
     FBack_whichchoice: TSFInt32;
@@ -75,14 +75,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_boolean(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript344Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FMassCounterWeight: Single;
     FMassProjectileWeight: Single;
     Ftransparent: TVector3;
@@ -100,7 +100,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_MassProjectileWeight(Value: TX3DField; const Time: TX3DTime);
     procedure Set_MassCounterWeight(Value: TX3DField; const Time: TX3DTime);
@@ -399,8 +399,8 @@ var
 constructor TScript333Script.Create(const AHandlerPrefix: String; const AEvent_whichchoice: TX3DEvent; const AEvent_CounterWeight: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fwhichchoice := 0;
   FEvent_whichchoice := nil;
   FBack_whichchoice := TSFInt32.Create(nil, False, 'whichchoice', 0);
@@ -453,13 +453,13 @@ end;
 
 procedure TScript333Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_boolean', {$ifdef FPC}@{$endif}Set_boolean);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_boolean', {$ifdef FPC}@{$endif}Set_boolean);
 end;
 
 procedure TScript333Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   Fwhichchoice := 0;
   FDirty_whichchoice := True;
   FCounterWeight := 100;
@@ -501,8 +501,8 @@ end;
 constructor TScript337Script.Create(const AHandlerPrefix: String; const AEvent_whichchoice: TX3DEvent; const AEvent_ProjectileWeight: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fwhichchoice := 0;
   FEvent_whichchoice := nil;
   FBack_whichchoice := TSFInt32.Create(nil, False, 'whichchoice', 0);
@@ -555,7 +555,7 @@ end;
 
 procedure TScript337Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_boolean', {$ifdef FPC}@{$endif}Set_boolean);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_boolean', {$ifdef FPC}@{$endif}Set_boolean);
 end;
 
 procedure TScript337Script.Set_boolean(Value: TX3DField; const Time: TX3DTime);
@@ -589,8 +589,8 @@ end;
 constructor TScript341Script.Create(const AHandlerPrefix: String; const AEvent_whichchoice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fwhichchoice := 0;
   FEvent_whichchoice := nil;
   FBack_whichchoice := TSFInt32.Create(nil, False, 'whichchoice', 0);
@@ -628,7 +628,7 @@ end;
 
 procedure TScript341Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_boolean', {$ifdef FPC}@{$endif}Set_boolean);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_boolean', {$ifdef FPC}@{$endif}Set_boolean);
 end;
 
 procedure TScript341Script.Set_boolean(Value: TX3DField; const Time: TX3DTime);
@@ -648,8 +648,8 @@ end;
 constructor TScript344Script.Create(const AHandlerPrefix: String; const AField_MassCounterWeight: TSFFloat; const AField_MassProjectileWeight: TSFFloat; const AEvent_transparent: TX3DEvent; const AEvent_value_changed: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FMassCounterWeight := 0.0;
   FMassProjectileWeight := 0.0;
   Ftransparent := Vector3(0, 0, 0);
@@ -706,15 +706,15 @@ end;
 
 procedure TScript344Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_MassProjectileWeight', {$ifdef FPC}@{$endif}Set_MassProjectileWeight);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_MassCounterWeight', {$ifdef FPC}@{$endif}Set_MassCounterWeight);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_MassProjectileWeight', {$ifdef FPC}@{$endif}Set_MassProjectileWeight);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_MassCounterWeight', {$ifdef FPC}@{$endif}Set_MassCounterWeight);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
 end;
 
 procedure TScript344Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   FMassCounterWeight := 100;
   FMassProjectileWeight := 10;
   WriteLn('MassCounterWeight =' + FloatToStr(FMassCounterWeight));

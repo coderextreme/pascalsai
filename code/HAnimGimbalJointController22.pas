@@ -2,7 +2,7 @@ unit HAnimGimbalJointController22;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateHAnimGimbalJointController22: TX3DRootNode;
 

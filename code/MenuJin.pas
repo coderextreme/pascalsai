@@ -2,7 +2,7 @@ unit MenuJin;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateMenuJin: TX3DRootNode;
 procedure RegisterMenuJinScripts(const Scene: TCastleSceneCore);
@@ -15,8 +15,8 @@ uses SysUtils, CastleVectors, Math, X3DTime;
 type
   TScript10Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -28,15 +28,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript15Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -48,15 +48,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript20Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -68,15 +68,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript25Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -88,15 +88,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript30Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -108,15 +108,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript35Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -128,15 +128,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript40Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -148,15 +148,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript45Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -168,15 +168,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript50Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -188,15 +188,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript55Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -208,15 +208,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript60Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -228,15 +228,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript65Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -248,15 +248,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript70Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -268,15 +268,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript75Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -288,15 +288,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript80Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -308,15 +308,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript85Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -328,15 +328,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript90Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -348,15 +348,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript95Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -368,15 +368,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript100Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -388,15 +388,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript105Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -408,15 +408,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript110Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -428,15 +428,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript115Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -448,15 +448,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript120Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -468,15 +468,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript125Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -488,15 +488,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript130Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -508,15 +508,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript135Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -528,15 +528,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript140Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -548,15 +548,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript145Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -568,15 +568,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript150Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -588,15 +588,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript155Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fchoice: Int32;
     FEvent_choice: TX3DEvent;
     FBack_choice: TSFInt32;
@@ -608,7 +608,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_touchTime(const value: Single; const Time: TX3DTime);
     procedure TouchTime(Value: TX3DField; const Time: TX3DTime);
   end;
@@ -1168,8 +1168,8 @@ var
 constructor TScript10Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1207,7 +1207,7 @@ end;
 
 procedure TScript10Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript10Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1226,8 +1226,8 @@ end;
 constructor TScript15Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1265,7 +1265,7 @@ end;
 
 procedure TScript15Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript15Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1284,8 +1284,8 @@ end;
 constructor TScript20Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1323,7 +1323,7 @@ end;
 
 procedure TScript20Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript20Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1342,8 +1342,8 @@ end;
 constructor TScript25Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1381,7 +1381,7 @@ end;
 
 procedure TScript25Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript25Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1400,8 +1400,8 @@ end;
 constructor TScript30Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1439,7 +1439,7 @@ end;
 
 procedure TScript30Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript30Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1458,8 +1458,8 @@ end;
 constructor TScript35Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1497,7 +1497,7 @@ end;
 
 procedure TScript35Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript35Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1516,8 +1516,8 @@ end;
 constructor TScript40Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1555,7 +1555,7 @@ end;
 
 procedure TScript40Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript40Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1574,8 +1574,8 @@ end;
 constructor TScript45Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1613,7 +1613,7 @@ end;
 
 procedure TScript45Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript45Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1632,8 +1632,8 @@ end;
 constructor TScript50Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1671,7 +1671,7 @@ end;
 
 procedure TScript50Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript50Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1690,8 +1690,8 @@ end;
 constructor TScript55Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1729,7 +1729,7 @@ end;
 
 procedure TScript55Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript55Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1748,8 +1748,8 @@ end;
 constructor TScript60Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1787,7 +1787,7 @@ end;
 
 procedure TScript60Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript60Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1806,8 +1806,8 @@ end;
 constructor TScript65Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1845,7 +1845,7 @@ end;
 
 procedure TScript65Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript65Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1864,8 +1864,8 @@ end;
 constructor TScript70Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1903,7 +1903,7 @@ end;
 
 procedure TScript70Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript70Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1922,8 +1922,8 @@ end;
 constructor TScript75Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -1961,7 +1961,7 @@ end;
 
 procedure TScript75Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript75Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -1980,8 +1980,8 @@ end;
 constructor TScript80Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2019,7 +2019,7 @@ end;
 
 procedure TScript80Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript80Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2038,8 +2038,8 @@ end;
 constructor TScript85Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2077,7 +2077,7 @@ end;
 
 procedure TScript85Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript85Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2096,8 +2096,8 @@ end;
 constructor TScript90Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2135,7 +2135,7 @@ end;
 
 procedure TScript90Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript90Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2154,8 +2154,8 @@ end;
 constructor TScript95Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2193,7 +2193,7 @@ end;
 
 procedure TScript95Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript95Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2212,8 +2212,8 @@ end;
 constructor TScript100Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2251,7 +2251,7 @@ end;
 
 procedure TScript100Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript100Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2270,8 +2270,8 @@ end;
 constructor TScript105Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2309,7 +2309,7 @@ end;
 
 procedure TScript105Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript105Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2328,8 +2328,8 @@ end;
 constructor TScript110Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2367,7 +2367,7 @@ end;
 
 procedure TScript110Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript110Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2386,8 +2386,8 @@ end;
 constructor TScript115Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2425,7 +2425,7 @@ end;
 
 procedure TScript115Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript115Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2444,8 +2444,8 @@ end;
 constructor TScript120Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2483,7 +2483,7 @@ end;
 
 procedure TScript120Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript120Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2502,8 +2502,8 @@ end;
 constructor TScript125Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2541,7 +2541,7 @@ end;
 
 procedure TScript125Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript125Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2560,8 +2560,8 @@ end;
 constructor TScript130Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2599,7 +2599,7 @@ end;
 
 procedure TScript130Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript130Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2618,8 +2618,8 @@ end;
 constructor TScript135Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2657,7 +2657,7 @@ end;
 
 procedure TScript135Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript135Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2676,8 +2676,8 @@ end;
 constructor TScript140Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2715,7 +2715,7 @@ end;
 
 procedure TScript140Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript140Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2734,8 +2734,8 @@ end;
 constructor TScript145Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2773,7 +2773,7 @@ end;
 
 procedure TScript145Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript145Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2792,8 +2792,8 @@ end;
 constructor TScript150Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2831,7 +2831,7 @@ end;
 
 procedure TScript150Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript150Script.Set_touchTime(const value: Single; const Time: TX3DTime);
@@ -2850,8 +2850,8 @@ end;
 constructor TScript155Script.Create(const AHandlerPrefix: String; const AEvent_choice: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fchoice := 0;
   FEvent_choice := nil;
   FBack_choice := TSFInt32.Create(nil, False, 'choice', 0);
@@ -2889,7 +2889,7 @@ end;
 
 procedure TScript155Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchTime', {$ifdef FPC}@{$endif}TouchTime);
 end;
 
 procedure TScript155Script.Set_touchTime(const value: Single; const Time: TX3DTime);

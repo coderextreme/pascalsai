@@ -2,7 +2,7 @@ unit freewrlflowers;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Createfreewrlflowers: TX3DRootNode;
 
@@ -42,7 +42,9 @@ var
   Background10: TBackgroundNode;
   Group11: TGroupNode;
   X3DExternalPrototype12: TX3DExternalPrototype;
+  FieldDecl13: TX3DInterfaceDeclaration;
   FieldVal13: TMFString;
+  FieldDecl14: TX3DInterfaceDeclaration;
   FieldVal14: TMFString;
   ProtoDeclare15: TX3DPrototype;
   Group17: TGroupNode;
@@ -83,23 +85,29 @@ Group7.FdChildren.Add(Background10);
 Group11 := TGroupNode.Create;
 X3DExternalPrototype12 := TX3DExternalPrototype.Create;
 X3DExternalPrototype12.X3DName := 'FlowerProto';
-X3DExternalPrototype12.Url := '"../data/flowerprotofreewrl.x3d#FlowerProto" "https://coderextreme.net/X3DJSONLD/src/main/data/flowerprotofreewrl.x3d#FlowerProto"';
-FieldVal13 := TMFString.CreateUndefined(X3DExternalPrototype12, True, 'vertex');
-X3DExternalPrototype12.AddCustomFieldOrEvent(FieldVal13);
-FieldVal14 := TMFString.CreateUndefined(X3DExternalPrototype12, True, 'fragment');
-X3DExternalPrototype12.AddCustomFieldOrEvent(FieldVal14);
-Group11.AddX3DExternalPrototype([X3DExternalPrototype12]);
+X3DExternalPrototype12.UrlList.Send(['../data/flowerprotofreewrl.x3d#FlowerProto', 'https://coderextreme.net/X3DJSONLD/src/main/data/flowerprotofreewrl.x3d#FlowerProto']);
+FieldVal13 := TMFString.CreateUndefined(nil, True, 'vertex');
+FieldDecl13 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl13.FieldOrEvent := FieldVal13;
+FieldVal13.ParentInterfaceDeclaration := FieldDecl13;
+X3DExternalPrototype12.InterfaceDeclarations.Add(FieldDecl13);
+FieldVal14 := TMFString.CreateUndefined(nil, True, 'fragment');
+FieldDecl14 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl14.FieldOrEvent := FieldVal14;
+FieldVal14.ParentInterfaceDeclaration := FieldDecl14;
+X3DExternalPrototype12.InterfaceDeclarations.Add(FieldDecl14);
+X3D0.AddPrototype(X3DExternalPrototype12);
 ProtoDeclare15 := CreateEmptyPrototype('flower');
+end;
+
+procedure InitfreewrlflowersPart1;
+begin
 ProtoDeclare15.X3DName := 'flower';
 Group17 := TGroupNode.Create;
 ProtoInstance18 := TX3DPrototypeNode.CreatePrototypeNode('', '', X3DExternalPrototype12);
 (ProtoInstance18.Field('vertex') as TMFString).Send(['../shaders/freewrl_flowers_chromatic.vs']);
 (ProtoInstance18.Field('fragment') as TMFString).Send(['../shaders/freewrl.fs']);
 Group17.FdChildren.Add(ProtoInstance18.Instantiate);
-end;
-
-procedure InitfreewrlflowersPart1;
-begin
 ProtoDeclare15.Node.AddChildren([Group17]);
 X3D0.AddPrototype(ProtoDeclare15);
 ProtoInstance21 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare15);

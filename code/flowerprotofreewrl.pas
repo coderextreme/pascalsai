@@ -2,7 +2,7 @@ unit flowerprotofreewrl;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflowerprotofreewrl: TX3DRootNode;
 procedure RegisterflowerprotofreewrlScripts(const Scene: TCastleSceneCore);
@@ -39,8 +39,8 @@ end;
 type
   TScript51Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ftranslation: TVector3;
     FField_translation: TSFVec3f;
     FBack_translation: TSFVec3f;
@@ -85,7 +85,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_fraction(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
@@ -151,8 +151,8 @@ var
 constructor TScript51Script.Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f; const AField_set_fraction: TSFFloat; const AField_a: TSFFloat; const AField_b: TSFFloat; const AField_c: TSFFloat; const AField_d: TSFFloat; const AField_tdelta: TSFFloat; const AField_pdelta: TSFFloat);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ftranslation := Vector3(0, 0, 0);
   FField_translation := nil;
   FBack_translation := TSFVec3f.Create(nil, False, 'translation', Vector3(0, 0, 0));
@@ -363,14 +363,14 @@ end;
 
 procedure TScript51Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
 end;
 
 procedure TScript51Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   Ftranslation := Vector3(0, 0, 0);
   FDirty_translation := True;
   Fvelocity := Vector3(Random - 0.5, Random - 0.5, Random - 0.5);

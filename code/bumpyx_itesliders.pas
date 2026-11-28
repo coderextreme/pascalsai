@@ -2,7 +2,7 @@ unit bumpyx_itesliders;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbumpyx_itesliders: TX3DRootNode;
 procedure Registerbumpyx_iteslidersScripts(const Scene: TCastleSceneCore);
@@ -37,15 +37,17 @@ begin
 end;
 
 type
+  TScript84Script_MFVec3Array = array of TVector3;
+  TScript84Script_MFInt32Array = array of Int32;
   TScript84Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fcoordinates: array of TVector3;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fcoordinates: TScript84Script_MFVec3Array;
     FField_coordinates: TMFVec3f;
     FBack_coordinates: TMFVec3f;
     FDirty_coordinates: Boolean;
-    FcoordIndexes: array of Int32;
+    FcoordIndexes: TScript84Script_MFInt32Array;
     FEvent_coordIndexes: TX3DEvent;
     FBack_coordIndexes: TMFInt32;
     FDirty_coordIndexes: Boolean;
@@ -80,7 +82,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
   end;
 
@@ -230,8 +232,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fcoordinates := nil;
   FField_coordinates := nil;
   FBack_coordinates := TMFVec3f.CreateUndefined(nil, False, 'coordinates');
@@ -423,7 +425,7 @@ end;
 
 procedure TScript84Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
 end;
 
 procedure TScript84Script.Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -432,11 +434,13 @@ var
   theta: Single;
   phi: Single;
   delta: Single;
-  crds: array of TVector3;
+  crds: TScript84Script_MFVec3Array;
+  i: Integer;
+  j: Integer;
   rho: Single;
-  cis: array of Int32;
+  cis: TScript84Script_MFInt32Array;
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   resolution := 300;
   theta := 0.0;
   phi := 0.0;

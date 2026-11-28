@@ -2,7 +2,7 @@ unit bumpyfreewrlsliders;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbumpyfreewrlsliders: TX3DRootNode;
 procedure RegisterbumpyfreewrlslidersScripts(const Scene: TCastleSceneCore);
@@ -37,10 +37,11 @@ begin
 end;
 
 type
+  TScript134Script_MFStringArray = array of String;
   TScript134Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FprotoScale: Single;
     FField_protoScale: TSFFloat;
     FBack_protoScale: TSFFloat;
@@ -57,7 +58,7 @@ type
     FField_protoValue_changed: TSFFloat;
     FBack_protoValue_changed: TSFFloat;
     FDirty_protoValue_changed: Boolean;
-    FprotoNumber_changed: array of String;
+    FprotoNumber_changed: TScript134Script_MFStringArray;
     FField_protoNumber_changed: TMFString;
     FBack_protoNumber_changed: TMFString;
     FDirty_protoNumber_changed: Boolean;
@@ -72,7 +73,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
   end;
 
   TbumpyfreewrlslidersScriptBinder = class
@@ -218,8 +219,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FprotoScale := 0.0;
   FField_protoScale := nil;
   FBack_protoScale := TSFFloat.Create(nil, False, 'protoScale', 0.0);

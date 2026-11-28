@@ -2,7 +2,7 @@ unit browser;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbrowser: TX3DRootNode;
 procedure RegisterbrowserScripts(const Scene: TCastleSceneCore);
@@ -15,8 +15,8 @@ uses SysUtils, CastleVectors, Math, X3DTime;
 type
   TScript8Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     procedure FlushOutputs(const Time: TX3DTime);
   public
     constructor Create(const AHandlerPrefix: String);
@@ -24,14 +24,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript9Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     procedure FlushOutputs(const Time: TX3DTime);
   public
     constructor Create(const AHandlerPrefix: String);
@@ -39,7 +39,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Cumulustranslation(const Time: TX3DTime);
   end;
 
@@ -59,8 +59,8 @@ var
 constructor TScript8Script.Create(const AHandlerPrefix: String);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
 end;
 
 class function TScript8Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript8Script;
@@ -83,20 +83,20 @@ end;
 
 procedure TScript8Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
 end;
 
 procedure TScript8Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   WriteLn('DUDES'#10 + '"DUDETTES');
 end;
 
 constructor TScript9Script.Create(const AHandlerPrefix: String);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
 end;
 
 class function TScript9Script.CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript9Script;

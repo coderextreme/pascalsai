@@ -2,7 +2,7 @@ unit text3shapes;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createtext3shapes: TX3DRootNode;
 procedure Registertext3shapesScripts(const Scene: TCastleSceneCore);
@@ -13,11 +13,12 @@ implementation
 uses SysUtils, CastleVectors, Math, X3DTime;
 
 type
+  TScript25Script_MFStringArray = array of String;
   TScript25Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    FfrontUrls: array of String;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    FfrontUrls: TScript25Script_MFStringArray;
     procedure FlushOutputs(const Time: TX3DTime);
   public
     constructor Create(const AHandlerPrefix: String; const AField_frontUrls: TMFString);
@@ -25,7 +26,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
   end;
 
   Ttext3shapesScriptBinder = class
@@ -61,8 +62,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FfrontUrls := nil;
   if AField_frontUrls <> nil then
   begin

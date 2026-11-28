@@ -2,7 +2,7 @@ unit mirror2;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createmirror2: TX3DRootNode;
 procedure Registermirror2Scripts(const Scene: TCastleSceneCore);
@@ -13,37 +13,38 @@ implementation
 uses SysUtils, CastleVectors, Math, X3DTime, CastleRenderOptions;
 
 type
+  TScript46Script_MFStringArray = array of String;
   TScript46Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    FfrontUrls: array of String;
-    FbackUrls: array of String;
-    FleftUrls: array of String;
-    FrightUrls: array of String;
-    FtopUrls: array of String;
-    FbottomUrls: array of String;
-    Ffront_changed: array of String;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    FfrontUrls: TScript46Script_MFStringArray;
+    FbackUrls: TScript46Script_MFStringArray;
+    FleftUrls: TScript46Script_MFStringArray;
+    FrightUrls: TScript46Script_MFStringArray;
+    FtopUrls: TScript46Script_MFStringArray;
+    FbottomUrls: TScript46Script_MFStringArray;
+    Ffront_changed: TScript46Script_MFStringArray;
     FEvent_front_changed: TX3DEvent;
     FBack_front_changed: TMFString;
     FDirty_front_changed: Boolean;
-    Fback_changed: array of String;
+    Fback_changed: TScript46Script_MFStringArray;
     FEvent_back_changed: TX3DEvent;
     FBack_back_changed: TMFString;
     FDirty_back_changed: Boolean;
-    Fleft_changed: array of String;
+    Fleft_changed: TScript46Script_MFStringArray;
     FEvent_left_changed: TX3DEvent;
     FBack_left_changed: TMFString;
     FDirty_left_changed: Boolean;
-    Fright_changed: array of String;
+    Fright_changed: TScript46Script_MFStringArray;
     FEvent_right_changed: TX3DEvent;
     FBack_right_changed: TMFString;
     FDirty_right_changed: Boolean;
-    Ftop_changed: array of String;
+    Ftop_changed: TScript46Script_MFStringArray;
     FEvent_top_changed: TX3DEvent;
     FBack_top_changed: TMFString;
     FDirty_top_changed: Boolean;
-    Fbottom_changed: array of String;
+    Fbottom_changed: TScript46Script_MFStringArray;
     FEvent_bottom_changed: TX3DEvent;
     FBack_bottom_changed: TMFString;
     FDirty_bottom_changed: Boolean;
@@ -58,7 +59,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
   end;
 
@@ -123,8 +124,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FfrontUrls := nil;
   FbackUrls := nil;
   FleftUrls := nil;
@@ -313,7 +314,7 @@ end;
 
 procedure TScript46Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
 end;
 
 procedure TScript46Script.Set_fraction(Value: TX3DField; const Time: TX3DTime);

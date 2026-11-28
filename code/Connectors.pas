@@ -2,7 +2,7 @@ unit Connectors;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateConnectors: TX3DRootNode;
 procedure RegisterConnectorsScripts(const Scene: TCastleSceneCore);
@@ -37,30 +37,36 @@ begin
 end;
 
 type
+  TScript18Script_MFVec3Array = array of TVector3;
+  TScript18Script_MFInt32Array = array of Int32;
   TScript18Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FcornerDimension: Single;
     FcornerRadius: Single;
     Fsize: TVector2;
     Fgeometry: TX3DNode;
     procedure FlushOutputs(const Time: TX3DTime);
-    procedure SendNodeFloat(const Node: TX3DNode; const EventName: String; const Val: Double; const Time: TX3DTime);
+    procedure SendNodeMFInt32(const Node: TX3DNode; const EventName: String; const Val: array of Int32; const Time: TX3DTime);
+    function SlerpRotation(const R1, R2: TVector4; const T: Single): TVector4;
+    function RotateVec3(const R: TVector4; const V: TVector3): TVector3;
+    function GetNodeSFNode(const Node: TX3DNode; const FieldName: String): TX3DNode;
+    procedure SendNodeMFVec3(const Node: TX3DNode; const EventName: String; const Val: array of TVector3; const Time: TX3DTime);
   public
     constructor Create(const AHandlerPrefix: String; const AField_cornerDimension: TSFFloat; const AField_cornerRadius: TSFFloat; const AField_size: TSFVec2f; const AField_geometry: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript18Script;
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript62Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ftranslation: TVector3;
     FField_translation: TSFVec3f;
     FBack_translation: TSFVec3f;
@@ -75,27 +81,31 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript82Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FrouteDimension: Int32;
     Foutput: TX3DNode;
     Finput: TX3DNode;
     Fgeometry: TX3DNode;
     Fself: TX3DNode;
     procedure FlushOutputs(const Time: TX3DTime);
+    procedure SetNodeMFInt32Item(const Node: TX3DNode; const FieldName: String; const Idx: Integer; const Val: Int32; const Time: TX3DTime);
+    function GetNodeVec3(const Node: TX3DNode; const FieldName: String): TVector3;
+    function GetNodeSFNode(const Node: TX3DNode; const FieldName: String): TX3DNode;
+    procedure SetNodeMFVec3Item(const Node: TX3DNode; const FieldName: String; const Idx: Integer; const Val: TVector3; const Time: TX3DTime);
   public
     constructor Create(const AHandlerPrefix: String; const AField_routeDimension: TSFInt32; const AField_output: TSFNode; const AField_input: TSFNode; const AField_geometry: TSFNode; const AField_self: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript82Script;
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_translation(Value: TX3DField; const Time: TX3DTime);
   end;
@@ -209,8 +219,8 @@ var
 constructor TScript18Script.Create(const AHandlerPrefix: String; const AField_cornerDimension: TSFFloat; const AField_cornerRadius: TSFFloat; const AField_size: TSFVec2f; const AField_geometry: TSFNode);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FcornerDimension := 0.0;
   FcornerRadius := 0.0;
   Fsize := Vector2(0, 0);
@@ -239,10 +249,12 @@ procedure TScript18Script.FlushOutputs(const Time: TX3DTime);
 begin
 end;
 
-procedure TScript18Script.SendNodeFloat(const Node: TX3DNode; const EventName: String; const Val: Double; const Time: TX3DTime);
+procedure TScript18Script.SendNodeMFInt32(const Node: TX3DNode; const EventName: String; const Val: array of Int32; const Time: TX3DTime);
 var
   FOE: TX3DFieldOrEvent;
   E: TX3DEvent;
+  Tmp: TMFInt32;
+  _i: Integer;
 begin
   if Node = nil then Exit;
   FOE := Node.FieldOrEvent(EventName);
@@ -251,22 +263,143 @@ begin
   else if FOE is TX3DEvent then
     E := TX3DEvent(FOE)
   else
+  begin
+    if FOE is TMFInt32 then
+    begin
+      TMFInt32(FOE).Items.Clear;
+      for _i := 0 to High(Val) do TMFInt32(FOE).Items.Add(Val[_i]);
+      TMFInt32(FOE).Changed;
+    end;
     Exit;
-  if E is TSFFloatEvent then
-    TSFFloatEvent(E).Send(Val, Time)
-  else if E is TSFDoubleEvent then
-    TSFDoubleEvent(E).Send(Val, Time)
-  else if E is TSFTimeEvent then
-    TSFTimeEvent(E).Send(Val, Time)
-  else if E is TSFInt32Event then
-    TSFInt32Event(E).Send(Round(Val), Time)
-  else if E is TSFBoolEvent then
-    TSFBoolEvent(E).Send(Val <> 0, Time);
+  end;
+  Tmp := TMFInt32.CreateUndefined(nil, False, EventName);
+  try
+    for _i := 0 to High(Val) do Tmp.Items.Add(Val[_i]);
+    E.Send(Tmp, Time);
+  finally
+    FreeAndNil(Tmp);
+  end;
+end;
+
+function TScript18Script.SlerpRotation(const R1, R2: TVector4; const T: Single): TVector4;
+var
+  A1, A2: TVector3;
+  S1, C1, S2, C2: Single;
+  Q1X, Q1Y, Q1Z, Q1W, Q2X, Q2Y, Q2Z, Q2W: Single;
+  Dot, HalfTheta, SinHalf, RA, RB: Single;
+  RX, RY, RZ, RW, Len, Den: Single;
+begin
+  A1 := Vector3(R1.X, R1.Y, R1.Z);
+  if A1.IsZero then A1 := Vector3(0, 0, 1) else A1 := A1.Normalize;
+  S1 := Sin(R1.W * 0.5); C1 := Cos(R1.W * 0.5);
+  Q1X := A1.X * S1; Q1Y := A1.Y * S1; Q1Z := A1.Z * S1; Q1W := C1;
+  A2 := Vector3(R2.X, R2.Y, R2.Z);
+  if A2.IsZero then A2 := Vector3(0, 0, 1) else A2 := A2.Normalize;
+  S2 := Sin(R2.W * 0.5); C2 := Cos(R2.W * 0.5);
+  Q2X := A2.X * S2; Q2Y := A2.Y * S2; Q2Z := A2.Z * S2; Q2W := C2;
+  Dot := Q1X * Q2X + Q1Y * Q2Y + Q1Z * Q2Z + Q1W * Q2W;
+  if Dot < 0 then
+  begin
+    Q2X := -Q2X; Q2Y := -Q2Y; Q2Z := -Q2Z; Q2W := -Q2W;
+    Dot := -Dot;
+  end;
+  if Dot > 0.9995 then
+  begin
+    RX := Q1X + T * (Q2X - Q1X);
+    RY := Q1Y + T * (Q2Y - Q1Y);
+    RZ := Q1Z + T * (Q2Z - Q1Z);
+    RW := Q1W + T * (Q2W - Q1W);
+  end
+  else
+  begin
+    HalfTheta := ArcCos(Min(1.0, Max(-1.0, Dot)));
+    SinHalf := Sqrt(Max(0.0, 1.0 - Dot * Dot));
+    if SinHalf < 0.0001 then
+    begin
+      RA := 0.5; RB := 0.5;
+    end
+    else
+    begin
+      RA := Sin((1.0 - T) * HalfTheta) / SinHalf;
+      RB := Sin(T * HalfTheta) / SinHalf;
+    end;
+    RX := Q1X * RA + Q2X * RB;
+    RY := Q1Y * RA + Q2Y * RB;
+    RZ := Q1Z * RA + Q2Z * RB;
+    RW := Q1W * RA + Q2W * RB;
+  end;
+  Len := Sqrt(RX * RX + RY * RY + RZ * RZ + RW * RW);
+  if Len > 0 then begin RX := RX / Len; RY := RY / Len; RZ := RZ / Len; RW := RW / Len; end;
+  Den := Sqrt(Max(0.0, 1.0 - RW * RW));
+  if Den < 0.0001 then
+    Result := Vector4(0, 0, 1, 0)
+  else
+    Result := Vector4(RX / Den, RY / Den, RZ / Den, 2.0 * ArcCos(Min(1.0, Max(-1.0, RW))));
+end;
+
+function TScript18Script.RotateVec3(const R: TVector4; const V: TVector3): TVector3;
+var
+  Axis: TVector3;
+  C, S: Single;
+begin
+  Axis := Vector3(R.X, R.Y, R.Z);
+  if Axis.IsZero or (R.W = 0) then
+  begin
+    Result := V;
+    Exit;
+  end;
+  Axis := Axis.Normalize;
+  C := Cos(R.W);
+  S := Sin(R.W);
+  Result := V * C + TVector3.CrossProduct(Axis, V) * S + Axis * (TVector3.DotProduct(Axis, V) * (1.0 - C));
+end;
+
+function TScript18Script.GetNodeSFNode(const Node: TX3DNode; const FieldName: String): TX3DNode;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := nil;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFNode then
+    Result := TSFNode(FOE).Value;
+end;
+
+procedure TScript18Script.SendNodeMFVec3(const Node: TX3DNode; const EventName: String; const Val: array of TVector3; const Time: TX3DTime);
+var
+  FOE: TX3DFieldOrEvent;
+  E: TX3DEvent;
+  Tmp: TMFVec3f;
+  _i: Integer;
+begin
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(EventName);
+  if (FOE is TX3DField) and TX3DField(FOE).Exposed then
+    E := TX3DField(FOE).EventIn
+  else if FOE is TX3DEvent then
+    E := TX3DEvent(FOE)
+  else
+  begin
+    if FOE is TMFVec3f then
+    begin
+      TMFVec3f(FOE).Items.Clear;
+      for _i := 0 to High(Val) do TMFVec3f(FOE).Items.Add(Val[_i]);
+      TMFVec3f(FOE).Changed;
+    end;
+    Exit;
+  end;
+  Tmp := TMFVec3f.CreateUndefined(nil, False, EventName);
+  try
+    for _i := 0 to High(Val) do Tmp.Items.Add(Val[_i]);
+    E.Send(Tmp, Time);
+  finally
+    FreeAndNil(Tmp);
+  end;
 end;
 
 procedure TScript18Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
 end;
 
 procedure TScript18Script.Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -274,16 +407,16 @@ var
   point: TVector3;
   startRotation: TVector4;
   endRotation: TVector4;
-  corner: array of TVector3;
-  coordIndex: array of Int32;
-  points: array of TVector3;
+  corner: TScript18Script_MFVec3Array;
+  coordIndex: TScript18Script_MFInt32Array;
+  points: TScript18Script_MFVec3Array;
   i: Integer;
   translation: TVector3;
   rotation: TVector4;
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   point := Vector3(FcornerRadius, 0, 0);
-  startRotation := Vector4();
+  startRotation := Vector4(0, 0, 1, 0);
   endRotation := Vector4(0, 0, 1, Pi / 2);
   corner := [];
   coordIndex := [];
@@ -293,47 +426,47 @@ begin
     if (Length(coordIndex)) >= Length(coordIndex) then SetLength(coordIndex, (Length(coordIndex)) + 1);
     coordIndex[Length(coordIndex)] := i;
   end;
-  SendNodeFloat(Fgeometry, 'coordIndex', coordIndex, Time);
+  SendNodeMFInt32(Fgeometry, 'coordIndex', coordIndex, Time);
   for i := 0 to (FcornerDimension) - 1 do
   begin
     if (i) >= Length(corner) then SetLength(corner, (i) + 1);
-    corner[i] := startRotation.slerp(endRotation, i / (FcornerDimension - 1)).multVec(point);
+    corner[i] := RotateVec3(SlerpRotation(startRotation, endRotation, i / (FcornerDimension - 1)), point);
   end;
   translation := Vector3(Fsize.X / 2 - FcornerRadius, Fsize.Y / 2 - FcornerRadius, 0);
   for i := 0 to (FcornerDimension) - 1 do
   begin
     if (Length(points)) >= Length(points) then SetLength(points, (Length(points)) + 1);
-    points[Length(points)] := corner[i].add(translation);
+    points[Length(points)] := (corner[i] + translation);
   end;
   translation := Vector3(-Fsize.X / 2 + FcornerRadius, Fsize.Y / 2 - FcornerRadius, 0);
   rotation := Vector4(0, 0, 1, Pi * 0.5);
   for i := 0 to (FcornerDimension) - 1 do
   begin
     if (Length(points)) >= Length(points) then SetLength(points, (Length(points)) + 1);
-    points[Length(points)] := rotation.multVec(corner[i]).add(translation);
+    points[Length(points)] := (RotateVec3(rotation, corner[i]) + translation);
   end;
   translation := Vector3(-Fsize.X / 2 + FcornerRadius, -Fsize.Y / 2 + FcornerRadius, 0);
   rotation := Vector4(0, 0, 1, Pi);
   for i := 0 to (FcornerDimension) - 1 do
   begin
     if (Length(points)) >= Length(points) then SetLength(points, (Length(points)) + 1);
-    points[Length(points)] := rotation.multVec(corner[i]).add(translation);
+    points[Length(points)] := (RotateVec3(rotation, corner[i]) + translation);
   end;
   translation := Vector3(Fsize.X / 2 - FcornerRadius, -Fsize.Y / 2 + FcornerRadius, 0);
   rotation := Vector4(0, 0, 1, Pi * 1.5);
   for i := 0 to (FcornerDimension) - 1 do
   begin
     if (Length(points)) >= Length(points) then SetLength(points, (Length(points)) + 1);
-    points[Length(points)] := rotation.multVec(corner[i]).add(translation);
+    points[Length(points)] := (RotateVec3(rotation, corner[i]) + translation);
   end;
-  Fgeometry.coord.point := points;
+  SendNodeMFVec3(GetNodeSFNode(Fgeometry, 'coord'), 'point', points, Time);
 end;
 
 constructor TScript62Script.Create(const AHandlerPrefix: String; const AField_translation: TSFVec3f; const AField_sensor: TSFNode; const AField_transform: TSFNode);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ftranslation := Vector3(0, 0, 0);
   FField_translation := nil;
   FBack_translation := TSFVec3f.Create(nil, False, 'translation', Vector3(0, 0, 0));
@@ -399,12 +532,12 @@ end;
 
 procedure TScript62Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
 end;
 
 procedure TScript62Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   SendNodeVec3(Fsensor, 'offset', Ftranslation, Time);
   FlushOutputs(Time);
 end;
@@ -412,8 +545,8 @@ end;
 constructor TScript82Script.Create(const AHandlerPrefix: String; const AField_routeDimension: TSFInt32; const AField_output: TSFNode; const AField_input: TSFNode; const AField_geometry: TSFNode; const AField_self: TSFNode);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FrouteDimension := 0;
   Foutput := nil;
   Finput := nil;
@@ -444,15 +577,89 @@ procedure TScript82Script.FlushOutputs(const Time: TX3DTime);
 begin
 end;
 
+procedure TScript82Script.SetNodeMFInt32Item(const Node: TX3DNode; const FieldName: String; const Idx: Integer; const Val: Int32; const Time: TX3DTime);
+var
+  FOE: TX3DFieldOrEvent;
+  F, Tmp: TMFInt32;
+  _i: Integer;
+begin
+  if (Node = nil) or (Idx < 0) then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if not (FOE is TMFInt32) then Exit;
+  F := TMFInt32(FOE);
+  while F.Items.Count <= Idx do F.Items.Add(0);
+  F.Items[Idx] := Val;
+  if F.Exposed and (Node.Scene <> nil) then
+  begin
+    Tmp := TMFInt32.CreateUndefined(nil, False, FieldName);
+    try
+      for _i := 0 to F.Items.Count - 1 do Tmp.Items.Add(F.Items[_i]);
+      F.EventIn.Send(Tmp, Time);
+    finally
+      FreeAndNil(Tmp);
+    end;
+  end
+  else
+    F.Changed;
+end;
+
+function TScript82Script.GetNodeVec3(const Node: TX3DNode; const FieldName: String): TVector3;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := Vector3(0, 0, 0);
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFVec3f then Result := TSFVec3f(FOE).Value
+  else if FOE is TSFColor then Result := TSFColor(FOE).Value;
+end;
+
+function TScript82Script.GetNodeSFNode(const Node: TX3DNode; const FieldName: String): TX3DNode;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := nil;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFNode then
+    Result := TSFNode(FOE).Value;
+end;
+
+procedure TScript82Script.SetNodeMFVec3Item(const Node: TX3DNode; const FieldName: String; const Idx: Integer; const Val: TVector3; const Time: TX3DTime);
+var
+  FOE: TX3DFieldOrEvent;
+  F, Tmp: TMFVec3f;
+  _i: Integer;
+begin
+  if (Node = nil) or (Idx < 0) then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if not (FOE is TMFVec3f) then Exit;
+  F := TMFVec3f(FOE);
+  while F.Items.Count <= Idx do F.Items.Add(Vector3(0, 0, 0));
+  F.Items[Idx] := Val;
+  if F.Exposed and (Node.Scene <> nil) then
+  begin
+    Tmp := TMFVec3f.CreateUndefined(nil, False, FieldName);
+    try
+      for _i := 0 to F.Items.Count - 1 do Tmp.Items.Add(F.Items[_i]);
+      F.EventIn.Send(Tmp, Time);
+    finally
+      FreeAndNil(Tmp);
+    end;
+  end
+  else
+    F.Changed;
+end;
+
 procedure TScript82Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_translation', {$ifdef FPC}@{$endif}Set_translation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_translation', {$ifdef FPC}@{$endif}Set_translation);
 end;
 
 procedure TScript82Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   { Skipped unsupported JS Browser/DOM statement }
   { Skipped unsupported JS Browser/DOM statement }
   Set_translation(nil, Time);
@@ -460,26 +667,24 @@ end;
 
 procedure TScript82Script.Set_translation(Value: TX3DField; const Time: TX3DTime);
 var
-  outPoint: Single;
-  inPoint: Single;
+  outPoint: TVector3;
+  inPoint: TVector3;
   w: Single;
   h: Single;
   i: Integer;
   t: Single;
   y: Single;
 begin
-  if (0) >= Length(Fgeometry.vertexCount) then SetLength(Fgeometry.vertexCount, (0) + 1);
-  Fgeometry.vertexCount[0] := FrouteDimension;
-  outPoint := Foutput.translation.add(Vector3(1, 0, 0));
-  inPoint := Finput.translation.add(Vector3(-1, 0, 0));
+  SetNodeMFInt32Item(Fgeometry, 'vertexCount', 0, FrouteDimension, Time);
+  outPoint := (GetNodeVec3(Foutput, 'translation') + Vector3(1, 0, 0));
+  inPoint := (GetNodeVec3(Finput, 'translation') + Vector3(-1, 0, 0));
   w := inPoint.X - outPoint.X;
   h := outPoint.Y - inPoint.Y;
   for i := 0 to (FrouteDimension) - 1 do
   begin
     t := i / (FrouteDimension - 1);
     y := h / 2 * (Cos(t * Pi) - 1);
-    if (i) >= Length(Fgeometry.coord.point) then SetLength(Fgeometry.coord.point, (i) + 1);
-    Fgeometry.coord.point[i] := outPoint.add(Vector3(t * w, y, 0));
+    SetNodeMFVec3Item(GetNodeSFNode(Fgeometry, 'coord'), 'point', i, (outPoint + Vector3(t * w, y, 0)), Time);
   end;
 end;
 

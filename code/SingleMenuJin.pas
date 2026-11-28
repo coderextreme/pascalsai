@@ -2,7 +2,7 @@ unit SingleMenuJin;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateSingleMenuJin: TX3DRootNode;
 procedure RegisterSingleMenuJinScripts(const Scene: TCastleSceneCore);
@@ -15,8 +15,8 @@ uses SysUtils, CastleVectors, Math, X3DTime;
 type
   TScript3058Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -44,14 +44,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3085Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -79,14 +79,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3112Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -114,14 +114,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3139Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -149,14 +149,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3166Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -184,14 +184,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3193Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -219,14 +219,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3220Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -254,14 +254,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3247Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -289,14 +289,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3274Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -324,14 +324,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3301Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -359,14 +359,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3328Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -394,14 +394,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3355Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -429,14 +429,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3382Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -464,14 +464,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3409Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -499,14 +499,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3436Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -534,14 +534,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3463Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -569,14 +569,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3490Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -604,14 +604,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3517Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -639,14 +639,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3544Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -674,14 +674,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3571Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -709,14 +709,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3598Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -744,14 +744,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3625Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -779,14 +779,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3652Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -814,14 +814,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3679Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -849,14 +849,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3706Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -884,14 +884,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3733Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -919,14 +919,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3760Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -954,14 +954,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3787Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -989,14 +989,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3814Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -1024,14 +1024,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3841Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FresumeTime: Double;
     FEvent_resumeTime: TX3DEvent;
     FBack_resumeTime: TSFTime;
@@ -1059,7 +1059,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
@@ -3305,8 +3305,8 @@ var
 constructor TScript3058Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -3419,7 +3419,7 @@ end;
 
 procedure TScript3058Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3058Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3457,8 +3457,8 @@ end;
 constructor TScript3085Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -3571,7 +3571,7 @@ end;
 
 procedure TScript3085Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3085Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3609,8 +3609,8 @@ end;
 constructor TScript3112Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -3723,7 +3723,7 @@ end;
 
 procedure TScript3112Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3112Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3761,8 +3761,8 @@ end;
 constructor TScript3139Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -3875,7 +3875,7 @@ end;
 
 procedure TScript3139Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3139Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3913,8 +3913,8 @@ end;
 constructor TScript3166Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -4027,7 +4027,7 @@ end;
 
 procedure TScript3166Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3166Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4065,8 +4065,8 @@ end;
 constructor TScript3193Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -4179,7 +4179,7 @@ end;
 
 procedure TScript3193Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3193Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4217,8 +4217,8 @@ end;
 constructor TScript3220Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -4331,7 +4331,7 @@ end;
 
 procedure TScript3220Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3220Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4369,8 +4369,8 @@ end;
 constructor TScript3247Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -4483,7 +4483,7 @@ end;
 
 procedure TScript3247Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3247Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4521,8 +4521,8 @@ end;
 constructor TScript3274Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -4635,7 +4635,7 @@ end;
 
 procedure TScript3274Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3274Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4673,8 +4673,8 @@ end;
 constructor TScript3301Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -4787,7 +4787,7 @@ end;
 
 procedure TScript3301Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3301Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4825,8 +4825,8 @@ end;
 constructor TScript3328Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -4939,7 +4939,7 @@ end;
 
 procedure TScript3328Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3328Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4977,8 +4977,8 @@ end;
 constructor TScript3355Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -5091,7 +5091,7 @@ end;
 
 procedure TScript3355Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3355Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5129,8 +5129,8 @@ end;
 constructor TScript3382Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -5243,7 +5243,7 @@ end;
 
 procedure TScript3382Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3382Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5281,8 +5281,8 @@ end;
 constructor TScript3409Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -5395,7 +5395,7 @@ end;
 
 procedure TScript3409Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3409Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5433,8 +5433,8 @@ end;
 constructor TScript3436Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -5547,7 +5547,7 @@ end;
 
 procedure TScript3436Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3436Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5585,8 +5585,8 @@ end;
 constructor TScript3463Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -5699,7 +5699,7 @@ end;
 
 procedure TScript3463Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3463Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5737,8 +5737,8 @@ end;
 constructor TScript3490Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -5851,7 +5851,7 @@ end;
 
 procedure TScript3490Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3490Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5889,8 +5889,8 @@ end;
 constructor TScript3517Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -6003,7 +6003,7 @@ end;
 
 procedure TScript3517Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3517Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6041,8 +6041,8 @@ end;
 constructor TScript3544Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -6155,7 +6155,7 @@ end;
 
 procedure TScript3544Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3544Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6193,8 +6193,8 @@ end;
 constructor TScript3571Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -6307,7 +6307,7 @@ end;
 
 procedure TScript3571Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3571Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6345,8 +6345,8 @@ end;
 constructor TScript3598Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -6459,7 +6459,7 @@ end;
 
 procedure TScript3598Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3598Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6497,8 +6497,8 @@ end;
 constructor TScript3625Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -6611,7 +6611,7 @@ end;
 
 procedure TScript3625Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3625Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6649,8 +6649,8 @@ end;
 constructor TScript3652Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -6763,7 +6763,7 @@ end;
 
 procedure TScript3652Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3652Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6801,8 +6801,8 @@ end;
 constructor TScript3679Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -6915,7 +6915,7 @@ end;
 
 procedure TScript3679Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3679Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6953,8 +6953,8 @@ end;
 constructor TScript3706Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -7067,7 +7067,7 @@ end;
 
 procedure TScript3706Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3706Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -7105,8 +7105,8 @@ end;
 constructor TScript3733Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -7219,7 +7219,7 @@ end;
 
 procedure TScript3733Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3733Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -7257,8 +7257,8 @@ end;
 constructor TScript3760Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -7371,7 +7371,7 @@ end;
 
 procedure TScript3760Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3760Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -7409,8 +7409,8 @@ end;
 constructor TScript3787Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -7523,7 +7523,7 @@ end;
 
 procedure TScript3787Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3787Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -7561,8 +7561,8 @@ end;
 constructor TScript3814Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -7675,7 +7675,7 @@ end;
 
 procedure TScript3814Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3814Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -7713,8 +7713,8 @@ end;
 constructor TScript3841Script.Create(const AHandlerPrefix: String; const AEvent_resumeTime: TX3DEvent; const AEvent_pauseTime: TX3DEvent; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FresumeTime := 0.0;
   FEvent_resumeTime := nil;
   FBack_resumeTime := TSFTime.Create(nil, False, 'resumeTime', 0.0);
@@ -7827,7 +7827,7 @@ end;
 
 procedure TScript3841Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3841Script.InTime(Value: TX3DField; const Time: TX3DTime);

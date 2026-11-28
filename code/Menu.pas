@@ -2,7 +2,7 @@ unit Menu;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateMenu: TX3DRootNode;
 procedure RegisterMenuScripts(const Scene: TCastleSceneCore);
@@ -37,11 +37,12 @@ begin
 end;
 
 type
+  TScript55Script_MFStringArray = array of String;
   TScript55Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    FmenuItems: array of String;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    FmenuItems: TScript55Script_MFStringArray;
     Fselection: Int32;
     FEvent_selection: TX3DEvent;
     FBack_selection: TSFInt32;
@@ -57,7 +58,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure TouchPoint(Value: TX3DField; const Time: TX3DTime);
   end;
@@ -134,8 +135,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FmenuItems := nil;
   Fselection := 0;
   FEvent_selection := nil;
@@ -188,8 +189,8 @@ end;
 
 procedure TScript55Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'touchPoint', {$ifdef FPC}@{$endif}TouchPoint);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'touchPoint', {$ifdef FPC}@{$endif}TouchPoint);
 end;
 
 procedure TScript55Script.Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -197,7 +198,7 @@ var
   spacingBetweenGlyphs: Single;
   menuHeight: Single;
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   Fselection := 0;
   FDirty_selection := True;
   spacingBetweenGlyphs := Fsize * Fspacing - Fsize;

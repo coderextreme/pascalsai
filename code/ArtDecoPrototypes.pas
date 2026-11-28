@@ -2,7 +2,7 @@ unit ArtDecoPrototypes;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateArtDecoPrototypes: TX3DRootNode;
 
@@ -138,8 +138,6 @@ WorldInfo14.Title := 'ArtDecoPrototypes.x3d';
 Group13.FdChildren.Add(WorldInfo14);
 ProtoDeclare15 := CreateEmptyPrototype('ArtDeco00');
 ProtoDeclare15.X3DName := 'ArtDeco00';
-ProtoDeclare15.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare15.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material17 := TMaterialNode.Create;
 Material17.AmbientIntensity := 0.25;
 Material17.DiffuseColor := Vector3(0.282435, 0.085159, 0.134462);
@@ -149,24 +147,20 @@ ProtoDeclare15.Node.AddChildren([Material17]);
 X3D0.AddPrototype(ProtoDeclare15);
 ProtoDeclare18 := CreateEmptyPrototype('ArtDeco01');
 ProtoDeclare18.X3DName := 'ArtDeco01';
-ProtoDeclare18.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare18.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material20 := TMaterialNode.Create;
 Material20.AmbientIntensity := 0.254777;
 Material20.DiffuseColor := Vector3(0.685208, 0.134679, 0.332385);
 Material20.Shininess := 0.071429;
 Material20.SpecularColor := Vector3(0.122449, 0.050035, 0.050035);
 ProtoDeclare18.Node.AddChildren([Material20]);
+X3D0.AddPrototype(ProtoDeclare18);
+ProtoDeclare21 := CreateEmptyPrototype('ArtDeco02');
+ProtoDeclare21.X3DName := 'ArtDeco02';
+{ computed conversion ambientIntensity=1.745282, normalized to 1.0 }
 end;
 
 procedure InitArtDecoPrototypesPart1;
 begin
-X3D0.AddPrototype(ProtoDeclare18);
-ProtoDeclare21 := CreateEmptyPrototype('ArtDeco02');
-ProtoDeclare21.X3DName := 'ArtDeco02';
-ProtoDeclare21.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare21.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
-{ computed conversion ambientIntensity=1.745282, normalized to 1.0 }
 Material23 := TMaterialNode.Create;
 Material23.AmbientIntensity := 1;
 Material23.DiffuseColor := Vector3(0.536861, 0.0529, 0.245479);
@@ -176,8 +170,6 @@ ProtoDeclare21.Node.AddChildren([Material23]);
 X3D0.AddPrototype(ProtoDeclare21);
 ProtoDeclare24 := CreateEmptyPrototype('ArtDeco03');
 ProtoDeclare24.X3DName := 'ArtDeco03';
-ProtoDeclare24.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare24.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material26 := TMaterialNode.Create;
 Material26.AmbientIntensity := 0.248649;
 Material26.DiffuseColor := Vector3(1, 0.452381, 0.40339);
@@ -187,8 +179,6 @@ ProtoDeclare24.Node.AddChildren([Material26]);
 X3D0.AddPrototype(ProtoDeclare24);
 ProtoDeclare27 := CreateEmptyPrototype('ArtDeco04');
 ProtoDeclare27.X3DName := 'ArtDeco04';
-ProtoDeclare27.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare27.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material29 := TMaterialNode.Create;
 Material29.AmbientIntensity := 0.25;
 Material29.DiffuseColor := Vector3(0.748016, 0.298362, 0.342624);
@@ -198,13 +188,7 @@ ProtoDeclare27.Node.AddChildren([Material29]);
 X3D0.AddPrototype(ProtoDeclare27);
 ProtoDeclare30 := CreateEmptyPrototype('ArtDeco05');
 ProtoDeclare30.X3DName := 'ArtDeco05';
-ProtoDeclare30.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare30.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material32 := TMaterialNode.Create;
-end;
-
-procedure InitArtDecoPrototypesPart2;
-begin
 Material32.AmbientIntensity := 0.24359;
 Material32.DiffuseColor := Vector3(0.945455, 0.318988, 0.321717);
 Material32.Shininess := 0.018182;
@@ -213,19 +197,19 @@ ProtoDeclare30.Node.AddChildren([Material32]);
 X3D0.AddPrototype(ProtoDeclare30);
 ProtoDeclare33 := CreateEmptyPrototype('ArtDeco06');
 ProtoDeclare33.X3DName := 'ArtDeco06';
-ProtoDeclare33.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare33.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material35 := TMaterialNode.Create;
 Material35.AmbientIntensity := 0.25946;
 Material35.DiffuseColor := Vector3(0.228655, 0.195513, 0.425484);
 Material35.Shininess := 0.542553;
+end;
+
+procedure InitArtDecoPrototypesPart2;
+begin
 Material35.SpecularColor := Vector3(0.324504, 0.404255, 0.404255);
 ProtoDeclare33.Node.AddChildren([Material35]);
 X3D0.AddPrototype(ProtoDeclare33);
 ProtoDeclare36 := CreateEmptyPrototype('ArtDeco07');
 ProtoDeclare36.X3DName := 'ArtDeco07';
-ProtoDeclare36.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare36.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material38 := TMaterialNode.Create;
 Material38.AmbientIntensity := 0.333333;
 Material38.DiffuseColor := Vector3(0.200348, 0.100857, 0.320833);
@@ -235,8 +219,6 @@ ProtoDeclare36.Node.AddChildren([Material38]);
 X3D0.AddPrototype(ProtoDeclare36);
 ProtoDeclare39 := CreateEmptyPrototype('ArtDeco08');
 ProtoDeclare39.X3DName := 'ArtDeco08';
-ProtoDeclare39.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare39.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material41 := TMaterialNode.Create;
 Material41.AmbientIntensity := 0.242424;
 Material41.DiffuseColor := Vector3(0.330519, 0.3389, 0.6);
@@ -245,13 +227,7 @@ Material41.SpecularColor := Vector3(0.290909, 0.290909, 0.290909);
 ProtoDeclare39.Node.AddChildren([Material41]);
 X3D0.AddPrototype(ProtoDeclare39);
 ProtoDeclare42 := CreateEmptyPrototype('ArtDeco09');
-end;
-
-procedure InitArtDecoPrototypesPart3;
-begin
 ProtoDeclare42.X3DName := 'ArtDeco09';
-ProtoDeclare42.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare42.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material44 := TMaterialNode.Create;
 Material44.AmbientIntensity := 0.333333;
 Material44.DiffuseColor := Vector3(0.237059, 0.096273, 0.215625);
@@ -261,8 +237,6 @@ ProtoDeclare42.Node.AddChildren([Material44]);
 X3D0.AddPrototype(ProtoDeclare42);
 ProtoDeclare45 := CreateEmptyPrototype('ArtDeco10');
 ProtoDeclare45.X3DName := 'ArtDeco10';
-ProtoDeclare45.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare45.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material47 := TMaterialNode.Create;
 Material47.AmbientIntensity := 0.242425;
 Material47.DiffuseColor := Vector3(0.304, 0.09025, 0.207364);
@@ -271,9 +245,11 @@ Material47.SpecularColor := Vector3(0.6665, 0.579046, 0.830303);
 ProtoDeclare45.Node.AddChildren([Material47]);
 X3D0.AddPrototype(ProtoDeclare45);
 ProtoDeclare48 := CreateEmptyPrototype('ArtDeco11');
+end;
+
+procedure InitArtDecoPrototypesPart3;
+begin
 ProtoDeclare48.X3DName := 'ArtDeco11';
-ProtoDeclare48.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare48.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material50 := TMaterialNode.Create;
 Material50.AmbientIntensity := 0.258928;
 Material50.DiffuseColor := Vector3(0.335631, 0.207672, 0.238304);
@@ -284,23 +260,15 @@ ProtoDeclare48.Node.AddChildren([Material50]);
 X3D0.AddPrototype(ProtoDeclare48);
 ProtoDeclare51 := CreateEmptyPrototype('ArtDeco12');
 ProtoDeclare51.X3DName := 'ArtDeco12';
-ProtoDeclare51.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare51.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material53 := TMaterialNode.Create;
 Material53.AmbientIntensity := 0.240838;
 Material53.DiffuseColor := Vector3(0.876873, 0.14715, 0.00856);
-end;
-
-procedure InitArtDecoPrototypesPart4;
-begin
 Material53.Shininess := 0.076531;
 Material53.SpecularColor := Vector3(0.193878, 0.029416, 0.029416);
 ProtoDeclare51.Node.AddChildren([Material53]);
 X3D0.AddPrototype(ProtoDeclare51);
 ProtoDeclare54 := CreateEmptyPrototype('ArtDeco13');
 ProtoDeclare54.X3DName := 'ArtDeco13';
-ProtoDeclare54.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare54.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material56 := TMaterialNode.Create;
 Material56.AmbientIntensity := 0.25;
 Material56.DiffuseColor := Vector3(0.794445, 0.249425, 0);
@@ -310,8 +278,6 @@ ProtoDeclare54.Node.AddChildren([Material56]);
 X3D0.AddPrototype(ProtoDeclare54);
 ProtoDeclare57 := CreateEmptyPrototype('ArtDeco14');
 ProtoDeclare57.X3DName := 'ArtDeco14';
-ProtoDeclare57.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare57.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material59 := TMaterialNode.Create;
 Material59.AmbientIntensity := 0.25;
 Material59.DiffuseColor := Vector3(0.510609, 0.17264, 0.059872);
@@ -321,10 +287,12 @@ ProtoDeclare57.Node.AddChildren([Material59]);
 X3D0.AddPrototype(ProtoDeclare57);
 ProtoDeclare60 := CreateEmptyPrototype('ArtDeco15');
 ProtoDeclare60.X3DName := 'ArtDeco15';
-ProtoDeclare60.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare60.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material62 := TMaterialNode.Create;
 Material62.AmbientIntensity := 0.255814;
+end;
+
+procedure InitArtDecoPrototypesPart4;
+begin
 Material62.DiffuseColor := Vector3(0.914894, 0.444404, 0.348914);
 Material62.Shininess := 0.12766;
 Material62.SpecularColor := Vector3(0.345745, 0.143066, 0);
@@ -332,12 +300,6 @@ ProtoDeclare60.Node.AddChildren([Material62]);
 X3D0.AddPrototype(ProtoDeclare60);
 ProtoDeclare63 := CreateEmptyPrototype('ArtDeco16');
 ProtoDeclare63.X3DName := 'ArtDeco16';
-ProtoDeclare63.Appinfo := 'UniversalMediaMaterials prototype';
-end;
-
-procedure InitArtDecoPrototypesPart5;
-begin
-ProtoDeclare63.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material65 := TMaterialNode.Create;
 Material65.AmbientIntensity := 0.240838;
 Material65.DiffuseColor := Vector3(0.876873, 0.323147, 0.199564);
@@ -347,8 +309,6 @@ ProtoDeclare63.Node.AddChildren([Material65]);
 X3D0.AddPrototype(ProtoDeclare63);
 ProtoDeclare66 := CreateEmptyPrototype('ArtDeco17');
 ProtoDeclare66.X3DName := 'ArtDeco17';
-ProtoDeclare66.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare66.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material68 := TMaterialNode.Create;
 Material68.AmbientIntensity := 0.242424;
 Material68.DiffuseColor := Vector3(0.515625, 0.315496, 0.252441);
@@ -358,8 +318,6 @@ ProtoDeclare66.Node.AddChildren([Material68]);
 X3D0.AddPrototype(ProtoDeclare66);
 ProtoDeclare69 := CreateEmptyPrototype('ArtDeco18');
 ProtoDeclare69.X3DName := 'ArtDeco18';
-ProtoDeclare69.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare69.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material71 := TMaterialNode.Create;
 Material71.AmbientIntensity := 0.264706;
 Material71.DiffuseColor := Vector3(0, 0.346939, 0.253624);
@@ -369,8 +327,6 @@ ProtoDeclare69.Node.AddChildren([Material71]);
 X3D0.AddPrototype(ProtoDeclare69);
 ProtoDeclare72 := CreateEmptyPrototype('ArtDeco19');
 ProtoDeclare72.X3DName := 'ArtDeco19';
-ProtoDeclare72.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare72.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material74 := TMaterialNode.Create;
 Material74.AmbientIntensity := 0.259259;
 Material74.DiffuseColor := Vector3(0, 0.251004, 0.239248);
@@ -379,13 +335,11 @@ Material74.SpecularColor := Vector3(0.177935, 0.249369, 0.229278);
 ProtoDeclare72.Node.AddChildren([Material74]);
 end;
 
-procedure InitArtDecoPrototypesPart6;
+procedure InitArtDecoPrototypesPart5;
 begin
 X3D0.AddPrototype(ProtoDeclare72);
 ProtoDeclare75 := CreateEmptyPrototype('ArtDeco20');
 ProtoDeclare75.X3DName := 'ArtDeco20';
-ProtoDeclare75.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare75.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material77 := TMaterialNode.Create;
 Material77.AmbientIntensity := 0.24;
 Material77.DiffuseColor := Vector3(0.228298, 0.385771, 0.186794);
@@ -395,8 +349,6 @@ ProtoDeclare75.Node.AddChildren([Material77]);
 X3D0.AddPrototype(ProtoDeclare75);
 ProtoDeclare78 := CreateEmptyPrototype('ArtDeco21');
 ProtoDeclare78.X3DName := 'ArtDeco21';
-ProtoDeclare78.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare78.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material80 := TMaterialNode.Create;
 Material80.AmbientIntensity := 0.25;
 Material80.DiffuseColor := Vector3(0.315389, 0.544, 0.258052);
@@ -406,8 +358,6 @@ ProtoDeclare78.Node.AddChildren([Material80]);
 X3D0.AddPrototype(ProtoDeclare78);
 ProtoDeclare81 := CreateEmptyPrototype('ArtDeco22');
 ProtoDeclare81.X3DName := 'ArtDeco22';
-ProtoDeclare81.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare81.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material83 := TMaterialNode.Create;
 Material83.AmbientIntensity := 0.246032;
 Material83.DiffuseColor := Vector3(0.251104, 0.312562, 0.201724);
@@ -417,14 +367,8 @@ ProtoDeclare81.Node.AddChildren([Material83]);
 X3D0.AddPrototype(ProtoDeclare81);
 ProtoDeclare84 := CreateEmptyPrototype('ArtDeco23');
 ProtoDeclare84.X3DName := 'ArtDeco23';
-ProtoDeclare84.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare84.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material86 := TMaterialNode.Create;
 Material86.AmbientIntensity := 0.242424;
-end;
-
-procedure InitArtDecoPrototypesPart7;
-begin
 Material86.DiffuseColor := Vector3(0.392348, 0.456, 0.417708);
 Material86.Shininess := 0.933333;
 Material86.SpecularColor := Vector3(0.533333, 0.533333, 0.533333);
@@ -432,9 +376,11 @@ ProtoDeclare84.Node.AddChildren([Material86]);
 X3D0.AddPrototype(ProtoDeclare84);
 ProtoDeclare87 := CreateEmptyPrototype('ArtDeco24');
 ProtoDeclare87.X3DName := 'ArtDeco24';
-ProtoDeclare87.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare87.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material89 := TMaterialNode.Create;
+end;
+
+procedure InitArtDecoPrototypesPart6;
+begin
 Material89.AmbientIntensity := 0.253968;
 Material89.DiffuseColor := Vector3(1, 0.854922, 0);
 Material89.Shininess := 1;
@@ -443,8 +389,6 @@ ProtoDeclare87.Node.AddChildren([Material89]);
 X3D0.AddPrototype(ProtoDeclare87);
 ProtoDeclare90 := CreateEmptyPrototype('ArtDeco25');
 ProtoDeclare90.X3DName := 'ArtDeco25';
-ProtoDeclare90.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare90.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material92 := TMaterialNode.Create;
 Material92.AmbientIntensity := 0.25641;
 Material92.DiffuseColor := Vector3(0.795918, 0.505869, 0.093315);
@@ -454,8 +398,6 @@ ProtoDeclare90.Node.AddChildren([Material92]);
 X3D0.AddPrototype(ProtoDeclare90);
 ProtoDeclare93 := CreateEmptyPrototype('ArtDeco26');
 ProtoDeclare93.X3DName := 'ArtDeco26';
-ProtoDeclare93.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare93.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 { computed conversion ambientIntensity=2.226234, normalized to 1.0 }
 Material95 := TMaterialNode.Create;
 Material95.AmbientIntensity := 1;
@@ -465,13 +407,7 @@ Material95.SpecularColor := Vector3(0.311224, 0.25183, 0.133042);
 ProtoDeclare93.Node.AddChildren([Material95]);
 X3D0.AddPrototype(ProtoDeclare93);
 ProtoDeclare96 := CreateEmptyPrototype('ArtDeco27');
-end;
-
-procedure InitArtDecoPrototypesPart8;
-begin
 ProtoDeclare96.X3DName := 'ArtDeco27';
-ProtoDeclare96.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare96.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material98 := TMaterialNode.Create;
 Material98.AmbientIntensity := 0.263158;
 Material98.DiffuseColor := Vector3(0.345455, 0.163262, 0.122622);
@@ -481,19 +417,19 @@ ProtoDeclare96.Node.AddChildren([Material98]);
 X3D0.AddPrototype(ProtoDeclare96);
 ProtoDeclare99 := CreateEmptyPrototype('ArtDeco28');
 ProtoDeclare99.X3DName := 'ArtDeco28';
-ProtoDeclare99.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare99.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material101 := TMaterialNode.Create;
 Material101.AmbientIntensity := 0.240506;
 Material101.DiffuseColor := Vector3(0.277281, 0.104336, 0.0799);
 Material101.Shininess := 0.09697;
+end;
+
+procedure InitArtDecoPrototypesPart7;
+begin
 Material101.SpecularColor := Vector3(0.305587, 0.141916, 0.270572);
 ProtoDeclare99.Node.AddChildren([Material101]);
 X3D0.AddPrototype(ProtoDeclare99);
 ProtoDeclare102 := CreateEmptyPrototype('ArtDeco29');
 ProtoDeclare102.X3DName := 'ArtDeco29';
-ProtoDeclare102.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare102.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material104 := TMaterialNode.Create;
 Material104.AmbientIntensity := 0.215686;
 Material104.DiffuseColor := Vector3(0.087034, 0.025888, 0);
@@ -503,23 +439,15 @@ ProtoDeclare102.Node.AddChildren([Material104]);
 X3D0.AddPrototype(ProtoDeclare102);
 ProtoDeclare105 := CreateEmptyPrototype('ArtDeco30');
 ProtoDeclare105.X3DName := 'ArtDeco30';
-ProtoDeclare105.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare105.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material107 := TMaterialNode.Create;
 Material107.AmbientIntensity := 0;
 Material107.DiffuseColor := Vector3(0, 0, 0);
 Material107.Shininess := 0.081633;
-end;
-
-procedure InitArtDecoPrototypesPart9;
-begin
 Material107.SpecularColor := Vector3(0.293243, 0.297387, 0.290421);
 ProtoDeclare105.Node.AddChildren([Material107]);
 X3D0.AddPrototype(ProtoDeclare105);
 ProtoDeclare108 := CreateEmptyPrototype('ArtDeco31');
 ProtoDeclare108.X3DName := 'ArtDeco31';
-ProtoDeclare108.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare108.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material110 := TMaterialNode.Create;
 Material110.AmbientIntensity := 0.25641;
 Material110.DiffuseColor := Vector3(0.236364, 0.236364, 0.236364);
@@ -529,8 +457,6 @@ ProtoDeclare108.Node.AddChildren([Material110]);
 X3D0.AddPrototype(ProtoDeclare108);
 ProtoDeclare111 := CreateEmptyPrototype('ArtDeco32');
 ProtoDeclare111.X3DName := 'ArtDeco32';
-ProtoDeclare111.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare111.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material113 := TMaterialNode.Create;
 Material113.AmbientIntensity := 0.242424;
 Material113.DiffuseColor := Vector3(0.38087, 0.382957, 0.417708);
@@ -539,9 +465,11 @@ Material113.SpecularColor := Vector3(0.533333, 0.533333, 0.533333);
 ProtoDeclare111.Node.AddChildren([Material113]);
 X3D0.AddPrototype(ProtoDeclare111);
 ProtoDeclare114 := CreateEmptyPrototype('ArtDeco33');
+end;
+
+procedure InitArtDecoPrototypesPart8;
+begin
 ProtoDeclare114.X3DName := 'ArtDeco33';
-ProtoDeclare114.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare114.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
 Material116 := TMaterialNode.Create;
 Material116.AmbientIntensity := 0.230089;
 Material116.DiffuseColor := Vector3(0.610811, 0.610811, 0.610811);
@@ -551,12 +479,6 @@ ProtoDeclare114.Node.AddChildren([Material116]);
 X3D0.AddPrototype(ProtoDeclare114);
 ProtoDeclare117 := CreateEmptyPrototype('ArtDeco34');
 ProtoDeclare117.X3DName := 'ArtDeco34';
-ProtoDeclare117.Appinfo := 'UniversalMediaMaterials prototype';
-ProtoDeclare117.Documentation := 'https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaMaterials';
-end;
-
-procedure InitArtDecoPrototypesPart10;
-begin
 Material119 := TMaterialNode.Create;
 Material119.AmbientIntensity := 0.25;
 Material119.Shininess := 0;
@@ -597,8 +519,6 @@ begin
   InitArtDecoPrototypesPart6;
   InitArtDecoPrototypesPart7;
   InitArtDecoPrototypesPart8;
-  InitArtDecoPrototypesPart9;
-  InitArtDecoPrototypesPart10;
   Result := X3D0;
 end;
 

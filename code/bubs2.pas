@@ -2,7 +2,7 @@ unit bubs2;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbubs2: TX3DRootNode;
 procedure Registerbubs2Scripts(const Scene: TCastleSceneCore);
@@ -39,8 +39,8 @@ end;
 type
   TScript21Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fscale: TVector3;
     FField_scale: TSFVec3f;
     FBack_scale: TSFVec3f;
@@ -64,7 +64,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
   end;
@@ -102,8 +102,8 @@ var
 constructor TScript21Script.Create(const AHandlerPrefix: String; const AField_scale: TSFVec3f; const AField_translation: TSFVec3f; const AField_velocity: TSFVec3f; const AField_scalvel: TSFVec3f);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fscale := Vector3(0, 0, 0);
   FField_scale := nil;
   FBack_scale := TSFVec3f.Create(nil, False, 'scale', Vector3(0, 0, 0));
@@ -206,13 +206,13 @@ end;
 
 procedure TScript21Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
 end;
 
 procedure TScript21Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   Fvelocity := Vector3(Random * 0.25 - 0.125, Random * 0.25 - 0.125, Random * 0.25 - 0.125);
   FDirty_velocity := True;
   Fscalvel := Vector3(Random * 0.4, Random * 0.4, Random * 0.4);
@@ -222,26 +222,6 @@ end;
 
 procedure TScript21Script.Set_fraction(Value: TX3DField; const Time: TX3DTime);
 begin
-  if Ftranslation = 'undefined' then
-  begin
-    Ftranslation := Vector3(0, 0, 0);
-    FDirty_translation := True;
-  end;
-  if Fvelocity = 'undefined' then
-  begin
-    Fvelocity := Vector3(0, 0, 0);
-    FDirty_velocity := True;
-  end;
-  if Fscalvel = 'undefined' then
-  begin
-    Fscalvel := Vector3(0, 0, 0);
-    FDirty_scalvel := True;
-  end;
-  if Fscale = 'undefined' then
-  begin
-    Fscale := Vector3(1, 1, 1);
-    FDirty_scale := True;
-  end;
   Ftranslation := Vector3(Ftranslation.X + Fvelocity.X, Ftranslation.Y + Fvelocity.Y, Ftranslation.Z + Fvelocity.Z);
   FDirty_translation := True;
   Fscale := Vector3(Fscale.X + Fscalvel.X, Fscale.Y + Fscalvel.Y, Fscale.Z + Fscalvel.Z);

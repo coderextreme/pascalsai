@@ -2,7 +2,7 @@ unit glflowers;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Createglflowers: TX3DRootNode;
 
@@ -41,7 +41,9 @@ var
   Background9: TBackgroundNode;
   Group10: TGroupNode;
   X3DExternalPrototype11: TX3DExternalPrototype;
+  FieldDecl12: TX3DInterfaceDeclaration;
   FieldVal12: TMFString;
+  FieldDecl13: TX3DInterfaceDeclaration;
   FieldVal13: TMFString;
   ProtoDeclare14: TX3DPrototype;
   Group16: TGroupNode;
@@ -78,27 +80,33 @@ Group7.FdChildren.Add(Background9);
 Group10 := TGroupNode.Create;
 X3DExternalPrototype11 := TX3DExternalPrototype.Create;
 X3DExternalPrototype11.X3DName := 'FlowerProto';
-X3DExternalPrototype11.Url := '"../data/flowerproto.x3d#FlowerProto"';
-FieldVal12 := TMFString.CreateUndefined(X3DExternalPrototype11, True, 'vertex');
-X3DExternalPrototype11.AddCustomFieldOrEvent(FieldVal12);
-FieldVal13 := TMFString.CreateUndefined(X3DExternalPrototype11, True, 'fragment');
-X3DExternalPrototype11.AddCustomFieldOrEvent(FieldVal13);
-Group10.AddX3DExternalPrototype([X3DExternalPrototype11]);
+X3DExternalPrototype11.UrlList.Send(['../data/flowerproto.x3d#FlowerProto']);
+FieldVal12 := TMFString.CreateUndefined(nil, True, 'vertex');
+FieldDecl12 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl12.FieldOrEvent := FieldVal12;
+FieldVal12.ParentInterfaceDeclaration := FieldDecl12;
+X3DExternalPrototype11.InterfaceDeclarations.Add(FieldDecl12);
+FieldVal13 := TMFString.CreateUndefined(nil, True, 'fragment');
+FieldDecl13 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl13.FieldOrEvent := FieldVal13;
+FieldVal13.ParentInterfaceDeclaration := FieldDecl13;
+X3DExternalPrototype11.InterfaceDeclarations.Add(FieldDecl13);
+X3D0.AddPrototype(X3DExternalPrototype11);
 ProtoDeclare14 := CreateEmptyPrototype('flower');
 ProtoDeclare14.X3DName := 'flower';
 Group16 := TGroupNode.Create;
 ProtoInstance17 := TX3DPrototypeNode.CreatePrototypeNode('', '', X3DExternalPrototype11);
 (ProtoInstance17.Field('vertex') as TMFString).Send(['../shaders/gl_flowers_chromatic.vs']);
+end;
+
+procedure InitglflowersPart1;
+begin
 (ProtoInstance17.Field('fragment') as TMFString).Send(['../shaders/common.fs']);
 Group16.FdChildren.Add(ProtoInstance17.Instantiate);
 ProtoDeclare14.Node.AddChildren([Group16]);
 X3D0.AddPrototype(ProtoDeclare14);
 ProtoInstance20 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare14);
 Group10.FdChildren.Add(ProtoInstance20.Instantiate);
-end;
-
-procedure InitglflowersPart1;
-begin
 ProtoInstance21 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare14);
 Group10.FdChildren.Add(ProtoInstance21.Instantiate);
 ProtoInstance22 := TX3DPrototypeNode.CreatePrototypeNode('', '', ProtoDeclare14);

@@ -2,7 +2,7 @@ unit JoeDemo5JoeSkin5a;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJoeDemo5JoeSkin5a: TX3DRootNode;
 

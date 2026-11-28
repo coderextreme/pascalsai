@@ -2,7 +2,7 @@ unit flowers4;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflowers4: TX3DRootNode;
 procedure Registerflowers4Scripts(const Scene: TCastleSceneCore);
@@ -13,15 +13,17 @@ implementation
 uses SysUtils, CastleVectors, Math, X3DTime, CastleRenderOptions;
 
 type
+  TScript40Script_MFVec3Array = array of TVector3;
+  TScript40Script_MFInt32Array = array of Int32;
   TScript40Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fcoordinates: array of TVector3;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fcoordinates: TScript40Script_MFVec3Array;
     FField_coordinates: TMFVec3f;
     FBack_coordinates: TMFVec3f;
     FDirty_coordinates: Boolean;
-    FcoordIndexes: array of Int32;
+    FcoordIndexes: TScript40Script_MFInt32Array;
     FEvent_coordIndexes: TX3DEvent;
     FBack_coordIndexes: TMFInt32;
     FDirty_coordIndexes: Boolean;
@@ -48,7 +50,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure UpdateCoordinates(const resolution: Integer; const Time: TX3DTime);
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
@@ -101,8 +103,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fcoordinates := nil;
   FField_coordinates := nil;
   FBack_coordinates := TMFVec3f.CreateUndefined(nil, False, 'coordinates');
@@ -254,19 +256,19 @@ end;
 
 procedure TScript40Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
 end;
 
 procedure TScript40Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 var
   resolution: Integer;
-  localci: array of Int32;
+  localci: TScript40Script_MFInt32Array;
   arrIndex: Integer;
   i: Integer;
   j: Integer;
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   resolution := 100;
   UpdateCoordinates(resolution, Time);
   localci := [];
@@ -302,7 +304,7 @@ var
   theta: Single;
   phi: Single;
   delta: Single;
-  localc: array of TVector3;
+  localc: TScript40Script_MFVec3Array;
   arrIndex: Integer;
   i: Integer;
   j: Integer;

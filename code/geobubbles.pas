@@ -2,7 +2,7 @@ unit geobubbles;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Creategeobubbles: TX3DRootNode;
 procedure RegistergeobubblesScripts(const Scene: TCastleSceneCore);
@@ -10,13 +10,13 @@ procedure DetachgeobubblesScripts;
 
 implementation
 
-uses SysUtils, CastleVectors, Math, X3DTime;
+uses SysUtils, CastleVectors, Math, X3DTime, CastleProjection;
 
 type
   TScript18Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fval: Single;
     FField_val: TSFFloat;
     FBack_val: TSFFloat;
@@ -36,13 +36,18 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_cycle(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TgeobubblesScriptBinder = class
   public
     procedure BindNode(Node: TX3DNode);
+  end;
+
+  TSafeGeoViewpointNode = class(TGeoViewpointNode)
+  public
+    class function ProjectionType: TProjectionType; override;
   end;
 
 var
@@ -64,13 +69,18 @@ var
   FieldVal22: TMFVec3d;
   CompiledScript18List: array of TScript18Script;
 
+class function TSafeGeoViewpointNode.ProjectionType: TProjectionType;
+begin
+  Result := ptPerspective;
+end;
+
 constructor TScript18Script.Create(const AHandlerPrefix: String; const AField_val: TSFFloat; const AField_positions: TMFVec3d; const AField_position: TMFVec3d);
 var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fval := 0.0;
   FField_val := nil;
   FBack_val := TSFFloat.Create(nil, False, 'val', 0.0);
@@ -175,12 +185,12 @@ end;
 
 procedure TScript18Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_cycle', {$ifdef FPC}@{$endif}Set_cycle);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_cycle', {$ifdef FPC}@{$endif}Set_cycle);
 end;
 
 procedure TScript18Script.Set_cycle(Value: TX3DField; const Time: TX3DTime);
 var
-  cartesianMult: Single;
+  cartesianMult: Integer;
   ov: Single;
   vc: Single;
 begin
@@ -241,9 +251,9 @@ X3D0.Meta['description'] := 'geo bubbles';
 Group8 := TGroupNode.Create;
 { Viewpoint DEF='Tour' position='0 0 4' orientation='1 0 0 0' description='Tour Views'/ }
 { PositionInterpolator DEF='TourPosition' key='0 1' keyValue='-0.5 -0.5 4 -0.5 0.5 4'/ }
-GeoViewpoint9 := TGeoViewpointNode.Create;
+GeoViewpoint9 := TSafeGeoViewpointNode.Create;
 GeoViewpoint9.X3DName := 'Tour';
-GeoViewpoint9.Position := Vector3Double(0, 0, 4);
+GeoViewpoint9.Position := Vector3(0, 0, 4);
 GeoViewpoint9.Orientation := Vector4(1, 0, 0, 0);
 GeoViewpoint9.Description := 'Tour Views';
 Group8.FdChildren.Add(GeoViewpoint9);

@@ -2,7 +2,7 @@ unit CameraPrototypes;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateCameraPrototypes: TX3DRootNode;
 procedure RegisterCameraPrototypesScripts(const Scene: TCastleSceneCore);
@@ -37,10 +37,14 @@ begin
 end;
 
 type
+  TScript50Script_MFNodeArray = array of TX3DNode;
+  TScript50Script_MFFloatArray = array of Single;
+  TScript50Script_MFVec3Array = array of TVector3;
+  TScript50Script_MFVec4Array = array of TVector4;
   TScript50Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fdescription: String;
     FField_description: TSFString;
     FBack_description: TSFString;
@@ -65,7 +69,7 @@ type
     FField_farClipPlane: TSFFloat;
     FBack_farClipPlane: TSFFloat;
     FDirty_farClipPlane: Boolean;
-    Fshots: array of TX3DNode;
+    Fshots: TScript50Script_MFNodeArray;
     FField_shots: TMFNode;
     FBack_shots: TMFNode;
     FDirty_shots: Boolean;
@@ -105,15 +109,15 @@ type
     FNavInfoNode: TX3DNode;
     FCameraPI: TX3DNode;
     FCameraOI: TX3DNode;
-    Fkey: array of Single;
+    Fkey: TScript50Script_MFFloatArray;
     FField_key: TMFFloat;
     FBack_key: TMFFloat;
     FDirty_key: Boolean;
-    FkeyValuePosition: array of TVector3;
+    FkeyValuePosition: TScript50Script_MFVec3Array;
     FField_keyValuePosition: TMFVec3f;
     FBack_keyValuePosition: TMFVec3f;
     FDirty_keyValuePosition: Boolean;
-    FkeyValueOrientation: array of TVector4;
+    FkeyValueOrientation: TScript50Script_MFVec4Array;
     FField_keyValueOrientation: TMFRotation;
     FBack_keyValueOrientation: TMFRotation;
     FDirty_keyValueOrientation: Boolean;
@@ -146,17 +150,38 @@ type
     FLastTime_set_keyValueOrientation: TX3DTime;
     FLastTime_set_animated: TX3DTime;
     procedure FlushOutputs(const Time: TX3DTime);
-    procedure SendNodeFloat(const Node: TX3DNode; const EventName: String; const Val: Double; const Time: TX3DTime);
+    procedure SetNodeMFFloatItem(const Node: TX3DNode; const FieldName: String; const Idx: Integer; const Val: Single; const Time: TX3DTime);
+    function GetNodeFieldCount(const Node: TX3DNode; const FieldName: String): Integer;
+    function GetNodeFloat(const Node: TX3DNode; const FieldName: String): Single;
+    function GetNodeString(const Node: TX3DNode; const FieldName: String): String;
+    function GetNodeVec3(const Node: TX3DNode; const FieldName: String): TVector3;
+    function GetNodeVec4(const Node: TX3DNode; const FieldName: String): TVector4;
+    function GetNodeMFNodeItem(const Node: TX3DNode; const FieldName: String; const Idx: Integer): TX3DNode;
+    function RotationBetweenVectors(const V1, V2: TVector3): TVector4;
+    procedure SendNodeVec4(const Node: TX3DNode; const EventName: String; const Val: TVector4; const Time: TX3DTime);
+    function GetNodeBool(const Node: TX3DNode; const FieldName: String): Boolean;
+    procedure SendNodeMFFloat(const Node: TX3DNode; const EventName: String; const Val: array of Single; const Time: TX3DTime);
+    procedure SendNodeMFVec3(const Node: TX3DNode; const EventName: String; const Val: array of TVector3; const Time: TX3DTime);
+    procedure SendNodeMFVec4(const Node: TX3DNode; const EventName: String; const Val: array of TVector4; const Time: TX3DTime);
+    function GetNodeMFFloat(const Node: TX3DNode; const FieldName: String): TScript50Script_MFFloatArray;
+    function GetNodeMFVec3(const Node: TX3DNode; const FieldName: String): TScript50Script_MFVec3Array;
+    function GetNodeMFVec4(const Node: TX3DNode; const FieldName: String): TScript50Script_MFVec4Array;
+    function FieldToMFNode(const Field: TX3DField): TScript50Script_MFNodeArray;
+    function FieldToMFFloat(const Field: TX3DField): TScript50Script_MFFloatArray;
+    function FieldToMFVec3(const Field: TX3DField): TScript50Script_MFVec3Array;
+    function FieldToMFVec4(const Field: TX3DField): TScript50Script_MFVec4Array;
   public
     constructor Create(const AHandlerPrefix: String; const AField_description: TSFString; const AField_position: TSFVec3f; const AField_orientation: TSFRotation; const AField_fieldOfView: TSFFloat; const AField_nearClipPlane: TSFFloat; const AField_farClipPlane: TSFFloat; const AField_shots: TMFNode; const AField_filterColor: TSFColor; const AField_filterTransparency: TSFFloat; const AField_upVector: TSFVec3f; const AField_fStop: TSFFloat; const AField_focusDistance: TSFFloat; const AEvent_isActive: TX3DEvent; const AEvent_totalDuration: TX3DEvent; const AField_offlineRender: TSFNode; const AField_ViewpointNode: TSFNode; const AField_NavInfoNode: TSFNode; const AField_CameraPI: TSFNode; const AField_CameraOI: TSFNode; const AField_key: TMFFloat; const AField_keyValuePosition: TMFVec3f; const AField_keyValueOrientation: TMFRotation; const AField_animated: TSFBool; const AField_initialized: TSFBool; const AField_shotCount: TSFInt32; const AField_movesCount: TSFInt32; const AField_frameCount: TSFFloat; const AField_startTime: TSFTime; const AField_priorTraceTime: TSFTime; const AField_traceEnabled: TSFBool);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript50Script;
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
-    procedure CheckShots(const eventValue: Single; const Time: TX3DTime);
-    procedure StripBrackets(const fieldArray: Integer; const Time: TX3DTime);
+    procedure CheckShots(const eventValue: Boolean; const Time: TX3DTime);
+    function StripBrackets(const fieldArray: array of Single; const Time: TX3DTime): String; overload;
+    function StripBrackets(const fieldArray: array of TVector3; const Time: TX3DTime): String; overload;
+    function StripBrackets(const fieldArray: array of TVector4; const Time: TX3DTime): String; overload;
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
     procedure Set_bind(Value: TX3DField; const Time: TX3DTime);
     procedure Set_description(Value: TX3DField; const Time: TX3DTime);
@@ -193,14 +218,18 @@ type
     procedure OnNotif_set_keyValueOrientation(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
     procedure Set_animated(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_animated(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
-    procedure TracePrint(const outputValue: Single; const Time: TX3DTime);
-    procedure AlwaysPrint(const outputValue: Single; const Time: TX3DTime);
+    procedure TracePrint(const outputValue: String; const Time: TX3DTime);
+    procedure AlwaysPrint(const outputValue: String; const Time: TX3DTime);
   end;
 
+  TScript107Script_MFNodeArray = array of TX3DNode;
+  TScript107Script_MFFloatArray = array of Single;
+  TScript107Script_MFVec3Array = array of TVector3;
+  TScript107Script_MFVec4Array = array of TVector4;
   TScript107Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fdescription: String;
     FField_description: TSFString;
     FBack_description: TSFString;
@@ -209,7 +238,7 @@ type
     FField_enabled: TSFBool;
     FBack_enabled: TSFBool;
     FDirty_enabled: Boolean;
-    Fmoves: array of TX3DNode;
+    Fmoves: TScript107Script_MFNodeArray;
     FField_moves: TMFNode;
     FBack_moves: TMFNode;
     FDirty_moves: Boolean;
@@ -246,15 +275,15 @@ type
     FBack_isActive: TSFBool;
     FDirty_isActive: Boolean;
     FtraceEnabled: Boolean;
-    Fkey: array of Single;
+    Fkey: TScript107Script_MFFloatArray;
     FField_key: TMFFloat;
     FBack_key: TMFFloat;
     FDirty_key: Boolean;
-    FkeyValuePosition: array of TVector3;
+    FkeyValuePosition: TScript107Script_MFVec3Array;
     FField_keyValuePosition: TMFVec3f;
     FBack_keyValuePosition: TMFVec3f;
     FDirty_keyValuePosition: Boolean;
-    FkeyValueOrientation: array of TVector4;
+    FkeyValueOrientation: TScript107Script_MFVec4Array;
     FField_keyValueOrientation: TMFRotation;
     FBack_keyValueOrientation: TMFRotation;
     FDirty_keyValueOrientation: Boolean;
@@ -271,13 +300,18 @@ type
     FLastTime_set_keyValuePosition: TX3DTime;
     FLastTime_set_keyValueOrientation: TX3DTime;
     procedure FlushOutputs(const Time: TX3DTime);
+    function GetNodeFloat(const Node: TX3DNode; const FieldName: String): Single;
+    function FieldToMFNode(const Field: TX3DField): TScript107Script_MFNodeArray;
+    function FieldToMFFloat(const Field: TX3DField): TScript107Script_MFFloatArray;
+    function FieldToMFVec3(const Field: TX3DField): TScript107Script_MFVec3Array;
+    function FieldToMFVec4(const Field: TX3DField): TScript107Script_MFVec4Array;
   public
     constructor Create(const AHandlerPrefix: String; const AField_description: TSFString; const AField_enabled: TSFBool; const AField_moves: TMFNode; const AField_initialPosition: TSFVec3f; const AField_initialOrientation: TSFRotation; const AField_initialAimPoint: TSFVec3f; const AField_initialFieldOfView: TSFFloat; const AField_initialFStop: TSFFloat; const AField_initialFocusDistance: TSFFloat; const AEvent_shotDuration: TX3DEvent; const AEvent_isActive: TX3DEvent; const AField_traceEnabled: TSFBool; const AField_key: TMFFloat; const AField_keyValuePosition: TMFVec3f; const AField_keyValueOrientation: TMFRotation);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript107Script;
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_description(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_description(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
@@ -304,13 +338,13 @@ type
     procedure Set_keyValueOrientation(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_keyValueOrientation(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
     procedure TracePrint(const outputValue: Single; const Time: TX3DTime);
-    procedure AlwaysPrint(const outputValue: Single; const Time: TX3DTime);
+    procedure AlwaysPrint(const outputValue: String; const Time: TX3DTime);
   end;
 
   TScript138Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fdescription: String;
     FField_description: TSFString;
     FBack_description: TSFString;
@@ -373,7 +407,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_goalAimPoint(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_goalAimPoint(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
@@ -395,14 +429,15 @@ type
     procedure OnNotif_set_goalFStop(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
     procedure Set_goalFocusDistance(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_goalFocusDistance(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
-    procedure TracePrint(const outputValue: Single; const Time: TX3DTime);
-    procedure AlwaysPrint(const outputValue: Single; const Time: TX3DTime);
+    procedure TracePrint(const outputValue: String; const Time: TX3DTime);
+    procedure AlwaysPrint(const outputValue: String; const Time: TX3DTime);
   end;
 
+  TScript165Script_MFStringArray = array of String;
   TScript165Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fdescription: String;
     FField_description: TSFString;
     FBack_description: TSFString;
@@ -431,8 +466,8 @@ type
     FEvent_renderCompleteTime: TX3DEvent;
     FBack_renderCompleteTime: TSFTime;
     FDirty_renderCompleteTime: Boolean;
-    FmovieFormat: array of String;
-    FimageFormat: array of String;
+    FmovieFormat: TScript165Script_MFStringArray;
+    FimageFormat: TScript165Script_MFStringArray;
     FtraceEnabled: Boolean;
     FLastTime_set_description: TX3DTime;
     FLastTime_set_enabled: TX3DTime;
@@ -446,7 +481,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_description(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_description(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
@@ -459,8 +494,8 @@ type
     procedure Set_pixelAspectRatio(Value: TX3DField; const Time: TX3DTime);
     procedure OnNotif_set_pixelAspectRatio(const Event: TX3DEvent; const Value: TX3DField; const Time: TX3DTime);
     procedure Set_startTime(Value: TX3DField; const Time: TX3DTime);
-    procedure TracePrint(const outputValue: Single; const Time: TX3DTime);
-    procedure AlwaysPrint(const outputValue: Single; const Time: TX3DTime);
+    procedure TracePrint(const outputValue: String; const Time: TX3DTime);
+    procedure AlwaysPrint(const outputValue: String; const Time: TX3DTime);
   end;
 
   TCameraPrototypesScriptBinder = class
@@ -688,8 +723,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fdescription := '';
   FField_description := nil;
   FBack_description := TSFString.Create(nil, False, 'description', '');
@@ -1280,7 +1315,131 @@ begin
   end;
 end;
 
-procedure TScript50Script.SendNodeFloat(const Node: TX3DNode; const EventName: String; const Val: Double; const Time: TX3DTime);
+procedure TScript50Script.SetNodeMFFloatItem(const Node: TX3DNode; const FieldName: String; const Idx: Integer; const Val: Single; const Time: TX3DTime);
+var
+  FOE: TX3DFieldOrEvent;
+  F, Tmp: TMFFloat;
+  _i: Integer;
+begin
+  if (Node = nil) or (Idx < 0) then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if not (FOE is TMFFloat) then Exit;
+  F := TMFFloat(FOE);
+  while F.Items.Count <= Idx do F.Items.Add(0);
+  F.Items[Idx] := Val;
+  if F.Exposed and (Node.Scene <> nil) then
+  begin
+    Tmp := TMFFloat.CreateUndefined(nil, False, FieldName);
+    try
+      for _i := 0 to F.Items.Count - 1 do Tmp.Items.Add(F.Items[_i]);
+      F.EventIn.Send(Tmp, Time);
+    finally
+      FreeAndNil(Tmp);
+    end;
+  end
+  else
+    F.Changed;
+end;
+
+function TScript50Script.GetNodeFieldCount(const Node: TX3DNode; const FieldName: String): Integer;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := 0;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TMFNode then Result := TMFNode(FOE).Count
+  else if FOE is TMFFloat then Result := TMFFloat(FOE).Items.Count
+  else if FOE is TMFDouble then Result := TMFDouble(FOE).Items.Count
+  else if FOE is TMFInt32 then Result := TMFInt32(FOE).Items.Count
+  else if FOE is TMFBool then Result := TMFBool(FOE).Items.Count
+  else if FOE is TMFString then Result := TMFString(FOE).Items.Count
+  else if FOE is TMFVec2f then Result := TMFVec2f(FOE).Items.Count
+  else if FOE is TMFVec3f then Result := TMFVec3f(FOE).Items.Count
+  else if FOE is TMFVec4f then Result := TMFVec4f(FOE).Items.Count;
+end;
+
+function TScript50Script.GetNodeFloat(const Node: TX3DNode; const FieldName: String): Single;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := 0.0;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFFloat then Result := TSFFloat(FOE).Value
+  else if FOE is TSFDouble then Result := TSFDouble(FOE).Value
+  else if FOE is TSFTime then Result := TSFTime(FOE).Value;
+end;
+
+function TScript50Script.GetNodeString(const Node: TX3DNode; const FieldName: String): String;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := '';
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFString then Result := TSFString(FOE).Value;
+end;
+
+function TScript50Script.GetNodeVec3(const Node: TX3DNode; const FieldName: String): TVector3;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := Vector3(0, 0, 0);
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFVec3f then Result := TSFVec3f(FOE).Value
+  else if FOE is TSFColor then Result := TSFColor(FOE).Value;
+end;
+
+function TScript50Script.GetNodeVec4(const Node: TX3DNode; const FieldName: String): TVector4;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := Vector4(0, 0, 1, 0);
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFVec4f then Result := TSFVec4f(FOE).Value
+  else if FOE is TSFRotation then Result := TSFRotation(FOE).Value
+  else if FOE is TSFColorRGBA then Result := TSFColorRGBA(FOE).Value;
+end;
+
+function TScript50Script.GetNodeMFNodeItem(const Node: TX3DNode; const FieldName: String; const Idx: Integer): TX3DNode;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := nil;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if (FOE is TMFNode) and (Idx >= 0) and (Idx < TMFNode(FOE).Count) then
+    Result := TMFNode(FOE)[Idx];
+end;
+
+function TScript50Script.RotationBetweenVectors(const V1, V2: TVector3): TVector4;
+var
+  N1, N2, Axis: TVector3;
+  D, Angle: Single;
+begin
+  if V1.IsZero or V2.IsZero then
+  begin
+    Result := Vector4(0, 0, 1, 0);
+    Exit;
+  end;
+  N1 := V1.Normalize;
+  N2 := V2.Normalize;
+  D := Min(1.0, Max(-1.0, TVector3.DotProduct(N1, N2)));
+  Angle := ArcCos(D);
+  Axis := TVector3.CrossProduct(N1, N2);
+  if Axis.IsZero then
+  begin
+    if Abs(N1.X) < 0.9 then Axis := TVector3.CrossProduct(N1, Vector3(1, 0, 0))
+    else Axis := TVector3.CrossProduct(N1, Vector3(0, 1, 0));
+  end;
+  Axis := Axis.Normalize;
+  Result := Vector4(Axis, Angle);
+end;
+
+procedure TScript50Script.SendNodeVec4(const Node: TX3DNode; const EventName: String; const Val: TVector4; const Time: TX3DTime);
 var
   FOE: TX3DFieldOrEvent;
   E: TX3DEvent;
@@ -1293,73 +1452,276 @@ begin
     E := TX3DEvent(FOE)
   else
     Exit;
-  if E is TSFFloatEvent then
-    TSFFloatEvent(E).Send(Val, Time)
-  else if E is TSFDoubleEvent then
-    TSFDoubleEvent(E).Send(Val, Time)
-  else if E is TSFTimeEvent then
-    TSFTimeEvent(E).Send(Val, Time)
-  else if E is TSFInt32Event then
-    TSFInt32Event(E).Send(Round(Val), Time)
-  else if E is TSFBoolEvent then
-    TSFBoolEvent(E).Send(Val <> 0, Time);
+  if E is TSFVec4fEvent then
+    TSFVec4fEvent(E).Send(Val, Time)
+  else if E is TSFRotationEvent then
+    TSFRotationEvent(E).Send(Val, Time)
+  else if E is TSFColorRGBAEvent then
+    TSFColorRGBAEvent(E).Send(Val, Time);
+end;
+
+function TScript50Script.GetNodeBool(const Node: TX3DNode; const FieldName: String): Boolean;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := False;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFBool then Result := TSFBool(FOE).Value;
+end;
+
+procedure TScript50Script.SendNodeMFFloat(const Node: TX3DNode; const EventName: String; const Val: array of Single; const Time: TX3DTime);
+var
+  FOE: TX3DFieldOrEvent;
+  E: TX3DEvent;
+  Tmp: TMFFloat;
+  _i: Integer;
+begin
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(EventName);
+  if (FOE is TX3DField) and TX3DField(FOE).Exposed then
+    E := TX3DField(FOE).EventIn
+  else if FOE is TX3DEvent then
+    E := TX3DEvent(FOE)
+  else
+  begin
+    if FOE is TMFFloat then
+    begin
+      TMFFloat(FOE).Items.Clear;
+      for _i := 0 to High(Val) do TMFFloat(FOE).Items.Add(Val[_i]);
+      TMFFloat(FOE).Changed;
+    end;
+    Exit;
+  end;
+  Tmp := TMFFloat.CreateUndefined(nil, False, EventName);
+  try
+    for _i := 0 to High(Val) do Tmp.Items.Add(Val[_i]);
+    E.Send(Tmp, Time);
+  finally
+    FreeAndNil(Tmp);
+  end;
+end;
+
+procedure TScript50Script.SendNodeMFVec3(const Node: TX3DNode; const EventName: String; const Val: array of TVector3; const Time: TX3DTime);
+var
+  FOE: TX3DFieldOrEvent;
+  E: TX3DEvent;
+  Tmp: TMFVec3f;
+  _i: Integer;
+begin
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(EventName);
+  if (FOE is TX3DField) and TX3DField(FOE).Exposed then
+    E := TX3DField(FOE).EventIn
+  else if FOE is TX3DEvent then
+    E := TX3DEvent(FOE)
+  else
+  begin
+    if FOE is TMFVec3f then
+    begin
+      TMFVec3f(FOE).Items.Clear;
+      for _i := 0 to High(Val) do TMFVec3f(FOE).Items.Add(Val[_i]);
+      TMFVec3f(FOE).Changed;
+    end;
+    Exit;
+  end;
+  Tmp := TMFVec3f.CreateUndefined(nil, False, EventName);
+  try
+    for _i := 0 to High(Val) do Tmp.Items.Add(Val[_i]);
+    E.Send(Tmp, Time);
+  finally
+    FreeAndNil(Tmp);
+  end;
+end;
+
+procedure TScript50Script.SendNodeMFVec4(const Node: TX3DNode; const EventName: String; const Val: array of TVector4; const Time: TX3DTime);
+var
+  FOE: TX3DFieldOrEvent;
+  E: TX3DEvent;
+  Tmp: TMFVec4f;
+  _i: Integer;
+begin
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(EventName);
+  if (FOE is TX3DField) and TX3DField(FOE).Exposed then
+    E := TX3DField(FOE).EventIn
+  else if FOE is TX3DEvent then
+    E := TX3DEvent(FOE)
+  else
+  begin
+    if FOE is TMFVec4f then
+    begin
+      TMFVec4f(FOE).Items.Clear;
+      for _i := 0 to High(Val) do TMFVec4f(FOE).Items.Add(Val[_i]);
+      TMFVec4f(FOE).Changed;
+    end;
+    Exit;
+  end;
+  Tmp := TMFVec4f.CreateUndefined(nil, False, EventName);
+  try
+    for _i := 0 to High(Val) do Tmp.Items.Add(Val[_i]);
+    E.Send(Tmp, Time);
+  finally
+    FreeAndNil(Tmp);
+  end;
+end;
+
+function TScript50Script.GetNodeMFFloat(const Node: TX3DNode; const FieldName: String): TScript50Script_MFFloatArray;
+var
+  FOE: TX3DFieldOrEvent;
+  _i: Integer;
+begin
+  Result := nil;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TMFFloat then
+  begin
+    SetLength(Result, TMFFloat(FOE).Items.Count);
+    for _i := 0 to TMFFloat(FOE).Items.Count - 1 do
+      Result[_i] := TMFFloat(FOE).Items[_i];
+  end;
+end;
+
+function TScript50Script.GetNodeMFVec3(const Node: TX3DNode; const FieldName: String): TScript50Script_MFVec3Array;
+var
+  FOE: TX3DFieldOrEvent;
+  _i: Integer;
+begin
+  Result := nil;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TMFVec3f then
+  begin
+    SetLength(Result, TMFVec3f(FOE).Items.Count);
+    for _i := 0 to TMFVec3f(FOE).Items.Count - 1 do
+      Result[_i] := TMFVec3f(FOE).Items[_i];
+  end;
+end;
+
+function TScript50Script.GetNodeMFVec4(const Node: TX3DNode; const FieldName: String): TScript50Script_MFVec4Array;
+var
+  FOE: TX3DFieldOrEvent;
+  _i: Integer;
+begin
+  Result := nil;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TMFVec4f then
+  begin
+    SetLength(Result, TMFVec4f(FOE).Items.Count);
+    for _i := 0 to TMFVec4f(FOE).Items.Count - 1 do
+      Result[_i] := TMFVec4f(FOE).Items[_i];
+  end;
+end;
+
+function TScript50Script.FieldToMFNode(const Field: TX3DField): TScript50Script_MFNodeArray;
+var
+  _i: Integer;
+begin
+  Result := nil;
+  if Field is TMFNode then
+  begin
+    SetLength(Result, TMFNode(Field).Count);
+    for _i := 0 to TMFNode(Field).Count - 1 do
+      Result[_i] := TMFNode(Field)[_i];
+  end;
+end;
+
+function TScript50Script.FieldToMFFloat(const Field: TX3DField): TScript50Script_MFFloatArray;
+var
+  _i: Integer;
+begin
+  Result := nil;
+  if Field is TMFFloat then
+  begin
+    SetLength(Result, TMFFloat(Field).Items.Count);
+    for _i := 0 to TMFFloat(Field).Items.Count - 1 do
+      Result[_i] := TMFFloat(Field).Items[_i];
+  end;
+end;
+
+function TScript50Script.FieldToMFVec3(const Field: TX3DField): TScript50Script_MFVec3Array;
+var
+  _i: Integer;
+begin
+  Result := nil;
+  if Field is TMFVec3f then
+  begin
+    SetLength(Result, TMFVec3f(Field).Items.Count);
+    for _i := 0 to TMFVec3f(Field).Items.Count - 1 do
+      Result[_i] := TMFVec3f(Field).Items[_i];
+  end;
+end;
+
+function TScript50Script.FieldToMFVec4(const Field: TX3DField): TScript50Script_MFVec4Array;
+var
+  _i: Integer;
+begin
+  Result := nil;
+  if Field is TMFVec4f then
+  begin
+    SetLength(Result, TMFVec4f(Field).Items.Count);
+    for _i := 0 to TMFVec4f(Field).Items.Count - 1 do
+      Result[_i] := TMFVec4f(Field).Items[_i];
+  end;
 end;
 
 procedure TScript50Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_bind', {$ifdef FPC}@{$endif}Set_bind);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_description', {$ifdef FPC}@{$endif}Set_description);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'description', {$ifdef FPC}@{$endif}Set_description);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_position', {$ifdef FPC}@{$endif}Set_position);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'position', {$ifdef FPC}@{$endif}Set_position);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_orientation', {$ifdef FPC}@{$endif}Set_orientation);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'orientation', {$ifdef FPC}@{$endif}Set_orientation);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fieldOfView', {$ifdef FPC}@{$endif}Set_fieldOfView);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'fieldOfView', {$ifdef FPC}@{$endif}Set_fieldOfView);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_nearClipPlane', {$ifdef FPC}@{$endif}Set_nearClipPlane);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'nearClipPlane', {$ifdef FPC}@{$endif}Set_nearClipPlane);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_farClipPlane', {$ifdef FPC}@{$endif}Set_farClipPlane);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'farClipPlane', {$ifdef FPC}@{$endif}Set_farClipPlane);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_shots', {$ifdef FPC}@{$endif}Set_shots);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'shots', {$ifdef FPC}@{$endif}Set_shots);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_filterColor', {$ifdef FPC}@{$endif}Set_filterColor);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'filterColor', {$ifdef FPC}@{$endif}Set_filterColor);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_filterTransparency', {$ifdef FPC}@{$endif}Set_filterTransparency);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'filterTransparency', {$ifdef FPC}@{$endif}Set_filterTransparency);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_upVector', {$ifdef FPC}@{$endif}Set_upVector);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'upVector', {$ifdef FPC}@{$endif}Set_upVector);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fStop', {$ifdef FPC}@{$endif}Set_fStop);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'fStop', {$ifdef FPC}@{$endif}Set_fStop);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_focusDistance', {$ifdef FPC}@{$endif}Set_focusDistance);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'focusDistance', {$ifdef FPC}@{$endif}Set_focusDistance);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_offlineRender', {$ifdef FPC}@{$endif}Set_offlineRender);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'offlineRender', {$ifdef FPC}@{$endif}Set_offlineRender);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_key', {$ifdef FPC}@{$endif}Set_key);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'key', {$ifdef FPC}@{$endif}Set_key);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_keyValuePosition', {$ifdef FPC}@{$endif}Set_keyValuePosition);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'keyValuePosition', {$ifdef FPC}@{$endif}Set_keyValuePosition);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_keyValueOrientation', {$ifdef FPC}@{$endif}Set_keyValueOrientation);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'keyValueOrientation', {$ifdef FPC}@{$endif}Set_keyValueOrientation);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_animated', {$ifdef FPC}@{$endif}Set_animated);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'animated', {$ifdef FPC}@{$endif}Set_animated);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_bind', {$ifdef FPC}@{$endif}Set_bind);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_description', {$ifdef FPC}@{$endif}Set_description);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'description', {$ifdef FPC}@{$endif}Set_description);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_position', {$ifdef FPC}@{$endif}Set_position);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'position', {$ifdef FPC}@{$endif}Set_position);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_orientation', {$ifdef FPC}@{$endif}Set_orientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'orientation', {$ifdef FPC}@{$endif}Set_orientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fieldOfView', {$ifdef FPC}@{$endif}Set_fieldOfView);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'fieldOfView', {$ifdef FPC}@{$endif}Set_fieldOfView);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_nearClipPlane', {$ifdef FPC}@{$endif}Set_nearClipPlane);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'nearClipPlane', {$ifdef FPC}@{$endif}Set_nearClipPlane);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_farClipPlane', {$ifdef FPC}@{$endif}Set_farClipPlane);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'farClipPlane', {$ifdef FPC}@{$endif}Set_farClipPlane);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_shots', {$ifdef FPC}@{$endif}Set_shots);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'shots', {$ifdef FPC}@{$endif}Set_shots);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_filterColor', {$ifdef FPC}@{$endif}Set_filterColor);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'filterColor', {$ifdef FPC}@{$endif}Set_filterColor);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_filterTransparency', {$ifdef FPC}@{$endif}Set_filterTransparency);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'filterTransparency', {$ifdef FPC}@{$endif}Set_filterTransparency);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_upVector', {$ifdef FPC}@{$endif}Set_upVector);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'upVector', {$ifdef FPC}@{$endif}Set_upVector);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fStop', {$ifdef FPC}@{$endif}Set_fStop);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'fStop', {$ifdef FPC}@{$endif}Set_fStop);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_focusDistance', {$ifdef FPC}@{$endif}Set_focusDistance);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'focusDistance', {$ifdef FPC}@{$endif}Set_focusDistance);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_offlineRender', {$ifdef FPC}@{$endif}Set_offlineRender);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'offlineRender', {$ifdef FPC}@{$endif}Set_offlineRender);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_key', {$ifdef FPC}@{$endif}Set_key);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'key', {$ifdef FPC}@{$endif}Set_key);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_keyValuePosition', {$ifdef FPC}@{$endif}Set_keyValuePosition);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'keyValuePosition', {$ifdef FPC}@{$endif}Set_keyValuePosition);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_keyValueOrientation', {$ifdef FPC}@{$endif}Set_keyValueOrientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'keyValueOrientation', {$ifdef FPC}@{$endif}Set_keyValueOrientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_animated', {$ifdef FPC}@{$endif}Set_animated);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'animated', {$ifdef FPC}@{$endif}Set_animated);
 end;
 
 procedure TScript50Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
-  if (0) >= Length(FNavInfoNode.avatarSize) then SetLength(FNavInfoNode.avatarSize, (0) + 1);
-  FNavInfoNode.avatarSize[0] := FnearClipPlane;
+  FScriptInitialized := True;
+  SetNodeMFFloatItem(FNavInfoNode, 'avatarSize', 0, FnearClipPlane, Time);
   AlwaysPrint('initialize complete', Time);
   FlushOutputs(Time);
 end;
 
-procedure TScript50Script.CheckShots(const eventValue: Single; const Time: TX3DTime);
+procedure TScript50Script.CheckShots(const eventValue: Boolean; const Time: TX3DTime);
 var
+  i: Integer;
   k: Integer;
+  j: Integer;
   durationFloat: Single;
-  shotVector: Single;
+  shotVector: TVector3;
 begin
   TracePrint('checkShots() method should only occur after initialize() methods in all other Scripts are complete', Time);
   FtotalDuration := 0;
@@ -1368,13 +1730,13 @@ begin
   FmovesCount := 0;
   for i := 0 to (FshotCount) - 1 do
   begin
-    TracePrint('shots[' + FloatToStr(i) + '].moves.length=' + IntToStr(Length(Fshots[i].moves)), Time);
-    FmovesCount := FmovesCount + (Length(Fshots[i].moves));
-    FtotalDuration := FtotalDuration + Fshots[i].shotDuration;
+    TracePrint('shots[' + IntToStr(i) + '].moves.length=' + IntToStr(GetNodeFieldCount(Fshots[i], 'moves')), Time);
+    FmovesCount := FmovesCount + (GetNodeFieldCount(Fshots[i], 'moves'));
+    FtotalDuration := FtotalDuration + GetNodeFloat(Fshots[i], 'shotDuration');
     FDirty_totalDuration := True;
-    if Length(Fshots[i].moves) = 0 then
+    if GetNodeFieldCount(Fshots[i], 'moves') = 0 then
     begin
-      AlwaysPrint('warning: CameraShot[' + FloatToStr(i) + '][' + FloatToStr(Fshots[i].description) + '] has no contained CameraMove nodes', Time);
+      AlwaysPrint('warning: CameraShot[' + IntToStr(i) + '][' + GetNodeString(Fshots[i], 'description') + '] has no contained CameraMove nodes', Time);
     end;
   end;
   if FshotCount = 0 then
@@ -1404,10 +1766,10 @@ begin
       Fkey[0] := 0.0;
       FDirty_key := True;
       if (0) >= Length(FkeyValuePosition) then SetLength(FkeyValuePosition, (0) + 1);
-      FkeyValuePosition[0] := Fshots[i].initialPosition;
+      FkeyValuePosition[0] := GetNodeVec3(Fshots[i], 'initialPosition');
       FDirty_keyValuePosition := True;
       if (0) >= Length(FkeyValueOrientation) then SetLength(FkeyValueOrientation, (0) + 1);
-      FkeyValueOrientation[0] := Fshots[i].initialOrientation;
+      FkeyValueOrientation[0] := GetNodeVec4(Fshots[i], 'initialOrientation');
       FDirty_keyValueOrientation := True;
     end
     else
@@ -1416,39 +1778,38 @@ begin
       Fkey[k + 1] := Fkey[k];
       FDirty_key := True;
       if (k + 1) >= Length(FkeyValuePosition) then SetLength(FkeyValuePosition, (k + 1) + 1);
-      FkeyValuePosition[k + 1] := Fshots[i].initialPosition;
+      FkeyValuePosition[k + 1] := GetNodeVec3(Fshots[i], 'initialPosition');
       FDirty_keyValuePosition := True;
       if (k + 1) >= Length(FkeyValueOrientation) then SetLength(FkeyValueOrientation, (k + 1) + 1);
-      FkeyValueOrientation[k + 1] := Fshots[i].initialOrientation;
+      FkeyValueOrientation[k + 1] := GetNodeVec4(Fshots[i], 'initialOrientation');
       FDirty_keyValueOrientation := True;
       k := k + 1;
     end;
-    TracePrint(Fshots[i].description, Time);
-    TracePrint('shots[i].moves.length=' + IntToStr(Length(Fshots[i].moves)), Time);
-    for j := 0 to (Length(Fshots[i].moves)) - 1 do
+    TracePrint(GetNodeString(Fshots[i], 'description'), Time);
+    TracePrint('shots[i].moves.length=' + IntToStr(GetNodeFieldCount(Fshots[i], 'moves')), Time);
+    for j := 0 to (GetNodeFieldCount(Fshots[i], 'moves')) - 1 do
     begin
-      durationFloat := Fshots[i].moves[j].duration;
+      durationFloat := GetNodeFloat(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'duration');
       if (k + 1) >= Length(Fkey) then SetLength(Fkey, (k + 1) + 1);
       Fkey[k + 1] := Fkey[k] + durationFloat / FtotalDuration;
       FDirty_key := True;
       if (k + 1) >= Length(FkeyValuePosition) then SetLength(FkeyValuePosition, (k + 1) + 1);
-      FkeyValuePosition[k + 1] := Fshots[i].moves[j].goalPosition;
+      FkeyValuePosition[k + 1] := GetNodeVec3(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'goalPosition');
       FDirty_keyValuePosition := True;
       if not (Fanimated) then
       begin
         if (k + 1) >= Length(FkeyValueOrientation) then SetLength(FkeyValueOrientation, (k + 1) + 1);
-        FkeyValueOrientation[k + 1] := Fshots[i].moves[j].goalOrientation;
+        FkeyValueOrientation[k + 1] := GetNodeVec4(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'goalOrientation');
         FDirty_keyValueOrientation := True;
       end
       else
       begin
-        shotVector := FViewpointNode.position.subtract(Fshots[i].moves[j].goalAimPoint).Normalize;
+        shotVector := (GetNodeVec3(FViewpointNode, 'position') - GetNodeVec3(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'goalAimPoint')).Normalize;
         if shotVector.Length >= 0 then
         begin
-          Fshots[i].moves[j].goalOrientation := Vector4(Vector3(0, 0, 1), shotVector);
-          FDirty_shots := True;
+          SendNodeVec4(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'goalOrientation', RotationBetweenVectors(Vector3(0, 0, 1), shotVector), Time);
           if (k + 1) >= Length(FkeyValueOrientation) then SetLength(FkeyValueOrientation, (k + 1) + 1);
-          FkeyValueOrientation[k + 1] := Fshots[i].moves[j].goalOrientation;
+          FkeyValueOrientation[k + 1] := GetNodeVec4(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'goalOrientation');
           FDirty_keyValueOrientation := True;
         end
         else
@@ -1457,26 +1818,26 @@ begin
           FkeyValueOrientation[k + 1] := FkeyValueOrientation[k];
           FDirty_keyValueOrientation := True;
         end;
-        TracePrint('shots[' + FloatToStr(i) + '].moves[' + FloatToStr(j) + '].goalAimPoint=' + FloatToStr(Fshots[i].moves[j].goalAimPoint.toString()), Time);
-        TracePrint('        ViewpointNode.position=' + FloatToStr(FViewpointNode.position.toString()), Time);
-        TracePrint('          shotVector     delta=' + FloatToStr(FViewpointNode.position.subtract(Fshots[i].moves[j].goalAimPoint).toString()), Time);
-        TracePrint('          shotVector normalize=' + FloatToStr(FViewpointNode.position.subtract(Fshots[i].moves[j].goalAimPoint).Normalize.toString()), Time);
-        TracePrint('               goalOrientation=' + FloatToStr(Fshots[i].moves[j].goalOrientation.toString()), Time);
-        TracePrint('      keyValueOrientation[k+1]=' + FloatToStr(FkeyValueOrientation[k + 1].toString()) + #10, Time);
+        TracePrint('shots[' + IntToStr(i) + '].moves[' + IntToStr(j) + '].goalAimPoint=' + GetNodeVec3(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'goalAimPoint').ToString, Time);
+        TracePrint('        ViewpointNode.position=' + GetNodeVec3(FViewpointNode, 'position').ToString, Time);
+        TracePrint('          shotVector     delta=' + (GetNodeVec3(FViewpointNode, 'position') - GetNodeVec3(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'goalAimPoint')).ToString, Time);
+        TracePrint('          shotVector normalize=' + (GetNodeVec3(FViewpointNode, 'position') - GetNodeVec3(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'goalAimPoint')).Normalize.ToString, Time);
+        TracePrint('               goalOrientation=' + GetNodeVec4(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'goalOrientation').ToString, Time);
+        TracePrint('      keyValueOrientation[k+1]=' + FkeyValueOrientation[k + 1].ToString + #10, Time);
       end;
       k := k + 1;
       if not (Fanimated) then
-        Fanimated := Fshots[i].moves[j].tracking;
+        Fanimated := GetNodeBool(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'tracking');
         FDirty_animated := True;
-      TracePrint('                key=' + Fkey, Time);
-      TracePrint('   keyValuePosition=' + FkeyValuePosition, Time);
-      TracePrint('keyValueOrientation=' + FkeyValueOrientation, Time);
-      TracePrint('- ' + FloatToStr(Fshots[i].moves[j].description), Time);
+      TracePrint('                key=' + '[' + IntToStr(Length(Fkey)) + ' items]', Time);
+      TracePrint('   keyValuePosition=' + '[' + IntToStr(Length(FkeyValuePosition)) + ' items]', Time);
+      TracePrint('keyValueOrientation=' + '[' + IntToStr(Length(FkeyValueOrientation)) + ' items]', Time);
+      TracePrint('- ' + GetNodeString(GetNodeMFNodeItem(Fshots[i], 'moves', j), 'description'), Time);
     end;
   end;
-  TracePrint('                key=' + Fkey, Time);
-  TracePrint('   keyValuePosition=' + FkeyValuePosition, Time);
-  TracePrint('keyValueOrientation=' + FkeyValueOrientation, Time);
+  TracePrint('                key=' + '[' + IntToStr(Length(Fkey)) + ' items]', Time);
+  TracePrint('   keyValuePosition=' + '[' + IntToStr(Length(FkeyValuePosition)) + ' items]', Time);
+  TracePrint('keyValueOrientation=' + '[' + IntToStr(Length(FkeyValueOrientation)) + ' items]', Time);
   if Length(Fkey) <> Length(FkeyValuePosition) then
   begin
     AlwaysPrint('warning: internal error during array construction, ' + 'key.length=' + IntToStr(Length(Fkey)) + ' must equal ' + 'keyValuePosition.length=' + IntToStr(Length(FkeyValuePosition)), Time);
@@ -1490,24 +1851,59 @@ begin
     AlwaysPrint('warning: internal error during array construction, ' + 'key.length=' + IntToStr(Length(Fkey)) + ' must equal ' + '(shotCount + movesCount)=' + FloatToStr(FshotCount + FmovesCount), Time);
   end;
   TracePrint('           animated=' + BoolToStr(Fanimated, True), Time);
-  SendNodeFloat(FCameraPI, 'key', Fkey, Time);
-  SendNodeFloat(FCameraOI, 'key', Fkey, Time);
-  SendNodeFloat(FCameraPI, 'keyValue', FkeyValuePosition, Time);
-  SendNodeFloat(FCameraOI, 'keyValue', FkeyValueOrientation, Time);
+  SendNodeMFFloat(FCameraPI, 'key', Fkey, Time);
+  SendNodeMFFloat(FCameraOI, 'key', Fkey, Time);
+  SendNodeMFVec3(FCameraPI, 'keyValue', FkeyValuePosition, Time);
+  SendNodeMFVec4(FCameraOI, 'keyValue', FkeyValueOrientation, Time);
   if not (Fanimated) then
   begin
-    TracePrint('<PositionInterpolator    DEF=''CameraPositionInterpolator''    key=''' + FloatToStr(StripBrackets(FCameraPI.key, Time)) + ''' keyValue=''' + FloatToStr(StripBrackets(FCameraPI.keyValue, Time)) + '''/>', Time);
-    TracePrint('<OrientationInterpolator DEF=''CameraOrientationInterpolator'' key=''' + FloatToStr(StripBrackets(FCameraOI.key, Time)) + ''' keyValue=''' + FloatToStr(StripBrackets(FCameraOI.keyValue, Time)) + '''/>', Time);
+    TracePrint('<PositionInterpolator    DEF=''CameraPositionInterpolator''    key=''' + StripBrackets(GetNodeMFFloat(FCameraPI, 'key'), Time) + ''' keyValue=''' + StripBrackets(GetNodeMFVec3(FCameraPI, 'keyValue'), Time) + '''/>', Time);
+    TracePrint('<OrientationInterpolator DEF=''CameraOrientationInterpolator'' key=''' + StripBrackets(GetNodeMFFloat(FCameraOI, 'key'), Time) + ''' keyValue=''' + StripBrackets(GetNodeMFVec4(FCameraOI, 'keyValue'), Time) + '''/>', Time);
   end;
   TracePrint('checkShots() complete', Time);
 end;
 
-procedure TScript50Script.StripBrackets(const fieldArray: Integer; const Time: TX3DTime);
+function TScript50Script.StripBrackets(const fieldArray: array of Single; const Time: TX3DTime): String;
+var
+  outputString: String;
+  i: Integer;
 begin
   outputString := '';
   for i := 0 to (Length(fieldArray)) - 1 do
   begin
-    outputString := outputString + (fieldArray[i].toString());
+    outputString := outputString + (FloatToStr(fieldArray[i]));
+    if i < Length(fieldArray) - 1 then
+      outputString := outputString + (' ');
+  end;
+  Result := outputString;
+  Exit;
+end;
+
+function TScript50Script.StripBrackets(const fieldArray: array of TVector3; const Time: TX3DTime): String;
+var
+  outputString: String;
+  i: Integer;
+begin
+  outputString := '';
+  for i := 0 to (Length(fieldArray)) - 1 do
+  begin
+    outputString := outputString + (fieldArray[i].ToString);
+    if i < Length(fieldArray) - 1 then
+      outputString := outputString + (' ');
+  end;
+  Result := outputString;
+  Exit;
+end;
+
+function TScript50Script.StripBrackets(const fieldArray: array of TVector4; const Time: TX3DTime): String;
+var
+  outputString: String;
+  i: Integer;
+begin
+  outputString := '';
+  for i := 0 to (Length(fieldArray)) - 1 do
+  begin
+    outputString := outputString + (fieldArray[i].ToString);
     if i < Length(fieldArray) - 1 then
       outputString := outputString + (' ');
   end;
@@ -1524,21 +1920,21 @@ begin
     AlwaysPrint('Animation loop commencing, timestamp=' + FloatToStr(Time.Seconds), Time);
     FstartTime := Time.Seconds;
     FpriorTraceTime := Time.Seconds;
-    AlwaysPrint('shotClock=' + FloatToStr(Time.Seconds - FstartTime) + ' seconds, frameCount=' + FloatToStr(FframeCount) + ', fraction=' + FloatToStr((Value as TSFFloat).Value) + ', position=' + FloatToStr(FViewpointNode.position.toString()) + ', orientation=' + FloatToStr(FViewpointNode.orientation.toString()), Time);
+    AlwaysPrint('shotClock=' + FloatToStr(Time.Seconds - FstartTime) + ' seconds, frameCount=' + FloatToStr(FframeCount) + ', fraction=' + FloatToStr((Value as TSFFloat).Value) + ', position=' + GetNodeVec3(FViewpointNode, 'position').ToString + ', orientation=' + GetNodeVec4(FViewpointNode, 'orientation').ToString, Time);
     if Fanimated then
     begin
-      TracePrint('  <PositionInterpolator    DEF=''CameraPositionInterpolator''    key=''' + FloatToStr(StripBrackets(FCameraPI.key, Time)) + ''' keyValue=''' + FloatToStr(StripBrackets(FCameraPI.keyValue, Time)) + '''/>', Time);
-      TracePrint('  <OrientationInterpolator DEF=''CameraOrientationInterpolator'' key=''' + FloatToStr(StripBrackets(FCameraOI.key, Time)) + ''' keyValue=''' + FloatToStr(StripBrackets(FCameraOI.keyValue, Time)) + '''/>', Time);
+      TracePrint('  <PositionInterpolator    DEF=''CameraPositionInterpolator''    key=''' + StripBrackets(GetNodeMFFloat(FCameraPI, 'key'), Time) + ''' keyValue=''' + StripBrackets(GetNodeMFVec3(FCameraPI, 'keyValue'), Time) + '''/>', Time);
+      TracePrint('  <OrientationInterpolator DEF=''CameraOrientationInterpolator'' key=''' + StripBrackets(GetNodeMFFloat(FCameraOI, 'key'), Time) + ''' keyValue=''' + StripBrackets(GetNodeMFVec4(FCameraOI, 'keyValue'), Time) + '''/>', Time);
     end;
   end
   else if Time.Seconds - FpriorTraceTime >= 1.0 then
   begin
-    AlwaysPrint('shotClock=' + FloatToStr(Time.Seconds - FstartTime) + ' seconds, frameCount=' + FloatToStr(FframeCount) + ', fraction=' + FloatToStr((Value as TSFFloat).Value) + ', position=' + FloatToStr(FViewpointNode.position.toString()) + ', orientation=' + FloatToStr(FViewpointNode.orientation.toString()), Time);
+    AlwaysPrint('shotClock=' + FloatToStr(Time.Seconds - FstartTime) + ' seconds, frameCount=' + FloatToStr(FframeCount) + ', fraction=' + FloatToStr((Value as TSFFloat).Value) + ', position=' + GetNodeVec3(FViewpointNode, 'position').ToString + ', orientation=' + GetNodeVec4(FViewpointNode, 'orientation').ToString, Time);
     FpriorTraceTime := Time.Seconds;
     if Fanimated then
     begin
-      TracePrint('  <PositionInterpolator    DEF=''CameraPositionInterpolator''    key=''' + FloatToStr(StripBrackets(FCameraPI.key, Time)) + ''' keyValue=''' + FloatToStr(StripBrackets(FCameraPI.keyValue, Time)) + '''/>', Time);
-      AlwaysPrint('  <OrientationInterpolator DEF=''CameraOrientationInterpolator'' key=''' + FloatToStr(StripBrackets(FCameraOI.key, Time)) + ''' keyValue=''' + FloatToStr(StripBrackets(FCameraOI.keyValue, Time)) + '''/>', Time);
+      TracePrint('  <PositionInterpolator    DEF=''CameraPositionInterpolator''    key=''' + StripBrackets(GetNodeMFFloat(FCameraPI, 'key'), Time) + ''' keyValue=''' + StripBrackets(GetNodeMFVec3(FCameraPI, 'keyValue'), Time) + '''/>', Time);
+      AlwaysPrint('  <OrientationInterpolator DEF=''CameraOrientationInterpolator'' key=''' + StripBrackets(GetNodeMFFloat(FCameraOI, 'key'), Time) + ''' keyValue=''' + StripBrackets(GetNodeMFVec4(FCameraOI, 'keyValue'), Time) + '''/>', Time);
     end;
   end;
   if (Value as TSFFloat).Value = 0 then
@@ -1547,7 +1943,7 @@ begin
   end
   else if (Value as TSFFloat).Value = 1 then
   begin
-    AlwaysPrint('shotClock=' + FloatToStr(Time.Seconds - FstartTime) + ', frameCount=' + FloatToStr(FframeCount) + ', fraction=' + FloatToStr((Value as TSFFloat).Value) + ', position=' + FloatToStr(FViewpointNode.position.toString()) + ', orientation=' + FloatToStr(FViewpointNode.orientation.toString()), Time);
+    AlwaysPrint('shotClock=' + FloatToStr(Time.Seconds - FstartTime) + ', frameCount=' + FloatToStr(FframeCount) + ', fraction=' + FloatToStr((Value as TSFFloat).Value) + ', position=' + GetNodeVec3(FViewpointNode, 'position').ToString + ', orientation=' + GetNodeVec4(FViewpointNode, 'orientation').ToString, Time);
     if Fanimated then
     begin
     end;
@@ -1668,10 +2064,13 @@ begin
 end;
 
 procedure TScript50Script.Set_shots(Value: TX3DField; const Time: TX3DTime);
+var
+  _arg_eventValue: TScript50Script_MFNodeArray;
 begin
   if (Time.Seconds = FLastTime_set_shots.Seconds) and (Time.PlusTicks = FLastTime_set_shots.PlusTicks) then Exit;
   FLastTime_set_shots := Time;
-  Fshots := eventValue;
+  _arg_eventValue := FieldToMFNode(Value);
+  Fshots := _arg_eventValue;
   FDirty_shots := True;
   FlushOutputs(Time);
 end;
@@ -1766,10 +2165,13 @@ begin
 end;
 
 procedure TScript50Script.Set_key(Value: TX3DField; const Time: TX3DTime);
+var
+  _arg_eventValue: TScript50Script_MFFloatArray;
 begin
   if (Time.Seconds = FLastTime_set_key.Seconds) and (Time.PlusTicks = FLastTime_set_key.PlusTicks) then Exit;
   FLastTime_set_key := Time;
-  Fkey := eventValue;
+  _arg_eventValue := FieldToMFFloat(Value);
+  Fkey := _arg_eventValue;
   FDirty_key := True;
   FlushOutputs(Time);
 end;
@@ -1780,10 +2182,13 @@ begin
 end;
 
 procedure TScript50Script.Set_keyValuePosition(Value: TX3DField; const Time: TX3DTime);
+var
+  _arg_eventValue: TScript50Script_MFVec3Array;
 begin
   if (Time.Seconds = FLastTime_set_keyValuePosition.Seconds) and (Time.PlusTicks = FLastTime_set_keyValuePosition.PlusTicks) then Exit;
   FLastTime_set_keyValuePosition := Time;
-  FkeyValuePosition := eventValue;
+  _arg_eventValue := FieldToMFVec3(Value);
+  FkeyValuePosition := _arg_eventValue;
   FDirty_keyValuePosition := True;
   FlushOutputs(Time);
 end;
@@ -1794,10 +2199,13 @@ begin
 end;
 
 procedure TScript50Script.Set_keyValueOrientation(Value: TX3DField; const Time: TX3DTime);
+var
+  _arg_eventValue: TScript50Script_MFVec4Array;
 begin
   if (Time.Seconds = FLastTime_set_keyValueOrientation.Seconds) and (Time.PlusTicks = FLastTime_set_keyValueOrientation.PlusTicks) then Exit;
   FLastTime_set_keyValueOrientation := Time;
-  FkeyValueOrientation := eventValue;
+  _arg_eventValue := FieldToMFVec4(Value);
+  FkeyValueOrientation := _arg_eventValue;
   FDirty_keyValueOrientation := True;
   FlushOutputs(Time);
 end;
@@ -1816,23 +2224,25 @@ begin
   FlushOutputs(Time);
 end;
 
-procedure TScript50Script.TracePrint(const outputValue: Single; const Time: TX3DTime);
+procedure TScript50Script.TracePrint(const outputValue: String; const Time: TX3DTime);
 begin
   if FtraceEnabled then
     AlwaysPrint(outputValue, Time);
 end;
 
-procedure TScript50Script.AlwaysPrint(const outputValue: Single; const Time: TX3DTime);
+procedure TScript50Script.AlwaysPrint(const outputValue: String; const Time: TX3DTime);
 var
-  outputString: Single;
+  outputString: String;
 begin
-  outputString := outputValue.toString();
-  if outputString = nil then
-    outputString := outputValue;
+  outputString := outputValue;
   if Length(Fdescription) > 0 then
-    WriteLn('[Camera: ' + Fdescription + '] ' + FloatToStr(outputString) + #10);
+  begin
+    WriteLn('[Camera: ' + Fdescription + '] ' + outputString + #10);
+  end
   else
-    WriteLn('[Camera] ' + FloatToStr(outputString) + #10);
+  begin
+    WriteLn('[Camera] ' + outputString + #10);
+  end;
 end;
 
 constructor TScript107Script.Create(const AHandlerPrefix: String; const AField_description: TSFString; const AField_enabled: TSFBool; const AField_moves: TMFNode; const AField_initialPosition: TSFVec3f; const AField_initialOrientation: TSFRotation; const AField_initialAimPoint: TSFVec3f; const AField_initialFieldOfView: TSFFloat; const AField_initialFStop: TSFFloat; const AField_initialFocusDistance: TSFFloat; const AEvent_shotDuration: TX3DEvent; const AEvent_isActive: TX3DEvent; const AField_traceEnabled: TSFBool; const AField_key: TMFFloat; const AField_keyValuePosition: TMFVec3f; const AField_keyValueOrientation: TMFRotation);
@@ -1840,8 +2250,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fdescription := '';
   FField_description := nil;
   FBack_description := TSFString.Create(nil, False, 'description', '');
@@ -2272,43 +2682,109 @@ begin
   end;
 end;
 
+function TScript107Script.GetNodeFloat(const Node: TX3DNode; const FieldName: String): Single;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := 0.0;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFFloat then Result := TSFFloat(FOE).Value
+  else if FOE is TSFDouble then Result := TSFDouble(FOE).Value
+  else if FOE is TSFTime then Result := TSFTime(FOE).Value;
+end;
+
+function TScript107Script.FieldToMFNode(const Field: TX3DField): TScript107Script_MFNodeArray;
+var
+  _i: Integer;
+begin
+  Result := nil;
+  if Field is TMFNode then
+  begin
+    SetLength(Result, TMFNode(Field).Count);
+    for _i := 0 to TMFNode(Field).Count - 1 do
+      Result[_i] := TMFNode(Field)[_i];
+  end;
+end;
+
+function TScript107Script.FieldToMFFloat(const Field: TX3DField): TScript107Script_MFFloatArray;
+var
+  _i: Integer;
+begin
+  Result := nil;
+  if Field is TMFFloat then
+  begin
+    SetLength(Result, TMFFloat(Field).Items.Count);
+    for _i := 0 to TMFFloat(Field).Items.Count - 1 do
+      Result[_i] := TMFFloat(Field).Items[_i];
+  end;
+end;
+
+function TScript107Script.FieldToMFVec3(const Field: TX3DField): TScript107Script_MFVec3Array;
+var
+  _i: Integer;
+begin
+  Result := nil;
+  if Field is TMFVec3f then
+  begin
+    SetLength(Result, TMFVec3f(Field).Items.Count);
+    for _i := 0 to TMFVec3f(Field).Items.Count - 1 do
+      Result[_i] := TMFVec3f(Field).Items[_i];
+  end;
+end;
+
+function TScript107Script.FieldToMFVec4(const Field: TX3DField): TScript107Script_MFVec4Array;
+var
+  _i: Integer;
+begin
+  Result := nil;
+  if Field is TMFVec4f then
+  begin
+    SetLength(Result, TMFVec4f(Field).Items.Count);
+    for _i := 0 to TMFVec4f(Field).Items.Count - 1 do
+      Result[_i] := TMFVec4f(Field).Items[_i];
+  end;
+end;
+
 procedure TScript107Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_description', {$ifdef FPC}@{$endif}Set_description);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'description', {$ifdef FPC}@{$endif}Set_description);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_enabled', {$ifdef FPC}@{$endif}Set_enabled);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'enabled', {$ifdef FPC}@{$endif}Set_enabled);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_moves', {$ifdef FPC}@{$endif}Set_moves);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'moves', {$ifdef FPC}@{$endif}Set_moves);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_initialPosition', {$ifdef FPC}@{$endif}Set_initialPosition);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialPosition', {$ifdef FPC}@{$endif}Set_initialPosition);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_initialOrientation', {$ifdef FPC}@{$endif}Set_initialOrientation);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialOrientation', {$ifdef FPC}@{$endif}Set_initialOrientation);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_initialAimPoint', {$ifdef FPC}@{$endif}Set_initialAimPoint);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialAimPoint', {$ifdef FPC}@{$endif}Set_initialAimPoint);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_initialFieldOfView', {$ifdef FPC}@{$endif}Set_initialFieldOfView);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialFieldOfView', {$ifdef FPC}@{$endif}Set_initialFieldOfView);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_initialFStop', {$ifdef FPC}@{$endif}Set_initialFStop);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialFStop', {$ifdef FPC}@{$endif}Set_initialFStop);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_initialFocusDistance', {$ifdef FPC}@{$endif}Set_initialFocusDistance);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialFocusDistance', {$ifdef FPC}@{$endif}Set_initialFocusDistance);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_key', {$ifdef FPC}@{$endif}Set_key);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'key', {$ifdef FPC}@{$endif}Set_key);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_keyValuePosition', {$ifdef FPC}@{$endif}Set_keyValuePosition);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'keyValuePosition', {$ifdef FPC}@{$endif}Set_keyValuePosition);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_keyValueOrientation', {$ifdef FPC}@{$endif}Set_keyValueOrientation);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'keyValueOrientation', {$ifdef FPC}@{$endif}Set_keyValueOrientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_description', {$ifdef FPC}@{$endif}Set_description);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'description', {$ifdef FPC}@{$endif}Set_description);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_moves', {$ifdef FPC}@{$endif}Set_moves);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'moves', {$ifdef FPC}@{$endif}Set_moves);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_initialPosition', {$ifdef FPC}@{$endif}Set_initialPosition);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialPosition', {$ifdef FPC}@{$endif}Set_initialPosition);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_initialOrientation', {$ifdef FPC}@{$endif}Set_initialOrientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialOrientation', {$ifdef FPC}@{$endif}Set_initialOrientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_initialAimPoint', {$ifdef FPC}@{$endif}Set_initialAimPoint);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialAimPoint', {$ifdef FPC}@{$endif}Set_initialAimPoint);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_initialFieldOfView', {$ifdef FPC}@{$endif}Set_initialFieldOfView);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialFieldOfView', {$ifdef FPC}@{$endif}Set_initialFieldOfView);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_initialFStop', {$ifdef FPC}@{$endif}Set_initialFStop);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialFStop', {$ifdef FPC}@{$endif}Set_initialFStop);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_initialFocusDistance', {$ifdef FPC}@{$endif}Set_initialFocusDistance);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialFocusDistance', {$ifdef FPC}@{$endif}Set_initialFocusDistance);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_key', {$ifdef FPC}@{$endif}Set_key);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'key', {$ifdef FPC}@{$endif}Set_key);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_keyValuePosition', {$ifdef FPC}@{$endif}Set_keyValuePosition);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'keyValuePosition', {$ifdef FPC}@{$endif}Set_keyValuePosition);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_keyValueOrientation', {$ifdef FPC}@{$endif}Set_keyValueOrientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'keyValueOrientation', {$ifdef FPC}@{$endif}Set_keyValueOrientation);
 end;
 
 procedure TScript107Script.Initialize(Value: TX3DField; const Time: TX3DTime);
+var
+  i: Integer;
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   FshotDuration := 0;
   FDirty_shotDuration := True;
   for i := 0 to (Length(Fmoves)) - 1 do
   begin
-    FshotDuration := FshotDuration + Fmoves[i].duration;
+    FshotDuration := FshotDuration + GetNodeFloat(Fmoves[i], 'duration');
     FDirty_shotDuration := True;
   end;
   AlwaysPrint('number of contained CameraMove nodes=' + IntToStr(Length(Fmoves)) + ', shotDuration=' + FloatToStr(FshotDuration) + ' seconds', Time);
@@ -2349,10 +2825,13 @@ begin
 end;
 
 procedure TScript107Script.Set_moves(Value: TX3DField; const Time: TX3DTime);
+var
+  _arg_eventValue: TScript107Script_MFNodeArray;
 begin
   if (Time.Seconds = FLastTime_set_moves.Seconds) and (Time.PlusTicks = FLastTime_set_moves.PlusTicks) then Exit;
   FLastTime_set_moves := Time;
-  Fmoves := eventValue;
+  _arg_eventValue := FieldToMFNode(Value);
+  Fmoves := _arg_eventValue;
   FDirty_moves := True;
   FlushOutputs(Time);
 end;
@@ -2447,10 +2926,13 @@ begin
 end;
 
 procedure TScript107Script.Set_key(Value: TX3DField; const Time: TX3DTime);
+var
+  _arg_eventValue: TScript107Script_MFFloatArray;
 begin
   if (Time.Seconds = FLastTime_set_key.Seconds) and (Time.PlusTicks = FLastTime_set_key.PlusTicks) then Exit;
   FLastTime_set_key := Time;
-  Fkey := eventValue;
+  _arg_eventValue := FieldToMFFloat(Value);
+  Fkey := _arg_eventValue;
   FDirty_key := True;
   FlushOutputs(Time);
 end;
@@ -2461,10 +2943,13 @@ begin
 end;
 
 procedure TScript107Script.Set_keyValuePosition(Value: TX3DField; const Time: TX3DTime);
+var
+  _arg_eventValue: TScript107Script_MFVec3Array;
 begin
   if (Time.Seconds = FLastTime_set_keyValuePosition.Seconds) and (Time.PlusTicks = FLastTime_set_keyValuePosition.PlusTicks) then Exit;
   FLastTime_set_keyValuePosition := Time;
-  FkeyValuePosition := eventValue;
+  _arg_eventValue := FieldToMFVec3(Value);
+  FkeyValuePosition := _arg_eventValue;
   FDirty_keyValuePosition := True;
   FlushOutputs(Time);
 end;
@@ -2475,10 +2960,13 @@ begin
 end;
 
 procedure TScript107Script.Set_keyValueOrientation(Value: TX3DField; const Time: TX3DTime);
+var
+  _arg_eventValue: TScript107Script_MFVec4Array;
 begin
   if (Time.Seconds = FLastTime_set_keyValueOrientation.Seconds) and (Time.PlusTicks = FLastTime_set_keyValueOrientation.PlusTicks) then Exit;
   FLastTime_set_keyValueOrientation := Time;
-  FkeyValueOrientation := eventValue;
+  _arg_eventValue := FieldToMFVec4(Value);
+  FkeyValueOrientation := _arg_eventValue;
   FDirty_keyValueOrientation := True;
   FlushOutputs(Time);
 end;
@@ -2486,27 +2974,29 @@ end;
 procedure TScript107Script.TracePrint(const outputValue: Single; const Time: TX3DTime);
 begin
   if FtraceEnabled then
-    AlwaysPrint(outputValue, Time);
+    AlwaysPrint(FloatToStr(outputValue), Time);
 end;
 
-procedure TScript107Script.AlwaysPrint(const outputValue: Single; const Time: TX3DTime);
+procedure TScript107Script.AlwaysPrint(const outputValue: String; const Time: TX3DTime);
 var
-  outputString: Single;
+  outputString: String;
 begin
-  outputString := outputValue.toString();
-  if outputString = nil then
-    outputString := outputValue;
+  outputString := outputValue;
   if Length(Fdescription) > 0 then
-    WriteLn('[CameraShot: ' + Fdescription + '] ' + FloatToStr(outputString) + #10);
+  begin
+    WriteLn('[CameraShot: ' + Fdescription + '] ' + outputString + #10);
+  end
   else
-    WriteLn('[CameraShot] ' + FloatToStr(outputString) + #10);
+  begin
+    WriteLn('[CameraShot] ' + outputString + #10);
+  end;
 end;
 
 constructor TScript138Script.Create(const AHandlerPrefix: String; const AField_description: TSFString; const AField_enabled: TSFBool; const AField_duration: TSFFloat; const AField_goalPosition: TSFVec3f; const AField_goalOrientation: TSFRotation; const AField_tracking: TSFBool; const AField_goalAimPoint: TSFVec3f; const AField_goalFieldOfView: TSFFloat; const AField_goalFStop: TSFFloat; const AField_goalFocusDistance: TSFFloat; const AEvent_isActive: TX3DEvent; const AField_traceEnabled: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fdescription := '';
   FField_description := nil;
   FBack_description := TSFString.Create(nil, False, 'description', '');
@@ -2826,33 +3316,33 @@ end;
 
 procedure TScript138Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_goalAimPoint', {$ifdef FPC}@{$endif}Set_goalAimPoint);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'goalAimPoint', {$ifdef FPC}@{$endif}Set_goalAimPoint);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_description', {$ifdef FPC}@{$endif}Set_description);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'description', {$ifdef FPC}@{$endif}Set_description);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_enabled', {$ifdef FPC}@{$endif}Set_enabled);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'enabled', {$ifdef FPC}@{$endif}Set_enabled);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_duration', {$ifdef FPC}@{$endif}Set_duration);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'duration', {$ifdef FPC}@{$endif}Set_duration);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_goalPosition', {$ifdef FPC}@{$endif}Set_goalPosition);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'goalPosition', {$ifdef FPC}@{$endif}Set_goalPosition);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_goalOrientation', {$ifdef FPC}@{$endif}Set_goalOrientation);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'goalOrientation', {$ifdef FPC}@{$endif}Set_goalOrientation);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_tracking', {$ifdef FPC}@{$endif}Set_tracking);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'tracking', {$ifdef FPC}@{$endif}Set_tracking);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_goalFieldOfView', {$ifdef FPC}@{$endif}Set_goalFieldOfView);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'goalFieldOfView', {$ifdef FPC}@{$endif}Set_goalFieldOfView);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_goalFStop', {$ifdef FPC}@{$endif}Set_goalFStop);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'goalFStop', {$ifdef FPC}@{$endif}Set_goalFStop);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_goalFocusDistance', {$ifdef FPC}@{$endif}Set_goalFocusDistance);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'goalFocusDistance', {$ifdef FPC}@{$endif}Set_goalFocusDistance);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_goalAimPoint', {$ifdef FPC}@{$endif}Set_goalAimPoint);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'goalAimPoint', {$ifdef FPC}@{$endif}Set_goalAimPoint);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_description', {$ifdef FPC}@{$endif}Set_description);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'description', {$ifdef FPC}@{$endif}Set_description);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_duration', {$ifdef FPC}@{$endif}Set_duration);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'duration', {$ifdef FPC}@{$endif}Set_duration);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_goalPosition', {$ifdef FPC}@{$endif}Set_goalPosition);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'goalPosition', {$ifdef FPC}@{$endif}Set_goalPosition);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_goalOrientation', {$ifdef FPC}@{$endif}Set_goalOrientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'goalOrientation', {$ifdef FPC}@{$endif}Set_goalOrientation);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_tracking', {$ifdef FPC}@{$endif}Set_tracking);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'tracking', {$ifdef FPC}@{$endif}Set_tracking);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_goalFieldOfView', {$ifdef FPC}@{$endif}Set_goalFieldOfView);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'goalFieldOfView', {$ifdef FPC}@{$endif}Set_goalFieldOfView);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_goalFStop', {$ifdef FPC}@{$endif}Set_goalFStop);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'goalFStop', {$ifdef FPC}@{$endif}Set_goalFStop);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_goalFocusDistance', {$ifdef FPC}@{$endif}Set_goalFocusDistance);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'goalFocusDistance', {$ifdef FPC}@{$endif}Set_goalFocusDistance);
 end;
 
 procedure TScript138Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
-  AlwaysPrint('initialize goalPosition=' + FloatToStr(FgoalPosition.toString()) + ', goalOrientation=' + FloatToStr(FgoalOrientation.toString()) + ', goalAimPoint=' + FloatToStr(FgoalAimPoint.toString()), Time);
+  FScriptInitialized := True;
+  AlwaysPrint('initialize goalPosition=' + FgoalPosition.ToString + ', goalOrientation=' + FgoalOrientation.ToString + ', goalAimPoint=' + FgoalAimPoint.ToString, Time);
   if Fduration < 0 then
   begin
     AlwaysPrint('error: negative duration=' + FloatToStr(Fduration) + ', reset to 0 and ignored', Time);
@@ -2873,11 +3363,13 @@ begin
 end;
 
 procedure TScript138Script.Set_goalAimPoint(Value: TX3DField; const Time: TX3DTime);
+var
+  goalAimPoint_changed: TVector3;
 begin
   if (Time.Seconds = FLastTime_set_goalAimPoint.Seconds) and (Time.PlusTicks = FLastTime_set_goalAimPoint.PlusTicks) then Exit;
   FLastTime_set_goalAimPoint := Time;
   goalAimPoint_changed := (Value as TSFVec3f).Value;
-  TracePrint('goalAimPoint=' + FloatToStr(FgoalAimPoint.toString()), Time);
+  TracePrint('goalAimPoint=' + FgoalAimPoint.ToString, Time);
   FlushOutputs(Time);
 end;
 
@@ -3007,23 +3499,25 @@ begin
   FlushOutputs(Time);
 end;
 
-procedure TScript138Script.TracePrint(const outputValue: Single; const Time: TX3DTime);
+procedure TScript138Script.TracePrint(const outputValue: String; const Time: TX3DTime);
 begin
   if FtraceEnabled then
     AlwaysPrint(outputValue, Time);
 end;
 
-procedure TScript138Script.AlwaysPrint(const outputValue: Single; const Time: TX3DTime);
+procedure TScript138Script.AlwaysPrint(const outputValue: String; const Time: TX3DTime);
 var
-  outputString: Single;
+  outputString: String;
 begin
-  outputString := outputValue.toString();
-  if outputString = nil then
-    outputString := outputValue;
+  outputString := outputValue;
   if Length(Fdescription) > 0 then
-    WriteLn('[CameraMovement: ' + Fdescription + '] ' + FloatToStr(outputString) + #10);
+  begin
+    WriteLn('[CameraMovement: ' + Fdescription + '] ' + outputString + #10);
+  end
   else
-    WriteLn('[CameraMovement] ' + FloatToStr(outputString) + #10);
+  begin
+    WriteLn('[CameraMovement] ' + outputString + #10);
+  end;
 end;
 
 constructor TScript165Script.Create(const AHandlerPrefix: String; const AField_description: TSFString; const AField_enabled: TSFBool; const AField_frameRate: TSFFloat; const AField_frameSize: TSFVec2f; const AField_pixelAspectRatio: TSFFloat; const AEvent_progress: TX3DEvent; const AEvent_renderCompleteTime: TX3DEvent; const AField_movieFormat: TMFString; const AField_imageFormat: TMFString; const AField_traceEnabled: TSFBool);
@@ -3031,8 +3525,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fdescription := '';
   FField_description := nil;
   FBack_description := TSFString.Create(nil, False, 'description', '');
@@ -3241,23 +3735,23 @@ end;
 
 procedure TScript165Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_description', {$ifdef FPC}@{$endif}Set_description);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'description', {$ifdef FPC}@{$endif}Set_description);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_enabled', {$ifdef FPC}@{$endif}Set_enabled);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'enabled', {$ifdef FPC}@{$endif}Set_enabled);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_frameRate', {$ifdef FPC}@{$endif}Set_frameRate);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'frameRate', {$ifdef FPC}@{$endif}Set_frameRate);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_frameSize', {$ifdef FPC}@{$endif}Set_frameSize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'frameSize', {$ifdef FPC}@{$endif}Set_frameSize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_pixelAspectRatio', {$ifdef FPC}@{$endif}Set_pixelAspectRatio);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'pixelAspectRatio', {$ifdef FPC}@{$endif}Set_pixelAspectRatio);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_startTime', {$ifdef FPC}@{$endif}Set_startTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_description', {$ifdef FPC}@{$endif}Set_description);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'description', {$ifdef FPC}@{$endif}Set_description);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'enabled', {$ifdef FPC}@{$endif}Set_enabled);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_frameRate', {$ifdef FPC}@{$endif}Set_frameRate);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'frameRate', {$ifdef FPC}@{$endif}Set_frameRate);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_frameSize', {$ifdef FPC}@{$endif}Set_frameSize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'frameSize', {$ifdef FPC}@{$endif}Set_frameSize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_pixelAspectRatio', {$ifdef FPC}@{$endif}Set_pixelAspectRatio);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'pixelAspectRatio', {$ifdef FPC}@{$endif}Set_pixelAspectRatio);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_startTime', {$ifdef FPC}@{$endif}Set_startTime);
 end;
 
 procedure TScript165Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   TracePrint('... initialize complete', Time);
   FlushOutputs(Time);
 end;
@@ -3337,23 +3831,25 @@ begin
   FlushOutputs(Time);
 end;
 
-procedure TScript165Script.TracePrint(const outputValue: Single; const Time: TX3DTime);
+procedure TScript165Script.TracePrint(const outputValue: String; const Time: TX3DTime);
 begin
   if FtraceEnabled then
     AlwaysPrint(outputValue, Time);
 end;
 
-procedure TScript165Script.AlwaysPrint(const outputValue: Single; const Time: TX3DTime);
+procedure TScript165Script.AlwaysPrint(const outputValue: String; const Time: TX3DTime);
 var
-  outputString: Single;
+  outputString: String;
 begin
-  outputString := outputValue.toString();
-  if outputString = nil then
-    outputString := outputValue;
+  outputString := outputValue;
   if Length(Fdescription) > 0 then
-    WriteLn('[OfflineRender: ' + Fdescription + '] ' + FloatToStr(outputString) + #10);
+  begin
+    WriteLn('[OfflineRender: ' + Fdescription + '] ' + outputString + #10);
+  end
   else
-    WriteLn('[OfflineRender] ' + FloatToStr(outputString) + #10);
+  begin
+    WriteLn('[OfflineRender] ' + outputString + #10);
+  end;
 end;
 
 procedure TCameraPrototypesScriptBinder.BindNode(Node: TX3DNode);
@@ -3522,7 +4018,6 @@ Group16 := TGroupNode.Create;
 { =============== Camera ============== }
 ProtoDeclare17 := CreateEmptyPrototype('Camera');
 ProtoDeclare17.X3DName := 'Camera';
-ProtoDeclare17.Appinfo := 'Camera node provides direct control of scene view to enable cinematic camera animation shot by shot and move by move along with still digital-photography settings for offline rendering of camera images.';
 FieldVal19 := TSFString.CreateUndefined(nil, True, 'description');
 FieldDecl19 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl19.FieldOrEvent := FieldVal19;
@@ -3540,11 +4035,11 @@ FieldVal21.ParentInterfaceDeclaration := FieldDecl21;
 ProtoDeclare17.InterfaceDeclarations.Add(FieldDecl21);
 FieldVal22 := TSFFloat.Create(nil, True, 'fieldOfView', 0.7854);
 FieldDecl22 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl22.FieldOrEvent := FieldVal22;
 end;
 
 procedure InitCameraPrototypesPart1;
 begin
-FieldDecl22.FieldOrEvent := FieldVal22;
 FieldVal22.ParentInterfaceDeclaration := FieldDecl22;
 ProtoDeclare17.InterfaceDeclarations.Add(FieldDecl22);
 FieldVal23 := TSFFloat.CreateEvent(nil, 'set_fraction', True);
@@ -3584,11 +4079,11 @@ FieldVal29.ParentInterfaceDeclaration := FieldDecl29;
 ProtoDeclare17.InterfaceDeclarations.Add(FieldDecl29);
 FieldVal30 := TSFBool.Create(nil, True, 'headlight', True);
 FieldDecl30 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl30.FieldOrEvent := FieldVal30;
 end;
 
 procedure InitCameraPrototypesPart2;
 begin
-FieldDecl30.FieldOrEvent := FieldVal30;
 FieldVal30.ParentInterfaceDeclaration := FieldDecl30;
 ProtoDeclare17.InterfaceDeclarations.Add(FieldDecl30);
 FieldVal31 := TSFColor.Create(nil, True, 'headlightColor', Vector3(1, 1, 1));
@@ -3628,11 +4123,11 @@ FieldVal37.ParentInterfaceDeclaration := FieldDecl37;
 ProtoDeclare17.InterfaceDeclarations.Add(FieldDecl37);
 FieldVal38 := TSFBool.CreateEvent(nil, 'isActive', False);
 FieldDecl38 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl38.FieldOrEvent := FieldVal38;
 end;
 
 procedure InitCameraPrototypesPart3;
 begin
-FieldDecl38.FieldOrEvent := FieldVal38;
 FieldVal38.ParentInterfaceDeclaration := FieldDecl38;
 ProtoDeclare17.InterfaceDeclarations.Add(FieldDecl38);
 FieldVal39 := TSFTime.CreateEvent(nil, 'totalDuration', False);
@@ -3672,11 +4167,11 @@ ProtoDeclare17.Node.AddChildren([NavigationInfo44]);
 DirectionalLight45 := TDirectionalLightNode.Create;
 DirectionalLight45.X3DName := 'CameraDirectionalLight';
 DirectionalLight45.Global := True;
+{ TODO confirm other default field values match NavigationInfo spec }
 end;
 
 procedure InitCameraPrototypesPart4;
 begin
-{ TODO confirm other default field values match NavigationInfo spec }
 DirectionalLight45.FieldOrEvent('on', True).IsClauseNamesAdd('headlight');
 DirectionalLight45.FieldOrEvent('color', True).IsClauseNamesAdd('headlightColor');
 DirectionalLight45.FieldOrEvent('intensity', True).IsClauseNamesAdd('headlightIntensity');
@@ -3716,11 +4211,11 @@ FieldVal56 := TSFFloat.CreateUndefined(Script50, True, 'fieldOfView');
 Script50.AddCustomFieldOrEvent(FieldVal56);
 FieldVal57 := TSFFloat.CreateUndefined(Script50, True, 'nearClipPlane');
 Script50.AddCustomFieldOrEvent(FieldVal57);
+FieldVal58 := TSFFloat.CreateUndefined(Script50, True, 'farClipPlane');
 end;
 
 procedure InitCameraPrototypesPart5;
 begin
-FieldVal58 := TSFFloat.CreateUndefined(Script50, True, 'farClipPlane');
 Script50.AddCustomFieldOrEvent(FieldVal58);
 FieldVal59 := TMFNode.CreateUndefined(Script50, True, 'shots');
 Script50.AddCustomFieldOrEvent(FieldVal59);
@@ -3760,11 +4255,11 @@ FieldVal78 := TMFRotation.CreateUndefined(Script50, True, 'keyValueOrientation')
 Script50.AddCustomFieldOrEvent(FieldVal78);
 FieldVal79 := TSFBool.Create(Script50, True, 'animated', False);
 Script50.AddCustomFieldOrEvent(FieldVal79);
+FieldVal80 := TSFBool.Create(Script50, False, 'initialized', False);
 end;
 
 procedure InitCameraPrototypesPart6;
 begin
-FieldVal80 := TSFBool.Create(Script50, False, 'initialized', False);
 Script50.AddCustomFieldOrEvent(FieldVal80);
 FieldVal81 := TSFInt32.Create(Script50, False, 'shotCount', 0);
 Script50.AddCustomFieldOrEvent(FieldVal81);
@@ -3841,11 +4336,11 @@ ProtoDeclare17.Node.AddRoute(FieldVal52.EventOut, Viewpoint43.FdPosition.EventIn
 ProtoDeclare17.Node.AddRoute(FieldVal53.EventOut, Viewpoint43.FdOrientation.EventIn);
 { ROUTE CameraScript.isActive TO CameraViewpoint.set_bind }
 ProtoDeclare17.Node.AddRoute(FieldVal65, Viewpoint43.EventSet_bind);
+{ ROUTE CameraScript.isActive TO CameraNavInfo.set_bind }
 end;
 
 procedure InitCameraPrototypesPart7;
 begin
-{ ROUTE CameraScript.isActive TO CameraNavInfo.set_bind }
 ProtoDeclare17.Node.AddRoute(FieldVal65, NavigationInfo44.EventSet_bind);
 { ROUTE CameraScript.isActive TO CameraDirectionalLight.on }
 ProtoDeclare17.Node.AddRoute(FieldVal65, DirectionalLight45.FdOn.EventIn);
@@ -3853,7 +4348,6 @@ X3D0.AddPrototype(ProtoDeclare17);
 { =============== CameraShot ============== }
 ProtoDeclare92 := CreateEmptyPrototype('CameraShot');
 ProtoDeclare92.X3DName := 'CameraShot';
-ProtoDeclare92.Appinfo := 'CameraShot collects a specific set of CameraMovement animations that make up an individual shot.';
 FieldVal94 := TSFString.CreateUndefined(nil, True, 'description');
 FieldDecl94 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl94.FieldOrEvent := FieldVal94;
@@ -3885,12 +4379,12 @@ FieldDecl99.FieldOrEvent := FieldVal99;
 FieldVal99.ParentInterfaceDeclaration := FieldDecl99;
 ProtoDeclare92.InterfaceDeclarations.Add(FieldDecl99);
 FieldVal100 := TSFFloat.Create(nil, True, 'initialFieldOfView', 0.7854);
+FieldDecl100 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl100.FieldOrEvent := FieldVal100;
 end;
 
 procedure InitCameraPrototypesPart8;
 begin
-FieldDecl100 := TX3DInterfaceDeclaration.Create(nil);
-FieldDecl100.FieldOrEvent := FieldVal100;
 FieldVal100.ParentInterfaceDeclaration := FieldDecl100;
 ProtoDeclare92.InterfaceDeclarations.Add(FieldDecl100);
 FieldVal101 := TSFFloat.Create(nil, True, 'initialFStop', 5.6);
@@ -3929,12 +4423,12 @@ Script107.AddCustomFieldOrEvent(FieldVal109);
 FieldVal110 := TMFNode.CreateUndefined(Script107, True, 'moves');
 Script107.AddCustomFieldOrEvent(FieldVal110);
 FieldVal111 := TSFVec3f.CreateUndefined(Script107, True, 'initialPosition');
+Script107.AddCustomFieldOrEvent(FieldVal111);
+FieldVal112 := TSFRotation.CreateUndefined(Script107, True, 'initialOrientation');
 end;
 
 procedure InitCameraPrototypesPart9;
 begin
-Script107.AddCustomFieldOrEvent(FieldVal111);
-FieldVal112 := TSFRotation.CreateUndefined(Script107, True, 'initialOrientation');
 Script107.AddCustomFieldOrEvent(FieldVal112);
 FieldVal113 := TSFVec3f.CreateUndefined(Script107, True, 'initialAimPoint');
 Script107.AddCustomFieldOrEvent(FieldVal113);
@@ -3998,13 +4492,12 @@ ProtoDeclare92.Node.AddChildren([Script107]);
 { Add any ROUTEs here, going from Script to other nodes within ProtoBody }
 X3D0.AddPrototype(ProtoDeclare92);
 { =============== CameraMovement ============== }
+ProtoDeclare123 := CreateEmptyPrototype('CameraMovement');
+ProtoDeclare123.X3DName := 'CameraMovement';
 end;
 
 procedure InitCameraPrototypesPart10;
 begin
-ProtoDeclare123 := CreateEmptyPrototype('CameraMovement');
-ProtoDeclare123.X3DName := 'CameraMovement';
-ProtoDeclare123.Appinfo := 'CameraMovement node defines a single camera movement animation including goalPosition, goalOrientation, goalAimPoint and goalFieldOfView.';
 FieldVal125 := TSFString.CreateUndefined(nil, True, 'description');
 FieldDecl125 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl125.FieldOrEvent := FieldVal125;
@@ -4042,13 +4535,13 @@ FieldVal131.ParentInterfaceDeclaration := FieldDecl131;
 ProtoDeclare123.InterfaceDeclarations.Add(FieldDecl131);
 FieldVal132 := TSFFloat.Create(nil, True, 'goalFieldOfView', 0.7854);
 FieldDecl132 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl132.FieldOrEvent := FieldVal132;
+FieldVal132.ParentInterfaceDeclaration := FieldDecl132;
+ProtoDeclare123.InterfaceDeclarations.Add(FieldDecl132);
 end;
 
 procedure InitCameraPrototypesPart11;
 begin
-FieldDecl132.FieldOrEvent := FieldVal132;
-FieldVal132.ParentInterfaceDeclaration := FieldDecl132;
-ProtoDeclare123.InterfaceDeclarations.Add(FieldDecl132);
 FieldVal133 := TSFFloat.Create(nil, True, 'goalFStop', 5.6);
 FieldDecl133 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl133.FieldOrEvent := FieldVal133;
@@ -4086,13 +4579,13 @@ FieldVal142 := TSFVec3f.CreateUndefined(Script138, True, 'goalPosition');
 Script138.AddCustomFieldOrEvent(FieldVal142);
 FieldVal143 := TSFRotation.CreateUndefined(Script138, True, 'goalOrientation');
 Script138.AddCustomFieldOrEvent(FieldVal143);
+FieldVal144 := TSFBool.CreateUndefined(Script138, True, 'tracking');
+Script138.AddCustomFieldOrEvent(FieldVal144);
+FieldVal145 := TSFVec3f.CreateUndefined(Script138, True, 'goalAimPoint');
 end;
 
 procedure InitCameraPrototypesPart12;
 begin
-FieldVal144 := TSFBool.CreateUndefined(Script138, True, 'tracking');
-Script138.AddCustomFieldOrEvent(FieldVal144);
-FieldVal145 := TSFVec3f.CreateUndefined(Script138, True, 'goalAimPoint');
 Script138.AddCustomFieldOrEvent(FieldVal145);
 FieldVal146 := TSFFloat.CreateUndefined(Script138, True, 'goalFieldOfView');
 Script138.AddCustomFieldOrEvent(FieldVal146);
@@ -4144,21 +4637,20 @@ X3D0.AddPrototype(ProtoDeclare123);
 { =============== OfflineRender ============== }
 ProtoDeclare151 := CreateEmptyPrototype('OfflineRender');
 ProtoDeclare151.X3DName := 'OfflineRender';
-ProtoDeclare151.Appinfo := 'OfflineRender defines a parameters for offline rendering of Camera animation output to a movie file (or possibly a still shot).';
 FieldVal153 := TSFString.CreateUndefined(nil, True, 'description');
 FieldDecl153 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl153.FieldOrEvent := FieldVal153;
 FieldVal153.ParentInterfaceDeclaration := FieldDecl153;
 ProtoDeclare151.InterfaceDeclarations.Add(FieldDecl153);
 FieldVal154 := TSFBool.Create(nil, True, 'enabled', True);
-end;
-
-procedure InitCameraPrototypesPart13;
-begin
 FieldDecl154 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl154.FieldOrEvent := FieldVal154;
 FieldVal154.ParentInterfaceDeclaration := FieldDecl154;
 ProtoDeclare151.InterfaceDeclarations.Add(FieldDecl154);
+end;
+
+procedure InitCameraPrototypesPart13;
+begin
 FieldVal155 := TSFFloat.Create(nil, True, 'frameRate', 30);
 FieldDecl155 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl155.FieldOrEvent := FieldVal155;
@@ -4195,14 +4687,14 @@ FieldDecl161.FieldOrEvent := FieldVal161;
 FieldVal161.ParentInterfaceDeclaration := FieldDecl161;
 ProtoDeclare151.InterfaceDeclarations.Add(FieldDecl161);
 FieldVal162 := TMFString.Create(nil, False, 'imageFormat', ['png']);
-end;
-
-procedure InitCameraPrototypesPart14;
-begin
 FieldDecl162 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl162.FieldOrEvent := FieldVal162;
 FieldVal162.ParentInterfaceDeclaration := FieldDecl162;
 ProtoDeclare151.InterfaceDeclarations.Add(FieldDecl162);
+end;
+
+procedure InitCameraPrototypesPart14;
+begin
 FieldVal163 := TSFBool.Create(nil, False, 'traceEnabled', False);
 FieldDecl163 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl163.FieldOrEvent := FieldVal163;
@@ -4239,14 +4731,14 @@ Script165.FieldOrEvent('description', True).IsClauseNamesAdd('description');
 Script165.FieldOrEvent('enabled', True).IsClauseNamesAdd('enabled');
 Script165.FieldOrEvent('frameRate', True).IsClauseNamesAdd('frameRate');
 Script165.FieldOrEvent('frameSize', True).IsClauseNamesAdd('frameSize');
-end;
-
-procedure InitCameraPrototypesPart15;
-begin
 Script165.FieldOrEvent('pixelAspectRatio', True).IsClauseNamesAdd('pixelAspectRatio');
 Script165.FieldOrEvent('set_startTime', True).IsClauseNamesAdd('set_startTime');
 Script165.FieldOrEvent('progress', True).IsClauseNamesAdd('progress');
 Script165.FieldOrEvent('renderCompleteTime', True).IsClauseNamesAdd('renderCompleteTime');
+end;
+
+procedure InitCameraPrototypesPart15;
+begin
 Script165.FieldOrEvent('movieFormat', True).IsClauseNamesAdd('movieFormat');
 Script165.FieldOrEvent('imageFormat', True).IsClauseNamesAdd('imageFormat');
 Script165.FieldOrEvent('traceEnabled', True).IsClauseNamesAdd('traceEnabled');

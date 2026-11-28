@@ -2,7 +2,7 @@ unit variationalflowers2;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createvariationalflowers2: TX3DRootNode;
 procedure Registervariationalflowers2Scripts(const Scene: TCastleSceneCore);
@@ -13,15 +13,16 @@ implementation
 uses SysUtils, CastleVectors, Math, X3DTime, CastleRenderOptions;
 
 type
+  TScript43Script_MFFloatArray = array of Single;
   TScript43Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fvalues: array of Single;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fvalues: TScript43Script_MFFloatArray;
     FField_values: TMFFloat;
     FBack_values: TMFFloat;
     FDirty_values: Boolean;
-    Fvariations: array of Single;
+    Fvariations: TScript43Script_MFFloatArray;
     FField_variations: TMFFloat;
     FBack_variations: TMFFloat;
     FDirty_variations: Boolean;
@@ -40,7 +41,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
   end;
 
@@ -93,8 +94,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fvalues := nil;
   FField_values := nil;
   FBack_values := TMFFloat.CreateUndefined(nil, False, 'values');
@@ -219,7 +220,7 @@ end;
 
 procedure TScript43Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
 end;
 
 procedure TScript43Script.Set_fraction(Value: TX3DField; const Time: TX3DTime);

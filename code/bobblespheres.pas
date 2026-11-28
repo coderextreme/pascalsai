@@ -2,7 +2,7 @@ unit bobblespheres;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbobblespheres: TX3DRootNode;
 procedure RegisterbobblespheresScripts(const Scene: TCastleSceneCore);
@@ -13,37 +13,41 @@ implementation
 uses SysUtils, CastleVectors, Math, X3DTime;
 
 type
+  TScript41Script_MFFloatArray = array of Single;
   TScript41Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FtargetMaterial: TX3DNode;
     procedure FlushOutputs(const Time: TX3DTime);
+    function GetNodeMFFloat(const Node: TX3DNode; const FieldName: String): TScript41Script_MFFloatArray;
   public
     constructor Create(const AHandlerPrefix: String; const AField_targetMaterial: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript41Script;
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_color(Value: TX3DField; const Time: TX3DTime);
     procedure Set_roughness(Value: TX3DField; const Time: TX3DTime);
   end;
 
+  TScript60Script_MFFloatArray = array of Single;
   TScript60Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FtargetMaterial: TX3DNode;
     procedure FlushOutputs(const Time: TX3DTime);
+    function GetNodeMFFloat(const Node: TX3DNode; const FieldName: String): TScript60Script_MFFloatArray;
   public
     constructor Create(const AHandlerPrefix: String; const AField_targetMaterial: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript60Script;
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_roughness(Value: TX3DField; const Time: TX3DTime);
   end;
@@ -129,8 +133,8 @@ var
 constructor TScript41Script.Create(const AHandlerPrefix: String; const AField_targetMaterial: TSFNode);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FtargetMaterial := nil;
   if AField_targetMaterial <> nil then FtargetMaterial := AField_targetMaterial.Value;
 end;
@@ -153,17 +157,35 @@ procedure TScript41Script.FlushOutputs(const Time: TX3DTime);
 begin
 end;
 
+function TScript41Script.GetNodeMFFloat(const Node: TX3DNode; const FieldName: String): TScript41Script_MFFloatArray;
+var
+  FOE: TX3DFieldOrEvent;
+  _i: Integer;
+begin
+  Result := nil;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TMFFloat then
+  begin
+    SetLength(Result, TMFFloat(FOE).Items.Count);
+    for _i := 0 to TMFFloat(FOE).Items.Count - 1 do
+      Result[_i] := TMFFloat(FOE).Items[_i];
+  end;
+end;
+
 procedure TScript41Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_color', {$ifdef FPC}@{$endif}Set_color);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_roughness', {$ifdef FPC}@{$endif}Set_roughness);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_color', {$ifdef FPC}@{$endif}Set_color);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_roughness', {$ifdef FPC}@{$endif}Set_roughness);
 end;
 
 procedure TScript41Script.Initialize(Value: TX3DField; const Time: TX3DTime);
+var
+  matNode: TScript41Script_MFFloatArray;
 begin
-  FInitialized := True;
-  matNode := FtargetMaterial.value;
+  FScriptInitialized := True;
+  matNode := GetNodeMFFloat(FtargetMaterial, 'value');
 end;
 
 procedure TScript41Script.Set_color(Value: TX3DField; const Time: TX3DTime);
@@ -185,8 +207,8 @@ end;
 constructor TScript60Script.Create(const AHandlerPrefix: String; const AField_targetMaterial: TSFNode);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FtargetMaterial := nil;
   if AField_targetMaterial <> nil then FtargetMaterial := AField_targetMaterial.Value;
 end;
@@ -209,16 +231,34 @@ procedure TScript60Script.FlushOutputs(const Time: TX3DTime);
 begin
 end;
 
+function TScript60Script.GetNodeMFFloat(const Node: TX3DNode; const FieldName: String): TScript60Script_MFFloatArray;
+var
+  FOE: TX3DFieldOrEvent;
+  _i: Integer;
+begin
+  Result := nil;
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TMFFloat then
+  begin
+    SetLength(Result, TMFFloat(FOE).Items.Count);
+    for _i := 0 to TMFFloat(FOE).Items.Count - 1 do
+      Result[_i] := TMFFloat(FOE).Items[_i];
+  end;
+end;
+
 procedure TScript60Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_roughness', {$ifdef FPC}@{$endif}Set_roughness);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_roughness', {$ifdef FPC}@{$endif}Set_roughness);
 end;
 
 procedure TScript60Script.Initialize(Value: TX3DField; const Time: TX3DTime);
+var
+  matNode: TScript60Script_MFFloatArray;
 begin
-  FInitialized := True;
-  matNode := FtargetMaterial.value;
+  FScriptInitialized := True;
+  matNode := GetNodeMFFloat(FtargetMaterial, 'value');
 end;
 
 procedure TScript60Script.Set_roughness(Value: TX3DField; const Time: TX3DTime);

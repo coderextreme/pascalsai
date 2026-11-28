@@ -2,7 +2,7 @@ unit sphereflowers;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function Createsphereflowers: TX3DRootNode;
 
@@ -41,7 +41,9 @@ var
   Background19: TBackgroundNode;
   Group20: TGroupNode;
   X3DExternalPrototype21: TX3DExternalPrototype;
+  FieldDecl22: TX3DInterfaceDeclaration;
   FieldVal22: TMFString;
+  FieldDecl23: TX3DInterfaceDeclaration;
   FieldVal23: TMFString;
   ProtoDeclare24: TX3DPrototype;
   Group26: TGroupNode;
@@ -88,17 +90,23 @@ Group17.FdChildren.Add(Background19);
 Group20 := TGroupNode.Create;
 X3DExternalPrototype21 := TX3DExternalPrototype.Create;
 X3DExternalPrototype21.X3DName := 'FlowerProto';
-X3DExternalPrototype21.Url := '"../data/flowerproto.x3d#FlowerProto" "https://coderextreme.net/X3DJSONLD/src/main/data/flowerproto.x3d#FlowerProto"';
-FieldVal22 := TMFString.CreateUndefined(X3DExternalPrototype21, True, 'vertex');
-X3DExternalPrototype21.AddCustomFieldOrEvent(FieldVal22);
-FieldVal23 := TMFString.CreateUndefined(X3DExternalPrototype21, True, 'fragment');
-X3DExternalPrototype21.AddCustomFieldOrEvent(FieldVal23);
-Group20.AddX3DExternalPrototype([X3DExternalPrototype21]);
-ProtoDeclare24 := CreateEmptyPrototype('flower');
+X3DExternalPrototype21.UrlList.Send(['../data/flowerproto.x3d#FlowerProto', 'https://coderextreme.net/X3DJSONLD/src/main/data/flowerproto.x3d#FlowerProto']);
+FieldVal22 := TMFString.CreateUndefined(nil, True, 'vertex');
+FieldDecl22 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl22.FieldOrEvent := FieldVal22;
+FieldVal22.ParentInterfaceDeclaration := FieldDecl22;
+X3DExternalPrototype21.InterfaceDeclarations.Add(FieldDecl22);
+FieldVal23 := TMFString.CreateUndefined(nil, True, 'fragment');
 end;
 
 procedure InitsphereflowersPart1;
 begin
+FieldDecl23 := TX3DInterfaceDeclaration.Create(nil);
+FieldDecl23.FieldOrEvent := FieldVal23;
+FieldVal23.ParentInterfaceDeclaration := FieldDecl23;
+X3DExternalPrototype21.InterfaceDeclarations.Add(FieldDecl23);
+X3D0.AddPrototype(X3DExternalPrototype21);
+ProtoDeclare24 := CreateEmptyPrototype('flower');
 ProtoDeclare24.X3DName := 'flower';
 Group26 := TGroupNode.Create;
 ProtoInstance27 := TX3DPrototypeNode.CreatePrototypeNode('', '', X3DExternalPrototype21);

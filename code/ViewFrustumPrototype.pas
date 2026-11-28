@@ -2,7 +2,7 @@ unit ViewFrustumPrototype;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateViewFrustumPrototype: TX3DRootNode;
 
@@ -143,7 +143,6 @@ WorldInfo16.Title := 'ViewFrustumPrototype.x3d';
 Group15.FdChildren.Add(WorldInfo16);
 ProtoDeclare17 := CreateEmptyPrototype('ViewFrustum');
 ProtoDeclare17.X3DName := 'ViewFrustum';
-ProtoDeclare17.Appinfo := 'Display view frustum associated with a given pair of Viewpoint NavigationInfo nodes';
 FieldVal19 := TSFNode.CreateUndefined(nil, False, 'ViewpointNode');
 FieldDecl19 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl19.FieldOrEvent := FieldVal19;
@@ -160,11 +159,11 @@ FieldDecl21.FieldOrEvent := FieldVal21;
 FieldVal21.ParentInterfaceDeclaration := FieldDecl21;
 ProtoDeclare17.InterfaceDeclarations.Add(FieldDecl21);
 FieldVal22 := TSFColor.Create(nil, True, 'lineColor', Vector3(0.9, 0.9, 0.9));
+FieldDecl22 := TX3DInterfaceDeclaration.Create(nil);
 end;
 
 procedure InitViewFrustumPrototypePart1;
 begin
-FieldDecl22 := TX3DInterfaceDeclaration.Create(nil);
 FieldDecl22.FieldOrEvent := FieldVal22;
 FieldVal22.ParentInterfaceDeclaration := FieldDecl22;
 ProtoDeclare17.InterfaceDeclarations.Add(FieldDecl22);
@@ -204,11 +203,11 @@ Coordinate33 := TCoordinateNode.Create;
 Coordinate33.X3DName := 'FrustumCoordinate';
 Coordinate33.SetPoint([Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]);
 IndexedLineSet32.Coord := Coordinate33;
+Shape31.Geometry := IndexedLineSet32;
 end;
 
 procedure InitViewFrustumPrototypePart2;
 begin
-Shape31.Geometry := IndexedLineSet32;
 Appearance34 := TAppearanceNode.Create;
 Material35 := TMaterialNode.Create;
 Material35.FieldOrEvent('emissiveColor', True).IsClauseNamesAdd('lineColor');
@@ -248,11 +247,11 @@ FieldVal46 := TSFNode.CreateUndefined(Script43, False, 'ViewpointNode');
 Script43.AddCustomFieldOrEvent(FieldVal46);
 FieldVal47 := TSFNode.CreateUndefined(Script43, False, 'NavigationInfoNode');
 Script43.AddCustomFieldOrEvent(FieldVal47);
+FieldVal48 := TSFNode.CreateUndefined(Script43, False, 'FrustumCoordinate');
 end;
 
 procedure InitViewFrustumPrototypePart3;
 begin
-FieldVal48 := TSFNode.CreateUndefined(Script43, False, 'FrustumCoordinate');
 Script43.AddCustomFieldOrEvent(FieldVal48);
 FieldVal48.Value := Coordinate33;
 FieldVal50 := TSFNode.CreateUndefined(Script43, False, 'FrustumExtrusion');
@@ -292,11 +291,11 @@ ProtoDeclare17.Node.AddRoute(FieldVal56, Extrusion37.EventSet_spine);
 ProtoDeclare17.Node.AddRoute(FieldVal57, Extrusion37.EventSet_scale);
 { ROUTE GeometryComputationScript.point_changed TO FrustumCoordinate.point }
 ProtoDeclare17.Node.AddRoute(FieldVal58, Coordinate33.FdPoint.EventIn);
+X3D0.AddPrototype(ProtoDeclare17);
 end;
 
 procedure InitViewFrustumPrototypePart4;
 begin
-X3D0.AddPrototype(ProtoDeclare17);
 { Example use is in separate scene }
 Anchor66 := TAnchorNode.Create;
 Anchor66.Description := 'ViewFrustum Example';

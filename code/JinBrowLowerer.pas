@@ -2,7 +2,7 @@ unit JinBrowLowerer;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported;
 
 function CreateJinBrowLowerer: TX3DRootNode;
 

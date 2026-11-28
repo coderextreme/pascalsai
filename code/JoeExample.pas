@@ -2,7 +2,7 @@ unit JoeExample;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateJoeExample: TX3DRootNode;
 procedure RegisterJoeExampleScripts(const Scene: TCastleSceneCore);
@@ -15,8 +15,8 @@ uses SysUtils, CastleVectors, Math, X3DTime;
 type
   TScript4Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FvaultUnlocked: Double;
     FEvent_vaultUnlocked: TX3DEvent;
     FBack_vaultUnlocked: TSFTime;
@@ -29,7 +29,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure CombinationEntered(Value: TX3DField; const Time: TX3DTime);
     procedure OpenVault(Value: TX3DField; const Time: TX3DTime);
   end;
@@ -59,8 +59,8 @@ var
 constructor TScript4Script.Create(const AHandlerPrefix: String; const AEvent_vaultUnlocked: TX3DEvent; const AField_unlocked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FvaultUnlocked := 0.0;
   FEvent_vaultUnlocked := nil;
   FBack_vaultUnlocked := TSFTime.Create(nil, False, 'vaultUnlocked', 0.0);
@@ -100,8 +100,8 @@ end;
 
 procedure TScript4Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'combinationEntered', {$ifdef FPC}@{$endif}CombinationEntered);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'openVault', {$ifdef FPC}@{$endif}OpenVault);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'combinationEntered', {$ifdef FPC}@{$endif}CombinationEntered);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'openVault', {$ifdef FPC}@{$endif}OpenVault);
 end;
 
 procedure TScript4Script.CombinationEntered(Value: TX3DField; const Time: TX3DTime);

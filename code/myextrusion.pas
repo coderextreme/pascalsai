@@ -2,7 +2,7 @@ unit myextrusion;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createmyextrusion: TX3DRootNode;
 procedure RegistermyextrusionScripts(const Scene: TCastleSceneCore);
@@ -13,11 +13,12 @@ implementation
 uses SysUtils, CastleVectors, Math, X3DTime;
 
 type
+  TScript16Script_MFVec3Array = array of TVector3;
   TScript16Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fspine: array of TVector3;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fspine: TScript16Script_MFVec3Array;
     FField_spine: TMFVec3f;
     FBack_spine: TMFVec3f;
     FDirty_spine: Boolean;
@@ -28,7 +29,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_cycle(Value: TX3DField; const Time: TX3DTime);
   end;
 
@@ -63,8 +64,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fspine := nil;
   FField_spine := nil;
   FBack_spine := TMFVec3f.CreateUndefined(nil, False, 'spine');
@@ -119,14 +120,14 @@ end;
 
 procedure TScript16Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_cycle', {$ifdef FPC}@{$endif}Set_cycle);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_cycle', {$ifdef FPC}@{$endif}Set_cycle);
 end;
 
 procedure TScript16Script.Set_cycle(Value: TX3DField; const Time: TX3DTime);
 var
   endA: TVector3;
   endB: TVector3;
-  tmpspine: array of TVector3;
+  tmpspine: TScript16Script_MFVec3Array;
 begin
   WriteLn((Value as TSFTime).Value);
   endA := Vector3(Fspine[0].X * Random * 2, Fspine[0].Y * Random * 2, Fspine[0].Z * Random * 2);

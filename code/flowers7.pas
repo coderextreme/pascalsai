@@ -2,7 +2,7 @@ unit flowers7;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createflowers7: TX3DRootNode;
 procedure Registerflowers7Scripts(const Scene: TCastleSceneCore);
@@ -13,37 +13,38 @@ implementation
 uses SysUtils, CastleVectors, Math, X3DTime, CastleRenderOptions;
 
 type
+  TScript62Script_MFStringArray = array of String;
   TScript62Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    FfrontUrls: array of String;
-    FbackUrls: array of String;
-    FleftUrls: array of String;
-    FrightUrls: array of String;
-    FtopUrls: array of String;
-    FbottomUrls: array of String;
-    Ffront: array of String;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    FfrontUrls: TScript62Script_MFStringArray;
+    FbackUrls: TScript62Script_MFStringArray;
+    FleftUrls: TScript62Script_MFStringArray;
+    FrightUrls: TScript62Script_MFStringArray;
+    FtopUrls: TScript62Script_MFStringArray;
+    FbottomUrls: TScript62Script_MFStringArray;
+    Ffront: TScript62Script_MFStringArray;
     FField_front: TMFString;
     FBack_front: TMFString;
     FDirty_front: Boolean;
-    Fback: array of String;
+    Fback: TScript62Script_MFStringArray;
     FField_back: TMFString;
     FBack_back: TMFString;
     FDirty_back: Boolean;
-    Fleft: array of String;
+    Fleft: TScript62Script_MFStringArray;
     FField_left: TMFString;
     FBack_left: TMFString;
     FDirty_left: Boolean;
-    Fright: array of String;
+    Fright: TScript62Script_MFStringArray;
     FField_right: TMFString;
     FBack_right: TMFString;
     FDirty_right: Boolean;
-    Ftop: array of String;
+    Ftop: TScript62Script_MFStringArray;
     FField_top: TMFString;
     FBack_top: TMFString;
     FDirty_top: Boolean;
-    Fbottom: array of String;
+    Fbottom: TScript62Script_MFStringArray;
     FField_bottom: TMFString;
     FBack_bottom: TMFString;
     FDirty_bottom: Boolean;
@@ -58,14 +59,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript77Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fa: Single;
     FField_a: TSFFloat;
     FBack_a: TSFFloat;
@@ -97,7 +98,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Set_fraction(Value: TX3DField; const Time: TX3DTime);
   end;
 
@@ -184,8 +185,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FfrontUrls := nil;
   FbackUrls := nil;
   FleftUrls := nil;
@@ -452,7 +453,7 @@ end;
 
 procedure TScript62Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
 end;
 
 procedure TScript62Script.Set_fraction(Value: TX3DField; const Time: TX3DTime);
@@ -493,8 +494,8 @@ end;
 constructor TScript77Script.Create(const AHandlerPrefix: String; const AField_a: TSFFloat; const AField_b: TSFFloat; const AField_c: TSFFloat; const AField_d: TSFFloat; const AField_tdelta: TSFFloat; const AField_pdelta: TSFFloat);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fa := 0.0;
   FField_a := nil;
   FBack_a := TSFFloat.Create(nil, False, 'a', 0.0);
@@ -637,7 +638,7 @@ end;
 
 procedure TScript77Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_fraction', {$ifdef FPC}@{$endif}Set_fraction);
 end;
 
 procedure TScript77Script.Set_fraction(Value: TX3DField; const Time: TX3DTime);

@@ -2,7 +2,7 @@ unit bumpyfreewrljsonverse;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createbumpyfreewrljsonverse: TX3DRootNode;
 procedure RegisterbumpyfreewrljsonverseScripts(const Scene: TCastleSceneCore);
@@ -37,15 +37,17 @@ begin
 end;
 
 type
+  TScript97Script_MFVec3Array = array of TVector3;
+  TScript97Script_MFInt32Array = array of Int32;
   TScript97Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fcoordinates: array of TVector3;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fcoordinates: TScript97Script_MFVec3Array;
     FField_coordinates: TMFVec3f;
     FBack_coordinates: TMFVec3f;
     FDirty_coordinates: Boolean;
-    FcoordIndexes: array of Int32;
+    FcoordIndexes: TScript97Script_MFInt32Array;
     FEvent_coordIndexes: TX3DEvent;
     FBack_coordIndexes: TMFInt32;
     FDirty_coordIndexes: Boolean;
@@ -80,14 +82,15 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
   end;
 
+  TScript152Script_MFStringArray = array of String;
   TScript152Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     FprotoScale: Single;
     FField_protoScale: TSFFloat;
     FBack_protoScale: TSFFloat;
@@ -104,7 +107,7 @@ type
     FEvent_protoValue_changed: TX3DEvent;
     FBack_protoValue_changed: TSFFloat;
     FDirty_protoValue_changed: Boolean;
-    FprotoText_changed: array of String;
+    FprotoText_changed: TScript152Script_MFStringArray;
     FEvent_protoText_changed: TX3DEvent;
     FBack_protoText_changed: TMFString;
     FDirty_protoText_changed: Boolean;
@@ -115,7 +118,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
   end;
 
   TbumpyfreewrljsonverseScriptBinder = class
@@ -264,8 +267,8 @@ var
   _i: Integer;
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fcoordinates := nil;
   FField_coordinates := nil;
   FBack_coordinates := TMFVec3f.CreateUndefined(nil, False, 'coordinates');
@@ -457,7 +460,7 @@ end;
 
 procedure TScript97Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
 end;
 
 procedure TScript97Script.Initialize(Value: TX3DField; const Time: TX3DTime);
@@ -466,13 +469,15 @@ var
   theta: Single;
   phi: Single;
   delta: Single;
-  crds: array of TVector3;
+  crds: TScript97Script_MFVec3Array;
   vecCount: Integer;
+  i: Integer;
+  j: Integer;
   rho: Single;
-  cis: array of Int32;
+  cis: TScript97Script_MFInt32Array;
   intCount: Integer;
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   resolution := 100;
   theta := 0.0;
   phi := 0.0;
@@ -524,8 +529,8 @@ end;
 constructor TScript152Script.Create(const AHandlerPrefix: String; const AField_protoScale: TSFFloat; const AField_protoParameterName: TSFString; const AField_shader: TSFNode; const AEvent_protoValue_changed: TX3DEvent; const AEvent_protoText_changed: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   FprotoScale := 0.0;
   FField_protoScale := nil;
   FBack_protoScale := TSFFloat.Create(nil, False, 'protoScale', 0.0);

@@ -2,7 +2,7 @@ unit x3dconnector;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createx3dconnector: TX3DRootNode;
 procedure Registerx3dconnectorScripts(const Scene: TCastleSceneCore);
@@ -39,23 +39,25 @@ end;
 type
   TScript39Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Fstartnode: TX3DNode;
     Fendnode: TX3DNode;
     Ftransnode: TX3DNode;
     Frotscalenode: TX3DNode;
     procedure FlushOutputs(const Time: TX3DTime);
-    procedure SendNodeFloat(const Node: TX3DNode; const EventName: String; const Val: Double; const Time: TX3DTime);
+    procedure SendNodeVec3(const Node: TX3DNode; const EventName: String; const Val: TVector3; const Time: TX3DTime);
+    procedure SendNodeVec4(const Node: TX3DNode; const EventName: String; const Val: TVector4; const Time: TX3DTime);
+    function GetNodeVec3(const Node: TX3DNode; const FieldName: String): TVector3;
   public
     constructor Create(const AHandlerPrefix: String; const AField_startnode: TSFNode; const AField_endnode: TSFNode; const AField_transnode: TSFNode; const AField_rotscalenode: TSFNode);
     class function CreateForNode(const AScriptNode: TScriptNode; const AHandlerPrefix: String): TScript39Script;
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
-    procedure Recompute(const startpoint: Single; const endpoint: Single; const Time: TX3DTime);
-    procedure Recompute_and_route(const startpoint: Single; const endpoint: Single; const Time: TX3DTime);
+    property Initialized: Boolean read FScriptInitialized;
+    function Recompute(const startpoint: TVector3; const endpoint: TVector3; const Time: TX3DTime): Single;
+    procedure Recompute_and_route(const startpoint: TVector3; const endpoint: TVector3; const Time: TX3DTime);
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_startpoint(Value: TX3DField; const Time: TX3DTime);
     procedure Set_endpoint(Value: TX3DField; const Time: TX3DTime);
@@ -115,8 +117,8 @@ var
 constructor TScript39Script.Create(const AHandlerPrefix: String; const AField_startnode: TSFNode; const AField_endnode: TSFNode; const AField_transnode: TSFNode; const AField_rotscalenode: TSFNode);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fstartnode := nil;
   Fendnode := nil;
   Ftransnode := nil;
@@ -145,7 +147,7 @@ procedure TScript39Script.FlushOutputs(const Time: TX3DTime);
 begin
 end;
 
-procedure TScript39Script.SendNodeFloat(const Node: TX3DNode; const EventName: String; const Val: Double; const Time: TX3DTime);
+procedure TScript39Script.SendNodeVec3(const Node: TX3DNode; const EventName: String; const Val: TVector3; const Time: TX3DTime);
 var
   FOE: TX3DFieldOrEvent;
   E: TX3DEvent;
@@ -158,81 +160,95 @@ begin
     E := TX3DEvent(FOE)
   else
     Exit;
-  if E is TSFFloatEvent then
-    TSFFloatEvent(E).Send(Val, Time)
-  else if E is TSFDoubleEvent then
-    TSFDoubleEvent(E).Send(Val, Time)
-  else if E is TSFTimeEvent then
-    TSFTimeEvent(E).Send(Val, Time)
-  else if E is TSFInt32Event then
-    TSFInt32Event(E).Send(Round(Val), Time)
-  else if E is TSFBoolEvent then
-    TSFBoolEvent(E).Send(Val <> 0, Time);
+  if E is TSFVec3fEvent then
+    TSFVec3fEvent(E).Send(Val, Time)
+  else if E is TSFColorEvent then
+    TSFColorEvent(E).Send(Val, Time);
+end;
+
+procedure TScript39Script.SendNodeVec4(const Node: TX3DNode; const EventName: String; const Val: TVector4; const Time: TX3DTime);
+var
+  FOE: TX3DFieldOrEvent;
+  E: TX3DEvent;
+begin
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(EventName);
+  if (FOE is TX3DField) and TX3DField(FOE).Exposed then
+    E := TX3DField(FOE).EventIn
+  else if FOE is TX3DEvent then
+    E := TX3DEvent(FOE)
+  else
+    Exit;
+  if E is TSFVec4fEvent then
+    TSFVec4fEvent(E).Send(Val, Time)
+  else if E is TSFRotationEvent then
+    TSFRotationEvent(E).Send(Val, Time)
+  else if E is TSFColorRGBAEvent then
+    TSFColorRGBAEvent(E).Send(Val, Time);
+end;
+
+function TScript39Script.GetNodeVec3(const Node: TX3DNode; const FieldName: String): TVector3;
+var
+  FOE: TX3DFieldOrEvent;
+begin
+  Result := Vector3(0, 0, 0);
+  if Node = nil then Exit;
+  FOE := Node.FieldOrEvent(FieldName);
+  if FOE is TSFVec3f then Result := TSFVec3f(FOE).Value
+  else if FOE is TSFColor then Result := TSFColor(FOE).Value;
 end;
 
 procedure TScript39Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_startpoint', {$ifdef FPC}@{$endif}Set_startpoint);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_endpoint', {$ifdef FPC}@{$endif}Set_endpoint);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_startpoint', {$ifdef FPC}@{$endif}Set_startpoint);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_endpoint', {$ifdef FPC}@{$endif}Set_endpoint);
 end;
 
-procedure TScript39Script.Recompute(const startpoint: Single; const endpoint: Single; const Time: TX3DTime);
+function TScript39Script.Recompute(const startpoint: TVector3; const endpoint: TVector3; const Time: TX3DTime): Single;
 var
-  dif: Single;
+  dif: TVector3;
   dist: Single;
-  dif2: Single;
-  norm: Single;
-  transl: Single;
+  dif2: TVector3;
+  norm: TVector3;
+  transl: TVector3;
 begin
-  if endpoint = 'undefined' then
-  begin
-    Exit;
-  end;
-  dif := endpoint.subtract(startpoint);
+  dif := (endpoint - startpoint);
   dist := dif.Length * 0.5;
-  dif2 := dif.multiply(0.5);
+  dif2 := (dif * 0.5);
   norm := dif.Normalize;
-  transl := startpoint.add(dif2);
-  if Quaternion <> 'undefined' then
-  begin
-    Result := 0;
-    Exit;
-  end
-  else
-  begin
-    Result := 0;
-    Exit;
-  end;
+  transl := (startpoint + dif2);
+  Result := 0;
+  Exit;
 end;
 
-procedure TScript39Script.Recompute_and_route(const startpoint: Single; const endpoint: Single; const Time: TX3DTime);
+procedure TScript39Script.Recompute_and_route(const startpoint: TVector3; const endpoint: TVector3; const Time: TX3DTime);
 var
   trafo: Single;
 begin
   trafo := Recompute(startpoint, endpoint, Time);
   if ((trafo) <> 0) then
   begin
-    SendNodeFloat(Ftransnode, 'translation', trafo.translation, Time);
-    SendNodeFloat(Frotscalenode, 'rotation', trafo.rotation, Time);
-    SendNodeFloat(Frotscalenode, 'scale', trafo.scale, Time);
+    SendNodeVec3(Ftransnode, 'translation', trafo.translation, Time);
+    SendNodeVec4(Frotscalenode, 'rotation', trafo.rotation, Time);
+    SendNodeVec3(Frotscalenode, 'scale', trafo.scale, Time);
   end;
 end;
 
 procedure TScript39Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
-  Recompute_and_route(Fstartnode.translation, Fendnode.translation, Time);
+  FScriptInitialized := True;
+  Recompute_and_route(GetNodeVec3(Fstartnode, 'translation'), GetNodeVec3(Fendnode, 'translation'), Time);
 end;
 
 procedure TScript39Script.Set_startpoint(Value: TX3DField; const Time: TX3DTime);
 begin
-  Recompute_and_route((Value as TSFVec3f).Value, Fendnode.translation, Time);
+  Recompute_and_route((Value as TSFVec3f).Value, GetNodeVec3(Fendnode, 'translation'), Time);
 end;
 
 procedure TScript39Script.Set_endpoint(Value: TX3DField; const Time: TX3DTime);
 begin
-  Recompute_and_route(Fstartnode.translation, (Value as TSFVec3f).Value, Time);
+  Recompute_and_route(GetNodeVec3(Fstartnode, 'translation'), (Value as TSFVec3f).Value, Time);
 end;
 
 procedure Tx3dconnectorScriptBinder.BindNode(Node: TX3DNode);

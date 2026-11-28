@@ -2,7 +2,7 @@ unit RouteJin;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function CreateRouteJin: TX3DRootNode;
 procedure RegisterRouteJinScripts(const Scene: TCastleSceneCore);
@@ -15,8 +15,8 @@ uses SysUtils, CastleVectors, Math, X3DTime;
 type
   TScript2997Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -36,14 +36,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3019Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -63,14 +63,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3041Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -90,14 +90,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3063Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -117,14 +117,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3085Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -144,14 +144,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3107Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -171,14 +171,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3129Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -198,14 +198,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3151Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -225,14 +225,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3173Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -252,14 +252,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3195Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -279,14 +279,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3217Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -306,14 +306,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3239Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -333,14 +333,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3261Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -360,14 +360,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3283Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -387,14 +387,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3305Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -414,14 +414,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3327Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -441,14 +441,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3349Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -468,14 +468,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3371Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -495,14 +495,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3393Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -522,14 +522,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3415Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -549,14 +549,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3437Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -576,14 +576,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3459Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -603,14 +603,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3481Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -630,14 +630,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3503Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -657,14 +657,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3525Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -684,14 +684,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3547Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -711,14 +711,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3569Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -738,14 +738,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3591Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -765,14 +765,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3613Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -792,14 +792,14 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
   TScript3635Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
     Ffraction: Single;
     FField_fraction: TSFFloat;
     FBack_fraction: TSFFloat;
@@ -819,7 +819,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure InTime(Value: TX3DField; const Time: TX3DTime);
   end;
 
@@ -2975,8 +2975,8 @@ var
 constructor TScript2997Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -3059,7 +3059,7 @@ end;
 
 procedure TScript2997Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript2997Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3096,8 +3096,8 @@ end;
 constructor TScript3019Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -3180,7 +3180,7 @@ end;
 
 procedure TScript3019Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3019Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3217,8 +3217,8 @@ end;
 constructor TScript3041Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -3301,7 +3301,7 @@ end;
 
 procedure TScript3041Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3041Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3338,8 +3338,8 @@ end;
 constructor TScript3063Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -3422,7 +3422,7 @@ end;
 
 procedure TScript3063Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3063Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3459,8 +3459,8 @@ end;
 constructor TScript3085Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -3543,7 +3543,7 @@ end;
 
 procedure TScript3085Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3085Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3580,8 +3580,8 @@ end;
 constructor TScript3107Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -3664,7 +3664,7 @@ end;
 
 procedure TScript3107Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3107Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3701,8 +3701,8 @@ end;
 constructor TScript3129Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -3785,7 +3785,7 @@ end;
 
 procedure TScript3129Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3129Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3822,8 +3822,8 @@ end;
 constructor TScript3151Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -3906,7 +3906,7 @@ end;
 
 procedure TScript3151Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3151Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -3943,8 +3943,8 @@ end;
 constructor TScript3173Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -4027,7 +4027,7 @@ end;
 
 procedure TScript3173Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3173Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4064,8 +4064,8 @@ end;
 constructor TScript3195Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -4148,7 +4148,7 @@ end;
 
 procedure TScript3195Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3195Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4185,8 +4185,8 @@ end;
 constructor TScript3217Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -4269,7 +4269,7 @@ end;
 
 procedure TScript3217Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3217Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4306,8 +4306,8 @@ end;
 constructor TScript3239Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -4390,7 +4390,7 @@ end;
 
 procedure TScript3239Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3239Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4427,8 +4427,8 @@ end;
 constructor TScript3261Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -4511,7 +4511,7 @@ end;
 
 procedure TScript3261Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3261Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4548,8 +4548,8 @@ end;
 constructor TScript3283Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -4632,7 +4632,7 @@ end;
 
 procedure TScript3283Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3283Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4669,8 +4669,8 @@ end;
 constructor TScript3305Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -4753,7 +4753,7 @@ end;
 
 procedure TScript3305Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3305Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4790,8 +4790,8 @@ end;
 constructor TScript3327Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -4874,7 +4874,7 @@ end;
 
 procedure TScript3327Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3327Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -4911,8 +4911,8 @@ end;
 constructor TScript3349Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -4995,7 +4995,7 @@ end;
 
 procedure TScript3349Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3349Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5032,8 +5032,8 @@ end;
 constructor TScript3371Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -5116,7 +5116,7 @@ end;
 
 procedure TScript3371Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3371Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5153,8 +5153,8 @@ end;
 constructor TScript3393Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -5237,7 +5237,7 @@ end;
 
 procedure TScript3393Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3393Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5274,8 +5274,8 @@ end;
 constructor TScript3415Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -5358,7 +5358,7 @@ end;
 
 procedure TScript3415Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3415Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5395,8 +5395,8 @@ end;
 constructor TScript3437Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -5479,7 +5479,7 @@ end;
 
 procedure TScript3437Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3437Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5516,8 +5516,8 @@ end;
 constructor TScript3459Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -5600,7 +5600,7 @@ end;
 
 procedure TScript3459Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3459Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5637,8 +5637,8 @@ end;
 constructor TScript3481Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -5721,7 +5721,7 @@ end;
 
 procedure TScript3481Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3481Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5758,8 +5758,8 @@ end;
 constructor TScript3503Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -5842,7 +5842,7 @@ end;
 
 procedure TScript3503Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3503Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -5879,8 +5879,8 @@ end;
 constructor TScript3525Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -5963,7 +5963,7 @@ end;
 
 procedure TScript3525Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3525Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6000,8 +6000,8 @@ end;
 constructor TScript3547Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -6084,7 +6084,7 @@ end;
 
 procedure TScript3547Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3547Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6121,8 +6121,8 @@ end;
 constructor TScript3569Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -6205,7 +6205,7 @@ end;
 
 procedure TScript3569Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3569Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6242,8 +6242,8 @@ end;
 constructor TScript3591Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -6326,7 +6326,7 @@ end;
 
 procedure TScript3591Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3591Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6363,8 +6363,8 @@ end;
 constructor TScript3613Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -6447,7 +6447,7 @@ end;
 
 procedure TScript3613Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3613Script.InTime(Value: TX3DField; const Time: TX3DTime);
@@ -6484,8 +6484,8 @@ end;
 constructor TScript3635Script.Create(const AHandlerPrefix: String; const AField_fraction: TSFFloat; const AField_diffuseColor: TSFColor; const AField_checked: TSFBool);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Ffraction := 0.0;
   FField_fraction := nil;
   FBack_fraction := TSFFloat.Create(nil, False, 'fraction', 0.0);
@@ -6568,7 +6568,7 @@ end;
 
 procedure TScript3635Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'inTime', {$ifdef FPC}@{$endif}InTime);
 end;
 
 procedure TScript3635Script.InTime(Value: TX3DField; const Time: TX3DTime);

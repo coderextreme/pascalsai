@@ -2,7 +2,7 @@ unit pp3;
 
 interface
 
-uses opensslsockets, X3DNodes, X3DFields, CastleColors, HAnimDisplacerSupport, CastleSceneCore;
+uses opensslsockets, X3DNodes, X3DFields, CastleColors, CastleInternalNodesUnsupported, CastleSceneCore;
 
 function Createpp3: TX3DRootNode;
 procedure Registerpp3Scripts(const Scene: TCastleSceneCore);
@@ -37,11 +37,12 @@ begin
 end;
 
 type
+  TScript60Script_MFStringArray = array of String;
   TScript60Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Frightlines: array of String;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Frightlines: TScript60Script_MFStringArray;
     FEvent_rightlines: TX3DEvent;
     FBack_rightlines: TMFString;
     FDirty_rightlines: Boolean;
@@ -52,16 +53,17 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_rightstring(Value: TX3DField; const Time: TX3DTime);
   end;
 
+  TScript63Script_MFStringArray = array of String;
   TScript63Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fuplines: array of String;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fuplines: TScript63Script_MFStringArray;
     FEvent_uplines: TX3DEvent;
     FBack_uplines: TMFString;
     FDirty_uplines: Boolean;
@@ -72,16 +74,17 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_upstring(Value: TX3DField; const Time: TX3DTime);
   end;
 
+  TScript66Script_MFStringArray = array of String;
   TScript66Script = class
   private
-    FHandlerPrefix: String;
-    FInitialized: Boolean;
-    Fcenterlines: array of String;
+    FScriptHandlerPrefix: String;
+    FScriptInitialized: Boolean;
+    Fcenterlines: TScript66Script_MFStringArray;
     FEvent_centerlines: TX3DEvent;
     FBack_centerlines: TMFString;
     FDirty_centerlines: Boolean;
@@ -92,7 +95,7 @@ type
     destructor Destroy; override;
     procedure Detach;
     procedure RegisterHandlers(const Scene: TCastleSceneCore);
-    property Initialized: Boolean read FInitialized;
+    property Initialized: Boolean read FScriptInitialized;
     procedure Initialize(Value: TX3DField; const Time: TX3DTime);
     procedure Set_centerstring(Value: TX3DField; const Time: TX3DTime);
   end;
@@ -175,8 +178,8 @@ var
 constructor TScript60Script.Create(const AHandlerPrefix: String; const AEvent_rightlines: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Frightlines := nil;
   FEvent_rightlines := nil;
   FBack_rightlines := TMFString.CreateUndefined(nil, False, 'rightlines');
@@ -218,13 +221,13 @@ end;
 
 procedure TScript60Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_rightstring', {$ifdef FPC}@{$endif}Set_rightstring);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_rightstring', {$ifdef FPC}@{$endif}Set_rightstring);
 end;
 
 procedure TScript60Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   Frightlines := [''];
   FDirty_rightlines := True;
   FlushOutputs(Time);
@@ -240,8 +243,8 @@ end;
 constructor TScript63Script.Create(const AHandlerPrefix: String; const AEvent_uplines: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fuplines := nil;
   FEvent_uplines := nil;
   FBack_uplines := TMFString.CreateUndefined(nil, False, 'uplines');
@@ -283,13 +286,13 @@ end;
 
 procedure TScript63Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_upstring', {$ifdef FPC}@{$endif}Set_upstring);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_upstring', {$ifdef FPC}@{$endif}Set_upstring);
 end;
 
 procedure TScript63Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   Fuplines := [''];
   FDirty_uplines := True;
   FlushOutputs(Time);
@@ -305,8 +308,8 @@ end;
 constructor TScript66Script.Create(const AHandlerPrefix: String; const AEvent_centerlines: TX3DEvent);
 begin
   inherited Create;
-  FHandlerPrefix := AHandlerPrefix;
-  FInitialized := False;
+  FScriptHandlerPrefix := AHandlerPrefix;
+  FScriptInitialized := False;
   Fcenterlines := nil;
   FEvent_centerlines := nil;
   FBack_centerlines := TMFString.CreateUndefined(nil, False, 'centerlines');
@@ -348,13 +351,13 @@ end;
 
 procedure TScript66Script.RegisterHandlers(const Scene: TCastleSceneCore);
 begin
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
-  Scene.RegisterCompiledScript(FHandlerPrefix + 'set_centerstring', {$ifdef FPC}@{$endif}Set_centerstring);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'initialize', {$ifdef FPC}@{$endif}Initialize);
+  Scene.RegisterCompiledScript(FScriptHandlerPrefix + 'set_centerstring', {$ifdef FPC}@{$endif}Set_centerstring);
 end;
 
 procedure TScript66Script.Initialize(Value: TX3DField; const Time: TX3DTime);
 begin
-  FInitialized := True;
+  FScriptInitialized := True;
   Fcenterlines := [''];
   FDirty_centerlines := True;
   FlushOutputs(Time);
